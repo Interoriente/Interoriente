@@ -1,4 +1,4 @@
-<?php 
+<?php
 if ($_POST) {
     //Llamar a la conexion base de datos
     include_once '../dao/conexion.php';
@@ -21,7 +21,7 @@ if ($_POST) {
         //Ejecutar la sentencia
         $consulta_insertar->execute(array($correo, $contrasena));
         echo "<script>alert('Datos almacenados correctamente');</script>";
-        echo "<script> document.location.href='../usuario/iniciar sesion.php';</script>";
+        echo "<script> document.location.href='../usuario/iniciarsesion.php';</script>";
     }
 }
 ?>
