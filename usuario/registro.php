@@ -40,7 +40,7 @@ if ($_POST) {
         <label for="correo">Correo</label>
         <input type="text" name="correo" id="">
         <label for="contrasena">Contraseña</label>
-        <input type="text" name="contrasena" id="">
+        <input type="password" name="contrasena" id="">
         <button type="submit">Enviar</button>
     </form>
 </body>
