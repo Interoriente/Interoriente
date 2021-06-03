@@ -7,7 +7,7 @@
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
-    <link rel="stylesheet" href="bootstrap/css/estilos.css">
+    <link rel="stylesheet" href="assets/bootstrap/css/estilos.css">
     <title>Bienvenidos a InterOriente</title>
   </head>
   <body>
@@ -31,10 +31,10 @@
                   Acciones
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <li><a class="dropdown-item" href="usuario/iniciarsesion.php">Iniciar Sesión</a></li>
-                  <li><a class="dropdown-item" href="usuario/registro.php">Registro</a></li>
+                  <li><a class="dropdown-item" href="principal/iniciarsesion.php">Iniciar Sesión</a></li>
+                  <li><a class="dropdown-item" href="principal/registro.php">Registro</a></li>
                   <li><hr class="dropdown-divider"></li>
-                  <li><a class="dropdown-item" href="usuario/iniciarsesion.php">Test</a></li>
+                  <li><a class="dropdown-item" href="principal/iniciarsesion.php">Iniciar Sesión II</a></li>
                 </ul>
               </li>
             </ul>
@@ -46,7 +46,7 @@
         </div>
       </nav>
       <div class="card" id="tarjetaUno" style="width: 18rem;">
-        <img src="img/1.jpg" class="card-img-top" alt="...">
+        <img src="assets/img/1.jpg" class="card-img-top" alt="...">
         <div class="card-body">
           <h5 class="card-title">Card title</h5>
           <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -54,7 +54,7 @@
         </div>
       </div>
       <div class="card" id="tarjetaDos" style="width: 18rem;">
-        <img src="img/2.jpeg" class="card-img-top" alt="...">
+        <img src="assets/img/2.jpeg" class="card-img-top" alt="...">
         <div class="card-body">
           <h5 class="card-title">Card title</h5>
           <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
