@@ -19,8 +19,8 @@
 
     <!-- Navigation Bar -->
     <div class="navbar">
-        <a href="usuario/registro.php">Link</a>
-        <a href="#">Link</a>
+        <a href="usuario/registro.php">Registro</a>
+        <a href="usuario/iniciarsesion.php">Iniciar Sesión</a>
         <a href="#">Link</a>
         <a href="#">Link</a>
     </div>
