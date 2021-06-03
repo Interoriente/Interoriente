@@ -1,0 +1,10 @@
+#tarjetaUno{
+    margin-left: 20px;
+}
+#tarjetaDos{
+    margin-top: 30px;   
+    margin-left: 20px;
+    flex-wrap: wrap;
+    
+}
+
