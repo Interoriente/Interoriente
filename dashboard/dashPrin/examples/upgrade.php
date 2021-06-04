@@ -1,18 +1,17 @@
-<!--
-=========================================================
-* Argon Dashboard - v1.2.0
-=========================================================
-* Product Page: https://www.creative-tim.com/product/argon-dashboard
+<?php
+session_start();
 
-
-* Copyright  Creative Tim (http://www.creative-tim.com)
-* Coded by www.creative-tim.com
-
-
-
-=========================================================
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
--->
+if (isset($_SESSION["correo"]) or isset($_SESSION["idusuario"])) {
+  $id = $_SESSION["correo"];
+  include_once '../../../dao/conexion.php';
+  $sql_validacion = "SELECT*FROM tblusuarios WHERE correo ='$id' AND estado= '1'";
+  $consulta_resta_validacion = $pdo->prepare($sql_validacion);
+  $consulta_resta_validacion->execute();
+  $resultado_validacion = $consulta_resta_validacion->rowCount();
+  $validacion = $consulta_resta_validacion->fetch(PDO::FETCH_OBJ);
+  //Validacion de roles
+  if ($resultado_validacion) {
+?>
 <!DOCTYPE html>
 <html>
 
@@ -145,3 +144,9 @@
 </body>
 
 </html>
+<?php
+  } else {
+    echo "<script> document.location.href='404.php';</script>";
+  }
+}
+?>

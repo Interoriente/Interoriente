@@ -1,42 +1,41 @@
-<!--
-=========================================================
-* Argon Dashboard - v1.2.0
-=========================================================
-* Product Page: https://www.creative-tim.com/product/argon-dashboard
+<?php
+session_start();
 
+if (isset($_SESSION["correo"]) or isset($_SESSION["idusuario"])) {
+  $id = $_SESSION["correo"];
+  include_once '../../../dao/conexion.php';
+  $sql_validacion = "SELECT*FROM tblusuarios WHERE correo ='$id' AND estado= '1'";
+  $consulta_resta_validacion = $pdo->prepare($sql_validacion);
+  $consulta_resta_validacion->execute();
+  $resultado_validacion = $consulta_resta_validacion->rowCount();
+  $validacion = $consulta_resta_validacion->fetch(PDO::FETCH_OBJ);
+  //Validacion de roles
+  if ($resultado_validacion) {
+?>
+    <!DOCTYPE html>
+    <html>
 
-* Copyright  Creative Tim (http://www.creative-tim.com)
-* Coded by www.creative-tim.com
+    <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <meta name="description" content="Start your development with a Dashboard for Bootstrap 4.">
+      <meta name="author" content="Creative Tim">
+      <title>Dashboard</title>
+      <!-- Favicon -->
+      <link rel="icon" href="../assets/img/brand/favicon.png" type="image/png">
+      <!-- Fonts -->
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700">
+      <!-- Icons -->
+      <link rel="stylesheet" href="../assets/vendor/nucleo/css/nucleo.css" type="text/css">
+      <link rel="stylesheet" href="../assets/vendor/@fortawesome/fontawesome-free/css/all.min.css" type="text/css">
+      <!-- Page plugins -->
+      <!-- Argon CSS -->
+      <link rel="stylesheet" href="../assets/css/argon.css?v=1.2.0" type="text/css">
+    </head>
 
-
-
-=========================================================
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
--->
-<!DOCTYPE html>
-<html>
-
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="Start your development with a Dashboard for Bootstrap 4.">
-  <meta name="author" content="Creative Tim">
-  <title>Argon Dashboard - Free Dashboard for Bootstrap 4</title>
-  <!-- Favicon -->
-  <link rel="icon" href="../assets/img/brand/favicon.png" type="image/png">
-  <!-- Fonts -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700">
-  <!-- Icons -->
-  <link rel="stylesheet" href="../assets/vendor/nucleo/css/nucleo.css" type="text/css">
-  <link rel="stylesheet" href="../assets/vendor/@fortawesome/fontawesome-free/css/all.min.css" type="text/css">
-  <!-- Page plugins -->
-  <!-- Argon CSS -->
-  <link rel="stylesheet" href="../assets/css/argon.css?v=1.2.0" type="text/css">
-</head>
-
-<body>
-  <?php require_once '../assets/sidebar.php' ?>
-  <?php require_once '../assets/header.php' ?>
+    <body>
+      <?php require_once '../assets/sidebar.php' ?>
+      <?php require_once '../assets/header.php' ?>
   <!-- Header -->
   <div class="header bg-primary pb-6">
     <div class="container-fluid">
@@ -899,3 +898,9 @@
 </body>
 
 </html>
+<?php
+  } else {
+    echo "<script> document.location.href='404.php';</script>";
+  }
+}
+?>
