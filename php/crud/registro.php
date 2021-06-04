@@ -16,7 +16,7 @@ if ($_POST) {
     $consulta_correo->execute();
     $resultado_correo = $consulta_correo->rowCount();
     var_dump($resultado_correo);
-    if ($resultado_correo) {
+    if ($resultado_correo==1) {
         //Impresión correo ingresado, ya existe en BD
         echo "<script>alert('El correo ingresado ya existe!, por favor verificalo e intenta nuevamente');</script>";
     } else {
