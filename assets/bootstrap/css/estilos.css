@@ -14,5 +14,27 @@
 
 }
 #logo{
-    height: 120px;
+    height: 290px;
+    box-shadow: inset;
+    vertical-align:middle;
+    display: inline-block;
+    z-index: -4;
+    vertical-align: top;  
+}
+
+.bannerLogo{
+
+    
+}
+
+.bannerLogo .banner{
+    position: static
+}
+
+.bannerLogo .logo{
+    position: relative
+}
+
+h1{
+    text-align: center;
 }

@@ -12,8 +12,12 @@
   </head>
   <body>
     
+  
     <img id="banner" src="assets/img/3.jpg" class="img-fluid" alt="..." >
-    <img id = "logo" src="assets/img/Flor2.svg" class="rounded mx-auto d-block" alt="...">
+    <img id="logo" src="assets/img/Flor2.svg" class="rounded mx-auto d-block" alt="...">
+  
+   
+    
     <h1>INTERORIENTE --> Este sitio web está en construcción</h1>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
