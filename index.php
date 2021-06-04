@@ -18,6 +18,12 @@
   <img id="banner" src="assets/img/banner_index.jpg" class="img-fluid" alt="...">
   <img id="logo" src="assets/img/Flor2.svg" class="rounded mx-auto d-block" alt="...">
   <!--Carrusel-->
+  <div class="btn-group" role="group" aria-label="Basic example">
+  <a href="principal/registro.php"> <button type="button" class="btn btn-primary">Registro</button></a>
+  <a href="principal/iniciarsesion.php"> <button type="button" class="btn btn-primary">Iniciar Sesión</button></a>
+  <a href="dashboard/dashPrin/"> <button type="button" class="btn btn-primary">Dashboard</button></a>
+</div>
+
 
     <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
       <div class="carousel-indicators">
