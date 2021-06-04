@@ -21,6 +21,7 @@
         $contrasena = strip_tags($_POST['contrasena']);
         //Sha1 -> Método de encriptación
         $contrasena = sha1($_POST['contrasena']);
+        $estado='0';
         //Verificación correo existente
         $sql_correoexistente = "SELECT*FROM tblusuarios WHERE correo='$correo'";
         $consulta_correo = $pdo->prepare($sql_correoexistente);
@@ -34,11 +35,11 @@
         } else {
             //Consulta correo ingresado no existe en BD
             //sentencia Sql
-            $sql_insertar = "INSERT INTO tblusuarios (nombres, apellidos, telefono, correo,contrasena)VALUES (?,?,?,?,?)";
+            $sql_insertar = "INSERT INTO tblusuarios (nombres, apellidos, telefono, correo,contrasena,estado)VALUES (?,?,?,?,?,?)";
             //Preparar consulta
             $consulta_insertar = $pdo->prepare($sql_insertar);
             //Ejecutar la sentencia
-            $consulta_insertar->execute(array($nombres, $apellidos, $telefono, $correo, $contrasena));
+            $consulta_insertar->execute(array($nombres, $apellidos, $telefono, $correo, $contrasena,$estado ));
             echo "<script>alert('Datos almacenados correctamente');</script>";
             echo "<script> document.location.href='../../principal/iniciarsesion.php';</script>";
         }
