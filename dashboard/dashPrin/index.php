@@ -343,7 +343,7 @@ if (isset($_SESSION["correo"]) or isset($_SESSION["idusuario"])) {
                       </span>
                       <div class="media-body  ml-2  d-none d-lg-block">
                         <?php
-                        $id = $_SESSION["correo_usu"];
+                        $id = $_SESSION["correo"];
                         include_once '../../dao/conexion.php';
                         $sql_inicio = "SELECT*FROM tblusuarios WHERE correo ='$id' ";
                         $consulta_resta = $pdo->prepare($sql_inicio);
