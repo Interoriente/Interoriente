@@ -5,15 +5,19 @@ if ($_POST) {
     //Capturo información
     $correo = strip_tags($_POST['correo']);
     $contrasena = strip_tags($_POST['contrasena']);
+    //Sha1 -> Método de encriptación
     $contrasena = sha1($_POST['contrasena']);
+    //Verificación correo existente
     $sql_correoexistente = "SELECT*FROM tblusuarios WHERE correo='$correo'";
     $consulta_correo = $pdo->prepare($sql_correoexistente);
     $consulta_correo->execute();
     $resultado_correo = $consulta_correo->rowCount();
     var_dump($resultado_correo);
     if ($resultado_correo) {
+        //Impresión correo ingresado, ya existe en BD
         echo "<script>alert('El correo ingresado ya existe!, por favor verificalo e intenta nuevamente');</script>";
     } else {
+        //Consulta correo ingresado no existe en BD
         //sentencia Sql
         $sql_insertar = "INSERT INTO tblusuarios (correo,contrasena)VALUES (?,?)";
         //Preparar consulta
@@ -38,9 +42,9 @@ if ($_POST) {
 <body>
     <form action="" method="post">
         <label for="correo">Correo</label>
-        <input type="text" name="correo" id="">
+        <input type="text" name="correo" id="" required autofocus>
         <label for="contrasena">Contraseña</label>
-        <input type="password" name="contrasena" id="">
+        <input type="password" name="contrasena" id="" required>
         <button type="submit">Enviar</button>
     </form>
 </body>
