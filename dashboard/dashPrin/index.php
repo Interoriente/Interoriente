@@ -4,10 +4,10 @@ session_start();
 if (isset($_SESSION["correo"]) or isset($_SESSION["idusuario"])) {
   $id = $_SESSION["correo"];
   include_once '../../dao/conexion.php';
-  $sql_validacion = "SELECT*FROM tblusuarios WHERE correo ='$id'";
+  $sql_validacion = "SELECT*FROM tblusuarios WHERE correo ='$id' AND estado= '1'";
   $consulta_resta_validacion = $pdo->prepare($sql_validacion);
   $consulta_resta_validacion->execute();
-  $resultado_validacion = $consulta_resta_validacion->rowCount();
+  $resultado_validacion = $consulta_resta_validacion->rowCount(); 
   $validacion = $consulta_resta_validacion->fetch(PDO::FETCH_OBJ);
   //Validacion de roles
   if ($resultado_validacion) {
@@ -39,7 +39,7 @@ if (isset($_SESSION["correo"]) or isset($_SESSION["idusuario"])) {
         <div class="scrollbar-inner">
           <!-- Brand -->
           <div class="sidenav-header  align-items-center">
-            <a class="navbar-brand" href="javascript:void(0)">
+            <a class="navbar-brand" href="../../index.php">
               <img src="../../assets/img/logo.svg" class="navbar-brand-img" alt="...">
             </a>
           </div>
