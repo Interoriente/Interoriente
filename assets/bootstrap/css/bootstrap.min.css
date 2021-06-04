@@ -2622,7 +2622,7 @@ a.btn.disabled, fieldset:disabled a.btn {
 }
 
 .btn-outline-primary {
-    color: #007bff;
+    background: linear-gradient(to right , yellow, orange);
     background-color: transparent;
     background-image: none;
     border-color: #007bff

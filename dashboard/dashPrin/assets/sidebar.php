@@ -60,12 +60,6 @@
               <span class="nav-link-text">Register</span>
             </a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="upgrade.php">
-              <i class="ni ni-send text-dark"></i>
-              <span class="nav-link-text">Upgrade</span>
-            </a>
-          </li>
         </ul>
       </div>
     </div>
