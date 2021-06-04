@@ -12,7 +12,7 @@ if ($_POST) {
     $resultado_inicio = $consulta_inicio->rowCount();
     $vericacion_inicio = $consulta_inicio->fetch(PDO::FETCH_OBJ);
     if ($resultado_inicio) {
-        echo "<script> document.location.href='../../dashboard/index_dashboard.php';</script>";
+        echo "<script> document.location.href='../../dashboard/dashPrin/index.php';</script>";
     }else {
         echo "<script>alert('Correo y/o contraseña incorrecto');</script>";
     }
