@@ -13,7 +13,7 @@
   <body>
     
   
-    <img id="banner" src="assets/img/bannerndex.jpg" class="img-fluid" alt="..." >
+    <img id="banner" src="assets/img/banner_index.jpg" class="img-fluid" alt="..." >
     <img id="logo" src="assets/img/Flor2.svg" class="rounded mx-auto d-block" alt="...">
 
     <h1>INTERORIENTE --> Este sitio web está en construcción</h1>
