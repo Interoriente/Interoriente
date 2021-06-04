@@ -24,7 +24,7 @@ session_start();
         $consulta_inicio = $pdo->prepare($sql_inicio);
         $consulta_inicio->execute(array($correo, $contrasena));
         $resultado_inicio = $consulta_inicio->rowCount();
-        $prueba = $consulta_resta->fetch(PDO::FETCH_OBJ);
+        $prueba = $consulta_inicio->fetch(PDO::FETCH_OBJ);
         if ($resultado_inicio) {
             $_SESSION["correo"] = $prueba->correo;
             $_SESSION["idusuario"] = $prueba->idusuario;
