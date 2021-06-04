@@ -7,7 +7,7 @@
     <title>Iniciar sesión</title>
 </head>
 <body>
-    <form action="../php/crud/iniciarSesion.php" method="post">
+    <form action="../php/crud/iniciarSesion.php" method="POST">
     <label for="correo">Correo</label>
         <input type="email" name="correo" id="" required autofocus><br><br>
         <label for="contrasena">Contraseña</label>

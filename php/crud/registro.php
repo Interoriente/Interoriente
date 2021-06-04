@@ -1,7 +1,7 @@
 <?php
 if ($_POST) {
     //Llamar a la conexion base de datos
-    include_once '../dao/conexion.php';
+    include_once '../../dao/conexion.php';
     //Capturo información
     $correo = strip_tags($_POST['correo']);
     $contrasena = strip_tags($_POST['contrasena']);
