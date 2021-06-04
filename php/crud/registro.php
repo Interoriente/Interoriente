@@ -21,7 +21,7 @@ if ($_POST) {
         //Ejecutar la sentencia
         $consulta_insertar->execute(array($correo, $contrasena));
         echo "<script>alert('Datos almacenados correctamente');</script>";
-        echo "<script> document.location.href='../usuario/iniciarsesion.php';</script>";
+        echo "<script> document.location.href='../../principal/iniciarsesion.php';</script>";
     }
 }
 ?>
