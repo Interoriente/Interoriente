@@ -25,13 +25,13 @@
   </div>
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <img src="..." class="d-block w-100" alt="...">
+      <img src="assets/img/img1.jpg" class="d-block w-100" alt="...">
     </div>
     <div class="carousel-item">
-      <img src="..." class="d-block w-100" alt="...">
+      <img src="assets/img/img2.jpg" class="d-block w-100" alt="...">
     </div>
     <div class="carousel-item">
-      <img src="..." class="d-block w-100" alt="...">
+      <img src="assets/img/img3.jpg" class="d-block w-100" alt="...">
     </div>
   </div>
   <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
@@ -42,6 +42,9 @@
     <span class="carousel-control-next-icon" aria-hidden="true"></span>
     <span class="visually-hidden">Next</span>
   </button>
+</div>
+<div class="box">
+  <a href="#" class="btn btn-white btn-animation-1">¡Vamos!</a> 
 </div>
       <div class="card" id="tarjetaUno" style="width: 18rem;">
         <img src="assets/img/1.jpg" class="card-img-top" alt="...">
