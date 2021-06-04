@@ -10,7 +10,7 @@ if (isset($_SESSION["correo"]) or isset($_SESSION["idusuario"])) {
   $resultado_validacion = $consulta_resta_validacion->rowCount();
   $validacion = $consulta_resta_validacion->fetch(PDO::FETCH_OBJ);
   //Validacion de roles
-  if ($resultado) {
+  if ($resultado_validacion) {
 ?>
     <!DOCTYPE html>
     <html>
