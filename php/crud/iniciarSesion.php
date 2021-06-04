@@ -31,7 +31,7 @@ session_start();
             $_SESSION["idusuario"] = $prueba->idusuario;
             echo "<script> document.location.href='../../dashboard/dashPrin/examples/index.php';</script>";
         } else {
-            echo "<script>alert('Correo y/o contraseña incorrecto');</script>";
+            echo "<script>alert('Correo y/o contraseña incorrecto, o validación denegada');</script>";
         }
     }
     ?>
