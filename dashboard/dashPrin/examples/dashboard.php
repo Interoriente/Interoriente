@@ -35,8 +35,8 @@
 </head>
 
 <body>
-  <?php require_once '..examples/assets/sidebar.php' ?>
-  <?php require_once '..examples/assets/header.php' ?>
+  <?php require_once '../assets/sidebar.php' ?>
+  <?php require_once '../assets/header.php' ?>
   <!-- Header -->
   <div class="header bg-primary pb-6">
     <div class="container-fluid">
