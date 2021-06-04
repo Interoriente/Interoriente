@@ -9,7 +9,7 @@
 </head>
 
 <body>
-    <form action= "../php/crud/registro.php" method="POST">
+    <form action="../php/crud/registro.php" method="POST">
         <label for="nombre">Nombres </label>
         <input type="text" name="nombres"><br><br>
         <label for="apellido">Apellidos </label>
