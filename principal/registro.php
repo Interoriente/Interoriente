@@ -10,6 +10,12 @@
 
 <body>
     <form action= "../php/crud/registro.php" method="POST">
+        <label for="nombre">Nombres </label>
+        <input type="text" name="nombres"><br><br>
+        <label for="apellido">Apellidos </label>
+        <input type="text" name="apellidos"><br><br>
+        <label for="telefono">Teléfono </label>
+        <input type="number" name="telefono"><br><br>
         <label for="correo">Correo</label>
         <input type="email" name="correo" id=""><br><br>
         <label for="contrasena">Contraseña</label>
