@@ -29,7 +29,7 @@ session_start();
         if ($resultado_inicio) {
             $_SESSION["correo"] = $prueba->correo;
             $_SESSION["idusuario"] = $prueba->idusuario;
-            echo "<script> document.location.href='../../dashboard/dashPrin/index.php';</script>";
+            echo "<script> document.location.href='../../dashboard/dashPrin/examples/index.php';</script>";
         } else {
             echo "<script>alert('Correo y/o contraseña incorrecto');</script>";
         }
