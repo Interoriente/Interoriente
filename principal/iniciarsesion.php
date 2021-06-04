@@ -9,7 +9,7 @@
 <body>
     <form action="../php/crud/iniciarSesion.php" method="post">
     <label for="correo">Correo</label>
-        <input type="text" name="correo" id="" required autofocus><br><br>
+        <input type="email" name="correo" id="" required autofocus><br><br>
         <label for="contrasena">Contraseña</label>
         <input type="password" name="contrasena" id="" required><br><br>
         <button type="submit">Enviar</button>
