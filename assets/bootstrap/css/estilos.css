@@ -1,117 +1,264 @@
-#tarjetaUno{
-    margin-left: 20px;
+#tarjetaUno {
+  margin-left: 20px;
 }
-#tarjetaDos{
-    margin-top: 30px;   
-    margin-left: 20px;
-    flex-wrap: wrap;
-    
+#tarjetaDos {
+  margin-top: 30px;
+  margin-left: 20px;
+  flex-wrap: wrap;
 }
-#banner{
-    width: 100%;
-    height: 320px;
-    position: absolute;
-    left: 0px;
-    top: 0px;
-    z-index: -1;
-
+#banner {
+  width: 100%;
+  height: 320px;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  z-index: -1;
 }
-#logo{
-    height: 290px;
-    margin-top: 222px;
-    box-shadow: inset;
-    vertical-align:middle;
-    display: inline-block;
-    position: relative;
-    left: 0px;
-    top: 0px;
-    z-index: -1;
-    vertical-align: top;  
+#logo {
+  height: 290px;
+  margin-top: 222px;
+  box-shadow: inset;
+  vertical-align: middle;
+  display: inline-block;
+  position: relative;
+  left: 0px;
+  top: 0px;
+  z-index: -1;
+  vertical-align: top;
 }
 
-
-h1{
-    margin-top: 280px;
-    text-align: center;
+h1 {
+  margin-top: 280px;
+  text-align: center;
 }
 
-body{
-    background:lightblue;
-    text-align:center;
-    box-sizing:border-box;
-    font-family:"Lato",Sans-serif;
+body {
+  background-color: #fefdeb;
+  text-align: center;
+  box-sizing: border-box;
+  font-family: "Lato", Sans-serif;
   /*   position:relative; */
+}
+
+/*BOTÓN DEL INDEX*/
+
+.botonIndex {
+  position: absolute;
+  top: 160%;
+  left: 82%;
+  transform: translate(-50%, -50%);
+}
+
+.tituloIndex{
+    
+
+}
+
+.btn:link,
+.btn:visited {
+  text-decoration: none;
+  text-transform: uppercase;
+  position: relative;
+  top: 0;
+  left: 0;
+  padding: 20px 40px;
+  border-radius: 100px;
+  display: inline-block;
+  transition: all 0.5s;
+}
+
+.btn-white {
+  background: rgb(255, 166, 0);
+  color: #000;
+}
+
+.btn:hover {
+  box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.2);
+  transform: translateY(-3px);
+}
+
+.btn:active {
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.btn-bottom-animation-1 {
+  animation: comeFromBottom 1s ease-out 0.8s;
+}
+
+.btn::after {
+  content: "";
+  text-decoration: none;
+  text-transform: uppercase;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  border-radius: 100px;
+  display: inline-block;
+  z-index: -1;
+  transition: all 0.5s; 
+}
+
+.btn-white::after {
+  background: #fff;
+}
+
+.btn-animation-1:hover::after {
+  transform: scaleX(1.4) scaleY(1.6);
+  opacity: 0;
+}
+
+@keyframes comeFromBottom {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
   }
-  
-  .box{
-    position:absolute;
-    top:50%;
-    left:50%;
-    transform : translate(-50% ,-50%);
+  100% {
+    opacity: 1;
+    transform: translateY(0);
   }
-  
-  .btn:link,
-  .btn:visited{
-    text-decoration: none;
-    text-transform:uppercase;
-    position:relative;
-    top:0;
-    left:0;
-    padding:20px 40px;
-    border-radius:100px;
-    display:inline-block;
-    transition: all .5s;
-  }
-  
-  .btn-white{
-    background:#fff;
-    color:#000;
-  }
-  
-  .btn:hover{
-     box-shadow:0px 10px 10px rgba(0,0,0,0.2);
-     transform : translateY(-3px);
-  }
-  
-  .btn:active{
-    box-shadow:0px 5px 10px rgba(0,0,0,0.2)
-  }
-  
-  .btn-bottom-animation-1{
-    animation:comeFromBottom 1s ease-out .8s;
-  }
-  
-  .btn::after{
-    content:"";
-    text-decoration: none;
-    text-transform:uppercase;
-    position:absolute;
-    width:100%;
-    height:100%;
-    top:0;
-    left:0;
-    border-radius:100px;
-    display:inline-block;
-    z-index:-1;
-    transition: all .5s;
-  }
-  
-  .btn-white::after {
-      background: #fff;
-  }
-  
-  .btn-animation-1:hover::after {
-      transform: scaleX(1.4) scaleY(1.6);
-      opacity: 0;
-  }
-  
-  @keyframes comeFromBottom{
-    0%{
-      opacity:0;
-      transform:translateY(40px);
-    } 
-    100%{
-      opacity:1;
-      transform:translateY(0);
-    }
-  }
+}
+/* Estlos del carrusel del index.*/
+
+.card.card-carousel {
+  border: 0;
+  margin-bottom: 302px;
+  margin-top: 100px;
+  border-radius: 6px;
+  color: rgba(0, 0, 0, 0.87);
+  background: #fff;
+  width: 100%;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2),
+    0 1px 5px 0 rgba(0, 0, 0, 0.12);
+}
+
+.card.card-carousel img {
+  border-radius: 6px;
+}
+
+.carousel-indicators {
+  position: absolute;
+  right: 0;
+  bottom: 10px;
+  left: 0;
+  z-index: 15;
+  display: flex;
+  justify-content: center;
+  padding-left: 0;
+  margin-right: 15%;
+  margin-left: 15%;
+  list-style: none;
+  float: left;
+}
+
+.carousel .carousel-indicators {
+  bottom: 5px;
+}
+
+.carousel .carousel-indicators li {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  text-indent: -999px;
+  cursor: pointer;
+  border: 1px solid #fff;
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14),
+    0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 2px;
+}
+
+.carousel .carousel-indicators .active {
+  margin: 11px 10px;
+}
+
+.carousel .carousel-indicators li {
+  margin: 11px 10px;
+}
+
+.carousel .carousel-indicators .active {
+  margin-top: 10px;
+  transform: scale(1.5);
+  box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12),
+    0 2px 4px -1px rgba(0, 0, 0, 0.2);
+}
+/*CARRUSEL*/
+#carousel{
+    margin-top: 10px;
+    margin-left:-110px; /* Mover a la izquieda*/
+} 
+
+.carousel-inner {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.carousel-item {
+  position: relative;
+  display: none;
+  align-items: left;
+  width: 100% !important;
+  transition: transform 0.6s ease;
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+.carousel-item.active {
+  display: block;
+}
+
+.carousel .carousel-caption {
+  padding-bottom: 45px;
+}
+
+.carousel .carousel-caption .material-icons {
+  position: relative;
+  top: 10px;
+}
+
+.carousel .carousel-control-next .material-icons {
+  z-index: 5;
+  display: inline-block;
+  font-size: 50px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 50px;
+  margin: auto;
+}
+
+.carousel .carousel-control-prev .material-icons {
+  z-index: 5;
+  display: inline-block;
+  font-size: 50px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 50px;
+  margin: auto;
+}
+.footer p {
+  margin-bottom: 0;
+}
+footer p a {
+  color: #555;
+  font-weight: 400;
+}
+
+footer p a:hover {
+  color: #9f26aa;
+  text-decoration: none;
+}
+
+:root {
+  --background-color: #000000;
+  --color: #000000;
+  --light-theme: #ffffff;
+}
