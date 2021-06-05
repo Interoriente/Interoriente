@@ -161,7 +161,7 @@ if (isset($_SESSION["correo"]) or isset($_SESSION["idusuario"])) {
         if (isset($_POST['subir'])) {
 
           //Captura de imagen
-          $directorio = "imagenes/";
+          $directorio = "../../../imagenes/";
 
           $archivo = $directorio . basename($_FILES['file']['name']);
 
