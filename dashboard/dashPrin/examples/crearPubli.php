@@ -146,7 +146,7 @@ if (isset($_SESSION["correo"]) or isset($_SESSION["idusuario"])) {
                       <div class="col-lg-6">
                         <div class="form-group">
                           <label class="form-control-label">Imagen</label>
-                          <input type="file" class="form-control-file" name="file" value="file" required>
+                          <input type="file" class="form-control-file" name="imagen" value="file" required>
                         </div>
                       </div>
                       <button type="submit" name="subir">Enviar</button>
@@ -163,26 +163,26 @@ if (isset($_SESSION["correo"]) or isset($_SESSION["idusuario"])) {
           //Captura de imagen
           $directorio = "../../imagenes/";
 
-          $archivo = $directorio . basename($_FILES['file']['name']);
-          $directoryName = basename($_FILES['file']['name']);
+          $archivo = $directorio . basename($_FILES['imagen']['name']);
+          $directoryName = basename($_FILES['imagen']['name']);
 
           $tipo_archivo = strtolower(pathinfo($archivo, PATHINFO_EXTENSION));
 
           //Validar que es imagen
-          $checarsiimagen = getimagesize($_FILES['file']['tmp_name']);
+          $checarsiimagen = getimagesize($_FILES['imagen']['tmp_name']);
 
           //var_dump($size);
 
           if ($checarsiimagen != false) {
-            $size = $_FILES['file']['size'];
+            $size = $_FILES['imagen']['size'];
             //Validando tamano del archivo
             if ($size > 3 * 1024 * 1024 * 1024) {
               echo "El archivo excede el limite, debe ser menor de 700kb";
             } else {
               if ($tipo_archivo == 'jpg' || $tipo_archivo == 'jpeg' || $tipo_archivo == 'png' || $tipo_archivo == 'svg' || $tipo_archivo == 'ico') {
                 //Se validó el archivo correctamente
-                if (move_uploaded_file($_FILES['file']['tmp_name'], $archivo)) {
-                  include_once '../../dao/conexion.php';
+                if (move_uploaded_file($_FILES['imagen']['tmp_name'], $archivo)) {
+                  include_once '../../../dao/conexion.php';
                   //Var_dump ($_FILES['file']);
                   $titulo = $_POST['titulo'];
                   $descripcion = $_POST['descripcion'];
@@ -194,14 +194,14 @@ if (isset($_SESSION["correo"]) or isset($_SESSION["idusuario"])) {
                   //Ejecutar la sentencia
                   $consulta_insertar->execute(array($titulo, $descripcion, $directoryName, $costo));
                   echo "<script>alert('El registro se subió correctamente');</script>";
-                  echo "<script> document.location.href='../../dashboard/dashPrin/examples/crearPubli.php';</script>";
+                  echo "<script> document.location.href='crearPubli.php';</script>";
                 } else {
                   echo "<script>alert('Ocurrió un error');</script>";
-                  echo "<script> document.location.href='../../dashboard/dashPrin/examples/crearPubli.php';</script>";
+                  echo "<script> document.location.href='crearPubli.php';</script>";
                 }
               } else {
                 echo "<script>alert('Error: solo se admiten archivos jpg, png y jpeg');</script>";
-                echo "<script> document.location.href='../../dashboard/dashPrin/examples/crearPubli.php';</script>";
+                echo "<script> document.location.href='crearPubli.php';</script>";
               }
             }
           } else {
