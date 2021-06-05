@@ -121,7 +121,7 @@ if (isset($_SESSION["correo"]) or isset($_SESSION["idusuario"])) {
               </div>
               <div class="card-body">
                 <!--Formulario-->
-                <form action="../../../php/crud/subirimagen.php" method="POST" enctype="multipart/form-data">
+                <form action="crearPubli.php" method="POST" enctype="multipart/form-data">
                   <h6 class="heading-small text-muted mb-4">Crear Publicación</h6>
                   <div class="pl-lg-4">
                     <div class="row">
