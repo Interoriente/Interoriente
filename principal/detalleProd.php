@@ -16,7 +16,7 @@
   <a href="#" class="fas fa-star s4"></a>
   <a href="#" class="fas fa-star s5"></a>
 </div>
-<body style="background-color:#FF0000;">
+<body style="background-color: #FEFDEB;">
 </body>
 </body>
 </html>

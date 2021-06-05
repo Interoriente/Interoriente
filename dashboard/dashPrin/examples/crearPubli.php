@@ -134,7 +134,7 @@ if (isset($_SESSION["correo"]) or isset($_SESSION["idusuario"])) {
                       <div class="col-lg-6">
                         <div class="form-group">
                           <label class="form-control-label" for="input-email">Descripción producto</label>
-                          <input type="email" id="input-email" class="form-control" placeholder="Descripción" name="descripcion">
+                          <input type="text" id="input-email" class="form-control" placeholder="Descripción" name="descripcion">
                         </div>
                       </div>
                     </div>
@@ -149,7 +149,7 @@ if (isset($_SESSION["correo"]) or isset($_SESSION["idusuario"])) {
                           <input type="file" id="input-last-name" class="form-control" placeholder="Imagen" name="file">
                         </div>
                       </div>
-                      <input type="submit" value="Enviar">
+                      <button type="submit">Enviar</button>
                     </div>
                   </div>
                 </form>

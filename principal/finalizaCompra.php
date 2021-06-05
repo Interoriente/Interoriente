@@ -9,7 +9,7 @@
 <body>
     
 
-<body style="background-color:#FF0000;">
+<body background="assets/img/im10.jpg" style="background-repeat: no-repeat; background-position: center center;">
 </body>
 </body>
 </html>
