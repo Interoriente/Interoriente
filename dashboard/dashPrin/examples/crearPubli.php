@@ -119,108 +119,87 @@ if (isset($_SESSION["correo"]) or isset($_SESSION["idusuario"])) {
                   </div>
                 </div>
               </div>
-              <div class="card-body">
-                <!--Formulario-->
-                <form action="crearPubli.php" method="POST" enctype="multipart/form-data">
-                  <h6 class="heading-small text-muted mb-4">Crear Publicación</h6>
-                  <div class="pl-lg-4">
-                    <div class="row">
-                      <div class="col-lg-6">
-                        <div class="form-group">
-                          <label class="form-control-label" for="input-username">Nombre producto</label>
-                          <input type="text" id="input-username" class="form-control" placeholder="Nombre" name="titulo" required autofocus>
-                        </div>
-                      </div>
-                      <div class="col-lg-6">
-                        <div class="form-group">
-                          <label class="form-control-label" for="input-email">Descripción producto</label>
-                          <input type="text" id="input-email" class="form-control" placeholder="Descripción" name="descripcion" required>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-lg-6">
-                      <div class="form-group">
-                        <label class="form-control-label" for="input-first-name">Costo</label>
-                        <input type="number" id="input-first-name" class="form-control" placeholder="Costo" name="costo" required>
-                      </div>
-                      <div class="col-lg-6">
-                        <div class="form-group">
-                          <label class="form-control-label">Imagen</label>
-                          <input type="file" class="form-control-file" name="file" value="file" required>
-                        </div>
-                      </div>
-                      <button type="submit" name="subir">Enviar</button>
-                    </div>
-                  </div>
-                </form>
-              </div>
-            </div>
-          </div>
-        </div>
-        <?php
-        if (isset($_POST['subir'])) {
+              <!--Formulario-->
+              <form action="crearPubli.php" method="POST" enctype="multipart/form-data">
+                <h6 class="heading-small text-muted mb-4">Crear Publicación</h6>
 
-          //Captura de imagen
-          $directorio = "../../../imagenes/";
+                <label>Nombre producto</label>
+                <input type="text" id="input-username" class="form-control" placeholder="Nombre" name="titulo" required autofocus>
 
-          $archivo = $directorio . basename($_FILES['file']['name']);
+                <label>Descripción producto</label>
+                <input type="text" id="input-email" class="form-control" placeholder="Descripción" name="descripcion" required>
 
-          $tipo_archivo = strtolower(pathinfo($archivo, PATHINFO_EXTENSION));
+                <label>Costo</label>
+                <input type="number" id="input-first-name" class="form-control" placeholder="Costo" name="costo" required>
 
-          //Validar que es imagen
-          $checarsiimagen = getimagesize($_FILES['file']['tmp_name']);
+                <label>Imagen</label>
+                <input type="file" name="file" value="file" required>
 
-          //var_dump($size);
+                <button type="submit" name="subir">Enviar</button>
+                <?php
+                if (isset($_POST['subir'])) {
 
-          if ($checarsiimagen != false) {
-            $size = $_FILES['file']['size'];
-            //Validando tamano del archivo
-            if ($size > 70000000) {
-              echo "El archivo excede el limite, debe ser menor de 700kb";
-            } else {
-              if ($tipo_archivo == 'jpg' || $tipo_archivo == 'jpeg' || $tipo_archivo == 'png') {
-                //Se validó el archivo correctamente
-                if (move_uploaded_file($_FILES['file']['tmp_name'], $archivo)) {
-                  include_once '../../../dao/conexion.php';
-                  //Var_dump ($_FILES['file']);
-                  $titulo = $_POST['titulo'];
-                  $descripcion = $_POST['descripcion'];
-                  $costo = $_POST['costo'];
-                  //sentencia Sql
-                  $sql_insertar = "INSERT INTO tblPublicacion (nombrePublicacion,descripcion, imagen, costo)VALUES (?,?,?,?)";
-                  //Preparar consulta
-                  $consulta_insertar = $pdo->prepare($sql_insertar);
-                  //Ejecutar la sentencia
-                  $consulta_insertar->execute(array($titulo, $descripcion, $directoryName, $costo));
-                  echo "<script>alert('El registro se subió correctamente');</script>";
-                  echo "<script> document.location.href='crearPubli.php';</script>";
-                } else {
-                  echo "<script>alert('Ocurrió un error');</script>";
-                  echo "<script> document.location.href='crearPubli.php';</script>";
+                  //Captura de imagen
+                  $directorio = "../../../imagenes/";
+
+                  $archivo = $directorio . basename($_FILES['file']['name']);
+
+                  $tipo_archivo = strtolower(pathinfo($archivo, PATHINFO_EXTENSION));
+
+                  //Validar que es imagen
+                  $checarsiimagen = getimagesize($_FILES['file']['tmp_name']);
+
+                  //var_dump($size);
+
+                  if ($checarsiimagen != false) {
+                    $size = $_FILES['file']['size'];
+                    //Validando tamano del archivo
+                    if ($size > 70000000) {
+                      echo "El archivo excede el limite, debe ser menor de 700kb";
+                    } else {
+                      if ($tipo_archivo == 'jpg' || $tipo_archivo == 'jpeg' || $tipo_archivo == 'png') {
+                        //Se validó el archivo correctamente
+                        if (move_uploaded_file($_FILES['file']['tmp_name'], $archivo)) {
+                          include_once '../../../dao/conexion.php';
+                          //Var_dump ($_FILES['file']);
+                          $titulo = $_POST['titulo'];
+                          $descripcion = $_POST['descripcion'];
+                          $costo = $_POST['costo'];
+                          //sentencia Sql
+                          $sql_insertar = "INSERT INTO tblPublicacion (nombrePublicacion,descripcion, imagen, costo)VALUES (?,?,?,?)";
+                          //Preparar consulta
+                          $consulta_insertar = $pdo->prepare($sql_insertar);
+                          //Ejecutar la sentencia
+                          $consulta_insertar->execute(array($titulo, $descripcion, $directoryName, $costo));
+                          echo "<script>alert('El registro se subió correctamente');</script>";
+                          echo "<script> document.location.href='crearPubli.php';</script>";
+                        } else {
+                          echo "<script>alert('Ocurrió un error');</script>";
+                          echo "<script> document.location.href='crearPubli.php';</script>";
+                        }
+                      } else {
+                        echo "<script>alert('Error: solo se admiten archivos jpg, png y jpeg');</script>";
+                        echo "<script> document.location.href='crearPubli.php';</script>";
+                      }
+                    }
+                  } else {
+                    echo "<script>alert('Error: el archivo no es una imagen');</script>";
+                    echo "<script> document.location.href='../../dashboard/dashPrin/examples/crearPubli.php';</script>";
+                  }
                 }
-              } else {
-                echo "<script>alert('Error: solo se admiten archivos jpg, png y jpeg');</script>";
-                echo "<script> document.location.href='crearPubli.php';</script>";
-              }
-            }
-          } else {
-            echo "<script>alert('Error: el archivo no es una imagen');</script>";
-            echo "<script> document.location.href='../../dashboard/dashPrin/examples/crearPubli.php';</script>";
-          }
-        }
-        ?>
-        <!-- Footer -->
-        <?php require_once '../assets/footer.php' ?>
-      </div>
-      <!-- Argon Scripts -->
-      <!-- Core -->
-      <script src="../assets/vendor/jquery/dist/jquery.min.js"></script>
-      <script src="../assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-      <script src="../assets/vendor/js-cookie/js.cookie.js"></script>
-      <script src="../assets/vendor/jquery.scrollbar/jquery.scrollbar.min.js"></script>
-      <script src="../assets/vendor/jquery-scroll-lock/dist/jquery-scrollLock.min.js"></script>
-      <!-- Argon JS -->
-      <script src="../assets/js/argon.js?v=1.2.0"></script>
+                ?>
+                <!-- Footer -->
+                <?php require_once '../assets/footer.php' ?>
+            </div>
+            <!-- Argon Scripts -->
+            <!-- Core -->
+            <script src="../assets/vendor/jquery/dist/jquery.min.js"></script>
+            <script src="../assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+            <script src="../assets/vendor/js-cookie/js.cookie.js"></script>
+            <script src="../assets/vendor/jquery.scrollbar/jquery.scrollbar.min.js"></script>
+            <script src="../assets/vendor/jquery-scroll-lock/dist/jquery-scrollLock.min.js"></script>
+            <!-- Argon JS -->
+            <script src="../assets/js/argon.js?v=1.2.0"></script>
     </body>
 
     </html>
