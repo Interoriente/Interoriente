@@ -35,6 +35,7 @@ session_start();
         }
     }
     ?>
+    <body background="assets/img/im4.jpg" style="background-repeat: no-repeat; background-position: center center;">
 </body>
 
 </html>

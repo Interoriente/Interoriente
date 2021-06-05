@@ -21,5 +21,7 @@
         <input type="password" name="contrasena" id=""><br><br>
         <button type="submit">Enviar</button>
     </form>
+    <body style="background-color:#FF0000;">
+</body>
 </body>
 </html>

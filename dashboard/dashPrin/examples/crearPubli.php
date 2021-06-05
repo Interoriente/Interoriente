@@ -120,35 +120,36 @@ if (isset($_SESSION["correo"]) or isset($_SESSION["idusuario"])) {
                 </div>
               </div>
               <div class="card-body">
-                <!--Formuulario-->
-                <form action="url.php" method="POST">
+                <!--Formulario-->
+                <form action="../../../php/crud/subirimagen.php" method="POST" enctype="multipart/form-data">
                   <h6 class="heading-small text-muted mb-4">Crear Publicación</h6>
                   <div class="pl-lg-4">
                     <div class="row">
                       <div class="col-lg-6">
                         <div class="form-group">
                           <label class="form-control-label" for="input-username">Nombre producto</label>
-                          <input type="text" id="input-username" class="form-control" placeholder="Username" value="lucky.jesse">
+                          <input type="text" id="input-username" class="form-control" placeholder="Nombre" name="titulo">
                         </div>
                       </div>
                       <div class="col-lg-6">
                         <div class="form-group">
                           <label class="form-control-label" for="input-email">Descripción producto</label>
-                          <input type="email" id="input-email" class="form-control" placeholder="jesse@example.com">
+                          <input type="email" id="input-email" class="form-control" placeholder="Descripción" name="descripcion">
                         </div>
                       </div>
                     </div>
+                    <div class="col-lg-6">
+                      <div class="form-group">
+                        <label class="form-control-label" for="input-first-name">Costo</label>
+                        <input type="text" id="input-first-name" class="form-control" placeholder="Costo" name="costo">
+                      </div>
                       <div class="col-lg-6">
                         <div class="form-group">
-                          <label class="form-control-label" for="input-first-name">Costo</label>
-                          <input type="text" id="input-first-name" class="form-control" placeholder="First name" value="Lucky">
-                        </div>
-                      <div class="col-lg-6">
-                        <div class="form-group">
-                          <label class="form-control-label" for="input-last-name">Imágen</label>
-                          <input type="file" id="input-last-name" class="form-control" placeholder="Last name" value="Jesse">
+                          <label class="form-control-label" for="input-last-name">Imagen</label>
+                          <input type="file" id="input-last-name" class="form-control" placeholder="Imagen" name="file">
                         </div>
                       </div>
+                      <input type="submit" value="Enviar">
                     </div>
                   </div>
                 </form>
