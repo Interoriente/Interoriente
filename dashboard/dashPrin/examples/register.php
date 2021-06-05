@@ -236,6 +236,8 @@
   <script src="../assets/vendor/jquery-scroll-lock/dist/jquery-scrollLock.min.js"></script>
   <!-- Argon JS -->
   <script src="../assets/js/argon.js?v=1.2.0"></script>
+  <body background="assets/img/im12.jpg" style="background-repeat: no-repeat; background-position: center center;">
+
 </body>
 
 </html>

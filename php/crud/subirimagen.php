@@ -51,10 +51,12 @@
                 }
             } else {
                 echo "<script>alert('Error: solo se admiten archivos jpg, png y jpeg');</script>";
+                echo "<script> document.location.href='../../dashboard/dashPrin/examples/crearPubli.php';</script>";
             }
         }
     } else {
         echo "<script>alert('Error: el archivo no es una imagen');</script>";
+        echo "<script> document.location.href='../../dashboard/dashPrin/examples/crearPubli.php';</script>";
     }
     ?>
 </body>
