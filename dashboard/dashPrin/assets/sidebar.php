@@ -19,6 +19,12 @@
             </a>
           </li>
           <li class="nav-item">
+            <a class="nav-link" href="crearPubli.php">
+              <i class="ni ni-planet text-orange"></i>
+              <span class="nav-link-text">Crear publicación</span>
+            </a>
+          </li>
+          <li class="nav-item">
             <a class="nav-link" href="index.php">
               <i class="ni ni-pin-3 text-primary"></i>
               <span class="nav-link-text">Inicio</span>
