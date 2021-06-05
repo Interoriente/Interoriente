@@ -29,7 +29,7 @@
         if ($size > 70000000) {
             echo "El archivo excede el limite, debe ser menor de 700kb";
         } else {
-            if ($tipo_archivo == 'jpg' || $tipo_archivo == 'jpeg' || $tipo_archivo == 'png') {
+            if ($tipo_archivo == 'jpg' || $tipo_archivo == 'jpeg' || $tipo_archivo == 'png' || $tipo_archivo == 'svg' || $tipo_archivo == 'ico') {
                 //Se validó el archivo correctamente
                 if (move_uploaded_file($_FILES['file']['tmp_name'], $archivo)) {
                     include_once '../../dao/conexion.php';
