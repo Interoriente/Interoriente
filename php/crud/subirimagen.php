@@ -38,7 +38,7 @@
                     $descripcion = $_POST['descripcion'];
                     $costo = $_POST['costo'];
                     //sentencia Sql
-                    $sql_insertar = "INSERT INTO tblPublicacion (titulo,descripcion, imagen, costo)VALUES (?,?,?,?)";
+                    $sql_insertar = "INSERT INTO tblPublicacion (nombrePublicacion,descripcion, imagen, costo)VALUES (?,?,?,?)";
                     //Preparar consulta
                     $consulta_insertar = $pdo->prepare($sql_insertar);
                     //Ejecutar la sentencia
@@ -50,7 +50,7 @@
                     echo "<script> document.location.href='../../dashboard/dashPrin/examples/crearPubli.php';</script>";
                 }
             } else {
-                echo "<script>alert('Error: solo se admiten archivos jpg, png y jpegr');</script>";
+                echo "<script>alert('Error: solo se admiten archivos jpg, png y jpeg');</script>";
             }
         }
     } else {
