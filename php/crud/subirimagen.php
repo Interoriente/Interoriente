@@ -13,8 +13,9 @@
     <?php
     //Captura de imagen
     $directorio = "../../imagenes/";
-
+    
     $archivo = $directorio . basename($_FILES['file']['name']);
+    $directoryName = basename($_FILES['file']['name']);
 
     $tipo_archivo = strtolower(pathinfo($archivo, PATHINFO_EXTENSION));
 
@@ -42,7 +43,7 @@
                     //Preparar consulta
                     $consulta_insertar = $pdo->prepare($sql_insertar);
                     //Ejecutar la sentencia
-                    $consulta_insertar->execute(array($titulo, $descripcion, $archivo, $costo));
+                    $consulta_insertar->execute(array($titulo, $descripcion, $directoryName, $costo));
                     echo "<script>alert('El registro se subió correctamente');</script>";
                     echo "<script> document.location.href='../../dashboard/dashPrin/examples/crearPubli.php';</script>";
                 } else {
