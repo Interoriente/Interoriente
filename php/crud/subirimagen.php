@@ -12,7 +12,7 @@
     <!--- Codigo subir al servidor--->
     <?php
     //Captura de imagen
-    $directorio = "../../imgCliente/";
+    $directorio = "../../imagenes/";
 
     $archivo = $directorio . basename($_FILES['file']['name']);
 

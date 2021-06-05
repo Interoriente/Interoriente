@@ -121,7 +121,7 @@ if (isset($_SESSION["correo"]) or isset($_SESSION["idusuario"])) {
               </div>
               <div class="card-body">
                 <!--Formulario-->
-                <form action="../../../php/crud/subirimagen.php" method="POST" enctype="multipart/form-data">
+                <form action="subirimagen.php" method="POST" enctype="multipart/form-data">
                   <h6 class="heading-small text-muted mb-4">Crear Publicación</h6>
                   <div class="pl-lg-4">
                     <div class="row">
@@ -143,9 +143,12 @@ if (isset($_SESSION["correo"]) or isset($_SESSION["idusuario"])) {
                         <label class="form-control-label" for="input-first-name">Costo</label>
                         <input type="number" id="input-first-name" class="form-control" placeholder="Costo" name="costo" required>
                       </div>
-                      <label class="form-control-label" for="input-last-name">Imagen</label>
-                      <input type="file" id="input-last-name" class="form-control-file" placeholder="Imagen" name="file" required>
-
+                      <div class="col-lg-6">
+                        <div class="form-group">
+                          <label class="form-control-label" for="input-last-name">Imagen</label>
+                          <input type="file" id="input-last-name" class="form-control-file" name="file" required>
+                        </div>
+                      </div>
                       <button type="submit">Enviar</button>
                     </div>
                   </div>
