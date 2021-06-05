@@ -146,7 +146,7 @@ if (isset($_SESSION["correo"]) or isset($_SESSION["idusuario"])) {
                       <div class="col-lg-6">
                         <div class="form-group">
                           <label class="form-control-label" for="input-last-name">Imagen</label>
-                          <input type="file" id="input-last-name" class="form-control" placeholder="Imagen" name="file" required>
+                          <input type="file" id="input-last-name" class="form-control-file" placeholder="Imagen" name="file" required>
                         </div>
                       </div>
                       <button type="submit">Enviar</button>
