@@ -149,7 +149,7 @@ if (isset($_SESSION["correo"]) or isset($_SESSION["idusuario"])) {
                           <input type="file" class="form-control-file" name="file" value="file" required>
                         </div>
                       </div>
-                      <button type="submit">Enviar</button>
+                      <button type="Submit">Enviar</button>
                     </div>
                   </div>
                 </form>
