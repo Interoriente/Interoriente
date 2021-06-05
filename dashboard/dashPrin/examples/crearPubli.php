@@ -128,25 +128,25 @@ if (isset($_SESSION["correo"]) or isset($_SESSION["idusuario"])) {
                       <div class="col-lg-6">
                         <div class="form-group">
                           <label class="form-control-label" for="input-username">Nombre producto</label>
-                          <input type="text" id="input-username" class="form-control" placeholder="Nombre" name="titulo">
+                          <input type="text" id="input-username" class="form-control" placeholder="Nombre" name="titulo" required autofocus>
                         </div>
                       </div>
                       <div class="col-lg-6">
                         <div class="form-group">
                           <label class="form-control-label" for="input-email">Descripción producto</label>
-                          <input type="text" id="input-email" class="form-control" placeholder="Descripción" name="descripcion">
+                          <input type="text" id="input-email" class="form-control" placeholder="Descripción" name="descripcion" required>
                         </div>
                       </div>
                     </div>
                     <div class="col-lg-6">
                       <div class="form-group">
                         <label class="form-control-label" for="input-first-name">Costo</label>
-                        <input type="text" id="input-first-name" class="form-control" placeholder="Costo" name="costo">
+                        <input type="number" id="input-first-name" class="form-control" placeholder="Costo" name="costo" required>
                       </div>
                       <div class="col-lg-6">
                         <div class="form-group">
                           <label class="form-control-label" for="input-last-name">Imagen</label>
-                          <input type="file" id="input-last-name" class="form-control" placeholder="Imagen" name="file">
+                          <input type="file" id="input-last-name" class="form-control" placeholder="Imagen" name="file" required>
                         </div>
                       </div>
                       <button type="submit">Enviar</button>
