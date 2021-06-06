@@ -32,6 +32,7 @@ session_start();
             echo "<script> document.location.href='../../dashboard/dashPrin/examples/index.php';</script>";
         } else {
             echo "<script>alert('Correo y/o contraseña incorrecto, o validación denegada');</script>";
+            echo "<script> document.location.href='../../principal/iniciarsesion.php';</script>";
         }
     }
     ?>

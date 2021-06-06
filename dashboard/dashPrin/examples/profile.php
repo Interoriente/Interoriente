@@ -218,5 +218,7 @@ if (isset($_SESSION["correo"]) or isset($_SESSION["idusuario"])) {
   } else {
     echo "<script> document.location.href='404.php';</script>";
   }
+}else {
+  echo "<script> document.location.href='404.php';</script>";
 }
 ?>
