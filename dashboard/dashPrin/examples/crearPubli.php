@@ -120,19 +120,11 @@ if (isset($_SESSION["correo"]) or isset($_SESSION["idusuario"])) {
                 </div>
               </div>
               <!--Formulario-->
-              <form action="crearPubli.php" method="POST" enctype="multipart/form-data">
+
+              <form action="" method="POST" enctype="multipart/form-data">
                 <h6 class="heading-small text-muted mb-4">Crear Publicación</h6>
                 <label>Imagen</label>
                 <input type="file" name="file" value="file" required>
-
-                <label>Nombre producto</label>
-                <input type="text" id="input-username" class="form-control" placeholder="Nombre" name="titulo" required autofocus>
-
-                <label>Descripción producto</label>
-                <input type="text" id="input-email" class="form-control" placeholder="Descripción" name="descripcion" required>
-
-                <label>Costo</label>
-                <input type="number" id="input-first-name" class="form-control" placeholder="Costo" name="costo" required>
 
                 <button type="submit" name="subir">Enviar</button>
                 <?php
