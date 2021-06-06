@@ -154,10 +154,13 @@ if (isset($_SESSION["correo"]) or isset($_SESSION["idusuario"])) {
                     } else {
                       //Si la imagen es correcta en tamaño y tipo
                       //Se intenta subir al servidor
-                      if (move_uploaded_file($temp, '../../../imagenes/' . $archivo)) {
+                      if (move_uploaded_file($temp, 'imagenes/' . $archivo)) {
                         //Cambiamos los permisos del archivo a 777 para poder modificarlo posteriormente
-                        chmod('../../../imagenes/' . $archivo, 0777);
+                        chmod('imagenes/' . $archivo, 0777);
                         //Almacenamiento en BD
+                        $titulo = $_POST['titulo'];
+                        $descripcion = $_POST['descripcion'];
+                        $costo = $_POST['costo'];
                         //sentencia Sql
                         $sql_insertar = "INSERT INTO tblPublicacion (nombrePublicacion,descripcion,costo ,imagen )VALUES (?,?,?,?)";
                         //Preparar consulta
