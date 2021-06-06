@@ -1,0 +1,21 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap");
+body {
+  background: #f2f2f2;
+  margin: 0;
+  font-family: "Poppins";
+}
+
+#banner {
+  height: 260px;
+  width: 100%;
+  position: absolute;
+}
+
+#logo {
+  height: 300px;
+  width: 300px;
+  position: relative;
+  z-index: 30%;
+  margin: 160px;
+}
+/*# sourceMappingURL=mainStyles.css.map */
