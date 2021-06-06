@@ -120,59 +120,43 @@ if (isset($_SESSION["correo"]) or isset($_SESSION["idusuario"])) {
                 </div>
               </div>
               <!--Formulario-->
-
-              <form action="" method="POST" enctype="multipart/form-data">
+              <form action="crearPubli.php" method="POST" enctype="multipart/form-data">
                 <h6 class="heading-small text-muted mb-4">Crear Publicación</h6>
+
+                <label>Nombre producto</label>
+                <input type="text" id="input-username" class="form-control" placeholder="Nombre" name="titulo" required autofocus>
+
+                <label>Descripción producto</label>
+                <input type="text" id="input-email" class="form-control" placeholder="Descripción" name="descripcion" required>
+
+                <label>Costo</label>
+                <input type="number" id="input-first-name" class="form-control" placeholder="Costo" name="costo" required>
+
                 <label>Imagen</label>
-                <input type="file" name="file" value="file" required>
+                <input type="file" name="foto" value="file" required>
 
                 <button type="submit" name="subir">Enviar</button>
                 <?php
                 if (isset($_POST['subir'])) {
-
-                  //Captura de imagen
-                  $directorio = "../../../imagenes/";
-
-                  $archivo = $directorio . basename($_FILES['file']['name']);
-
-                  $tipo_archivo = strtolower(pathinfo($archivo, PATHINFO_EXTENSION));
-
-                  //Validar que es imagen
-                  $checarsiimagen = getimagesize($_FILES['file']['tmp_name']);
-
-                  //var_dump($size);
-
-                  if ($checarsiimagen != false) {
-                    $size = $_FILES['file']['size'];
-                    //Validando tamano del archivo
-                    if ($size > 70000000) {
-                      echo "El archivo excede el limite, debe ser menor de 700kb";
-                    } else {
-                      if ($tipo_archivo == 'jpg' || $tipo_archivo == 'jpeg' || $tipo_archivo == 'png') {
-                        //Se validó el archivo correctamente
-                        if (move_uploaded_file($_FILES['file']['tmp_name'], $archivo)) {
-                          include_once '../../../dao/conexion.php';
-                          var_dump($_FILES['file']);
-                          //sentencia Sql
-                          $sql_insertar = "INSERT INTO tblPublicacion (imagen )VALUES (?)";
-                          //Preparar consulta
-                          $consulta_insertar = $pdo->prepare($sql_insertar);
-                          //Ejecutar la sentencia
-                          $consulta_insertar->execute(array($archivo));
-                          echo "<script>alert('El registro se subió correctamente');</script>";
-                          echo "<script> document.location.href='crearPubli.php';</script>";
-                        } else {
-                          echo "<script>alert('Ocurrió un error');</script>";
-                        }
-                      } else {
-                        echo "<script>alert('Error: solo se admiten archivos jpg, png y jpegr');</script>";
-                      }
-                    }
-                  } else {
-                    echo "<script>alert('Error: el archivo no es una imagen');</script>";
-                    echo "<script> document.location.href='crearPubli.php';</script>";
-                  }
+                  include_once '../../../dao/conexion.php';
+                  var_dump($_FILES['foto']);
+                  $titulo = $_POST['titulo'];
+                  $descripcion = $_POST['descripcion'];
+                  $costo = $_POST['costo'];
+                  $foto = $_FILES["foto"]["name"];
+                  $ruta = $_FILES["foto"]["tmp_name"];
+                  $destino = "../../../imagenes/" . $foto;
+                  copy($ruta, $destino);
+                  //sentencia Sql
+                  $sql_insertar = "INSERT INTO tblPublicacion (nombrePublicacion,descripcion,costo ,imagen )VALUES (?,?,?,?)";
+                  //Preparar consulta
+                  $consulta_insertar = $pdo->prepare($sql_insertar);
+                  //Ejecutar la sentencia
+                  $consulta_insertar->execute(array($titulo, $descripcion, $costo, $destino));
+                  echo "<script>alert('El registro se subió correctamente');</script>";
+                  echo "<script> document.location.href='crearPubli.php';</script>";
                 }
+
                 ?>
                 <!-- Footer -->
                 <?php require_once '../assets/footer.php' ?>
