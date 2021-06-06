@@ -122,6 +122,8 @@ if (isset($_SESSION["correo"]) or isset($_SESSION["idusuario"])) {
               <!--Formulario-->
               <form action="crearPubli.php" method="POST" enctype="multipart/form-data">
                 <h6 class="heading-small text-muted mb-4">Crear Publicación</h6>
+                <label>Imagen</label>
+                <input type="file" name="file" value="file" required>
 
                 <label>Nombre producto</label>
                 <input type="text" id="input-username" class="form-control" placeholder="Nombre" name="titulo" required autofocus>
@@ -131,9 +133,6 @@ if (isset($_SESSION["correo"]) or isset($_SESSION["idusuario"])) {
 
                 <label>Costo</label>
                 <input type="number" id="input-first-name" class="form-control" placeholder="Costo" name="costo" required>
-
-                <label>Imagen</label>
-                <input type="file" name="file" value="file" required>
 
                 <button type="submit" name="subir">Enviar</button>
                 <?php
@@ -161,7 +160,7 @@ if (isset($_SESSION["correo"]) or isset($_SESSION["idusuario"])) {
                         //Se validó el archivo correctamente
                         if (move_uploaded_file($_FILES['file']['tmp_name'], $archivo)) {
                           include_once '../../../dao/conexion.php';
-                          var_dump ($_FILES['file']);
+                          var_dump($_FILES['file']);
                           $titulo = $_POST['titulo'];
                           $descripcion = $_POST['descripcion'];
                           $costo = $_POST['costo'];
@@ -170,7 +169,7 @@ if (isset($_SESSION["correo"]) or isset($_SESSION["idusuario"])) {
                           //Preparar consulta
                           $consulta_insertar = $pdo->prepare($sql_insertar);
                           //Ejecutar la sentencia
-                          $consulta_insertar->execute(array($titulo,$descripcion,$costo,$archivo));
+                          $consulta_insertar->execute(array($titulo, $descripcion, $costo, $archivo));
                           echo "<script>alert('El registro se subió correctamente');</script>";
                           echo "<script> document.location.href='crearPubli.php';</script>";
                         } else {
