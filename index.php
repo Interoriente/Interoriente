@@ -22,6 +22,7 @@
   <a href="principal/registro.php"> <button type="button" class="btn btn-primary">Registro</button></a>
   <a href="principal/iniciarsesion.php"> <button type="button" class="btn btn-primary">Iniciar Sesión</button></a>
   <a href="dashboard/dashPrin/examples/index.php"> <button type="button" class="btn btn-primary">Dashboard</button></a>
+  <a href="productos.php"> <button type="button" class="btn btn-primary">Publicaciones</button></a>
   <a href="principal/tarjetas/index.html"> <button type="button" class="btn btn-primary">Tarjetas</button></a>
   <a href="principal/publicacion/index.html"> <button type="button" class="btn btn-primary">Publicación</button></a>
 </div>

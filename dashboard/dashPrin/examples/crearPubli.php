@@ -161,7 +161,7 @@ if (isset($_SESSION["correo"]) or isset($_SESSION["idusuario"])) {
                         //Se validó el archivo correctamente
                         if (move_uploaded_file($_FILES['file']['tmp_name'], $archivo)) {
                           include_once '../../../dao/conexion.php';
-                          var_dump($_FILES['file']);
+                          //var_dump($_FILES['file']);
                           $titulo = $_POST['titulo'];
                           $descripcion = $_POST['descripcion'];
                           $costo = $_POST['costo'];
