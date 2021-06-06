@@ -133,47 +133,56 @@ if (isset($_SESSION["correo"]) or isset($_SESSION["idusuario"])) {
                 <input type="number" id="input-first-name" class="form-control" placeholder="Costo" name="costo" required>
 
                 <label>Imagen</label>
-                <input type="file" name="archivo" value="file" required>
+                <input type="file" name="file" value="file" required>
 
                 <button type="submit" name="subir">Enviar</button>
                 <?php
                 if (isset($_POST['subir'])) {
-                  include_once '../../../dao/conexion.php';
-                  //Recogemos el archivo enviado por el formulario
-                  $archivo = $_FILES['archivo']['name'];
-                  //Si el archivo contiene algo y es diferente de vacio
-                  if (isset($archivo) && $archivo != "") {
-                    //Obtenemos algunos datos necesarios sobre el archivo
-                    $tipo = $_FILES['archivo']['type'];
-                    $tamano = $_FILES['archivo']['size'];
-                    $temp = $_FILES['archivo']['tmp_name'];
-                    //Se comprueba si el archivo a cargar es correcto observando su extensión y tamaño
-                    if (!((strpos($tipo, "gif") || strpos($tipo, "jpeg") || strpos($tipo, "jpg") || strpos($tipo, "png")) && ($tamano < 2000000))) {
-                      echo '<div><b>Error. La extensión o el tamaño de los archivos no es correcta.<br/>
-                         - Se permiten archivos .gif, .jpg, .png. y de 200 kb como máximo.</b></div>';
+
+                  //Captura de imagen
+                  $directorio = "imagenes/";
+
+                  $archivo = $directorio . basename($_FILES['file']['name']);
+
+                  $tipo_archivo = strtolower(pathinfo($archivo, PATHINFO_EXTENSION));
+
+                  //Validar que es imagen
+                  $checarsiimagen = getimagesize($_FILES['file']['tmp_name']);
+
+                  //var_dump($size);
+
+                  if ($checarsiimagen != false) {
+                    $size = $_FILES['file']['size'];
+                    //Validando tamano del archivo
+                    if ($size > 70000000) {
+                      echo "El archivo excede el limite, debe ser menor de 700kb";
                     } else {
-                      //Si la imagen es correcta en tamaño y tipo
-                      //Se intenta subir al servidor
-                      if (move_uploaded_file($temp, 'imagenes/' . $archivo)) {
-                        //Cambiamos los permisos del archivo a 777 para poder modificarlo posteriormente
-                        chmod('imagenes/' . $archivo, 0777);
-                        //Almacenamiento en BD
-                        $titulo = $_POST['titulo'];
-                        $descripcion = $_POST['descripcion'];
-                        $costo = $_POST['costo'];
-                        //sentencia Sql
-                        $sql_insertar = "INSERT INTO tblPublicacion (nombrePublicacion,descripcion,costo ,imagen )VALUES (?,?,?,?)";
-                        //Preparar consulta
-                        $consulta_insertar = $pdo->prepare($sql_insertar);
-                        //Ejecutar la sentencia
-                        $consulta_insertar->execute(array($titulo, $descripcion, $costo, $archivo));
-                        echo "<script>alert('El registro se subió correctamente');</script>";
-                        echo "<script> document.location.href='crearPubli.php';</script>";
+                      if ($tipo_archivo == 'jpg' || $tipo_archivo == 'jpeg' || $tipo_archivo == 'png') {
+                        //Se validó el archivo correctamente
+                        if (move_uploaded_file($_FILES['file']['tmp_name'], $archivo)) {
+                          include_once '../../../dao/conexion.php';
+                          var_dump($_FILES['file']);
+                          $titulo = $_POST['titulo'];
+                          $descripcion = $_POST['descripcion'];
+                          $costo = $_POST['costo'];
+                          //sentencia Sql
+                          $sql_insertar = "INSERT INTO tblPublicacion (nombrePublicacion,descripcion,costo ,imagen )VALUES (?,?,?,?)";
+                          //Preparar consulta
+                          $consulta_insertar = $pdo->prepare($sql_insertar);
+                          //Ejecutar la sentencia
+                          $consulta_insertar->execute(array($titulo, $descripcion, $costo, $archivo));
+                          echo "<script>alert('El registro se subió correctamente');</script>";
+                          echo "<script> document.location.href='crearPubli.php';</script>";
+                        } else {
+                          echo "<script>alert('Ocurrió un error');</script>";
+                        }
                       } else {
-                        //Si no se ha podido subir la imagen, mostramos un mensaje de error
-                        echo '<div><b>Ocurrió algún error al subir el fichero. No pudo guardarse.</b></div>';
+                        echo "<script>alert('Error: solo se admiten archivos jpg, png y jpegr');</script>";
                       }
                     }
+                  } else {
+                    echo "<script>alert('Error: el archivo no es una imagen');</script>";
+                    echo "<script> document.location.href='crearPubli.php';</script>";
                   }
                 }
                 ?>
