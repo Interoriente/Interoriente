@@ -16,7 +16,7 @@
     <?php
     include_once 'dao/conexion.php';
     //Mostrar los datos almacenados
-    $sql_mostrar = "SELECT * FROM tblpublicacion";
+    $sql_mostrar = "SELECT * FROM tblPublicacion";
     //Prepara sentencia
     $Consultar_mostrar = $pdo->prepare($sql_mostrar);
     //Ejecutar consulta
