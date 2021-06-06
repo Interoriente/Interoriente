@@ -210,7 +210,7 @@
                         $prueba = $consulta_resta->fetch(PDO::FETCH_OBJ);
                         //Validacion de roles
                         if ($resultado) {
-                          $Nombre = $prueba->nombres . " " . $prueba->apellido;
+                          $Nombre = $prueba->nombres . " " . $prueba->apellidos;
                         ?>
                           <span class="mb-0 text-sm  font-weight-bold"><?php echo $Nombre; ?></span>
                         <?php } ?>
