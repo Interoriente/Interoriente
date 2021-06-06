@@ -13,6 +13,7 @@ if (isset($_SESSION["correo"]) or isset($_SESSION["idusuario"])) {
   if ($resultado_validacion) {
 ?>
     <!DOCTYPE html>
+    <html lang="es">
     <html>
 
     <head>
