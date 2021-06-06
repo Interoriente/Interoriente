@@ -9,7 +9,7 @@ $consulta_buscar->execute(array($nombre));
 $resultado_buscar = $consulta_buscar->fetchAll();
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
