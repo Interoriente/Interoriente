@@ -1,0 +1,13 @@
+#banner {
+  height: 260px;
+  width: 100%;
+  
+}
+#logo {
+  height: 300px;
+  position: relative;
+  display: inline-block;
+  transform: translateY(-33%);
+  display:inline-block;
+ 
+}
