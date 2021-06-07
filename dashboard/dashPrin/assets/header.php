@@ -238,9 +238,9 @@
                       <span>Support</span>
                     </a>
                     <div class="dropdown-divider"></div>
-                    <a href="#!" class="dropdown-item">
+                    <a href="../../../controller/cerrar_sesion.php" class="dropdown-item">
                       <i class="ni ni-user-run"></i>
-                      <span>Logout</span>
+                      <span>Cerrar sesión</span>
                     </a>
                   </div>
                 </li>
