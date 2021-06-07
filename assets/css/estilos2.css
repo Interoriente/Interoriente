@@ -7,6 +7,7 @@ body{
   font-family: 'poppins';
   color: #333;
   line-height: 1.6;
+  background-color: #E5E5E5;
 }
 ul{
   list-style-type: none; 
@@ -21,17 +22,31 @@ h1,h2{
   margin: 10px 0;
 
 }
-.tituloBoton h1{
-  font-weight: 300;
-  line-height: 1.2;
-  margin: 10px 0;
-  font-size: 20px;
-  width: 300%;
+.tituloBoton{
+  flex-direction: column;
+  text-align: center;
+ 
 }
-p{
+
+.tituloBoton a:hover{
+  color:white;
+}
+.tituloBoton a{
+  
+  
+  padding: .5em 2em;
+  font-size: 30px;
+  text-decoration: none;
+  background-color: #FCE61E;
+  color:black;
+  border-radius: 10px;
+}
+
+.titulo{
   margin: 10px 0;
   padding: 3em;
-  justify-content: baseline;
+  font-weight: 600;
+  text-align: justify;
 }
 #banner {
   height: 260px;
