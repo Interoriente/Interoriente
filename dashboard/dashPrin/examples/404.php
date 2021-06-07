@@ -2,58 +2,40 @@
 <html lang="en">
 
 <head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  <meta name="author" content="">
+	<title>Error en la búsqueda</title>
 
-  <title>Error en la búsqueda</title>
+	<!-- Google font -->
+	<link href="https://fonts.googleapis.com/css?family=Nunito:400,700" rel="stylesheet">
 
-  <!-- Custom fonts for this template-->
-  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-  <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+	<!-- Custom stlylesheet -->
+	<link type="text/css" rel="stylesheet" href="../assets/css/style.css" />
 
-  <!-- Custom styles for this template-->
-  <link href="css/sb-admin-2.min.css" rel="stylesheet">
+	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+		  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+		  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+		<![endif]-->
 
 </head>
 
-<body id="page-top">
+<body>
 
-  <!-- Begin Page Content -->
-  <div class="container-fluid">
+	<div id="notfound">
+		<div class="notfound">
+			<div class="notfound-404"></div>
+			<h1>404</h1>
+			<h2>Oops! No has iniciado sesión o ha finalizado la sesión</h2>
+			<p>Perdón, la sesión no está activa debes iniciar sesión</p>
+			<a href="../../../principal/iniciarsesion.php">Iniciar sesión</a>
+		</div>
+	</div>
 
-    <!-- 404 Error Text -->
-    <div class="text-center">
-      <div class="error mx-auto" data-text="404">404</div>
-      <p class="lead text-gray-800 mb-5">Página no encontrada</p>
-      <p class="text-gray-500 mb-0">No has iniciado sesión, selecciona atrás e intenta nuevamente</p>
-      <a href="../../../principal/iniciarsesion.php">&larr; Atrás, iniciar sesión</a>
-    </div>
-
-  </div>
-  <!-- /.container-fluid -->
-
-  </div>
-  <!-- End of Main Content -->
-  </div>
-  <!-- End of Content Wrapper -->
-
-  </div>
-  <!-- End of Page Wrapper -->
-
-  <!-- Bootstrap core JavaScript-->
-  <script src="vendor/jquery/jquery.min.js"></script>
-  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-  <!-- Core plugin JavaScript-->
-  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
-
-  <!-- Custom scripts for all pages-->
-  <script src="js/sb-admin-2.min.js"></script>
-
-</body>
+</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
 
 </html>
