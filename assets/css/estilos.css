@@ -129,6 +129,11 @@ h2 {
   text-align: justify;
 }
 
+.tarjeta{
+  margin-bottom: 2em;
+}
+
+/* Responsive */
 @media (max-width: 700px) {
   .contenedor-tarjetas {
     flex-direction: column;
