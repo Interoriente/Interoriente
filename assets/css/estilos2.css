@@ -1,13 +1,69 @@
+*{
+  box-sizing: border-box; 
+  padding: 0;
+  margin: 0;
+}
+body{
+  font-family: 'poppins';
+  color: #333;
+  line-height: 1.6;
+}
+ul{
+  list-style-type: none; 
+}
+a{
+  text-decoration: none;
+  color: #333;
+}
+h1,h2{
+  font-weight: 300;
+  line-height: 1.2;
+  margin: 10px 0;
+
+}
+.tituloBoton h1{
+  font-weight: 300;
+  line-height: 1.2;
+  margin: 10px 0;
+  font-size: 20px;
+  width: 300%;
+}
+p{
+  margin: 10px 0;
+  padding: 3em;
+  justify-content: baseline;
+}
 #banner {
   height: 260px;
   width: 100%;
-  
 }
 #logo {
   height: 300px;
   position: relative;
-  display: inline-block;
   transform: translateY(-33%);
-  display:inline-block;
- 
+  display: inline-block;
+}
+
+.carrusel{
+  width: 130%;
+  height: 100%;
+  margin: 2em;
+}
+
+.centro .flex{
+  flex-wrap: wrap;
+  
+}
+.flex {
+   display: flex;
+   
+}
+.flex h1{
+  justify-content:end;
+}
+
+@media (max-width: 700px) {
+  .carrusel {
+    display: none;
+  }
 }
