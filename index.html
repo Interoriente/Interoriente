@@ -4,7 +4,11 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="shortcut icon" href="assets/img/favicon.png" type="image/x-icon">
+    <link
+      rel="shortcut icon"
+      href="assets/img/favicon.png"
+      type="image/x-icon"
+    />
     <link rel="stylesheet" href="assets/css/estilos.css" />
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css"
@@ -14,18 +18,19 @@
     />
     <title>Interoriente | ¡Bienvenidos!</title>
   </head>
-
   <body>
     <!--Banner y Logo-->
 
     <div class="bannerLogo">
-      <img
+      <div class="banner">
+        <img
         id="banner"
         class="img-fluid"
         src="assets/img/banner_index.jpg"
         alt="Banner Interoriente"
       />
-      <div class="text-center">
+      </div>
+      <div class="text-center logo">
         <a href="index.html"
           ><img
             src="assets/img/Flor2.svg"
@@ -70,13 +75,13 @@
               </div>
               <div class="carousel-inner">
                 <div class="carousel-item active">
-                  <img src="assets/img/1.jpg" class="d-block w-100" alt="..." />
+                  <img src="assets/img/index/1.jpg" class="d-block w-100" alt="..." />
                 </div>
                 <div class="carousel-item">
-                  <img src="assets/img/1.jpg" class="d-block w-100" alt="..." />
+                  <img src="assets/img/index/1.jpg" class="d-block w-100" alt="..." />
                 </div>
                 <div class="carousel-item">
-                  <img src="assets/img/1.jpg" class="d-block w-100" alt="..." />
+                  <img src="assets/img/index/1.jpg" class="d-block w-100" alt="..." />
                 </div>
               </div>
               <button
@@ -106,14 +111,54 @@
             </div>
           </div>
           <div class="tituloBoton">
-            <p class="titulo">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Similique nam inventore eveniet veritatis fuga cupiditate sit aut, saepe nobis voluptas. Laudantium similique neque ullam quae quos. Eum iure porro reprehenderit.</p>
+            <p class="titulo">
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+              Similique nam inventore eveniet veritatis fuga cupiditate sit aut,
+              saepe nobis voluptas. Laudantium similique neque ullam quae quos.
+              Eum iure porro reprehenderit.
+            </p>
             <a href="#">¡Vamos!</a>
           </div>
         </div>
       </div>
     </section>
-
-    <!--Final-->
+    <!-- Tarjetas -->
+    <section class="cards">
+      <div class="contenedor-tarjetas flex">
+        <div class="tarjeta flex">
+          <div class="card" style="width: 18rem;">
+            <img src="assets/img/index/bird1.jpg" class="card-img-top" alt="...">
+            <div class="card-body ">
+              <h5 class="card-title">Título</h5>
+              <p class="card-text infoTarjeta">Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore quasi dolorem magni error, blanditiis, impedit consequatur, quo velit quam.</p>
+              <a href="#" class="btn btn-primary botonTarjeta ">Más Información</a>
+            </div>
+          </div>
+        </div>
+        <div class="tarjeta flex">
+          <div class="card" style="width: 18rem;">
+            <img src="assets/img/index/bird3.jpg" class="card-img-top " alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Título</h5>
+              <p class="card-text infoTarjeta">Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore quasi dolorem magni error, blanditiis, impedit consequatur, quo velit quam.</p>
+              <a href="#" class="btn btn-primary botonTarjeta " >Más Información</a>
+            </div>
+          </div>
+        </div>
+        <div class="tarjeta flex">
+          <div class="card" style="width: 18rem;">
+            <img src="assets/img/index/bird1.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title ">Título</h5>
+              <p class="card-text infoTarjeta" >Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore quasi dolorem magni error, blanditiis, impedit consequatur, quo velit quam.</p>
+              <a href="#" class="btn btn-primary botonTarjeta" >Más Información</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!--JS-->
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"

@@ -1,84 +1,133 @@
-*{
-  box-sizing: border-box; 
+/* Estandares */
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,200&display=swap");
+
+/* Estilos Generales */
+
+* {
+  box-sizing: border-box;
   padding: 0;
   margin: 0;
 }
-body{
-  font-family: 'poppins';
+body {
+  font-family: "poppins";
   color: #333;
   line-height: 1.6;
-  background-color: #E5E5E5;
+  background-color: #e5e5e5;
 }
-ul{
-  list-style-type: none; 
+ul {
+  list-style-type: none;
 }
-a{
+a {
   text-decoration: none;
   color: #333;
 }
-h1,h2{
+h1,
+h2 {
   font-weight: 300;
   line-height: 1.2;
   margin: 10px 0;
-
-}
-.tituloBoton{
-  flex-direction: column;
-  text-align: center;
- 
 }
 
-.tituloBoton a:hover{
-  color:white;
-}
-.tituloBoton a{
-  
-  
-  padding: .5em 2em;
-  font-size: 30px;
-  text-decoration: none;
-  background-color: #FCE61E;
-  color:black;
-  border-radius: 10px;
-}
+/* Sección Hero */
 
-.titulo{
-  margin: 10px 0;
-  padding: 3em;
-  font-weight: 600;
-  text-align: justify;
-}
-#banner {
+.banner img{
   height: 260px;
   width: 100%;
 }
-#logo {
+.logo img{
   height: 300px;
   position: relative;
   transform: translateY(-33%);
   display: inline-block;
 }
 
-.carrusel{
+/* Texto y Botón cta */
+
+.tituloBoton {
+  flex-direction: column;
+  text-align: center;
+}
+
+.tituloBoton a:hover {
+  color: white;
+}
+.tituloBoton a {
+  flex-wrap: wrap;
+  padding: 0.5em 2em;
+  font-size: 30px;
+  text-decoration: none;
+  background-color: #fce61e;
+  color: black;
+  border-radius: 10px;
+}
+
+.titulo {
+  
+  margin: 10px 0;
+  padding: 3em;
+  font-weight: 600;
+  text-align: justify;
+}
+/* Carrusel, texto y botón */
+.carrusel {
   width: 130%;
   height: 100%;
   margin: 2em;
 }
 
-.centro .flex{
+.centro .flex {
   flex-wrap: wrap;
-  
 }
 .flex {
-   display: flex;
-   
+  display: flex;
 }
-.flex h1{
-  justify-content:end;
+.flex h1 {
+  justify-content: end;
 }
 
+/* Media query para hacer responsive */
 @media (max-width: 700px) {
   .carrusel {
     display: none;
   }
+}
+
+/* Tarjetas */
+.cards{
+  display: flex;
+  flex-wrap: wrap;
+}
+.contenedor-tarjetas {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 2em;
+  text-align: center;
+}
+
+.contenedor-tarjetas a {
+  padding: 0.5em 5em;
+  color: black;
+  font-weight: 600;
+  background-color: #fce61e;
+  border-color: #fce61e;
+}
+.contenedor-tarjetas a:hover {
+  padding: 0.5em 5em;
+  color: white;
+  font-weight: 600;
+  background-color: #ffb930;
+  border-color: #ffb930;
+}
+
+.infoTarjeta {
+  text-align: justify;
+}
+
+/* Footer */
+.footer {
+  background-color: green;
+  margin-top: 7em;
+  overflow: auto;
 }
