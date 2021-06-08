@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Poppins:300,600');
 * { box-sizing: border-box; margin: 0; }
 .contenedor{
-    height: 3em;
+    height: 4em;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
@@ -9,22 +9,49 @@
     color: white;
     justify-content: space-between;
     background-color: #004E64;
+    position: relative;
+  
 }
 .cont-elementos{
+    max-width: 1100px;
     width: 50%;
     font-family: 'Poppins';
     display: flex;
     align-items: center;
     margin: auto;
-    justify-content: space-between;
+    justify-content: space-around;
     
 }
+
 a{
     text-decoration: none;
     color: white;
     font-weight: 900;
 }
-a:hover{
-    
+.cont-elementos a:hover{
+    border-bottom: 2px white solid;
     padding-top: 4px;
+}
+.logoT{
+    display: none;
+    position: absolute;
+    max-width: 500px;
+}
+
+
+/* Media query para mostrar logo */
+
+@media (min-width: 1000px){
+    .logoT{
+        display: block;
+         flex-grow: 2;
+         padding:2em;
+         margin-right: 4em;
+         margin-bottom: 5em;
+        margin-right: 2em;
+        width: 300px;
+        height: 1em;
+        
+        
+    }
 }
