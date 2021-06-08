@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:300,600');
+* { box-sizing: border-box; margin: 0; }
+.contenedor{
+    height: 3em;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    justify-content: space-between;
+    background-color: #004E64;
+}
+.cont-elementos{
+    width: 50%;
+    font-family: 'Poppins';
+    display: flex;
+    align-items: center;
+    margin: auto;
+    justify-content: space-between;
+    
+}
+a{
+    text-decoration: none;
+    color: white;
+    font-weight: 900;
+}
+a:hover{
+    
+    padding-top: 4px;
+}
