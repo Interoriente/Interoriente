@@ -19,7 +19,7 @@ session_start();
         //Capturo información
         $correo = strip_tags($_POST['correo']);
         $contrasena = strip_tags($_POST['contrasena']);
-        $contrasena = sha1($_POST['contrasena']);
+        $contrasena = $_POST['contrasena'];
         $estado = '1';
         $sql_inicio = "SELECT*FROM tblUsuario WHERE emailUsuario ='$correo' AND contrasenaUsuario='$contrasena'AND estadoUsuario = '$estado'";
         $consulta_inicio = $pdo->prepare($sql_inicio);
