@@ -136,6 +136,39 @@ if (isset($_SESSION["correo"]) or isset($_SESSION["idusuario"])) {
                 <input type="file" name="file" value="file" required>
 
                 <button type="submit" name="subir">Enviar</button>
+                <!-- Código para mostrar el contenido de la tabla publicación -->
+                
+                <!-- Tabla de mis publicaciones -->
+                <center><h1>Mis publicaciones</h1></center>
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th scope="col">#</th>
+                      <th scope="col">First</th>
+                      <th scope="col">Last</th>
+                      <th scope="col">Handle</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th scope="row">1</th>
+                      <td>Mark</td>
+                      <td>Otto</td>
+                      <td>@mdo</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">2</th>
+                      <td>Jacob</td>
+                      <td>Thornton</td>
+                      <td>@fat</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">3</th>
+                      <td colspan="2">Larry the Bird</td>
+                      <td>@twitter</td>
+                    </tr>
+                  </tbody>
+                </table>
                 <?php
                 if (isset($_POST['subir'])) {
 
@@ -205,7 +238,7 @@ if (isset($_SESSION["correo"]) or isset($_SESSION["idusuario"])) {
   } else {
     echo "<script> document.location.href='404.php';</script>";
   }
-}else {
+} else {
   echo "<script> document.location.href='404.php';</script>";
 }
 ?>
