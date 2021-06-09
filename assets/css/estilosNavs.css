@@ -151,11 +151,13 @@ a {
     text-decoration: none; /* Remove underline */
     font-size: 20px; /* Increase font size */
     color: var(--clr-primario-a); /* White text color */
+    font-family: 'Poppins';
     border-radius: 0 5px 5px 0; /* Rounded corners on the top right and bottom right side */
   }
   
   #boton a:hover {
     left: 0; /* On mouse-over, make the elements appear as they should */
+    font-weight: bolder;
   }
   
   /* Botón menú lateral */
