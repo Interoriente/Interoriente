@@ -201,16 +201,16 @@
                       </span>
                       <div class="media-body  ml-2  d-none d-lg-block">
                         <?php
-                        $id = $_SESSION["correo"];
+                        $id = $_SESSION["emailUsuario"];
                         include_once '../../../dao/conexion.php';
-                        $sql_inicio = "SELECT*FROM tblusuarios WHERE correo ='$id' ";
+                        $sql_inicio = "SELECT*FROM tblUsuario WHERE emailUsuario ='$id' ";
                         $consulta_resta = $pdo->prepare($sql_inicio);
                         $consulta_resta->execute();
                         $resultado = $consulta_resta->rowCount();
                         $prueba = $consulta_resta->fetch(PDO::FETCH_OBJ);
                         //Validacion de roles
                         if ($resultado) {
-                          $Nombre = $prueba->nombres . " " . $prueba->apellidos;
+                          $Nombre = $prueba->nombresUsuario . " " . $prueba->apellidoUsuario;
                         ?>
                           <span class="mb-0 text-sm  font-weight-bold"><?php echo $Nombre; ?></span>
                         <?php } ?>
