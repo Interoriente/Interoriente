@@ -1,3 +1,17 @@
+/* Propiedades Generales --> Paleta de Colores y fuentes*/
+:root{
+    --clr-primario-a: #004E64;
+    --clr-primario-b: #5D9BAC;
+    --clr-secundario: #408E8D;
+    --clr-neutro-a: #FEFDEB;
+    --clr-neutro-b: #001014;
+    --clr-neutro-c: #E5E5E5;
+    --clr-cta-a: #FFB930;
+    --crl-cta-b: #FCE61E;
+    --fuente:@import url("https://fonts.googleapis.com/css?family=Poppins:300,600");
+  
+  }
+
 @import url("https://fonts.googleapis.com/css?family=Poppins:300,600");
 * {
   box-sizing: border-box;
@@ -11,7 +25,7 @@
   justify-content: center;
   color: white;
   justify-content: space-between;
-  background-color: #004e64;
+  background-color: var(--clr-primario-a);
   position: fixed;
   left: 0;      
   top: 0;       
@@ -79,7 +93,7 @@ a {
     margin-top: 4em;
     top: 0;
     left: 0;
-    background-color: #FCE61E;
+    background-color: var(--crl-cta-b);
     overflow-x: hidden; /* se desabilita scroll en x */
     padding-top: 60px; /* Place content 60px from the top */
     transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
@@ -97,7 +111,7 @@ a {
     font-size: 19px;
     font-weight: 550;
     font-family: 'poppins';
-    color: #004e64;
+    color: var(--clr-primario-a);
     display: block;
     transition: 0.3s;
   }
@@ -143,5 +157,5 @@ a {
   /* Botón menú lateral */
   #menuLateral {
     top: 20px;
-    background-color: #FCE61E;
+    background-color: var(--crl-cta-b);
   }

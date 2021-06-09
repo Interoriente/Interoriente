@@ -1,19 +1,27 @@
-/* Estandares */
+/* Propiedades Generales --> Paleta de Colores y fuentes*/
+:root{
+  --clr-primario-a: #004E64;
+  --clr-primario-b: #5D9BAC;
+  --clr-secundario: #408E8D;
+  --clr-neutro-a: #FEFDEB;
+  --clr-neutro-b: #001014;
+  --clr-neutro-c: #E5E5E5;
+  --clr-cta-a: #FFB930;
+  --crl-cta-b: #FCE61E;
+  --fuente:@import url("https://fonts.googleapis.com/css?family=Poppins:300,600");
 
-@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,200&display=swap");
-
-/* Estilos Generales */
-
+}
+/* Estandares --> Estilos Generales */ 
 * {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
 }
 body {
-  font-family: "poppins";
+  font-family: var(--fuente);
   color: #333;
   line-height: 1.6;
-  background-color: #FEFDEB;
+  background-color: var(--clr-neutro-a);
 }
 ul {
   list-style-type: none;
@@ -58,8 +66,8 @@ h2 {
   padding: 0.5em 2em;
   font-size: 30px;
   text-decoration: none;
-  background-color: #fce61e;
-  color: black;
+  background-color: var(--crl-cta-b);
+  color: var(--clr-neutro-b);
   border-radius: 10px;
 }
 
@@ -124,18 +132,18 @@ h2 {
 
 .contenedor-tarjetas a {
   padding: 0.5em 5em;
-  color: black;
+  color: var(--clr-neutro-b);
   font-weight: 600;
   
-  background-color: #fce61e;
-  border-color: #fce61e;
+  background-color:var(--crl-cta-b);
+  border-color: var(--crl-cta-b);
 }
 .contenedor-tarjetas a:hover {
   padding: 0.5em 5em;
   color: white;
   font-weight: 600;
-  background-color: #ffb930;
-  border-color: #ffb930;
+  background-color: var(--clr-cta-a);
+  border-color: var(--clr-cta-a);
 }
 
 .infoTarjeta {
