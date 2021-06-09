@@ -1,10 +1,10 @@
 <?php
 session_start();
 
-if (isset($_SESSION["correo"]) or isset($_SESSION["idusuario"])) {
-  $id = $_SESSION["correo"];
+if (isset($_SESSION["emailUsuario"]) or isset($_SESSION["documentoIdentidad"])) {
+  $id = $_SESSION["emailUsuario"];
   include_once '../../../dao/conexion.php';
-  $sql_validacion = "SELECT*FROM tblusuarios WHERE correo ='$id' AND estado= '1'";
+  $sql_validacion = "SELECT*FROM tblUsuario WHERE emailUsuario ='$id' AND estadoUsuario= '1'";
   $consulta_resta_validacion = $pdo->prepare($sql_validacion);
   $consulta_resta_validacion->execute();
   $resultado_validacion = $consulta_resta_validacion->rowCount();

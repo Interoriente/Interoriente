@@ -31,7 +31,7 @@
       />
       </div>
       <div class="text-center logo">
-        <a href="index.html"
+        <a href="index.php"
           ><img
             src="assets/img/Flor2.svg"
             class="rounded"

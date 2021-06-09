@@ -21,14 +21,14 @@ session_start();
         $contrasena = strip_tags($_POST['contrasena']);
         $contrasena = sha1($_POST['contrasena']);
         $estado = '1';
-        $sql_inicio = "SELECT*FROM tblusuarios WHERE correo ='$correo' AND contrasena='$contrasena'AND estado = '$estado'";
+        $sql_inicio = "SELECT*FROM tblUsuario WHERE emailUsuario ='$correo' AND contrasenaUsuario='$contrasena'AND estadoUsuario = '$estado'";
         $consulta_inicio = $pdo->prepare($sql_inicio);
         $consulta_inicio->execute(array($correo, $contrasena));
         $resultado_inicio = $consulta_inicio->rowCount();
         $prueba = $consulta_inicio->fetch(PDO::FETCH_OBJ);
         if ($resultado_inicio) {
-            $_SESSION["correo"] = $prueba->correo;
-            $_SESSION["idusuario"] = $prueba->idusuario;
+            $_SESSION["emailUsuario"] = $prueba->emailUsuario;
+            $_SESSION["documentoIdentidad"] = $prueba->documentoIdentidad;
             echo "<script> document.location.href='../../dashboard/dashPrin/examples/index.php';</script>";
         } else {
             echo "<script>alert('Correo y/o contraseña incorrecto, o validación denegada');</script>";
