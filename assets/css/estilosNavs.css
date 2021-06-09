@@ -8,11 +8,12 @@
     --clr-neutro-c: #E5E5E5;
     --clr-cta-a: #FFB930;
     --crl-cta-b: #FCE61E;
-    --fuente:@import url("https://fonts.googleapis.com/css?family=Poppins:300,600");
-  
   }
 
 @import url("https://fonts.googleapis.com/css?family=Poppins:300,600");
+body{
+  background-color: var(--clr-neutro-a);
+}
 * {
   box-sizing: border-box;
   margin: 0;
@@ -28,7 +29,8 @@
   background-color: var(--clr-primario-a);
   position: fixed;
   left: 0;      
-  top: 0;       
+  top: 0;  
+   
   width: 100%;  
   
 }
@@ -36,10 +38,12 @@
   max-width: 1100px;
   width: 50%;
   font-family: "Poppins";
+  font-weight:bolder ;
   display: flex;
   align-items: center;
   margin: auto;
   justify-content: space-around;
+  height: 3em;  
 }
 
 a {
@@ -146,7 +150,7 @@ a {
     width: 100px; /* Set a specific width */
     text-decoration: none; /* Remove underline */
     font-size: 20px; /* Increase font size */
-    color: white; /* White text color */
+    color: var(--clr-primario-a); /* White text color */
     border-radius: 0 5px 5px 0; /* Rounded corners on the top right and bottom right side */
   }
   

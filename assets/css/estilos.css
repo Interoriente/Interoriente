@@ -8,9 +8,8 @@
   --clr-neutro-c: #E5E5E5;
   --clr-cta-a: #FFB930;
   --crl-cta-b: #FCE61E;
-  --fuente:@import url("https://fonts.googleapis.com/css?family=Poppins:300,600");
-
 }
+@import url("https://fonts.googleapis.com/css?family=Poppins:300,600");
 /* Estandares --> Estilos Generales */ 
 * {
   box-sizing: border-box;
@@ -18,7 +17,7 @@
   margin: 0;
 }
 body {
-  font-family: var(--fuente);
+  font-family: 'Popins';
   color: #333;
   line-height: 1.6;
   background-color: var(--clr-neutro-a);
