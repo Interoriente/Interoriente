@@ -108,9 +108,9 @@ if (isset($_SESSION["emailUsuario"]) or isset($_SESSION["documentoIdentidad"])) 
             </div>
           </div>
           <?php
-          $id = $_SESSION["correo"];
+          $id = $_SESSION["emailUsuario"];
           include_once '../../../dao/conexion.php';
-          $sql_inicio = "SELECT*FROM tblusuarios WHERE correo ='$id' ";
+          $sql_inicio = "SELECT*FROM tblUsuario WHERE emailUsuario ='$id' ";
           $consulta_resta = $pdo->prepare($sql_inicio);
           $consulta_resta->execute();
           $resultado = $consulta_resta->rowCount(array($id));
