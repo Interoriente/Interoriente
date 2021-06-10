@@ -22,7 +22,7 @@ session_start();
         $contrasena = strip_tags($_POST['contrasena']);
         $contrasena = sha1($_POST['contrasena']);
         $estado = '1';
-        $sql_inicio = "SELECT*FROM tblUsuario WHERE emailUsuario OR documentoIdentidad ='$correo' AND contrasenaUsuario='$contrasena'AND estadoUsuario = '$estado'";
+        $sql_inicio = "SELECT*FROM tblUsuario WHERE emailUsuario ='$correo' OR documentoIdentidad='$correo'  AND contrasenaUsuario='$contrasena'AND estadoUsuario = '$estado'";
         $consulta_inicio = $pdo->prepare($sql_inicio);
         $consulta_inicio->execute(array($correo, $contrasena));
         $resultado_inicio = $consulta_inicio->rowCount();

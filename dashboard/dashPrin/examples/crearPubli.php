@@ -22,7 +22,7 @@ if (isset($_SESSION["emailUsuario"]) or isset($_SESSION["documentoIdentidad"])) 
       <meta name="author" content="Creative Tim">
       <title>Argon Dashboard - Free Dashboard for Bootstrap 4</title>
       <!-- Favicon -->
-      <link rel="icon" href="../assets/img/brand/favicon.png" type="image/png">
+      <link rel="icon" href="../../../assets/img/favicon.png" type="image/png">
       <!-- Fonts -->
       <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700">
       <!-- Icons -->
@@ -236,9 +236,9 @@ if (isset($_SESSION["emailUsuario"]) or isset($_SESSION["documentoIdentidad"])) 
     </html>
 <?php
   } else {
-    echo "<script> document.location.href='404.php';</script>";
+    echo "<script> document.location.href='403.php';</script>";
   }
 } else {
-  echo "<script> document.location.href='404.php';</script>";
+  echo "<script> document.location.href='403.php';</script>";
 }
 ?>

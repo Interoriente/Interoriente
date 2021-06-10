@@ -20,9 +20,9 @@ if (isset($_SESSION["emailUsuario"]) or isset($_SESSION["documentoIdentidad"])) 
       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
       <meta name="description" content="Start your development with a Dashboard for Bootstrap 4.">
       <meta name="author" content="Creative Tim">
-      <title>Argon Dashboard - Free Dashboard for Bootstrap 4</title>
+      <title>Mi perfil - Interoriente</title>
       <!-- Favicon -->
-      <link rel="icon" href="../assets/img/brand/favicon.png" type="image/png">
+      <link rel="icon" href="../../../assets/img/favicon.png" type="image/png">
       <!-- Fonts -->
       <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700">
       <!-- Icons -->
@@ -108,9 +108,9 @@ if (isset($_SESSION["emailUsuario"]) or isset($_SESSION["documentoIdentidad"])) 
             </div>
           </div>
           <?php
-          $id = $_SESSION["correo"];
+          $id = $_SESSION["emailUsuario"];
           include_once '../../../dao/conexion.php';
-          $sql_inicio = "SELECT*FROM tblusuarios WHERE correo ='$id' ";
+          $sql_inicio = "SELECT*FROM tblUsuario WHERE emailUsuario ='$id' ";
           $consulta_resta = $pdo->prepare($sql_inicio);
           $consulta_resta->execute();
           $resultado = $consulta_resta->rowCount(array($id));
@@ -135,21 +135,21 @@ if (isset($_SESSION["emailUsuario"]) or isset($_SESSION["documentoIdentidad"])) 
                         <div class="col-lg-6">
                           <div class="form-group">
                             <label class="form-control-label" for="input-username">Nombre</label>
-                            <input type="text" id="input-username" name="nombre" class="form-control" placeholder="Username" value="<?php echo $resultado2->nombres; ?>">
+                            <input type="text" id="input-username" name="nombre" class="form-control" placeholder="Username" value="<?php echo $resultado2->nombresUsuario; ?>">
                           </div>
                           <div class="form-group">
                             <label class="form-control-label" for="input-username">Apellido</label>
-                            <input type="text" id="input-username" name="apellido" class="form-control" placeholder="Username" value="<?php echo $resultado2->apellidos; ?>">
+                            <input type="text" id="input-username" name="apellido" class="form-control" placeholder="Username" value="<?php echo $resultado2->apellidoUsuario; ?>">
                           </div>
                         </div>
                         <p>Ten en cuenta que si modificas el correo deberás iniciar sesión nuevamente</p>
                         <div class="col-lg-6">
                           <div class="form-group">
                             <label class="form-control-label" for="input-email">Correo</label>
-                            <input type="email" id="input-email" name="correo" class="form-control" value="<?php echo $resultado2->correo; ?>">
+                            <input type="email" id="input-email" name="correo" class="form-control" value="<?php echo $resultado2->emailUsuario; ?>">
                           </div>
                           <div class="form-group">
-                            <input type="hidden" name="ideditar" value="<?php echo $resultado2->idusuario; ?>">
+                            <input type="hidden" name="ideditar" value="<?php echo $resultado2->documentoIdentidad; ?>">
                           </div>
                         </div>
                       </div>
@@ -177,9 +177,9 @@ if (isset($_SESSION["emailUsuario"]) or isset($_SESSION["documentoIdentidad"])) 
     </html>
 <?php
   } else {
-    echo "<script> document.location.href='404.php';</script>";
+    echo "<script> document.location.href='403.php';</script>";
   }
 } else {
-  echo "<script> document.location.href='404.php';</script>";
+  echo "<script> document.location.href='403.php';</script>";
 }
 ?>
