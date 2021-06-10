@@ -30,14 +30,14 @@ session_start();
         if ($resultado_inicio) {
             $_SESSION["emailUsuario"] = $prueba->emailUsuario;
             $_SESSION["documentoIdentidad"] = $prueba->documentoIdentidad;
-            echo "<script> document.location.href='../../dashboard/dashPrin/examples/index.php';</script>";
+            echo "<script> document.location.href='../../dashboard/dashPrin/examples/dashboard.php';</script>";
         } else {
             echo "<script>alert('Correo y/o contraseña incorrecto, o validación denegada');</script>";
             echo "<script> document.location.href='../../principal/iniciarsesion.php';</script>";
         }
     }
     ?>
-    <body background="assets/img/im4.jpg" style="background-repeat: no-repeat; background-position: center center;">
+    
 </body>
 
 </html>
