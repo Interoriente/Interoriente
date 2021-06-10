@@ -31,7 +31,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="profile.php">
+            <a class="nav-link" href="perfil.php">
               <i class="ni ni-single-02 text-yellow"></i>
               <span class="nav-link-text">Mi perfil</span>
             </a>
