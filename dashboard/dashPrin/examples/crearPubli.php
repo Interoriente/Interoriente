@@ -34,177 +34,164 @@ if (isset($_SESSION["emailUsuario"]) or isset($_SESSION["documentoIdentidad"])) 
 
     <body>
       <?php require_once '../assets/sidebar.php' ?>
-      <?php require_once '../assets/header.php' ?>
-      <?php
+      <?php require_once '../assets/header.php';
+
+      //Sirve para mostrar el contenido de la tabla Estado, para mostrarlo en la lista desplegable
+      include_once '../../../dao/conexion.php';
+      //Mostrar los datos almacenados
+      $sql_mostrar_estado = "SELECT * FROM tblEstado";
+      //Prepara sentencia
+      $Consultar_mostrar_estado = $pdo->prepare($sql_mostrar_estado);
+      //Ejecutar consulta
+      $Consultar_mostrar_estado->execute();
+      $resultado_estado = $Consultar_mostrar_estado->fetchAll();
+      //Imprimir var dump -> Arreglos u objetos
+
+      //Sirve para mostrar el contenido de la tabla Categoria, para mostrarlo en la lista desplegable
+      include_once '../../../dao/conexion.php';
+      //Mostrar los datos almacenados
+      $sql_mostrar_categoria = "SELECT * FROM tblCategoria";
+      //Prepara sentencia
+      $Consultar_mostrar_categoria = $pdo->prepare($sql_mostrar_categoria);
+      //Ejecutar consulta
+      $Consultar_mostrar_categoria->execute();
+      $resultado_categoria = $Consultar_mostrar_categoria->fetchAll();
+
       $id = $_SESSION["documentoIdentidad"];
       include_once '../../../dao/conexion.php';
-      $sql_inicio = "SELECT*FROM tblPublicacion WHERE usuario ='$id' ";
+      $sql_inicio = "SELECT*FROM tblUsuario WHERE documentoIdentidad ='$id' ";
       $consulta_resta = $pdo->prepare($sql_inicio);
       $consulta_resta->execute();
       $resultado = $consulta_resta->rowCount(array($id));
       $resultado2 = $consulta_resta->fetch(PDO::FETCH_OBJ);
-
+      //Validacion de roles
+      if ($resultado) {
       ?>
-      <!-- Header -->
-      <br><br><br><br>
-      <!--Formulario-->
-      <div class="container-fluid mt--12">
-        <div class="row">
-          <div class="col-xl-8 order-xl-1">
-            <div class="card">
-              <div class="card-header">
-                <div class="row align-items-center">
-                  <div class="col-8">
-                    <h3 class="mb-0">Crear Publicación</h3>
+        <br><br><br><br>
+        <!-- Page content -->
+        <div class="container-fluid mt--6">
+          <div class="row">
+            <div class="col-xl-8 order-xl-1">
+              <div class="card">
+                <div class="card-header">
+                  <div class="row align-items-center">
+                    <div class="col-8">
+                      <h3 class="mb-0">Crear Publicación</h3>
+                    </div>
                   </div>
                 </div>
-              </div>
-              <div class="card-body">
-                <form action="crearPubli.php" method="POST" enctype="multipart/form-data">
-                  <h6 class="heading-small text-muted mb-4">Información del producto</h6>
-                  <div class="pl-lg-4">
-                    <div class="row">
-                      <div class="col-lg-6">
-                        <div class="form-group">
-                          <label class="form-control-label" for="input-username">Nombre producto</label>
-                          <input type="text" id="input-username" name="nombre" class="form-control" placeholder="Nombre producto" value="">
+                <div class="card-body">
+                  <form action="crearPubli.php" method="POST" enctype="multipart/form-data">
+                    <h6 class="heading-small text-muted mb-4">Información del producto</h6>
+                    <div class="pl-lg-4">
+                      <div class="row">
+                        <div class="col-lg-6">
+                          <div class="form-group">
+                            <label class="form-control-label" for="input-username">Nombre producto</label>
+                            <input type="text" id="input-username" name="nombre" class="form-control" placeholder="Nombre producto" value="">
+                          </div>
+                        </div>
+                        <div class="col-lg-6">
+                          <div class="form-group">
+                            <label class="form-control-label" for="input-username">Descripcion</label>
+                            <input type="text" id="input-username" name="descripcion" class="form-control" placeholder="Descripcion" value="">
+                          </div>
+                        </div>
+                        <div class="col-lg-6">
+                          <div class="form-group">
+                            <label class="form-control-label" for="input-username">Color</label>
+                            <input type="color" id="input-username" name="color" class="form-control" placeholder="Color" value="">
+                          </div>
+                        </div>
+                        <div class="col-lg-6">
+                          <div class="form-group">
+                            <label class="form-control-label" for="input-username">Costo</label>
+                            <input type="text" id="input-username" name="costo" class="form-control" placeholder="Costo" value="">
+                          </div>
+                        </div>
+                        <div class="col-lg-6">
+                          <div class="form-group">
+                            <label class="form-control-label" for="input-email">Estado</label>
+                            <select name="estado" class="form-control" required>
+                              <option value="" disabled selected>Seleccione un estado del producto</option>
+                              <?php
+                              foreach ($resultado_estado as $datos_estado) { ?>
+                                <option value="<?php echo $datos_estado['idEstado']; ?>"><?php echo $datos_estado['nombreEstado']; ?></option>
+                              <?php } ?>
+                            </select>
+                          </div>
+                        </div>
+
+                        <div class="col-lg-6">
+                          <div class="form-group">
+                            <label class="form-control-label" for="input-username">Stock Producto</label>
+                            <input type="number" id="input-username" name="stock" class="form-control" placeholder="Stock (cantidad)" value="">
+                          </div>
+                        </div>
+                        <div class="col-lg-6">
+                          <div class="form-group">
+                            <label class="form-control-label" for="input-email">Categoria</label>
+                            <select name="categoria" class="form-control" required>
+                              <option value="" disabled selected>Seleccione una categoria del producto</option>
+                              <?php
+                              foreach ($resultado_categoria as $datos_categoria) { ?>
+                                <option value="<?php echo $datos_categoria['idCategoria']; ?>"><?php echo $datos_categoria['nombreCategoria']; ?></option>
+                              <?php } ?>
+                            </select>
+                          </div>
+                        </div>
+                        <div class="col-lg-6">
+                          <div class="form-group">
+                            <label class="form-control-label" for="input-username">Imagen</label>
+                            <input type="file" id="input-username" name="costo" class="form-control" placeholder="Imagen" value="">
+                          </div>
+                        </div>
+                        <div class="col-lg-6">
+                          <div class="form-group">
+                            <input type="hidden" id="input-username" name="usuario" class="form-control" placeholder="Usuario" value="<?php echo $id; ?>">
+                          </div>
                         </div>
                       </div>
-                      <div class="col-lg-6">
-                        <div class="form-group">
-                          <label class="form-control-label" for="input-username">Descripcion</label>
-                          <input type="text" id="input-username" name="descripcion" class="form-control" placeholder="Descripcion" value="">
-                        </div>
-                      </div>
-                      <div class="col-lg-6">
-                        <div class="form-group">
-                          <label class="form-control-label" for="input-username">Color</label>
-                          <input type="color" id="input-username" name="celular" class="form-control" placeholder="Color" value="">
-                        </div>
-                      </div>
-                      <div class="col-lg-6">
-                        <div class="form-group">
-                          <label class="form-control-label" for="input-username">Costo</label>
-                          <input type="text" id="input-username" name="costo" class="form-control" placeholder="Costo" value="">
-                        </div>
-                      </div>
-                      <div class="col-lg-6">
-                        <div class="form-group">
-                          <label class="form-control-label" for="input-email">Correo</label>
-                          <input type="email" id="input-email" name="correo" class="form-control" value="">
-                        </div>
-                      </div>
-                      <div class="form-group">
-                        <input type="hidden" name="ideditar" value="">
-                      </div>
+                      <button class="btn btn-primary btn-xs" type="submit" name="subir">Publicar</button>
                     </div>
-                    <button class="btn btn-primary btn-xs" type="submit" name="subir">Editar</button>
-                  </div>
-                </form>
-                <!-- Código para mostrar el contenido de la tabla publicación -->
-
-                <!-- Tabla de mis publicaciones -->
-
-                <center>
-                  <h1>Mis publicaciones</h1>
-                </center>
-                <?php if ($resultado) { ?>
-                  <table class="table">
-                    <thead>
-                      <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">First</th>
-                        <th scope="col">Last</th>
-                        <th scope="col">Handle</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                      </tr>
-                      <tr>
-                        <th scope="row">2</th>
-                        <td>Jacob</td>
-                        <td>Thornton</td>
-                        <td>@fat</td>
-                      </tr>
-                      <tr>
-                        <th scope="row">3</th>
-                        <td colspan="2">Larry the Bird</td>
-                        <td>@twitter</td>
-                      </tr>
-                    </tbody>
-                  </table>
+                  </form>
+                </div>
               </div>
             </div>
+          <?php }
+        if (isset($_POST['subir'])) {
+          include_once '../../../dao/conexion.php';
+          $nombre = $_POST['nombre'];
+          $descripcion = $_POST['descripcion'];
+          $color = $_POST['color'];
+          $costo = $_POST['costo'];
+          $estado = $_POST['estado'];
+          $stock = $_POST['stock'];
+          $categoria = $_POST['categoria'];
+          $usuario = $_POST['usuario'];
+          //sentencia Sql
+          $sql_insertar = "INSERT INTO tblPublicacion (nombrePublicacion,usuario,descripcionPublicacion,colorPublicacion,costoPublicacion,estadoPublicacion,stockProducto ,categoria )VALUES (?,?,?,?,?,?,?,?)";
+          //Preparar consulta
+          $consulta_insertar = $pdo->prepare($sql_insertar);
+          //Ejecutar la sentencia
+          $consulta_insertar->execute(array($nombre, $usuario, $descripcion, $color, $costo, $estado, $stock, $categoria));
+          echo "<script>alert('El registro se subió correctamente');</script>";
+          echo "<script> document.location.href='crearPubli.php';</script>";
+        }
+          ?>
           </div>
-        <?php }
-                if (isset($_POST['subir'])) {
-
-                  //Captura de imagen
-                  $directorio = "imagenes/";
-
-                  $archivo = $directorio . basename($_FILES['file']['name']);
-
-                  $tipo_archivo = strtolower(pathinfo($archivo, PATHINFO_EXTENSION));
-
-                  //Validar que es imagen
-                  $checarsiimagen = getimagesize($_FILES['file']['tmp_name']);
-
-                  //var_dump($size);
-
-                  if ($checarsiimagen != false) {
-                    $size = $_FILES['file']['size'];
-                    //Validando tamano del archivo
-                    if ($size > 70000000) {
-                      echo "El archivo excede el limite, debe ser menor de 700kb";
-                    } else {
-                      if ($tipo_archivo == 'jpg' || $tipo_archivo == 'jpeg' || $tipo_archivo == 'png') {
-                        //Se validó el archivo correctamente
-                        if (move_uploaded_file($_FILES['file']['tmp_name'], $archivo)) {
-                          include_once '../../../dao/conexion.php';
-                          //var_dump($_FILES['file']);
-                          $titulo = $_POST['titulo'];
-                          $descripcion = $_POST['descripcion'];
-                          $costo = $_POST['costo'];
-                          //sentencia Sql
-                          $sql_insertar = "INSERT INTO tblPublicacion (nombrePublicacion,descripcion,costo ,imagen )VALUES (?,?,?,?)";
-                          //Preparar consulta
-                          $consulta_insertar = $pdo->prepare($sql_insertar);
-                          //Ejecutar la sentencia
-                          $consulta_insertar->execute(array($titulo, $descripcion, $costo, $archivo));
-                          echo "<script>alert('El registro se subió correctamente');</script>";
-                          echo "<script> document.location.href='crearPubli.php';</script>";
-                        } else {
-                          echo "<script>alert('Ocurrió un error');</script>";
-                        }
-                      } else {
-                        echo "<script>alert('Error: solo se admiten archivos jpg, png y jpegr');</script>";
-                      }
-                    }
-                  } else {
-                    echo "<script>alert('Error: el archivo no es una imagen');</script>";
-                    echo "<script> document.location.href='crearPubli.php';</script>";
-                  }
-                }
-        ?>
+          <!-- Footer -->
+          <?php require_once '../assets/footer.php' ?>
         </div>
-        <!-- Footer -->
-      
-      <?php require_once '../assets/footer.php' ?>
-</div>
-      <!-- Argon Scripts -->
-      <!-- Core -->
-      <script src="../assets/vendor/jquery/dist/jquery.min.js"></script>
-      <script src="../assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-      <script src="../assets/vendor/js-cookie/js.cookie.js"></script>
-      <script src="../assets/vendor/jquery.scrollbar/jquery.scrollbar.min.js"></script>
-      <script src="../assets/vendor/jquery-scroll-lock/dist/jquery-scrollLock.min.js"></script>
-      <!-- Argon JS -->
-      <script src="../assets/js/argon.js?v=1.2.0"></script>
+        <!-- Argon Scripts -->
+        <!-- Core -->
+        <script src="../assets/vendor/jquery/dist/jquery.min.js"></script>
+        <script src="../assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="../assets/vendor/js-cookie/js.cookie.js"></script>
+        <script src="../assets/vendor/jquery.scrollbar/jquery.scrollbar.min.js"></script>
+        <script src="../assets/vendor/jquery-scroll-lock/dist/jquery-scrollLock.min.js"></script>
+        <!-- Argon JS -->
+        <script src="../assets/js/argon.js?v=1.2.0"></script>
     </body>
 
     </html>
