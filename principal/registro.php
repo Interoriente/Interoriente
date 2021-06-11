@@ -122,7 +122,7 @@
                                 <label for="">Ciudad:</label>
                                 <div class="form-group">
                                     <select name="ciudad" class="form-control" required>
-                                        <option value="" disabled selected>Seleccione un rol</option>
+                                        <option value="" disabled selected>Seleccione una ciudad</option>
                                         <option value="06">Marinilla</option>
                                         <option value="08">Rionegro</option>
                                     </select>

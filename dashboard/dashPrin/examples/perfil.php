@@ -45,6 +45,7 @@ if (isset($_SESSION["emailUsuario"]) or isset($_SESSION["documentoIdentidad"])) 
       $resultado2 = $consulta_resta->fetch(PDO::FETCH_OBJ);
       //Validacion de roles
       if ($resultado) {
+        $Nombre = $resultado2->nombresUsuario . " " . $resultado2->apellidoUsuario;
       ?>
         <!-- Header -->
         <div class="header pb-6 d-flex align-items-center" style="min-height: 500px; background-image: url(../assets/img/theme/profile-cover.jpg); background-size: cover; background-position: center top;">
@@ -54,13 +55,12 @@ if (isset($_SESSION["emailUsuario"]) or isset($_SESSION["documentoIdentidad"])) 
           <div class="container-fluid d-flex align-items-center">
             <div class="row">
               <div class="col-lg-7 col-md-10">
-                <h1 class="display-2 text-white">Hola! <?php echo $resultado2->nombresUsuario; ?></h1>
-                <a href="configperfil.php" class="btn btn-neutral">Editar perfil</a>
+                <h1 class="display-2 text-white">Hola! <?php echo $resultado2->nombresUsuario ?></h1>
+                <p class="text-white mt-0 mb-5">This is your profile page. You can see the progress you've made with your work and manage your projects or assigned tasks</p>
               </div>
             </div>
           </div>
         </div>
-
         <!-- Page content -->
         <div class="container-fluid mt--6">
           <div class="row">
@@ -76,10 +76,9 @@ if (isset($_SESSION["emailUsuario"]) or isset($_SESSION["documentoIdentidad"])) 
                     </div>
                   </div>
                 </div>
-                <div class="card-header text-center border-0 pt-8 pt-md-4 pb-0 pb-md-4">
+                <div class="card-header text-center border-0 pt-8 pt-md-8 pb-5 pb-md-0">
                   <div class="d-flex justify-content-between">
-                    <a href="#" class="btn btn-sm btn-info  mr-4 ">Connect</a>
-                    <a href="#" class="btn btn-sm btn-default float-right">Message</a>
+                    <a href="#" class="btn btn-sm btn-info  mr-4 ">Cambiar foto</a>
                   </div>
                 </div>
                 <div class="card-body pt-0">
@@ -87,42 +86,94 @@ if (isset($_SESSION["emailUsuario"]) or isset($_SESSION["documentoIdentidad"])) 
                     <div class="col">
                       <div class="card-profile-stats d-flex justify-content-center">
                         <div>
-                          <span class="heading">22</span>
-                          <span class="description">Friends</span>
+                          <span class="heading">35</span>
+                          <span class="description">Amigos</span>
                         </div>
                         <div>
-                          <span class="heading">10</span>
-                          <span class="description">Photos</span>
+                          <span class="heading">0</span>
+                          <span class="description">Fotos</span>
                         </div>
                         <div>
                           <span class="heading">89</span>
-                          <span class="description">Comments</span>
+                          <span class="description">Comentarios</span>
                         </div>
                       </div>
                     </div>
                   </div>
                   <div class="text-center">
                     <h5 class="h3">
-                      Jessica Jones<span class="font-weight-light">, 27</span>
+                      <?php echo $Nombre; ?><span class="font-weight-light">, 27</span>
                     </h5>
                     <div class="h5 font-weight-300">
-                      <i class="ni location_pin mr-2"></i>Bucharest, Romania
-                    </div>
-                    <div class="h5 mt-4">
-                      <i class="ni business_briefcase-24 mr-2"></i>Solution Manager - Creative Tim Officer
-                    </div>
-                    <div>
-                      <i class="ni education_hat mr-2"></i>University of Computer Science
+                      <i class="ni location_pin mr-2"></i>Marinilla
                     </div>
                   </div>
                 </div>
               </div>
             </div>
+            <div class="col-xl-8 order-xl-1">
+              <div class="card">
+                <div class="card-header">
+                  <div class="row align-items-center">
+                    <div class="col-8">
+                      <h3 class="mb-0">Editar perfil </h3>
+                    </div>
+                  </div>
+                </div>
+                <div class="card-body">
+                  <form action="crud/actualizarCuenta.php" method="GET">
+                    <h6 class="heading-small text-muted mb-4">Información de usuario</h6>
+                    <div class="pl-lg-4">
+                      <div class="row">
+                        <div class="col-lg-6">
+                          <div class="form-group">
+                            <label class="form-control-label" for="input-username">Nombre</label>
+                            <input type="text" id="input-username" name="nombre" class="form-control" placeholder="Username" value="<?php echo $resultado2->nombresUsuario; ?>">
+                          </div>
+                        </div>
+                        <div class="col-lg-6">
+                          <div class="form-group">
+                            <label class="form-control-label" for="input-username">Apellido</label>
+                            <input type="text" id="input-username" name="apellido" class="form-control" placeholder="Username" value="<?php echo $resultado2->apellidoUsuario; ?>">
+                          </div>
+                        </div>
+                        <div class="col-lg-6">
+                          <div class="form-group">
+                            <label class="form-control-label" for="input-username">Celular</label>
+                            <input type="text" id="input-username" name="celular" class="form-control" placeholder="Celular" value="<?php echo $resultado2->telefonomovilUsuario; ?>">
+                          </div>
+                        </div>
+                        <div class="col-lg-6">
+                          <div class="form-group">
+                            <label class="form-control-label" for="input-username">Ciudad</label>
+                            <select name="ciudad" class="form-control" required>
+                              <option value="" disabled selected><?php echo $resultado2->ciudadUsuario; ?></option>
+                              <option value="06">Marinilla</option>
+                              <option value="08">Rionegro</option>
+                            </select>
+                          </div>
+                        </div>
+                        <p>Ten en cuenta que si modificas el correo deberás iniciar sesión nuevamente</p>
+                        <div class="col-lg-6">
+                          <div class="form-group">
+                            <label class="form-control-label" for="input-email">Correo</label>
+                            <input type="email" id="input-email" name="correo" class="form-control" value="<?php echo $resultado2->emailUsuario; ?>">
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <input type="hidden" name="ideditar" value="<?php echo $resultado2->documentoIdentidad; ?>">
+                        </div>
+                      </div>
+                      <button class="btn btn-primary btn-xs" type="submit" name="subir">Editar</button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
           <?php } ?>
+          </div>
           <!-- Footer -->
-        </div>
           <?php require_once '../assets/footer.php' ?>
-          
           <!-- Argon Scripts -->
           <!-- Core -->
           <script src="../assets/vendor/jquery/dist/jquery.min.js"></script>
