@@ -48,7 +48,7 @@ if (isset($_SESSION["emailUsuario"]) or isset($_SESSION["documentoIdentidad"])) 
         $Nombre = $resultado2->nombresUsuario . " " . $resultado2->apellidoUsuario;
       ?>
         <!-- Header -->
-        <div class="header pb-6 d-flex align-items-center" style="min-height: 500px; background-image: url(../assets/img/theme/profile-cover.jpg); background-size: cover; background-position: center top;">
+        <div class="header pb-6 d-flex align-items-center" style="min-height: 500px; background-image: url(../../../assets/img/fondoperfil.jpg); background-size: cover; background-position: center top;">
           <!-- Mask -->
           <span class="mask bg-gradient-default opacity-8"></span>
           <!-- Header container -->
@@ -174,15 +174,16 @@ if (isset($_SESSION["emailUsuario"]) or isset($_SESSION["documentoIdentidad"])) 
           </div>
           <!-- Footer -->
           <?php require_once '../assets/footer.php' ?>
-          <!-- Argon Scripts -->
-          <!-- Core -->
-          <script src="../assets/vendor/jquery/dist/jquery.min.js"></script>
-          <script src="../assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-          <script src="../assets/vendor/js-cookie/js.cookie.js"></script>
-          <script src="../assets/vendor/jquery.scrollbar/jquery.scrollbar.min.js"></script>
-          <script src="../assets/vendor/jquery-scroll-lock/dist/jquery-scrollLock.min.js"></script>
-          <!-- Argon JS -->
-          <script src="../assets/js/argon.js?v=1.2.0"></script>
+        </div>
+        <!-- Argon Scripts -->
+        <!-- Core -->
+        <script src="../assets/vendor/jquery/dist/jquery.min.js"></script>
+        <script src="../assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="../assets/vendor/js-cookie/js.cookie.js"></script>
+        <script src="../assets/vendor/jquery.scrollbar/jquery.scrollbar.min.js"></script>
+        <script src="../assets/vendor/jquery-scroll-lock/dist/jquery-scrollLock.min.js"></script>
+        <!-- Argon JS -->
+        <script src="../assets/js/argon.js?v=1.2.0"></script>
     </body>
 
     </html>
