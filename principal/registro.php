@@ -30,6 +30,17 @@
 </head>
 
 <body class="bg-default">
+    <?php
+    //Sirve para mostrar el contenido de la tabla Ciudad, para mostrarlo en la lista desplegable
+    include_once '../dao/conexion.php';
+    //Mostrar los datos almacenados
+    $sql_mostrar_ciudad = "SELECT * FROM tblCiudad";
+    //Prepara sentencia
+    $Consultar_mostrar_ciudad = $pdo->prepare($sql_mostrar_ciudad);
+    //Ejecutar consulta
+    $Consultar_mostrar_ciudad->execute();
+    $resultado_ciudad = $Consultar_mostrar_ciudad->fetchAll();
+    ?>
     <!-- Main content -->
     <div class="main-content">
         <!-- Header -->
@@ -123,8 +134,10 @@
                                 <div class="form-group">
                                     <select name="ciudad" class="form-control" required>
                                         <option value="" disabled selected>Seleccione una ciudad</option>
-                                        <option value="06">Marinilla</option>
-                                        <option value="08">Rionegro</option>
+                                        <?php
+                                        foreach ($resultado_ciudad as $datos_ciudad) { ?>
+                                            <option value="<?php echo $datos_ciudad['codigoCiudad']; ?>"><?php echo $datos_ciudad['nombreCiudad']; ?></option>
+                                        <?php } ?>
                                     </select>
                                 </div>
                                 <div class="form-group">
