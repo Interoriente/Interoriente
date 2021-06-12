@@ -26,6 +26,7 @@
         //Sha1 -> Método de encriptación
         $contrasena = sha1($_POST['contrasena']);
         $estado = '0';
+        $perfil = 'imagenes/NO_borrar.png';
         //Verificación correo existente
         $sql_correoexistente = "SELECT*FROM tblUsuario WHERE emailUsuario='$correo'";
         $consulta_correo = $pdo->prepare($sql_correoexistente);

@@ -70,8 +70,8 @@ if (isset($_SESSION["emailUsuario"]) or isset($_SESSION["documentoIdentidad"])) 
                 <div class="row justify-content-center">
                   <div class="col-lg-3 order-lg-2">
                     <div class="card-profile-image">
-                      <a href="#">
-                        <img src="../assets/img/theme/team-4.jpg" class="rounded-circle">
+                      <a href="#!">
+                        <img src="<?php echo $prueba->imagenUsuario; ?>" class="rounded-circle">
                       </a>
                     </div>
                   </div>
