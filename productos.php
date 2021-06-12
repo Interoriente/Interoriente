@@ -36,12 +36,13 @@
                 <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
                   <div class="card h-100">
                     <div class="card-body">
-                      <img class="card-img-top rounded" src="dashboard/dashPrin/examples/<?php echo $datos['imagen']; ?>" alt="...">
+                      <!--<img class="card-img-top rounded" src="dashboard/dashPrin/examples/// echo $datos['imagen']; ?>" alt="...">-->
                       <h4 class="card-title">
-                        <p class="nombreplato"><?php echo $datos['nombrePublicacion'] ?></p>
+                        <p><?php echo $datos['nombrePublicacion'] ?></p>
                       </h4>
-                      <p class="desplato"><?php echo $datos['descripcion'] ?></p>
-                      <p class="preplato">$<?php echo $datos['costo'] ?></p>
+                      <p><?php echo $datos['descripcionPublicacion'] ?></p>
+                      <p>Stock: <?php echo $datos['stockProducto'] ?></p>
+                      <p>$<?php echo $datos['costoPublicacion'] ?></p>
                     </div>
                   </div>
                 </div>
