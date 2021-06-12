@@ -35,9 +35,18 @@ if (isset($_SESSION["emailUsuario"]) or isset($_SESSION["documentoIdentidad"])) 
     <body>
       <?php require_once '../assets/sidebar.php' ?>
       <?php require_once '../assets/header.php';
+      //Llamar a la conexion base de datos -> Muestro el contenido de tabla publicación, pero muestro mis publicaciones
+      include_once '../../../dao/conexion.php';
+      $id = $_SESSION["documentoIdentidad"];
+      //Mostrar los datos almacenados
+      $sql_mostrar_publi = "SELECT * FROM tblPublicacion WHERE usuario ='$id'";
+      //Prepara sentencia
+      $Consultar_mostrar_publi = $pdo->prepare($sql_mostrar_publi);
+      //Ejecutar consulta
+      $Consultar_mostrar_publi->execute();
+      $resultado_mostrar_publi = $Consultar_mostrar_publi->fetchAll();
 
       //Sirve para mostrar el contenido de la tabla Estado, para mostrarlo en la lista desplegable
-      include_once '../../../dao/conexion.php';
       //Mostrar los datos almacenados
       $sql_mostrar_estado = "SELECT * FROM tblEstado";
       //Prepara sentencia
@@ -48,7 +57,7 @@ if (isset($_SESSION["emailUsuario"]) or isset($_SESSION["documentoIdentidad"])) 
       //Imprimir var dump -> Arreglos u objetos
 
       //Sirve para mostrar el contenido de la tabla Categoria, para mostrarlo en la lista desplegable
-      include_once '../../../dao/conexion.php';
+
       //Mostrar los datos almacenados
       $sql_mostrar_categoria = "SELECT * FROM tblCategoria";
       //Prepara sentencia
@@ -57,108 +66,124 @@ if (isset($_SESSION["emailUsuario"]) or isset($_SESSION["documentoIdentidad"])) 
       $Consultar_mostrar_categoria->execute();
       $resultado_categoria = $Consultar_mostrar_categoria->fetchAll();
 
-      $id = $_SESSION["documentoIdentidad"];
-      include_once '../../../dao/conexion.php';
-      $sql_inicio = "SELECT*FROM tblUsuario WHERE documentoIdentidad ='$id' ";
-      $consulta_resta = $pdo->prepare($sql_inicio);
-      $consulta_resta->execute();
-      $resultado = $consulta_resta->rowCount(array($id));
-      $resultado2 = $consulta_resta->fetch(PDO::FETCH_OBJ);
-      //Validacion de roles
-      if ($resultado) {
       ?>
-        <br><br><br><br>
-        <!-- Page content -->
-        <div class="container-fluid mt--6">
-          <div class="row">
-            <div class="col-xl-8 order-xl-1">
-              <div class="card">
-                <div class="card-header">
-                  <div class="row align-items-center">
-                    <div class="col-8">
-                      <h3 class="mb-0">Crear Publicación</h3>
-                    </div>
+      <br><br><br><br>
+      <!-- Page content -->
+      <div class="container-fluid mt--6">
+        <div class="row">
+          <div class="col-xl-8 order-xl-1">
+            <div class="card">
+              <div class="card-header">
+                <div class="row align-items-center">
+                  <div class="col-8">
+                    <h3 class="mb-0">Crear Publicación</h3>
                   </div>
                 </div>
-                <div class="card-body">
-                  <form action="crearPubli.php" method="POST" enctype="multipart/form-data">
-                    <h6 class="heading-small text-muted mb-4">Información del producto</h6>
-                    <div class="pl-lg-4">
-                      <div class="row">
-                        <div class="col-lg-6">
-                          <div class="form-group">
-                            <label class="form-control-label" for="input-username">Nombre producto</label>
-                            <input type="text" id="input-username" name="nombre" class="form-control" placeholder="Nombre producto" value="">
-                          </div>
-                        </div>
-                        <div class="col-lg-6">
-                          <div class="form-group">
-                            <label class="form-control-label" for="input-username">Descripcion</label>
-                            <input type="text" id="input-username" name="descripcion" class="form-control" placeholder="Descripcion" value="">
-                          </div>
-                        </div>
-                        <div class="col-lg-6">
-                          <div class="form-group">
-                            <label class="form-control-label" for="input-username">Color</label>
-                            <input type="color" id="input-username" name="color" class="form-control" placeholder="Color" value="">
-                          </div>
-                        </div>
-                        <div class="col-lg-6">
-                          <div class="form-group">
-                            <label class="form-control-label" for="input-username">Costo</label>
-                            <input type="text" id="input-username" name="costo" class="form-control" placeholder="Costo" value="">
-                          </div>
-                        </div>
-                        <div class="col-lg-6">
-                          <div class="form-group">
-                            <label class="form-control-label" for="input-email">Estado</label>
-                            <select name="estado" class="form-control" required>
-                              <option value="" disabled selected>Seleccione un estado del producto</option>
-                              <?php
-                              foreach ($resultado_estado as $datos_estado) { ?>
-                                <option value="<?php echo $datos_estado['idEstado']; ?>"><?php echo $datos_estado['nombreEstado']; ?></option>
-                              <?php } ?>
-                            </select>
-                          </div>
-                        </div>
-
-                        <div class="col-lg-6">
-                          <div class="form-group">
-                            <label class="form-control-label" for="input-username">Stock Producto</label>
-                            <input type="number" id="input-username" name="stock" class="form-control" placeholder="Stock (cantidad)" value="">
-                          </div>
-                        </div>
-                        <div class="col-lg-6">
-                          <div class="form-group">
-                            <label class="form-control-label" for="input-email">Categoria</label>
-                            <select name="categoria" class="form-control" required>
-                              <option value="" disabled selected>Seleccione una categoria del producto</option>
-                              <?php
-                              foreach ($resultado_categoria as $datos_categoria) { ?>
-                                <option value="<?php echo $datos_categoria['idCategoria']; ?>"><?php echo $datos_categoria['nombreCategoria']; ?></option>
-                              <?php } ?>
-                            </select>
-                          </div>
-                        </div>
-                        <div class="col-lg-6">
-                          <div class="form-group">
-                            <label class="form-control-label" for="input-username">Imagen</label>
-                            <input type="file" id="input-username" name="costo" class="form-control" placeholder="Imagen" value="">
-                          </div>
-                        </div>
-                        <div class="col-lg-6">
-                          <div class="form-group">
-                            <input type="hidden" id="input-username" name="usuario" class="form-control" placeholder="Usuario" value="<?php echo $id; ?>">
-                          </div>
+              </div>
+              <div class="card-body">
+                <form action="crearPubli.php" method="POST" enctype="multipart/form-data">
+                  <h6 class="heading-small text-muted mb-4">Información del producto</h6>
+                  <div class="pl-lg-4">
+                    <div class="row">
+                      <div class="col-lg-6">
+                        <div class="form-group">
+                          <label class="form-control-label" for="input-username">Nombre producto</label>
+                          <input type="text" id="input-username" name="nombre" class="form-control" placeholder="Nombre producto" value="">
                         </div>
                       </div>
-                      <button class="btn btn-primary btn-xs" type="submit" name="subir">Publicar</button>
+                      <div class="col-lg-6">
+                        <div class="form-group">
+                          <label class="form-control-label" for="input-username">Descripcion</label>
+                          <input type="text" id="input-username" name="descripcion" class="form-control" placeholder="Descripcion" value="">
+                        </div>
+                      </div>
+                      <div class="col-lg-6">
+                        <div class="form-group">
+                          <label class="form-control-label" for="input-username">Color</label>
+                          <input type="color" id="input-username" name="color" class="form-control" placeholder="Color" value="">
+                        </div>
+                      </div>
+                      <div class="col-lg-6">
+                        <div class="form-group">
+                          <label class="form-control-label" for="input-username">Costo</label>
+                          <input type="text" id="input-username" name="costo" class="form-control" placeholder="Costo" value="">
+                        </div>
+                      </div>
+                      <div class="col-lg-6">
+                        <div class="form-group">
+                          <label class="form-control-label" for="input-email">Estado</label>
+                          <select name="estado" class="form-control" required>
+                            <option value="" disabled selected>Seleccione un estado del producto</option>
+                            <?php
+                            foreach ($resultado_estado as $datos_estado) { ?>
+                              <option value="<?php echo $datos_estado['idEstado']; ?>"><?php echo $datos_estado['nombreEstado']; ?></option>
+                            <?php } ?>
+                          </select>
+                        </div>
+                      </div>
+
+                      <div class="col-lg-6">
+                        <div class="form-group">
+                          <label class="form-control-label" for="input-username">Stock Producto</label>
+                          <input type="number" id="input-username" name="stock" class="form-control" placeholder="Stock (cantidad)" value="">
+                        </div>
+                      </div>
+                      <div class="col-lg-6">
+                        <div class="form-group">
+                          <label class="form-control-label" for="input-email">Categoria</label>
+                          <select name="categoria" class="form-control" required>
+                            <option value="" disabled selected>Seleccione una categoria del producto</option>
+                            <?php
+                            foreach ($resultado_categoria as $datos_categoria) { ?>
+                              <option value="<?php echo $datos_categoria['idCategoria']; ?>"><?php echo $datos_categoria['nombreCategoria']; ?></option>
+                            <?php } ?>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="col-lg-6">
+                        <div class="form-group">
+                          <label class="form-control-label" for="input-username">Imagen</label>
+                          <input type="file" id="input-username" name="costo" class="form-control" placeholder="Imagen" value="">
+                        </div>
+                      </div>
+                      <div class="col-lg-6">
+                        <div class="form-group">
+                          <input type="hidden" id="input-username" name="usuario" class="form-control" placeholder="Usuario" value="<?php echo $id; ?>">
+                        </div>
+                      </div>
                     </div>
-                  </form>
-                </div>
+                    <button class="btn btn-primary btn-xs" type="submit" name="subir">Publicar</button>
+                  </div>
+                </form>
               </div>
             </div>
-          <?php }
+          </div>
+        </div>
+        <center>
+          <h1>Mis publicaciones</h1>
+        </center>
+
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Nombre</th>
+              <th scope="col">Descripcion</th>
+              <th scope="col">Costo</th>
+              <th scope="col">Stock</th>
+            </tr>
+          </thead>
+          <tbody>
+            <?php foreach ($resultado_mostrar_publi as $datos_publi) { ?>
+              <tr>
+                <th><?php echo $datos_publi['nombrePublicacion'] ?></th>
+                <td><?php echo $datos_publi['descripcionPublicacion'] ?></td>
+                <td><?php echo $datos_publi['costoPublicacion'] ?></td>
+                <td><?php echo $datos_publi['stockProducto'] ?></td>
+              </tr>
+            <?php } ?>
+          </tbody>
+        </table>
+        <?php
         if (isset($_POST['subir'])) {
           include_once '../../../dao/conexion.php';
           $nombre = $_POST['nombre'];
@@ -178,20 +203,20 @@ if (isset($_SESSION["emailUsuario"]) or isset($_SESSION["documentoIdentidad"])) 
           echo "<script>alert('El registro se subió correctamente');</script>";
           echo "<script> document.location.href='crearPubli.php';</script>";
         }
-          ?>
-          </div>
-          <!-- Footer -->
-          <?php require_once '../assets/footer.php' ?>
-        </div>
-        <!-- Argon Scripts -->
-        <!-- Core -->
-        <script src="../assets/vendor/jquery/dist/jquery.min.js"></script>
-        <script src="../assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-        <script src="../assets/vendor/js-cookie/js.cookie.js"></script>
-        <script src="../assets/vendor/jquery.scrollbar/jquery.scrollbar.min.js"></script>
-        <script src="../assets/vendor/jquery-scroll-lock/dist/jquery-scrollLock.min.js"></script>
-        <!-- Argon JS -->
-        <script src="../assets/js/argon.js?v=1.2.0"></script>
+        ?>
+
+        <!-- Footer -->
+        <?php require_once '../assets/footer.php' ?>
+      </div>
+      <!-- Argon Scripts -->
+      <!-- Core -->
+      <script src="../assets/vendor/jquery/dist/jquery.min.js"></script>
+      <script src="../assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+      <script src="../assets/vendor/js-cookie/js.cookie.js"></script>
+      <script src="../assets/vendor/jquery.scrollbar/jquery.scrollbar.min.js"></script>
+      <script src="../assets/vendor/jquery-scroll-lock/dist/jquery-scrollLock.min.js"></script>
+      <!-- Argon JS -->
+      <script src="../assets/js/argon.js?v=1.2.0"></script>
     </body>
 
     </html>

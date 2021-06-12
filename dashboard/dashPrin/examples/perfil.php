@@ -36,6 +36,16 @@ if (isset($_SESSION["emailUsuario"]) or isset($_SESSION["documentoIdentidad"])) 
       <?php require_once '../assets/sidebar.php' ?>
       <?php require_once '../assets/header.php' ?>
       <?php
+      //Sirve para mostrar el contenido de la tabla Ciudad, para mostrarlo en la lista desplegable
+      include_once '../../../dao/conexion.php';
+      //Mostrar los datos almacenados
+      $sql_mostrar_ciudad = "SELECT * FROM tblCiudad";
+      //Prepara sentencia
+      $Consultar_mostrar_ciudad = $pdo->prepare($sql_mostrar_ciudad);
+      //Ejecutar consulta
+      $Consultar_mostrar_ciudad->execute();
+      $resultado_ciudad = $Consultar_mostrar_ciudad->fetchAll();
+
       $id = $_SESSION["emailUsuario"];
       include_once '../../../dao/conexion.php';
       $sql_inicio = "SELECT*FROM tblUsuario WHERE emailUsuario ='$id' ";
@@ -105,7 +115,7 @@ if (isset($_SESSION["emailUsuario"]) or isset($_SESSION["documentoIdentidad"])) 
                       <?php echo $Nombre; ?><span class="font-weight-light">, 27</span>
                     </h5>
                     <div class="h5 font-weight-300">
-                      <i class="ni location_pin mr-2"></i>Marinilla
+                      <i class="ni location_pin mr-2"></i><?php echo $resultado2->ciudadUsuario;?>
                     </div>
                   </div>
                 </div>
@@ -148,8 +158,10 @@ if (isset($_SESSION["emailUsuario"]) or isset($_SESSION["documentoIdentidad"])) 
                             <label class="form-control-label" for="input-username">Ciudad</label>
                             <select name="ciudad" class="form-control" required>
                               <option value="" disabled selected><?php echo $resultado2->ciudadUsuario; ?></option>
-                              <option value="06">Marinilla</option>
-                              <option value="08">Rionegro</option>
+                              <?php
+                              foreach ($resultado_ciudad as $datos_ciudad) { ?>
+                              <option value="<?php echo $datos_ciudad['codigoCiudad'] ?>"><?php echo $datos_ciudad['nombreCiudad'] ?></option>
+                              <?php } ?>
                             </select>
                           </div>
                         </div>
