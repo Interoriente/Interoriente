@@ -53,7 +53,7 @@ if (isset($_SESSION["emailUsuario"]) or isset($_SESSION["documentoIdentidad"])) 
                                     <div class="col-lg-6">
                                         <div class="form-group">
                                             <label class="form-control-label" for="input-username">Foto de perfil</label>
-                                            <input type="file" id="input-username" name="file" class="form-control-file" placeholder="Username" value="<?php echo $resultado2->nombresUsuario; ?>">
+                                            <input type="file" id="input-username" name="file" class="form-control-file" placeholder="Imagen" value="" required>
                                         </div>
                                     </div>
                                 </div>
@@ -97,7 +97,7 @@ if (isset($_SESSION["emailUsuario"]) or isset($_SESSION["documentoIdentidad"])) 
                                 //Ejecutar la sentencia
                                 $consulta_insertar->execute(array($archivo,$id));
                                 echo "<script>alert('Foto de perfil subida y actualizada correctamente');</script>";
-                                echo "<script> document.location.href='crearPubli.php';</script>";
+                                echo "<script> document.location.href='perfil.php';</script>";
                             } else {
                                 echo "<script>alert('Ocurrió un error');</script>";
                             }

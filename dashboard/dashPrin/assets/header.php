@@ -47,7 +47,7 @@
                 <a class="nav-link pr-0" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   <div class="media align-items-center">
                     <span class="avatar avatar-sm rounded-circle">
-                    <!--- Impresión imagen de perfil -->
+                      <!--- Impresión imagen de perfil -->
                       <img alt="Image placeholder" src="<?php echo $prueba->imagenUsuario; ?>">
                     </span>
                     <div class="media-body  ml-2  d-none d-lg-block">
@@ -65,7 +65,7 @@
                     <i class="ni ni-single-02"></i>
                     <span>Mi perfil</span>
                   </a>
-                  <a href="#!" class="dropdown-item">
+                  <a href="../examples/configfotoperfil.php" class="dropdown-item">
                     <i class="ni ni-settings-gear-65"></i>
                     <span>Cambiar foto</span>
                   </a>
@@ -78,7 +78,7 @@
                     <span>Soporte</span>
                   </a>
                   <div class="dropdown-divider"></div>
-                  <a href="../../../controller/cerrar_sesion.php" class="dropdown-item">
+                  <a href="../../../controller/cerrar_sesion.php" class="dropdown-item"  data-toggle="modal" data-target="#logoutModal">
                     <i class="ni ni-user-run"></i>
                     <span>Cerrar sesión</span>
                   </a>
@@ -89,3 +89,21 @@
     </div>
   </nav>
   <!-- Header -->
+  <!-- Logout Modal-->
+  <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">¿Seguro quieres salir?</h5>
+          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body">Seleccione "Cerrar sesión" a continuación si está listo para finalizar su sesión actual.</div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
+          <a class="btn btn-primary" href="../../../controller/cerrar_sesion.php">Cerrar sesión</a>
+        </div>
+      </div>
+    </div>
+  </div>
