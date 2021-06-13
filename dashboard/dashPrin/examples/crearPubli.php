@@ -254,13 +254,31 @@ if (isset($_SESSION["emailUsuario"]) or isset($_SESSION["documentoIdentidad"])) 
                   <td><?php echo $datos_publi['costoPublicacion'] ?></td>
                   <td><?php echo $datos_publi['stockProducto'] ?></td>
                   <td><a href="crearPubli.php?id=<?php echo $datos_publi['idPublicacion']; ?>"><i class="icono2 fas fa-pencil-alt"></i></a></td>
-                  <td><a href="crud/eliminarPubli.php?id=<?php echo $datos_publi['idPublicacion']; ?>"><i class="icono1 fas fa-trash"></i></a></td>
+                  <td><a href="#" data-toggle="modal" data-target="#eliminarPubliModal"><i class="icono1 fas fa-trash"></i></a></td>
 
                 </tr>
             <?php }
             } ?>
             </tbody>
           </table>
+          <!-- Logout Modal-->
+          <div class="modal fade" id="eliminarPubliModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">¿Seguro quieres eliminar esta publicación?</h5>
+                  <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                  </button>
+                </div>
+                <div class="modal-body">Seleccione "Eliminar" para eliminar la publicación, esta acción no se podrá deshacer.</div>
+                <div class="modal-footer">
+                  <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
+                  <a class="btn btn-primary" href="crud/eliminarPubli.php?id=<?php echo $datos_publi['idPublicacion']; ?>">Eliminar</a>
+                </div>
+              </div>
+            </div>
+          </div>
           <?php
           if (isset($_POST['subir'])) {
             include_once '../../../dao/conexion.php';
