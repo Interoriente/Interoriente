@@ -124,7 +124,7 @@
               saepe nobis voluptas. Laudantium similique neque ullam quae quos.
               Eum iure porro reprehenderit.
             </p>
-            <a href="principal/iniciarsesion.php">¡Vamos!</a>
+            <a href="principal/navegacion/iniciarsesion.php">¡Vamos!</a>
           </div>
         </div>
       </div>

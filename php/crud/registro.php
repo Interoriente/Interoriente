@@ -46,7 +46,7 @@
             //Ejecutar la sentencia
             $consulta_insertar->execute(array($documento, $nombres, $apellidos, $telefono, $celular, $correo, $contrasena, $ciudad, $estado));
             echo "<script>alert('Datos almacenados correctamente');</script>";
-            echo "<script> document.location.href='../../principal/iniciarsesion.php';</script>";
+            echo "<script> document.location.href='../../principal/navegacion/iniciarsesion.php';</script>";
         }
     }
     ?>

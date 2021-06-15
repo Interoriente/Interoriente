@@ -33,7 +33,7 @@ session_start();
             echo "<script> document.location.href='../../users/dashboard/principal/dashboard.php';</script>";
         } else {
             echo "<script>alert('Correo y/o contraseña incorrecto, o validación denegada');</script>";
-            echo "<script> document.location.href='../../principal/iniciarsesion.php';</script>";
+            echo "<script> document.location.href='../../principal/navegacion/iniciarsesion.php';</script>";
         }
     }
     ?>
@@ -75,7 +75,7 @@ session_start();
             echo "<script> document.location.href='../../users/dashboard/examples/dashboard.php';</script>";
         } else {
             echo "<script>alert('Correo y/o contraseña incorrecto, o validación denegada');</script>";
-            echo "<script> document.location.href='../../principal/iniciarsesion.php';</script>";
+            echo "<script> document.location.href='../../principal/navegacion/iniciarsesion.php';</script>";
         }
     }
     ?>
