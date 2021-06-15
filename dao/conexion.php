@@ -11,5 +11,7 @@ try {
      //Error Conexion
      print "Error! ". $e->getMessage();
      die();
+}finally{
+     $pdo = null;
 }
 ?>
