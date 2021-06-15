@@ -11,7 +11,5 @@ try {
      //Error Conexion
      print "Error! ". $e->getMessage();
      die();
-}finally{
-     $pdo = null; //Vacía variable para que no consuma recursos después de ser usada.
 }
 ?>
