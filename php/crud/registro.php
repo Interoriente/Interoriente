@@ -36,7 +36,7 @@
         if ($resultado_correo) {
             //Impresión correo ingresado, ya existe en BD
             echo "<script>alert('El correo ingresado ya existe!, por favor verificalo e intenta nuevamente');</script>";
-            echo "<script> document.location.href='../../principal/registro.php';</script>";
+            echo "<script> document.location.href='../../principal/navegacion/registro.php';</script>";
         } else {
             //Consulta correo ingresado no existe en BD
             //sentencia Sql

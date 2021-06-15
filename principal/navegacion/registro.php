@@ -19,20 +19,20 @@
     <meta name="author" content="Creative Tim">
     <title>Registrarse - Interoriente</title>
     <!-- Favicon -->
-    <link rel="icon" href="../assets/img/favicon.png" type="image/png">
+    <link rel="icon" href="../../assets/img/favicon.png" type="image/png">
     <!-- Fonts -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700">
     <!-- Icons -->
-    <link rel="stylesheet" href="../users/dashboard/assets/vendor/nucleo/css/nucleo.css" type="text/css">
-    <link rel="stylesheet" href="../users/dashboard/assets/vendor/@fortawesome/fontawesome-free/css/all.min.css" type="text/css">
+    <link rel="stylesheet" href="../../users/dashboard/assets/vendor/nucleo/css/nucleo.css" type="text/css">
+    <link rel="stylesheet" href="../../users/dashboard/assets/vendor/@fortawesome/fontawesome-free/css/all.min.css" type="text/css">
     <!-- Argon CSS -->
-    <link rel="stylesheet" href="../users/dashboard/assets/css/argon.css?v=1.2.0" type="text/css">
+    <link rel="stylesheet" href="../../users/dashboard/assets/css/argon.css?v=1.2.0" type="text/css">
 </head>
 
 <body class="bg-default">
     <?php
     //Sirve para mostrar el contenido de la tabla Ciudad, para mostrarlo en la lista desplegable
-    include_once '../dao/conexion.php';
+    include_once '../../dao/conexion.php';
     //Mostrar los datos almacenados
     $sql_mostrar_ciudad = "SELECT * FROM tblCiudad";
     //Prepara sentencia
@@ -71,11 +71,11 @@
                             <div class="text-muted text-center mt-2 mb-4"><small>Puedes registrarte por:</small></div>
                             <div class="text-center">
                                 <a href="#" class="btn btn-neutral btn-icon mr-4">
-                                    <span class="btn-inner--icon"><img src="../users/dashboard/assets/img/icons/common/github.svg"></span>
+                                    <span class="btn-inner--icon"><img src="../../users/dashboard/assets/img/icons/common/github.svg"></span>
                                     <span class="btn-inner--text">Github</span>
                                 </a>
                                 <a href="#" class="btn btn-neutral btn-icon">
-                                    <span class="btn-inner--icon"><img src="../users/dashboard/assets/img/icons/common/google.svg"></span>
+                                    <span class="btn-inner--icon"><img src="../../users/dashboard/assets/img/icons/common/google.svg"></span>
                                     <span class="btn-inner--text">Google</span>
                                 </a>
                             </div>
@@ -84,7 +84,7 @@
                             <div class="text-center text-muted mb-4">
                                 <small>O con tus datos puedes diligenciar tus datos en los seguientes campos</small>
                             </div>
-                            <form action="../php/crud/registro.php" method="POST">
+                            <form action="../../php/crud/navegacion/registro.php" method="POST">
                                 <div class="form-group">
                                     <label for="">Nombres:</label>
                                     <div class="input-group input-group-merge input-group-alternative mb-3">
@@ -177,7 +177,7 @@
                     </div>
                     <div class="row mt-3">
                         <div class="col-6">
-                            <a href="../index.php" class="text-light"><small>Regresar a inicio</small></a>
+                            <a href="../../index.php" class="text-light"><small>Regresar a inicio</small></a>
                         </div>
                         <div class="col-6 text-right">
                             <a href="iniciarsesion.php" class="text-light"><small>Tienes cuenta?</small></a>
@@ -188,13 +188,13 @@
         </div>
     </div>
     <!-- Core -->
-    <script src="../users/dashboard/assets/vendor/jquery/dist/jquery.min.js"></script>
-    <script src="../users/dashboard/assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="../users/dashboard/assets/vendor/js-cookie/js.cookie.js"></script>
-    <script src="../users/dashboard/assets/vendor/jquery.scrollbar/jquery.scrollbar.min.js"></script>
-    <script src="../users/dashboard/assets/vendor/jquery-scroll-lock/dist/jquery-scrollLock.min.js"></script>
+    <script src="../../users/dashboard/assets/vendor/jquery/dist/jquery.min.js"></script>
+    <script src="../../users/dashboard/assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../../users/dashboard/assets/vendor/js-cookie/js.cookie.js"></script>
+    <script src="../../users/dashboard/assets/vendor/jquery.scrollbar/jquery.scrollbar.min.js"></script>
+    <script src="../../users/dashboard/assets/vendor/jquery-scroll-lock/dist/jquery-scrollLock.min.js"></script>
     <!-- Argon JS -->
-    <script src="../users/dashboard/assets/js/argon.js?v=1.2.0"></script>
+    <script src="../../users/dashboard/assets/js/argon.js?v=1.2.0"></script>
 
     <body background="assets/img/im12.jpg" style="background-repeat: no-repeat; background-position: center center;">
 
