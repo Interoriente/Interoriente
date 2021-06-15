@@ -1,5 +1,5 @@
-/*!
- * Font Awesome Free 5.12.0 by @fontawesome - https://fontawesome.com
+/*! Iconos fontawesome
+ * Font Awesome Free 5.15.3 by @fontawesome - https://fontawesome.com
  * License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
  */
 
@@ -249,10 +249,6 @@
 
 .fa-adn:before {
     content: "\f170"
-}
-
-.fa-adobe:before {
-    content: "\f778"
 }
 
 .fa-adversal:before {
@@ -551,6 +547,14 @@
     content: "\f7e5"
 }
 
+.fa-bacteria:before {
+    content: "\e059"
+}
+
+.fa-bacterium:before {
+    content: "\e05a"
+}
+
 .fa-bahai:before {
     content: "\f666"
 }
@@ -801,6 +805,10 @@
 
 .fa-box-open:before {
     content: "\f49e"
+}
+
+.fa-box-tissue:before {
+    content: "\e05b"
 }
 
 .fa-boxes:before {
@@ -1295,6 +1303,10 @@
     content: "\f382"
 }
 
+.fa-cloudflare:before {
+    content: "\e07d"
+}
+
 .fa-cloudscale:before {
     content: "\f383"
 }
@@ -1567,6 +1579,10 @@
     content: "\f6ca"
 }
 
+.fa-dailymotion:before {
+    content: "\e052"
+}
+
 .fa-dashcube:before {
     content: "\f210"
 }
@@ -1577,6 +1593,10 @@
 
 .fa-deaf:before {
     content: "\f2a4"
+}
+
+.fa-deezer:before {
+    content: "\e077"
 }
 
 .fa-delicious:before {
@@ -1681,6 +1701,10 @@
 
 .fa-discourse:before {
     content: "\f393"
+}
+
+.fa-disease:before {
+    content: "\f7fa"
 }
 
 .fa-divide:before {
@@ -1817,6 +1841,10 @@
 
 .fa-edge:before {
     content: "\f282"
+}
+
+.fa-edge-legacy:before {
+    content: "\e078"
 }
 
 .fa-edit:before {
@@ -1991,6 +2019,10 @@
     content: "\f050"
 }
 
+.fa-faucet:before {
+    content: "\e005"
+}
+
 .fa-fax:before {
     content: "\f1ac"
 }
@@ -2152,7 +2184,7 @@
 }
 
 .fa-firefox-browser:before {
-    content: "\f907"
+    content: "\e007"
 }
 
 .fa-first-aid:before {
@@ -2471,6 +2503,10 @@
     content: "\f3aa"
 }
 
+.fa-google-pay:before {
+    content: "\e079"
+}
+
 .fa-google-play:before {
     content: "\f3ab"
 }
@@ -2595,6 +2631,10 @@
     content: "\f3ad"
 }
 
+.fa-guilded:before {
+    content: "\e07e"
+}
+
 .fa-guitar:before {
     content: "\f7a6"
 }
@@ -2639,8 +2679,16 @@
     content: "\f4be"
 }
 
+.fa-hand-holding-medical:before {
+    content: "\e05c"
+}
+
 .fa-hand-holding-usd:before {
     content: "\f4c0"
+}
+
+.fa-hand-holding-water:before {
+    content: "\f4c1"
 }
 
 .fa-hand-lizard:before {
@@ -2687,6 +2735,10 @@
     content: "\f257"
 }
 
+.fa-hand-sparkles:before {
+    content: "\e05d"
+}
+
 .fa-hand-spock:before {
     content: "\f259"
 }
@@ -2699,8 +2751,20 @@
     content: "\f4c4"
 }
 
+.fa-hands-wash:before {
+    content: "\e05e"
+}
+
 .fa-handshake:before {
     content: "\f2b5"
+}
+
+.fa-handshake-alt-slash:before {
+    content: "\e05f"
+}
+
+.fa-handshake-slash:before {
+    content: "\e060"
 }
 
 .fa-hanukiah:before {
@@ -2729,6 +2793,22 @@
 
 .fa-hdd:before {
     content: "\f0a0"
+}
+
+.fa-head-side-cough:before {
+    content: "\e061"
+}
+
+.fa-head-side-cough-slash:before {
+    content: "\e062"
+}
+
+.fa-head-side-mask:before {
+    content: "\e063"
+}
+
+.fa-head-side-virus:before {
+    content: "\e064"
 }
 
 .fa-heading:before {
@@ -2787,6 +2867,10 @@
     content: "\f1da"
 }
 
+.fa-hive:before {
+    content: "\e07f"
+}
+
 .fa-hockey-puck:before {
     content: "\f453"
 }
@@ -2827,6 +2911,10 @@
     content: "\f47e"
 }
 
+.fa-hospital-user:before {
+    content: "\f80d"
+}
+
 .fa-hot-tub:before {
     content: "\f593"
 }
@@ -2861,6 +2949,10 @@
 
 .fa-house-damage:before {
     content: "\f6f1"
+}
+
+.fa-house-user:before {
+    content: "\e065"
 }
 
 .fa-houzz:before {
@@ -2908,7 +3000,7 @@
 }
 
 .fa-ideal:before {
-    content: "\f913"
+    content: "\e013"
 }
 
 .fa-igloo:before {
@@ -2951,8 +3043,20 @@
     content: "\f05a"
 }
 
+.fa-innosoft:before {
+    content: "\e080"
+}
+
 .fa-instagram:before {
     content: "\f16d"
+}
+
+.fa-instagram-square:before {
+    content: "\e055"
+}
+
+.fa-instalod:before {
+    content: "\e081"
 }
 
 .fa-intercom:before {
@@ -3105,6 +3209,10 @@
 
 .fa-laptop-code:before {
     content: "\f5fc"
+}
+
+.fa-laptop-house:before {
+    content: "\e066"
 }
 
 .fa-laptop-medical:before {
@@ -3261,6 +3369,14 @@
 
 .fa-luggage-cart:before {
     content: "\f59d"
+}
+
+.fa-lungs:before {
+    content: "\f604"
+}
+
+.fa-lungs-virus:before {
+    content: "\e067"
 }
 
 .fa-lyft:before {
@@ -3432,7 +3548,7 @@
 }
 
 .fa-microblog:before {
-    content: "\f91a"
+    content: "\e01a"
 }
 
 .fa-microchip:before {
@@ -3485,6 +3601,10 @@
 
 .fa-mixcloud:before {
     content: "\f289"
+}
+
+.fa-mixer:before {
+    content: "\e056"
 }
 
 .fa-mizuni:before {
@@ -3629,6 +3749,10 @@
 
 .fa-object-ungroup:before {
     content: "\f248"
+}
+
+.fa-octopus-deploy:before {
+    content: "\e082"
 }
 
 .fa-odnoklassniki:before {
@@ -3803,12 +3927,20 @@
     content: "\f704"
 }
 
+.fa-people-arrows:before {
+    content: "\e068"
+}
+
 .fa-people-carry:before {
     content: "\f4ce"
 }
 
 .fa-pepper-hot:before {
     content: "\f816"
+}
+
+.fa-perbyte:before {
+    content: "\e083"
 }
 
 .fa-percent:before {
@@ -3888,7 +4020,7 @@
 }
 
 .fa-pied-piper-square:before {
-    content: "\f91e"
+    content: "\e01e"
 }
 
 .fa-piggy-bank:before {
@@ -3929,6 +4061,10 @@
 
 .fa-plane-departure:before {
     content: "\f5b0"
+}
+
+.fa-plane-slash:before {
+    content: "\e069"
 }
 
 .fa-play:before {
@@ -4029,6 +4165,14 @@
 
 .fa-project-diagram:before {
     content: "\f542"
+}
+
+.fa-pump-medical:before {
+    content: "\e06a"
+}
+
+.fa-pump-soap:before {
+    content: "\e06b"
 }
 
 .fa-pushed:before {
@@ -4283,6 +4427,10 @@
     content: "\f156"
 }
 
+.fa-rust:before {
+    content: "\e07a"
+}
+
 .fa-sad-cry:before {
     content: "\f5b3"
 }
@@ -4411,6 +4559,10 @@
     content: "\f3ed"
 }
 
+.fa-shield-virus:before {
+    content: "\e06c"
+}
+
 .fa-ship:before {
     content: "\f21a"
 }
@@ -4425,6 +4577,10 @@
 
 .fa-shoe-prints:before {
     content: "\f54b"
+}
+
+.fa-shopify:before {
+    content: "\e057"
 }
 
 .fa-shopping-bag:before {
@@ -4481,6 +4637,10 @@
 
 .fa-simplybuilt:before {
     content: "\f215"
+}
+
+.fa-sink:before {
+    content: "\e06d"
 }
 
 .fa-sistrix:before {
@@ -4605,6 +4765,10 @@
 
 .fa-snowplow:before {
     content: "\f7d2"
+}
+
+.fa-soap:before {
+    content: "\e06e"
 }
 
 .fa-socks:before {
@@ -4827,12 +4991,24 @@
     content: "\f2f2"
 }
 
+.fa-stopwatch-20:before {
+    content: "\e06f"
+}
+
 .fa-store:before {
     content: "\f54e"
 }
 
 .fa-store-alt:before {
     content: "\f54f"
+}
+
+.fa-store-alt-slash:before {
+    content: "\e070"
+}
+
+.fa-store-slash:before {
+    content: "\e071"
 }
 
 .fa-strava:before {
@@ -5115,6 +5291,10 @@
     content: "\f3ff"
 }
 
+.fa-tiktok:before {
+    content: "\e07b"
+}
+
 .fa-times:before {
     content: "\f00d"
 }
@@ -5149,6 +5329,10 @@
 
 .fa-toilet-paper:before {
     content: "\f71e"
+}
+
+.fa-toilet-paper-slash:before {
+    content: "\e072"
 }
 
 .fa-toolbox:before {
@@ -5188,7 +5372,7 @@
 }
 
 .fa-trailer:before {
-    content: "\f941"
+    content: "\e041"
 }
 
 .fa-train:before {
@@ -5319,6 +5503,10 @@
     content: "\f5ca"
 }
 
+.fa-uncharted:before {
+    content: "\e084"
+}
+
 .fa-underline:before {
     content: "\f0cd"
 }
@@ -5336,7 +5524,7 @@
 }
 
 .fa-unity:before {
-    content: "\f949"
+    content: "\e049"
 }
 
 .fa-universal-access:before {
@@ -5357,6 +5545,10 @@
 
 .fa-unlock-alt:before {
     content: "\f13e"
+}
+
+.fa-unsplash:before {
+    content: "\e07c"
 }
 
 .fa-untappd:before {
@@ -5479,6 +5671,10 @@
     content: "\f509"
 }
 
+.fa-users-slash:before {
+    content: "\e073"
+}
+
 .fa-usps:before {
     content: "\f7e1"
 }
@@ -5513,6 +5709,14 @@
 
 .fa-venus-mars:before {
     content: "\f228"
+}
+
+.fa-vest:before {
+    content: "\e085"
+}
+
+.fa-vest-patches:before {
+    content: "\e086"
 }
 
 .fa-viacoin:before {
@@ -5565,6 +5769,18 @@
 
 .fa-vine:before {
     content: "\f1ca"
+}
+
+.fa-virus:before {
+    content: "\e074"
+}
+
+.fa-virus-slash:before {
+    content: "\e075"
+}
+
+.fa-viruses:before {
+    content: "\e076"
 }
 
 .fa-vk:before {
@@ -5621,6 +5837,10 @@
 
 .fa-warehouse:before {
     content: "\f494"
+}
+
+.fa-watchman-monitoring:before {
+    content: "\e087"
 }
 
 .fa-water:before {
@@ -5721,6 +5941,10 @@
 
 .fa-wizards-of-the-coast:before {
     content: "\f730"
+}
+
+.fa-wodu:before {
+    content: "\e088"
 }
 
 .fa-wolf-pack-battalion:before {
@@ -5850,8 +6074,8 @@
 @font-face {
     font-family: "Font Awesome 5 Brands";
     font-style: normal;
-    font-weight: normal;
-    font-display: auto;
+    font-weight: 400;
+    font-display: block;
     src: url(../webfonts/fa-brands-400.eot);
     src: url(../webfonts/fa-brands-400.eot?#iefix) format("embedded-opentype"), url(../webfonts/fa-brands-400.woff2) format("woff2"), url(../webfonts/fa-brands-400.woff) format("woff"), url(../webfonts/fa-brands-400.ttf) format("truetype"), url(../webfonts/fa-brands-400.svg#fontawesome) format("svg")
 }
@@ -5864,12 +6088,12 @@
     font-family: "Font Awesome 5 Free";
     font-style: normal;
     font-weight: 400;
-    font-display: auto;
+    font-display: block;
     src: url(../webfonts/fa-regular-400.eot);
     src: url(../webfonts/fa-regular-400.eot?#iefix) format("embedded-opentype"), url(../webfonts/fa-regular-400.woff2) format("woff2"), url(../webfonts/fa-regular-400.woff) format("woff"), url(../webfonts/fa-regular-400.ttf) format("truetype"), url(../webfonts/fa-regular-400.svg#fontawesome) format("svg")
 }
 
-.far {
+.fab, .far {
     font-weight: 400
 }
 
@@ -5877,7 +6101,7 @@
     font-family: "Font Awesome 5 Free";
     font-style: normal;
     font-weight: 900;
-    font-display: auto;
+    font-display: block;
     src: url(../webfonts/fa-solid-900.eot);
     src: url(../webfonts/fa-solid-900.eot?#iefix) format("embedded-opentype"), url(../webfonts/fa-solid-900.woff2) format("woff2"), url(../webfonts/fa-solid-900.woff) format("woff"), url(../webfonts/fa-solid-900.ttf) format("truetype"), url(../webfonts/fa-solid-900.svg#fontawesome) format("svg")
 }
@@ -5888,8 +6112,4 @@
 
 .fa, .fas {
     font-weight: 900
-}
-
-td{
-    font-size: 30px;
 }
