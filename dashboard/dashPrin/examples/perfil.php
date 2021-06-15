@@ -20,7 +20,7 @@ if (isset($_SESSION["emailUsuario"]) or isset($_SESSION["documentoIdentidad"])) 
       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
       <meta name="description" content="Start your development with a Dashboard for Bootstrap 4.">
       <meta name="author" content="Creative Tim">
-      <title>Mi perfil - Interoriente</title>
+      <title>Mi perfil | Interoriente</title>
       <!-- Favicon -->
       <link rel="icon" href="../../../assets/img/favicon.png" type="image/png">
       <!-- Fonts -->

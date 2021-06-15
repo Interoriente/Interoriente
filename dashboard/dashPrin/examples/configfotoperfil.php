@@ -88,7 +88,7 @@ if (isset($_SESSION["emailUsuario"]) or isset($_SESSION["documentoIdentidad"])) 
                             //Se validó el archivo correctamente
                             if (move_uploaded_file($_FILES['file']['tmp_name'], $archivo)) {
                                 include_once '../../../dao/conexion.php';
-                                //Capturo la sesióon del usuario logueado
+                                //Capturo la sesión del usuario logueado
                                 $id = $_SESSION["emailUsuario"];
                                 //sentencia Sql
                                 $sql_insertar = "UPDATE tblUsuario SET imagenUsuario=? WHERE emailUsuario=?";

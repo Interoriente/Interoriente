@@ -1,7 +1,7 @@
 <?php
 //Llamada a la conexion
 include_once '../../../../dao/conexion.php';
-$id = $_GET['id'];
+$id = $_GET['id']; #REVISAR SEGUIRDAD
 
 //sentencia sql para eliminar
 $sql_eliminar = "DELETE FROM tblPublicacion WHERE idPublicacion = ?";

@@ -12,6 +12,6 @@ try {
      print "Error! ". $e->getMessage();
      die();
 }finally{
-     $pdo = null;
+     $pdo = null; //Vacía variable para que no consuma recursos después de ser usada.
 }
 ?>
