@@ -61,11 +61,11 @@
                   <div class="dropdown-header noti-title">
                     <h6 class="text-overflow m-0">Bienvenidos!</h6>
                   </div>
-                  <a href="../examples/perfil.php" class="dropdown-item">
+                  <a href="../principal/perfil.php" class="dropdown-item">
                     <i class="ni ni-single-02"></i>
                     <span>Mi perfil</span>
                   </a>
-                  <a href="../examples/configfotoperfil.php" class="dropdown-item">
+                  <a href="../principal/configfotoperfil.php" class="dropdown-item">
                     <i class="ni ni-settings-gear-65"></i>
                     <span>Cambiar foto</span>
                   </a>

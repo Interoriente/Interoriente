@@ -45,19 +45,19 @@
                     //Ejecutar la sentencia
                     $consulta_insertar->execute(array($titulo, $descripcion, $directoryName, $costo));
                     echo "<script>alert('El registro se subió correctamente');</script>";
-                    echo "<script> document.location.href='../../users/dashboard/examples/crearPubli.php';</script>";
+                    echo "<script> document.location.href='../../users/dashboard/principal/crearPubli.php';</script>";
                 } else {
                     echo "<script>alert('Ocurrió un error');</script>";
-                    echo "<script> document.location.href='../../users/dashboard/examples/crearPubli.php';</script>";
+                    echo "<script> document.location.href='../../users/dashboard/principal/crearPubli.php';</script>";
                 }
             } else {
                 echo "<script>alert('Error: solo se admiten archivos jpg, png y jpeg');</script>";
-                echo "<script> document.location.href='../../users/dashboard/examples/crearPubli.php';</script>";
+                echo "<script> document.location.href='../../users/dashboard/principal/crearPubli.php';</script>";
             }
         }
     } else {
         echo "<script>alert('Error: el archivo no es una imagen');</script>";
-        echo "<script> document.location.href='../../users/dashboard/examples/crearPubli.php';</script>";
+        echo "<script> document.location.href='../../users/dashboard/principal/crearPubli.php';</script>";
     }
     ?>
 </body>

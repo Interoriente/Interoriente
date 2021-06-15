@@ -68,7 +68,7 @@ if (isset($_SESSION["emailUsuario"]) or isset($_SESSION["documentoIdentidad"])) 
             <h3 class="mb-0">Icons</h3>
           </div>
           <div class="card-body">
-            <div class="row icon-examples">
+            <div class="row icon-principal">
               <div class="col-lg-3 col-md-6">
                 <button type="button" class="btn-icon-clipboard" data-clipboard-text="active-40" title="Copy to clipboard">
                   <div>

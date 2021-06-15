@@ -36,7 +36,7 @@
                 <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
                   <div class="card h-100">
                     <div class="card-body">
-                      <!--<img class="card-img-top rounded" src="users/dashboard/examples/// echo $datos['imagen']; ?>" alt="...">-->
+                      <!--<img class="card-img-top rounded" src="users/dashboard/principal/// echo $datos['imagen']; ?>" alt="...">-->
                       <h4 class="card-title">
                         <p><?php echo $datos['nombrePublicacion'] ?></p>
                       </h4>
