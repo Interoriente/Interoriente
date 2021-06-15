@@ -23,10 +23,10 @@
     <!-- Fonts -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700">
     <!-- Icons -->
-    <link rel="stylesheet" href="../dashboard/dashPrin/assets/vendor/nucleo/css/nucleo.css" type="text/css">
-    <link rel="stylesheet" href="../dashboard/dashPrin/assets/vendor/@fortawesome/fontawesome-free/css/all.min.css" type="text/css">
+    <link rel="stylesheet" href="../users/dashboard/assets/vendor/nucleo/css/nucleo.css" type="text/css">
+    <link rel="stylesheet" href="../users/dashboard/assets/vendor/@fortawesome/fontawesome-free/css/all.min.css" type="text/css">
     <!-- Argon CSS -->
-    <link rel="stylesheet" href="../dashboard/dashPrin/assets/css/argon.css?v=1.2.0" type="text/css">
+    <link rel="stylesheet" href="../users/dashboard/assets/css/argon.css?v=1.2.0" type="text/css">
 </head>
 
 <body class="bg-default">
@@ -71,11 +71,11 @@
                             <div class="text-muted text-center mt-2 mb-4"><small>Puedes registrarte por:</small></div>
                             <div class="text-center">
                                 <a href="#" class="btn btn-neutral btn-icon mr-4">
-                                    <span class="btn-inner--icon"><img src="../dashboard/dashPrin/assets/img/icons/common/github.svg"></span>
+                                    <span class="btn-inner--icon"><img src="../users/dashboard/assets/img/icons/common/github.svg"></span>
                                     <span class="btn-inner--text">Github</span>
                                 </a>
                                 <a href="#" class="btn btn-neutral btn-icon">
-                                    <span class="btn-inner--icon"><img src="../dashboard/dashPrin/assets/img/icons/common/google.svg"></span>
+                                    <span class="btn-inner--icon"><img src="../users/dashboard/assets/img/icons/common/google.svg"></span>
                                     <span class="btn-inner--text">Google</span>
                                 </a>
                             </div>
@@ -188,13 +188,13 @@
         </div>
     </div>
     <!-- Core -->
-    <script src="../dashboard/dashPrin/assets/vendor/jquery/dist/jquery.min.js"></script>
-    <script src="../dashboard/dashPrin/assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="../dashboard/dashPrin/assets/vendor/js-cookie/js.cookie.js"></script>
-    <script src="../dashboard/dashPrin/assets/vendor/jquery.scrollbar/jquery.scrollbar.min.js"></script>
-    <script src="../dashboard/dashPrin/assets/vendor/jquery-scroll-lock/dist/jquery-scrollLock.min.js"></script>
+    <script src="../users/dashboard/assets/vendor/jquery/dist/jquery.min.js"></script>
+    <script src="../users/dashboard/assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../users/dashboard/assets/vendor/js-cookie/js.cookie.js"></script>
+    <script src="../users/dashboard/assets/vendor/jquery.scrollbar/jquery.scrollbar.min.js"></script>
+    <script src="../users/dashboard/assets/vendor/jquery-scroll-lock/dist/jquery-scrollLock.min.js"></script>
     <!-- Argon JS -->
-    <script src="../dashboard/dashPrin/assets/js/argon.js?v=1.2.0"></script>
+    <script src="../users/dashboard/assets/js/argon.js?v=1.2.0"></script>
 
     <body background="assets/img/im12.jpg" style="background-repeat: no-repeat; background-position: center center;">
 
