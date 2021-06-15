@@ -8,4 +8,4 @@
   $consulta_eliminar = $pdo ->prepare($sql_eliminar);
   $consulta_eliminar->execute(array($id));
   //redireccionar
-  header('location:index.php');
+  header('location:index.html');

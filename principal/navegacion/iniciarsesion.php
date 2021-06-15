@@ -103,7 +103,7 @@
                             <a href="#" class="text-light"><small>Olvidó contraseña?</small></a>
                         </div>
                         <div class="col-6 text-right">
-                            <a href="navegacion/registro.php" class="text-light"><small>No tienes cuenta?</small></a>
+                            <a href="registro.php" class="text-light"><small>No tienes cuenta?</small></a>
                         </div>
                     </div>
                 </div>

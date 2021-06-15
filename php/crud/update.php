@@ -15,4 +15,4 @@ $consultar_actualizar = $pdo->prepare($sql_actualizar);
 //Ejecutar
 $consultar_actualizar->execute(array($nombre, $direccion, $telefono, $ciudad, $nit,$id));
 //Redireccionar
-header('location:index.php'); 
+header('location:index.html'); 

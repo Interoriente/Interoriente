@@ -49,7 +49,7 @@ $resultado_buscar = $consulta_buscar->fetchAll();
                         <td style="border: 2px solid black"><?php echo $datos['nit_resta'] ?></td>
                         <td style="border: 2px solid black"><a href="delete.php?id=<?php echo $datos['idrestaurante']; ?>">
                                 <button class="btn btn-primary btn-xs" type="submit">Eliminar</button></a></td>
-                        <td style="border: 2px solid black"><a href="index.php?id=<?php echo $datos['idrestaurante']; ?>">
+                        <td style="border: 2px solid black"><a href="index.html?id=<?php echo $datos['idrestaurante']; ?>">
                                 <button class="btn btn-primary btn-xs" type="submit">Editar</button></a></td>
                     </tr>
                 <?php } ?>

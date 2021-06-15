@@ -26,7 +26,7 @@
         //Sha1 -> Método de encriptación
         $contrasena = sha1($_POST['contrasena']);
         $estado = '0';
-        $perfil = 'imagenes/NO_borrar.png';
+        $perfil = "imagenes/NO_borrar.png";
         //Verificación correo existente
         $sql_correoexistente = "SELECT*FROM tblUsuario WHERE emailUsuario='$correo'";
         $consulta_correo = $pdo->prepare($sql_correoexistente);
@@ -40,11 +40,11 @@
         } else {
             //Consulta correo ingresado no existe en BD
             //sentencia Sql
-            $sql_insertar = "INSERT INTO tblUsuario (documentoIdentidad,nombresUsuario, apellidoUsuario, telefonofijoUsuario,telefonomovilUsuario, emailUsuario,contrasenaUsuario,ciudadUsuario,estadoUsuario)VALUES (?,?,?,?,?,?,?,?,?)";
+            $sql_insertar = "INSERT INTO tblUsuario (documentoIdentidad,nombresUsuario, apellidoUsuario, telefonofijoUsuario,telefonomovilUsuario, emailUsuario,contrasenaUsuario,ciudadUsuario,estadoUsuario,imagenUsuario)VALUES (?,?,?,?,?,?,?,?,?,?)";
             //Preparar consulta
             $consulta_insertar = $pdo->prepare($sql_insertar);
             //Ejecutar la sentencia
-            $consulta_insertar->execute(array($documento, $nombres, $apellidos, $telefono, $celular, $correo, $contrasena, $ciudad, $estado));
+            $consulta_insertar->execute(array($documento, $nombres, $apellidos, $telefono, $celular, $correo, $contrasena, $ciudad, $estado,$perfil));
             echo "<script>alert('Datos almacenados correctamente');</script>";
             echo "<script> document.location.href='../../principal/navegacion/iniciarsesion.php';</script>";
         }

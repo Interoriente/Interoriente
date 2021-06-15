@@ -36,10 +36,10 @@
     //Mostrar los datos almacenados
     $sql_mostrar_ciudad = "SELECT * FROM tblCiudad";
     //Prepara sentencia
-    $Consultar_mostrar_ciudad = $pdo->prepare($sql_mostrar_ciudad);
+    $consultar_mostrar_ciudad = $pdo->prepare($sql_mostrar_ciudad);
     //Ejecutar consulta
-    $Consultar_mostrar_ciudad->execute();
-    $resultado_ciudad = $Consultar_mostrar_ciudad->fetchAll();
+    $consultar_mostrar_ciudad->execute();
+    $resultado_ciudad = $consultar_mostrar_ciudad->fetchAll();
     ?>
     <!-- Main content -->
     <div class="main-content">
@@ -84,7 +84,7 @@
                             <div class="text-center text-muted mb-4">
                                 <small>O con tus datos puedes diligenciar tus datos en los seguientes campos</small>
                             </div>
-                            <form action="../../php/crud/navegacion/registro.php" method="POST">
+                            <form action="../../php/crud/registro.php" method="POST">
                                 <div class="form-group">
                                     <label for="">Nombres:</label>
                                     <div class="input-group input-group-merge input-group-alternative mb-3">
@@ -177,7 +177,7 @@
                     </div>
                     <div class="row mt-3">
                         <div class="col-6">
-                            <a href="../../index.php" class="text-light"><small>Regresar a inicio</small></a>
+                            <a href="../../index.html" class="text-light"><small>Regresar a inicio</small></a>
                         </div>
                         <div class="col-6 text-right">
                             <a href="iniciarsesion.php" class="text-light"><small>Tienes cuenta?</small></a>
@@ -195,8 +195,6 @@
     <script src="../../users/dashboard/assets/vendor/jquery-scroll-lock/dist/jquery-scrollLock.min.js"></script>
     <!-- Argon JS -->
     <script src="../../users/dashboard/assets/js/argon.js?v=1.2.0"></script>
-
-    <body background="assets/img/im12.jpg" style="background-repeat: no-repeat; background-position: center center;">
 
     </body>
 
