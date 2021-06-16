@@ -46,6 +46,8 @@ if (isset($_SESSION["emailUsuario"]) or isset($_SESSION["documentoIdentidad"])) 
       $Consultar_mostrar_ciudad->execute();
       $resultado_ciudad = $Consultar_mostrar_ciudad->fetchAll();
 
+      //Inner join SELECT nombreCiudad FROM tblCiudad INNER JOIN tblUsuario ON tblCiudad.nombreCiudad = tblUsuario.ciudadUsuario
+
       $id = $_SESSION["emailUsuario"];
       include_once '../../../dao/conexion.php';
       $sql_inicio = "SELECT*FROM tblUsuario WHERE emailUsuario ='$id' ";
