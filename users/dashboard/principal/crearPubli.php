@@ -43,19 +43,19 @@ if (isset($_SESSION["emailUsuario"]) or isset($_SESSION["documentoIdentidad"])) 
       //Mostrar los datos almacenados
       $sql_mostrar_publi = "SELECT * FROM tblPublicacion WHERE usuario ='$id'";
       //Prepara sentencia
-      $Consultar_mostrar_publi = $pdo->prepare($sql_mostrar_publi);
+      $consultar_mostrar_publi = $pdo->prepare($sql_mostrar_publi);
       //Ejecutar consulta
-      $Consultar_mostrar_publi->execute();
-      $resultado_mostrar_publi = $Consultar_mostrar_publi->fetchAll();
+      $consultar_mostrar_publi->execute();
+      $resultado_mostrar_publi = $consultar_mostrar_publi->fetchAll();
 
       //Sirve para mostrar el contenido de la tabla Estado, para mostrarlo en la lista desplegable
       //Mostrar los datos almacenados
       $sql_mostrar_estado = "SELECT * FROM tblEstado";
       //Prepara sentencia
-      $Consultar_mostrar_estado = $pdo->prepare($sql_mostrar_estado);
+      $consultar_mostrar_estado = $pdo->prepare($sql_mostrar_estado);
       //Ejecutar consulta
-      $Consultar_mostrar_estado->execute();
-      $resultado_estado = $Consultar_mostrar_estado->fetchAll();
+      $consultar_mostrar_estado->execute();
+      $resultado_estado = $consultar_mostrar_estado->fetchAll();
       //Imprimir var dump -> Arreglos u objetos
 
       //Sirve para mostrar el contenido de la tabla Categoria, para mostrarlo en la lista desplegable
@@ -63,10 +63,10 @@ if (isset($_SESSION["emailUsuario"]) or isset($_SESSION["documentoIdentidad"])) 
       //Mostrar los datos almacenados
       $sql_mostrar_categoria = "SELECT * FROM tblCategoria";
       //Prepara sentencia
-      $Consultar_mostrar_categoria = $pdo->prepare($sql_mostrar_categoria);
+      $consultar_mostrar_categoria = $pdo->prepare($sql_mostrar_categoria);
       //Ejecutar consulta
-      $Consultar_mostrar_categoria->execute();
-      $resultado_categoria = $Consultar_mostrar_categoria->fetchAll();
+      $consultar_mostrar_categoria->execute();
+      $resultado_categoria = $consultar_mostrar_categoria->fetchAll();
       if ($_GET) {
         include_once '../../../dao/conexion.php';
         //Cargar los datos del id seleccionado
@@ -74,10 +74,10 @@ if (isset($_SESSION["emailUsuario"]) or isset($_SESSION["documentoIdentidad"])) 
         //Mostrar los datos almacenados
         $sql_mostrar_publi1 = "SELECT * FROM tblPublicacion WHERE idPublicacion ='$idpubli'";
         //Prepara sentencia
-        $Consultar_mostrar_publi1 = $pdo->prepare($sql_mostrar_publi1);
+        $consultar_mostrar_publi1 = $pdo->prepare($sql_mostrar_publi1);
         //Ejecutar consulta
-        $Consultar_mostrar_publi1->execute(array($idpubli));
-        $resultado_mostrar_publi1 = $Consultar_mostrar_publi1->fetch();
+        $consultar_mostrar_publi1->execute(array($idpubli));
+        $resultado_mostrar_publi1 = $consultar_mostrar_publi1->fetch();
       }
       ?>
       <br><br><br><br>

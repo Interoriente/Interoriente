@@ -20,13 +20,13 @@
           </li>
           <li class="nav-item">
             <a class="nav-link" href="crearPubli.php">
-              <i class="ni ni-album-2 text-orange"></i>
+              <i class="ni ni-album-2 text-red"></i>
               <span class="nav-link-text">Crear publicación</span>
             </a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="icons.php">
-              <i class="ni ni-planet text-orange"></i>
+              <i class="ni ni-planet text-green"></i>
               <span class="nav-link-text">Icons</span>
             </a>
           </li>
@@ -37,9 +37,9 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="tables.php">
-              <i class="ni ni-bullet-list-67 text-default"></i>
-              <span class="nav-link-text">Tables</span>
+            <a class="nav-link" href="usuarios.php">
+              <i class="ni ni-circle-08 text-default"></i>
+              <span class="nav-link-text">Usuarios</span>
             </a>
           </li>
         </ul>

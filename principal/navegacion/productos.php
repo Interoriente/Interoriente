@@ -18,10 +18,10 @@
     //Mostrar los datos almacenados
     $sql_mostrar = "SELECT * FROM tblPublicacion";
     //Prepara sentencia
-    $Consultar_mostrar = $pdo->prepare($sql_mostrar);
+    $consultar_mostrar = $pdo->prepare($sql_mostrar);
     //Ejecutar consulta
-    $Consultar_mostrar->execute();
-    $resultado_mostrar = $Consultar_mostrar->fetchAll();
+    $consultar_mostrar->execute();
+    $resultado_mostrar = $consultar_mostrar->fetchAll();
     //Imprimir var dump -> Arreglos u objetos
     ?>
     <header class="bg-primary text-center py-5 mb-4">

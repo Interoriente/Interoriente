@@ -41,10 +41,10 @@ if (isset($_SESSION["emailUsuario"]) or isset($_SESSION["documentoIdentidad"])) 
       //Mostrar los datos almacenados
       $sql_mostrar_ciudad = "SELECT * FROM tblCiudad";
       //Prepara sentencia
-      $Consultar_mostrar_ciudad = $pdo->prepare($sql_mostrar_ciudad);
+      $consultar_mostrar_ciudad = $pdo->prepare($sql_mostrar_ciudad);
       //Ejecutar consulta
-      $Consultar_mostrar_ciudad->execute();
-      $resultado_ciudad = $Consultar_mostrar_ciudad->fetchAll();
+      $consultar_mostrar_ciudad->execute();
+      $resultado_ciudad = $consultar_mostrar_ciudad->fetchAll();
 
       //Inner join SELECT nombreCiudad FROM tblCiudad INNER JOIN tblUsuario ON tblCiudad.nombreCiudad = tblUsuario.ciudadUsuario
 

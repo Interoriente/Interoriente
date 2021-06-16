@@ -20,6 +20,7 @@
         </form>
         <!-- Navbar links -->
         <ul class="navbar-nav align-items-center  ml-md-auto ">
+        <!-- Botones para cerrar el sidebar -> Revisar para vistas pequeñas porque se esconde -->
           <li class="nav-item d-xl-none">
             <!-- Sidenav toggler -->
             <div class="pr-3 sidenav-toggler sidenav-toggler-dark" data-action="sidenav-pin" data-target="#sidenav-main">
