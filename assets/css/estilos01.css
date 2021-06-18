@@ -202,7 +202,7 @@
 
 /*RESPONSIVE DEL TEXTO H4*/
 
-@media screen and (max-width: 1697px){
+@media screen and (max-width: 1697px) and (max-height: 817px){
 
   .textocon {
     margin-top: 200px;
@@ -216,16 +216,152 @@
     left: 45%;
     margin-left: 1.5%;
 }
+
+.text1 {
+  font-size: 28px;
+  background-color: orange;
+  width: 350px;
+  height: 50px;
+  left: 50%;
+  margin-left: -10%;
+  top: 42%;
+  border-radius: 10px;
+  position: absolute;
+  border: 0;
+  cursor: pointer;
+}
+.text2 {
+  font-size: 28px;
+  background-color: orange;
+  width: 350px;
+  height: 50px;
+  left: 50%;
+  margin-left: -10%;
+  top: 52%;
+  border-radius: 10px;
+  position: absolute;
+  border: 0;
+      cursor: pointer;
+}
+.text3 {
+font-size: 28px;
+background-color: orange;
+width: 350px;
+height: 50px;
+left: 50%;
+margin-left: -10%;
+border-radius: 10px;
+top: 62%;
+position: absolute;
+border: 0;
+cursor: pointer;
+}
+.text4 {
+font-size: 28px;
+background-color: orange;
+width: 350px;
+height: 50px;
+left: 50%;
+margin-left: -10%;
+border-radius: 10px;
+top: 72%;
+position: absolute;
+border: 0;
+cursor: pointer;
+}
+.text5 {
+font-size: 28px;
+background-color: #ffeec0;
+width: 200px;
+height: 50px;
+margin-left: 44.5%;
+border-radius: 10px;
+top: 87%;
+position: absolute;
+border: 0;
+cursor: pointer;
+
+}
 }
  
-@media screen and (max-width: 1482px){
-  h4 {
+@media screen and (max-width: 1482px) and (max-height: 713px){
+  .textocon {
     text-align: center;
+    margin-top: 12.5%;
+    right: 48%;
+  }
+  .h4 {
     font-size: 30px;
     font-family: Arial, sans-serif;
     color: white;
-    left: 45%;
+    left: 0%;
     margin-left: 3.5%;
+    
+  }
+.text1 {
+  font-size: 28px;
+  background-color: orange;
+  width: 350px;
+  height: 50px;
+  left: 50%;
+  margin-left: -10%;
+  top: 39.8%;
+  border-radius: 10px;
+  position: absolute;
+  border: 0;
+  cursor: pointer;
+}
+.text2 {
+  font-size: 28px;
+  background-color: orange;
+  width: 350px;
+  height: 50px;
+  left: 50%;
+  margin-left: -10%;
+  top: 49.8%;
+  border-radius: 10px;
+  position: absolute;
+  border: 0;
+      cursor: pointer;
+}
+.text3 {
+font-size: 28px;
+background-color: orange;
+width: 350px;
+height: 50px;
+left: 50%;
+margin-left: -10%;
+border-radius: 10px;
+top: 59.8%;
+position: absolute;
+border: 0;
+cursor: pointer;
+}
+.text4 {
+font-size: 28px;
+background-color: orange;
+width: 350px;
+height: 50px;
+left: 50%;
+margin-left: -10%;
+border-radius: 10px;
+top: 69.8%;
+position: absolute;
+border: 0;
+cursor: pointer;
+}
+.text5 {
+font-size: 28px;
+background-color: #ffeec0;
+width: 200px;
+height: 50px;
+margin-left: 44.5%;
+border-radius: 10px;
+top: 85%;
+position: absolute;
+border: 0;
+cursor: pointer;
+
 }
 }
 
@@ -238,9 +374,254 @@
     left: 45%;
     margin-left: 5.5%;
 }
+
+.text1 {
+font-size: 28px;
+background-color: orange;
+width: 350px;
+height: 50px;
+left: 50%;
+margin-left: -10%;
+top: 39.8%;
+border-radius: 10px;
+position: absolute;
+border: 0;
+cursor: pointer;
+}
+.text2 {
+font-size: 28px;
+background-color: orange;
+width: 350px;
+height: 50px;
+left: 50%;
+margin-left: -10%;
+top: 49.8%;
+border-radius: 10px;
+position: absolute;
+border: 0;
+    cursor: pointer;
+}
+.text3 {
+font-size: 28px;
+background-color: orange;
+width: 350px;
+height: 50px;
+left: 50%;
+margin-left: -10%;
+border-radius: 10px;
+top: 59.8%;
+position: absolute;
+border: 0;
+cursor: pointer;
+}
+.text4 {
+font-size: 28px;
+background-color: orange;
+width: 350px;
+height: 50px;
+left: 50%;
+margin-left: -10%;
+border-radius: 10px;
+top: 69.8%;
+position: absolute;
+border: 0;
+cursor: pointer;
+}
+.text5 {
+font-size: 28px;
+background-color: #ffeec0;
+width: 200px;
+height: 50px;
+margin-left: 45.5%;
+border-radius: 10px;
+top: 85%;
+position: absolute;
+border: 0;
+cursor: pointer;
+
 }
 
-@media screen and (max-width: 1277px){
+}
+
+
+@media screen and (max-width: 1280px) and (max-height: 1024px){
+  h4 {
+    text-align: center;
+    font-size: 30px;
+    font-family: Arial, sans-serif;
+    color: white;
+    left: 45%;
+    margin-left: 3%;
+}
+
+.textocon {
+  text-align: center;
+  margin-top: 16%;
+  right: 48%;
+}
+
+.text1 {
+  font-size: 28px;
+  background-color: orange;
+  width: 350px;
+  height: 50px;
+  left: 50%;
+  margin-left: -12%;
+  top: 38%;
+  border-radius: 10px;
+  position: absolute;
+  border: 0;
+  cursor: pointer;
+}
+
+.text2 {
+  font-size: 28px;
+  background-color: orange;
+  width: 350px;
+  height: 50px;
+  left: 50%;
+  margin-left: -12%;
+  top: 47%;
+  border-radius: 10px;
+  position: absolute;
+  border: 0;
+      cursor: pointer;
+}
+
+.text3 {
+font-size: 28px;
+background-color: orange;
+width: 350px;
+height: 50px;
+left: 50%;
+margin-left: -12%;
+border-radius: 10px;
+top: 57%;
+position: absolute;
+border: 0;
+cursor: pointer;
+}
+
+.text4 {
+font-size: 28px;
+background-color: orange;
+width: 350px;
+height: 50px;
+left: 50%;
+margin-left: -12%;
+border-radius: 10px;
+top: 67%;
+position: absolute;
+border: 0;
+cursor: pointer;
+}
+
+.text5 {
+font-size: 28px;
+background-color: #ffeec0;
+width: 200px;
+height: 50px;
+margin-left: 44%;
+border-radius: 10px;
+top: 87%;
+position: absolute;
+border: 0;
+cursor: pointer;
+
+}
+
+}
+
+
+@media screen and (max-width: 1280px) and (max-height: 800px){
+  h4 {
+    text-align: center;
+    font-size: 30px;
+    font-family: Arial, sans-serif;
+    color: white;
+    left: 45%;
+    margin-left: 6.5%;
+}
+
+.textocon {
+  text-align: center;
+  margin-top: 12.5%;
+  right: 48%;
+}
+
+.text1 {
+  font-size: 28px;
+  background-color: orange;
+  width: 350px;
+  height: 50px;
+  left: 50%;
+  margin-left: -11%;
+  top: 38%;
+  border-radius: 10px;
+  position: absolute;
+  border: 0;
+  cursor: pointer;
+}
+
+.text2 {
+  font-size: 28px;
+  background-color: orange;
+  width: 350px;
+  height: 50px;
+  left: 50%;
+  margin-left: -11%;
+  top: 47%;
+  border-radius: 10px;
+  position: absolute;
+  border: 0;
+      cursor: pointer;
+}
+
+.text3 {
+font-size: 28px;
+background-color: orange;
+width: 350px;
+height: 50px;
+left: 50%;
+margin-left: -11%;
+border-radius: 10px;
+top: 57%;
+position: absolute;
+border: 0;
+cursor: pointer;
+}
+
+.text4 {
+font-size: 28px;
+background-color: orange;
+width: 350px;
+height: 50px;
+left: 50%;
+margin-left: -11%;
+border-radius: 10px;
+top: 67%;
+position: absolute;
+border: 0;
+cursor: pointer;
+}
+
+.text5 {
+font-size: 28px;
+background-color: #ffeec0;
+width: 200px;
+height: 50px;
+margin-left: 45%;
+border-radius: 10px;
+top: 87%;
+position: absolute;
+border: 0;
+cursor: pointer;
+
+}
+
+}
+
+@media screen and (max-width: 1280px) and (max-height: 720px){
   h4 {
     text-align: center;
     font-size: 30px;
@@ -249,6 +630,83 @@
     left: 45%;
     margin-left: 7.5%;
 }
+
+.textocon {
+  text-align: center;
+  margin-top: 12.5%;
+  right: 48%;
+}
+
+.text1 {
+  font-size: 28px;
+  background-color: orange;
+  width: 350px;
+  height: 50px;
+  left: 50%;
+  margin-left: -11%;
+  top: 38%;
+  border-radius: 10px;
+  position: absolute;
+  border: 0;
+  cursor: pointer;
+}
+
+.text2 {
+  font-size: 28px;
+  background-color: orange;
+  width: 350px;
+  height: 50px;
+  left: 50%;
+  margin-left: -11%;
+  top: 47%;
+  border-radius: 10px;
+  position: absolute;
+  border: 0;
+      cursor: pointer;
+}
+
+.text3 {
+font-size: 28px;
+background-color: orange;
+width: 350px;
+height: 50px;
+left: 50%;
+margin-left: -11%;
+border-radius: 10px;
+top: 57%;
+position: absolute;
+border: 0;
+cursor: pointer;
+}
+
+.text4 {
+font-size: 28px;
+background-color: orange;
+width: 350px;
+height: 50px;
+left: 50%;
+margin-left: -11%;
+border-radius: 10px;
+top: 67%;
+position: absolute;
+border: 0;
+cursor: pointer;
+}
+
+.text5 {
+font-size: 28px;
+background-color: #ffeec0;
+width: 200px;
+height: 50px;
+margin-left: 45%;
+border-radius: 10px;
+top: 87%;
+position: absolute;
+border: 0;
+cursor: pointer;
+
+}
+
 }
 @media screen and (max-width: 1213px){
   h4 {
@@ -342,14 +800,20 @@ cursor: pointer;
 }
 }
 
-@media screen and (max-width: 1064px){
+@media screen and (max-width: 1024px) and (max-height: 768px){
   h4 {
     text-align: center;
     font-size: 30px;
     font-family: Arial, sans-serif;
     color: white;
     left: 45%;
-    margin-left: 2%;
+    margin-left: 4%;
+}
+
+.textocon {
+  text-align: center;
+  margin-top: 15%;
+  right: 48%;
 }
 }
 @media screen and (max-width: 1000px){
