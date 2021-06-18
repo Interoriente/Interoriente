@@ -42,6 +42,12 @@
               <span class="nav-link-text">Usuarios</span>
             </a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="publicaciones.php">
+              <i class="ni ni-single-copy-04 text-purple"></i>
+              <span class="nav-link-text">Publicaciones</span>
+            </a>
+          </li>
         </ul>
       </div>
     </div>
