@@ -3,6 +3,7 @@ session_start();
 
 if (isset($_SESSION["emailUsuario"]) or isset($_SESSION["documentoIdentidad"])) {
   $id = $_SESSION["emailUsuario"];
+  $iddocumento = $_SESSION["documentoIdentidad"];
   include_once '../../../dao/conexion.php';
   $sql_validacion = "SELECT*FROM tblUsuario WHERE emailUsuario ='$id' AND estadoUsuario= '1'";
   $consulta_resta_validacion = $pdo->prepare($sql_validacion);
@@ -20,7 +21,7 @@ if (isset($_SESSION["emailUsuario"]) or isset($_SESSION["documentoIdentidad"])) 
       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
       <meta name="description" content="Start your development with a Dashboard for Bootstrap 4.">
       <meta name="author" content="Creative Tim">
-      <title>Usuarios - Interoriente</title>
+      <title>Publicaciones - Interoriente</title>
       <!-- Favicon -->
       <link rel="icon" href="../../../assets/img/favicon.png" type="image/png">
       <!-- Fonts -->
@@ -38,12 +39,16 @@ if (isset($_SESSION["emailUsuario"]) or isset($_SESSION["documentoIdentidad"])) 
       include_once '../../../dao/conexion.php';
       //Llamar a la conexion base de datos -> Muestro el contenido de tabla usuario
       //Mostrar los datos almacenados
-      $sql_mostrar_publi = "SELECT * FROM tblPublicacion";
-      //Prepara sentencia
+      $sql_mostrar_publi = "SELECT * FROM tblPublicacion"; //Prepara sentencia
       $consultar_mostrar_publi = $pdo->prepare($sql_mostrar_publi);
       //Ejecutar consulta
       $consultar_mostrar_publi->execute();
-      $resultado_mostrar_publi = $consultar_mostrar_publi->fetchAll();
+      /* $resultado_mostrar_publi = $consultar_mostrar_publi->fetchAll(); */
+      //Mostrando estado del producto
+      $sqlmostrarEstado = "SELECT nombreEstado FROM tblPublicacion INNER JOIN tblestadoarticulo ON tblPublicacion.estadoArticulo = tblestadoarticulo.idEstadoArticulo WHERE idPublicacion";
+      $consultaMostrarEstado = $pdo->prepare($sqlmostrarEstado);
+      $consultaMostrarEstado->execute();
+      /* $resultadoEstado  = $consultaMostrarEstado->fetchAll(); */
       ?>
       <!-- Header -->
       <div class="header bg-primary pb-6">
@@ -79,33 +84,30 @@ if (isset($_SESSION["emailUsuario"]) or isset($_SESSION["documentoIdentidad"])) 
                       <th scope="col" class="sort" data-sort="name">Nombre</th>
                       <th scope="col" class="sort" data-sort="budget">Descripción</th>
                       <th scope="col" class="sort" data-sort="status">Costo</th>
-                      <th scope="col" class="sort" data-sort="status">Correo</th>
+                      <th scope="col" class="sort" data-sort="status">Stock</th>
                       <th scope="col" class="sort" data-sort="status">Estado</th>
                       <th scope="col" class="sort" data-sort="status">Acciones</th>
                     </tr>
                   </thead>
                   <tbody class="list">
                     <?php
-                    foreach ($resultado_mostrar_publi as $datos) {
+                    //Pruebas para imprimir el contenido de las dos tablas de la BD en una. Pero no sirve.
+                    /* foreach ($resultado_mostrar_publi as $datos) {
+                      foreach ($resultadoEstado as $datos1) {  */
+                    //Sirve para especificar que solo se imprima si se cumple la condición, y lo necesito por el motivo de que estoy llamando a tblPublicacion y a tblEstado, entonces necesito imprimir a los dos en una misma tabla.
+                    while ($resultado_mostrar_publi = $consultar_mostrar_publi->fetch(PDO::FETCH_OBJ) and $resultadoEstado  = $consultaMostrarEstado->fetch(PDO::FETCH_OBJ)) {
                     ?>
                       <tr>
-                        <th><?php echo $datos['nombresUsuario']; ?></th>
-                        <th><?php echo $datos['apellidoUsuario']; ?></th>
-                        <th><?php echo $datos['telefonomovilUsuario']; ?></th>
-                        <th><?php echo $datos['emailUsuario']; ?></th>
-                        <?php /* Verificar que el estado esté activo */
-                        if ($datos['estadoUsuario'] == 1) { ?>
-                          <th>Activo</th>
-                          <th><a class="btn btn-info" href="crud/desactivar_admin.php?id=<?php echo $datos['documentoIdentidad']; ?>">Desactivar</a></th>
+                        <th><?php echo $resultado_mostrar_publi->nombrePublicacion; ?></th>
+                        <th><?php echo $resultado_mostrar_publi->descripcionPublicacion; ?></th>
+                        <th><?php echo $resultado_mostrar_publi->costoPublicacion; ?></th>
+                        <th><?php echo $resultado_mostrar_publi->stockProducto; ?></th>
+                        <th><?php echo $resultadoEstado->nombreEstado; ?></th>
                       </tr>
                     <?php
-                        } else { ?>
-                      <th>Inactivo</th>
-                      <th><a class="btn btn-success" href="crud/activar_admin.php?id=<?php echo $datos['documentoIdentidad']; ?>">Activar</a></th>
-                  <?php
-                        }
-                      }
-                  ?>
+                      /*   }
+                    } */ }
+                    ?>
                   </tbody>
                 </table>
               </div>
