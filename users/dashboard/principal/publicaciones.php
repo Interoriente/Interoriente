@@ -95,14 +95,13 @@ if (isset($_SESSION["emailUsuario"]) or isset($_SESSION["documentoIdentidad"])) 
                     /* foreach ($resultado_mostrar_publi as $datos) {
                       foreach ($resultadoEstado as $datos1) {  */
                     //Sirve para especificar que solo se imprima si se cumple la condición, y lo necesito por el motivo de que estoy llamando a tblPublicacion y a tblEstado, entonces necesito imprimir a los dos en una misma tabla.
-                    while ($resultado_mostrar_publi = $consultar_mostrar_publi->fetch(PDO::FETCH_OBJ) AND $resultadoEstado  = $consultaMostrarEstado->fetch(PDO::FETCH_OBJ)) {
+                    while ($resultado_mostrar_publi = $consultar_mostrar_publi->fetch(PDO::FETCH_OBJ)) {
                     ?>
                       <tr>
                         <th><?php echo $resultado_mostrar_publi->nombrePublicacion; ?></th>
                         <th><?php echo $resultado_mostrar_publi->descripcionPublicacion; ?></th>
                         <th><?php echo $resultado_mostrar_publi->costoPublicacion; ?></th>
                         <th><?php echo $resultado_mostrar_publi->stockProducto; ?></th>
-                        <th><?php echo $resultadoEstado->nombreEstado; ?></th>
                       </tr>
                     <?php
                       /*   }
