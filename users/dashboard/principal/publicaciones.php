@@ -45,7 +45,7 @@ if (isset($_SESSION["emailUsuario"]) or isset($_SESSION["documentoIdentidad"])) 
       $consultar_mostrar_publi->execute();
       /* $resultado_mostrar_publi = $consultar_mostrar_publi->fetchAll(); */
       //Mostrando estado del producto
-      $sqlmostrarEstado = "SELECT nombreEstado FROM tblPublicacion INNER JOIN tblEstadoArticulo ON tblPublicacion.estadoArticulo = tblEstadoArticulo.idEstadoArticulo WHERE idPublicacion";
+      $sqlmostrarEstado = "SELECT nombreEstado FROM tblPublicacion INNER JOIN tblEstado ON tblPublicacion.estadoPublicacion = tblEstado.idEstado";
       $consultaMostrarEstado = $pdo->prepare($sqlmostrarEstado);
       $consultaMostrarEstado->execute();
       /* $resultadoEstado  = $consultaMostrarEstado->fetchAll(); */
@@ -102,7 +102,7 @@ if (isset($_SESSION["emailUsuario"]) or isset($_SESSION["documentoIdentidad"])) 
                         <th><?php echo $resultado_mostrar_publi->descripcionPublicacion; ?></th>
                         <th><?php echo $resultado_mostrar_publi->costoPublicacion; ?></th>
                         <th><?php echo $resultado_mostrar_publi->stockProducto; ?></th>
-                        <!-- Tener en cuenta que el estado está saliendo trocado 1->2 2->1:( -->
+                        <!-- Tener en cuenta que el estado está saliendo trocado 1->2 2->1:( parece ser un bug, porque en unos casos si imprime correctamente 2->2 1->1 -->
                         <th><?php echo $resultadoEstado->nombreEstado; ?></th>
                       </tr>
                     <?php
