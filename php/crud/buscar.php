@@ -7,7 +7,7 @@ $sql_buscar = "SELECT * FROM tblusuario WHERE correo=?";
 $consulta_buscar = $pdo->prepare($sql_buscar);
 $consulta_buscar->execute(array($nombre));
 $resultado_buscar = $consulta_buscar->fetchAll();
-?>
+?>  
 <!DOCTYPE html>
 <html lang="es">
 
