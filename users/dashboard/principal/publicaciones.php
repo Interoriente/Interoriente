@@ -45,7 +45,7 @@ if (isset($_SESSION["emailUsuario"]) or isset($_SESSION["documentoIdentidad"])) 
       $consultar_mostrar_publi->execute();
       /* $resultado_mostrar_publi = $consultar_mostrar_publi->fetchAll(); */
       //Mostrando estado del producto
-      $sqlmostrarEstado = "SELECT nombreEstado FROM tblPublicacion INNER JOIN tblestadoarticulo ON tblPublicacion.estadoArticulo = tblestadoarticulo.idEstadoArticulo WHERE idPublicacion";
+      $sqlmostrarEstado = "SELECT nombreEstado FROM tblPublicacion INNER JOIN tblEstadoArticulo ON tblPublicacion.estadoArticulo = tblEstadoArticulo.idEstadoArticulo WHERE idPublicacion";
       $consultaMostrarEstado = $pdo->prepare($sqlmostrarEstado);
       $consultaMostrarEstado->execute();
       /* $resultadoEstado  = $consultaMostrarEstado->fetchAll(); */
