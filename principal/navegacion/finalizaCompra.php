@@ -7,9 +7,15 @@
     <title>Document</title>
 </head>
 <body>
-    
+<?php include '../includes/navegacion.php';?>
 
-<body background="assets/img/im10.jpg" style="background-repeat: no-repeat; background-position: center center;">
+<h1>Test!asdf!</h1>
+
+
+
+<?php include '../includes/navegacionDos.php';?>
+
+<body>
 </body>
 </body>
 </html>

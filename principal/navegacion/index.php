@@ -9,12 +9,13 @@
 </head>
 
 <body>
-    <?php include 'includes/navegacion.php';
-     $FILE = __FILE__;
-     echo $FILE;
-    ?>
-  
+    <?php include '../includes/navegacion.php';?>
 
+    
+   
+    <a href="finalizaCompra.php" > <h1>Test!!</h1></a>
+
+    <?php include '../includes/navegacionDos.php';?>
 </body>
 
 </html>

@@ -37,15 +37,5 @@
     </div>
     <div class="contenido">
       <!-- Contenido Principal del la página -->
-      <?php $FILES = get_included_files();  // Retrieves files included as array($FILE)
-      $FILE = __FILE__;     
-      echo $FILE;          // Set value of current file with absolute path
-       ?>
-      <!--Final Contenido Principal del la página -->
-    </div>
-  </div>
-  <!-- Javascript de la barra lateral -->
-  <script src="../../assets/js/sidebar.js"></script>
-</body>
-
-</html>
+     
+      
