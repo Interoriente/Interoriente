@@ -45,19 +45,23 @@ if (isset($_SESSION["emailUsuario"]) or isset($_SESSION["documentoIdentidad"])) 
       //Ejecutar consulta
       $consultar_mostrar_ciudad->execute();
       $resultado_ciudad = $consultar_mostrar_ciudad->fetchAll();
-
-      //Inner join SELECT nombreCiudad FROM tblCiudad INNER JOIN tblUsuario ON tblCiudad.nombreCiudad = tblUsuario.ciudadUsuario
-
-      $id = $_SESSION["emailUsuario"];
-      include_once '../../../dao/conexion.php';
+      //Mostrar la información del usuario logueado
       $sql_inicio = "SELECT*FROM tblUsuario WHERE emailUsuario ='$id' ";
       $consulta_resta = $pdo->prepare($sql_inicio);
       $consulta_resta->execute();
       $resultado = $consulta_resta->rowCount(array($id));
       $resultado2 = $consulta_resta->fetch(PDO::FETCH_OBJ);
+      //Sql para mostrar el nombre de la ciudad de acuerdo al usuario logueado
+      include_once '../../../dao/conexion.php';
+      $sql_inicioCiudad = "SELECT nombresUsuario, nombreCiudad FROM tblUsuario INNER JOIN tblCiudad ON tblUsuario.ciudadUsuario = tblCiudad.codigoCiudad WHERE emailUsuario='$id'";
+      $consulta_restaCiudad = $pdo->prepare($sql_inicioCiudad);
+      $consulta_restaCiudad->execute(array($id));
+      $resultadoCiudad  = $consulta_restaCiudad->fetch(PDO::FETCH_OBJ);
+
       //Validacion de roles
       if ($resultado) {
         $Nombre = $resultado2->nombresUsuario . " " . $resultado2->apellidoUsuario;
+        //SELECT nombresUsuario, nombreCiudad FROM tblUsuario INNER JOIN tblCiudad ON tblUsuario.ciudadUsuario = tblCiudad.codigoCiudad
       ?>
         <!-- Header -->
         <div class="header pb-6 d-flex align-items-center" style="min-height: 500px; background-image: url(../../../assets/img/fondoperfil.jpg); background-size: cover; background-position: center top;">
@@ -117,7 +121,7 @@ if (isset($_SESSION["emailUsuario"]) or isset($_SESSION["documentoIdentidad"])) 
                       <?php echo $Nombre; ?><span class="font-weight-light">, 27</span>
                     </h5>
                     <div class="h5 font-weight-300">
-                      <i class="ni location_pin mr-2"></i><?php echo $resultado2->ciudadUsuario;?>
+                      <i class="ni location_pin mr-2"></i><?php echo $resultadoCiudad->nombreCiudad; ?>
                     </div>
                   </div>
                 </div>
@@ -134,81 +138,81 @@ if (isset($_SESSION["emailUsuario"]) or isset($_SESSION["documentoIdentidad"])) 
               </div>
             </div>
             <!--/Modal -->
-                  <div class="col-xl-8 order-xl-1">
-                    <div class="card">
-                      <div class="card-header">
-                        <div class="row align-items-center">
-                          <div class="col-8">
-                            <h3 class="mb-0">Editar perfil </h3>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="card-body">
-                        <form action="crud/actualizarCuenta.php" method="GET">
-                          <h6 class="heading-small text-muted mb-4">Información de usuario</h6>
-                          <div class="pl-lg-4">
-                            <div class="row">
-                              <div class="col-lg-6">
-                                <div class="form-group">
-                                  <label class="form-control-label" for="input-username">Nombre</label>
-                                  <input type="text" id="input-username" name="nombre" class="form-control" placeholder="Username" value="<?php echo $resultado2->nombresUsuario; ?>">
-                                </div>
-                              </div>
-                              <div class="col-lg-6">
-                                <div class="form-group">
-                                  <label class="form-control-label" for="input-username">Apellido</label>
-                                  <input type="text" id="input-username" name="apellido" class="form-control" placeholder="Username" value="<?php echo $resultado2->apellidoUsuario; ?>">
-                                </div>
-                              </div>
-                              <div class="col-lg-6">
-                                <div class="form-group">
-                                  <label class="form-control-label" for="input-username">Celular</label>
-                                  <input type="text" id="input-username" name="celular" class="form-control" placeholder="Celular" value="<?php echo $resultado2->telefonomovilUsuario; ?>">
-                                </div>
-                              </div>
-                              <div class="col-lg-6">
-                                <div class="form-group">
-                                  <label class="form-control-label" for="input-username">Ciudad</label>
-                                  <select name="ciudad" class="form-control" required>
-                                    <option value="" disabled selected><?php echo $resultado2->ciudadUsuario; ?></option>
-                                    <?php
-                                    foreach ($resultado_ciudad as $datos_ciudad) { ?>
-                                      <option value="<?php echo $datos_ciudad['codigoCiudad'] ?>"><?php echo $datos_ciudad['nombreCiudad'] ?></option>
-                                    <?php } ?>
-                                  </select>
-                                </div>
-                              </div>
-                              <p>Ten en cuenta que si modificas el correo deberás iniciar sesión nuevamente</p>
-                              <div class="col-lg-6">
-                                <div class="form-group">
-                                  <label class="form-control-label" for="input-email">Correo</label>
-                                  <input type="email" id="input-email" name="correo" class="form-control" value="<?php echo $resultado2->emailUsuario; ?>">
-                                </div>
-                              </div>
-                              <div class="form-group">
-                                <input type="hidden" name="ideditar" value="<?php echo $resultado2->documentoIdentidad; ?>">
-                              </div>
-                            </div>
-                            <button class="btn btn-primary btn-xs" type="submit" name="subir">Editar</button>
-                          </div>
-                        </form>
-                      </div>
+            <div class="col-xl-8 order-xl-1">
+              <div class="card">
+                <div class="card-header">
+                  <div class="row align-items-center">
+                    <div class="col-8">
+                      <h3 class="mb-0">Editar perfil </h3>
                     </div>
                   </div>
-                <?php } ?>
                 </div>
-                <!-- Footer -->
-            <?php require_once '../assets/footer.php' ?>
+                <div class="card-body">
+                  <form action="crud/actualizarCuenta.php" method="GET">
+                    <h6 class="heading-small text-muted mb-4">Información de usuario</h6>
+                    <div class="pl-lg-4">
+                      <div class="row">
+                        <div class="col-lg-6">
+                          <div class="form-group">
+                            <label class="form-control-label" for="input-username">Nombre</label>
+                            <input type="text" id="input-username" name="nombre" class="form-control" placeholder="Username" value="<?php echo $resultado2->nombresUsuario; ?>">
+                          </div>
+                        </div>
+                        <div class="col-lg-6">
+                          <div class="form-group">
+                            <label class="form-control-label" for="input-username">Apellido</label>
+                            <input type="text" id="input-username" name="apellido" class="form-control" placeholder="Username" value="<?php echo $resultado2->apellidoUsuario; ?>">
+                          </div>
+                        </div>
+                        <div class="col-lg-6">
+                          <div class="form-group">
+                            <label class="form-control-label" for="input-username">Celular</label>
+                            <input type="text" id="input-username" name="celular" class="form-control" placeholder="Celular" value="<?php echo $resultado2->telefonomovilUsuario; ?>">
+                          </div>
+                        </div>
+                        <div class="col-lg-6">
+                          <div class="form-group">
+                            <label class="form-control-label" for="input-username">Ciudad</label>
+                            <select name="ciudad" class="form-control" required>
+                              <option value="<?php echo $resultadoCiudad->codigoCiudad; ?>" disabled selected><?php echo $resultadoCiudad->nombreCiudad; ?></option>
+                              <?php
+                              foreach ($resultado_ciudad as $datos_ciudad) { ?>
+                                <option value="<?php echo $datos_ciudad['codigoCiudad'] ?>"><?php echo $datos_ciudad['nombreCiudad'] ?></option>
+                              <?php } ?>
+                            </select>
+                          </div>
+                        </div>
+                        <p>Ten en cuenta que si modificas el correo deberás iniciar sesión nuevamente</p>
+                        <div class="col-lg-6">
+                          <div class="form-group">
+                            <label class="form-control-label" for="input-email">Correo</label>
+                            <input type="email" id="input-email" name="correo" class="form-control" value="<?php echo $resultado2->emailUsuario; ?>">
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <input type="hidden" name="ideditar" value="<?php echo $resultado2->documentoIdentidad; ?>">
+                        </div>
+                      </div>
+                      <button class="btn btn-primary btn-xs" type="submit" name="subir">Editar</button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          <?php } ?>
           </div>
-          <!-- Argon Scripts -->
-          <!-- Core -->
-          <script src="../assets/vendor/jquery/dist/jquery.min.js"></script>
-          <script src="../assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-          <script src="../assets/vendor/js-cookie/js.cookie.js"></script>
-          <script src="../assets/vendor/jquery.scrollbar/jquery.scrollbar.min.js"></script>
-          <script src="../assets/vendor/jquery-scroll-lock/dist/jquery-scrollLock.min.js"></script>
-          <!-- Argon JS -->
-          <script src="../assets/js/argon.js?v=1.2.0"></script>
+          <!-- Footer -->
+          <?php require_once '../assets/footer.php' ?>
+        </div>
+        <!-- Argon Scripts -->
+        <!-- Core -->
+        <script src="../assets/vendor/jquery/dist/jquery.min.js"></script>
+        <script src="../assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="../assets/vendor/js-cookie/js.cookie.js"></script>
+        <script src="../assets/vendor/jquery.scrollbar/jquery.scrollbar.min.js"></script>
+        <script src="../assets/vendor/jquery-scroll-lock/dist/jquery-scrollLock.min.js"></script>
+        <!-- Argon JS -->
+        <script src="../assets/js/argon.js?v=1.2.0"></script>
     </body>
 
     </html>

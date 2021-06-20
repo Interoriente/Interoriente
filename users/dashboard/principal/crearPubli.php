@@ -50,7 +50,7 @@ if (isset($_SESSION["emailUsuario"]) or isset($_SESSION["documentoIdentidad"])) 
 
       //Sirve para mostrar el contenido de la tabla Estado, para mostrarlo en la lista desplegable
       //Mostrar los datos almacenados
-      $sql_mostrar_estado = "SELECT * FROM tblEstado";
+      $sql_mostrar_estado = "SELECT * FROM tblEstadoArticulo";
       //Prepara sentencia
       $consultar_mostrar_estado = $pdo->prepare($sql_mostrar_estado);
       //Ejecutar consulta
@@ -130,7 +130,7 @@ if (isset($_SESSION["emailUsuario"]) or isset($_SESSION["documentoIdentidad"])) 
                               <option value="" disabled selected>Seleccione un estado del producto</option>
                               <?php
                               foreach ($resultado_estado as $datos_estado) { ?>
-                                <option value="<?php echo $datos_estado['idEstado']; ?>"><?php echo $datos_estado['nombreEstado']; ?></option>
+                                <option value="<?php echo $datos_estado['idEstadoArticulo']; ?>"><?php echo $datos_estado['nombreEstado']; ?></option>
                               <?php } ?>
                             </select>
                           </div>
@@ -286,16 +286,17 @@ if (isset($_SESSION["emailUsuario"]) or isset($_SESSION["documentoIdentidad"])) 
             $descripcion = $_POST['descripcion'];
             $color = $_POST['color'];
             $costo = $_POST['costo'];
-            $estado = $_POST['estado'];
+            $estadoarticulo = $_POST['estado'];
+            $estadopublicacion = '3';
             $stock = $_POST['stock'];
             $categoria = $_POST['categoria'];
             $usuario = $_POST['usuario'];
             //sentencia Sql
-            $sql_insertar = "INSERT INTO tblPublicacion (nombrePublicacion,usuario,descripcionPublicacion,colorPublicacion,costoPublicacion,estadoPublicacion,stockProducto ,categoria )VALUES (?,?,?,?,?,?,?,?)";
+            $sql_insertar = "INSERT INTO tblPublicacion (nombrePublicacion,usuario,descripcionPublicacion,colorPublicacion,costoPublicacion,estadoArticulo,estadoPublicacion,stockProducto,categoria )VALUES (?,?,?,?,?,?,?,?,?)";
             //Preparar consulta
             $consulta_insertar = $pdo->prepare($sql_insertar);
             //Ejecutar la sentencia
-            $consulta_insertar->execute(array($nombre, $usuario, $descripcion, $color, $costo, $estado, $stock, $categoria));
+            $consulta_insertar->execute(array($nombre, $usuario, $descripcion, $color, $costo, $estadoarticulo, $estadopublicacion, $stock, $categoria));
             echo "<script>alert('El registro se subió correctamente');</script>";
             echo "<script> document.location.href='crearPubli.php';</script>";
           }
