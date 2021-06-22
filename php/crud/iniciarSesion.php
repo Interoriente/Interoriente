@@ -7,7 +7,7 @@
     <link rel="icon" href="../assets/img/favicon.png" type="image/png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Validando información...</title>
-</head>
+</head> 
 
 <body>
     <?php

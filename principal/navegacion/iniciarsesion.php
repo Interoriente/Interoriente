@@ -63,9 +63,9 @@
                                     <span class="btn-inner--icon"><img src="../../users/dashboard/assets/img/icons/common/github.svg"></span>
                                     <span class="btn-inner--text">Github</span>
                                 </a>
-                                <a href="#" class="btn btn-neutral btn-icon">
+                                <a href="productos.php" class="btn btn-neutral btn-icon">
                                     <span class="btn-inner--icon"><img src="../../users/dashboard/assets/img/icons/common/google.svg"></span>
-                                    <span class="btn-inner--text">Google</span>
+                                    <span class="btn-inner--text">Comprar</span>
                                 </a>
                             </div>
                         </div>
@@ -80,7 +80,7 @@
                                         <div class="input-group-prepend">
                                             <span class="input-group-text"><i class="ni ni-email-83"></i></span>
                                         </div>
-                                        <input class="form-control" placeholder="Correo o ducumento" type="text" name="correo" required>
+                                        <input class="form-control" placeholder="Correo o documento" type="text" name="correo" required>
                                     </div>
                                 </div>
                                 <div class="form-group">
