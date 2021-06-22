@@ -14,6 +14,7 @@ if (isset($_SESSION["emailUsuario"]) or isset($_SESSION["documentoIdentidad"])) 
 ?>
     <!DOCTYPE html>
     <html>
+
     <head>
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -33,7 +34,19 @@ if (isset($_SESSION["emailUsuario"]) or isset($_SESSION["documentoIdentidad"])) 
     </head>
 
     <body>
-      <?php require_once '../assets/sidebar.php' ?>
+
+      <?php
+      if ($_SESSION['rolUsuario'] == 1) {
+        require_once '../assets/sidebarC.php';
+      }
+      elseif ($_SESSION['rolUsuario'] == 2) {
+        require_once '../assets/sidebarV.php';
+      }
+      else { 
+        require_once '../assets/sidebar.php';
+      }
+      ?>
+
       <?php require_once '../assets/header.php' ?>
       <!-- Header -->
       <div class="header bg-primary pb-6">
@@ -446,7 +459,7 @@ if (isset($_SESSION["emailUsuario"]) or isset($_SESSION["documentoIdentidad"])) 
   } else {
     echo "<script> document.location.href='403.php';</script>";
   }
-}else {
+} else {
   echo "<script> document.location.href='403.php';</script>";
 }
 ?>

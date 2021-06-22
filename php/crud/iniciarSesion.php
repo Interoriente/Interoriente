@@ -24,9 +24,15 @@ session_start();
         $estado = '1';
         $sql_inicio = "SELECT*FROM tblUsuario WHERE emailUsuario ='$correo' OR documentoIdentidad='$correo'  AND contrasenaUsuario='$contrasena'AND estadoUsuario = '$estado'";
         $consulta_inicio = $pdo->prepare($sql_inicio);
-        $consulta_inicio->execute(array($correo, $contrasena));
+        $consulta_inicio->execute();
         $resultado_inicio = $consulta_inicio->rowCount();
         $prueba = $consulta_inicio->fetch(PDO::FETCH_OBJ);
+        /* //Llamado a tabla rol
+        $sql_inicio = "SELECT*FROM tblUsuarioRol WHERE documentoIdentidad ='$doc' OR documentoIdentidad='$correo'  AND contrasenaUsuario='$contrasena'AND estadoUsuario = '$estado'";
+        $consulta_inicio = $pdo->prepare($sql_inicio);
+        $consulta_inicio->execute();
+        $resultado_inicio = $consulta_inicio->rowCount();
+        $prueba = $consulta_inicio->fetch(PDO::FETCH_OBJ); */
         if ($resultado_inicio) {
             $_SESSION["emailUsuario"] = $prueba->emailUsuario;
             $_SESSION["documentoIdentidad"] = $prueba->documentoIdentidad;
@@ -38,7 +44,7 @@ session_start();
         }
     }
     ?>
-    
+
 </body>
 
 </html>
