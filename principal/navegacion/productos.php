@@ -14,7 +14,7 @@
 
 <body>
     <?php
-    include_once 'dao/conexion.php';
+    include_once '../../dao/conexion.php';
     //Mostrar los datos almacenados
     $sql_mostrar = "SELECT * FROM tblPublicacion";
     //Prepara sentencia
