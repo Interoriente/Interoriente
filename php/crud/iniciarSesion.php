@@ -30,6 +30,7 @@ session_start();
         if ($resultado_inicio) {
             $_SESSION["emailUsuario"] = $prueba->emailUsuario;
             $_SESSION["documentoIdentidad"] = $prueba->documentoIdentidad;
+            $_SESSION["rolUsuario"] = '1';
             echo "<script> document.location.href='../../users/dashboard/principal/dashboard.php';</script>";
         } else {
             echo "<script>alert('Correo y/o contraseña incorrecto, o validación denegada');</script>";

@@ -1,6 +1,5 @@
 <?php
 session_start();
-
 if (isset($_SESSION["emailUsuario"]) or isset($_SESSION["documentoIdentidad"])) {
   $id = $_SESSION["emailUsuario"];
   include_once '../../../dao/conexion.php';
