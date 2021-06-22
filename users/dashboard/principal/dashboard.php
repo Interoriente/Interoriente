@@ -14,6 +14,7 @@ if (isset($_SESSION["emailUsuario"]) or isset($_SESSION["documentoIdentidad"])) 
 ?>
     <!DOCTYPE html>
     <html>
+
     <head>
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -33,7 +34,19 @@ if (isset($_SESSION["emailUsuario"]) or isset($_SESSION["documentoIdentidad"])) 
     </head>
 
     <body>
-      <?php require_once '../assets/sidebar.php' ?>
+
+      <?php
+      if ($_SESSION['rolUsuario'] == 1) {
+        require_once '../assets/sidebarC.php';
+      }
+      elseif ($_SESSION['rolUsuario'] == 2) {
+        require_once '../assets/sidebarV.php';
+      }
+      else { 
+        require_once '../assets/sidebar.php';
+      }
+      ?>
+
       <?php require_once '../assets/header.php' ?>
       <!-- Header -->
       <div class="header bg-primary pb-6">
@@ -51,8 +64,9 @@ if (isset($_SESSION["emailUsuario"]) or isset($_SESSION["documentoIdentidad"])) 
                 </nav>
               </div>
               <div class="col-lg-6 col-5 text-right">
-                <a href="#" class="btn btn-sm btn-neutral">New</a>
-                <a href="#" class="btn btn-sm btn-neutral">Filters</a>
+                <a href="alterarrol.php" class="btn btn-sm btn-neutral">Alternar Rol</a>
+                <a href="#" class="btn btn-sm btn-neutral">
+                  <?php echo $_SESSION['nombreRol'];?></a>
               </div>
             </div>
             <!-- Card stats -->
@@ -446,7 +460,7 @@ if (isset($_SESSION["emailUsuario"]) or isset($_SESSION["documentoIdentidad"])) 
   } else {
     echo "<script> document.location.href='403.php';</script>";
   }
-}else {
+} else {
   echo "<script> document.location.href='403.php';</script>";
 }
 ?>

@@ -14,7 +14,10 @@
 
 <body>
     <?php
+<<<<<<< HEAD
     require '../../dao/conexion.php';
+=======
+>>>>>>> acc89aa9841a8c4dc09945dcf2ff077c20416671
     //Mostrar los datos almacenados
     $sql_mostrar = "SELECT * FROM tblPublicacion";
     //Prepara sentencia
