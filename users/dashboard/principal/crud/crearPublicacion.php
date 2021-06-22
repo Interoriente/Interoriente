@@ -10,12 +10,13 @@ if (isset($_POST['subir'])) {
     $stock = $_POST['stock'];
     $categoria = $_POST['categoria'];
     $usuario = $_POST['usuario'];
+    $verificacion = '0';
     //sentencia Sql
-    $sql_insertar = "INSERT INTO tblPublicacion (nombrePublicacion,usuario,descripcionPublicacion,colorPublicacion,costoPublicacion,estadoArticulo,estadoPublicacion,stockProducto,categoria )VALUES (?,?,?,?,?,?,?,?,?)";
+    $sql_insertar = "INSERT INTO tblPublicacion (nombrePublicacion,usuario,descripcionPublicacion,colorPublicacion,costoPublicacion,estadoArticulo,estadoPublicacion,stockProducto,categoria,validacionPublicacion)VALUES (?,?,?,?,?,?,?,?,?,?)";
     //Preparar consulta
     $consulta_insertar = $pdo->prepare($sql_insertar);
     //Ejecutar la sentencia
-    $consulta_insertar->execute(array($nombre, $usuario, $descripcion, $color, $costo, $estadoarticulo, $estadopublicacion, $stock, $categoria));
+    $consulta_insertar->execute(array($nombre, $usuario, $descripcion, $color, $costo, $estadoarticulo, $estadopublicacion, $stock, $categoria,$verificacion));
     echo "<script>alert('El registro se subió correctamente');</script>";
     echo "<script> document.location.href='../crearPubli.php';</script>";
 }
