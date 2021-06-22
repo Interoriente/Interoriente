@@ -43,12 +43,15 @@ if (isset($_SESSION["emailUsuario"]) or isset($_SESSION["documentoIdentidad"])) 
       $consultar_mostrar_publi = $pdo->prepare($sql_mostrar_publi);
       //Ejecutar consulta
       $consultar_mostrar_publi->execute();
-      /* $resultado_mostrar_publi = $consultar_mostrar_publi->fetchAll(); */
+      $resultado_mostrar_publi = $consultar_mostrar_publi->fetchAll();
+      //Contador de registros totales en tabla
+      $contador = $consultar_mostrar_publi->rowCount();
+
       //Mostrando estado del producto
-      $sqlmostrarEstado = "SELECT nombreEstado FROM tblPublicacion INNER JOIN tblEstado ON tblPublicacion.estadoPublicacion = tblEstado.idEstado";
+      /*$sqlmostrarEstado = "SELECT nombreEstado FROM tblPublicacion INNER JOIN tblEstado ON tblPublicacion.estadoPublicacion = tblEstado.idEstado";
       $consultaMostrarEstado = $pdo->prepare($sqlmostrarEstado);
       $consultaMostrarEstado->execute();
-      /* $resultadoEstado  = $consultaMostrarEstado->fetchAll(); */
+      $resultadoEstado  = $consultaMostrarEstado->fetchAll(); */
       ?>
       <!-- Header -->
       <div class="header bg-primary pb-6">
@@ -56,8 +59,8 @@ if (isset($_SESSION["emailUsuario"]) or isset($_SESSION["documentoIdentidad"])) 
           <div class="header-body">
             <div class="row align-items-center py-4">
               <div class="col-lg-6 col-7">
-                <h6 class="h2 text-white d-inline-block mb-0">Tabla de publicaciones</h6>
-
+                <h6 class="h2 text-white d-inline-block mb-0">Tabla de publicaciones</h6><br>
+                <h6 class="h2 text-white d-inline-block mb-0">Total: <?php echo $contador; ?></h6>
               </div>
               <div class="col-lg-6 col-5 text-right">
                 <a href="#" class="btn btn-sm btn-neutral">New</a>
@@ -86,29 +89,37 @@ if (isset($_SESSION["emailUsuario"]) or isset($_SESSION["documentoIdentidad"])) 
                       <th scope="col" class="sort" data-sort="status">Costo</th>
                       <th scope="col" class="sort" data-sort="status">Stock</th>
                       <th scope="col" class="sort" data-sort="status">Estado</th>
-                      <th scope="col" class="sort" data-sort="status">Acciones</th>
+                      <th scope="col" class="sort" data-sort="status">Actualizar</th>
+                      <th scope="col" class="sort" data-sort="status">Eliminar</th>
                     </tr>
                   </thead>
                   <tbody class="list">
                     <?php
                     //Pruebas para imprimir el contenido de las dos tablas de la BD en una. Pero no sirve.
-                    /* foreach ($resultado_mostrar_publi as $datos) {
-                      foreach ($resultadoEstado as $datos1) {  */
-                    //Sirve para especificar que solo se imprima si se cumple la condición, y lo necesito por el motivo de que estoy llamando a tblPublicacion y a tblEstado, entonces necesito imprimir a los dos en una misma tabla.
-                    while ($resultado_mostrar_publi = $consultar_mostrar_publi->fetch(PDO::FETCH_OBJ) AND $resultadoEstado  = $consultaMostrarEstado->fetch(PDO::FETCH_OBJ)) {
+                    foreach ($resultado_mostrar_publi as $datos) {
+                      // foreach ($resultadoEstado as $datos1) { 
+                      //Sirve para especificar que solo se imprima si se cumple la condición, y lo necesito por el motivo de que estoy llamando a tblPublicacion y a tblEstado, entonces necesito imprimir a los dos en una misma tabla.
+                      /* while ($resultado_mostrar_publi = $consultar_mostrar_publi->fetch(PDO::FETCH_OBJ) and $resultadoEstado  = $consultaMostrarEstado->fetch(PDO::FETCH_OBJ)) { */
                     ?>
                       <tr>
-                        <th><?php echo $resultado_mostrar_publi->nombrePublicacion; ?></th>
-                        <th><?php echo $resultado_mostrar_publi->descripcionPublicacion; ?></th>
-                        <th><?php echo $resultado_mostrar_publi->costoPublicacion; ?></th>
-                        <th><?php echo $resultado_mostrar_publi->stockProducto; ?></th>
-                        <!-- Tener en cuenta que el estado está saliendo trocado 1->2 2->1:( parece ser un bug, porque en unos casos si imprime correctamente 2->2 1->1 -->
-                        <th><?php echo $resultadoEstado->nombreEstado; ?></th>
+                        <th><?php echo $datos['nombrePublicacion']; ?></th>
+                        <th><?php echo $datos['descripcionPublicacion']; ?></th>
+                        <th><?php echo $datos['costoPublicacion']; ?></th>
+                        <th><?php echo $datos['stockProducto']; ?></th>
+                        <?php if ($datos['validacionPublicacion'] == '1') { ?>
+                          <th>Validada</th>
+                          <th><a class="btn btn-danger" href="crud/desactivarPubli.php?id=<?php echo $datos['idPublicacion']; ?>">Desactivar</a></th>
+                          <th><a class="btn btn-info" data-toggle="modal" data-target="#eliminarPubliModal">Eliminar</a></th>
+                        <?php } else { ?>
+                          <th>En revisión</th>
+                          <th><a class="btn btn-success" href="crud/activarPubli.php?id=<?php echo $datos['idPublicacion']; ?>">Validar</a></th>
+                          <th><a class="btn btn-info" data-toggle="modal" data-target="#eliminarPubliModal">Eliminar</a></th>
                       </tr>
-                    <?php
-                      /*   }
+                  <?php
+                          /*   }
                     } */ }
-                    ?>
+                      }
+                  ?>
                   </tbody>
                 </table>
               </div>
@@ -153,6 +164,25 @@ if (isset($_SESSION["emailUsuario"]) or isset($_SESSION["documentoIdentidad"])) 
       <script src="../assets/vendor/jquery-scroll-lock/dist/jquery-scrollLock.min.js"></script>
       <!-- Argon JS -->
       <script src="../assets/js/argon.js?v=1.2.0"></script>
+
+      <!--Modal Eliminar publicación -->
+      <div class="modal fade" id="eliminarPubliModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">¿Seguro quieres eliminar el registro?</h5>
+              <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">×</span>
+              </button>
+            </div>
+            <div class="modal-body">Seleccione "Eliminar" a continuación si considera que la publicación a infringido las politicas de la empresa.</div>
+            <div class="modal-footer">
+              <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
+              <a class="btn btn-danger" href="crud/eliminarPubli.php?id=<?php echo $datos['idPublicacion']; ?>">Eliminar</a>
+            </div>
+          </div>
+        </div>
+      </div>
     </body>
 
     </html>

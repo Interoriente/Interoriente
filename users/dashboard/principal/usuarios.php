@@ -96,12 +96,12 @@ if (isset($_SESSION["emailUsuario"]) or isset($_SESSION["documentoIdentidad"])) 
                         <?php /* Verificar que el estado esté activo */
                         if ($datos['estadoUsuario'] == 1) { ?>
                           <th>Activo</th>
-                          <th><a class="btn btn-info" href="crud/desactivar_admin.php?id=<?php echo $datos['documentoIdentidad']; ?>">Desactivar</a></th>
+                          <th><a class="btn btn-info" href="crud/desactivarAdmin.php?id=<?php echo $datos['documentoIdentidad']; ?>">Desactivar</a></th>
                       </tr>
                     <?php
                         } else { ?>
                       <th>Inactivo</th>
-                      <th><a class="btn btn-success" href="crud/activar_admin.php?id=<?php echo $datos['documentoIdentidad']; ?>">Activar</a></th>
+                      <th><a class="btn btn-success" href="crud/activarAdmin.php?id=<?php echo $datos['documentoIdentidad']; ?>">Activar</a></th>
                   <?php
                         }
                       }
