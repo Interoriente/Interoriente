@@ -16,7 +16,7 @@ session_start();
     <?php
     if ($_POST) {
         //Llamar a la conexion base de datos
-        include_once '../../dao/conexion.php';
+        require '../../dao/conexion.php';
         //Capturo información
         $correo = strip_tags($_POST['correo']);
         $contrasena = strip_tags($_POST['contrasena']);
@@ -27,7 +27,10 @@ session_start();
         $consulta_inicio->execute(array($correo, $contrasena));
         $resultado_inicio = $consulta_inicio->rowCount();
         $prueba = $consulta_inicio->fetch(PDO::FETCH_OBJ);
+        
         if ($resultado_inicio) {
+            
+
             $_SESSION["emailUsuario"] = $prueba->emailUsuario;
             $_SESSION["documentoIdentidad"] = $prueba->documentoIdentidad;
             echo "<script> document.location.href='../../users/dashboard/principal/dashboard.php';</script>";
