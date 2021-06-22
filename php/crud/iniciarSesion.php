@@ -27,16 +27,7 @@ session_start();
         $consulta_inicio->execute();
         $resultado_inicio = $consulta_inicio->rowCount();
         $prueba = $consulta_inicio->fetch(PDO::FETCH_OBJ);
-<<<<<<< HEAD
         
-=======
-        /* //Llamado a tabla rol
-        $sql_inicio1 = "SELECT*FROM tblUsuarioRol WHERE documentoIdentidad='$correo'";
-        $consulta_inicio1 = $pdo->prepare($sql_inicio1);
-        $consulta_inicio1->execute();
-        $resultado_inicio1 = $consulta_inicio1->rowCount();
-        $prueba1 = $consulta_inicio1->fetch(PDO::FETCH_OBJ); */
->>>>>>> acc89aa9841a8c4dc09945dcf2ff077c20416671
         if ($resultado_inicio) {
             
 
