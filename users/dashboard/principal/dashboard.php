@@ -39,7 +39,7 @@ if (isset($_SESSION["emailUsuario"]) or isset($_SESSION["documentoIdentidad"])) 
       if ($_SESSION['rolUsuario'] == 1) {
         require_once '../assets/sidebarC.php';
       }
-      elseif ($_SESSION['rolUsuario'] == 2) {
+      else if ($_SESSION['rolUsuario'] == 2) {
         require_once '../assets/sidebarV.php';
       }
       else { 
