@@ -66,7 +66,7 @@ if (isset($_SESSION["emailUsuario"]) or isset($_SESSION["documentoIdentidad"])) 
               <div class="col-lg-6 col-5 text-right">
                 <a href="alterarrol.php" class="btn btn-sm btn-neutral">Alternar Rol</a>
                 <a href="#" class="btn btn-sm btn-neutral">
-                  <?php $_SESSION['nombreRol'];?></a>
+                  <?php echo $_SESSION['nombreRol'];?></a>
               </div>
             </div>
             <!-- Card stats -->

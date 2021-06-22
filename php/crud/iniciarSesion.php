@@ -27,24 +27,24 @@ session_start();
         $consulta_inicio->execute();
         $resultado_inicio = $consulta_inicio->rowCount();
         $prueba = $consulta_inicio->fetch(PDO::FETCH_OBJ);
-        //Llamado a tabla rol
+        /* //Llamado a tabla rol
         $sql_inicio1 = "SELECT*FROM tblUsuarioRol WHERE documentoIdentidad='$correo'";
         $consulta_inicio1 = $pdo->prepare($sql_inicio1);
         $consulta_inicio1->execute();
         $resultado_inicio1 = $consulta_inicio1->rowCount();
-        $prueba1 = $consulta_inicio1->fetch(PDO::FETCH_OBJ);
+        $prueba1 = $consulta_inicio1->fetch(PDO::FETCH_OBJ); */
         if ($resultado_inicio) {
             $_SESSION["emailUsuario"] = $prueba->emailUsuario;
             $_SESSION["documentoIdentidad"] = $prueba->documentoIdentidad;
-            $rol=$prueba1->idRol;
+           /*  $rol=$prueba1->idRol;
             if ($rol=='1') {
                 echo "<script> document.location.href='../../users/dashboard/principal/dashboard.php';</script>";
             }else {
                 echo "Esto es otra cosa";
-            }/* 
+            } */
             $_SESSION["rolUsuario"] = '1';
             $_SESSION["nombreRol"]="Comprador";
-            echo "<script> document.location.href='../../users/dashboard/principal/dashboard.php';</script>"; */
+            echo "<script> document.location.href='../../users/dashboard/principal/dashboard.php';</script>";
         } else {
             echo "<script>alert('Correo y/o contraseña incorrecto, o validación denegada');</script>";
             echo "<script> document.location.href='../../principal/navegacion/iniciarsesion.php';</script>";
