@@ -35,17 +35,7 @@ if (isset($_SESSION["emailUsuario"]) or isset($_SESSION["documentoIdentidad"])) 
 
     <body>
 
-      <?php
-      if ($_SESSION['rolUsuario'] == 1) {
-        require_once '../assets/sidebarC.php';
-      }
-      else if ($_SESSION['rolUsuario'] == 2) {
-        require_once '../assets/sidebarV.php';
-      }
-      else { 
-        require_once '../assets/sidebar.php';
-      }
-      ?>
+    <?php require_once '../assets/sidebar.php' ?>
 
       <?php require_once '../assets/header.php' ?>
       <!-- Header -->

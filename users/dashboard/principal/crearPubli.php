@@ -95,32 +95,32 @@ if (isset($_SESSION["emailUsuario"]) or isset($_SESSION["documentoIdentidad"])) 
                   </div>
                 </div>
                 <div class="card-body">
-                  <form action="crearPubli.php" method="POST" enctype="multipart/form-data">
+                  <form action="crud/crearPublicacion.php" method="POST" enctype="multipart/form-data">
                     <h6 class="heading-small text-muted mb-4">Información del producto</h6>
                     <div class="pl-lg-4">
                       <div class="row">
                         <div class="col-lg-6">
                           <div class="form-group">
                             <label class="form-control-label" for="input-username">Nombre producto</label>
-                            <input type="text" id="input-username" name="nombre" class="form-control" placeholder="Nombre producto" value="">
+                            <input type="text" id="input-username" name="nombre" class="form-control" placeholder="Nombre producto" value="" required >
                           </div>
                         </div>
                         <div class="col-lg-6">
                           <div class="form-group">
                             <label class="form-control-label" for="input-username">Descripcion</label>
-                            <input type="text" id="input-username" name="descripcion" class="form-control" placeholder="Descripcion" value="">
+                            <input type="text" id="input-username" name="descripcion" class="form-control" placeholder="Descripcion" value="" required>
                           </div>
                         </div>
                         <div class="col-lg-6">
                           <div class="form-group">
                             <label class="form-control-label" for="input-username">Color</label>
-                            <input type="color" id="input-username" name="color" class="form-control" placeholder="Color" value="">
+                            <input type="color" id="input-username" name="color" class="form-control" placeholder="Color" value="" required>
                           </div>
                         </div>
                         <div class="col-lg-6">
                           <div class="form-group">
                             <label class="form-control-label" for="input-username">Costo</label>
-                            <input type="text" id="input-username" name="costo" class="form-control" placeholder="Costo" value="">
+                            <input type="text" id="input-username" name="costo" class="form-control" placeholder="Costo" value="" required>
                           </div>
                         </div>
                         <div class="col-lg-6">
@@ -279,29 +279,6 @@ if (isset($_SESSION["emailUsuario"]) or isset($_SESSION["documentoIdentidad"])) 
               </div>
             </div>
           </div>
-          <?php
-          if (isset($_POST['subir'])) {
-            include_once '../../../dao/conexion.php';
-            $nombre = $_POST['nombre'];
-            $descripcion = $_POST['descripcion'];
-            $color = $_POST['color'];
-            $costo = $_POST['costo'];
-            $estadoarticulo = $_POST['estado'];
-            $estadopublicacion = '3';
-            $stock = $_POST['stock'];
-            $categoria = $_POST['categoria'];
-            $usuario = $_POST['usuario'];
-            //sentencia Sql
-            $sql_insertar = "INSERT INTO tblPublicacion (nombrePublicacion,usuario,descripcionPublicacion,colorPublicacion,costoPublicacion,estadoArticulo,estadoPublicacion,stockProducto,categoria )VALUES (?,?,?,?,?,?,?,?,?)";
-            //Preparar consulta
-            $consulta_insertar = $pdo->prepare($sql_insertar);
-            //Ejecutar la sentencia
-            $consulta_insertar->execute(array($nombre, $usuario, $descripcion, $color, $costo, $estadoarticulo, $estadopublicacion, $stock, $categoria));
-            echo "<script>alert('El registro se subió correctamente');</script>";
-            echo "<script> document.location.href='crearPubli.php';</script>";
-          }
-          ?>
-
           <!-- Footer -->
           <?php require_once '../assets/footer.php' ?>
       </div>
