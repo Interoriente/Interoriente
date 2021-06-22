@@ -1,3 +1,6 @@
+<?php 
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -38,7 +41,7 @@
         $rol = $stmt->fetch(PDO::FETCH_ASSOC);
 
         if (isset($rol)) {
-            session_start();
+            
             $_SESSION["emailUsuario"] = $prueba->emailUsuario;
             $_SESSION["documentoIdentidad"] = $prueba->documentoIdentidad;
 
