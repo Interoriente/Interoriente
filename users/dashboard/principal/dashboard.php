@@ -55,11 +55,11 @@ if (isset($_SESSION["emailUsuario"]) or isset($_SESSION["documentoIdentidad"])) 
 
       <?php
       if ($_SESSION['roles'] == '1') {
-        require_once '../assets/sidebar.php';
-      } else if ($_SESSION['roles'] == '2') {
         require_once '../assets/sidebarC.php';
-      } else {
+      } else if ($_SESSION['roles'] == '2') {
         require_once '../assets/sidebarV.php';
+      } else {
+        require_once '../assets/sidebar.php';
       }
 
       require_once '../assets/header.php' ?>
@@ -79,7 +79,7 @@ if (isset($_SESSION["emailUsuario"]) or isset($_SESSION["documentoIdentidad"])) 
                 </nav>
               </div>
               <div class="col-lg-6 col-5 text-right">
-                <form action="" method="post">
+                <form action="dashboard.php" method="post">
                   <select name="rol" required>
                     <!-- onchange="location = this.value" Ayuda a redireccionar -->
                     <option value="" disabled selected>Seleccione un rol</option>
