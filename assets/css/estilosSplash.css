@@ -1,0 +1,191 @@
+/* Propiedades Generales --> Paleta de Colores y fuentes*/
+:root{
+  --clr-primario-a: #004E64;
+  --clr-primario-b: #5D9BAC;
+  --clr-secundario: #408E8D;
+  --clr-neutro-a: #FEFDEB;
+  --clr-neutro-b: #001014;
+  --clr-neutro-c: #E5E5E5;
+  --clr-cta-a: #FFB930;
+  --crl-cta-b: #FCE61E;
+}
+@import url("https://fonts.googleapis.com/css?family=Poppins:300,600");
+/* Estandares --> Estilos Generales */ 
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+body {
+  font-family: 'Poppins';
+  color: #333;
+  line-height: 1.6;
+  background-color: var(--clr-neutro-a);
+}
+ul {
+  list-style-type: none;
+}
+a {
+  text-decoration: none;
+  color: #333;
+}
+h1,
+h2 {
+  font-weight: 300;
+  line-height: 1.2;
+  margin: 10px 0;
+}
+
+/* Sección Hero */
+
+.banner img{
+  height: 260px;
+  width: 100%;
+}
+.logo img{
+  height: 300px;
+  position: relative;
+  transform: translateY(-33%);
+  display: inline-block;
+
+}
+
+/* Texto y Botón cta */
+
+.tituloBoton {
+  flex-direction: column;
+  text-align: center;
+}
+
+.tituloBoton a:hover {
+  color: white;
+}
+.tituloBoton a {
+  flex-wrap: wrap;
+  padding: 0.5em 2em;
+  font-size: 30px;
+  text-decoration: none;
+  background-color: var(--crl-cta-b);
+  color: var(--clr-neutro-b);
+  border-radius: 10px;
+}
+
+.titulo {
+  
+  margin: 10px 0;
+  padding: 3em;
+  font-weight: 600;
+  text-align: justify;
+}
+/* Carrusel, texto, imagen y botón */
+.carrusel {
+  width: 130%;
+  height: 100%;
+  margin: 2em;
+}
+
+.centro .flex {
+  flex-wrap: wrap;
+}
+.flex {
+  display: flex;
+}
+.flex h1 {
+  justify-content: end;
+}
+.contenedor-telefono{
+  display: none;
+  width: 20em;
+  padding: 0;
+  margin: 0;
+  margin: auto;
+}
+
+
+/* Media query para hacer responsive */
+@media (max-width: 700px) {
+  .carrusel {
+    display: none;
+    
+  }
+  .contenedor-telefono{
+    display: block;
+  }
+}
+
+/* Tarjetas */
+
+
+
+.contenedor-tarjetas {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  padding: 2em;
+  justify-content: space-between;
+  margin: 2em;
+  text-align: center;
+}
+
+
+.contenedor-tarjetas a {
+  padding: 0.5em 5em;
+  color: var(--clr-neutro-b);
+  font-weight: 600;
+  
+  background-color:var(--crl-cta-b);
+  border-color: var(--crl-cta-b);
+}
+.contenedor-tarjetas a:hover {
+  padding: 0.5em 5em;
+  color: white;
+  font-weight: 600;
+  background-color: var(--clr-cta-a);
+  border-color: var(--clr-cta-a);
+}
+
+.infoTarjeta {
+  text-align: justify;
+}
+
+.tarjeta{
+  margin-bottom: 2em;
+}
+
+/* Responsive */
+@media (max-width: 700px) {
+  .contenedor-tarjetas {
+  flex-direction: column;
+   align-items: center;
+  }
+}
+@media (max-width: 380px) {
+  .contenedor-tarjetas {
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin: -2em;
+    margin-top: 5em;
+  }
+}
+@media (max-width: 320px) {
+  .contenedor-tarjetas {
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin: -2em;
+    margin-top: 5em;
+  }
+}
+@media (max-width: 280px) {
+  .contenedor-tarjetas {
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin-top: 5em;
+  }
+}
+
+/* Footer */
+.footer {
+  background-color: green;
+  margin-top: 7em;
+  overflow: auto;
+}
