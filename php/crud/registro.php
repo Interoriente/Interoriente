@@ -25,7 +25,7 @@
         $contrasena = strip_tags($_POST['contrasena']);
         //Sha1 -> Método de encriptación
         $contrasena = sha1($_POST['contrasena']);
-        $estado = '0';
+        $estado = '1';
         $perfil = "imagenes/NO_borrar.png";
         $rol='1';
         //Verificación correo existente
