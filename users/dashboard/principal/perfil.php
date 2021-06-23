@@ -33,7 +33,13 @@ if (isset($_SESSION["emailUsuario"]) or isset($_SESSION["documentoIdentidad"])) 
     </head>
 
     <body>
-      <?php require_once '../assets/sidebar.php' ?>
+      <?php if ($_SESSION['roles'] == '1') {
+        require_once '../assets/sidebarC.php';
+      } else if ($_SESSION['roles'] == '2') {
+        require_once '../assets/sidebarV.php';
+      } else {
+        require_once '../assets/sidebar.php';
+      } ?>
       <?php require_once '../assets/header.php' ?>
       <?php
       //Sirve para mostrar el contenido de la tabla Ciudad, para mostrarlo en la lista desplegable

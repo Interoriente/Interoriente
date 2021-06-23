@@ -33,7 +33,14 @@ if (isset($_SESSION["emailUsuario"]) or isset($_SESSION["documentoIdentidad"])) 
         </head>
 
         <body>
-            <?php require_once '../assets/sidebar.php' ?>
+            <?php if ($_SESSION['roles'] == '1') {
+                require_once '../assets/sidebarC.php';
+            } else if ($_SESSION['roles'] == '2') {
+                require_once '../assets/sidebarV.php';
+            } else {
+                require_once '../assets/sidebar.php';
+            }
+            ?>
             <?php require_once '../assets/header.php' ?>
             <br>
             <div class="col-xl-8 order-xl-1">
@@ -95,7 +102,7 @@ if (isset($_SESSION["emailUsuario"]) or isset($_SESSION["documentoIdentidad"])) 
                                 //Preparar consulta
                                 $consulta_insertar = $pdo->prepare($sql_insertar);
                                 //Ejecutar la sentencia
-                                $consulta_insertar->execute(array($archivo,$id));
+                                $consulta_insertar->execute(array($archivo, $id));
                                 echo "<script>alert('Foto de perfil subida y actualizada correctamente');</script>";
                                 echo "<script> document.location.href='perfil.php';</script>";
                             } else {

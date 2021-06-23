@@ -34,7 +34,13 @@ if (isset($_SESSION["emailUsuario"]) or isset($_SESSION["documentoIdentidad"])) 
     </head>
 
     <body>
-      <?php require_once '../assets/sidebar.php';
+      <?php if ($_SESSION['roles'] == '1') {
+        require_once '../assets/sidebarC.php';
+      } else if ($_SESSION['roles'] == '2') {
+        require_once '../assets/sidebarV.php';
+      } else {
+        require_once '../assets/sidebar.php';
+      }
       require_once '../assets/header.php';
       include_once '../../../dao/conexion.php';
       //Llamar a la conexion base de datos -> Muestro el contenido de tabla usuario
