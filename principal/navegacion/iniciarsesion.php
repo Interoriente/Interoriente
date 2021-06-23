@@ -63,7 +63,7 @@
                                     <span class="btn-inner--icon"><img src="../../users/dashboard/assets/img/icons/common/github.svg"></span>
                                     <span class="btn-inner--text">Github</span>
                                 </a>
-                                <a href="../publicacion/" class="btn btn-neutral btn-icon">
+                                <a href="../publicacion/index.php" class="btn btn-neutral btn-icon">
                                     <span class="btn-inner--icon"><img src="../../users/dashboard/assets/img/icons/common/google.svg"></span>
                                     <span class="btn-inner--text">Comprar</span>
                                 </a>

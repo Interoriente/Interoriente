@@ -1,0 +1,41 @@
+/* Propiedades Generales --> Paleta de Colores y fuentes*/
+:root{
+  --clr-primario-a: #004E64;
+  --clr-primario-b: #5D9BAC;
+  --clr-secundario: #408E8D;
+  --clr-neutro-a: #FEFDEB;
+  --clr-neutro-b: #001014;
+  --clr-neutro-c: #E5E5E5;
+  --clr-cta-a: #FFB930;
+  --crl-cta-b: #FCE61E;
+}
+@import url("https://fonts.googleapis.com/css?family=Poppins:300,600");
+/* Estandares --> Estilos Generales */ 
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+.hero-principal{
+    display: flex;
+}
+.img-hero{
+    height: 20em;
+    width: 20em;
+    margin: auto;
+}
+@media (min-width: 1024px) {
+    .img-hero{
+        display: none;
+    }
+}
+.btns-filtrado{
+    margin-top: 3em;
+    background-color: #004E64;
+}
+.contendor-btns{
+    display: flex;
+    flex-direction: row;
+}
+

@@ -35,11 +35,6 @@ if ($_GET) {
             header("Location: ../../principal/publicacion/index.php");
         }
     } //Fin if de control
-
-
-        
-    
-
 }
 ?>
 
