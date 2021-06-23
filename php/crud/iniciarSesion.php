@@ -22,7 +22,7 @@ session_start();
         $contrasena = strip_tags($_POST['contrasena']);
         $contrasena = sha1($_POST['contrasena']);
         $estado = '1';
-        $sql_inicio = "SELECT*FROM tblUsuario WHERE emailUsuario ='$id' OR documentoIdentidad='$id'  AND contrasenaUsuario='$contrasena'AND estadoUsuario = '$estado'";
+        $sql_inicio = "SELECT*FROM tblUsuario WHERE documentoIdentidad='$id'  AND contrasenaUsuario='$contrasena'AND estadoUsuario = '$estado'";
         $consulta_inicio = $pdo->prepare($sql_inicio);
         $consulta_inicio->execute();
         $resultado_inicio = $consulta_inicio->rowCount();
@@ -35,7 +35,8 @@ session_start();
         $consulta_inicio1->execute();
         $resultado_inicio1 = $consulta_inicio1->rowCount();
         $rol = $consulta_inicio1->fetch(PDO::FETCH_OBJ);
-
+        $rol=$rol->idRol;
+        var_dump($rol);
         /* $stmt = $pdo->prepare("SELECT idRol FROM tblUsuarioRol WHERE documentoIdentidad = :id");
         $stmt->bindValue(":id", $id);
         $stmt->execute();
@@ -45,7 +46,8 @@ session_start();
 
             $_SESSION["emailUsuario"] = $prueba->emailUsuario;
             $_SESSION["documentoIdentidad"] = $prueba->documentoIdentidad;
-
+            $_SESSION['roles']=$rol;
+            echo $_SESSION['roles'];
             if ($rol == '1') {
                 //Comprador/Proveedor
                 header("Location: ../../users/dashboard/principal/dashboard.php");

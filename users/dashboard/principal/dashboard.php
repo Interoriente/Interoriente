@@ -16,12 +16,17 @@ if (isset($_SESSION["emailUsuario"]) or isset($_SESSION["documentoIdentidad"])) 
   $consultaRol->execute();
   $resultadoRol = $consultaRol->fetchAll();
   $mostrarRol = $consultaRol->fetch(PDO::FETCH_OBJ);
-  //LLamando los roles 
-  $sqlUsuarioRol = "SELECT * FROM tblUsuarioRol WHERE documentoIdentidad= '$documento'";
-  $consultaRol = $pdo->prepare($sqlRol);
-  $consultaRol->execute();
-  $resultadoRol = $consultaRol->fetchAll();
-  $mostrarRol1 = $consultaRol->fetch(PDO::FETCH_ASSOC);
+  /* //LLamando los roles 
+  $sqlUsuarioRol = "SELECT idRol FROM tblUsuarioRol WHERE documentoIdentidad= ?";
+  $consultaUsuarioRol = $pdo->prepare($sqlUsuarioRol);
+  $consultaUsuarioRol->execute(array($documento));
+  $resultadoUsuarioRol = $consultaUsuarioRol->fetchAll();
+  $resultado_inicio1 = $consultaUsuarioRol->rowCount();
+  $mostrarUsuarioRol = $consultaUsuarioRol->fetch(PDO::FETCH_OBJ);
+  echo $resultado_inicio1;
+  echo $mostrarUsuarioRol;
+  $rol = $mostrarUsuarioRol->idRol;
+  echo $rol; */
   //Validacion de roles
   if ($resultado_validacion) {
 ?>
@@ -48,9 +53,16 @@ if (isset($_SESSION["emailUsuario"]) or isset($_SESSION["documentoIdentidad"])) 
 
     <body>
 
-      <?php require_once '../assets/sidebar.php' ?>
+      <?php
+      if ($_SESSION['roles'] == '1') {
+        require_once '../assets/sidebar.php';
+      } else if ($_SESSION['roles'] == '2') {
+        require_once '../assets/sidebarC.php';
+      } else {
+        require_once '../assets/sidebarV.php';
+      }
 
-      <?php require_once '../assets/header.php' ?>
+      require_once '../assets/header.php' ?>
       <!-- Header -->
       <div class="header bg-primary pb-6">
         <div class="container-fluid">
@@ -67,16 +79,19 @@ if (isset($_SESSION["emailUsuario"]) or isset($_SESSION["documentoIdentidad"])) 
                 </nav>
               </div>
               <div class="col-lg-6 col-5 text-right">
-                <select name="rol" required>
+                <select name="rol" onchange="location = this.value" required><!-- onchange="location = this.value" Ayuda a redireccionar -->
                   <option value="" disabled selected>Seleccione un rol</option>
                   <?php
                   foreach ($resultadoRol as $datosRol) { ?>
-                    <option value="<?php echo $datosRol['idRol'];
-                                    $rolSeleccionado = $datosRol['idRol']; ?>"><?php echo $datosRol['nombreRol']; ?>
+                    <option <?php echo $datosRol['idRol'];
+                            if ($datosRol['idRol'] == '1') { ?> value="dashboard.php" <?php $_SESSION['roles'] == '1'; echo $_SESSION['roles'];
+                                                                                    } else if ($datosRol['idRol'] == '2') { ?> value="dashboard.php" <?php $_SESSION['roles'] == '2';
+                                                                                                                                                              } else { ?> value="dashboard.php" <?php $_SESSION['roles'] == '3';
+                                                                                                                                                              } ?>><?php echo $datosRol['nombreRol']; ?>
                     </option>
-                  <?php } ?>
+                  <?php }
+                  ?>
                 </select>
-                <a href="alteralrol.php" class="btn btn-sm btn-neutral">Cambiar rol</a>
               </div>
             </div>
             <!-- Card stats -->

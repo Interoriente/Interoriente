@@ -78,7 +78,7 @@
                                     <label for="">Documento:</label>
                                     <div class="input-group input-group-merge input-group-alternative mb-3">
                                         <div class="input-group-prepend">
-                                            <span class="input-group-text"><i class="ni ni-email-83"></i></span>
+                                            <span class="input-group-text"><i class="ni ni-badge"></i></span>
                                         </div>
                                         <input class="form-control" placeholder="Documento" type="number" name="documento" required>
                                     </div>
