@@ -9,6 +9,12 @@ if (isset($_SESSION["emailUsuario"]) or isset($_SESSION["documentoIdentidad"])) 
   $consulta_resta_validacion->execute();
   $resultado_validacion = $consulta_resta_validacion->rowCount();
   $validacion = $consulta_resta_validacion->fetch(PDO::FETCH_OBJ);
+  //Mostrando roles almacenados
+  $documento = $_SESSION["documentoIdentidad"];
+  $sqlRol = "SELECT nombreRol FROM tblUsuarioRol INNER JOIN tblRol ON tblUsuarioRol.idRol = tblRol.idRol WHERE documentoIdentidad= '$documento'";
+  $consultaRol = $pdo->prepare($sqlRol);
+  $consultaRol->execute();
+  $resultadoRol = $consultaRol->fetchAll();
   //Validacion de roles
   if ($resultado_validacion) {
 ?>
@@ -35,7 +41,7 @@ if (isset($_SESSION["emailUsuario"]) or isset($_SESSION["documentoIdentidad"])) 
 
     <body>
 
-    <?php require_once '../assets/sidebar.php' ?>
+      <?php require_once '../assets/sidebar.php' ?>
 
       <?php require_once '../assets/header.php' ?>
       <!-- Header -->
@@ -53,10 +59,16 @@ if (isset($_SESSION["emailUsuario"]) or isset($_SESSION["documentoIdentidad"])) 
                   </ol>
                 </nav>
               </div>
-              <div class="col-lg-6 col-5 text-right">
-                <a href="alterarrol.php" class="btn btn-sm btn-neutral">Alternar Rol</a>
-                <a href="#" class="btn btn-sm btn-neutral">
-                  <?php echo $_SESSION['nombreRol'];?></a>
+              <div class="col-lg-6">
+                <div class="form-group">
+                  <select name="estado" class="form-control" required>
+                    <option value="" disabled selected>Seleccione un rol</option>
+                    <?php
+                    foreach ($resultadoRol as $datosRol) { ?>
+                      <option value=""><?php echo $datosRol['nombreRol']; ?></option>
+                    <?php } ?>
+                  </select>
+                </div>
               </div>
             </div>
             <!-- Card stats -->
