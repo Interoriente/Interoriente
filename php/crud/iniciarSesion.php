@@ -1,4 +1,4 @@
-<?php 
+<?php
 session_start();
 ?>
 <!DOCTYPE html>
@@ -10,7 +10,7 @@ session_start();
     <link rel="icon" href="../assets/img/favicon.png" type="image/png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Validando información...</title>
-</head> 
+</head>
 
 <body>
     <?php
@@ -18,7 +18,7 @@ session_start();
         //Llamar a la conexion base de datos
         require '../../dao/conexion.php';
         //Capturo información
-        $id = strip_tags($_POST['correo']);
+        $id = strip_tags($_POST['documento']);
         $contrasena = strip_tags($_POST['contrasena']);
         $contrasena = sha1($_POST['contrasena']);
         $estado = '1';
@@ -27,33 +27,37 @@ session_start();
         $consulta_inicio->execute();
         $resultado_inicio = $consulta_inicio->rowCount();
         $prueba = $consulta_inicio->fetch(PDO::FETCH_OBJ);
+        $_SESSION["rolUsuario"] = '1';
 
         //Llamado a tabla rol
-        /*       $sql_inicio1 = "SELECT idRol FROM tblUsuarioRol WHERE documentoIdentidad='$documento'";
+        $sql_inicio1 = "SELECT idRol FROM tblUsuarioRol WHERE documentoIdentidad='$id'";
         $consulta_inicio1 = $pdo->prepare($sql_inicio1);
         $consulta_inicio1->execute();
         $resultado_inicio1 = $consulta_inicio1->rowCount();
-        $prueba1 = $consulta_inicio1->fetch(PDO::FETCH_OBJ); */
+        $rol = $consulta_inicio1->fetch(PDO::FETCH_OBJ);
 
-        $stmt = $pdo->prepare("SELECT idRol FROM tblUsuarioRol WHERE documentoIdentidad = :id");
+        /* $stmt = $pdo->prepare("SELECT idRol FROM tblUsuarioRol WHERE documentoIdentidad = :id");
         $stmt->bindValue(":id", $id);
         $stmt->execute();
-        $rol = $stmt->fetch(PDO::FETCH_ASSOC);
+        $rol = $stmt->fetch(PDO::FETCH_ASSOC); */
 
-        if (isset($rol)) {
-            
+        if ($resultado_inicio) {
+
             $_SESSION["emailUsuario"] = $prueba->emailUsuario;
             $_SESSION["documentoIdentidad"] = $prueba->documentoIdentidad;
 
             if ($rol == '1') {
                 //Comprador/Proveedor
                 header("Location: ../../users/dashboard/principal/dashboard.php");
+                $_SESSION["rolUsuario"] = '1';
             } else if ($rol == '2') {
                 //Empleado
                 header("Location: ../../users/dashboard/principal/dashboard.php");
+                $_SESSION["rolUsuario"] = '2';
             } else {
                 //Administrador
                 header("Location: ../../users/dashboard/principal/dashboard.php");
+                $_SESSION["rolUsuario"] = '3';
             }
             /*   if ($resultado_inicio) {
             $_SESSION["emailUsuario"] = $prueba->emailUsuario;

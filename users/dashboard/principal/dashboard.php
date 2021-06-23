@@ -11,10 +11,17 @@ if (isset($_SESSION["emailUsuario"]) or isset($_SESSION["documentoIdentidad"])) 
   $validacion = $consulta_resta_validacion->fetch(PDO::FETCH_OBJ);
   //Mostrando roles almacenados
   $documento = $_SESSION["documentoIdentidad"];
-  $sqlRol = "SELECT nombreRol FROM tblUsuarioRol INNER JOIN tblRol ON tblUsuarioRol.idRol = tblRol.idRol WHERE documentoIdentidad= '$documento'";
+  $sqlRol = "SELECT * FROM tblUsuarioRol INNER JOIN tblRol ON tblUsuarioRol.idRol = tblRol.idRol WHERE documentoIdentidad= '$documento'";
   $consultaRol = $pdo->prepare($sqlRol);
   $consultaRol->execute();
   $resultadoRol = $consultaRol->fetchAll();
+  $mostrarRol = $consultaRol->fetch(PDO::FETCH_OBJ);
+  //LLamando los roles 
+  $sqlUsuarioRol = "SELECT * FROM tblUsuarioRol WHERE documentoIdentidad= '$documento'";
+  $consultaRol = $pdo->prepare($sqlRol);
+  $consultaRol->execute();
+  $resultadoRol = $consultaRol->fetchAll();
+  $mostrarRol1 = $consultaRol->fetch(PDO::FETCH_ASSOC);
   //Validacion de roles
   if ($resultado_validacion) {
 ?>
@@ -59,16 +66,17 @@ if (isset($_SESSION["emailUsuario"]) or isset($_SESSION["documentoIdentidad"])) 
                   </ol>
                 </nav>
               </div>
-              <div class="col-lg-6">
-                <div class="form-group">
-                  <select name="estado" class="form-control" required>
-                    <option value="" disabled selected>Seleccione un rol</option>
-                    <?php
-                    foreach ($resultadoRol as $datosRol) { ?>
-                      <option value=""><?php echo $datosRol['nombreRol']; ?></option>
-                    <?php } ?>
-                  </select>
-                </div>
+              <div class="col-lg-6 col-5 text-right">
+                <select name="rol" required>
+                  <option value="" disabled selected>Seleccione un rol</option>
+                  <?php
+                  foreach ($resultadoRol as $datosRol) { ?>
+                    <option value="<?php echo $datosRol['idRol'];
+                                    $rolSeleccionado = $datosRol['idRol']; ?>"><?php echo $datosRol['nombreRol']; ?>
+                    </option>
+                  <?php } ?>
+                </select>
+                <a href="alteralrol.php" class="btn btn-sm btn-neutral">Cambiar rol</a>
               </div>
             </div>
             <!-- Card stats -->

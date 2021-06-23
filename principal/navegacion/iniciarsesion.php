@@ -75,12 +75,12 @@
                             </div>
                             <form action="../../php/crud/iniciarSesion.php" method="POST">
                                 <div class="form-group">
-                                    <label for="">Correo o documento:</label>
+                                    <label for="">Documento:</label>
                                     <div class="input-group input-group-merge input-group-alternative mb-3">
                                         <div class="input-group-prepend">
                                             <span class="input-group-text"><i class="ni ni-email-83"></i></span>
                                         </div>
-                                        <input class="form-control" placeholder="Correo o documento" type="text" name="correo" required>
+                                        <input class="form-control" placeholder="Documento" type="number" name="documento" required>
                                     </div>
                                 </div>
                                 <div class="form-group">
