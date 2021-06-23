@@ -53,7 +53,7 @@ if (isset($_SESSION["emailUsuario"]) or isset($_SESSION["documentoIdentidad"])) 
       $resultado2 = $consulta_resta->fetch(PDO::FETCH_OBJ);
       //Sql para mostrar el nombre de la ciudad de acuerdo al usuario logueado
       include_once '../../../dao/conexion.php';
-      $sql_inicioCiudad = "SELECT nombresUsuario, nombreCiudad FROM tblUsuario INNER JOIN tblCiudad ON tblUsuario.ciudadUsuario = tblCiudad.codigoCiudad WHERE emailUsuario='$id'";
+      $sql_inicioCiudad = "SELECT nombreCiudad FROM tblUsuario INNER JOIN tblCiudad ON tblUsuario.ciudadUsuario = tblCiudad.codigoCiudad WHERE emailUsuario='$id'";
       $consulta_restaCiudad = $pdo->prepare($sql_inicioCiudad);
       $consulta_restaCiudad->execute(array($id));
       $resultadoCiudad  = $consulta_restaCiudad->fetch(PDO::FETCH_OBJ);
