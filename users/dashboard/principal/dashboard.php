@@ -79,19 +79,27 @@ if (isset($_SESSION["emailUsuario"]) or isset($_SESSION["documentoIdentidad"])) 
                 </nav>
               </div>
               <div class="col-lg-6 col-5 text-right">
-                <select name="rol" onchange="location = this.value" required><!-- onchange="location = this.value" Ayuda a redireccionar -->
-                  <option value="" disabled selected>Seleccione un rol</option>
-                  <?php
-                  foreach ($resultadoRol as $datosRol) { ?>
-                    <option <?php echo $datosRol['idRol'];
-                            if ($datosRol['idRol'] == '1') { ?> value="dashboard.php" <?php $_SESSION['roles'] == '1'; echo $_SESSION['roles'];
-                                                                                    } else if ($datosRol['idRol'] == '2') { ?> value="dashboard.php" <?php $_SESSION['roles'] == '2';
-                                                                                                                                                              } else { ?> value="dashboard.php" <?php $_SESSION['roles'] == '3';
-                                                                                                                                                              } ?>><?php echo $datosRol['nombreRol']; ?>
-                    </option>
-                  <?php }
-                  ?>
-                </select>
+                <form action="" method="post">
+                  <select name="rol" required>
+                    <!-- onchange="location = this.value" Ayuda a redireccionar -->
+                    <option value="" disabled selected>Seleccione un rol</option>
+                    <?php
+                    foreach ($resultadoRol as $datosRol) { ?>
+                      <option value="<?php echo $datosRol['idRol']; ?>"><?php echo $datosRol['nombreRol']; ?></option>
+                    <?php }
+                    ?>
+                  </select>
+                  <button type="submit" class="btn btn-sm btn-neutral">Cambiar rol</button>
+                  <?php if (isset($_POST['rol'])) {
+                    if ($_POST['rol']=='1') {
+                      $_SESSION['roles']=1;
+                    }else if($_POST['rol']=='2'){
+                      $_SESSION['roles']=2;
+                    }else {
+                      $_SESSION['roles']=3;
+                    }
+                  } ?>
+                </form>
               </div>
             </div>
             <!-- Card stats -->
@@ -103,7 +111,7 @@ if (isset($_SESSION["emailUsuario"]) or isset($_SESSION["documentoIdentidad"])) 
                     <div class="row">
                       <div class="col">
                         <h5 class="card-title text-uppercase text-muted mb-0">Total traffic</h5>
-                        <span class="h2 font-weight-bold mb-0">350,897</span>
+                        <span class="h2 font-weight-bold mb-0"><?php echo $_SESSION['roles']; ?></span>
                       </div>
                       <div class="col-auto">
                         <div class="icon icon-shape bg-gradient-red text-white rounded-circle shadow">
