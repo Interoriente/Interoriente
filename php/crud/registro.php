@@ -29,14 +29,14 @@
         $perfil = "imagenes/NO_borrar.png";
         $rol = '1';
         //Verificación correo existente
-        $sql_correoexistente = "SELECT*FROM tblUsuario WHERE emailUsuario='$correo'";
+        $sql_correoexistente = "SELECT*FROM tblUsuario WHERE emailUsuario=? or documentoIdentidad=?";
         $consulta_correo = $pdo->prepare($sql_correoexistente);
-        $consulta_correo->execute();
+        $consulta_correo->execute(array($correo,$documento));
         $resultado_correo = $consulta_correo->rowCount();
         //var_dump($resultado_correo);
         if ($resultado_correo) {
             //Impresión correo ingresado, ya existe en BD
-            echo "<script>alert('El correo ingresado ya existe!, por favor verificalo e intenta nuevamente');</script>";
+            echo "<script>alert('El correo y/o documento ingresado ya existe!, por favor verificalo e intenta nuevamente');</script>";
             echo "<script> document.location.href='../../principal/navegacion/registro.php';</script>";
         } else {
             //Consulta correo ingresado no existe en BD
