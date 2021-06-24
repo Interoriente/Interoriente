@@ -39,8 +39,7 @@ if (isset($_SESSION["emailUsuario"]) or isset($_SESSION["documentoIdentidad"])) 
                 require_once '../assets/sidebarV.php';
             } else {
                 require_once '../assets/sidebar.php';
-            }
-            ?>
+            } ?>
             <?php require_once '../assets/header.php' ?>
             <br>
             <div class="col-xl-8 order-xl-1">
