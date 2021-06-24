@@ -59,7 +59,7 @@ if (isset($_SESSION["emailUsuario"]) or isset($_SESSION["documentoIdentidad"])) 
       $resultado2 = $consulta_resta->fetch(PDO::FETCH_OBJ);
       //Sql para mostrar el nombre de la ciudad de acuerdo al usuario logueado
       include_once '../../../dao/conexion.php';
-      $sql_inicioCiudad = "SELECT nombreCiudad FROM tblUsuario INNER JOIN tblCiudad ON tblUsuario.ciudadUsuario = tblCiudad.codigoCiudad WHERE emailUsuario='$id'";
+      $sql_inicioCiudad = "SELECT * FROM tblUsuario INNER JOIN tblCiudad ON tblUsuario.ciudadUsuario = tblCiudad.codigoCiudad WHERE emailUsuario='$id'";
       $consulta_restaCiudad = $pdo->prepare($sql_inicioCiudad);
       $consulta_restaCiudad->execute(array($id));
       $resultadoCiudad  = $consulta_restaCiudad->fetch(PDO::FETCH_OBJ);
@@ -180,7 +180,7 @@ if (isset($_SESSION["emailUsuario"]) or isset($_SESSION["documentoIdentidad"])) 
                           <div class="form-group">
                             <label class="form-control-label" for="input-username">Ciudad</label>
                             <select name="ciudad" class="form-control" required>
-                              <option value="<?php echo $resultadoCiudad->codigoCiudad; ?>" disabled selected><?php echo $resultadoCiudad->nombreCiudad; ?></option>
+                              <option value="<?php echo $resultadoCiudad->codigoCiudad; ?>"selected><?php echo $resultadoCiudad->nombreCiudad; ?></option>
                               <?php
                               foreach ($resultado_ciudad as $datos_ciudad) { ?>
                                 <option value="<?php echo $datos_ciudad['codigoCiudad'] ?>"><?php echo $datos_ciudad['nombreCiudad'] ?></option>
