@@ -82,7 +82,7 @@
                         </div>
                         <div class="card-body px-lg-5 py-lg-5">
                             <div class="text-center text-muted mb-4">
-                                <small>O con tus datos puedes diligenciar tus datos en los seguientes campos</small>
+                                <small>O con tus datos personales:</small>
                             </div>
                             <form action="../../php/crud/registro.php" method="POST">
                                 <div class="form-group">

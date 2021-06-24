@@ -33,7 +33,7 @@
         $consulta_correo = $pdo->prepare($sql_correoexistente);
         $consulta_correo->execute();
         $resultado_correo = $consulta_correo->rowCount();
-        var_dump($resultado_correo);
+        //var_dump($resultado_correo);
         if ($resultado_correo) {
             //Impresión correo ingresado, ya existe en BD
             echo "<script>alert('El correo ingresado ya existe!, por favor verificalo e intenta nuevamente');</script>";
@@ -46,7 +46,7 @@
             $consulta_insertar = $pdo->prepare($sql_insertar);
             //Ejecutar la sentencia
             $consulta_insertar->execute(array($documento, $nombres, $apellidos, $telefono, $celular, $correo, $contrasena, $ciudad, $estado, $perfil));
-            
+            echo "<script>alert('Datos almacenados correctamente');</script>";
             
             //llamado a la tabla rol (intermedia) para almacenar el rol predeterminado
             $sql_insertar = "INSERT INTO tblUsuarioRol (idRol,documentoIdentidad)VALUES (?,?)";
@@ -54,8 +54,8 @@
             $consulta_insertar = $pdo->prepare($sql_insertar);
             //Ejecutar la sentencia
             $consulta_insertar->execute(array($rol,$documento));
-            echo "<script>alert('Datos almacenados correctamente');</script>";
             echo "<script> document.location.href='../../principal/navegacion/iniciarsesion.php';</script>";
+            
         }
     }
     ?>
