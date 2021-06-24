@@ -36,7 +36,7 @@ session_start();
         $resultado_inicio1 = $consulta_inicio1->rowCount();
         $rol = $consulta_inicio1->fetch(PDO::FETCH_OBJ);
         $rol=$rol->idRol;
-        var_dump($rol);
+        //var_dump($rol);
         /* $stmt = $pdo->prepare("SELECT idRol FROM tblUsuarioRol WHERE documentoIdentidad = :id");
         $stmt->bindValue(":id", $id);
         $stmt->execute();

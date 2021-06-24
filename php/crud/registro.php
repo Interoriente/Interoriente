@@ -54,7 +54,8 @@
             $consulta_insertar = $pdo->prepare($sql_insertar);
             //Ejecutar la sentencia
             $consulta_insertar->execute(array($rol,$documento));
-            echo "<script> document.location.href='../../principal/navegacion/iniciarsesion.php';</script>";
+            //echo "<script> document.location.href='../../principal/navegacion/iniciarsesion.php';</script>";
+            header("Location: ../../principal/navegacion/iniciarsesion.php");
             
         }
     }
