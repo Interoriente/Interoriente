@@ -33,7 +33,13 @@ if (isset($_SESSION["emailUsuario"]) or isset($_SESSION["documentoIdentidad"])) 
     </head>
 
     <body>
-      <?php require_once '../assets/sidebar.php' ?>
+      <?php if ($_SESSION['roles'] == '1') {
+        require_once '../assets/sidebarC.php';
+      } else if ($_SESSION['roles'] == '2') {
+        require_once '../assets/sidebarV.php';
+      } else {
+        require_once '../assets/sidebar.php';
+      } ?>
       <?php require_once '../assets/header.php';
 
 
@@ -102,7 +108,7 @@ if (isset($_SESSION["emailUsuario"]) or isset($_SESSION["documentoIdentidad"])) 
                         <div class="col-lg-6">
                           <div class="form-group">
                             <label class="form-control-label" for="input-username">Nombre producto</label>
-                            <input type="text" id="input-username" name="nombre" class="form-control" placeholder="Nombre producto" value="" required >
+                            <input type="text" id="input-username" name="nombre" class="form-control" placeholder="Nombre producto" value="" required>
                           </div>
                         </div>
                         <div class="col-lg-6">
