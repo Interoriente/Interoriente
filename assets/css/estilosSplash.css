@@ -115,7 +115,13 @@ h2 {
 
 /* Tarjetas */
 
-
+.card-body{
+  padding: 0;
+}
+.botonTarjeta{
+  width: 100%;
+  height: 100%;
+}
 
 .contenedor-tarjetas {
   display: flex;
@@ -135,6 +141,8 @@ h2 {
   
   background-color:var(--crl-cta-b);
   border-color: var(--crl-cta-b);
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
 }
 .contenedor-tarjetas a:hover {
   padding: 0.5em 5em;
