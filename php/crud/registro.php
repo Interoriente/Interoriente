@@ -27,7 +27,7 @@
         $contrasena = sha1($_POST['contrasena']);
         $estado = '1';
         $perfil = "imagenes/NO_borrar.png";
-        $rol='1';
+        $rol = '1';
         //Verificación correo existente
         $sql_correoexistente = "SELECT*FROM tblUsuario WHERE emailUsuario='$correo'";
         $consulta_correo = $pdo->prepare($sql_correoexistente);
@@ -46,16 +46,15 @@
             $consulta_insertar = $pdo->prepare($sql_insertar);
             //Ejecutar la sentencia
             $consulta_insertar->execute(array($documento, $nombres, $apellidos, $telefono, $celular, $correo, $contrasena, $ciudad, $estado, $perfil));
-            echo "<script>alert('Datos almacenados correctamente');</script>";
-            
+
             //llamado a la tabla rol (intermedia) para almacenar el rol predeterminado
             $sql_insertar = "INSERT INTO tblUsuarioRol (idRol,documentoIdentidad)VALUES (?,?)";
             //Preparar consulta
             $consulta_insertar = $pdo->prepare($sql_insertar);
             //Ejecutar la sentencia
-            $consulta_insertar->execute(array($rol,$documento));
-            //echo "<script> document.location.href='../../principal/navegacion/iniciarsesion.php';</script>";
-            header("Location: ../../principal/navegacion/iniciarsesion.php");
+            $consulta_insertar->execute(array($rol, $documento));
+            echo "<script>alert('Datos almacenados correctamente');</script>";
+            echo "<script> document.location.href='../../principal/navegacion/iniciarsesion.php';</script>";
             
         }
     }
