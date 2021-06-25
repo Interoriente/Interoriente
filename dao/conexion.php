@@ -4,7 +4,7 @@ $host = "mysql:host=localhost;dbname=interori_interoriente";
 /* $usuario = "root";
 $contrasena = ""; */
 
-$usuario = "interori_interori";
+$usuario = "interori_interoriente";
 $contrasena = "B4O#ugJ]C#%,4";
 
 try {
