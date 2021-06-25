@@ -53,7 +53,7 @@ if (isset($_POST['subir'])) {
                     $consultaInsertar->execute(array($archivo,$datos));
 
                     echo "<script>alert('El registro se subió correctamente');</script>";
-                    //echo "<script> document.location.href='../crearPubli.php';</script>"; 
+                    echo "<script> document.location.href='../crearPubli.php';</script>"; 
                 }
             } else {
                 echo "<script>alert('Ocurrió un error');</script>";

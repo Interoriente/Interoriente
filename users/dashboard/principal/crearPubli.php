@@ -52,6 +52,7 @@ if (isset($_SESSION["emailUsuario"]) or isset($_SESSION["documentoIdentidad"])) 
       $consultar_mostrar_publi = $pdo->prepare($sql_mostrar_publi);
       //Ejecutar consulta
       $consultar_mostrar_publi->execute();
+      $contadorPubli = $consultar_mostrar_publi->rowCount();
       $resultado_mostrar_publi = $consultar_mostrar_publi->fetchAll();
 
       //Sirve para mostrar el contenido de la tabla Estado, para mostrarlo en la lista desplegable
@@ -253,7 +254,12 @@ if (isset($_SESSION["emailUsuario"]) or isset($_SESSION["documentoIdentidad"])) 
               </tr>
             </thead>
             <tbody>
-              <?php foreach ($resultado_mostrar_publi as $datos_publi) { ?>
+              <?php if ($contadorPubli == '0') { ?>
+              <th></th>
+                <td>Opps, por ahora no tenes publicaciones</td>
+              <?php }
+              foreach ($resultado_mostrar_publi as $datos_publi) {
+              ?>
                 <tr>
                   <th><?php echo $datos_publi['nombrePublicacion'] ?></th>
                   <td><?php echo $datos_publi['descripcionPublicacion'] ?></td>
@@ -261,7 +267,6 @@ if (isset($_SESSION["emailUsuario"]) or isset($_SESSION["documentoIdentidad"])) 
                   <td><?php echo $datos_publi['stockProducto'] ?></td>
                   <td><a href="crearPubli.php?id=<?php echo $datos_publi['idPublicacion']; ?>"><i class="icono2 fas fa-pencil-alt"></i></a></td>
                   <td><a href="#" data-toggle="modal" data-target="#eliminarPubliModal"><i class="icono1 fas fa-trash"></i></a></td>
-
                 </tr>
             <?php }
             } ?>
