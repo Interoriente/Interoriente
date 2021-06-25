@@ -51,8 +51,15 @@ if (isset($_SESSION["emailUsuario"]) or isset($_SESSION["documentoIdentidad"])) 
     </head>
 
     <body>
-
-      <?php
+      <?php if (isset($_POST['rol'])) {
+        if ($_POST['rol'] == '1') {
+          $_SESSION['roles'] = 1;
+        } else if ($_POST['rol'] == '2') {
+          $_SESSION['roles'] = 2;
+        } else {
+          $_SESSION['roles'] = 3;
+        }
+      }
       if ($_SESSION['roles'] == '1') {
         require_once '../assets/sidebarC.php';
       } else if ($_SESSION['roles'] == '2') {
@@ -79,15 +86,7 @@ if (isset($_SESSION["emailUsuario"]) or isset($_SESSION["documentoIdentidad"])) 
                     ?>
                   </select>
                   <button type="submit" class="btn btn-sm btn-neutral">Cambiar rol</button>
-                  <?php if (isset($_POST['rol'])) {
-                    if ($_POST['rol'] == '1') {
-                      $_SESSION['roles'] = 1;
-                    } else if ($_POST['rol'] == '2') {
-                      $_SESSION['roles'] = 2;
-                    } else {
-                      $_SESSION['roles'] = 3;
-                    }
-                  } ?>
+
                 </form>
               </div>
             </div>
