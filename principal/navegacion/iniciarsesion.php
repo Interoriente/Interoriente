@@ -59,9 +59,9 @@
                         <div class="card-header bg-transparent pb-5">
                             <div class="text-muted text-center mt-2 mb-4"><small>Puedes iniciar sesión por:</small></div>
                             <div class="text-center">
-                                <a href="#" class="btn btn-neutral btn-icon mr-4">
+                                <a href="productos.php" class="btn btn-neutral btn-icon mr-4">
                                     <span class="btn-inner--icon"><img src="../../users/dashboard/assets/img/icons/common/github.svg"></span>
-                                    <span class="btn-inner--text">Github</span>
+                                    <span class="btn-inner--text">Productos</span>
                                 </a>
                                 <a href="../publicacion/index.php" class="btn btn-neutral btn-icon">
                                     <span class="btn-inner--icon"><img src="../../users/dashboard/assets/img/icons/common/google.svg"></span>

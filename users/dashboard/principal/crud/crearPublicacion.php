@@ -40,7 +40,6 @@ if (isset($_POST['subir'])) {
                     //Ejecutar la sentencia
                     $consulta_insertar->execute(array($nombre, $usuario, $descripcion, $color, $costo, $estadoarticulo, $estadopublicacion, $stock, $categoria, $verificacion));
                     
-                    
                     //Llamado idPublicacion
                     $sqlLlamarId="SELECT MAX(idPublicacion) AS id FROM tblPublicacion";
                     $consultaLlamarId=$pdo->prepare($sqlLlamarId);
@@ -48,8 +47,6 @@ if (isset($_POST['subir'])) {
                     $resultado_mostrar_publi1 = $consultaLlamarId->fetch();
                     foreach($resultado_mostrar_publi1 as $datos){//Llamado al foreach para convertir el valor a entero
                     }
-                    $datos=$datos+1;//Sumo uno para saber cuál es el id siguiente
-
                     //Insertando imagen en la tabla
                     $sqlInsertarImagen="INSERT INTO tblImagenes (urlImagen,publicacion)VALUES (?,?)";
                     $consultaInsertar=$pdo->prepare($sqlInsertarImagen);    
