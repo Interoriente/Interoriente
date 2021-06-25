@@ -114,7 +114,7 @@ if (isset($_SESSION["emailUsuario"]) or isset($_SESSION["documentoIdentidad"])) 
                         <div class="col-lg-6">
                           <div class="form-group">
                             <label class="form-control-label" for="input-username">Descripcion</label>
-                            <input type="text" id="input-username" name="descripcion" class="form-control" placeholder="Descripcion" value="" required>
+                            <input type="text" id="input-username" name="descripcion" class="form-control" placeholder="Descripcion" maxlength="5000" value="" required>
                           </div>
                         </div>
                         <div class="col-lg-6">
@@ -126,7 +126,7 @@ if (isset($_SESSION["emailUsuario"]) or isset($_SESSION["documentoIdentidad"])) 
                         <div class="col-lg-6">
                           <div class="form-group">
                             <label class="form-control-label" for="input-username">Costo</label>
-                            <input type="text" id="input-username" name="costo" class="form-control" placeholder="Costo" value="" required>
+                            <input type="number" id="input-username" name="costo" class="form-control" placeholder="Costo" max="999999999" value="" required>
                           </div>
                         </div>
                         <div class="col-lg-6">
@@ -145,7 +145,7 @@ if (isset($_SESSION["emailUsuario"]) or isset($_SESSION["documentoIdentidad"])) 
                         <div class="col-lg-6">
                           <div class="form-group">
                             <label class="form-control-label" for="input-username">Stock Producto</label>
-                            <input type="number" id="input-username" name="stock" class="form-control" placeholder="Stock (cantidad)" value="">
+                            <input type="number" id="input-username" name="stock" class="form-control" placeholder="Stock (cantidad)" max="99999" value="">
                           </div>
                         </div>
                         <div class="col-lg-6">
@@ -212,14 +212,14 @@ if (isset($_SESSION["emailUsuario"]) or isset($_SESSION["documentoIdentidad"])) 
                         <div class="col-lg-6">
                           <div class="form-group">
                             <label class="form-control-label" for="input-username">Costo</label>
-                            <input type="text" id="input-username" name="costo" class="form-control" placeholder="Costo" value="<?php echo $resultado_mostrar_publi1['costoPublicacion']; ?>">
+                            <input type="number" id="input-username" name="costo" class="form-control" placeholder="Costo" max="9999999999" value="<?php echo $resultado_mostrar_publi1['costoPublicacion']; ?>">
                           </div>
                         </div>
 
                         <div class="col-lg-6">
                           <div class="form-group">
                             <label class="form-control-label" for="input-username">Stock Producto</label>
-                            <input type="number" id="input-username" name="stock" class="form-control" placeholder="Stock (cantidad)" value="<?php echo $resultado_mostrar_publi1['stockProducto']; ?>">
+                            <input type="number" id="input-username" name="stock" class="form-control" placeholder="Stock (cantidad)" max="99999" value="<?php echo $resultado_mostrar_publi1['stockProducto']; ?>">
                           </div>
                         </div>
                         <div class="col-lg-6">

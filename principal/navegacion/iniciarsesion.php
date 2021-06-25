@@ -80,7 +80,7 @@
                                         <div class="input-group-prepend">
                                             <span class="input-group-text"><i class="ni ni-badge"></i></span>
                                         </div>
-                                        <input class="form-control" placeholder="Documento" type="number" name="documento" required>
+                                        <input class="form-control" placeholder="Documento" type="number" name="documento" max="9999999999" required>
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -89,7 +89,7 @@
                                         <div class="input-group-prepend">
                                             <span class="input-group-text"><i class="ni ni-key-25"></i></span>
                                         </div>
-                                        <input class="form-control" placeholder="Contraseña" type="password" name="contrasena" required>
+                                        <input class="form-control" placeholder="Contraseña" type="password" name="contrasena" maxlength="20" required>
                                     </div>
                                 </div>
                                 <div class="text-center">
