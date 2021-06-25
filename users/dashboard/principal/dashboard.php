@@ -156,7 +156,7 @@ if (isset($_SESSION["emailUsuario"]) or isset($_SESSION["documentoIdentidad"])) 
                     <div class="row">
                       <div class="col">
                         <h5 class="card-title text-uppercase text-muted mb-0">Contador de visitas</h5>
-                        <span class="h2 font-weight-bold mb-0"><?php echo $cont=0?></span>
+                        <span class="h2 font-weight-bold mb-0"><img style="border: 0px solid; display: inline;" alt="contador de visitas" src="http://www.websmultimedia.com/contador-de-visitas.php?id=300190"></span>
                       </div>
                       <div class="col-auto">
                         <div class="icon icon-shape bg-gradient-info text-white rounded-circle shadow">

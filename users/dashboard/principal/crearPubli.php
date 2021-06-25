@@ -163,7 +163,7 @@ if (isset($_SESSION["emailUsuario"]) or isset($_SESSION["documentoIdentidad"])) 
                         <div class="col-lg-6">
                           <div class="form-group">
                             <label class="form-control-label" for="input-username">Imagen</label>
-                            <input type="file" id="input-username" name="costo" class="form-control" placeholder="Imagen" value="">
+                            <input type="file" id="input-username" name="file" class="form-control" placeholder="Imagen" value="">
                           </div>
                         </div>
                         <div class="col-lg-6">
