@@ -3,19 +3,25 @@ session_start();
 
 if (isset($_SESSION["emailUsuario"]) or isset($_SESSION["documentoIdentidad"])) {
   $id = $_SESSION["emailUsuario"];
+  $sesionRol = $_SESSION['roles'];
   include_once '../../../dao/conexion.php';
   $sql_validacion = "SELECT*FROM tblUsuario WHERE emailUsuario ='$id' AND estadoUsuario= '1'";
   $consulta_resta_validacion = $pdo->prepare($sql_validacion);
   $consulta_resta_validacion->execute();
   $resultado_validacion = $consulta_resta_validacion->rowCount();
   $validacion = $consulta_resta_validacion->fetch(PDO::FETCH_OBJ);
-  //Mostrando roles almacenados
+  //Llamado tabla intermedia
   $documento = $_SESSION["documentoIdentidad"];
+  $sqlSesionRol = "SELECT * FROM tblUsuarioRol WHERE documentoIdentidad=? AND idRol=?";
+  $consultaSesionRol = $pdo->prepare($sqlSesionRol);
+  $consultaSesionRol->execute(array($documento, $sesionRol));
+  $resultadoSesionRol = $consultaSesionRol->rowCount();
+
+  //Mostrando roles almacenados
   $sqlRol = "SELECT * FROM tblUsuarioRol INNER JOIN tblRol ON tblUsuarioRol.idRol = tblRol.idRol WHERE documentoIdentidad= '$documento'";
   $consultaRol = $pdo->prepare($sqlRol);
   $consultaRol->execute();
   $resultadoRol = $consultaRol->fetchAll();
-  $mostrarRol = $consultaRol->fetch(PDO::FETCH_OBJ);
   //Llamado tabla usuario
   $sqlMostrarConteo = "SELECT*FROM tblUsuario";
   $consultaMostrarConteo = $pdo->prepare($sqlMostrarConteo);
@@ -28,138 +34,141 @@ if (isset($_SESSION["emailUsuario"]) or isset($_SESSION["documentoIdentidad"])) 
   $resultadoMostrarConteoPubli = $consultaMostrarConteoPubli->rowCount();
   //Validacion de roles
   if ($resultado_validacion) {
+    if ($resultadoSesionRol) {
+
 ?>
-    <!DOCTYPE html>
-    <html>
+      <!DOCTYPE html>
+      <html>
 
-    <head>
-      <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-      <meta name="description" content="Start your development with a Dashboard for Bootstrap 4.">
-      <meta name="author" content="Creative Tim">
-      <title>Dashboard | Interoriente</title>
-      <!-- Favicon -->
-      <link rel="icon" href="../../../assets/img/favicon.png" type="image/png">
-      <!-- Fonts -->
-      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700">
-      <!-- Icons -->
-      <link rel="stylesheet" href="../assets/vendor/nucleo/css/nucleo.css" type="text/css">
-      <link rel="stylesheet" href="../assets/vendor/@fortawesome/fontawesome-free/css/all.min.css" type="text/css">
-      <!-- Page plugins -->
-      <!-- Argon CSS -->
-      <link rel="stylesheet" href="../assets/css/argon.css?v=1.2.0" type="text/css">
-    </head>
+      <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="Start your development with a Dashboard for Bootstrap 4.">
+        <meta name="author" content="Creative Tim">
+        <title>Dashboard | Interoriente</title>
+        <!-- Favicon -->
+        <link rel="icon" href="../../../assets/img/favicon.png" type="image/png">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700">
+        <!-- Icons -->
+        <link rel="stylesheet" href="../assets/vendor/nucleo/css/nucleo.css" type="text/css">
+        <link rel="stylesheet" href="../assets/vendor/@fortawesome/fontawesome-free/css/all.min.css" type="text/css">
+        <!-- Page plugins -->
+        <!-- Argon CSS -->
+        <link rel="stylesheet" href="../assets/css/argon.css?v=1.2.0" type="text/css">
+      </head>
 
-    <body>
-      <?php if (isset($_POST['rol'])) {
-        if ($_POST['rol'] == '1') {
-          $_SESSION['roles'] = 1;
-        } else if ($_POST['rol'] == '2') {
-          $_SESSION['roles'] = 2;
-        } else {
-          $_SESSION['roles'] = 3;
+      <body>
+        <?php if (isset($_POST['rol'])) {
+          if ($_POST['rol'] == '1') {
+            $_SESSION['roles'] = 1;
+          } else if ($_POST['rol'] == '2') {
+            $_SESSION['roles'] = 2;
+          } else {
+            $_SESSION['roles'] = 3;
+          }
         }
-      }
-      if ($_SESSION['roles'] == '1') {
-        require_once '../assets/sidebarC.php';
-      } else if ($_SESSION['roles'] == '2') {
-        require_once '../assets/sidebarV.php';
-      } else {
-        require_once '../assets/sidebar.php';
-      }
+        if ($_SESSION['roles'] == '1') {
+          require_once '../assets/sidebarC.php';
+        } else if ($_SESSION['roles'] == '2') {
+          require_once '../assets/sidebarV.php';
+        } else {
+          require_once '../assets/sidebar.php';
+        }
 
-      require_once '../assets/header.php' ?>
-      <!-- Header -->
-      <div class="header bg-primary pb-6">
-        <div class="container-fluid">
-          <div class="header-body">
-            <div class="row align-items-center py-4">
-              <div class="col-lg-6 col-5 text-right">
-                <form action="dashboard.php" method="post">
-                  <select name="rol" required>
-                    <!-- onchange="location = this.value" Ayuda a redireccionar -->
-                    <option value="" disabled selected>Seleccione un rol</option>
-                    <?php
-                    foreach ($resultadoRol as $datosRol) { ?>
-                      <option value="<?php echo $datosRol['idRol']; ?>"><?php echo $datosRol['nombreRol']; ?></option>
-                    <?php }
-                    ?>
-                  </select>
-                  <button type="submit" class="btn btn-sm btn-neutral">Cambiar rol</button>
+        require_once '../assets/header.php' ?>
+        <!-- Header -->
+        <div class="header bg-primary pb-6">
+          <div class="container-fluid">
+            <div class="header-body">
+              <div class="row align-items-center py-4">
+                <div class="col-lg-6 col-5 text-right">
+                  <form action="dashboard.php" method="post">
+                    <select name="rol" required>
+                      <!-- onchange="location = this.value" Ayuda a redireccionar -->
+                      <option value="" disabled selected>Seleccione un rol</option>
+                      <?php
+                      foreach ($resultadoRol as $datosRol) { ?>
+                        <option value="<?php echo $datosRol['idRol']; ?>"><?php echo $datosRol['nombreRol']; ?></option>
+                      <?php }
+                      ?>
+                    </select>
+                    <button type="submit" class="btn btn-sm btn-neutral">Cambiar rol</button>
 
-                </form>
+                  </form>
+                </div>
               </div>
-            </div>
-            <!-- Card stats -->
-            <div class="row">
-              <div class="col-xl-3 col-md-6">
-                <div class="card card-stats">
-                  <!-- Card body -->
-                  <div class="card-body">
-                    <div class="row">
-                      <div class="col">
-                        <h5 class="card-title text-uppercase text-muted mb-0">Total publicaciones</h5>
-                        <span class="h2 font-weight-bold mb-0"><?php echo $resultadoMostrarConteoPubli; ?></span>
-                      </div>
-                      <div class="col-auto">
-                        <div class="icon icon-shape bg-gradient-red text-white rounded-circle shadow">
-                          <i class="ni ni-active-40"></i>
+              <!-- Card stats -->
+              <div class="row">
+                <div class="col-xl-3 col-md-6">
+                  <div class="card card-stats">
+                    <!-- Card body -->
+                    <div class="card-body">
+                      <div class="row">
+                        <div class="col">
+                          <h5 class="card-title text-uppercase text-muted mb-0">Total publicaciones</h5>
+                          <span class="h2 font-weight-bold mb-0"><?php echo $resultadoMostrarConteoPubli; ?></span>
+                        </div>
+                        <div class="col-auto">
+                          <div class="icon icon-shape bg-gradient-red text-white rounded-circle shadow">
+                            <i class="ni ni-active-40"></i>
+                          </div>
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
-              </div>
-              <div class="col-xl-3 col-md-6">
-                <div class="card card-stats">
-                  <!-- Card body -->
-                  <div class="card-body">
-                    <div class="row">
-                      <div class="col">
-                        <h5 class="card-title text-uppercase text-muted mb-0">Nuevos usuarios</h5>
-                        <span class="h2 font-weight-bold mb-0"><?php echo $resultadoMostrarConteo; ?></span>
-                      </div>
-                      <div class="col-auto">
-                        <div class="icon icon-shape bg-gradient-orange text-white rounded-circle shadow">
-                          <i class="ni ni-chart-pie-35"></i>
+                <div class="col-xl-3 col-md-6">
+                  <div class="card card-stats">
+                    <!-- Card body -->
+                    <div class="card-body">
+                      <div class="row">
+                        <div class="col">
+                          <h5 class="card-title text-uppercase text-muted mb-0">Nuevos usuarios</h5>
+                          <span class="h2 font-weight-bold mb-0"><?php echo $resultadoMostrarConteo; ?></span>
+                        </div>
+                        <div class="col-auto">
+                          <div class="icon icon-shape bg-gradient-orange text-white rounded-circle shadow">
+                            <i class="ni ni-chart-pie-35"></i>
+                          </div>
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
-              </div>
-              <div class="col-xl-3 col-md-6">
-                <div class="card card-stats">
-                  <!-- Card body -->
-                  <div class="card-body">
-                    <div class="row">
-                      <div class="col">
-                        <h5 class="card-title text-uppercase text-muted mb-0">Rol actual</h5>
-                        <span class="h2 font-weight-bold mb-0">
-                          <?php if ($_SESSION['roles'] == '1') { ?>
-                            Comprador/Proveedor
-                          <?php } else if ($_SESSION['roles'] == '2') { ?>
-                            Empleado
-                          <?php } else { ?>
-                            Administrador
-                          <?php } ?></span>
+                <div class="col-xl-3 col-md-6">
+                  <div class="card card-stats">
+                    <!-- Card body -->
+                    <div class="card-body">
+                      <div class="row">
+                        <div class="col">
+                          <h5 class="card-title text-uppercase text-muted mb-0">Rol actual</h5>
+                          <span class="h2 font-weight-bold mb-0">
+                            <?php if ($_SESSION['roles'] == '1') { ?>
+                              Comprador/Proveedor
+                            <?php } else if ($_SESSION['roles'] == '2') { ?>
+                              Empleado
+                            <?php } else { ?>
+                              Administrador
+                            <?php } ?></span>
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
-              </div>
-              <div class="col-xl-3 col-md-6">
-                <div class="card card-stats">
-                  <!-- Card body -->
-                  <div class="card-body">
-                    <div class="row">
-                      <div class="col">
-                        <h5 class="card-title text-uppercase text-muted mb-0">Contador de visitas</h5>
-                        <span class="h2 font-weight-bold mb-0"><img style="border: 0px solid; display: inline;" alt="contador de visitas" src="http://www.websmultimedia.com/contador-de-visitas.php?id=300190"></span>
-                      </div>
-                      <div class="col-auto">
-                        <div class="icon icon-shape bg-gradient-info text-white rounded-circle shadow">
-                          <i class="ni ni-chart-bar-32"></i>
+                <div class="col-xl-3 col-md-6">
+                  <div class="card card-stats">
+                    <!-- Card body -->
+                    <div class="card-body">
+                      <div class="row">
+                        <div class="col">
+                          <h5 class="card-title text-uppercase text-muted mb-0">Contador de visitas</h5>
+                          <span class="h2 font-weight-bold mb-0"><img style="border: 0px solid; display: inline;" alt="contador de visitas" src="http://www.websmultimedia.com/contador-de-visitas.php?id=300190"></span>
+                        </div>
+                        <div class="col-auto">
+                          <div class="icon icon-shape bg-gradient-info text-white rounded-circle shadow">
+                            <i class="ni ni-chart-bar-32"></i>
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -169,25 +178,28 @@ if (isset($_SESSION["emailUsuario"]) or isset($_SESSION["documentoIdentidad"])) 
             </div>
           </div>
         </div>
-      </div>
 
-      <?php require_once '../assets/footer.php' ?>
-      <!-- Argon Scripts -->
-      <!-- Core -->
-      <script src="../assets/vendor/jquery/dist/jquery.min.js"></script>
-      <script src="../assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-      <script src="../assets/vendor/js-cookie/js.cookie.js"></script>
-      <script src="../assets/vendor/jquery.scrollbar/jquery.scrollbar.min.js"></script>
-      <script src="../assets/vendor/jquery-scroll-lock/dist/jquery-scrollLock.min.js"></script>
-      <!-- Optional JS -->
-      <script src="../assets/vendor/chart.js/dist/Chart.min.js"></script>
-      <script src="../assets/vendor/chart.js/dist/Chart.extension.js"></script>
-      <!-- Argon JS -->
-      <script src="../assets/js/argon.js?v=1.2.0"></script>
-    </body>
+        <?php require_once '../assets/footer.php' ?>
+        <!-- Argon Scripts -->
+        <!-- Core -->
+        <script src="../assets/vendor/jquery/dist/jquery.min.js"></script>
+        <script src="../assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="../assets/vendor/js-cookie/js.cookie.js"></script>
+        <script src="../assets/vendor/jquery.scrollbar/jquery.scrollbar.min.js"></script>
+        <script src="../assets/vendor/jquery-scroll-lock/dist/jquery-scrollLock.min.js"></script>
+        <!-- Optional JS -->
+        <script src="../assets/vendor/chart.js/dist/Chart.min.js"></script>
+        <script src="../assets/vendor/chart.js/dist/Chart.extension.js"></script>
+        <!-- Argon JS -->
+        <script src="../assets/js/argon.js?v=1.2.0"></script>
+      </body>
 
-    </html>
+      </html>
 <?php
+    } else {
+      echo "<script>alert('Has perdido acceso a este rol');</script>";
+      echo "<script> document.location.href='403.php';</script>";
+    }
   } else {
     echo "<script> document.location.href='403.php';</script>";
   }
