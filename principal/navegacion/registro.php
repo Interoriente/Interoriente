@@ -1,22 +1,11 @@
-<!--
-=========================================================
-* Argon Dashboard - v1.2.0
-=========================================================
-* Product Page: https://www.creative-tim.com/product/argon-dashboard
-
-* Copyright  Creative Tim (http://www.creative-tim.com)
-* Coded by www.creative-tim.com
-=========================================================
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
--->
 <!DOCTYPE html>
 <html>
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="Start your development with a Dashboard for Bootstrap 4.">
-    <meta name="author" content="Creative Tim">
+    <meta name="description" content="Bienvenidos a Interoriente, podrás comprar, vender y mucho más.">
+    <meta name="author" content="Inter-oriente">
     <title>Registrarse - Interoriente</title>
     <!-- Favicon -->
     <link rel="icon" href="../../assets/img/favicon.png" type="image/png">
@@ -109,7 +98,7 @@
                                         <div class="input-group-prepend">
                                             <span class="input-group-text"><i class="ni ni-badge"></i></span>
                                         </div>
-                                        <input class="form-control" placeholder="Documento" type="number" max="9999999999" name="documento"  required>
+                                        <input class="form-control" placeholder="Documento" type="number" max="9999999999" name="documento" required>
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -196,6 +185,6 @@
     <!-- Argon JS -->
     <script src="../../users/dashboard/assets/js/argon.js?v=1.2.0"></script>
 
-    </body>
+</body>
 
 </html>

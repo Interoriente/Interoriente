@@ -4,7 +4,7 @@
 =========================================================
 * Product Page: https://www.creative-tim.com/product/argon-dashboard
 
-* Copyright  Creative Tim (http://www.creative-tim.com)
+* Copyright  Inter-oriente (http://www.creative-tim.com)
 * Coded by www.creative-tim.com
 =========================================================
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
@@ -15,8 +15,8 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="Start your development with a Dashboard for Bootstrap 4.">
-    <meta name="author" content="Creative Tim">
+    <meta name="description" content="Bienvenidos a Interoriente, podrás comprar, vender y mucho más.">
+    <meta name="author" content="Inter-oriente">
     <title>Iniciar sesión - Interoriente</title>
     <!-- Favicon -->
     <link rel="icon" href="../../assets/img/favicon.png" type="image/png">
