@@ -1,18 +1,17 @@
 /* Propiedades Generales --> Paleta de Colores y fuentes*/
-:root{
-    --clr-primario-a: #004E64;
-    --clr-primario-b: #5D9BAC;
-    --clr-secundario: #408E8D;
-    --clr-neutro-a: #FEFDEB;
-    --clr-neutro-b: #001014;
-    --clr-neutro-c: #E5E5E5;
-    --clr-cta-a: #FFB930;
-    --crl-cta-b: #FCE61E;
-    
-  }
+:root {
+  --clr-primario-a: #004e64;
+  --clr-primario-b: #5d9bac;
+  --clr-secundario: #408e8d;
+  --clr-neutro-a: #fefdeb;
+  --clr-neutro-b: #001014;
+  --clr-neutro-c: #e5e5e5;
+  --clr-cta-a: #ffb930;
+  --crl-cta-b: #fce61e;
+}
 
-  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
-body{
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap");
+body {
   background-color: var(--clr-neutro-a);
 }
 * {
@@ -30,25 +29,24 @@ body{
   justify-content: space-between;
   background-color: var(--clr-primario-a);
   position: fixed;
-  left: 0;      
-  top: 0;   
-  width: 100%;  
+  left: 0;
+  top: 0;
+  width: 100%;
 }
 .cont-elementos {
   max-width: 1100px;
   width: 50%;
-  font-family: 'Poppins'; 
+  font-family: "Poppins";
   display: flex;
   align-items: center;
   margin: auto;
   justify-content: space-around;
-  height: 3em;  
+  height: 3em;
 }
 
 a {
   text-decoration: none;
   color: white;
- 
 }
 .cont-elementos a:hover {
   border-bottom: 2px white solid;
@@ -59,7 +57,7 @@ a {
   position: absolute;
   max-width: 500px;
 }
-.comprar{
+.comprar {
   font-weight: 80000;
 }
 
@@ -75,95 +73,143 @@ a {
     margin-right: 2em;
     width: 300px;
     height: 1em;
-    
-    
   }
-  .logoT:hover{
-      cursor: pointer;
-    }
+  .logoT:hover {
+    cursor: pointer;
+  }
 }
-/* Contenido */
 
-.contenido{
-    margin: 3em;
-    margin-top: 7em;
+/* Contenido */
+.contenido {
+  margin: 3em;
+  margin-top: 7em;
 }
 
 /* Sidebar */
 
 .sidenav {
-    height: 100%; /* 100% Full-height */
-    width: 0; /* 0 width - Se hace el cambio con javascript */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Stay on top */
-    margin-top: 4em;
-    top: 0;
-    left: 0;
-    background-color: var(--crl-cta-b);
-    overflow-x: hidden; /* se desabilita scroll en x */
-    padding-top: 60px; /* Place content 60px from the top */
-    transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
-  }
+  height: 100%; /* 100% Full-height */
+  width: 0; /* 0 width - Se hace el cambio con javascript */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Stay on top */
+  margin-top: 4em;
+  top: 0;
+  left: 0;
+  background-color: var(--crl-cta-b);
+  overflow-x: hidden; /* se desabilita scroll en x */
+  padding-top: 60px; /* Place content 60px from the top */
+  transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+}
 
-  /* Links de navegación */
+/* Links de navegación */
 
-  .sidenav{
-      display: flex;
-      flex-direction: column;
-  }
+.sidenav {
+  display: flex;
+  flex-direction: column;
+}
 .sidenav a {
-    padding: 8px 8px 8px 32px;
-    text-decoration: none;
-    font-size: 19px;
-    font-weight: 550;
-    font-family: 'poppins';
-    color: var(--clr-primario-a);
-    display: block;
-    transition: 0.3s;
-  }
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 19px;
+  font-weight: 550;
+  font-family: "poppins";
+  color: var(--clr-primario-a);
+  display: block;
+  transition: 0.3s;
+}
 
-  .sidenav a:hover {
-    color: #f1f1f1;
-  }
-  /* Posición y estilos botón de cerrar (x) */
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+/* Posición y estilos botón de cerrar (x) */
 
-  .sidenav .closebtn {
-    position: absolute;
-    top: 0;
-    right: 25px;
-    font-size: 36px;
-    margin-left: 50px;
-  }
-  /* Media query para cambiar tamaño en pantallas pequeñas, donde la altura sea menor a 450px, cambio de estilo (menos padding y fuente más pequeña) */
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+/* Media query para cambiar tamaño en pantallas pequeñas, donde la altura sea menor a 450px, cambio de estilo (menos padding y fuente más pequeña) */
 @media screen and (max-height: 450px) {
-    .sidenav {padding-top: 15px;}
-    .sidenav a {font-size: 18px;}
+  .sidenav {
+    padding-top: 15px;
   }
+  .sidenav a {
+    font-size: 18px;
+  }
+}
 
 /* Botón Sidebar */
-
-
 #boton a {
-    margin-top: 2.2em;
-    position: fixed; /* Position them relative to the browser window */
-    left: -70px; /* Position them outside of the screen */
-    transition: 0.3s; /* Add transition on hover */
-    padding: 15px; /* 15px padding */
-    width: 100px; /* Set a specific width */
-    text-decoration: none; /* Remove underline */
-    font-size: 20px; /* Increase font size */
-    color: var(--clr-primario-a); /* White text color */
-    font-family: 'Poppins';
-    border-radius: 0 5px 5px 0; /* Rounded corners on the top right and bottom right side */
+  margin-top: 3em;
+  position: fixed; /* Position them relative to the browser window */
+  left: -70px; /* Position them outside of the screen */
+  transition: 0.3s; /* Add transition on hover */
+  padding: 15px; /* 15px padding */
+  width: 100px; /* Set a specific width */
+  text-decoration: none; /* Remove underline */
+  font-size: 20px; /* Increase font size */
+  color: var(--clr-primario-a); /* Color del texto */
+  font-family: "Poppins";
+  border-radius: 0 5px 5px 0; /* Rounded corners on the top right and bottom right side */
+}
+
+#boton a:hover {
+  left: 0; /* On mouse-over, make the elements appear as they should */
+  font-weight: bolder;
+}
+
+/* Botón menú lateral */
+#menuLateral {
+  top: 20px;
+  background-color: var(--crl-cta-b); /* Color del botón */
+}
+
+.main-container .boton {
+  display: none;
+}
+
+@media (min-width: 720px) {
+  .main-container .boton {
+    display: block;
   }
-  
-  #boton a:hover {
-    left: 0; /* On mouse-over, make the elements appear as they should */
-    font-weight: bolder;
+}
+
+/* Navegación para dispositivos móviles */
+.navbar {
+  background-color: var(--clr-primario-a);
+  overflow: hidden;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+
+.navbar a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+  font-family: 'Poppins';
+}
+
+
+.navbar a:hover {
+  background-color:var(--clr-cta-a);
+  color: var(--clr-neutro-c);
+}
+
+
+.navbar a.active {
+  background-color:var(--clr-cta-a);
+  color: white;
+}
+/* @media (min-width: 720px) {
+  .contenedor-nav {
+    display: none;
   }
-  
-  /* Botón menú lateral */
-  #menuLateral {
-    top: 20px;
-    background-color: var(--crl-cta-b);
-  }
+} */

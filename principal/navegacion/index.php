@@ -8,6 +8,7 @@
     <link rel="icon" href="../../assets/img/favicon.png" type="image/png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../assets/css/indexEstilos.css">
+
     <title>Interoriente | Explora</title>
 </head>
 
@@ -21,13 +22,14 @@
         </div>
     </section>
 
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum, ab? Commodi vel facere soluta, doloribus obcaecati dolores laboriosam sit deserunt natus voluptatibus reiciendis, provident aperiam! Autem quidem quisquam repudiandae hic?</p>
     <section class="btns-filtrado">
         <div class="contendedor-btns">
             <div class="btn-productos">
                 <a href="">Test</a>
             </div>
             <div class="btn-servicios">
-                <a href="">Test</a>
+                <a href="">Teasdst</a>
             </div>
         </div>
     </section>
@@ -35,6 +37,18 @@
 
 
     <?php include '../includes/navegacionDos.php'; ?>
+    <div class="contenedor-nav">
+        <div class="navbar">
+            <a href="#home" class="active">Mi cuenta</a>
+            <a href="#news">Ofertas</a>
+            <a href="#contact">Catálogos</a>
+            <a href="#home">Mi carrito</a>
+            <a href="#news">Mis compras</a>
+            <a href="#contact">Catálogos</a>
+            <a href="#contact">Ayuda</a>
+        </div>
+    </div>
+
 </body>
 
 </html>

@@ -1,0 +1,11 @@
+/* Propiedades Generales --> Paleta de Colores y fuentes*/
+:root{
+    --clr-primario-a: #004E64;
+    --clr-primario-b: #5D9BAC;
+    --clr-secundario: #408E8D;
+    --clr-neutro-a: #FEFDEB;
+    --clr-neutro-b: #001014;
+    --clr-neutro-c: #E5E5E5;
+    --clr-cta-a: #FFB930;
+    --crl-cta-b: #FCE61E;
+  }

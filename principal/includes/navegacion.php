@@ -23,6 +23,8 @@
       </a>
     </div>
   </div>
+  <!-- Sidebar -->
+
   <div id="mySidenav" class="sidenav">
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
     <a href="#">Mi cuenta</a>
@@ -30,12 +32,9 @@
     <a href="#">Catálogos</a>
     <a href="#">Ayuda</a>
   </div>
-
-  <div id="main">
-    <div id="boton" class="boton">
-      <a href="#" id="menuLateral"><span onclick="openNav()">Menú</span></a>
-    </div>
+  <div id="main" class="main-container">
+      <div id="boton" class="boton">
+        <a href="#" id="menuLateral"><span onclick="openNav()">Menú</span></a>
+      </div>
     <div class="contenido">
-      <!-- Contenido Principal del la página -->
-     
-      
+    <!--  Contenido Principal del la página -->
