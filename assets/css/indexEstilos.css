@@ -17,6 +17,8 @@
   margin: 0;
 }
 
+/* Imagen para version móvil */
+
 .hero-principal{
     display: flex;
 }
@@ -25,17 +27,80 @@
     width: 20em;
     margin: auto;
 }
-@media (min-width: 1024px) {
+@media (min-width: 720px) {
     .img-hero{
         display: none;
     }
 }
-.btns-filtrado{
+
+/* Carrusel */
+.carrusel-container{
+    width: 80%;
+    height: 50%;
+    margin: 0 auto;
+    z-index: 1;
+}
+@media (max-width: 720px){
+.carrusel-container{
+ display: none;
+}
+}
+
+/* Sección de filtrado */
+.titulo-filtrado{
+    text-align: center;
     margin-top: 3em;
-    background-color: #004E64;
 }
-.contendor-btns{
+.btns-filtrado{
     display: flex;
-    flex-direction: row;
+    justify-content: space-around;
+    margin-top: 3em;
+    padding: 1em;
+    margin-bottom: 2em;
 }
+/* Botón "Productos" */
+
+.btn-productos{
+    background-color:  var(--crl-cta-b);
+    width: 10em;
+    padding: .7em;
+    border-radius: 1em;
+    text-align: center; 
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.3);
+
+}
+.btn-productos a{
+ color: var(--clr-neutro-b);
+}
+.btn-productos a:hover{
+ color: var(--clr-neutro-c);
+ font-weight: bold;
+}
+.btn-productos:hover{
+    background-color: var(--clr-cta-a);
+}
+
+/* Botón "Servicios" */
+.btn-servicios{
+    background-color:  var(--crl-cta-b);
+    width: 10em;
+    padding: .7em;
+    border-radius: 1em;
+    text-align: center; 
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.3);
+
+}
+.btn-servicios a{
+ color: var(--clr-neutro-b);
+}
+.btn-servicios a:hover{
+ color: var(--clr-neutro-c);
+ font-weight: bold;
+}
+.btn-servicios:hover{
+    background-color: var(--clr-cta-a);
+}
+
+
+
 

@@ -32,6 +32,7 @@ body {
   left: 0;
   top: 0;
   width: 100%;
+  z-index: 2;
 }
 .cont-elementos {
   max-width: 1100px;
@@ -51,6 +52,7 @@ a {
 .cont-elementos a:hover {
   border-bottom: 2px white solid;
   padding-top: 4px;
+  color: white;
 }
 .logoT {
   display: none;
@@ -66,10 +68,8 @@ a {
 @media (min-width: 1000px) {
   .logoT {
     display: block;
-    flex-grow: 2;
-    padding: 2em;
     margin-right: 4em;
-    margin-bottom: 5em;
+    margin-bottom: 4em;
     margin-right: 2em;
     width: 300px;
     height: 1em;
@@ -208,8 +208,8 @@ a {
   background-color:var(--clr-cta-a);
   color: white;
 }
-/* @media (min-width: 720px) {
+@media (min-width: 720px) {
   .contenedor-nav {
     display: none;
   }
-} */
+}
