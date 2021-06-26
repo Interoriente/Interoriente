@@ -519,7 +519,7 @@
           right: horizontal === 'left' ? 'auto' : parent.outerWidth() - element.outerWidth() - (parent === element ? 0 : position.left)
         });
 
-        // Creative Tim Changes - we add after 180 ms the ".open" class, in this way the animations will be the same with the other dropdowns from the
+        // Inter-oriente Changes - we add after 180 ms the ".open" class, in this way the animations will be the same with the other dropdowns from the
         setTimeout(function() {
           widget.addClass('open');
         }, 180);
@@ -806,7 +806,7 @@
             date: currentDate,
             classNames: clsNames
           });
-          // Creative Tim - we added a div inside each td for design purposes
+          // Inter-oriente - we added a div inside each td for design purposes
           row.append('<td data-action="selectDay" data-day="' + currentDate.format('L') + '" class="' + clsNames.join(' ') + '"><div>' + currentDate.date() + '</div></td>');
           currentDate.add(1, 'd');
         }
@@ -834,7 +834,7 @@
             row = $('<tr>');
             html.push(row);
           }
-          // Creative Tim - we added a div inside each class hour for design purposes
+          // Inter-oriente - we added a div inside each class hour for design purposes
           row.append('<td data-action="selectHour" class="hour' + (!isValid(currentHour, 'h') ? ' disabled' : '') + '"><div>' + currentHour.format(use24Hours ? 'HH' : 'hh') + '</div></td>');
           currentHour.add(1, 'h');
         }
@@ -853,7 +853,7 @@
             row = $('<tr>');
             html.push(row);
           }
-          // Creative Tim - we added a div inside each class minute for design purposes
+          // Inter-oriente - we added a div inside each class minute for design purposes
           row.append('<td data-action="selectMinute" class="minute' + (!isValid(currentMinute, 'm') ? ' disabled' : '') + '"><div>' + currentMinute.format('mm') + '</div></td>');
           currentMinute.add(step, 'm');
         }
@@ -871,7 +871,7 @@
             row = $('<tr>');
             html.push(row);
           }
-          // Creative Tim - we added a div inside each class seconds for design purposes
+          // Inter-oriente - we added a div inside each class seconds for design purposes
           row.append('<td data-action="selectSecond" class="second' + (!isValid(currentSecond, 's') ? ' disabled' : '') + '"><div>' + currentSecond.format('ss') + '</div></td>');
           currentSecond.add(5, 's');
         }
@@ -1000,7 +1000,7 @@
         widget.off('click', '[data-action]');
         widget.off('mousedown', false);
 
-        // Creative Tim Changes - we remove the ".open" class, then, fter 400 ms call the .hide() method, in this way the animations will be the same with the other dropdowns from the dashboard
+        // Inter-oriente Changes - we remove the ".open" class, then, fter 400 ms call the .hide() method, in this way the animations will be the same with the other dropdowns from the dashboard
 
         widget.removeClass('open');
 

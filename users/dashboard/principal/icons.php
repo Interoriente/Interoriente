@@ -26,8 +26,8 @@ if (isset($_SESSION["emailUsuario"]) or isset($_SESSION["documentoIdentidad"])) 
       <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <meta name="description" content="Start your development with a Dashboard for Bootstrap 4.">
-        <meta name="author" content="Creative Tim">
+        <meta name="description" content="Bienvenidos a Interoriente, podrás comprar, vender y mucho más.">
+        <meta name="author" content="Inter-oriente">
         <title>Iconos | Interoriente</title>
         <!-- Favicon -->
         <link rel="icon" href="../../../assets/img/favicon.png" type="image/png">
