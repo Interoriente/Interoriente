@@ -16,6 +16,11 @@ if (isset($_SESSION["emailUsuario"]) or isset($_SESSION["documentoIdentidad"])) 
   $consultaSesionRol = $pdo->prepare($sqlSesionRol);
   $consultaSesionRol->execute(array($documento, $sesionRol));
   $resultadoSesionRol = $consultaSesionRol->rowCount();
+  //Llamado tabla publicación
+  $sqlSesionPubli = "SELECT * FROM tblPublicacion WHERE usuario=?";
+  $consultaSesionPubli = $pdo->prepare($sqlSesionPubli);
+  $consultaSesionPubli->execute(array($documento));
+  $resultadoSesionPubli = $consultaSesionPubli->rowCount();
   //Validacion de roles
   if ($resultado_validacion) {
     if ($resultadoSesionRol) {
@@ -116,8 +121,8 @@ if (isset($_SESSION["emailUsuario"]) or isset($_SESSION["documentoIdentidad"])) 
                       <div class="col">
                         <div class="card-profile-stats d-flex justify-content-center">
                           <div>
-                            <span class="heading">35</span>
-                            <span class="description">Amigos</span>
+                            <span class="heading"><?php echo $resultadoSesionPubli; ?></span>
+                            <span class="description">Publicaciones</span>
                           </div>
                           <div>
                             <span class="heading">0</span>
@@ -135,7 +140,7 @@ if (isset($_SESSION["emailUsuario"]) or isset($_SESSION["documentoIdentidad"])) 
                         <?php echo $Nombre; ?><span class="font-weight-light">, 27</span>
                       </h5>
                       <div class="h5 font-weight-300">
-                        <i class="ni location_pin mr-2"></i><?php echo $resultadoCiudad->nombreCiudad; ?>
+                        <i class="ni location_pin mr-2"></i><?php echo $resultadoCiudad->nombreCiudad; ?> Antioquia
                       </div>
                     </div>
                   </div>
