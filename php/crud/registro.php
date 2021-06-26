@@ -25,18 +25,18 @@
         $contrasena = strip_tags($_POST['contrasena']);
         //Sha1 -> Método de encriptación
         $contrasena = sha1($_POST['contrasena']);
-        $estado = '0';
+        $estado = '1';
         $perfil = "imagenes/NO_borrar.png";
-        $rol='1';
+        $rol = '1';
         //Verificación correo existente
-        $sql_correoexistente = "SELECT*FROM tblUsuario WHERE emailUsuario='$correo'";
+        $sql_correoexistente = "SELECT*FROM tblUsuario WHERE emailUsuario=? or documentoIdentidad=?";
         $consulta_correo = $pdo->prepare($sql_correoexistente);
-        $consulta_correo->execute();
+        $consulta_correo->execute(array($correo,$documento));
         $resultado_correo = $consulta_correo->rowCount();
-        var_dump($resultado_correo);
+        //var_dump($resultado_correo);
         if ($resultado_correo) {
             //Impresión correo ingresado, ya existe en BD
-            echo "<script>alert('El correo ingresado ya existe!, por favor verificalo e intenta nuevamente');</script>";
+            echo "<script>alert('El correo y/o documento ingresado ya existe!, por favor verificalo e intenta nuevamente');</script>";
             echo "<script> document.location.href='../../principal/navegacion/registro.php';</script>";
         } else {
             //Consulta correo ingresado no existe en BD
@@ -46,16 +46,16 @@
             $consulta_insertar = $pdo->prepare($sql_insertar);
             //Ejecutar la sentencia
             $consulta_insertar->execute(array($documento, $nombres, $apellidos, $telefono, $celular, $correo, $contrasena, $ciudad, $estado, $perfil));
-            
-            
+
             //llamado a la tabla rol (intermedia) para almacenar el rol predeterminado
             $sql_insertar = "INSERT INTO tblUsuarioRol (idRol,documentoIdentidad)VALUES (?,?)";
             //Preparar consulta
             $consulta_insertar = $pdo->prepare($sql_insertar);
             //Ejecutar la sentencia
-            $consulta_insertar->execute(array($rol,$documento));
+            $consulta_insertar->execute(array($rol, $documento));
             echo "<script>alert('Datos almacenados correctamente');</script>";
             echo "<script> document.location.href='../../principal/navegacion/iniciarsesion.php';</script>";
+            
         }
     }
     ?>

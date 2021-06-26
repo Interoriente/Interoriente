@@ -82,7 +82,7 @@
                         </div>
                         <div class="card-body px-lg-5 py-lg-5">
                             <div class="text-center text-muted mb-4">
-                                <small>O con tus datos puedes diligenciar tus datos en los seguientes campos</small>
+                                <small>O con tus datos personales:</small>
                             </div>
                             <form action="../../php/crud/registro.php" method="POST">
                                 <div class="form-group">
@@ -109,7 +109,7 @@
                                         <div class="input-group-prepend">
                                             <span class="input-group-text"><i class="ni ni-badge"></i></span>
                                         </div>
-                                        <input class="form-control" placeholder="Documento" type="number" name="documento" required>
+                                        <input class="form-control" placeholder="Documento" type="number" max="9999999999" name="documento"  required>
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -118,7 +118,7 @@
                                         <div class="input-group-prepend">
                                             <span class="input-group-text"><i class="ni ni-mobile-button"></i></span>
                                         </div>
-                                        <input class="form-control" placeholder="Telefono (0pcional)" type="number" name="telefono">
+                                        <input class="form-control" placeholder="Telefono (0pcional)" type="number" max="9999999" name="telefono">
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -127,7 +127,7 @@
                                         <div class="input-group-prepend">
                                             <span class="input-group-text"><i class="ni ni-mobile-button"></i></span>
                                         </div>
-                                        <input class="form-control" placeholder="Celular" type="number" name="celular" required>
+                                        <input class="form-control" placeholder="Celular" type="number" name="celular" max="9999999999" required>
                                     </div>
                                 </div>
                                 <label for="">Ciudad:</label>
@@ -155,7 +155,7 @@
                                         <div class="input-group-prepend">
                                             <span class="input-group-text"><i class="ni ni-key-25"></i></span>
                                         </div>
-                                        <input class="form-control" placeholder="Contraseña" type="password" name="contrasena" required>
+                                        <input class="form-control" placeholder="Contraseña" type="password" name="contrasena" maxlength="20" required>
                                     </div>
                                 </div>
                                 <div class="text-muted font-italic"><small>password strength: <span class="text-success font-weight-700">strong</span></small></div>

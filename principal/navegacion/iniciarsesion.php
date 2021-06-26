@@ -59,9 +59,9 @@
                         <div class="card-header bg-transparent pb-5">
                             <div class="text-muted text-center mt-2 mb-4"><small>Puedes iniciar sesión por:</small></div>
                             <div class="text-center">
-                                <a href="#" class="btn btn-neutral btn-icon mr-4">
+                                <a href="productos.php" class="btn btn-neutral btn-icon mr-4">
                                     <span class="btn-inner--icon"><img src="../../users/dashboard/assets/img/icons/common/github.svg"></span>
-                                    <span class="btn-inner--text">Github</span>
+                                    <span class="btn-inner--text">Productos</span>
                                 </a>
                                 <a href="../publicacion/index.php" class="btn btn-neutral btn-icon">
                                     <span class="btn-inner--icon"><img src="../../users/dashboard/assets/img/icons/common/google.svg"></span>
@@ -78,9 +78,9 @@
                                     <label for="">Documento:</label>
                                     <div class="input-group input-group-merge input-group-alternative mb-3">
                                         <div class="input-group-prepend">
-                                            <span class="input-group-text"><i class="ni ni-email-83"></i></span>
+                                            <span class="input-group-text"><i class="ni ni-badge"></i></span>
                                         </div>
-                                        <input class="form-control" placeholder="Documento" type="number" name="documento" required>
+                                        <input class="form-control" placeholder="Documento" type="number" name="documento" max="9999999999" required>
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -89,7 +89,7 @@
                                         <div class="input-group-prepend">
                                             <span class="input-group-text"><i class="ni ni-key-25"></i></span>
                                         </div>
-                                        <input class="form-control" placeholder="Contraseña" type="password" name="contrasena" required>
+                                        <input class="form-control" placeholder="Contraseña" type="password" name="contrasena" maxlength="20" required>
                                     </div>
                                 </div>
                                 <div class="text-center">

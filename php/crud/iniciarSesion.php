@@ -22,30 +22,31 @@ session_start();
         $contrasena = strip_tags($_POST['contrasena']);
         $contrasena = sha1($_POST['contrasena']);
         $estado = '1';
-        $sql_inicio = "SELECT*FROM tblUsuario WHERE emailUsuario ='$id' OR documentoIdentidad='$id'  AND contrasenaUsuario='$contrasena'AND estadoUsuario = '$estado'";
+        $sql_inicio = "SELECT*FROM tblUsuario WHERE documentoIdentidad='$id'  AND contrasenaUsuario='$contrasena'AND estadoUsuario = '$estado'";
         $consulta_inicio = $pdo->prepare($sql_inicio);
         $consulta_inicio->execute();
         $resultado_inicio = $consulta_inicio->rowCount();
         $prueba = $consulta_inicio->fetch(PDO::FETCH_OBJ);
-        $_SESSION["rolUsuario"] = '1';
+
 
         //Llamado a tabla rol
-        $sql_inicio1 = "SELECT idRol FROM tblUsuarioRol WHERE documentoIdentidad='$id'";
-        $consulta_inicio1 = $pdo->prepare($sql_inicio1);
-        $consulta_inicio1->execute();
-        $resultado_inicio1 = $consulta_inicio1->rowCount();
-        $rol = $consulta_inicio1->fetch(PDO::FETCH_OBJ);
-
-        /* $stmt = $pdo->prepare("SELECT idRol FROM tblUsuarioRol WHERE documentoIdentidad = :id");
-        $stmt->bindValue(":id", $id);
-        $stmt->execute();
-        $rol = $stmt->fetch(PDO::FETCH_ASSOC); */
-
+        if ($resultado_inicio) {//Verifico que la informacion que se digitó en el formulario sea la que existe en BD, para llamar a tabla USuarioRol
+            $sql_inicio1 = "SELECT idRol FROM tblUsuarioRol WHERE documentoIdentidad='$id'";
+            $consulta_inicio1 = $pdo->prepare($sql_inicio1);
+            $consulta_inicio1->execute();
+            $resultado_inicio1 = $consulta_inicio1->rowCount();
+            $rol = $consulta_inicio1->fetch(PDO::FETCH_OBJ);
+            if ($resultado_inicio1) {
+                $rol = $rol->idRol;
+            }
+        }
         if ($resultado_inicio) {
 
             $_SESSION["emailUsuario"] = $prueba->emailUsuario;
             $_SESSION["documentoIdentidad"] = $prueba->documentoIdentidad;
-
+            $_SESSION['roles'] = $rol;
+            $_SESSION["rolUsuario"] = '1';
+            echo $_SESSION['roles'];
             if ($rol == '1') {
                 //Comprador/Proveedor
                 header("Location: ../../users/dashboard/principal/dashboard.php");

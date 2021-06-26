@@ -1,7 +1,11 @@
 <?php
-$host = "mysql:host=localhost;dbname=interori_interoriente"; 
+$host = "mysql:host=localhost;dbname=interori_interoriente";
+
+/* $usuario = "root";
+$contrasena = ""; */
+
 $usuario = "interori_interori";
-$contrasena = "B4O#uJ]C#%,4";
+$contrasena = "B4O#ugJ]C#%,4";
 
 try {
      //Conexion exitosa	
