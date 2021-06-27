@@ -65,7 +65,7 @@ a {
 
 /* Media query para mostrar logo */
 
-@media (min-width: 1000px) {
+@media (min-width: 1027px) {
   .logoT {
     display: block;
     margin-right: 4em;
@@ -183,8 +183,8 @@ a {
   position: fixed;
   bottom: 0;
   width: 100%;
+  
 }
-
 
 .navbar a {
   float: left;
@@ -194,22 +194,57 @@ a {
   padding: 14px 16px;
   text-decoration: none;
   font-size: 17px;
-  font-family: 'Poppins';
+  font-family: "Poppins";
 }
 
-
 .navbar a:hover {
-  background-color:var(--clr-cta-a);
+  background-color: var(--clr-cta-a);
   color: var(--clr-neutro-c);
 }
 
-
 .navbar a.active {
-  background-color:var(--clr-cta-a);
+  background-color: var(--clr-cta-a);
   color: white;
 }
 @media (min-width: 720px) {
   .contenedor-nav {
     display: none;
+  }
+}
+
+/* Navbar Mediaqueries */
+@media (max-width: 450px) {
+  .contenedor {
+    height: 3em;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+  }
+  .cont-elementos {
+    width: 100%;
+    margin-right: 4em;
+  }
+}
+
+@media (max-width: 850px) {
+  .contenedor {
+    height: 3.5em;
+  }
+  .cont-elementos {
+    width: 100%;
+    margin-right: 5.5em;
+  }
+}
+@media (max-width: 1024px) {
+  .contenedor {
+    height: 4em;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+  }
+  .cont-elementos {
+    width: 100%;
+    margin-right: 3em;
+
   }
 }
