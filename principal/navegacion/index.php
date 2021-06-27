@@ -9,6 +9,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../assets/css/indexEstilos.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css" />
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
     <title>Interoriente | Explora</title>
 </head>
 
@@ -63,16 +65,22 @@
     </section>
     <!-- TODO Implementar sistema de filtrado js -->
     <h1 class="titulo-filtrado">Aquí podrás filtrar resultados </h1>
-    <section class="btns-filtrado" id="myBtnContainer">
-        <div class="btn-productos">
-            <a href="" onclick="filterSelection('Productos')">Productos</a>
-        </div>
-        <div class="btn-productos todos" onclick="filterSelection('todos')">
-            <a href="">Todos</a>
-        </div>
-        <div class=" btn-servicios">
-            <a href="" onclick="filterSelection('servicios')">Servicios</a>
-        </div>
+    <section class="btns-filtrado">
+        <a href="">
+            <div class="btn-productos btn-filtro">
+                Productos
+            </div>
+        </a>
+        <a href="">
+            <div class="btn-productos todos btn-filtro" onclick="filterSelection('todos')">
+                Todos
+            </div>
+        </a>
+        <a href="">
+            <div class=" btn-servicios btn-filtro">
+                Servicios
+            </div>
+        </a>
 
     </section>
 
@@ -125,6 +133,11 @@
         </div>
 
     </section>
+    <br>
+    <br>
+    <br>
+    <br>
+
 
 
 
@@ -142,6 +155,8 @@
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+
+
 </body>
 
 </html>

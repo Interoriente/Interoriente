@@ -53,7 +53,7 @@
 .btns-filtrado {
   display: flex;
   width: 100%;
-  justify-content: space-around;
+  justify-content: space-between;
   margin-top: 3em;
   padding: 1em;
   margin-bottom: 2em;
@@ -69,36 +69,24 @@
   text-align: center;
   box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.3);
 }
-.btn-productos a {
-  color: var(--clr-neutro-b);
-}
-.btn-productos a:hover {
-  color: var(--clr-neutro-c);
-  font-weight: bold;
-}
-.btn-productos:hover {
-  background-color: var(--clr-cta-a);
-}
+
 
 /* Botón "Servicios" */
-.btn-servicios {
+.btn-filtro{
   background-color: var(--crl-cta-b);
+  color: var(--clr-neutro-b);
   width: 10em;
   padding: 0.7em;
   border-radius: 1em;
   text-align: center;
   box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.3);
 }
-.btn-servicios a {
-  color: var(--clr-neutro-b);
-}
-.btn-servicios a:hover {
-  color: var(--clr-neutro-c);
+.btn-filtro:hover{
+  background-color: var(--clr-cta-a);
+  color: var(--clr-neutro-a);
   font-weight: bold;
 }
-.btn-servicios:hover {
-  background-color: var(--clr-cta-a);
-}
+
 
 @media (max-width: 820px) {
   .btns-filtrado {
@@ -124,7 +112,7 @@
 
   margin-top: 3em;
   height: 30em;
-  width: 30%;
+  width: 15em;
   background-color: var(--clr-neutro-a);
   border-radius: 1em;
   box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.2);
@@ -152,6 +140,7 @@
       flex-direction: column;
   }
   .tarjeta {
-    width: 100%;
+    width: 50%;
 }
 }
+
