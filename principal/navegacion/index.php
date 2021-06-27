@@ -61,19 +61,71 @@
             </div>
         </div>
     </section>
-
+    <!-- TODO Implementar sistema de filtrado js -->
     <h1 class="titulo-filtrado">Aquí podrás filtrar resultados </h1>
-    <section class="btns-filtrado">
+    <section class="btns-filtrado" id="myBtnContainer">
         <div class="btn-productos">
-            <a href="">Productos</a>
+            <a href="" onclick="filterSelection('Productos')">Productos</a>
         </div>
-        <div class="btn-servicios">
-            <a href="">Servicios</a>
+        <div class="btn-productos todos" onclick="filterSelection('todos')">
+            <a href="">Todos</a>
+        </div>
+        <div class=" btn-servicios">
+            <a href="" onclick="filterSelection('servicios')">Servicios</a>
         </div>
 
     </section>
-    
-    
+
+    <section class="publicaciones">
+
+        <div class="tarjeta">
+            <div class="img-tarjeta">
+                <img src="../../assets/img/publicaciones/1.jpg" alt="">
+            </div>
+            <div class="contenido-tarjeta">
+                <h3>Computador XW23 Windows 11</h3>
+                <h5> $1.400.200</h5>
+            </div>
+        </div>
+        <div class="tarjeta">
+            <div class="img-tarjeta">
+                <img src="../../assets/img/publicaciones/1.jpg" alt="">
+            </div>
+            <div class="contenido-tarjeta">
+                <h3>Computador XW23 Windows 11</h3>
+                <h5> $1.400.200</h5>
+            </div>
+        </div>
+        <div class="tarjeta">
+            <div class="img-tarjeta">
+                <img src="../../assets/img/publicaciones/1.jpg" alt="">
+            </div>
+            <div class="contenido-tarjeta">
+                <h3>Computador XW23 Windows 11</h3>
+                <h5> $1.400.200</h5>
+            </div>
+        </div>
+        <div class="tarjeta">
+            <div class="img-tarjeta">
+                <img src="../../assets/img/publicaciones/1.jpg" alt="">
+            </div>
+            <div class="contenido-tarjeta">
+                <h3>Computador XW23 Windows 11</h3>
+                <h5> $1.400.200</h5>
+            </div>
+        </div>
+        <div class="tarjeta">
+            <div class="img-tarjeta">
+                <img src="../../assets/img/publicaciones/1.jpg" alt="">
+            </div>
+            <div class="contenido-tarjeta">
+                <h3>Computador XW23 Windows 11</h3>
+                <h5> $1.400.200</h5>
+            </div>
+        </div>
+
+    </section>
+
 
 
 
