@@ -15,12 +15,13 @@
 <body>
   <?php
   require '../../dao/conexion.php';
+  $validacion=1;
   //Mostrar los datos almacenados
-  $sql_mostrar = "SELECT * FROM tblPublicacion";
+  $sql_mostrar = "SELECT * FROM tblPublicacion WHERE validacionPublicacion=?";
   //Prepara sentencia
   $consultar_mostrar = $pdo->prepare($sql_mostrar);
   //Ejecutar consulta
-  $consultar_mostrar->execute();
+  $consultar_mostrar->execute(array($validacion));
 
   //Mostrar los datos almacenados tabla imagenes
   $sql_mostrar1 = "SELECT * FROM tblImagenes";

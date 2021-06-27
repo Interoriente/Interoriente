@@ -60,52 +60,59 @@
                             <div class="text-center text-muted mb-4">
                                 <small>Datos de la empresa:</small>
                             </div>
-                            <form action="../../php/crud/registroEmpresa.php" method="POST">
+                            <form action="../../php/crud/registroEmpresa.php" method="POST" enctype="multipart/form-data">
+                            <div class="form-group">
+                                    <label for="">Nit:</label>
+                                    <div class="input-group input-group-merge input-group-alternative mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"><i class="ni ni-tag"></i></span>
+                                        </div>
+                                        <input class="form-control" placeholder="NIT" type="text" name="nit" maxlength="12" required autofocus>
+                                    </div>
+                                </div>
                                 <div class="form-group">
-                                    <label for="">Nombres:</label>
+                                    <label for="">Nombre:</label>
                                     <div class="input-group input-group-merge input-group-alternative mb-3">
                                         <div class="input-group-prepend">
                                             <span class="input-group-text"><i class="ni ni-single-02"></i></span>
                                         </div>
-                                        <input class="form-control" placeholder="Nombres" type="text" name="nombres" required autofocus>
+                                        <input class="form-control" placeholder="Nombre" type="text" name="nombre" maxlength="50" required>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="">Apellidos:</label>
+                                    <label for="">Descripción:</label>
                                     <div class="input-group input-group-merge input-group-alternative mb-3">
                                         <div class="input-group-prepend">
-                                            <span class="input-group-text"><i class="ni ni-single-02"></i></span>
+                                            <span class="input-group-text"><i class="ni ni-single-copy-04"></i></span>
                                         </div>
-                                        <input class="form-control" placeholder="Apellidos" type="text" name="apellidos" required>
+                                        <input class="form-control" placeholder="Descripción" type="text" name="descripcion" maxlength="500" required>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="">Documento:</label>
+                                    <label for="">Correo:</label>
                                     <div class="input-group input-group-merge input-group-alternative mb-3">
                                         <div class="input-group-prepend">
-                                            <span class="input-group-text"><i class="ni ni-badge"></i></span>
+                                            <span class="input-group-text"><i class="ni ni-email-83"></i></span>
                                         </div>
-                                        <input class="form-control" placeholder="Documento" type="number" max="9999999999" name="documento" required>
+                                        <input class="form-control" placeholder="Correo" type="email" name="correo" maxlength="45" required>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="">Teléfono:</label>
+                                    <label for="">Imagen:</label>
                                     <div class="input-group input-group-merge input-group-alternative mb-3">
-                                        <div class="input-group-prepend">
-                                            <span class="input-group-text"><i class="ni ni-mobile-button"></i></span>
-                                        </div>
-                                        <input class="form-control" placeholder="Telefono (0pcional)" type="number" max="9999999" name="telefono">
+                                        <input class="form-control-file" placeholder="Documento" type="file" name="file" required>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="">Celular:</label>
+                                    <label for="">Dirección:</label>
                                     <div class="input-group input-group-merge input-group-alternative mb-3">
                                         <div class="input-group-prepend">
-                                            <span class="input-group-text"><i class="ni ni-mobile-button"></i></span>
+                                            <span class="input-group-text"><i class="ni ni-shop"></i></span>
                                         </div>
-                                        <input class="form-control" placeholder="Celular" type="number" name="celular" max="9999999999" required>
+                                        <input class="form-control" placeholder="Dirección" type="text" name="direccion" maxlength="70" required>
                                     </div>
                                 </div>
+                                
                                 <label for="">Ciudad:</label>
                                 <div class="form-group">
                                     <select name="ciudad" class="form-control" required>
@@ -117,32 +124,12 @@
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <label for="">Correo:</label>
+                                    <label for="">Celular:</label>
                                     <div class="input-group input-group-merge input-group-alternative mb-3">
                                         <div class="input-group-prepend">
-                                            <span class="input-group-text"><i class="ni ni-email-83"></i></span>
+                                            <span class="input-group-text"><i class="ni ni-mobile-button"></i></span>
                                         </div>
-                                        <input class="form-control" placeholder="Correo" type="email" name="correo" required>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="">Contraseña:</label>
-                                    <div class="input-group input-group-merge input-group-alternative mb-3">
-                                        <div class="input-group-prepend">
-                                            <span class="input-group-text"><i class="ni ni-key-25"></i></span>
-                                        </div>
-                                        <input class="form-control" placeholder="Contraseña" type="password" name="contrasena" maxlength="20" required>
-                                    </div>
-                                </div>
-                                <div class="text-muted font-italic"><small>password strength: <span class="text-success font-weight-700">strong</span></small></div>
-                                <div class="row my-4">
-                                    <div class="col-12">
-                                        <div class="custom-control custom-control-alternative custom-checkbox">
-                                            <input class="custom-control-input" id="customCheckRegister" type="checkbox">
-                                            <label class="custom-control-label" for="customCheckRegister">
-                                                <span class="text-muted">I agree with the <a href="#!">Privacy Policy</a></span>
-                                            </label>
-                                        </div>
+                                        <input class="form-control" placeholder="Celular" type="number" name="celular" max="9999999999" required>
                                     </div>
                                 </div>
                                 <div class="text-center">
