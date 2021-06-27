@@ -28,17 +28,16 @@ if (isset($_POST['subir'])) {
                     $color = $_POST['color'];
                     $costo = $_POST['costo'];
                     $estadoarticulo = $_POST['estado'];
-                    $estadopublicacion = '3';
                     $stock = $_POST['stock'];
                     $categoria = $_POST['categoria'];
                     $usuario = $_POST['usuario'];
                     $verificacion = '0';
                     //sentencia Sql
-                    $sql_insertar = "INSERT INTO tblPublicacion (nombrePublicacion,usuario,descripcionPublicacion,colorPublicacion,costoPublicacion,estadoArticulo,estadoPublicacion,stockProducto,categoria,validacionPublicacion)VALUES (?,?,?,?,?,?,?,?,?,?)";
+                    $sql_insertar = "INSERT INTO tblPublicacion (nombrePublicacion,usuario,descripcionPublicacion,colorPublicacion,costoPublicacion,estadoArticulo,stockProducto,categoria,validacionPublicacion)VALUES (?,?,?,?,?,?,?,?,?)";
                     //Preparar consulta
                     $consulta_insertar = $pdo->prepare($sql_insertar);
                     //Ejecutar la sentencia
-                    $consulta_insertar->execute(array($nombre, $usuario, $descripcion, $color, $costo, $estadoarticulo, $estadopublicacion, $stock, $categoria, $verificacion));
+                    $consulta_insertar->execute(array($nombre, $usuario, $descripcion, $color, $costo, $estadoarticulo, $stock, $categoria, $verificacion));
                     
                     //Llamado idPublicacion
                     $sqlLlamarId="SELECT MAX(idPublicacion) AS id FROM tblPublicacion";
