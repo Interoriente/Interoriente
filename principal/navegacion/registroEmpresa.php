@@ -40,6 +40,7 @@
                         <div class="col-xl-5 col-lg-6 col-md-8 px-5">
                             <h1 class="text-white">Crear cuenta</h1>
                             <p class="text-lead text-white">Aquí podrás crear una cuenta con los datos de tu empresa.</p>
+                            <p class="text-lead text-white">Ten en cuenta que para registrar tu empresa, primero debes tener una cuenta como comprador/proveedor.</p>
                         </div>
                     </div>
                 </div>
@@ -61,7 +62,16 @@
                                 <small>Datos de la empresa:</small>
                             </div>
                             <form action="../../php/crud/registroEmpresa.php" method="POST" enctype="multipart/form-data">
-                            <div class="form-group">
+                                <div class="form-group">
+                                    <label for="">Documento de identidad (Ya registrado):</label>
+                                    <div class="input-group input-group-merge input-group-alternative mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"><i class="ni ni-badge"></i></span>
+                                        </div>
+                                        <input class="form-control" placeholder="Documento" type="text" name="documento" maxlength="12" required autofocus>
+                                    </div>
+                                </div>
+                                <div class="form-group">
                                     <label for="">Nit:</label>
                                     <div class="input-group input-group-merge input-group-alternative mb-3">
                                         <div class="input-group-prepend">
@@ -112,7 +122,7 @@
                                         <input class="form-control" placeholder="Dirección" type="text" name="direccion" maxlength="70" required>
                                     </div>
                                 </div>
-                                
+
                                 <label for="">Ciudad:</label>
                                 <div class="form-group">
                                     <select name="ciudad" class="form-control" required>
@@ -140,7 +150,7 @@
                     </div>
                     <div class="row mt-3">
                         <div class="col-6">
-                            <a href="../../index.html" class="text-light"><small>Regresar a inicio</small></a>
+                            <a href="registro.php" class="text-light"><small>Crear cuenta</small></a>
                         </div>
                         <div class="col-6 text-right">
                             <a href="iniciarsesion.php" class="text-light"><small>Tienes cuenta?</small></a>
