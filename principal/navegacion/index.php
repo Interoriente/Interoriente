@@ -36,22 +36,22 @@
                     <div class="carousel-item active">
                         <img src="../../assets/img/index_2/1.jpg" class="d-block w-100" alt="...">
                         <div class="carousel-caption d-none d-md-block">
-                            <h5>First slide label</h5>
-                            <p>Some representative placeholder content for the first slide.</p>
+                            <!--    <h5>First slide label</h5>
+                            <p>Some representative placeholder content for the first slide.</p> -->
                         </div>
                     </div>
                     <div class="carousel-item">
                         <img src="../../assets/img/index_2/2.jpg" class="d-block w-100" alt="...">
                         <div class="carousel-caption d-none d-md-block">
-                            <h5>Second slide label</h5>
-                            <p>Some representative placeholder content for the second slide.</p>
+                            <!-- <h5>Second slide label</h5>
+                            <p>Some representative placeholder content for the second slide.</p> -->
                         </div>
                     </div>
                     <div class="carousel-item">
                         <img src="../../assets/img/index_2/3.jpg" class="d-block w-100" alt="...">
                         <div class="carousel-caption d-none d-md-block">
-                            <h5>Third slide label</h5>
-                            <p>Some representative placeholder content for the third slide.</p>
+                            <!--  <h5>Third slide label</h5>
+                            <p>Some representative placeholder content for the third slide.</p> -->
                         </div>
                     </div>
                 </div>
@@ -104,16 +104,21 @@
     <section class="publicaciones">
 
         <div class="tarjeta">
-            <div class="img-tarjeta">
-                <img src="../../assets/img/publicaciones/1.jpg" alt="">
-            </div>
-            <div class="contenido-tarjeta">
-                <h3>Computador XW23 Windows 11</h3>
-                <h5> $1.400.200</h5>
-            </div>
-            <div class="cta-btns">
-                <a href="">Comprar ahora</a>
-            </div>
+            <a href="">
+                <div class="img-tarjeta">
+                    <img src="../../assets/img/publicaciones/1.jpg" alt="">
+                </div>
+                <div class="contenido-tarjeta">
+
+                    <h3>Computador XW23 Windows 11</h3>
+
+                    <h5> $1.400.200</h5>
+            </a>
+        </div>
+        <div class="cta-btns">
+            <img src="../../assets/img/iconos/compras.svg" alt="Bolsa de la compra">
+            <img src="../../assets/img/iconos/carrito_2.svg" alt="Bolsa de la compra">
+        </div>
         </div>
 
         <div class="tarjeta">

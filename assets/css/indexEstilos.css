@@ -126,7 +126,6 @@ font-family: 'Poppins', sans-serif; */
 }
 .contenido-tarjeta {
   margin-top: -1.9em;
-  background-color: #004e64;
   width: 100%;
 }
 .contenido-tarjeta h3 {
@@ -152,4 +151,19 @@ font-family: 'Poppins', sans-serif; */
   .tarjeta {
     width: 50%;
   }
+}
+.tarjeta h3{
+transition: .5s;
+}
+.tarjeta h3:hover{
+  color: var(--clr-cta-a);
+}
+
+/* Íconos especiales tarjetas (El carrito y la bolsa de la compra) */
+
+.cta-btns{
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: .7em;
+
 }
