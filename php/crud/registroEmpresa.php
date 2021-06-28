@@ -51,14 +51,15 @@
                         $direccion = strip_tags($_POST['direccion']);
                         $ciudad = strip_tags($_POST['ciudad']);
                         $celular = strip_tags($_POST['celular']);
+                        $documento = strip_tags($_POST['documento']);
                         $estado='0';
 
                         //sentencia Sql
-                        $sqlInsertar = "INSERT INTO tblEmpresa (nitEmpresa,nombreEmpresa, descripcionEmpresa, correoEmpresa,imagenEmpresa, direccionEmpresa,ciudadEmpresa,telefonoEmpresa,estadoEmpresa)VALUES (?,?,?,?,?,?,?,?,?)";
+                        $sqlInsertar = "INSERT INTO tblEmpresa (nitEmpresa,nombreEmpresa, descripcionEmpresa, correoEmpresa,imagenEmpresa, direccionEmpresa,ciudadEmpresa,telefonoEmpresa,estadoEmpresa,documentoIdentidad)VALUES (?,?,?,?,?,?,?,?,?,?)";
                         //Preparar consulta
                         $consultaInsertar = $pdo->prepare($sqlInsertar);
                         //Ejecutar la sentencia
-                        $consultaInsertar->execute(array($nit, $nombre, $descripcion, $correo, $archivo, $direccion, $ciudad, $celular,$estado));
+                        $consultaInsertar->execute(array($nit, $nombre, $descripcion, $correo, $archivo, $direccion, $ciudad, $celular,$estado,$documento));
 
                         echo "<script>alert('Datos almacenados correctamente');</script>";
                         echo "<script> document.location.href='../../principal/navegacion/iniciarsesion.php';</script>";

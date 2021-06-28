@@ -10,4 +10,4 @@ $consultaEditar->execute(array($id));
 //alert
 echo "<script>alert('Estado actualizado correctamente');</script>";
 //redireccionar
-echo "<script> document.location.href='../usuarios.php';</script>";
+echo "<script> document.location.href='../empresas.php';</script>";

@@ -45,6 +45,7 @@
     <a href="#">Mis compras</a>
     <a href="#">Catálogos</a>
     <a href="#">Ayuda</a>
+    <a href="iniciarsesion.php">Iniciar sesión</a>
   </div>
   <div id="main" class="main-container">
     <div id="boton" class="boton">
