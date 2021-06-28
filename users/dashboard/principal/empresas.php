@@ -49,14 +49,14 @@ if (isset($_SESSION["emailUsuario"]) or isset($_SESSION["documentoIdentidad"])) 
         };
         require_once '../assets/header.php';
         include_once '../../../dao/conexion.php';
-        //Llamar a la conexion base de datos -> Muestro el contenido de tabla usuario
+        //Llamar a la conexion base de datos -> Muestro el contenido de tabla empresa
         //Mostrar los datos almacenados
-        $sql_mostrar_usu = "SELECT * FROM tblUsuario";
+        $sql_mostrar_empre = "SELECT * FROM tblEmpresa";
         //Prepara sentencia
-        $consultar_mostrar_usu = $pdo->prepare($sql_mostrar_usu);
+        $consultar_mostrar_empre = $pdo->prepare($sql_mostrar_empre);
         //Ejecutar consulta
-        $consultar_mostrar_usu->execute();
-        $resultado_mostrar_usu = $consultar_mostrar_usu->fetchAll();
+        $consultar_mostrar_empre->execute();
+        $resultado_mostrar_empre = $consultar_mostrar_empre->fetchAll();
         ?>
         <!-- Header -->
         <div class="header bg-primary pb-6">
@@ -64,7 +64,8 @@ if (isset($_SESSION["emailUsuario"]) or isset($_SESSION["documentoIdentidad"])) 
             <div class="header-body">
               <div class="row align-items-center py-4">
                 <div class="col-lg-6 col-7">
-                  <h6 class="h2 text-white d-inline-block mb-0">Tabla de usuarios registrados</h6>
+                  <h6 class="h2 text-white d-inline-block mb-0">Tabla de empresas registradas</h6>
+
                 </div>
                 <div class="col-lg-6 col-5 text-right">
                   <a href="#" class="btn btn-sm btn-neutral">New</a>
@@ -83,43 +84,77 @@ if (isset($_SESSION["emailUsuario"]) or isset($_SESSION["documentoIdentidad"])) 
                 <div class="card-header border-0">
                   <h3 class="mb-0"> </h3>
                 </div>
-                <!-- Tabla usuarios -->
+                <!-- Tabla empresa -->
                 <div class="table-responsive">
                   <table class="table align-items-center table-flush">
                     <thead class="thead-light">
                       <tr>
-                        <th scope="col" class="sort" data-sort="name">Nombres</th>
-                        <th scope="col" class="sort" data-sort="budget">Apellidos</th>
-                        <th scope="col" class="sort" data-sort="status">Celular</th>
+                        <th scope="col" class="sort" data-sort="name">NIT</th>
+                        <th scope="col" class="sort" data-sort="budget">Nombre</th>
+                        <th scope="col" class="sort" data-sort="status">Descripción</th>
                         <th scope="col" class="sort" data-sort="status">Correo</th>
+                        <th scope="col" class="sort" data-sort="status">Imagen</th>
+                        <th scope="col" class="sort" data-sort="status">Dirección</th>
+                        <th scope="col" class="sort" data-sort="status">Ciudad</th>
+                        <th scope="col" class="sort" data-sort="status">Teléfono</th>
                         <th scope="col" class="sort" data-sort="status">Estado</th>
-                        <th scope="col" class="sort" data-sort="status">Acciones</th>
+                        <th scope="col" class="sort" data-sort="status">Opciones</th>
                       </tr>
                     </thead>
                     <tbody class="list">
                       <?php
-                      foreach ($resultado_mostrar_usu as $datos) {
+                      foreach ($resultado_mostrar_empre as $datosEmpre) {
                       ?>
                         <tr>
-                          <th><?php echo $datos['nombresUsuario']; ?></th>
-                          <th><?php echo $datos['apellidoUsuario']; ?></th>
-                          <th><?php echo $datos['telefonomovilUsuario']; ?></th>
-                          <th><?php echo $datos['emailUsuario']; ?></th>
+                          <th><?php echo $datosEmpre['nitEmpresa']; ?></th>
+                          <th><?php echo $datosEmpre['nombreEmpresa']; ?></th>
+                          <th><?php echo $datosEmpre['descripcionEmpresa']; ?></th>
+                          <th><?php echo $datosEmpre['correoEmpresa']; ?></th>
+                          <th><?php echo $datosEmpre['imagenEmpresa']; ?></th>
+                          <th><?php echo $datosEmpre['direccionEmpresa']; ?></th>
+                          <th><?php echo $datosEmpre['ciudadEmpresa']; ?></th>
+                          <th><?php echo $datosEmpre['telefonoEmpresa']; ?></th>
                           <?php /* Verificar que el estado esté activo */
-                          if ($datos['estadoUsuario'] == 1) { ?>
+                          if ($datosEmpre['estadoEmpresa'] == '1') { ?>
                             <th>Activo</th>
-                            <th><a class="btn btn-info" href="crud/desactivarAdmin.php?id=<?php echo $datos['documentoIdentidad']; ?>">Desactivar</a></th>
+                            <th><a class="btn btn-info" href="crud/desactivarEmpresa.php?id=<?php echo $datosEmpre['nitEmpresa']; ?>">Desactivar</a></th>
                         </tr>
                       <?php
                           } else { ?>
                         <th>Inactivo</th>
-                        <th><a class="btn btn-success" href="crud/activarAdmin.php?id=<?php echo $datos['documentoIdentidad']; ?>">Activar</a></th>
+                        <th><a class="btn btn-success" href="crud/activarEmpresa.php?id=<?php echo $datosEmpre['nitEmpresa']; ?>">Activar</a></th>
                     <?php
                           }
                         }
                     ?>
                     </tbody>
                   </table>
+                </div>
+                <!-- Card footer -->
+                <div class="card-footer py-4">
+                  <nav aria-label="...">
+                    <ul class="pagination justify-content-end mb-0">
+                      <li class="page-item disabled">
+                        <a class="page-link" href="#" tabindex="-1">
+                          <i class="fas fa-angle-left"></i>
+                          <span class="sr-only">Previous</span>
+                        </a>
+                      </li>
+                      <li class="page-item active">
+                        <a class="page-link" href="#">1</a>
+                      </li>
+                      <li class="page-item">
+                        <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
+                      </li>
+                      <li class="page-item"><a class="page-link" href="#">3</a></li>
+                      <li class="page-item">
+                        <a class="page-link" href="#">
+                          <i class="fas fa-angle-right"></i>
+                          <span class="sr-only">Next</span>
+                        </a>
+                      </li>
+                    </ul>
+                  </nav>
                 </div>
               </div>
             </div>
