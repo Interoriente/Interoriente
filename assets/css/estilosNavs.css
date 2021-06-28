@@ -1,5 +1,5 @@
 /* Propiedades Generales --> Paleta de Colores y fuentes*/
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Poppins:wght@300;600&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Poppins:wght@300;600&display=swap");
 
 :root {
   --clr-primario-a: #004e64;
@@ -43,7 +43,7 @@ body {
 .cont-elementos {
   max-width: 1100px;
   width: 40%;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   display: flex;
   align-items: center;
   margin: auto;
@@ -118,7 +118,7 @@ a {
   text-decoration: none;
   font-size: 19px;
   font-weight: 550;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   color: var(--clr-primario-a);
   display: block;
   transition: 0.3s;
@@ -136,6 +136,7 @@ a {
   font-size: 36px;
   margin-left: 50px;
 }
+
 /* Media query para cambiar tamaño en pantallas pequeñas, donde la altura sea menor a 450px, cambio de estilo (menos padding y fuente más pequeña) */
 @media screen and (max-height: 450px) {
   .sidenav {
@@ -157,7 +158,7 @@ a {
   text-decoration: none; /* Remove underline */
   font-size: 20px; /* Increase font size */
   color: var(--clr-primario-a); /* Color del texto */
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   border-radius: 0 5px 5px 0; /* Rounded corners on the top right and bottom right side */
 }
 
@@ -196,11 +197,12 @@ a {
   float: left;
   display: block;
   color: #f2f2f2;
-  text-align: center;
+  text-align: right;
   padding: 14px 16px;
   text-decoration: none;
   font-size: 17px;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
+  
 }
 
 .navbar a:hover {
@@ -217,32 +219,37 @@ a {
     display: none;
   }
 }
+/* Perfil */
+.sidenav .perfil {
+  display: flex;
+  justify-content: left;
+  background-color: #004e64;
+  margin: -1.5em 2em 1em 2em;
+  border-radius: 70%;
+  padding: 3em;
+}
+
 /* Sección carrito y barra de búsqueda */
 
-.carrito-busqueda{
-    position: absolute;
-    right: 0;
-    display: flex;
+.carrito-busqueda {
+  position: absolute;
+  right: 0;
+  display: flex;
 }
-.carrito:hover{
+.carrito:hover {
   cursor: pointer;
 }
-.carrito{
- margin-right: 2em;
+.carrito {
+  margin-right: 2em;
 }
 
-.barra-busqueda{
+.barra-busqueda {
   margin-right: 2em;
   border-radius: 50%;
 }
-::placeholder{
+::placeholder {
   color: #004e64;
-
 }
-
-
-
-
 
 /* Navbar Mediaqueries */
 @media (max-width: 450px) {
@@ -277,14 +284,13 @@ a {
   .cont-elementos {
     width: 100%;
     margin-right: 3em;
-
   }
 }
 
 /* Media query para la barra de búsqueda */
 
-@media (max-width: 1180px){
-  .barra-busqueda{
+@media (max-width: 1180px) {
+  .barra-busqueda {
     display: none;
   }
 }
