@@ -79,11 +79,14 @@ font-family: 'Poppins', sans-serif; */
   border-radius: 1em;
   text-align: center;
   box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.3);
+  transition: 0.3s;
+
 }
 .btn-filtro:hover {
   background-color: var(--clr-cta-a);
   color: var(--clr-neutro-a);
   font-weight: bold;
+
 }
 
 .btn-filtro {

@@ -26,14 +26,16 @@
       <div class="barra-busqueda">
         <input type="text" placeholder="Buscar...">
       </div>
-      <div class="carrito"><img src="../../assets/img/iconos/carrito.svg" alt="Carrito de la compra"></div>
+      <a href="../navegacion/carrito.php">
+        <div class="carrito"><img src="../../assets/img/iconos/carrito.svg" alt="Carrito de la compra"></div>
+      </a>
     </div>
   </div>
   <!-- Sidebar -->
 
   <div id="mySidenav" class="sidenav">
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-    <a href="#" >Mi cuenta</a>
+    <a href="#">Mi cuenta</a>
     <a href="#">Ofertas</a>
     <a href="#">Catálogos</a>
     <a href="#">Mi carrito</a>
