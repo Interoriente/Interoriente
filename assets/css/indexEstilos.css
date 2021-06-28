@@ -24,6 +24,8 @@ font-family: 'Poppins', sans-serif; */
   margin: 0;
 }
 
+/* Copia Final */
+
 /* Imagen para version móvil */
 
 .hero-principal {
@@ -120,7 +122,7 @@ font-family: 'Poppins', sans-serif; */
   margin: 1em 1em 1em 0;
   height: 25em;
   width: 15em;
-  background-color: var(--clr-neutro-a);
+  background-color:  var(--clr-neutro-a);
   border-radius: 1em;
   box-shadow: 10px 10px 10px 12px rgba(0, 0, 0, 0.1);
   transition: .7s;
