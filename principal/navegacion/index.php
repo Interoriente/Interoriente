@@ -99,20 +99,23 @@
                                 7. Detalles a sidebar
 -->
 
+
+
     <!-- Sección de las tarjetas -->
 
+    <!-- NOTA: títulos de máximo 100 caracteres ó 14 palabras -->
     <section class="publicaciones">
 
+        <!-- Tarjeta Final -->
         <div class="tarjeta">
             <a href="">
                 <div class="img-tarjeta">
-                    <img src="../../assets/img/publicaciones/1.jpg" alt="">
+                    <img src="../../assets/img/publicaciones/2.jpg" alt="">
                 </div>
                 <div class="contenido-tarjeta">
-
-                    <h3>Computador XW23 Windows 11</h3>
-
                     <h5> $1.400.200</h5>
+                    <h3>Monitor Samsung Ips De 24 Full Hd Freesync Hdmi Lf24t400fh </h3>
+                    <p>Resitente computadora excelente sesdfa excelente excelente... <span>más</span></p>
             </a>
         </div>
         <div class="cta-btns">
@@ -120,43 +123,27 @@
             <img src="../../assets/img/iconos/carrito_2.svg" alt="Bolsa de la compra">
         </div>
         </div>
+        <!-- ----  -->
+
 
         <div class="tarjeta">
-            <div class="img-tarjeta">
-                <img src="../../assets/img/publicaciones/2.jpg" alt="">
-            </div>
-            <div class="contenido-tarjeta">
-                <h3>Smartphone X72EWAD</h3>
-                <h5> $1.400.200</h5>
-            </div>
+            <a href="">
+                <div class="img-tarjeta">
+                    <img src="../../assets/img/publicaciones/3.jpg" alt="">
+                </div>
+                <div class="contenido-tarjeta">
+                    <!-- Precio de la publicación -->
+                    <h5> $1.400.200</h5>
+                    <!-- Título de la publicación -->
+                    <h3>Monitor Samsung Ips De 24 Full Hd Freesync Hdmi Lf24t400fh </h3>
+                    <!-- Descripción de la publicación -->
+                    <p>Resitente computadora excelente sesdfa excelente excelente... <span>más</span></p>
+            </a>
         </div>
-
-        <div class="tarjeta">
-            <div class="img-tarjeta">
-                <img src="../../assets/img/publicaciones/3.jpg" alt="">
-            </div>
-            <div class="contenido-tarjeta">
-                <h3>Computador XW23 Windows 11</h3>
-                <h5> $1.400.200</h5>
-            </div>
+        <div class="cta-btns">
+            <img src="../../assets/img/iconos/compras.svg" alt="Bolsa de la compra">
+            <img src="../../assets/img/iconos/carrito_2.svg" alt="Bolsa de la compra">
         </div>
-        <div class="tarjeta">
-            <div class="img-tarjeta">
-                <img src="../../assets/img/publicaciones/1.jpg" alt="">
-            </div>
-            <div class="contenido-tarjeta">
-                <h3>Smartphone X72EWAD</h3>
-                <h5> $2.400.200</h5>
-            </div>
-        </div>
-        <div class="tarjeta">
-            <div class="img-tarjeta">
-                <img src="../../assets/img/publicaciones/1.jpg" alt="">
-            </div>
-            <div class="contenido-tarjeta">
-                <h3>Computador XW23 Windows 11</h3>
-                <h5> $1.400.200</h5>
-            </div>
         </div>
 
 

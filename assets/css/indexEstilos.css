@@ -112,7 +112,7 @@ font-family: 'Poppins', sans-serif; */
 
 .img-tarjeta img {
   width: 100%;
-  height: 15rem;
+  height: 14rem;
   border-radius: 1em 1em 0 0;
   
 }
@@ -122,27 +122,40 @@ font-family: 'Poppins', sans-serif; */
   width: 15em;
   background-color: var(--clr-neutro-a);
   border-radius: 1em;
-  box-shadow: 10px 10px 10px 12px rgba(0, 0, 0, 0.4);
+  box-shadow: 10px 10px 10px 12px rgba(0, 0, 0, 0.1);
+  transition: .7s;
 }
 .contenido-tarjeta {
-  margin-top: -1.9em;
-  width: 100%;
+  width: 95%;
+  height: 9.3em;
+  max-height: 9.3em;
+  word-wrap: break-word;
+  padding: .5em;
+}
+.tarjeta:hover {
+  cursor: pointer;
+  box-shadow: 10px 10px 10px 12px rgba(0, 0, 0, 0.2);
 }
 .contenido-tarjeta h3 {
-  margin: 1em 0;
+  margin-left: .7em;
   font-family: 'Poppins', sans-serif;;
   color: var(--clr-neutro-b);
-  font-weight: 500;
-  text-align: center;
+  font-weight: 600;
+  text-align: left;
 }
 .contenido-tarjeta h5 {
-  margin: 1em 0;
+  margin: .3em;
+  margin-left: .5em;
   color: var(--clr-neutro-b);
   font-weight: normal;
   text-align: left;
 }
-.tarjeta:hover {
-  cursor: pointer;
+.contenido-tarjeta p{
+  color: var(--clr-neutro-b);
+  padding-left: .7em;
+  font-size: smaller;
+  font-weight: 300;
+  margin-top: -.3em;
 }
 @media (max-width: 320px) {
   .publicaciones {
@@ -154,16 +167,11 @@ font-family: 'Poppins', sans-serif; */
 }
 .tarjeta h3{
 transition: .5s;
+font-size: small;
 }
-.tarjeta h3:hover{
-  color: var(--clr-cta-a);
-}
-
 /* Íconos especiales tarjetas (El carrito y la bolsa de la compra) */
 
 .cta-btns{
   display: flex;
   justify-content: space-around;
-  margin-bottom: .7em;
-
 }
