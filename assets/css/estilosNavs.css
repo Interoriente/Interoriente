@@ -1,4 +1,6 @@
 /* Propiedades Generales --> Paleta de Colores y fuentes*/
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Poppins:wght@300;600&display=swap');
+
 :root {
   --clr-primario-a: #004e64;
   --clr-primario-b: #5d9bac;
@@ -9,8 +11,12 @@
   --clr-cta-a: #ffb930;
   --crl-cta-b: #fce61e;
 }
+/* Sintaxis para el uso de las fuentes*/
+/* --------------------- */
+/* font-family: 'Open Sans', sans-serif;
+font-family: 'Poppins', sans-serif; */
+/* --------------------- */
 
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap");
 body {
   background-color: var(--clr-neutro-a);
 }
@@ -36,8 +42,8 @@ body {
 }
 .cont-elementos {
   max-width: 1100px;
-  width: 50%;
-  font-family: "Poppins";
+  width: 40%;
+  font-family: 'Poppins', sans-serif;
   display: flex;
   align-items: center;
   margin: auto;
@@ -112,7 +118,7 @@ a {
   text-decoration: none;
   font-size: 19px;
   font-weight: 550;
-  font-family: "poppins";
+  font-family: 'Poppins', sans-serif;
   color: var(--clr-primario-a);
   display: block;
   transition: 0.3s;
@@ -151,7 +157,7 @@ a {
   text-decoration: none; /* Remove underline */
   font-size: 20px; /* Increase font size */
   color: var(--clr-primario-a); /* Color del texto */
-  font-family: "Poppins";
+  font-family: 'Poppins', sans-serif;
   border-radius: 0 5px 5px 0; /* Rounded corners on the top right and bottom right side */
 }
 
@@ -194,7 +200,7 @@ a {
   padding: 14px 16px;
   text-decoration: none;
   font-size: 17px;
-  font-family: "Poppins";
+  font-family: 'Poppins', sans-serif;
 }
 
 .navbar a:hover {
@@ -211,6 +217,32 @@ a {
     display: none;
   }
 }
+/* Sección carrito y barra de búsqueda */
+
+.carrito-busqueda{
+    position: absolute;
+    right: 0;
+    display: flex;
+}
+.carrito:hover{
+  cursor: pointer;
+}
+.carrito{
+ margin-right: 2em;
+}
+
+.barra-busqueda{
+  margin-right: 2em;
+  border-radius: 50%;
+}
+::placeholder{
+  color: #004e64;
+
+}
+
+
+
+
 
 /* Navbar Mediaqueries */
 @media (max-width: 450px) {
@@ -246,5 +278,13 @@ a {
     width: 100%;
     margin-right: 3em;
 
+  }
+}
+
+/* Media query para la barra de búsqueda */
+
+@media (max-width: 1180px){
+  .barra-busqueda{
+    display: none;
   }
 }

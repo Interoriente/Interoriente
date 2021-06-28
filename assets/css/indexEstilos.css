@@ -1,4 +1,5 @@
 /* Propiedades Generales --> Paleta de Colores y fuentes*/
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Poppins:wght@300;600&display=swap");
 :root {
   --clr-primario-a: #004e64;
   --clr-primario-b: #5d9bac;
@@ -9,7 +10,13 @@
   --clr-cta-a: #ffb930;
   --crl-cta-b: #fce61e;
 }
-@import url("https://fonts.googleapis.com/css?family=Poppins:300,600");
+
+/* Sintaxis para el uso de las fuentes*/
+/* --------------------- */
+/* font-family: 'Open Sans', sans-serif;
+font-family: 'Poppins', sans-serif; */
+/* --------------------- */
+
 /* Estandares --> Estilos Generales */
 * {
   box-sizing: border-box;
@@ -63,23 +70,23 @@
 }
 
 /* Botón General Filtrado */
-.btn-filtro{
+.btn-filtro {
   background-color: var(--crl-cta-b);
   color: var(--clr-neutro-b);
   width: 10em;
   padding: 0.7em;
- 
+  font-family: "Poppins", sans-serif;
   border-radius: 1em;
   text-align: center;
   box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.3);
 }
-.btn-filtro:hover{
+.btn-filtro:hover {
   background-color: var(--clr-cta-a);
   color: var(--clr-neutro-a);
   font-weight: bold;
 }
 
-.btn-filtro{
+.btn-filtro {
   margin: 1em 0;
 }
 
@@ -102,28 +109,29 @@
 
 .img-tarjeta img {
   width: 100%;
+  height: 15rem;
   border-radius: 1em 1em 0 0;
+  
 }
 .tarjeta {
-  margin: 3em 1em;
-
-  height: 30em;
+  margin: 1em 1em 1em 0;
+  height: 25em;
   width: 15em;
   background-color: var(--clr-neutro-a);
   border-radius: 1em;
-  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.2);
-
+  box-shadow: 10px 10px 10px 12px rgba(0, 0, 0, 0.4);
 }
-.contenido-tarjeta{
-    background-color: #004e64;
-    width: 100%;
-
+.contenido-tarjeta {
+  margin-top: -1.9em;
+  background-color: #004e64;
+  width: 100%;
 }
 .contenido-tarjeta h3 {
   margin: 1em 0;
+  font-family: 'Poppins', sans-serif;;
   color: var(--clr-neutro-b);
-  text-align: left;
-  
+  font-weight: 500;
+  text-align: center;
 }
 .contenido-tarjeta h5 {
   margin: 1em 0;
@@ -131,12 +139,14 @@
   font-weight: normal;
   text-align: left;
 }
+.tarjeta:hover {
+  cursor: pointer;
+}
 @media (max-width: 320px) {
   .publicaciones {
-      flex-direction: column;
+    flex-direction: column;
   }
   .tarjeta {
     width: 50%;
+  }
 }
-}
-

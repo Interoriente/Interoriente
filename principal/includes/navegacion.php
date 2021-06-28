@@ -22,19 +22,28 @@
         <div class="vender">Vender</div>
       </a>
     </div>
+    <div class="carrito-busqueda">
+      <div class="barra-busqueda">
+        <input type="text" placeholder="Buscar...">
+      </div>
+      <div class="carrito"><img src="../../assets/img/iconos/carrito.svg" alt="Carrito de la compra"></div>
+    </div>
   </div>
   <!-- Sidebar -->
 
   <div id="mySidenav" class="sidenav">
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-    <a href="#">Mi cuenta</a>
+    <a href="#" >Mi cuenta</a>
     <a href="#">Ofertas</a>
+    <a href="#">Catálogos</a>
+    <a href="#">Mi carrito</a>
+    <a href="#">Mis compras</a>
     <a href="#">Catálogos</a>
     <a href="#">Ayuda</a>
   </div>
   <div id="main" class="main-container">
-      <div id="boton" class="boton">
-        <a href="#" id="menuLateral"><span onclick="openNav()">Menú</span></a>
-      </div>
+    <div id="boton" class="boton">
+      <a href="#" id="menuLateral"><span onclick="openNav()">Menú</span></a>
+    </div>
     <div class="contenido">
-    <!--  Contenido Principal del la página -->
+      <!--  Contenido Principal del la página -->

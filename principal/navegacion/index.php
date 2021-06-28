@@ -9,13 +9,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../assets/css/indexEstilos.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous" />
-    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css" />
-    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
-    <title>Interoriente | Explora</title>
+
+    <title>Interoriente | Inicio</title>
 </head>
 
 <body>
+    <!-- Sidebar -->
     <?php include '../includes/navegacion.php'; ?>
+    <!-- ----- -->
+
+    <!-- Sección del carrusel -->
     <section class="hero">
         <div class="hero-principal">
             <div class="img-hero">
@@ -63,7 +66,10 @@
             </div>
         </div>
     </section>
+
     <!-- TODO Implementar sistema de filtrado js -->
+
+    <!-- Sección de los botons de filtrado -->
     <h1 class="titulo-filtrado">Aquí podrás filtrar resultados </h1>
     <section class="btns-filtrado">
         <a href="">
@@ -84,6 +90,8 @@
 
     </section>
 
+    <!-- Sección de las tarjetas -->
+
     <section class="publicaciones">
 
         <div class="tarjeta">
@@ -94,10 +102,24 @@
                 <h3>Computador XW23 Windows 11</h3>
                 <h5> $1.400.200</h5>
             </div>
+            <div class="cta-btns">
+                <a href="">Comprar ahora</a>
+            </div>
         </div>
+
         <div class="tarjeta">
             <div class="img-tarjeta">
-                <img src="../../assets/img/publicaciones/1.jpg" alt="">
+                <img src="../../assets/img/publicaciones/2.jpg" alt="">
+            </div>
+            <div class="contenido-tarjeta">
+                <h3>Smartphone X72EWAD</h3>
+                <h5> $1.400.200</h5>
+            </div>
+        </div>
+
+        <div class="tarjeta">
+            <div class="img-tarjeta">
+                <img src="../../assets/img/publicaciones/3.jpg" alt="">
             </div>
             <div class="contenido-tarjeta">
                 <h3>Computador XW23 Windows 11</h3>
@@ -109,8 +131,8 @@
                 <img src="../../assets/img/publicaciones/1.jpg" alt="">
             </div>
             <div class="contenido-tarjeta">
-                <h3>Computador XW23 Windows 11</h3>
-                <h5> $1.400.200</h5>
+                <h3>Smartphone X72EWAD</h3>
+                <h5> $2.400.200</h5>
             </div>
         </div>
         <div class="tarjeta">
@@ -122,16 +144,7 @@
                 <h5> $1.400.200</h5>
             </div>
         </div>
-        <div class="tarjeta">
-            <div class="img-tarjeta">
-                <img src="../../assets/img/publicaciones/1.jpg" alt="">
-            </div>
-            <div class="contenido-tarjeta">
-                <h3>Computador XW23 Windows 11</h3>
-                <h5> $1.400.200</h5>
-            </div>
-        </div>
-        
+
 
     </section>
     <br>
@@ -139,11 +152,11 @@
     <br>
     <br>
 
-
-
-
-
+    <!-- Sidebar -->
     <?php include '../includes/navegacionDos.php'; ?>
+    <!-- ------- -->
+
+    <!-- Barra de navegación para dispositivos móviles -->
     <div class="contenedor-nav">
         <div class="navbar">
             <a href="#home" class="active">Mi cuenta</a>
@@ -155,9 +168,9 @@
             <a href="#contact">Ayuda</a>
         </div>
     </div>
+
+    <!-- Js -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
-
-
 </body>
 
 </html>
