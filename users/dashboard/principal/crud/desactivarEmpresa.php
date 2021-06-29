@@ -7,6 +7,18 @@ $estado = '0';
 $sqlEditar = "UPDATE tblEmpresa SET estadoEmpresa = '$estado' WHERE nitEmpresa=?";
 $consultaEditar = $pdo->prepare($sqlEditar);
 $consultaEditar->execute(array($id));
+//Mostrar tabla TblEmprea
+$sqlMostrarEmpre="SELECT documentoIdentidad FROM tblEmpresa WHERE nitEmpresa='$id'";
+$consultaMostrarEmpre=$pdo->prepare($sqlMostrarEmpre);
+$consultaMostrarEmpre->execute();
+$resultadoMostrarEmpre=$consultaMostrarEmpre->fetch();//Traer información de una tabla
+//Capturo Documento, creo variables
+$documento=$resultadoMostrarEmpre['documentoIdentidad'];
+$rol='2';
+//Guardando datos en tblUSuarioRol
+$sqlBorrarUsuarioRol="DELETE FROM tblUsuarioRol WHERE documentoIdentidad=? AND idRol=?";
+$consultaBorrarUsuarioRol=$pdo->prepare($sqlBorrarUsuarioRol);
+$consultaBorrarUsuarioRol->execute(array($documento,$rol));
 //alert
 echo "<script>alert('Estado actualizado correctamente');</script>";
 //redireccionar

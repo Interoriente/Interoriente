@@ -2,7 +2,6 @@
 //Llamada a la conexion
 include_once '../../../../dao/conexion.php';
 $id = $_GET['id'];
-echo $id;
 $estado = '1';
 //sentencia sql para actualizar estado
 $sqlEditar = "UPDATE tblEmpresa SET estadoEmpresa = '$estado' WHERE nitEmpresa=?";
