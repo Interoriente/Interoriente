@@ -91,7 +91,7 @@
     </section>
 
     <!-- TODO: 1. Botones "Comprar Ahora" y "Agregar al carrito" cuando tarjeta:hover
-            2. Ipervínculo tarjeta con publicación
+            2. Hipervínculo tarjeta con publicación
                 3. Íconos sidebar
                     4. Definir estado de hover para tarjetas
                         5. Modificar navbar para dispositivos móviles
