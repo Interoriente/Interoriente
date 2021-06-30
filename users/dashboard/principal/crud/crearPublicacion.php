@@ -33,7 +33,7 @@ if (isset($_POST['subir'])) {
                     $usuario = $_POST['usuario'];
                     $verificacion = '0';
                     //sentencia Sql
-                    $sql_insertar = "INSERT INTO tblPublicacion (nombrePublicacion,usuario,descripcionPublicacion,colorPublicacion,costoPublicacion,estadoArticulo,stockProducto,categoria,validacionPublicacion)VALUES (?,?,?,?,?,?,?,?,?)";
+                    $sql_insertar = "INSERT INTO tblPublicacion (nombrePublicacion,docIdentidad,descripcionPublicacion,colorPublicacion,costoPublicacion,estadoArticulo,stockProducto,categoriaPublicacion,validacionPublicacion)VALUES (?,?,?,?,?,?,?,?,?)";
                     //Preparar consulta
                     $consulta_insertar = $pdo->prepare($sql_insertar);
                     //Ejecutar la sentencia
@@ -47,7 +47,7 @@ if (isset($_POST['subir'])) {
                     foreach($resultado_mostrar_publi1 as $datos){//Llamado al foreach para convertir el valor a entero
                     }
                     //Insertando imagen en la tabla
-                    $sqlInsertarImagen="INSERT INTO tblImagenes (urlImagen,publicacion)VALUES (?,?)";
+                    $sqlInsertarImagen="INSERT INTO tblImagenes (urlImagen,publicacionImagen)VALUES (?,?)";
                     $consultaInsertar=$pdo->prepare($sqlInsertarImagen);    
                     $consultaInsertar->execute(array($archivo,$datos));
 

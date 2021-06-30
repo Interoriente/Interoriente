@@ -1,3 +1,5 @@
+<?php session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -14,8 +16,20 @@
 </head>
 
 <body>
-    <!-- Sidebar -->
-    <?php include '../includes/navegacion.php'; ?>
+    <!-- Sidebar --> 
+    <?php
+    if (isset($_SESSION['roles'])) {
+        if ($_SESSION['roles'] == '1') {
+            include '../includes/navegacionEmpre.php';
+        } else if ($_SESSION['roles'] == '2') {
+            include '../includes/navegacionEmpre.php';
+        } else {
+            include '../includes/navegacionEmpre.php';
+        }
+    }else {
+        include '../includes/navegacionInvi.php';
+    }
+    ?>
     <!-- ----- -->
 
     <!-- Sección del carrusel -->

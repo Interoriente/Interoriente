@@ -38,11 +38,7 @@
     <div class="perfil">
 <!--       <img src="../../assets/img/perfil.svg" alt="">
  -->    </div>
-    <a href="#">Mi cuenta</a>
     <a href="#">Ofertas</a>
-    <a href="#">Catálogos</a>
-    <a href="#">Mi carrito</a>
-    <a href="#">Mis compras</a>
     <a href="#">Catálogos</a>
     <a href="#">Ayuda</a>
     <a href="iniciarsesion.php">Iniciar sesión</a>

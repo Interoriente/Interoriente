@@ -12,7 +12,7 @@ if (isset($_SESSION["emailUsuario"]) or isset($_SESSION["documentoIdentidad"])) 
   $validacion = $consulta_resta_validacion->fetch(PDO::FETCH_OBJ);
   //Llamado tabla intermedia
   $documento = $_SESSION["documentoIdentidad"];
-  $sqlSesionRol = "SELECT * FROM tblUsuarioRol WHERE documentoIdentidad=? AND idRol=?";
+  $sqlSesionRol = "SELECT * FROM tblUsuarioRol WHERE docIdentidad=? AND idRol=?";
   $consultaSesionRol = $pdo->prepare($sqlSesionRol);
   $consultaSesionRol->execute(array($documento, $sesionRol));
   $resultadoSesionRol = $consultaSesionRol->rowCount();
@@ -55,7 +55,7 @@ if (isset($_SESSION["emailUsuario"]) or isset($_SESSION["documentoIdentidad"])) 
         //Llamar a la conexion base de datos -> Muestro el contenido de tabla publicación, pero muestro mis publicaciones
         $id = $_SESSION["documentoIdentidad"];
         //Mostrar los datos almacenados
-        $sql_mostrar_publi = "SELECT * FROM tblPublicacion WHERE usuario ='$id'";
+        $sql_mostrar_publi = "SELECT * FROM tblPublicacion WHERE docIdentidad ='$id'";
         //Prepara sentencia
         $consultar_mostrar_publi = $pdo->prepare($sql_mostrar_publi);
         //Ejecutar consulta

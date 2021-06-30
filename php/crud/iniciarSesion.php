@@ -31,7 +31,7 @@ session_start();
 
         //Llamado a tabla rol
         if ($resultado_inicio) {//Verifico que la informacion que se digitó en el formulario sea la que existe en BD, para llamar a tabla USuarioRol
-            $sql_inicio1 = "SELECT idRol FROM tblUsuarioRol WHERE documentoIdentidad='$id'";
+            $sql_inicio1 = "SELECT idRol FROM tblUsuarioRol WHERE docIdentidad='$id'";
             $consulta_inicio1 = $pdo->prepare($sql_inicio1);
             $consulta_inicio1->execute();
             $resultado_inicio1 = $consulta_inicio1->rowCount();

@@ -12,13 +12,13 @@ if (isset($_SESSION["emailUsuario"]) or isset($_SESSION["documentoIdentidad"])) 
   $validacion = $consulta_resta_validacion->fetch(PDO::FETCH_OBJ);
   //Llamado tabla intermedia
   $documento = $_SESSION["documentoIdentidad"];
-  $sqlSesionRol = "SELECT * FROM tblUsuarioRol WHERE documentoIdentidad=? AND idRol=?";
+  $sqlSesionRol = "SELECT * FROM tblUsuarioRol WHERE docIdentidad=? AND idRol=?";
   $consultaSesionRol = $pdo->prepare($sqlSesionRol);
   $consultaSesionRol->execute(array($documento, $sesionRol));
   $resultadoSesionRol = $consultaSesionRol->rowCount();
 
   //Mostrando roles almacenados
-  $sqlRol = "SELECT * FROM tblUsuarioRol INNER JOIN tblRol ON tblUsuarioRol.idRol = tblRol.idRol WHERE documentoIdentidad= '$documento'";
+  $sqlRol = "SELECT * FROM tblUsuarioRol INNER JOIN tblRol ON tblUsuarioRol.idRol = tblRol.idRol WHERE docIdentidad= '$documento'";
   $consultaRol = $pdo->prepare($sqlRol);
   $consultaRol->execute();
   $resultadoRol = $consultaRol->fetchAll();
@@ -59,7 +59,8 @@ if (isset($_SESSION["emailUsuario"]) or isset($_SESSION["documentoIdentidad"])) 
       </head>
 
       <body>
-        <?php if (isset($_POST['rol'])) {
+        <?php
+        if (isset($_POST['rol'])) {
           if ($_POST['rol'] == '1') {
             $_SESSION['roles'] = 1;
           } else if ($_POST['rol'] == '2') {

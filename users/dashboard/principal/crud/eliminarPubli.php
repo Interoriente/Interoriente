@@ -3,7 +3,7 @@
 include_once '../../../../dao/conexion.php';
 $id = $_GET['id']; #REVISAR SEGUIRDAD
 
-$sqlEliminar = "DELETE FROM tblImagenes WHERE publicacion = ?";
+$sqlEliminar = "DELETE FROM tblImagenes WHERE publicacionImagen = ?";
 $consultaEliminar = $pdo->prepare($sqlEliminar);
 $consultaEliminar->execute(array($id));
 
