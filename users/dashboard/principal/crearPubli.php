@@ -247,6 +247,7 @@ if (isset($_SESSION["emailUsuario"]) or isset($_SESSION["documentoIdentidad"])) 
           <?php }
           if (!$_GET) { ?>
             <center>
+              <h2>Tienes empresa? puedes crear una cuenta <a href="registroAdminEmpresa.php">aquí</a></h2>
               <h1>Mis publicaciones</h1>
             </center>
 

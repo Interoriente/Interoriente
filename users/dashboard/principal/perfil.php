@@ -90,7 +90,7 @@ if (isset($_SESSION["emailUsuario"]) or isset($_SESSION["documentoIdentidad"])) 
               <div class="row">
                 <div class="col-lg-7 col-md-10">
                   <h1 class="display-2 text-white">Hola! <?php echo $resultado2->nombresUsuario ?></h1>
-                  <p class="text-white mt-0 mb-5">This is your profile page. You can see the progress you've made with your work and manage your projects or assigned tasks</p>
+                  <p class="text-white mt-0 mb-5">Esta es tu página de perfil. Podrás visualizar tu infiormación y actualizarla en cualquier momento.</p>
                 </div>
               </div>
             </div>
@@ -139,7 +139,7 @@ if (isset($_SESSION["emailUsuario"]) or isset($_SESSION["documentoIdentidad"])) 
                         <?php echo $Nombre; ?><span class="font-weight-light">, 27</span>
                       </h5>
                       <div class="h5 font-weight-300">
-                        <i class="ni location_pin mr-2"></i><?php echo $resultadoCiudad->nombreCiudad; ?> Antioquia
+                        <i class="ni location_pin mr-2"></i>Oriente de Antioquia
                       </div>
                     </div>
                   </div>

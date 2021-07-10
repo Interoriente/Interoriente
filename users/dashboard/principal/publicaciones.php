@@ -168,35 +168,25 @@ if (isset($_SESSION["emailUsuario"]) or isset($_SESSION["documentoIdentidad"])) 
           </div>
           <!-- Footer -->
           <?php require_once '../assets/footer.php' ?>
-        </div>
-        <!-- Argon Scripts -->
-        <!-- Core -->
-        <script src="../assets/vendor/jquery/dist/jquery.min.js"></script>
-        <script src="../assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-        <script src="../assets/vendor/js-cookie/js.cookie.js"></script>
-        <script src="../assets/vendor/jquery.scrollbar/jquery.scrollbar.min.js"></script>
-        <script src="../assets/vendor/jquery-scroll-lock/dist/jquery-scrollLock.min.js"></script>
-        <!-- Argon JS -->
-        <script src="../assets/js/argon.js?v=1.2.0"></script>
 
-        <!--Modal Eliminar publicación -->
-        <div class="modal fade" id="eliminarPubliModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">¿Seguro quieres eliminar el registro?</h5>
-                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">×</span>
-                </button>
-              </div>
-              <div class="modal-body">Seleccione "Eliminar" a continuación si considera que la publicación a infringido las politicas de la empresa.</div>
-              <div class="modal-footer">
-                <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
-                <a class="btn btn-danger" href="crud/eliminarPubli.php?id=<?php echo $datos['idPublicacion']; ?>">Eliminar</a>
+          <!--Modal Eliminar publicación -->
+          <div class="modal fade" id="eliminarPubliModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">¿Seguro quieres eliminar el registro?</h5>
+                  <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                  </button>
+                </div>
+                <div class="modal-body">Seleccione "Eliminar" a continuación si considera que la publicación a infringido las politicas de la empresa.</div>
+                <div class="modal-footer">
+                  <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
+                  <a class="btn btn-danger" href="crud/eliminarPubli.php?id=<?php echo $datos['idPublicacion']; ?>">Eliminar</a>
+                </div>
               </div>
             </div>
           </div>
-        </div>
       </body>
 
       </html>
