@@ -15,23 +15,12 @@
 </head>
 
 <body>
-  <?php
-  require '../../dao/conexion.php';
-  $validacion=1;
-  //Mostrar los datos almacenados
-  $sql_mostrar = "SELECT * FROM tblPublicacion WHERE validacionPublicacion=?";
-  //Prepara sentencia
-  $consultar_mostrar = $pdo->prepare($sql_mostrar);
-  //Ejecutar consulta
-  $consultar_mostrar->execute(array($validacion));
-
-  //Mostrar los datos almacenados tabla imagenes
-  $sql_mostrar1 = "SELECT * FROM tblImagenes";
-  //Prepara sentencia
-  $consultar_mostrar1 = $pdo->prepare($sql_mostrar1);
-  //Ejecutar consulta
-  $consultar_mostrar1->execute();
-  //Imprimir var dump -> Arreglos u objetos
+  <?php require '../../dao/conexion.php';
+  $validacion = 1;
+  $sqlImagenPubli = "SELECT * FROM tblPublicacion INNER JOIN tblImagenes ON tblPublicacion.idPublicacion = tblImagenes.publicacionImagen WHERE validacionPublicacion=?";
+  $consultaImagenPubli = $pdo->prepare($sqlImagenPubli);
+  $consultaImagenPubli->execute(array($validacion));
+  $resultadoImagenPubli  = $consultaImagenPubli->fetchAll();
   ?>
   <header class="bg-primary text-center py-5 mb-4">
     <div class="container">
@@ -40,18 +29,18 @@
   </header>
   <div class="container">
     <div class="row">
-      <?php while ($resultado_mostrar = $consultar_mostrar->fetch(PDO::FETCH_OBJ) AND $resultado_mostrar1 = $consultar_mostrar1->fetch(PDO::FETCH_OBJ)) {
+      <?php foreach($resultadoImagenPubli as $datos) {
       ?>
         <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
           <div class="card h-100">
             <div class="card-body">
-              <img class="card-img-top rounded" src="../../users/dashboard/principal/imagenes/<?php echo $resultado_mostrar1->urlImagen; ?>" alt="...">
+              <img class="card-img-top rounded" src="../../users/dashboard/principal/imagenes/<?php echo $datos['urlImagen'] ?>" alt="...">
               <h4 class="card-title">
-                <p><?php echo $resultado_mostrar->nombrePublicacion ?></p>
+                <p><?php echo $datos['nombrePublicacion'] ?></p>
               </h4>
-              <p><?php echo $resultado_mostrar->descripcionPublicacion ?></p>
-              <p>Stock: <?php echo $resultado_mostrar->stockProducto ?></p>
-              <p>$<?php echo $resultado_mostrar->costoPublicacion ?></p>
+              <p><?php echo $datos['descripcionPublicacion'] ?></p>
+              <p>Stock: <?php echo $datos['stockProducto'] ?></p>
+              <p>$<?php echo $datos['costoPublicacion'] ?></p>
             </div>
           </div>
         </div>
