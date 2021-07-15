@@ -17,7 +17,7 @@ if (isset($_SESSION["emailUsuario"]) or isset($_SESSION["documentoIdentidad"])) 
     $consultaSesionRol->execute(array($documento, $sesionRol));
     $resultadoSesionRol = $consultaSesionRol->rowCount();
     //Llamado a documento del usuario logueado
-    $id = $_SESSION["documentoIdentidad"];
+    $idDoc = $_SESSION["documentoIdentidad"];
     //Validacion de roles
     if ($resultado_validacion) {
         if ($resultadoSesionRol) {
@@ -150,7 +150,7 @@ if (isset($_SESSION["emailUsuario"]) or isset($_SESSION["documentoIdentidad"])) 
                                                 </div>
                                                 <div class="col-lg-6">
                                                     <div class="form-group">
-                                                        <input type="hidden" id="input-username" name="usuario" class="form-control" placeholder="Usuario" value="<?php echo $id; ?>">
+                                                        <input type="hidden" id="input-username" name="usuario" class="form-control" placeholder="Usuario" value="<?php echo $idDoc; ?>">
                                                     </div>
                                                 </div>
                                             </div>

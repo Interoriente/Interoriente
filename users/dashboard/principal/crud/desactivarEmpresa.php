@@ -4,22 +4,35 @@ include_once '../../../../dao/conexion.php';
 $id = $_GET['id'];
 $estado = '0';
 //sentencia sql para actualizar estado
-$sqlEditar = "UPDATE tblEmpresa SET estadoEmpresa = '$estado' WHERE nitEmpresa=?";
+$sqlEditar = "UPDATE tblEmpresa SET estadoEmpresa = ? WHERE nitEmpresa=?";
 $consultaEditar = $pdo->prepare($sqlEditar);
-$consultaEditar->execute(array($id));
+$consultaEditar->execute(array($estado,$id));
+
 //Mostrar tabla TblEmprea
-$sqlMostrarEmpre="SELECT documentoIdentidad FROM tblEmpresa WHERE nitEmpresa='$id'";
+$sqlMostrarEmpre="SELECT documentoRepresentante FROM tblEmpresa WHERE nitEmpresa=?";
 $consultaMostrarEmpre=$pdo->prepare($sqlMostrarEmpre);
-$consultaMostrarEmpre->execute();
+$consultaMostrarEmpre->execute(array($id));
 $resultadoMostrarEmpre=$consultaMostrarEmpre->fetch();//Traer información de una tabla
-//Capturo Documento, creo variables
-$documento=$resultadoMostrarEmpre['documentoIdentidad'];
+
+//Capturo Documento, y NIT, creo variables
+$mensaje = NULL;
+$documento =$resultadoMostrarEmpre['documentoRepresentante'];
+
+//Actualizando campo estado en tabla usuario
+$sqlActualizarEmpre = "UPDATE tblUsuario SET empresaUsuario =? WHERE documentoIdentidad=?";
+$consultaActualizarEmpre = $pdo->prepare($sqlActualizarEmpre);
+$consultaActualizarEmpre->execute(array($mensaje,$documento));
+
+//Capturo cuando rol sea igual a 2
 $rol='2';
-//Guardando datos en tblUSuarioRol
-$sqlBorrarUsuarioRol="DELETE FROM tblUsuarioRol WHERE documentoIdentidad=? AND idRol=?";
+
+//Eliminando datos en tblUSuarioRol
+$sqlBorrarUsuarioRol="DELETE FROM tblUsuarioRol WHERE docIdentidad=? AND idRol=?";
 $consultaBorrarUsuarioRol=$pdo->prepare($sqlBorrarUsuarioRol);
 $consultaBorrarUsuarioRol->execute(array($documento,$rol));
-//alert
+
+//Alert
 echo "<script>alert('Estado actualizado correctamente');</script>";
-//redireccionar
+
+//Redireccionar
 echo "<script> document.location.href='../empresas.php';</script>";

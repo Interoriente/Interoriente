@@ -3,22 +3,37 @@
 include_once '../../../../dao/conexion.php';
 $id = $_GET['id'];
 $estado = '1';
+
 //sentencia sql para actualizar estado
-$sqlEditar = "UPDATE tblEmpresa SET estadoEmpresa = '$estado' WHERE nitEmpresa=?";
+$sqlEditar = "UPDATE tblEmpresa SET estadoEmpresa = ? WHERE nitEmpresa=?";
 $consultaEditar = $pdo->prepare($sqlEditar);
-$consultaEditar->execute(array($id));
-//Mostrar tabla TblEmprea
-$sqlMostrarEmpre = "SELECT * FROM tblEmpresa WHERE nitEmpresa='$id'";
+$consultaEditar->execute(array($estado,$id));
+
+//Mostrar tabla TblEmpresa
+$sqlMostrarEmpre = "SELECT * FROM tblEmpresa WHERE nitEmpresa=?";
 $consultaMostrarEmpre = $pdo->prepare($sqlMostrarEmpre);
-$consultaMostrarEmpre->execute();
+$consultaMostrarEmpre->execute(array($id));
 $resultadoMostrarEmpre = $consultaMostrarEmpre->fetch(); //Traer información de una tabla
-//Capturo Documento, creo variables
+
+//Capturo Documento, y NIT, creo variables
 $nit = $resultadoMostrarEmpre['nitEmpresa'];
+$documento =$resultadoMostrarEmpre['documentoRepresentante'];
+
 //Actualizando campo estado en tabla usuario
-$sqlActualizarEmpre = "UPDATE tblUsuario SET empresaUsuario =?";
+$sqlActualizarEmpre = "UPDATE tblUsuario SET empresaUsuario =? WHERE documentoIdentidad=?";
 $consultaActualizarEmpre = $pdo->prepare($sqlActualizarEmpre);
-$consultaActualizarEmpre->execute(array($nit));
-//alert
+$consultaActualizarEmpre->execute(array($nit,$documento));
+
+//Definido el valor del rol
+$rol='2';
+
+//Guardando datos en tblUSuarioRol
+$sqlInsertarUsuarioRol="INSERT INTO tblUsuarioRol (docIdentidad,idRol) VALUES (?,?)";
+$consultaInsertarUsuarioRol=$pdo->prepare($sqlInsertarUsuarioRol);
+$consultaInsertarUsuarioRol->execute(array($documento,$rol));
+
+//Alert
 echo "<script>alert('Estado actualizado correctamente');</script>";
-//redireccionar
+
+//Redireccionar
 echo "<script> document.location.href='../empresas.php';</script>";

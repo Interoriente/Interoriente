@@ -11,6 +11,7 @@
 
 <body>
     <?php
+    session_start();
     //Llamar a la conexion base de datos
     include_once '../../../../dao/conexion.php';
     //Captura de imagen
@@ -43,18 +44,18 @@
                     $direccion = strip_tags($_POST['direccion']);
                     $ciudad = strip_tags($_POST['ciudad']);
                     $celular = strip_tags($_POST['telefono']);
-                    $documento = strip_tags($_POST['usuario']);
+                    $usuario = strip_tags($_POST['usuario']);
                     $estado = '0';
 
                     //sentencia Sql
-                    $sqlInsertar = "INSERT INTO tblEmpresa (nitEmpresa,nombreEmpresa, descripcionEmpresa, correoEmpresa,imagenEmpresa, direccionEmpresa,ciudadEmpresa,telefonoEmpresa,estadoEmpresa)VALUES (?,?,?,?,?,?,?,?,?)";
+                    $sqlInsertar = "INSERT INTO tblEmpresa (nitEmpresa,documentoRepresentante,nombreEmpresa, descripcionEmpresa, correoEmpresa,imagenEmpresa, direccionEmpresa,ciudadEmpresa,telefonoEmpresa,estadoEmpresa)VALUES (?,?,?,?,?,?,?,?,?,?)";
                     //Preparar consulta
                     $consultaInsertar = $pdo->prepare($sqlInsertar);
                     //Ejecutar la sentencia
-                    $consultaInsertar->execute(array($nit, $nombre, $descripcion, $correo, $archivo, $direccion, $ciudad, $celular, $estado));
+                    $consultaInsertar->execute(array($nit, $usuario, $nombre, $descripcion, $correo, $archivo, $direccion, $ciudad, $celular, $estado));
 
                     echo "<script>alert('Su empresa se registró correctamente');</script>";
-                    echo "<script>alert('Debes pasar por proceso de vericación para poder empezar con tu empresa');</script>";
+                    echo "<script>alert('Debes pasar por proceso de vericación para poder empezar a administrarla');</script>";
                     echo "<script> document.location.href='../registroAdminEmpresa.php';</script>";
                 } else {
                     echo "<script>alert('Ocurrió un error');</script>";
