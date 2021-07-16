@@ -16,17 +16,17 @@
 </head>
 
 <body>
-    <!-- Sidebar --> 
+    <!-- Sidebar -->
     <?php
-    if (isset($_SESSION['roles'])) {
+    if (isset($_SESSION['documentoIdentidad'])) {
         if ($_SESSION['roles'] == '1') {
-            include '../includes/navegacionEmpre.php';
+            include '../includes/navegacionCom.php';
         } else if ($_SESSION['roles'] == '2') {
             include '../includes/navegacionEmpre.php';
         } else {
-            include '../includes/navegacionEmpre.php';
+            include '../includes/navegacionAdmin.php';
         }
-    }else {
+    } else {
         include '../includes/navegacionInvi.php';
     }
     ?>
@@ -252,17 +252,19 @@
     <!-- ------- -->
 
     <!-- Barra de navegación para dispositivos móviles -->
-    <div class="contenedor-nav">
-        <div class="navbar">
-            <a href="#home" class="active">Mi cuenta</a>
-            <a href="#news">Ofertas</a>
-            <a href="#contact">Catálogos</a>
-            <a href="#home">Mi carrito</a>
-            <a href="#news">Mis compras</a>
-            <a href="#contact">Catálogos</a>
-            <a href="#contact">Ayuda</a>
-        </div>
-    </div>
+    <?php
+    if (isset($_SESSION['documentoIdentidad'])) {
+        if ($_SESSION['roles'] == '1') {
+            include '../includes/navegacionComdos.php';
+        } else if ($_SESSION['roles'] == '2') {
+            include '../includes/navegacionEmpredos.php';
+        } else {
+            include '../includes/navegacionAdmindos.php';
+        }
+    } else {
+        include '../includes/navegacionInvidos.php';
+    }
+    ?>
 
     <!-- Js -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>

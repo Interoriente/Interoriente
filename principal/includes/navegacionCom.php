@@ -39,8 +39,10 @@
       <!--       <img src="../../assets/img/perfil.svg" alt="">
  -->
     </div>
-    <a href="#">Mis ofertas</a>
-    <a href="#">Mis catálogos</a>
+    <a href="#">Ofertas</a>
+    <a href="#">Catálogos</a>
+    <a href="#">Mi carrito</a>
+    <a href="#">Mis compras</a>
     <a href="#">Ayuda</a>
     <a href="../../users/dashboard/principal/dashboard.php">Volver al panel</a>
     <a href="../../controller/cerrar_sesion.php">Cerrar sesión</a>

@@ -43,11 +43,11 @@ if (isset($_SESSION["emailUsuario"]) or isset($_SESSION["documentoIdentidad"])) 
 
       <body>
         <?php if ($_SESSION['roles'] == '1') {
-          require_once '../assets/sidebarC.php';
+          require_once '../assets/sidebarCom.php';
         } else if ($_SESSION['roles'] == '2') {
-          require_once '../assets/sidebarV.php';
+          require_once '../assets/sidebarEmpre.php';
         } else {
-          require_once '../assets/sidebar.php';
+          require_once '../assets/sidebarAdmin.php';
         } ?>
         <?php require_once '../assets/header.php' ?>
         <!-- Header -->
