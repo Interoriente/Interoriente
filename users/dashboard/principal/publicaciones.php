@@ -179,7 +179,7 @@ if (isset($_SESSION["emailUsuario"]) or isset($_SESSION["documentoIdentidad"])) 
                     <span aria-hidden="true">×</span>
                   </button>
                 </div>
-                <div class="modal-body">Seleccione "Eliminar" a continuación si considera que la publicación a infringido las politicas de la empresa.</div>
+                <div class="modal-body">Seleccione "Eliminar" a continuación si considera que la publicación ha infringido las politicas de la empresa.</div>
                 <div class="modal-footer">
                   <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
                   <a class="btn btn-danger" href="crud/eliminarPubli.php?id=<?php echo $datos['idPublicacion']; ?>">Eliminar</a>

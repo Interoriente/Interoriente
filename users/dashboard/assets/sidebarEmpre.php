@@ -37,7 +37,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="perfil.php">
+            <a class="nav-link" href="perfilEmpresa.php">
               <i class="ni ni-box-2 text-blue"></i>
               <span class="nav-link-text">Mi empresa</span>
             </a>

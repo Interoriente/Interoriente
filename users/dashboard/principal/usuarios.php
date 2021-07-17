@@ -88,6 +88,7 @@ if (isset($_SESSION["emailUsuario"]) or isset($_SESSION["documentoIdentidad"])) 
                   <table class="table align-items-center table-flush">
                     <thead class="thead-light">
                       <tr>
+                      <th scope="col" class="sort" data-sort="name">Documento</th>
                         <th scope="col" class="sort" data-sort="name">Nombres</th>
                         <th scope="col" class="sort" data-sort="budget">Apellidos</th>
                         <th scope="col" class="sort" data-sort="status">Celular</th>
@@ -101,6 +102,7 @@ if (isset($_SESSION["emailUsuario"]) or isset($_SESSION["documentoIdentidad"])) 
                       foreach ($resultado_mostrar_usu as $datos) {
                       ?>
                         <tr>
+                        <th><?php echo $datos['documentoIdentidad']; ?></th>
                           <th><?php echo $datos['nombresUsuario']; ?></th>
                           <th><?php echo $datos['apellidoUsuario']; ?></th>
                           <th><?php echo $datos['telefonomovilUsuario']; ?></th>

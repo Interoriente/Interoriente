@@ -94,6 +94,15 @@ if (isset($_SESSION["emailUsuario"]) or isset($_SESSION["documentoIdentidad"])) 
           $consultar_mostrar_publi1->execute(array($idpubli));
           $resultado_mostrar_publi1 = $consultar_mostrar_publi1->fetch();
         }
+        //Llamado a tabla empresa, función: contar registros
+        $documentoRepresen = $_SESSION['documentoIdentidad'];
+        $sqlMostrarEmpresa = "SELECT * FROM tblEmpresa WHERE documentoRepresentante=?";
+        //Prepara sentencia
+        $consultarMostrarEmpresa = $pdo->prepare($sqlMostrarEmpresa);
+        //Ejecutar consulta
+        $consultarMostrarEmpresa->execute(array($documentoRepresen));
+        $contadorEmpresa = $consultarMostrarEmpresa->rowCount();
+        $resultadoEmpresa = $consultarMostrarEmpresa->fetch();
         ?>
         <br><br><br><br>
         <!-- Publicacion producto -->
@@ -244,13 +253,25 @@ if (isset($_SESSION["emailUsuario"]) or isset($_SESSION["documentoIdentidad"])) 
                 </div>
               </div>
             </div>
-          <?php }
-          if (!$_GET) { ?>
+            <?php }
+          if (!$_GET) {
+            if ($contadorEmpresa AND $_SESSION['roles']=='1' or $_SESSION['roles']=='3') {
+            ?>
+              <center>
+                <h2>Tienes una empresa, tu empresa es: <?php echo $resultadoEmpresa['nombreEmpresa'] ?>. Para editar debes cambiar de rol en el  <a href="dashboard.php">dashboard</a></h2>
+              </center>
+              <?php } else if($contadorEmpresa AND $_SESSION['roles']=='2') { ?>
+              <center>
+                <h2>Puedes editar tu empresa <a href="perfilEmpresa.php">aquí</a></h2>
+              </center>
+            <?php } else { ?>
+              <center>
+                <h2>Tienes empresa? puedes crear una cuenta <a href="registroAdminEmpresa.php">aquí</a></h2>
+              </center>
+            <?php } ?>
             <center>
-              <h2>Tienes empresa? puedes crear una cuenta <a href="registroAdminEmpresa.php">aquí</a></h2>
               <h1>Mis publicaciones</h1>
             </center>
-
             <table class="table">
               <thead>
                 <tr>

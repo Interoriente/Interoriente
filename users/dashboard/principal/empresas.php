@@ -90,6 +90,7 @@ if (isset($_SESSION["emailUsuario"]) or isset($_SESSION["documentoIdentidad"])) 
                     <thead class="thead-light">
                       <tr>
                         <th scope="col" class="sort" data-sort="name">NIT</th>
+                        <th scope="col" class="sort" data-sort="budget">Doc Representante</th>
                         <th scope="col" class="sort" data-sort="budget">Nombre</th>
                         <th scope="col" class="sort" data-sort="status">Descripción</th>
                         <th scope="col" class="sort" data-sort="status">Correo</th>
@@ -107,6 +108,7 @@ if (isset($_SESSION["emailUsuario"]) or isset($_SESSION["documentoIdentidad"])) 
                       ?>
                         <tr>
                           <th><?php echo $datosEmpre['nitEmpresa']; ?></th>
+                          <th><?php echo $datosEmpre['documentoRepresentante']; ?></th>
                           <th><?php echo $datosEmpre['nombreEmpresa']; ?></th>
                           <th><?php echo $datosEmpre['descripcionEmpresa']; ?></th>
                           <th><?php echo $datosEmpre['correoEmpresa']; ?></th>
