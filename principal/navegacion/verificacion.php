@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="assets/css/estiVerificacion.css">
     <title>Verificación</title>
 </head>
-<body background="../assets/img/fondoverificacion.png">
+<body background="../../assets/img/fondoverificacion.png">
 <div class="padre">
     <div class="header">
             <nav class="nav"> 
