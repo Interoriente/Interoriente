@@ -3,7 +3,7 @@
   <div class="scrollbar-inner">
     <!-- Brand -->
     <div class="sidenav-header  align-items-center">
-      <a class="navbar-brand" href="../../../principal/navegacion/index.php?rol=<?php echo $_SESSION['roles'] ?>">
+      <a class="navbar-brand" href="../../../principal/navegacion/index.php">
         <img src="../../../assets/img/logo.svg" class="navbar-brand-img" alt="...">
       </a>
     </div>
@@ -19,18 +19,6 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="crearPubli.php">
-              <i class="ni ni-album-2 text-red"></i>
-              <span class="nav-link-text">Crear publicación</span>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="icons.php">
-              <i class="ni ni-planet text-green"></i>
-              <span class="nav-link-text">Icons</span>
-            </a>
-          </li>
-          <li class="nav-item">
             <a class="nav-link" href="perfil.php">
               <i class="ni ni-single-02 text-yellow"></i>
               <span class="nav-link-text">Mi perfil</span>
@@ -40,12 +28,6 @@
             <a class="nav-link" href="perfilEmpresa.php">
               <i class="ni ni-box-2 text-blue"></i>
               <span class="nav-link-text">Mi empresa</span>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="publicaciones.php">
-              <i class="ni ni-single-copy-04 text-purple"></i>
-              <span class="nav-link-text">Publicaciones</span>
             </a>
           </li>
         </ul>
