@@ -11,12 +11,12 @@
 </head>
 <body background="../../assets/img/fondocatalogo.jpg">
     <div class="padre">
-        <div class="header">
-            <nav class="nav">
+    <nav class="nav">
                 <div class="tit-nav-caja">
                     <h1 class="tit-nav">INTER ORIENTE</h1>
                 </div>
             </nav>
+        <div class="header">
             <div class="contenedor-menu">
                 <div class="menuuno"><a href="#">
                     <i class="fas fa-box-open"></i>
@@ -25,7 +25,7 @@
                 </a>    
                 </div>
             
-                <div class="menudos"><a href="#">
+                <div class="menuuno"><a href="#">
                     <i class="fas fa-cogs"></i>                    
                     <h1 class="tit-menu">Servicios</h1>
                     <p class="par-menu">Ejemplo: Reparación...</p>  
