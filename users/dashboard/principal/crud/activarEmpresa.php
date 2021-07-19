@@ -19,11 +19,6 @@ $resultadoMostrarEmpre = $consultaMostrarEmpre->fetch(); //Traer información de
 $nit = $resultadoMostrarEmpre['nitEmpresa'];
 $documento =$resultadoMostrarEmpre['documentoRepresentante'];
 
-//Actualizando campo estado en tabla usuario
-$sqlActualizarEmpre = "UPDATE tblUsuario SET empresaUsuario =? WHERE documentoIdentidad=?";
-$consultaActualizarEmpre = $pdo->prepare($sqlActualizarEmpre);
-$consultaActualizarEmpre->execute(array($nit,$documento));
-
 //Definido el valor del rol
 $rol='2';
 

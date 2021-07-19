@@ -9,7 +9,5 @@
 <body>
     
 
-<body background="assets/img/im6.jpg" style="background-repeat: no-repeat; background-position: center center;">
-
 </body>
 </html>

@@ -15,13 +15,7 @@ $consultaMostrarEmpre->execute(array($id));
 $resultadoMostrarEmpre=$consultaMostrarEmpre->fetch();//Traer información de una tabla
 
 //Capturo Documento, y NIT, creo variables
-$mensaje = NULL;
 $documento =$resultadoMostrarEmpre['documentoRepresentante'];
-
-//Actualizando campo estado en tabla usuario
-$sqlActualizarEmpre = "UPDATE tblUsuario SET empresaUsuario =? WHERE documentoIdentidad=?";
-$consultaActualizarEmpre = $pdo->prepare($sqlActualizarEmpre);
-$consultaActualizarEmpre->execute(array($mensaje,$documento));
 
 //Capturo cuando rol sea igual a 2
 $rol='2';

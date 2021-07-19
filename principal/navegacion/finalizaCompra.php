@@ -16,6 +16,4 @@
 <?php include '../includes/navegacionDos.php';?>
 
 <body>
-</body>
-</body>
 </html>
