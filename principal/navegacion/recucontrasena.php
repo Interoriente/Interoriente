@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="assets/css/estiRecuperarContraseña.css">
     <title>Recuperar Contraseña</title>
 </head>
-<body background="assets/img/fondorecuperarcontrasena.jpg">
+<body background="../assets/img/fondorecuperarcontrasena.jpg">
     <div class="padre">
         <div class="header">
             <nav class="nav">
