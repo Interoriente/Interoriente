@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="assets/css/estiCambiarContra.css">
     <title>Cambiar Contraseña</title>
 </head>
-<body background="../assets/img/fondocambiarcontrasena.jpg">
+<body background="../../assets/img/fondocambiarcontrasena.jpg">
     <div class="padre">
         <div class="header">
             <nav class="nav">
