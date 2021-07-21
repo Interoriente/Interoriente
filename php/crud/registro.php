@@ -48,7 +48,7 @@
             $consulta_insertar->execute(array($documento, $nombres, $apellidos, $telefono, $celular, $correo, $contrasena,  $estado, $perfil));
 
             //llamado a la tabla rol (intermedia) para almacenar el rol predeterminado
-            $sql_insertar = "INSERT INTO tblUsuarioRol (idRol,docIdentidad)VALUES (?,?)";
+            $sql_insertar = "INSERT INTO tblUsuarioRol (idUsuarioRol,docIdentidadUsuarioRol)VALUES (?,?)";
             //Preparar consulta
             $consulta_insertar = $pdo->prepare($sql_insertar);
             //Ejecutar la sentencia
