@@ -11,7 +11,7 @@ if (isset($_SESSION["emailUsuario"]) or isset($_SESSION["documentoIdentidad"])) 
   $validacion = $consulta_resta_validacion->fetch(PDO::FETCH_OBJ);
   //Llamado tabla intermedia
   $documento = $_SESSION["documentoIdentidad"];
-  $sqlSesionRol = "SELECT * FROM tblUsuarioRol WHERE docIdentidad=? AND idRol=?";
+  $sqlSesionRol = "SELECT * FROM tblUsuarioRol WHERE docIdentidadUsuarioRol=? AND idUsuarioRol=?";
   $consultaSesionRol = $pdo->prepare($sqlSesionRol);
   $consultaSesionRol->execute(array($documento, $sesionRol));
   $resultadoSesionRol = $consultaSesionRol->rowCount();

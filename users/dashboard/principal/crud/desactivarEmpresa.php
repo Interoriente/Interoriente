@@ -9,19 +9,19 @@ $consultaEditar = $pdo->prepare($sqlEditar);
 $consultaEditar->execute(array($estado,$id));
 
 //Mostrar tabla TblEmprea
-$sqlMostrarEmpre="SELECT documentoRepresentante FROM tblEmpresa WHERE nitEmpresa=?";
+$sqlMostrarEmpre="SELECT documentoRepresentanteEmpresa FROM tblEmpresa WHERE nitEmpresa=?";
 $consultaMostrarEmpre=$pdo->prepare($sqlMostrarEmpre);
 $consultaMostrarEmpre->execute(array($id));
 $resultadoMostrarEmpre=$consultaMostrarEmpre->fetch();//Traer información de una tabla
 
 //Capturo Documento, y NIT, creo variables
-$documento =$resultadoMostrarEmpre['documentoRepresentante'];
+$documento =$resultadoMostrarEmpre['documentoRepresentanteEmpresa'];
 
 //Capturo cuando rol sea igual a 2
 $rol='2';
 
 //Eliminando datos en tblUSuarioRol
-$sqlBorrarUsuarioRol="DELETE FROM tblUsuarioRol WHERE docIdentidad=? AND idRol=?";
+$sqlBorrarUsuarioRol="DELETE FROM tblUsuarioRol WHERE docIdentidadUsuarioRol=? AND idUsuarioRol=?";
 $consultaBorrarUsuarioRol=$pdo->prepare($sqlBorrarUsuarioRol);
 $consultaBorrarUsuarioRol->execute(array($documento,$rol));
 

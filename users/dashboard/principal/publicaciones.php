@@ -13,7 +13,7 @@ if (isset($_SESSION["emailUsuario"]) or isset($_SESSION["documentoIdentidad"])) 
   $validacion = $consulta_resta_validacion->fetch(PDO::FETCH_OBJ);
   //Llamado tabla intermedia
   $documento = $_SESSION["documentoIdentidad"];
-  $sqlSesionRol = "SELECT * FROM tblUsuarioRol WHERE docIdentidad=? AND idRol=?";
+  $sqlSesionRol = "SELECT * FROM tblUsuarioRol WHERE docIdentidadUsuarioRol=? AND idUsuarioRol=?";
   $consultaSesionRol = $pdo->prepare($sqlSesionRol);
   $consultaSesionRol->execute(array($documento, $sesionRol));
   $resultadoSesionRol = $consultaSesionRol->rowCount();
@@ -61,12 +61,6 @@ if (isset($_SESSION["emailUsuario"]) or isset($_SESSION["documentoIdentidad"])) 
           $resultado_mostrar_publi = $consultar_mostrar_publi->fetchAll();
           //Contador de registros totales en tabla
           $contador = $consultar_mostrar_publi->rowCount();
-
-          //Mostrando estado del producto
-          /*$sqlmostrarEstado = "SELECT nombreEstado FROM tblPublicacion INNER JOIN tblEstado ON tblPublicacion.estadoPublicacion = tblEstado.idEstado";
-      $consultaMostrarEstado = $pdo->prepare($sqlmostrarEstado);
-      $consultaMostrarEstado->execute();
-      $resultadoEstado  = $consultaMostrarEstado->fetchAll(); */
           ?>
           <!-- Header -->
           <div class="header bg-primary pb-6">
@@ -110,31 +104,45 @@ if (isset($_SESSION["emailUsuario"]) or isset($_SESSION["documentoIdentidad"])) 
                       </thead>
                       <tbody class="list">
                         <?php
-                        //Pruebas para imprimir el contenido de las dos tablas de la BD en una. Pero no sirve.
-                        foreach ($resultado_mostrar_publi as $datos) {
-                          // foreach ($resultadoEstado as $datos1) { 
-                          //Sirve para especificar que solo se imprima si se cumple la condición, y lo necesito por el motivo de que estoy llamando a tblPublicacion y a tblEstado, entonces necesito imprimir a los dos en una misma tabla.
-                          /* while ($resultado_mostrar_publi = $consultar_mostrar_publi->fetch(PDO::FETCH_OBJ) and $resultadoEstado  = $consultaMostrarEstado->fetch(PDO::FETCH_OBJ)) { */
-                        ?>
+                        foreach ($resultado_mostrar_publi as $datos) { ?>
                           <tr>
                             <th><?php echo $datos['nombrePublicacion']; ?></th>
                             <th><?php echo $datos['descripcionPublicacion']; ?></th>
                             <th><?php echo $datos['costoPublicacion']; ?></th>
-                            <th><?php echo $datos['stockProducto']; ?></th>
+                            <th><?php echo $datos['stockPublicacion']; ?></th>
                             <?php if ($datos['validacionPublicacion'] == '1') { ?>
                               <th>Validada</th>
                               <th><a class="btn btn-danger" href="crud/desactivarPubli.php?id=<?php echo $datos['idPublicacion']; ?>">Desactivar</a></th>
-                              <th><a class="btn btn-info" data-toggle="modal" data-target="#eliminarPubliModal">Eliminar</a></th>
+                              <th><a class="btn btn-info" data-toggle="modal" data-target="#eliminarPubliModal<?php echo $datos['idPublicacion'] ?>">Eliminar</a></th>
                             <?php } else { ?>
                               <th>En revisión</th>
                               <th><a class="btn btn-success" href="crud/activarPubli.php?id=<?php echo $datos['idPublicacion']; ?>">Validar</a></th>
-                              <th><a class="btn btn-info" data-toggle="modal" data-target="#eliminarPubliModal">Eliminar</a></th>
+                              <th><a class="btn btn-info" data-toggle="modal" data-target="#eliminarPubliModal<?php echo $datos['idPublicacion'] ?>">Eliminar</a></th>
+                              <!-- Cierre else -->
+                            <?php } ?>
+                            <!--Modal Eliminar publicación -->
+                            <div class="modal fade" id="eliminarPubliModal<?php echo $datos['idPublicacion'] ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                              <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                  <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">¿Seguro quieres eliminar esta publicación?</h5>
+                                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                                      <span aria-hidden="true">×</span>
+                                    </button>
+                                  </div>
+                                  <div class="modal-body">Seleccione "Eliminar" para eliminar la publicación, esta acción no se podrá deshacer.</div>
+                                  <div class="modal-footer">
+                                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
+                                    <a class="btn btn-danger" href="crud/eliminarPubli.php?id=<?php echo $datos['idPublicacion'] ?>">Eliminar</a>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
                           </tr>
-                      <?php
-                              /*   }
-                    } */ }
-                          }
-                      ?>
+                        <?php
+
+                        }
+                        ?>
                       </tbody>
                     </table>
                   </div>
@@ -169,25 +177,6 @@ if (isset($_SESSION["emailUsuario"]) or isset($_SESSION["documentoIdentidad"])) 
             </div>
             <!-- Footer -->
             <?php require_once '../assets/footer.php' ?>
-
-            <!--Modal Eliminar publicación -->
-            <div class="modal fade" id="eliminarPubliModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-              <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">¿Seguro quieres eliminar el registro?</h5>
-                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                      <span aria-hidden="true">×</span>
-                    </button>
-                  </div>
-                  <div class="modal-body">Seleccione "Eliminar" a continuación si considera que la publicación ha infringido las politicas de la empresa.</div>
-                  <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
-                    <a class="btn btn-danger" href="crud/eliminarPubli.php?id=<?php echo $datos['idPublicacion']; ?>">Eliminar</a>
-                  </div>
-                </div>
-              </div>
-            </div>
         </body>
 
         </html>

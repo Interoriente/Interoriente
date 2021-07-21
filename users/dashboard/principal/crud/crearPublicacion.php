@@ -33,7 +33,7 @@ if (isset($_POST['subir'])) {
                     $usuario = $_POST['usuario'];
                     $verificacion = '0';
                     //sentencia Sql
-                    $sql_insertar = "INSERT INTO tblPublicacion (nombrePublicacion,docIdentidad,descripcionPublicacion,colorPublicacion,costoPublicacion,estadoArticulo,stockProducto,categoriaPublicacion,validacionPublicacion)VALUES (?,?,?,?,?,?,?,?,?)";
+                    $sql_insertar = "INSERT INTO tblPublicacion (nombrePublicacion,docIdentidadPublicacion,descripcionPublicacion,colorPublicacion,costoPublicacion,estadoArticuloPublicacion,stockPublicacion,categoriaPublicacion,validacionPublicacion)VALUES (?,?,?,?,?,?,?,?,?)";
                     //Preparar consulta
                     $consulta_insertar = $pdo->prepare($sql_insertar);
                     //Ejecutar la sentencia

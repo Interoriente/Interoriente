@@ -39,7 +39,7 @@
                 <p><?php echo $datos['nombrePublicacion'] ?></p>
               </h4>
               <p><?php echo $datos['descripcionPublicacion'] ?></p>
-              <p>Stock: <?php echo $datos['stockProducto'] ?></p>
+              <p>Stock: <?php echo $datos['stockPublicacion'] ?></p>
               <p>$<?php echo $datos['costoPublicacion'] ?></p>
             </div>
           </div>

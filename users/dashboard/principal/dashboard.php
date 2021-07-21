@@ -12,15 +12,15 @@ if (isset($_SESSION["emailUsuario"]) or isset($_SESSION["documentoIdentidad"])) 
   $validacion = $consulta_resta_validacion->fetch(PDO::FETCH_OBJ);
   //Llamado tabla intermedia
   $documento = $_SESSION["documentoIdentidad"];
-  $sqlSesionRol = "SELECT * FROM tblUsuarioRol WHERE docIdentidad=? AND idRol=?";
+  $sqlSesionRol = "SELECT * FROM tblUsuarioRol WHERE docIdentidadUsuarioRol=? AND idUsuarioRol=?";
   $consultaSesionRol = $pdo->prepare($sqlSesionRol);
   $consultaSesionRol->execute(array($documento, $sesionRol));
   $resultadoSesionRol = $consultaSesionRol->rowCount();
 
   //Mostrando roles almacenados
-  $sqlRol = "SELECT * FROM tblUsuarioRol INNER JOIN tblRol ON tblUsuarioRol.idRol = tblRol.idRol WHERE docIdentidad= '$documento'";
+  $sqlRol = "SELECT * FROM tblUsuarioRol INNER JOIN tblRol ON tblUsuarioRol.idUsuarioRol = tblRol.idRol WHERE docIdentidadUsuarioRol=?";
   $consultaRol = $pdo->prepare($sqlRol);
-  $consultaRol->execute();
+  $consultaRol->execute(array($documento));
   $resultadoRol = $consultaRol->fetchAll();
   //Llamado tabla usuario
   $sqlMostrarConteo = "SELECT*FROM tblUsuario";

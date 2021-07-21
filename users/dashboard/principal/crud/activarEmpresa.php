@@ -17,13 +17,13 @@ $resultadoMostrarEmpre = $consultaMostrarEmpre->fetch(); //Traer información de
 
 //Capturo Documento, y NIT, creo variables
 $nit = $resultadoMostrarEmpre['nitEmpresa'];
-$documento =$resultadoMostrarEmpre['documentoRepresentante'];
+$documento =$resultadoMostrarEmpre['documentoRepresentanteEmpresa'];
 
 //Definido el valor del rol
 $rol='2';
 
 //Guardando datos en tblUSuarioRol
-$sqlInsertarUsuarioRol="INSERT INTO tblUsuarioRol (docIdentidad,idRol) VALUES (?,?)";
+$sqlInsertarUsuarioRol="INSERT INTO tblUsuarioRol (docIdentidadUsuarioRol,idUsuarioRol) VALUES (?,?)";
 $consultaInsertarUsuarioRol=$pdo->prepare($sqlInsertarUsuarioRol);
 $consultaInsertarUsuarioRol->execute(array($documento,$rol));
 

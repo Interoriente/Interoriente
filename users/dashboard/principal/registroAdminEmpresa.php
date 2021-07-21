@@ -12,7 +12,7 @@ if (isset($_SESSION["emailUsuario"]) or isset($_SESSION["documentoIdentidad"])) 
     $validacion = $consulta_resta_validacion->fetch(PDO::FETCH_OBJ);
     //Llamado tabla intermedia
     $documento = $_SESSION["documentoIdentidad"];
-    $sqlSesionRol = "SELECT * FROM tblUsuarioRol WHERE docIdentidad=? AND idRol=?";
+    $sqlSesionRol = "SELECT * FROM tblUsuarioRol WHERE docIdentidadUsuarioRol=? AND idUsuarioRol=?";
     $consultaSesionRol = $pdo->prepare($sqlSesionRol);
     $consultaSesionRol->execute(array($documento, $sesionRol));
     $resultadoSesionRol = $consultaSesionRol->rowCount();
@@ -20,8 +20,7 @@ if (isset($_SESSION["emailUsuario"]) or isset($_SESSION["documentoIdentidad"])) 
     $idDoc = $_SESSION["documentoIdentidad"];
 
     //Llamado a tabla empresa, función: contar registros
-    $documentoRepresen = $_SESSION['documentoIdentidad'];
-    $sqlMostrarEmpresa = "SELECT * FROM tblEmpresa WHERE documentoRepresentante=?";
+    $sqlMostrarEmpresa = "SELECT * FROM tblEmpresa WHERE documentoRepresentanteEmpresa=?";
     //Prepara sentencia
     $consultarMostrarEmpresa = $pdo->prepare($sqlMostrarEmpresa);
     //Ejecutar consulta
@@ -149,7 +148,7 @@ if (isset($_SESSION["emailUsuario"]) or isset($_SESSION["documentoIdentidad"])) 
                                                                     <option value="" disabled selected>Seleccione una ciudad</option>
                                                                     <?php
                                                                     foreach ($resultado_ciudad as $datos_ciudad) { ?>
-                                                                        <option value="<?php echo $datos_ciudad['codigoCiudad']; ?>"><?php echo $datos_ciudad['nombreCiudad']; ?></option>
+                                                                        <option value="<?php echo $datos_ciudad['idCiudad']; ?>"><?php echo $datos_ciudad['nombreCiudad']; ?></option>
                                                                     <?php } ?>
                                                                 </select>
                                                             </div>

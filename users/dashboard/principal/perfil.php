@@ -12,12 +12,12 @@ if (isset($_SESSION["emailUsuario"]) or isset($_SESSION["documentoIdentidad"])) 
   $validacion = $consulta_resta_validacion->fetch(PDO::FETCH_OBJ);
   //Llamado tabla intermedia
   $documento = $_SESSION["documentoIdentidad"];
-  $sqlSesionRol = "SELECT * FROM tblUsuarioRol WHERE docIdentidad=? AND idRol=?";
+  $sqlSesionRol = "SELECT * FROM tblUsuarioRol WHERE docIdentidadUsuarioRol=? AND idUsuarioRol=?";
   $consultaSesionRol = $pdo->prepare($sqlSesionRol);
   $consultaSesionRol->execute(array($documento, $sesionRol));
   $resultadoSesionRol = $consultaSesionRol->rowCount();
   //Llamado tabla publicación
-  $sqlSesionPubli = "SELECT * FROM tblPublicacion WHERE docIdentidad=?";
+  $sqlSesionPubli = "SELECT * FROM tblPublicacion WHERE docIdentidadPublicacion=?";
   $consultaSesionPubli = $pdo->prepare($sqlSesionPubli);
   $consultaSesionPubli->execute(array($documento));
   $resultadoSesionPubli = $consultaSesionPubli->rowCount();
@@ -72,7 +72,7 @@ if (isset($_SESSION["emailUsuario"]) or isset($_SESSION["documentoIdentidad"])) 
           $resultado = $consulta_resta->rowCount(array($id));
           $resultado2 = $consulta_resta->fetch(PDO::FETCH_OBJ);
           //Sql para mostrar el nombre de la ciudad de acuerdo al usuario logueado
-          /* $sql_inicioCiudad = "SELECT * FROM tblUsuario INNER JOIN tblCiudad ON tblUsuario.ciudadUsuario = tblCiudad.codigoCiudad WHERE emailUsuario='$id'";
+          /* $sql_inicioCiudad = "SELECT * FROM tblUsuario INNER JOIN tblCiudad ON tblUsuario.ciudadUsuario = tblCiudad.idCiudad WHERE emailUsuario='$id'";
         $consulta_restaCiudad = $pdo->prepare($sql_inicioCiudad);
         $consulta_restaCiudad->execute(array($id));
         $resultadoCiudad  = $consulta_restaCiudad->fetch(PDO::FETCH_OBJ); */
@@ -80,7 +80,7 @@ if (isset($_SESSION["emailUsuario"]) or isset($_SESSION["documentoIdentidad"])) 
           //Validacion de roles
           if ($resultado) {
             $Nombre = $resultado2->nombresUsuario . " " . $resultado2->apellidoUsuario;
-            //SELECT nombresUsuario, nombreCiudad FROM tblUsuario INNER JOIN tblCiudad ON tblUsuario.ciudadUsuario = tblCiudad.codigoCiudad
+            //SELECT nombresUsuario, nombreCiudad FROM tblUsuario INNER JOIN tblCiudad ON tblUsuario.ciudadUsuario = tblCiudad.idCiudad
           ?>
             <!-- Header -->
             <div class="header pb-6 d-flex align-items-center" style="min-height: 500px; background-image: url(../../../assets/img/fondoperfil.jpg); background-size: cover; background-position: center top;">
@@ -192,12 +192,12 @@ if (isset($_SESSION["emailUsuario"]) or isset($_SESSION["documentoIdentidad"])) 
                               <div class="form-group">
                                 <label class="form-control-label" for="input-username">Ciudad</label>
                                 <select name="ciudad" class="form-control" required>
-                                  <option value="<?php //echo $resultadoCiudad->codigoCiudad; 
+                                  <option value="<?php //echo $resultadoCiudad->idCiudad; 
                                                   ?>" selected><?php // echo $resultadoCiudad->nombreCiudad; 
                                                                                                             ?>Seleccione ciudad</option>
                                   <?php
                                   foreach ($resultado_ciudad as $datos_ciudad) { ?>
-                                    <option value="<?php echo $datos_ciudad['codigoCiudad'] ?>"><?php echo $datos_ciudad['nombreCiudad'] ?></option>
+                                    <option value="<?php echo $datos_ciudad['idCiudad'] ?>"><?php echo $datos_ciudad['nombreCiudad'] ?></option>
                                   <?php } ?>
                                 </select>
                               </div>

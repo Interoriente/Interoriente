@@ -48,7 +48,7 @@
                     $estado = '0';
 
                     //sentencia Sql
-                    $sqlInsertar = "INSERT INTO tblEmpresa (nitEmpresa,documentoRepresentante,nombreEmpresa, descripcionEmpresa, correoEmpresa,imagenEmpresa, direccionEmpresa,ciudadEmpresa,telefonoEmpresa,estadoEmpresa)VALUES (?,?,?,?,?,?,?,?,?,?)";
+                    $sqlInsertar = "INSERT INTO tblEmpresa (nitEmpresa,documentoRepresentanteEmpresa,nombreEmpresa, descripcionEmpresa, correoEmpresa,imagenEmpresa, direccionEmpresa,ciudadEmpresa,telefonoEmpresa,estadoEmpresa)VALUES (?,?,?,?,?,?,?,?,?,?)";
                     //Preparar consulta
                     $consultaInsertar = $pdo->prepare($sqlInsertar);
                     //Ejecutar la sentencia
@@ -56,7 +56,7 @@
 
                     echo "<script>alert('Su empresa se registró correctamente');</script>";
                     echo "<script>alert('Debes pasar por proceso de vericación para poder empezar a administrarla');</script>";
-                    echo "<script> document.location.href='../registroAdminEmpresa.php';</script>";
+                    echo "<script> document.location.href='../dashboard.php';</script>";
                 } else {
                     echo "<script>alert('Ocurrió un error');</script>";
                     echo "<script> document.location.href='../registroAdminEmpresa.php';</script>";
