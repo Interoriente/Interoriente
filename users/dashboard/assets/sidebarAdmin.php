@@ -3,7 +3,7 @@
   <div class="scrollbar-inner">
     <!-- Brand -->
     <div class="sidenav-header  align-items-center">
-      <a class="navbar-brand" href="../../../index.html">
+      <a class="navbar-brand" href="../../../principal/navegacion/index.php">
         <img src="../../../assets/img/logo.svg" class="navbar-brand-img" alt="...">
       </a>
     </div>
@@ -16,18 +16,6 @@
             <a class="nav-link" href="dashboard.php">
               <i class="ni ni-planet text-orange"></i>
               <span class="nav-link-text">Dashboard</span>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="crearPubli.php">
-              <i class="ni ni-album-2 text-red"></i>
-              <span class="nav-link-text">Crear publicación</span>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="icons.php">
-              <i class="ni ni-planet text-green"></i>
-              <span class="nav-link-text">Icons</span>
             </a>
           </li>
           <li class="nav-item">

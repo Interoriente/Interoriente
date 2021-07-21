@@ -3,7 +3,7 @@
 include_once '../../../../dao/conexion.php';
 $id = $_GET['id']; #REVISAR SEGUIRDAD
 
-$sqlEliminar = "DELETE FROM tblImagenes WHERE publicacion = ?";
+$sqlEliminar = "DELETE FROM tblImagenes WHERE publicacionImagen = ?";
 $consultaEliminar = $pdo->prepare($sqlEliminar);
 $consultaEliminar->execute(array($id));
 
@@ -14,4 +14,5 @@ $consulta_eliminar->execute(array($id));
 
 //redireccionar
 echo "<script>alert('La publicación se eliminó correctamente');</script>";
-echo "<script> document.location.href='../crearPubli.php';</script>";
+
+echo "<script> document.location.href='../dashboard.php';</script>";

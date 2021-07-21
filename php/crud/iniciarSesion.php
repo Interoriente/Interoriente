@@ -30,14 +30,14 @@ session_start();
 
 
         //Llamado a tabla rol
-        if ($resultado_inicio) {//Verifico que la informacion que se digitó en el formulario sea la que existe en BD, para llamar a tabla USuarioRol
-            $sql_inicio1 = "SELECT idRol FROM tblUsuarioRol WHERE documentoIdentidad='$id'";
+        if ($resultado_inicio) { //Verifico que la informacion que se digitó en el formulario sea la que existe en BD, para llamar a tabla USuarioRol
+            $sql_inicio1 = "SELECT idUsuarioRol FROM tblUsuarioRol WHERE docIdentidadUsuarioRol='$id'";
             $consulta_inicio1 = $pdo->prepare($sql_inicio1);
             $consulta_inicio1->execute();
             $resultado_inicio1 = $consulta_inicio1->rowCount();
             $rol = $consulta_inicio1->fetch(PDO::FETCH_OBJ);
             if ($resultado_inicio1) {
-                $rol = $rol->idRol;
+                $rol = $rol->idUsuarioRol;
             }
         }
         if ($resultado_inicio) {
@@ -60,21 +60,8 @@ session_start();
                 header("Location: ../../users/dashboard/principal/dashboard.php");
                 $_SESSION["rolUsuario"] = '3';
             }
-            /*   if ($resultado_inicio) {
-            $_SESSION["emailUsuario"] = $prueba->emailUsuario;
-            $_SESSION["documentoIdentidad"] = $prueba->documentoIdentidad;
-            $rol=$prueba1->idRol;
-            
-            if ($rol == '1') {
-                echo "<script> document.location.href='../../users/dashboard/principal/dashboard.php';</script>";
-            }else {
-                echo "Esto es otra cosa";
-            } */
-            /*  $_SESSION["rolUsuario"] = '1';
-            $_SESSION["nombreRol"]="Comprador"; 
-            echo "<script> document.location.href='../../users/dashboard/principal/dashboard.php';</script>";*/
         } else {
-            echo "<script>alert('Correo y/o contraseña incorrecto, o validación denegada');</script>";
+            echo "<script>alert('Documento y/o contraseña incorrecto, o validación denegada');</script>";
             echo "<script> document.location.href='../../principal/navegacion/iniciarsesion.php';</script>";
         }
     }

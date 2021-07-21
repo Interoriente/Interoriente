@@ -1,4 +1,4 @@
-<?php 
+<?php
 if (isset($_POST['subir'])) {
 
     //Captura de imagen
@@ -33,33 +33,34 @@ if (isset($_POST['subir'])) {
                     $usuario = $_POST['usuario'];
                     $verificacion = '0';
                     //sentencia Sql
-                    $sql_insertar = "INSERT INTO tblPublicacion (nombrePublicacion,usuario,descripcionPublicacion,colorPublicacion,costoPublicacion,estadoArticulo,stockProducto,categoria,validacionPublicacion)VALUES (?,?,?,?,?,?,?,?,?)";
+                    $sql_insertar = "INSERT INTO tblPublicacion (nombrePublicacion,docIdentidadPublicacion,descripcionPublicacion,colorPublicacion,costoPublicacion,estadoArticuloPublicacion,stockPublicacion,categoriaPublicacion,validacionPublicacion)VALUES (?,?,?,?,?,?,?,?,?)";
                     //Preparar consulta
                     $consulta_insertar = $pdo->prepare($sql_insertar);
                     //Ejecutar la sentencia
                     $consulta_insertar->execute(array($nombre, $usuario, $descripcion, $color, $costo, $estadoarticulo, $stock, $categoria, $verificacion));
-                    
+
                     //Llamado idPublicacion
-                    $sqlLlamarId="SELECT MAX(idPublicacion) AS id FROM tblPublicacion";
-                    $consultaLlamarId=$pdo->prepare($sqlLlamarId);
+                    $sqlLlamarId = "SELECT MAX(idPublicacion) AS id FROM tblPublicacion";
+                    $consultaLlamarId = $pdo->prepare($sqlLlamarId);
                     $consultaLlamarId->execute();
                     $resultado_mostrar_publi1 = $consultaLlamarId->fetch();
-                    foreach($resultado_mostrar_publi1 as $datos){//Llamado al foreach para convertir el valor a entero
+                    foreach ($resultado_mostrar_publi1 as $datos) { //Llamado al foreach para convertir el valor a entero
                     }
                     //Insertando imagen en la tabla
-                    $sqlInsertarImagen="INSERT INTO tblImagenes (urlImagen,publicacion)VALUES (?,?)";
-                    $consultaInsertar=$pdo->prepare($sqlInsertarImagen);    
-                    $consultaInsertar->execute(array($archivo,$datos));
+                    $sqlInsertarImagen = "INSERT INTO tblImagenes (urlImagen,publicacionImagen)VALUES (?,?)";
+                    $consultaInsertar = $pdo->prepare($sqlInsertarImagen);
+                    $consultaInsertar->execute(array($archivo, $datos));
 
                     echo "<script>alert('El registro se subió correctamente');</script>";
-                    echo "<script> document.location.href='../crearPubli.php';</script>"; 
+                    echo "<script> document.location.href='../crearPubli.php';</script>";
                 }
             } else {
                 echo "<script>alert('Ocurrió un error');</script>";
+                echo "<script> document.location.href='../crearPubli.php';</script>";
             }
         }
     } else {
         echo "<script>alert('Error: el archivo no es una imagen');</script>";
-        echo "<script> document.location.href='crearPubli.php';</script>";
+        echo "<script> document.location.href='../crearPubli.php';</script>";
     }
 }

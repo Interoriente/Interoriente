@@ -8,8 +8,5 @@
 </head>
 <body>
     
-
-<body class="fondoindexslash1"style="background-color: #fefdeb;">
-</body>
 </body>
 </html>

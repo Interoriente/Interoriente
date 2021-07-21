@@ -4,10 +4,29 @@ include_once '../../../../dao/conexion.php';
 $id = $_GET['id'];
 $estado = '0';
 //sentencia sql para actualizar estado
-$sqlEditar = "UPDATE tblEmpresa SET estadoEmpresa = '$estado' WHERE nitEmpresa=?";
+$sqlEditar = "UPDATE tblEmpresa SET estadoEmpresa = ? WHERE nitEmpresa=?";
 $consultaEditar = $pdo->prepare($sqlEditar);
-$consultaEditar->execute(array($id));
-//alert
+$consultaEditar->execute(array($estado,$id));
+
+//Mostrar tabla TblEmprea
+$sqlMostrarEmpre="SELECT documentoRepresentanteEmpresa FROM tblEmpresa WHERE nitEmpresa=?";
+$consultaMostrarEmpre=$pdo->prepare($sqlMostrarEmpre);
+$consultaMostrarEmpre->execute(array($id));
+$resultadoMostrarEmpre=$consultaMostrarEmpre->fetch();//Traer información de una tabla
+
+//Capturo Documento, y NIT, creo variables
+$documento =$resultadoMostrarEmpre['documentoRepresentanteEmpresa'];
+
+//Capturo cuando rol sea igual a 2
+$rol='2';
+
+//Eliminando datos en tblUSuarioRol
+$sqlBorrarUsuarioRol="DELETE FROM tblUsuarioRol WHERE docIdentidadUsuarioRol=? AND idUsuarioRol=?";
+$consultaBorrarUsuarioRol=$pdo->prepare($sqlBorrarUsuarioRol);
+$consultaBorrarUsuarioRol->execute(array($documento,$rol));
+
+//Alert
 echo "<script>alert('Estado actualizado correctamente');</script>";
-//redireccionar
-echo "<script> document.location.href='../usuarios.php';</script>";
+
+//Redireccionar
+echo "<script> document.location.href='../empresas.php';</script>";

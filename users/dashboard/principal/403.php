@@ -31,7 +31,7 @@
 		<div class="notfound">
 			<div class="notfound-404"></div>
 			<h1>403</h1>
-			<h2>Oops! No has iniciado sesión o ha finalizado la sesión</h2>
+			<h2>Oops! No has iniciado sesión o ha finalizado</h2>
 			<p>Perdón, la sesión no está activa debes iniciar sesión</p>
 			<a href="../../../principal/navegacion/iniciarsesion.php">Iniciar sesión</a>
 		</div>

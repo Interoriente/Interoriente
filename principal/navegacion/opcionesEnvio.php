@@ -8,7 +8,5 @@
 </head>
 <body>
 
-
-<body background="assets/img/im9.jpg" style="background-repeat: no-repeat; background-position: center center;">
 </body>
 </html>

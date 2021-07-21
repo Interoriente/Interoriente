@@ -1,3 +1,5 @@
+<?php session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -16,7 +18,19 @@
 
 <body>
     <!-- Sidebar -->
-    <?php include '../includes/navegacion.php'; ?>
+    <?php
+    if (isset($_SESSION['documentoIdentidad'])) {
+        if ($_SESSION['roles'] == '1') {
+            include '../includes/navegacionCom.php';
+        } else if ($_SESSION['roles'] == '2') {
+            include '../includes/navegacionEmpre.php';
+        } else {
+            include '../includes/navegacionAdmin.php';
+        }
+    } else {
+        include '../includes/navegacionInvi.php';
+    }
+    ?>
     <!-- ----- -->
 
     <!-- Sección del carrusel -->
@@ -92,7 +106,7 @@
     </section>
 
     <!-- TODO: 1. Botones "Comprar Ahora" y "Agregar al carrito" cuando tarjeta:hover
-            2. Ipervínculo tarjeta con publicación
+            2. Hipervínculo tarjeta con publicación
                 3. Íconos sidebar
                     4. Definir estado de hover para tarjetas
                         5. Modificar navbar para dispositivos móviles
@@ -239,17 +253,19 @@
     <!-- ------- -->
 
     <!-- Barra de navegación para dispositivos móviles -->
-    <div class="contenedor-nav">
-        <div class="navbar">
-            <a href="#home" class="active">Mi cuenta</a>
-            <a href="#news">Ofertas</a>
-            <a href="#contact">Catálogos</a>
-            <a href="#home">Mi carrito</a>
-            <a href="#news">Mis compras</a>
-            <a href="#contact">Catálogos</a>
-            <a href="#contact">Ayuda</a>
-        </div>
-    </div>
+    <?php
+    if (isset($_SESSION['documentoIdentidad'])) {
+        if ($_SESSION['roles'] == '1') {
+            include '../includes/navegacionComdos.php';
+        } else if ($_SESSION['roles'] == '2') {
+            include '../includes/navegacionEmpredos.php';
+        } else {
+            include '../includes/navegacionAdmindos.php';
+        }
+    } else {
+        include '../includes/navegacionInvidos.php';
+    }
+    ?>
 
     <!-- Js -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
