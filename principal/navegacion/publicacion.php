@@ -17,7 +17,7 @@
 
 <body>
   <!-- Sidebar y Navbar -->
-  <?php include "../includes/navegacion.php"; ?>
+  <?php include "../includes/navegacionCom.php"; ?>
 
   <!-- Sección imágene(s) título, precio, cantidad, color y botones  "Comprar ahora" y "Añadir al carrito" -->
 
@@ -75,21 +75,9 @@
 
 
   <!-- Sección "Descripción" -->
-  <?php include "../includes/navegacionDos.php"; ?>
+  <?php include "../includes/navegacionComdos.php"; ?>
 
-  <!-- <section class="principal">
-    <div class="imagen">
-
-    </div>
-    <div class="informacion">
-      <div class="contenido-principal">
-
-      </div>
-      <div class="botones-cta">
-
-      </div>
-    </div>
-  </section> -->
+ 
 </body>
 
 </html>
