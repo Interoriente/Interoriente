@@ -26,7 +26,13 @@
           </li>
           <li class="nav-item">
             <a class="nav-link" href="perfilEmpresa.php">
-              <i class="ni ni-box-2 text-blue"></i>
+              <i class="ni ni-single-02 text-blue"></i>
+              <span class="nav-link-text">Perfil empresa</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="empresa.php">
+              <i class="ni ni-box-2 text-purple"></i>
               <span class="nav-link-text">Mi empresa</span>
             </a>
           </li>

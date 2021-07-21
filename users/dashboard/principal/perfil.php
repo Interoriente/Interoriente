@@ -66,21 +66,15 @@ if (isset($_SESSION["emailUsuario"]) or isset($_SESSION["documentoIdentidad"])) 
           $consultar_mostrar_ciudad->execute();
           $resultado_ciudad = $consultar_mostrar_ciudad->fetchAll();
           //Mostrar la información del usuario logueado
-          $sql_inicio = "SELECT*FROM tblUsuario WHERE emailUsuario ='$id' ";
+          $sql_inicio = "SELECT*FROM tblUsuario WHERE emailUsuario =? ";
           $consulta_resta = $pdo->prepare($sql_inicio);
-          $consulta_resta->execute();
-          $resultado = $consulta_resta->rowCount(array($id));
+          $consulta_resta->execute(array($id));
+          $resultado = $consulta_resta->rowCount();
           $resultado2 = $consulta_resta->fetch(PDO::FETCH_OBJ);
-          //Sql para mostrar el nombre de la ciudad de acuerdo al usuario logueado
-          /* $sql_inicioCiudad = "SELECT * FROM tblUsuario INNER JOIN tblCiudad ON tblUsuario.ciudadUsuario = tblCiudad.idCiudad WHERE emailUsuario='$id'";
-        $consulta_restaCiudad = $pdo->prepare($sql_inicioCiudad);
-        $consulta_restaCiudad->execute(array($id));
-        $resultadoCiudad  = $consulta_restaCiudad->fetch(PDO::FETCH_OBJ); */
 
           //Validacion de roles
           if ($resultado) {
             $Nombre = $resultado2->nombresUsuario . " " . $resultado2->apellidoUsuario;
-            //SELECT nombresUsuario, nombreCiudad FROM tblUsuario INNER JOIN tblCiudad ON tblUsuario.ciudadUsuario = tblCiudad.idCiudad
           ?>
             <!-- Header -->
             <div class="header pb-6 d-flex align-items-center" style="min-height: 500px; background-image: url(../../../assets/img/fondoperfil.jpg); background-size: cover; background-position: center top;">
@@ -91,12 +85,13 @@ if (isset($_SESSION["emailUsuario"]) or isset($_SESSION["documentoIdentidad"])) 
                 <div class="row">
                   <div class="col-lg-7 col-md-10">
                     <h1 class="display-2 text-white">Hola! <?php echo $resultado2->nombresUsuario ?></h1>
-                    <p class="text-white mt-0 mb-5">Esta es tu página de perfil. Podrás visualizar tu infiormación y actualizarla en cualquier momento.</p>
+                    <p class="text-white mt-0 mb-5">Esta es tu página de perfil. Podrás visualizar tu información y actualizarla en cualquier momento.</p>
                   </div>
                 </div>
               </div>
             </div>
             <!-- Page content -->
+            <div class="container-fluid mt--6">
               <div class="row">
                 <div class="col-xl-4 order-xl-2">
                   <div class="card card-profile">
@@ -110,7 +105,7 @@ if (isset($_SESSION["emailUsuario"]) or isset($_SESSION["documentoIdentidad"])) 
                         </div>
                       </div>
                     </div>
-                    <div class="card-header text-center border-0 pt-8 pt-md-8 pb-5 pb-md-0">
+                    <div class="card-header text-center border-0 pt-8 pt-md-4 pb-0 pb-md-4">
                       <div class="d-flex justify-content-between">
                         <a href="configfotoperfil.php" class="btn btn-sm btn-info  mr-4 ">Cambiar foto</a>
                       </div>
@@ -156,6 +151,7 @@ if (isset($_SESSION["emailUsuario"]) or isset($_SESSION["documentoIdentidad"])) 
                   </div>
                 </div>
                 <!--/Modal -->
+
                 <div class="col-xl-8 order-xl-1">
                   <div class="card">
                     <div class="card-header">
@@ -194,7 +190,7 @@ if (isset($_SESSION["emailUsuario"]) or isset($_SESSION["documentoIdentidad"])) 
                                 <select name="ciudad" class="form-control" required>
                                   <option value="<?php //echo $resultadoCiudad->idCiudad; 
                                                   ?>" selected><?php // echo $resultadoCiudad->nombreCiudad; 
-                                                                                                            ?>Seleccione ciudad</option>
+                                                                  ?>Seleccione ciudad</option>
                                   <?php
                                   foreach ($resultado_ciudad as $datos_ciudad) { ?>
                                     <option value="<?php echo $datos_ciudad['idCiudad'] ?>"><?php echo $datos_ciudad['nombreCiudad'] ?></option>
@@ -221,18 +217,10 @@ if (isset($_SESSION["emailUsuario"]) or isset($_SESSION["documentoIdentidad"])) 
                 </div>
               <?php } ?>
               </div>
-              <!-- Footer -->
-              <?php require_once '../assets/footer.php' ?>
-      
-            <!-- Argon Scripts -->
-            <!-- Core -->
-            <script src="../assets/vendor/jquery/dist/jquery.min.js"></script>
-            <script src="../assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-            <script src="../assets/vendor/js-cookie/js.cookie.js"></script>
-            <script src="../assets/vendor/jquery.scrollbar/jquery.scrollbar.min.js"></script>
-            <script src="../assets/vendor/jquery-scroll-lock/dist/jquery-scrollLock.min.js"></script>
-            <!-- Argon JS -->
-            <script src="../assets/js/argon.js?v=1.2.0"></script>
+            </div>
+            <!-- Footer -->
+            <?php require_once '../assets/footer.php' ?>
+
         </body>
 
         </html>

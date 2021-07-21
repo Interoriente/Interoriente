@@ -16,11 +16,6 @@ if (isset($_SESSION["emailUsuario"]) or isset($_SESSION["documentoIdentidad"])) 
   $consultaSesionRol = $pdo->prepare($sqlSesionRol);
   $consultaSesionRol->execute(array($documento, $sesionRol));
   $resultadoSesionRol = $consultaSesionRol->rowCount();
-  //Llamado tabla publicación
-  $sqlSesionPubli = "SELECT * FROM tblPublicacion WHERE docIdentidad=?";
-  $consultaSesionPubli = $pdo->prepare($sqlSesionPubli);
-  $consultaSesionPubli->execute(array($documento));
-  $resultadoSesionPubli = $consultaSesionPubli->rowCount();
   //Validacion de roles
   if ($resultado_validacion) {
     if ($resultadoSesionRol) {
@@ -34,7 +29,7 @@ if (isset($_SESSION["emailUsuario"]) or isset($_SESSION["documentoIdentidad"])) 
           <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
           <meta name="description" content="Bienvenidos a Interoriente, podrás comprar, vender y mucho más.">
           <meta name="author" content="Inter-oriente">
-          <title>Mi perfil | Interoriente</title>
+          <title>Mi empresa | Interoriente</title>
           <!-- Favicon -->
           <link rel="icon" href="../../../assets/img/favicon.png" type="image/png">
           <!-- Fonts -->
@@ -56,31 +51,15 @@ if (isset($_SESSION["emailUsuario"]) or isset($_SESSION["documentoIdentidad"])) 
           } ?>
           <?php require_once '../assets/header.php' ?>
           <?php
-          //Sirve para mostrar el contenido de la tabla Ciudad, para mostrarlo en la lista desplegable
-          include_once '../../../dao/conexion.php';
-          //Mostrar los datos almacenados
-          $sql_mostrar_ciudad = "SELECT * FROM tblCiudad";
-          //Prepara sentencia
-          $consultar_mostrar_ciudad = $pdo->prepare($sql_mostrar_ciudad);
-          //Ejecutar consulta
-          $consultar_mostrar_ciudad->execute();
-          $resultado_ciudad = $consultar_mostrar_ciudad->fetchAll();
           //Mostrar la información del usuario logueado
-          $sql_inicio = "SELECT*FROM tblUsuario WHERE emailUsuario ='$id' ";
-          $consulta_resta = $pdo->prepare($sql_inicio);
-          $consulta_resta->execute();
-          $resultado = $consulta_resta->rowCount(array($id));
-          $resultado2 = $consulta_resta->fetch(PDO::FETCH_OBJ);
-          //Sql para mostrar el nombre de la ciudad de acuerdo al usuario logueado
-          /* $sql_inicioCiudad = "SELECT * FROM tblUsuario INNER JOIN tblCiudad ON tblUsuario.ciudadUsuario = tblCiudad.idCiudad WHERE emailUsuario='$id'";
-        $consulta_restaCiudad = $pdo->prepare($sql_inicioCiudad);
-        $consulta_restaCiudad->execute(array($id));
-        $resultadoCiudad  = $consulta_restaCiudad->fetch(PDO::FETCH_OBJ); */
+          $sqlEmpresa = "SELECT * FROM tblEmpresa INNER JOIN tblCiudad ON tblEmpresa.ciudadEmpresa = tblCiudad.idCiudad WHERE documentoRepresentanteEmpresa =? ";
+          $consultaEmpresa = $pdo->prepare($sqlEmpresa);
+          $consultaEmpresa->execute(array($documento));
+          $resultado = $consultaEmpresa->rowCount();
+          $resultado2 = $consultaEmpresa->fetch(PDO::FETCH_OBJ);
 
           //Validacion de roles
           if ($resultado) {
-            $Nombre = $resultado2->nombresUsuario . " " . $resultado2->apellidoUsuario;
-            //SELECT nombresUsuario, nombreCiudad FROM tblUsuario INNER JOIN tblCiudad ON tblUsuario.ciudadUsuario = tblCiudad.idCiudad
           ?>
             <!-- Header -->
             <div class="header pb-6 d-flex align-items-center" style="min-height: 500px; background-image: url(../../../assets/img/fondoperfil.jpg); background-size: cover; background-position: center top;">
@@ -90,8 +69,8 @@ if (isset($_SESSION["emailUsuario"]) or isset($_SESSION["documentoIdentidad"])) 
               <div class="container-fluid d-flex align-items-center">
                 <div class="row">
                   <div class="col-lg-7 col-md-10">
-                    <h1 class="display-2 text-white">Hola! <?php echo $resultado2->nombresUsuario ?></h1>
-                    <p class="text-white mt-0 mb-5">Esta es tu página de perfil. Podrás visualizar tu infiormación y actualizarla en cualquier momento.</p>
+                    <h1 class="display-2 text-white">Hola!, Bienvenido a la sección perfil empresa</h1>
+                    <p class="text-white mt-0 mb-5">Aquí podrás editar la información de la empresa <?php echo $resultado2->nombreEmpresa; ?></p>
                   </div>
                 </div>
               </div>
@@ -106,7 +85,7 @@ if (isset($_SESSION["emailUsuario"]) or isset($_SESSION["documentoIdentidad"])) 
                       <div class="col-lg-3 order-lg-2">
                         <div class="card-profile-image">
                           <a data-toggle="modal" data-target="#fotoperfil">
-                            <img src="<?php echo $prueba->imagenUsuario; ?>" class="rounded-circle">
+                            <img src="crud/<?php echo $resultado2->imagenEmpresa; ?>" class="rounded-circle">
                           </a>
                         </div>
                       </div>
@@ -117,30 +96,12 @@ if (isset($_SESSION["emailUsuario"]) or isset($_SESSION["documentoIdentidad"])) 
                       </div>
                     </div>
                     <div class="card-body pt-0">
-                      <div class="row">
-                        <div class="col">
-                          <div class="card-profile-stats d-flex justify-content-center">
-                            <div>
-                              <span class="heading"><?php echo $resultadoSesionPubli; ?></span>
-                              <span class="description">Publicaciones</span>
-                            </div>
-                            <div>
-                              <span class="heading">0</span>
-                              <span class="description">Fotos</span>
-                            </div>
-                            <div>
-                              <span class="heading">89</span>
-                              <span class="description">Comentarios</span>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
                       <div class="text-center">
                         <h5 class="h3">
-                          <?php echo $Nombre; ?><span class="font-weight-light">, 27</span>
+                          <?php echo $resultado2->nombreEmpresa; ?><span class="font-weight-light">, 27</span>
                         </h5>
                         <div class="h5 font-weight-300">
-                          <i class="ni location_pin mr-2"></i>Oriente de Antioquia
+                          <i class="ni location_pin mr-2"></i><?php echo $resultado2->nombreCiudad; ?> Antioquia
                         </div>
                       </div>
                     </div>
@@ -151,67 +112,59 @@ if (isset($_SESSION["emailUsuario"]) or isset($_SESSION["documentoIdentidad"])) 
                   <div class="modal-dialog" role="document">
                     <div class="modal-content">
                       <div class="modal-body">
-                        <img class=" card-img-top" src="<?php echo $prueba->imagenUsuario; ?>">
+                        <img class=" card-img-top" src="crud/<?php echo $resultado2->imagenEmpresa; ?>">
                       </div>
                     </div>
                   </div>
                 </div>
                 <!--/Modal -->
+
                 <div class="col-xl-8 order-xl-1">
                   <div class="card">
                     <div class="card-header">
                       <div class="row align-items-center">
                         <div class="col-8">
-                          <h3 class="mb-0">Editar perfil </h3>
+                          <h3 class="mb-0">Editar empresa </h3>
                         </div>
                       </div>
                     </div>
                     <div class="card-body">
                       <form action="crud/actualizarCuenta.php" method="GET">
-                        <h6 class="heading-small text-muted mb-4">Información de usuario</h6>
+                        <h6 class="heading-small text-muted mb-4">Información de la empresa</h6>
                         <div class="pl-lg-4">
                           <div class="row">
                             <div class="col-lg-6">
                               <div class="form-group">
                                 <label class="form-control-label" for="input-username">Nombre</label>
-                                <input type="text" id="input-username" name="nombre" class="form-control" placeholder="Username" value="<?php echo $resultado2->nombresUsuario; ?>">
+                                <input type="text" id="input-username" name="nombre" class="form-control" placeholder="Username" value="<?php echo $resultado2->nombreEmpresa; ?>">
                               </div>
                             </div>
                             <div class="col-lg-6">
                               <div class="form-group">
-                                <label class="form-control-label" for="input-username">Apellido</label>
-                                <input type="text" id="input-username" name="apellido" class="form-control" placeholder="Username" value="<?php echo $resultado2->apellidoUsuario; ?>">
+                                <label class="form-control-label" for="input-username">Descripción</label>
+                                <input type="text" id="input-username" name="apellido" class="form-control" placeholder="Username" value="<?php echo $resultado2->descripcionEmpresa; ?>">
                               </div>
                             </div>
                             <div class="col-lg-6">
                               <div class="form-group">
-                                <label class="form-control-label" for="input-username">Celular</label>
-                                <input type="text" id="input-username" name="celular" class="form-control" placeholder="Celular" max="9999999999" value="<?php echo $resultado2->telefonomovilUsuario; ?>">
+                                <label class="form-control-label" for="input-username">Correo</label>
+                                <input type="text" id="input-username" name="celular" class="form-control" placeholder="Celular" value="<?php echo $resultado2->correoEmpresa; ?>">
                               </div>
                             </div>
                             <div class="col-lg-6">
                               <div class="form-group">
-                                <label class="form-control-label" for="input-username">Ciudad</label>
-                                <select name="ciudad" class="form-control" required>
-                                  <option value="<?php //echo $resultadoCiudad->idCiudad; 
-                                                  ?>" selected><?php // echo $resultadoCiudad->nombreCiudad; 
-                                                                ?>Seleccione ciudad</option>
-                                  <?php
-                                  foreach ($resultado_ciudad as $datos_ciudad) { ?>
-                                    <option value="<?php echo $datos_ciudad['idCiudad'] ?>"><?php echo $datos_ciudad['nombreCiudad'] ?></option>
-                                  <?php } ?>
-                                </select>
+                                <label class="form-control-label" for="input-username">Dirección</label>
+                                <input type="text" id="input-username" name="celular" class="form-control" placeholder="Celular" value="<?php echo $resultado2->direccionEmpresa; ?>">
                               </div>
                             </div>
-                            <p>Ten en cuenta que si modificas el correo deberás iniciar sesión nuevamente</p>
                             <div class="col-lg-6">
                               <div class="form-group">
-                                <label class="form-control-label" for="input-email">Correo</label>
-                                <input type="email" id="input-email" name="correo" class="form-control" value="<?php echo $resultado2->emailUsuario; ?>">
+                                <label class="form-control-label" for="input-email">Teléfono</label>
+                                <input type="number" id="input-email" name="correo" class="form-control" value="<?php echo $resultado2->telefonoEmpresa; ?>">
                               </div>
                             </div>
                             <div class="form-group">
-                              <input type="hidden" name="ideditar" value="<?php echo $resultado2->documentoIdentidad; ?>">
+                              <input type="hidden" name="ideditar" value="<?php echo $resultado2->nitEmpresa; ?>">
                             </div>
                           </div>
                           <button class="btn btn-primary btn-xs" type="submit" name="subir">Editar</button>
@@ -222,18 +175,10 @@ if (isset($_SESSION["emailUsuario"]) or isset($_SESSION["documentoIdentidad"])) 
                 </div>
               <?php } ?>
               </div>
-              <!-- Footer -->
-              <?php require_once '../assets/footer.php' ?>
             </div>
-            <!-- Argon Scripts -->
-            <!-- Core -->
-            <script src="../assets/vendor/jquery/dist/jquery.min.js"></script>
-            <script src="../assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-            <script src="../assets/vendor/js-cookie/js.cookie.js"></script>
-            <script src="../assets/vendor/jquery.scrollbar/jquery.scrollbar.min.js"></script>
-            <script src="../assets/vendor/jquery-scroll-lock/dist/jquery-scrollLock.min.js"></script>
-            <!-- Argon JS -->
-            <script src="../assets/js/argon.js?v=1.2.0"></script>
+            <!-- Footer -->
+            <?php require_once '../assets/footer.php' ?>
+
         </body>
 
         </html>

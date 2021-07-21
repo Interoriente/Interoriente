@@ -68,7 +68,7 @@
                   </a>
                   <a href="../principal/configfotoperfil.php" class="dropdown-item">
                     <i class="ni ni-settings-gear-65"></i>
-                    <span>Cambiar foto</span>
+                    <span>Cambiar foto perfil</span>
                   </a>
                   <a href="#!" class="dropdown-item">
                     <i class="ni ni-calendar-grid-58"></i>
