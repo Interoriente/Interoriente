@@ -97,7 +97,6 @@ if (isset($_SESSION["emailUsuario"]) or isset($_SESSION["documentoIdentidad"])) 
               </div>
             </div>
             <!-- Page content -->
-            <div class="container-fluid mt--6">
               <div class="row">
                 <div class="col-xl-4 order-xl-2">
                   <div class="card card-profile">
@@ -224,7 +223,7 @@ if (isset($_SESSION["emailUsuario"]) or isset($_SESSION["documentoIdentidad"])) 
               </div>
               <!-- Footer -->
               <?php require_once '../assets/footer.php' ?>
-            </div>
+      
             <!-- Argon Scripts -->
             <!-- Core -->
             <script src="../assets/vendor/jquery/dist/jquery.min.js"></script>
