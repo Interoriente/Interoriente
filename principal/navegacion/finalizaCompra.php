@@ -7,13 +7,13 @@
     <title>Document</title>
 </head>
 <body>
-<?php include '../includes/navegacion.php';?>
+<?php include '../includes/navSuperior.php';?>
 
 <h1>Test!asdf!</h1>
 
 
 
-<?php include '../includes/navegacionDos.php';?>
+<?php include '../includes/navSuperiorDos.php';?>
 
 <body>
 </html>

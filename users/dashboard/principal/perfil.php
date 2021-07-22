@@ -105,7 +105,7 @@ if (isset($_SESSION["emailUsuario"]) or isset($_SESSION["documentoIdentidad"])) 
                         </div>
                       </div>
                     </div>
-                    <div class="card-header text-center border-0 pt-8 pt-md-4 pb-0 pb-md-4">
+                    <div class="card-header text-center border-0 pt-8 pt-md-8 pb-5 pb-md-0">
                       <div class="d-flex justify-content-between">
                         <a href="configfotoperfil.php" class="btn btn-sm btn-info  mr-4 ">Cambiar foto</a>
                       </div>

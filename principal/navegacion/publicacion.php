@@ -17,7 +17,7 @@
 
 <body>
   <!-- Sidebar y Navbar -->
-  <?php include "../includes/navegacionCom.php"; ?>
+  <?php include "../includes/navSuperior.php"; ?>
 
   <!-- Sección imágene(s) título, precio, cantidad, color y botones  "Comprar ahora" y "Añadir al carrito" -->
 
@@ -29,7 +29,7 @@
       <img id=img-principal src="../../assets/img/stock/8.jpg">
 
       <div id="slide-wrapper">
-        <img id="slideLeft" class="flecha" src="../../assets/img/navegacion/flechaIz.png">
+        <img id="slideLeft" class="flecha" src="../../assets/img/navSuperior/flechaIz.png">
 
         <div id="slider">
           <img class="thumbnail active" src="../../assets/img/stock/1.jpg">
@@ -42,7 +42,7 @@
           <img class="thumbnail" src="../../assets/img/stock/7.jpg">
         </div>
 
-        <img id="slideRight" class="flecha" src="../../assets/img/navegacion/flechaDer.png">
+        <img id="slideRight" class="flecha" src="../../assets/img/navSuperior/flechaDer.png">
       </div>
     </div>
 
@@ -74,8 +74,18 @@
   <script src="../../assets/js/publicacion.js"></script>
 
 
-  <!-- Sección "Descripción" -->
-  <?php include "../includes/navegacionComdos.php"; ?>
+  <!-- Sección "Descripción" Publicación-->
+
+  <!-- Fin descripción -->
+
+
+
+  <!-- Comentarios Publicación -->
+
+
+
+  <!-- Footer -->
+  <?php include "../includes/navInferior.php"; ?>
 
  
 </body>

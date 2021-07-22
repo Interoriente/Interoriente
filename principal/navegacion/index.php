@@ -19,17 +19,7 @@
 <body>
     <!-- Sidebar -->
     <?php
-    if (isset($_SESSION['documentoIdentidad'])) {
-        if ($_SESSION['roles'] == '1') {
-            include '../includes/navegacionCom.php';
-        } else if ($_SESSION['roles'] == '2') {
-            include '../includes/navegacionEmpre.php';
-        } else {
-            include '../includes/navegacionAdmin.php';
-        }
-    } else {
-        include '../includes/navegacionInvi.php';
-    }
+    include '../includes/navSuperior.php';
     ?>
     <!-- ----- -->
 
@@ -249,22 +239,12 @@
     <br>
 
     <!-- Sidebar -->
-    <?php include '../includes/navegacionDos.php'; ?>
+    <?php include '../includes/navInferior.php'; ?>
     <!-- ------- -->
 
     <!-- Barra de navegación para dispositivos móviles -->
     <?php
-    if (isset($_SESSION['documentoIdentidad'])) {
-        if ($_SESSION['roles'] == '1') {
-            include '../includes/navegacionComdos.php';
-        } else if ($_SESSION['roles'] == '2') {
-            include '../includes/navegacionEmpredos.php';
-        } else {
-            include '../includes/navegacionAdmindos.php';
-        }
-    } else {
-        include '../includes/navegacionInvidos.php';
-    }
+        include '../includes/navMovil.php';
     ?>
 
     <!-- Js -->
