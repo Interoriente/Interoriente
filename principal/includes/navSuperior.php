@@ -44,15 +44,15 @@
 
       <?php if ($_SESSION['roles'] == "3") { ?>
         <!-- ROl admin -->
+        <a href="#">Mis ofertas</a>
+        <a href="#">Mis catálogos</a>
+        <a href="#">Ayuda</a>
         <a href="../../users/dashboard/principal/dashboard.php">Volver al panel</a>
+        <a href="../../controller/cerrar_sesion.php">Cerrar sesión</a>
       <?php } else if ($_SESSION['roles'] == "2") { ?>
         <!-- ROl admininistrador Empresa-->
-        <a href="#">Administrador</a>
-
-        <a href="#">Ofertas</a>
-        <a href="#">Catálogos</a>
-        <a href="#">Mi carrito</a>
-        <a href="#">Mis compras</a>
+        <a href="#">Mis ofertas</a>
+        <a href="#">Mis catálogos</a>
         <a href="#">Ayuda</a>
         <a href="../../users/dashboard/principal/dashboard.php">Volver al panel</a>
         <a href="../../controller/cerrar_sesion.php">Cerrar sesión</a>
@@ -60,7 +60,7 @@
       <?php } else { ?>
         <!-- ROl comprador/Proveedor -->
 
-        <a href="#">COMPRADOR/PROVEEDOR</a>
+        <a href="#">Ofertas</a>
         <a href="#">Catálogos</a>
         <a href="#">Mi carrito</a>
         <a href="#">Mis compras</a>
@@ -72,6 +72,10 @@
 
     <?php } else { ?>
       <!-- Poner imagen-->
+      <a href="#">Ofertas</a>
+      <a href="../navegacion/productos.php">Catálogos</a>
+      <a href="#">Ayuda</a>
+      <a href="iniciarsesion.php">Iniciar sesión</a>
     <?php } ?>
 
   </div>
@@ -82,10 +86,3 @@
     <div class="contenido">
       <!--  Contenido Principal del la página -->
     </div>
-    <div id="main" class="main-container">
-      <div id="boton" class="boton">
-        <a href="#" id="menuLateral"><span onclick="openNav()">Menú</span></a>
-      </div>
-      <div class="contenido">
-        <!--  Contenido Principal del la página -->
-      

@@ -54,14 +54,9 @@ if (isset($_SESSION["emailUsuario"]) or isset($_SESSION["documentoIdentidad"])) 
                     </head>
 
                     <body>
-                        <?php if ($_SESSION['roles'] == '1') {
-                            require_once '../assets/sidebarCom.php';
-                        } else if ($_SESSION['roles'] == '2') {
-                            require_once '../assets/sidebarEmpre.php';
-                        } else {
-                            require_once '../assets/sidebarAdmin.php';
-                        } ?>
-                        <?php require_once '../assets/header.php';
+                        <?php
+                        require_once '../assets/sidebarDashboard.php';
+                        require_once '../assets/header.php';
 
                         //Sirve para mostrar el contenido de la tabla Ciudad, para mostrarlo en la lista desplegable
                         include_once '../../../dao/conexion.php';

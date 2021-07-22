@@ -20,7 +20,7 @@ $queryCarrito = $consultaCarrito->idPublicacion;
 if ($_GET) {
     if (session_status() == PHP_SESSION_NONE) { //Verifica que la existencia de la sesión
         //En caso de que no exista
-        header("Location: ../navSuperior/registro.php");
+        header("Location: ../navegacion/registro.php");
     } else {
         $id = $_GET['agregar'] ?? '';
         $cantidad = $_GET['cantidad'] ?? 1;

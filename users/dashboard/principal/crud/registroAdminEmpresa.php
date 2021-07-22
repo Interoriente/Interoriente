@@ -68,7 +68,7 @@
         }
     } else {
         echo "<script>alert('Error: el archivo no es una imagen');</script>";
-        echo "<script> document.location.href='../../principal/navSuperior/registroEmpresa.php';</script>";
+        echo "<script> document.location.href='../../principal/navegacion/registroEmpresa.php';</script>";
     }
     ?>
 </body>
