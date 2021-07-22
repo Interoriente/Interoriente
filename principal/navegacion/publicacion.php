@@ -76,9 +76,39 @@
 
   <!-- Sección "Descripción" Publicación-->
 
-  <!-- Fin descripción -->
+  <section class="descripcionPublicacion">
+    <!-- TODO: Agregar condicional para mostrar "producto" o "servicio" segun tipo de publicación -->
+    <h1>Detalles del producto/servicio</h1>
+    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ut architecto, voluptatibus repudiandae optio doloribus et voluptates recusandae nostrum beatae placeat quas aperiam neque distinctio expedita quidem sapiente corrupti hic quis. Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque eum harum blanditiis nemo natus officiis tempore aliquam maxime incidunt dolore, ullam numquam similique delectus explicabo qui odit in assumenda laboriosam.</p>
+    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ut architecto, voluptatibus repudiandae optio doloribus et voluptates recusandae nostrum beatae placeat quas aperiam neque distinctio expedita quidem sapiente corrupti hic quis. Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque eum harum blanditiis nemo natus officiis tempore aliquam maxime incidunt dolore, ullam numquam similique delectus explicabo qui odit in assumenda laboriosam.</p>
+  </section>
+
+  <!-- Sección Datos Proveedor -->
+
+  <section class="info-proveedor">
+    <div class="descripcion-proveedor">
+      <h2>Coordinadora recoge y entrega contra reloj.</h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda soluta nemo placeat sunt nobis odio dolorem fuga asperiores expedita quos earum error omnis, voluptas vitae velit repellat veritatis at ipsa?</p>
+
+    </div>
+    <div class="informacion-complementaria">
+
+    </div>
+    <div class="perfil-proveedor">
+      <div class="tarjeta-perfil">
+        <img src="../../assets/img/10.jpg" alt="Imagen de perfil del proveedor">
+
+        <a href="">
+          Interoriente SAS
+        </a>
 
 
+
+      </div>
+
+    </div>
+
+  </section>
 
   <!-- Comentarios Publicación -->
 
@@ -87,7 +117,7 @@
   <!-- Footer -->
   <?php include "../includes/navInferior.php"; ?>
 
- 
+
 </body>
 
 </html>
