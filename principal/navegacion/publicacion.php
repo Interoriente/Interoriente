@@ -29,7 +29,7 @@
       <img id=img-principal src="../../assets/img/stock/8.jpg">
 
       <div id="slide-wrapper">
-        <img id="slideLeft" class="flecha" src="../../assets/img/navSuperior/flechaIz.png">
+        <img id="slideLeft" class="flecha" src="../../assets/img/navegacion/flechaIz.png">
 
         <div id="slider">
           <img class="thumbnail active" src="../../assets/img/stock/1.jpg">
@@ -42,7 +42,7 @@
           <img class="thumbnail" src="../../assets/img/stock/7.jpg">
         </div>
 
-        <img id="slideRight" class="flecha" src="../../assets/img/navSuperior/flechaDer.png">
+        <img id="slideRight" class="flecha" src="../../assets/img/navegacion/flechaDer.png">
       </div>
     </div>
 
