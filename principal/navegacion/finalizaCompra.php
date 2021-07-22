@@ -14,7 +14,7 @@
 
 
 
-<?php include '../includes/navSuperiorDos.php';?>
+<?php include '../includes/navInferior.php';?>
 
 <body>
 </html>

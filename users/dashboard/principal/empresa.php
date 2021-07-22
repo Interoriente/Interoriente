@@ -20,13 +20,8 @@
 </head>
 
 <body>
-    <?php if ($_SESSION['roles'] == '1') {
-        require_once '../assets/sidebarCom.php';
-    } else if ($_SESSION['roles'] == '2') {
-        require_once '../assets/sidebarEmpre.php';
-    } else {
-        require_once '../assets/sidebarAdmin.php';
-    }
+    <?php
+    require_once '../assets/sidebarDashboard.php';
     require_once '../assets/header.php'; ?>
     <!-- Footer -->
     <?php require_once '../assets/footer.php' ?>

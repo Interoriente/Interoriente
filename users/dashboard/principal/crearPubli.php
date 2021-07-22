@@ -42,16 +42,10 @@ if (isset($_SESSION["emailUsuario"]) or isset($_SESSION["documentoIdentidad"])) 
         </head>
 
         <body>
-          <?php if ($_SESSION['roles'] == '1') {
-            require_once '../assets/sidebarCom.php';
-          } else if ($_SESSION['roles'] == '2') {
-            require_once '../assets/sidebarEmpre.php';
-          } else {
-            require_once '../assets/sidebarAdmin.php';
-          } ?>
-          <?php require_once '../assets/header.php';
-
-
+          <?php
+          require_once '../assets/sidebarDashboard.php';
+          require_once '../assets/header.php';
+          
           include_once '../../../dao/conexion.php';
           //Llamar a la conexion base de datos -> Muestro el contenido de tabla publicación, pero muestro mis publicaciones
           $id = $_SESSION["documentoIdentidad"];
@@ -297,7 +291,7 @@ if (isset($_SESSION["emailUsuario"]) or isset($_SESSION["documentoIdentidad"])) 
                       <td><?php echo $datos_publi['costoPublicacion'] ?></td>
                       <td><?php echo $datos_publi['stockPublicacion'] ?></td>
                       <td><a href="crearPubli.php?id=<?php echo $datos_publi['idPublicacion']; ?>"><i class="icono2 fas fa-pencil-alt"></i></a></td>
-                      <td><a data-toggle="modal" data-target="#eliminarPubliModal<?php echo $datos_publi['idPublicacion'] ?>" ><i class="icono1 fas fa-trash"></i></a></td>
+                      <td><a data-toggle="modal" data-target="#eliminarPubliModal<?php echo $datos_publi['idPublicacion'] ?>"><i class="icono1 fas fa-trash"></i></a></td>
 
                       <!--Modal Eliminar publicación -->
                       <div class="modal fade" id="eliminarPubliModal<?php echo $datos_publi['idPublicacion'] ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">

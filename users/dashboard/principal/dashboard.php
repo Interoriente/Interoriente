@@ -68,15 +68,9 @@ if (isset($_SESSION["emailUsuario"]) or isset($_SESSION["documentoIdentidad"])) 
               $_SESSION['roles'] = 3;
             }
           }
-          if ($_SESSION['roles'] == '1') {
-            require_once '../assets/sidebarCom.php';
-          } else if ($_SESSION['roles'] == '2') {
-            require_once '../assets/sidebarEmpre.php';
-          } else {
-            require_once '../assets/sidebarAdmin.php';
-          }
-
-          require_once '../assets/header.php' ?>
+          require_once '../assets/sidebarDashboard.php';
+          require_once '../assets/header.php';
+          ?>
           <!-- Header -->
           <div class="header bg-primary pb-6">
             <div class="container-fluid">
