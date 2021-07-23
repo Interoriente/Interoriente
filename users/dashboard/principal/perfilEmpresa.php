@@ -45,13 +45,22 @@ if (isset($_SESSION["emailUsuario"]) or isset($_SESSION["documentoIdentidad"])) 
           <?php
           require_once '../assets/sidebarDashboard.php';
           require_once '../assets/header.php';
-          
+
           //Mostrar la información del usuario logueado
           $sqlEmpresa = "SELECT * FROM tblEmpresa INNER JOIN tblCiudad ON tblEmpresa.ciudadEmpresa = tblCiudad.idCiudad WHERE documentoRepresentanteEmpresa =? ";
           $consultaEmpresa = $pdo->prepare($sqlEmpresa);
           $consultaEmpresa->execute(array($documento));
           $resultado = $consultaEmpresa->rowCount();
           $resultado2 = $consultaEmpresa->fetch(PDO::FETCH_OBJ);
+
+          //Sirve para mostrar el contenido de la tabla Ciudad, para mostrarlo en la lista desplegable
+          //Mostrar los datos almacenados
+          $sql_mostrar_ciudad = "SELECT * FROM tblCiudad";
+          //Prepara sentencia
+          $consultar_mostrar_ciudad = $pdo->prepare($sql_mostrar_ciudad);
+          //Ejecutar consulta
+          $consultar_mostrar_ciudad->execute();
+          $resultado_ciudad = $consultar_mostrar_ciudad->fetchAll();
 
           //Validacion de roles
           if ($resultado) {
@@ -124,38 +133,48 @@ if (isset($_SESSION["emailUsuario"]) or isset($_SESSION["documentoIdentidad"])) 
                       </div>
                     </div>
                     <div class="card-body">
-                      <form action="crud/actualizarCuenta.php" method="GET">
+                      <form action="crud/actualizarEmpresa.php" method="GET">
                         <h6 class="heading-small text-muted mb-4">Información de la empresa</h6>
                         <div class="pl-lg-4">
                           <div class="row">
                             <div class="col-lg-6">
                               <div class="form-group">
                                 <label class="form-control-label" for="input-username">Nombre</label>
-                                <input type="text" id="input-username" name="nombre" class="form-control" placeholder="Username" value="<?php echo $resultado2->nombreEmpresa; ?>">
+                                <input type="text" id="input-username" name="nombre" class="form-control" value="<?php echo $resultado2->nombreEmpresa; ?>" required>
                               </div>
                             </div>
                             <div class="col-lg-6">
                               <div class="form-group">
                                 <label class="form-control-label" for="input-username">Descripción</label>
-                                <input type="text" id="input-username" name="apellido" class="form-control" placeholder="Username" value="<?php echo $resultado2->descripcionEmpresa; ?>">
+                                <input type="text" id="input-username" name="descripcion" class="form-control" value="<?php echo $resultado2->descripcionEmpresa; ?>" required>
                               </div>
                             </div>
                             <div class="col-lg-6">
                               <div class="form-group">
                                 <label class="form-control-label" for="input-username">Correo</label>
-                                <input type="text" id="input-username" name="celular" class="form-control" placeholder="Celular" value="<?php echo $resultado2->correoEmpresa; ?>">
+                                <input type="email" id="input-username" name="correo" class="form-control" value="<?php echo $resultado2->correoEmpresa; ?>" required>
                               </div>
                             </div>
                             <div class="col-lg-6">
                               <div class="form-group">
                                 <label class="form-control-label" for="input-username">Dirección</label>
-                                <input type="text" id="input-username" name="celular" class="form-control" placeholder="Celular" value="<?php echo $resultado2->direccionEmpresa; ?>">
+                                <input type="text" id="input-username" name="direccion" class="form-control" value="<?php echo $resultado2->direccionEmpresa; ?>" required>
                               </div>
                             </div>
                             <div class="col-lg-6">
                               <div class="form-group">
                                 <label class="form-control-label" for="input-email">Teléfono</label>
-                                <input type="number" id="input-email" name="correo" class="form-control" value="<?php echo $resultado2->telefonoEmpresa; ?>">
+                                <input type="number" id="input-email" name="telefono" class="form-control" value="<?php echo $resultado2->telefonoEmpresa; ?>" required>
+                              </div>
+                            </div>
+                            <div class="col-lg-6">
+                              <div class="form-group">
+                                <label class="form-control-label" for="input-username">Ciudad</label>
+                                <select name="ciudad" class="form-control" required>
+                                  <option value="<?php echo $resultado2->idCiudad;
+                                                  ?>" selected><?php echo $ciudad=$resultado2->nombreCiudad;
+                                                                        ?></option>
+                                </select>
                               </div>
                             </div>
                             <div class="form-group">

@@ -109,30 +109,37 @@ if (isset($_SESSION["emailUsuario"]) or isset($_SESSION["documentoIdentidad"])) 
                                 </div>
                             </div>
                         </div>
-                        <?php if ($_POST) {
-                            //Llamando a los campos
+                        <?php 
+                            /* //Llamando a los campos
                             $nombre = $_POST['nombre'];
                             $correo = $_POST['correo'];
                             $telefono = $_POST['telefono'];
                             $mensaje = $_POST['mensaje'];
                             $tipo = $_POST['tipo'];
+                            $micorreo = "From: sgomez9002@misena.edu.co"; */
 
                             //Datos para el correo
-                            $destinatario = "sgomez9002@misena.edu.co";
+                            $destinatario = "rubenduque276@gmail.com";
                             $asunto = "Probando soporte";
 
-                            $carta = "De: $nombre\n";
+                            /* $carta = "De: $nombre\n";
                             $carta .= "Correo: $correo \n";
                             $carta .= "Telefono: $telefono \n";
-                            $carta .= "Tipo de mensaje: $tipo";
-                            $carta .= "Mensaje: $mensaje";
+                            $carta .= "Tipo de mensaje: $tipo \n";
+                            $carta .= "Mensaje: $mensaje"; */
+
+                            $mensaje ="Hola mundo";
+                            $micorreo = "From: sgomez9002@misena.edu.co";
 
                             //Enviando mensaje
-                            mail($destinatario, $asunto, $carta);
+                            if (mail($destinatario, $asunto, $mensaje, $micorreo)) {
 
-                            echo "<script>alert('Correo enviado correctamente');</script>";
-            echo "<script> document.location.href='dashboard.php';</script>";
-                        } ?>
+                                echo "<script>alert('Correo enviado correctamente');</script>";
+                            } else {
+                                echo "<script>alert('Error!');</script>";
+                            }
+                            echo "<script> document.location.href='dashboard.php';</script>";
+                        ?>
                         <!-- Footer -->
                         <?php require_once '../assets/footer.php' ?>
                     </div>
