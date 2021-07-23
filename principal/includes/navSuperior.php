@@ -12,7 +12,7 @@
 <body>
   <div class="contenedor">
     <div class="logoT">
-      <img src="../../assets/img/LogoTerciario.svg" alt="" />
+      <a href="index.php"> <img src="../../assets/img/LogoTerciario.svg" alt="Logo interoriente" /></a>
     </div>
     <div class="cont-elementos">
       <a href="">
@@ -35,10 +35,10 @@
 
   <div id="mySidenav" class="sidenav">
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-    <div class="perfil">
-      <!--       <img src="../../assets/img/perfil.svg" alt="">
- -->
-    </div>
+    <!--   <div class="perfil">
+            <img src="../../assets/img/perfil.svg" alt="">
+
+    </div> -->
 
     <?php if (isset($_SESSION['roles']) == "3" or isset($_SESSION['roles']) == "2"  or isset($_SESSION['roles']) == "1") { ?>
 
@@ -72,6 +72,13 @@
 
     <?php } else { ?>
       <!-- Poner imagen-->
+      <a href="">
+        <img id="cta-login-img" src="../../assets/img/navegacion/login_2.svg" alt="Ingreso Interoriente">
+        <p id="cta-p">¡Regístrate o Inicia sesión para comenzar!</p>
+     
+        
+      </a>
+  
       <a href="#">Ofertas</a>
       <a href="../navegacion/productos.php">Catálogos</a>
       <a href="#">Ayuda</a>

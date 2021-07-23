@@ -106,7 +106,14 @@ a {
   padding-top: 60px; /* Place content 60px from the top */
   transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
 }
+#cta-login-img {
+  width: 12rem;
+  margin-left: -1.5em;
+}
 
+#cta-p{
+  text-align: center;
+}
 /* Links de navegación */
 
 .sidenav {
@@ -190,7 +197,6 @@ a {
   position: fixed;
   bottom: 0;
   width: 100%;
-  
 }
 
 .navbar a {
@@ -202,7 +208,6 @@ a {
   text-decoration: none;
   font-size: 17px;
   font-family: "Poppins", sans-serif;
-  
 }
 
 .navbar a:hover {
