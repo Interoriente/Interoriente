@@ -106,14 +106,21 @@ a {
   padding-top: 60px; /* Place content 60px from the top */
   transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
 }
+/* Imagen e Info cta */
 #cta-login-img {
   width: 12rem;
   margin-left: -1.5em;
+ padding-bottom: .1em;
 }
 
 #cta-p{
   text-align: center;
 }
+#log-info-a{
+  box-shadow: none;
+}
+
+
 /* Links de navegación */
 
 .sidenav {
@@ -132,7 +139,7 @@ a {
 }
 
 .sidenav a:hover {
-  color: #f1f1f1;
+    box-shadow: 10px 10px 10px 10px rgba(0, 0, 0, 0.1);
 }
 /* Posición y estilos botón de cerrar (x) */
 
@@ -143,6 +150,11 @@ a {
   font-size: 36px;
   margin-left: 50px;
 }
+#btn-close{
+  box-shadow: none;
+  padding: .1px;
+}
+
 
 /* Media query para cambiar tamaño en pantallas pequeñas, donde la altura sea menor a 450px, cambio de estilo (menos padding y fuente más pequeña) */
 @media screen and (max-height: 450px) {

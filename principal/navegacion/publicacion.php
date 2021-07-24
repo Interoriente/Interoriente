@@ -18,7 +18,7 @@
 <body>
   <!-- Sidebar y Navbar -->
   <?php include "../includes/navSuperior.php"; ?>
-
+<!-- Idea: Cambio imagen en hover -->
   <!-- Sección imágene(s) título, precio, cantidad, color y botones  "Comprar ahora" y "Añadir al carrito" -->
 
   <!-- TODO: Sección "Cantidad" -> Estilos -->
@@ -57,7 +57,7 @@
       <div class="seccion-cta">
         <div class="cantidad">
           <p>Cantidad</p>
-          <input value=1 type="number">
+          <input value="1" min = "1" type="number" >
         </div>
         <div class="cta">
           <a class="btn btn-accion" href="#">Comprar Ahora</a>

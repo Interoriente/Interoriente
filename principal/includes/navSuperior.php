@@ -34,7 +34,7 @@
 
   <!-- Sidebar -->
   <div id="mySidenav" class="sidenav">
-    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="javascript:void(0)" id="btn-close" class="closebtn" onclick="closeNav()">&times;</a>
     <!--   <div class="perfil">
             <img src="../../assets/img/perfil.svg" alt="">
 
@@ -72,11 +72,9 @@
 
     <?php } else { ?>
       <!-- Poner imagen-->
-      <a href="">
+      <a href="" id="log-info-a">
         <img id="cta-login-img" src="../../assets/img/navegacion/login_2.svg" alt="Ingreso Interoriente">
         <p id="cta-p">¡Regístrate o Inicia sesión para comenzar!</p>
-
-
       </a>
 
       <a href="#">Ofertas</a>
