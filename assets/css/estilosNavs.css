@@ -159,7 +159,7 @@ a {
   margin-top: 3em;
   position: fixed; /* Position them relative to the browser window */
   left: -70px; /* Position them outside of the screen */
-  transition: 0.3s; /* Add transition on hover */
+  transition: 0.1s; /* Add transition on hover */
   padding: 15px; /* 15px padding */
   width: 100px; /* Set a specific width */
   text-decoration: none; /* Remove underline */

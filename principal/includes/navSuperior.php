@@ -31,8 +31,8 @@
       </a>
     </div>
   </div>
-  <!-- Sidebar -->
 
+  <!-- Sidebar -->
   <div id="mySidenav" class="sidenav">
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
     <!--   <div class="perfil">
@@ -75,10 +75,10 @@
       <a href="">
         <img id="cta-login-img" src="../../assets/img/navegacion/login_2.svg" alt="Ingreso Interoriente">
         <p id="cta-p">¡Regístrate o Inicia sesión para comenzar!</p>
-     
-        
+
+
       </a>
-  
+
       <a href="#">Ofertas</a>
       <a href="../navegacion/productos.php">Catálogos</a>
       <a href="#">Ayuda</a>
@@ -88,7 +88,7 @@
   </div>
   <div id="main" class="main-container">
     <div id="boton" class="boton">
-      <a href="#" id="menuLateral"><span onclick="openNav()">Menú</span></a>
+      <span onclick="openNav()"> <a href="javascript:void(0)" id="menuLateral">Menú</a></span>
     </div>
     <div class="contenido">
       <!--  Contenido Principal del la página -->
