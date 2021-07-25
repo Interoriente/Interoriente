@@ -75,8 +75,8 @@
     <!-- TODO Implementar sistema de filtrado js -->
 
     <!-- Sección de los botons de filtrado -->
-    <h1 class="titulo-filtrado">Aquí podrás filtrar resultados </h1>
-    <section class="btns-filtrado">
+    <h1 class="titulo-filtrado ">Aquí podrás filtrar resultados </h1>
+    <section class="btns-filtrado ">
         <a href="">
             <div class="btn-productos btn-filtro">
                 Productos
@@ -244,7 +244,7 @@
 
     <!-- Barra de navegación para dispositivos móviles -->
     <?php
-        include '../includes/navMovil.php';
+    include '../includes/navMovil.php';
     ?>
 
     <!-- Js -->

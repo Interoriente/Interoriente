@@ -190,6 +190,7 @@ a {
 #menuLateral {
   top: 20px;
   background-color: var(--crl-cta-b); /* Color del botón */
+  z-index: 2;
 }
 
 .main-container .boton {
