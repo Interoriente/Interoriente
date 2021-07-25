@@ -18,12 +18,17 @@
 <body>
   <!-- Sidebar y Navbar -->
   <?php include "../includes/navSuperior.php"; ?>
-<!-- Idea: Cambio imagen en hover -->
+  <!-- Idea: Cambio imagen en hover -->
   <!-- Sección imágene(s) título, precio, cantidad, color y botones  "Comprar ahora" y "Añadir al carrito" -->
 
   <!-- TODO: Sección "Cantidad" -> Estilos -->
   <div id="contenedor-principal">
-
+    
+    <div class="descripcion-m">
+      <h2>Monitor Samsung Ips De 24 Full Hd Freesync Hdmi Lf24t400fh</h2>
+      <hr>
+      <h3>$1.400.200</h3>
+    </div>
 
     <div class="column carrusel">
       <img id=img-principal src="../../assets/img/stock/8.jpg">
@@ -47,17 +52,18 @@
     </div>
 
     <div class="column">
-      <h2>Monitor Samsung Ips De 24 Full Hd Freesync Hdmi Lf24t400fh</h2>
-      <hr>
-      <h3>$1.400.200</h3>
-
+      <div class="descripcion-d">
+        <h2>Monitor Samsung Ips De 24 Full Hd Freesync Hdmi Lf24t400fh</h2>
+        <hr>
+        <h3>$1.400.200</h3>
+      </div>
       <!-- Nota: Número máximo de caracteres: 245 - palabras: 43 - líneas: 2 -->
       <p class="descripcion">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
 
       <div class="seccion-cta">
         <div class="cantidad">
           <p>Cantidad</p>
-          <input value="1" min = "1" type="number" >
+          <!-- <input value="1" min="1" type="number"> -->
         </div>
         <div class="cta">
           <a class="btn btn-accion" href="#">Comprar Ahora</a>
@@ -78,7 +84,7 @@
 
   <section class="descripcionPublicacion">
     <!-- TODO: Agregar condicional para mostrar "producto" o "servicio" segun tipo de publicación -->
-    <h1>Detalles del producto/servicio</h1>
+    <h1>Detalles de la publicación</h1>
     <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ut architecto, voluptatibus repudiandae optio doloribus et voluptates recusandae nostrum beatae placeat quas aperiam neque distinctio expedita quidem sapiente corrupti hic quis. Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque eum harum blanditiis nemo natus officiis tempore aliquam maxime incidunt dolore, ullam numquam similique delectus explicabo qui odit in assumenda laboriosam.</p>
     <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ut architecto, voluptatibus repudiandae optio doloribus et voluptates recusandae nostrum beatae placeat quas aperiam neque distinctio expedita quidem sapiente corrupti hic quis. Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque eum harum blanditiis nemo natus officiis tempore aliquam maxime incidunt dolore, ullam numquam similique delectus explicabo qui odit in assumenda laboriosam.</p>
   </section>
