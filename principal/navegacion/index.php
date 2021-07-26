@@ -17,6 +17,13 @@
 </head>
 
 <body>
+    <?php require '../../dao/conexion.php';
+    $validacion = 1;
+    $sqlImagenPubli = "SELECT * FROM tblPublicacion INNER JOIN tblImagenes ON tblPublicacion.idPublicacion = tblImagenes.publicacionImagen WHERE validacionPublicacion=?";
+    $consultaImagenPubli = $pdo->prepare($sqlImagenPubli);
+    $consultaImagenPubli->execute(array($validacion));
+    $resultadoImagenPubli  = $consultaImagenPubli->fetchAll();
+    ?>
     <!-- Sidebar -->
     <?php
     include '../includes/navSuperior.php';
@@ -112,6 +119,7 @@
     <!-- NOTA: títulos de máximo 100 caracteres ó 14 palabras -->
     <section class="publicaciones">
 
+<<<<<<< HEAD
         <!-- Tarjeta Final -->
         <div class="tarjeta">
             <a href="publicacion.php">
@@ -233,6 +241,31 @@
         </div>
         </div>
 
+=======
+        <?php foreach ($resultadoImagenPubli as $datos) {
+        ?>
+            <!-- Tarjeta Final -->
+            <div class="tarjeta">
+                <a href="publicacion.php?id=<?php echo $datos['idPublicacion']; ?>">
+                    <div class="img-tarjeta">
+                        <img src="../../users/dashboard/principal/imagenes/<?php echo $datos['urlImagen'] ?>" alt="">
+                    </div>
+                    <div class="contenido-tarjeta">
+                        <h5> $<?php echo $datos['costoPublicacion'] ?></h5>
+                        <h3><?php echo $datos['nombrePublicacion'] ?></h3>
+                        <p><?php echo $datos['descripcionPublicacion'] ?>... <span>más</span></p>
+                </a>
+            </div>
+            <div class="cta-btns">
+                <img src="../../assets/img/iconos/compras.svg" alt="Bolsa de la compra">
+                <img src="../../assets/img/iconos/carrito_2.svg" alt="Bolsa de la compra">
+            </div>
+            </div>
+            <!-- ----  -->
+        <?php
+        }
+        ?>
+>>>>>>> b28a8e47855c049f11e7af525bc36ee62b114166
 
     </section>
     <br>
