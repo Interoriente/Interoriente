@@ -25,7 +25,7 @@ body {
   margin: 0;
 }
 .contenedor {
-  height: 4em;
+  height: 6em;
   display: flex;
   flex-wrap: wrap;
   align-items: center;

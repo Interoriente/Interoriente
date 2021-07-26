@@ -26,7 +26,7 @@
                 <div class="conte-botonIniRe">
                     <a href="#"><button class="borecuperar"><strong>Recuperar mi Contraseña</strong></button></a>
                     <p class="text-RecorCon"><strong>¿Recordaste tu Contraseña?</strong><br>
-                        <a class="boIniciaRecu" href="#"><strong> Inicia Sesión</strong></a></p>
+                        <a class="boIniciaRecu" href="iniciarsesion.php"><strong> Inicia Sesión</strong></a></p>
                 </div>
             </div>
 </body>
