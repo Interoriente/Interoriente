@@ -9,6 +9,7 @@
     <link rel="icon" href="../../assets/img/favicon.png" type="image/png" />
     <title>Cambiar Contraseña</title>
 </head>
+
 <body background="../../assets/img/fondocambiarcontrasena.jpg">
     <div class="padre">
         <div class="header">
@@ -21,17 +22,18 @@
                 <h1 class="tit-menu">CAMBIA TU CONTRASEÑA</h1>
                 <div class="caja-formulario">
                     <p class="etiqueta"><strong>¿Cual será tu nueva Contraseña?</strong></p>
-                    <input class="form-input" type="password" id="correo"required/>
+                    <input class="form-input" type="password" id="correo" required />
                     <p class="etiqueta"><strong>Repite tu Contraseña</strong></p>
-                    <input class="form-input" type="password" id="correo"required/>
+                    <input class="form-input" type="password" id="correo" required />
                 </div>
                 <div class="conte-botonIniRe">
                     <a href="#"><button class="borecuperar"><strong>¡Listo!</strong></button></a>
                     <p class="text-RecorCon"><strong>¿Recordaste tu Contraseña?</strong><br>
-                        <a class="boIniciaRecu" href="#"><strong> Inicia Sesión</strong></a></p>
+                        <a class="boIniciaRecu" href="iniciarsesion.php"><strong> Inicia Sesión</strong></a>
+                    </p>
                 </div>
                 <div class="contenedor-regresar">
-                    <a href="#"><button class="BotonRegresar">Regresar</button></a>            
+                    <a href="index.php"><button class="BotonRegresar">Regresar</button></a>
                 </div>
             </div>
 </body>

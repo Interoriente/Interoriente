@@ -10,33 +10,35 @@
     <link rel="icon" href="../../assets/img/favicon.png" type="image/png" />
     <title>Catálogo</title>
 </head>
+
 <body background="../../assets/img/fondocatalogo.jpg">
     <div class="padre">
-    <nav class="nav">
-                <div class="tit-nav-caja">
-                    <h1 class="tit-nav">INTER ORIENTE</h1>
-                </div>
-            </nav>
+        <nav class="nav">
+            <div class="tit-nav-caja">
+                <h1 class="tit-nav">INTER ORIENTE</h1>
+            </div>
+        </nav>
         <div class="header">
             <div class="contenedor-menu">
                 <div class="menuuno"><a href="#">
-                    <i class="fas fa-box-open"></i>
-                    <h1 class="tit-menu">Productos</h1>
-                    <p class="par-menu">Ejemplo: Libros...</p>  
-                </a>    
+                        <i class="fas fa-box-open"></i>
+                        <h1 class="tit-menu">Productos</h1>
+                        <p class="par-menu">Ejemplo: Libros...</p>
+                    </a>
                 </div>
-            
+
                 <div class="menuuno"><a href="#">
-                    <i class="fas fa-cogs"></i>                    
-                    <h1 class="tit-menu">Servicios</h1>
-                    <p class="par-menu">Ejemplo: Reparación...</p>  
-                </a>    
-                </div>  
+                        <i class="fas fa-cogs"></i>
+                        <h1 class="tit-menu">Servicios</h1>
+                        <p class="par-menu">Ejemplo: Reparación...</p>
+                    </a>
+                </div>
             </div>
             <div class="contenedor-regresar">
-                <a href="#"><button class="BotonRegresar">Regresar</button></a>            
+                <a href="#"><button class="BotonRegresar">Regresar</button></a>
             </div>
         </div>
     </div>
 </body>
+
 </html>

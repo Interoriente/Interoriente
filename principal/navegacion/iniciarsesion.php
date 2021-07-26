@@ -100,7 +100,7 @@
                     </div>
                     <div class="row mt-3">
                         <div class="col-6">
-                            <a href="#" class="text-light"><small>Olvidó contraseña?</small></a>
+                            <a href="recuContrasena.php" class="text-light"><small>Olvidó contraseña?</small></a>
                         </div>
                         <div class="col-6 text-right">
                             <a href="registro.php" class="text-light"><small>No tienes cuenta?</small></a>

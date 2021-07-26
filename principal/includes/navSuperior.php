@@ -44,22 +44,24 @@
 
       <?php if ($_SESSION['roles'] == "3") { ?>
         <!-- ROl admin -->
+        <a href="index.php">Inicio</a>
         <a href="#">Mis ofertas</a>
-        <a href="#">Mis catálogos</a>
+        <a href="../navegacion/productos.php">Catálogos</a>
         <a href="#">Ayuda</a>
         <a href="../../users/dashboard/principal/dashboard.php">Volver al panel</a>
         <a href="../../controller/cerrar_sesion.php">Cerrar sesión</a>
       <?php } else if ($_SESSION['roles'] == "2") { ?>
         <!-- ROl admininistrador Empresa-->
+        <a href="index.php">Inicio</a>
         <a href="#">Mis ofertas</a>
-        <a href="#">Mis catálogos</a>
+        <a href="#">Catálogos</a>
         <a href="#">Ayuda</a>
         <a href="../../users/dashboard/principal/dashboard.php">Volver al panel</a>
         <a href="../../controller/cerrar_sesion.php">Cerrar sesión</a>
 
       <?php } else { ?>
         <!-- ROl comprador/Proveedor -->
-
+        <a href="index.php">Inicio</a>
         <a href="#">Ofertas</a>
         <a href="#">Catálogos</a>
         <a href="#">Mi carrito</a>
@@ -76,9 +78,9 @@
         <img id="cta-login-img" src="../../assets/img/navegacion/login_2.svg" alt="Ingreso Interoriente">
         <p id="cta-p">¡Regístrate o Inicia sesión para comenzar!</p>
       </a>
-
+      <a href="index.php">Inicio</a>
       <a href="#">Ofertas</a>
-      <a href="../navegacion/productos.php">Catálogos</a>
+      <a href="#">Catálogos</a>
       <a href="#">Ayuda</a>
       <a href="iniciarsesion.php">Iniciar sesión</a>
     <?php } ?>
