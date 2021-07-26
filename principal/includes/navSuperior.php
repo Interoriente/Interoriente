@@ -104,7 +104,8 @@
         <div class="cart-content">
           <!-- cart item -->
           <div class="cart-item">
-            <img src="../../assets/img/stock/1.jpg" alt="product">
+            <!-- Le puse width para que no se desborde la imagen de lo grande que es. -->
+            <img src="../../assets/img/stock/1.jpg" alt="product" width="100%">
             <div>
               <h4>Lorem.</h4>
               <h5>$9.000</h5>
