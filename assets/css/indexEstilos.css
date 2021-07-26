@@ -70,9 +70,7 @@ font-family: 'Poppins', sans-serif; */
   width: 100%;
   height: 10em;
   justify-content: space-between;
-  padding: 0em 9em;
-
-  box-sizing: border-box;
+  padding: 0 2em;
 }
 
 /* Botón General Filtrado */
@@ -124,14 +122,18 @@ font-family: 'Poppins', sans-serif; */
   border-radius: 1em 1em 0 0;
   
 }
+#img-s{
+  display: none;
+}
 .tarjeta {
   margin: 1em 1em 1em 1em;
-  height: 25em;
+  height: 26em;
   width: 15em;
   background-color:  var(--clr-neutro-a);
   border-radius: 1em;
   box-shadow: 10px 10px 10px 12px rgba(0, 0, 0, 0.1);
-  transition: .7s;
+  transition: 1s;
+
 }
 .contenido-tarjeta {
   width: 95%;
@@ -140,10 +142,17 @@ font-family: 'Poppins', sans-serif; */
   word-wrap: break-word;
   padding: .5em;
 }
+.tarjeta:hover #img-p {
+  display: none;
+}
+.tarjeta:hover #img-s {
+  display: block;
+}
 .tarjeta:hover {
   cursor: pointer;
   box-shadow: 10px 10px 10px 12px rgba(0, 0, 0, 0.2);
 }
+
 .contenido-tarjeta h3 {
   margin-left: .7em;
   font-family: 'Poppins', sans-serif;;
@@ -164,13 +173,15 @@ font-family: 'Poppins', sans-serif; */
   font-size: smaller;
   font-weight: 300;
   margin-top: -.3em;
+  
 }
 @media (max-width: 320px) {
   .publicaciones {
     flex-direction: column;
   }
   .tarjeta {
-    width: 50%;
+    width: 100%;
+    margin: 1em auto;
   }
 }
 .tarjeta h3{
@@ -182,4 +193,5 @@ font-size: small;
 .cta-btns{
   display: flex;
   justify-content: space-around;
+  padding: 1em;
 }

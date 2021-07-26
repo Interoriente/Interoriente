@@ -112,6 +112,23 @@ if (isset($_GET['id'])) {
       </div>
       <div class="informacion-complementaria">
 
+<<<<<<< HEAD
+    </div>
+    <div class="informacion-complementaria">
+      <p>lorem</p>
+      <p>lorem</p>
+      <p>lorem</p>
+    </div>
+    <div class="perfil-proveedor">
+      <div class="tarjeta-perfil">
+        <img src="../../assets/img/10.jpg" alt="Imagen de perfil del proveedor">
+        <a href="">
+          Interoriente SAS
+        </a>
+      </div>
+    </div>
+  </section>
+=======
       </div>
       <div class="perfil-proveedor">
         <div class="tarjeta-perfil">
@@ -128,6 +145,7 @@ if (isset($_GET['id'])) {
       </div>
 
     </section>
+>>>>>>> b28a8e47855c049f11e7af525bc36ee62b114166
 
     <!-- Comentarios Publicación -->
 

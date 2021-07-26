@@ -26,8 +26,9 @@
       <div class="barra-busqueda">
         <input type="text" placeholder="Buscar...">
       </div>
-      <a href="../navSuperior/carrito.php">
+      <a href="#">
         <div class="carrito"><img src="../../assets/img/iconos/carrito.svg" alt="Carrito de la compra"></div>
+        <div class="items-carrito">0</div>
       </a>
     </div>
   </div>
@@ -93,3 +94,35 @@
     <div class="contenido">
       <!--  Contenido Principal del la página -->
     </div>
+    <!-- Carrito -->
+    <div class="cart-overlay">
+      <div class="cart">
+        <span class="close-cart">
+          <i class="fas fa-window-close"></i>
+        </span>
+        <h2>Tu carrito</h2>
+        <div class="cart-content">
+          <!-- cart item -->
+          <div class="cart-item">
+            <img src="../../assets/img/stock/1.jpg" alt="product">
+            <div>
+              <h4>Lorem.</h4>
+              <h5>$9.000</h5>
+              <span class="remove-item">Eliminar</span>
+            </div>
+            <div>
+              <i class="fas fa-chevron-up"></i>
+              <p class="item-amount">1</p>
+              <i class="fas fa-chevron-down"></i>
+            </div>
+          </div>
+          <!-- End cart item -->
+        </div>
+        <div class="cart-footer">
+          <h3>Costo total: $ <span class="cart-total">0</span></h3>
+          <button class="clear-cart banner-btn">Eliminar todo</button>
+        </div>
+      </div>
+
+    </div>
+    <!-- End Cart -->
