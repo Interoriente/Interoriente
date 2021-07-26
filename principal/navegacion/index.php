@@ -21,7 +21,7 @@
     
     <!-- Sidebar -->
     <?php
-    include '../includes/navSuperior.php';
+    include '../includes/superior.php';
     ?>
     <!-- ----- -->
 

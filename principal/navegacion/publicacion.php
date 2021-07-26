@@ -9,7 +9,6 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous" />
   <link rel="stylesheet" href="../../assets/css/general.css">
   <link rel="stylesheet" href="../../assets/css/estilosPublicacion.css">
-  <link rel="stylesheet" href="../../assets/css/estilosNavs.css">
 
   <!-- Nota: Debe aparecer el nombre de la publicación en el título -->
   <title>Interoriente | Publicación</title>
@@ -17,7 +16,7 @@
 
 <body>
   <!-- Sidebar y Navbar -->
-  <?php include "../includes/navSuperior.php"; ?>
+  <?php include "../includes/superior.php"; ?>
   <!-- Idea: Cambio imagen en hover -->
   <!-- Sección imágene(s) título, precio, cantidad, color y botones  "Comprar ahora" y "Añadir al carrito" -->
 

@@ -24,31 +24,40 @@ body {
   box-sizing: border-box;
   margin: 0;
 }
+.carrusel-superior {
+  background-color: var(--clr-secundario);
+  width: 100%;
+  height: 2em;
+}
+
 .contenedor {
-  height: 6em;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
+  width: 100%;
+  height: 4rem;
+  max-height: 4rem;
+  position: fixed;
   font-weight: 900;
-  justify-content: center;
   color: white;
   justify-content: space-between;
   background-color: var(--clr-primario-a);
-  position: fixed;
   left: 0;
   top: 0;
+  z-index: 3;
+}
+.contenedor-s {
   width: 100%;
-  z-index: 2;
+  height: 100%;
+  margin: 1px;
+  display: flex;
+  justify-content: space-around;
 }
 .cont-elementos {
-  max-width: 1100px;
-  width: 40%;
+  max-width: 900px;
+  width: 50%;
   font-family: "Poppins", sans-serif;
   display: flex;
   align-items: center;
-  margin: auto;
-  justify-content: space-around;
-  height: 3em;
+  justify-content: space-between;
+  /*  background-color: aqua; */
 }
 
 a {
@@ -62,16 +71,14 @@ a {
 }
 .logoT {
   display: none;
-  position: absolute;
-  max-width: 500px;
 }
 
 /* Sección carrito y barra de búsqueda */
 
 .carrito-busqueda {
-  position: absolute;
-  right: 0;
   display: flex;
+  align-items: center;
+  align-content: space-around;
 }
 .carrito:hover {
   cursor: pointer;
@@ -83,7 +90,7 @@ a {
 }
 .items-carrito {
   position: absolute;
-  top: -15px;
+  top: 3px;
   right: 17px;
   background: orangered;
   padding: 0 5px;
@@ -93,6 +100,8 @@ a {
 .barra-busqueda {
   margin-right: 2em;
   border-radius: 50%;
+  display: flex;
+  align-items: center;
 }
 
 /* --------------- Carrito ---------------- */
@@ -183,12 +192,18 @@ a {
 @media (min-width: 1027px) {
   .logoT {
     display: block;
-    margin-right: 4em;
-    margin-bottom: 4em;
-    margin-right: 2em;
-    width: 300px;
-    height: 1em;
+    display: flex;
+    width: 40%;
+    height: 100%;
   }
+  .logoT img {
+    text-align: left;
+    width: 100%;
+    height: 5em;
+    min-height: 5em;
+    margin-top: -0.5em;
+  }
+
   .logoT:hover {
     cursor: pointer;
   }
@@ -219,16 +234,15 @@ a {
 #cta-login-img {
   width: 12rem;
   margin-left: -1.5em;
-  padding-bottom: .1em;
+  padding-bottom: 0.1em;
 }
 
-#cta-p{
+#cta-p {
   text-align: center;
 }
-#log-info-a{
+#log-info-a {
   box-shadow: none;
 }
-
 
 /* Links de navegación */
 
@@ -248,22 +262,21 @@ a {
 }
 
 .sidenav a:hover {
-    box-shadow: 10px 10px 10px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 10px 10px 10px 10px rgba(0, 0, 0, 0.1);
 }
 /* Posición y estilos botón de cerrar (x) */
 
 .sidenav .closebtn {
   position: absolute;
-  top: 0;
+  top: 0em;
   right: 25px;
   font-size: 36px;
   margin-left: 50px;
 }
-#btn-close{
+#btn-close {
   box-shadow: none;
-  padding: .1px;
+  padding: 0.1px;
 }
-
 
 /* Media query para cambiar tamaño en pantallas pequeñas, donde la altura sea menor a 450px, cambio de estilo (menos padding y fuente más pequeña) */
 @media screen and (max-height: 450px) {
@@ -277,7 +290,7 @@ a {
 
 /* Botón Sidebar */
 #boton a {
-  margin-top: 3em;
+  margin-top: 2.5em;
   position: fixed; /* Position them relative to the browser window */
   left: -70px; /* Position them outside of the screen */
   transition: 0.1s; /* Add transition on hover */
@@ -297,20 +310,21 @@ a {
 
 /* Botón menú lateral */
 #menuLateral {
-  top: 20px;
+  top: 30px;
   background-color: var(--crl-cta-b); /* Color del botón */
   z-index: 2;
 }
 
-.main-container .boton {
+.contenedor .boton {
   display: none;
 }
 
 @media (min-width: 720px) {
-  .main-container .boton {
+  .contenedor .boton {
     display: block;
   }
 }
+
 
 /* Navegación para dispositivos móviles */
 .navbar {
@@ -356,40 +370,23 @@ a {
   padding: 3em;
 }
 
-
 /* Navbar Mediaqueries */
-@media (max-width: 450px) {
-  .contenedor {
-    height: 3em;
+@media (min-width: 320px) {
+   .contenedor-s {
+    justify-content: space-between;
+   
+  }
+  .cont-elementos {
     align-items: center;
     justify-content: space-around;
-    width: 100%;
-  }
-  .cont-elementos {
-    width: 100%;
-    margin-right: 4em;
+    width: 90%;
+    
   }
 }
-
-@media (max-width: 850px) {
-  .contenedor {
-    height: 3.5em;
-  }
-  .cont-elementos {
-    width: 100%;
-    margin-right: 5.5em;
-  }
-}
-@media (max-width: 1024px) {
-  .contenedor {
-    height: 4em;
-    align-items: center;
-    justify-content: space-around;
-    width: 100%;
-  }
-  .cont-elementos {
-    width: 100%;
-    margin-right: 3em;
+@media (min-width: 1600px) {
+   .cont-elementos{
+    margin-right: 7em;
+   
   }
 }
 
@@ -400,3 +397,4 @@ a {
     display: none;
   }
 }
+

@@ -1,0 +1,402 @@
+/* Propiedades Generales --> Paleta de Colores y fuentes*/
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Poppins:wght@300;600&display=swap");
+
+:root {
+  --clr-primario-a: #004e64;
+  --clr-primario-b: #5d9bac;
+  --clr-secundario: #408e8d;
+  --clr-neutro-a: #fefdeb;
+  --clr-neutro-b: #001014;
+  --clr-neutro-c: #e5e5e5;
+  --clr-cta-a: #ffb930;
+  --crl-cta-b: #fce61e;
+}
+/* Sintaxis para el uso de las fuentes*/
+/* --------------------- */
+/* font-family: 'Open Sans', sans-serif;
+font-family: 'Poppins', sans-serif; */
+/* --------------------- */
+
+body {
+  background-color: var(--clr-neutro-a);
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+.contenedor {
+  height: 5em;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  font-weight: 900;
+  justify-content: center;
+  color: white;
+  justify-content: space-between;
+  background-color: var(--clr-primario-a);
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  z-index: 2;
+}
+.cont-elementos {
+  max-width: 1100px;
+  width: 40%;
+  font-family: "Poppins", sans-serif;
+  display: flex;
+  align-items: center;
+  margin: auto;
+  justify-content: space-around;
+  height: 3em;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+.cont-elementos a:hover {
+  border-bottom: 2px white solid;
+  padding-top: 4px;
+  color: white;
+}
+.logoT {
+  display: none;
+  position: absolute;
+  max-width: 500px;
+}
+
+/* Sección carrito y barra de búsqueda */
+
+.carrito-busqueda {
+  position: absolute;
+  right: 0;
+  display: flex;
+}
+.carrito:hover {
+  cursor: pointer;
+}
+.carrito {
+  margin-right: 2em;
+  size: 1em;
+  font-size: larger;
+}
+.items-carrito {
+  position: absolute;
+  top: -15px;
+  right: 17px;
+  background: orangered;
+  padding: 0 5px;
+  border-radius: 15%;
+  color: white;
+}
+.barra-busqueda {
+  margin-right: 2em;
+  border-radius: 50%;
+}
+
+/* --------------- Carrito ---------------- */
+.cart-overlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  transition: var(--mainTransition);
+  background: rgba(1, 28, 32, 0.5);
+  z-index: 2;
+  visibility: hidden;
+}
+.cart {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  overflow: scroll; /* Scrroll through items */
+  z-index: 3;
+  background: rgb(231, 226, 221);
+  padding: 1.5rem;
+  transition: var(--mainTransition);
+  transform: translateX(100%);
+}
+.showCart {
+  transform: translateX(0);
+}
+.transparentBcg {
+  visibility: visible;
+}
+@media screen and (min-width: 768px) {
+  .cart {
+    width: 30vw;
+    min-width: 450px;
+  }
+}
+
+.close-cart {
+  font-size: 1.7rem;
+  cursor: pointer;
+}
+.cart h2 {
+  text-transform: capitalize;
+  text-align: center;
+  letter-spacing: var(--mainSpacing);
+  margin-bottom: 2rem;
+}
+/*---------- Item del carrito -------------------- */
+.cart-item {
+  display: grid;
+  align-items: center;
+  grid-template-columns: auto 1fr auto;
+  grid-column-gap: 1.5rem;
+  margin: 1.5rem 0;
+}
+.cart-item img {
+  width: 75px;
+  height: 75px;
+}
+.cart-item h4 {
+  font-size: 0.85rem;
+  text-transform: capitalize;
+  letter-spacing: var(--mainSpacing);
+}
+.cart-item h5 {
+  margin: 0.5rem 0;
+  letter-spacing: var(--mainSpacing);
+}
+.item-amount {
+  text-align: center;
+}
+.remove-item {
+  color: grey;
+  cursor: pointer;
+}
+.fa-chevron-up,
+.fa-chevron-down {
+  color: var(--primaryColor);
+  cursor: pointer;
+}
+/*---------- Fin item del carrito ------------------- */
+
+/* Media query para mostrar logo */
+
+@media (min-width: 1027px) {
+  .logoT {
+    display: block;
+    margin-right: 4em;
+    margin-bottom: 4em;
+    margin-right: 2em;
+    width: 300px;
+    height: 1em;
+  }
+  .logoT:hover {
+    cursor: pointer;
+  }
+}
+
+/* Contenido */
+.contenido {
+  margin: 3em;
+  margin-top: 7em;
+}
+
+/* Sidebar */
+
+.sidenav {
+  height: 100%; /* 100% Full-height */
+  width: 0; /* 0 width - Se hace el cambio con javascript */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Stay on top */
+  margin-top: 4em;
+  top: 0;
+  left: 0;
+  background-color: var(--crl-cta-b);
+  overflow-x: hidden; /* se desabilita scroll en x */
+  padding-top: 60px; /* Place content 60px from the top */
+  transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+}
+/* Imagen e Info cta */
+#cta-login-img {
+  width: 12rem;
+  margin-left: -1.5em;
+  padding-bottom: .1em;
+}
+
+#cta-p{
+  text-align: center;
+}
+#log-info-a{
+  box-shadow: none;
+}
+
+
+/* Links de navegación */
+
+.sidenav {
+  display: flex;
+  flex-direction: column;
+}
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 19px;
+  font-weight: 550;
+  font-family: "Poppins", sans-serif;
+  color: var(--clr-primario-a);
+  display: block;
+  transition: 0.3s;
+}
+
+.sidenav a:hover {
+    box-shadow: 10px 10px 10px 10px rgba(0, 0, 0, 0.1);
+}
+/* Posición y estilos botón de cerrar (x) */
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+#btn-close{
+  box-shadow: none;
+  padding: .1px;
+}
+
+
+/* Media query para cambiar tamaño en pantallas pequeñas, donde la altura sea menor a 450px, cambio de estilo (menos padding y fuente más pequeña) */
+@media screen and (max-height: 450px) {
+  .sidenav {
+    padding-top: 15px;
+  }
+  .sidenav a {
+    font-size: 18px;
+  }
+}
+
+/* Botón Sidebar */
+#boton a {
+  margin-top: 3em;
+  position: fixed; /* Position them relative to the browser window */
+  left: -70px; /* Position them outside of the screen */
+  transition: 0.1s; /* Add transition on hover */
+  padding: 15px; /* 15px padding */
+  width: 100px; /* Set a specific width */
+  text-decoration: none; /* Remove underline */
+  font-size: 20px; /* Increase font size */
+  color: var(--clr-primario-a); /* Color del texto */
+  font-family: "Poppins", sans-serif;
+  border-radius: 0 5px 5px 0; /* Rounded corners on the top right and bottom right side */
+}
+
+#boton a:hover {
+  left: 0; /* On mouse-over, make the elements appear as they should */
+  font-weight: bolder;
+}
+
+/* Botón menú lateral */
+#menuLateral {
+  top: 20px;
+  background-color: var(--crl-cta-b); /* Color del botón */
+  z-index: 2;
+}
+
+.main-container .boton {
+  display: none;
+}
+
+@media (min-width: 720px) {
+  .main-container .boton {
+    display: block;
+  }
+}
+
+/* Navegación para dispositivos móviles */
+.navbar {
+  background-color: var(--clr-primario-a);
+  overflow: hidden;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+.navbar a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: right;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+  font-family: "Poppins", sans-serif;
+}
+
+.navbar a:hover {
+  background-color: var(--clr-cta-a);
+  color: var(--clr-neutro-c);
+}
+
+.navbar a.active {
+  background-color: var(--clr-cta-a);
+  color: white;
+}
+@media (min-width: 720px) {
+  .contenedor-nav {
+    display: none;
+  }
+}
+/* Perfil */
+.sidenav .perfil {
+  display: flex;
+  justify-content: left;
+  background-color: #004e64;
+  margin: -1.5em 2em 1em 2em;
+  border-radius: 70%;
+  padding: 3em;
+}
+
+
+/* Navbar Mediaqueries */
+@media (max-width: 450px) {
+  .contenedor {
+    height: 3em;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+  }
+  .cont-elementos {
+    width: 100%;
+    margin-right: 4em;
+  }
+}
+
+@media (max-width: 850px) {
+  .contenedor {
+    height: 3.5em;
+  }
+  .cont-elementos {
+    width: 100%;
+    margin-right: 5.5em;
+  }
+}
+@media (max-width: 1024px) {
+  .contenedor {
+    height: 4em;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+  }
+  .cont-elementos {
+    width: 100%;
+    margin-right: 3em;
+  }
+}
+
+/* Media query para la barra de búsqueda */
+
+@media (max-width: 1180px) {
+  .barra-busqueda {
+    display: none;
+  }
+}
