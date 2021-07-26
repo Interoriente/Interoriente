@@ -3,10 +3,10 @@ if (isset($_GET['id'])) {
 
   $idPubli = $_GET['id'];
   include_once '../../dao/conexion.php';
-  $sqlPubli="SELECT * FROM tblPublicacion INNER JOIN tblImagenes ON tblPublicacion.idPublicacion = tblImagenes.publicacionImagen WHERE idPublicacion=?";
-  $consultaPubli=$pdo->prepare($sqlPubli);
+  $sqlPubli = "SELECT * FROM tblPublicacion INNER JOIN tblImagenes ON tblPublicacion.idPublicacion = tblImagenes.publicacionImagen WHERE idPublicacion=?";
+  $consultaPubli = $pdo->prepare($sqlPubli);
   $consultaPubli->execute(array($idPubli));
-  $resultadoPubli=$consultaPubli->fetchAll();
+  $resultadoPubli = $consultaPubli->fetchAll();
 ?>
   <!DOCTYPE html>
   <html lang="en">
@@ -22,8 +22,8 @@ if (isset($_GET['id'])) {
     <link rel="stylesheet" href="../../assets/css/estilosNavs.css">
 
     <!-- Nota: Debe aparecer el nombre de la publicación en el título -->
-    <?php foreach ($resultadoPubli as $datos) {?>
-    <title><?php echo $datos['nombrePublicacion']; ?></title>
+    <?php foreach ($resultadoPubli as $datos) { ?>
+      <title><?php echo $datos['nombrePublicacion']; ?></title>
     <?php } ?>
   </head>
 
@@ -34,7 +34,7 @@ if (isset($_GET['id'])) {
     <!-- Sección imágene(s) título, precio, cantidad, color y botones  "Comprar ahora" y "Añadir al carrito" -->
 
     <!-- TODO: Sección "Cantidad" -> Estilos -->
-    
+
     <div id="contenedor-principal">
 
       <div class="descripcion-m">
@@ -63,30 +63,30 @@ if (isset($_GET['id'])) {
           <img id="slideRight" class="flecha" src="../../assets/img/navegacion/flechaDer.png">
         </div>
       </div>
-<?php foreach ($resultadoPubli as $datos) {?>
-      <div class="column">
-        <div class="descripcion-d">
-          <h2><?php echo $datos['nombrePublicacion']; ?></h2>
-          <hr>
-          <h3>$<?php echo $datos['costoPublicacion']; ?></h3>
-        </div>
-        <!-- Nota: Número máximo de caracteres: 245 - palabras: 43 - líneas: 2 -->
-        <p class="descripcion"><?php echo $datos['descripcionPublicacion']; ?></p>
-
-        <div class="seccion-cta">
-          <div class="cantidad">
-            <p>Cantidad</p>
-            <input value="1" min="1" type="number">
+      <?php foreach ($resultadoPubli as $datos) { ?>
+        <div class="column">
+          <div class="descripcion-d">
+            <h2><?php echo $datos['nombrePublicacion']; ?></h2>
+            <hr>
+            <h3>$<?php echo $datos['costoPublicacion']; ?></h3>
           </div>
-          <div class="cta">
-            <a class="btn btn-accion" href="#">Comprar Ahora</a>
-            <a class="btn btn-accion" href="#">Agregar al carrito</a>
-          </div>
+          <!-- Nota: Número máximo de caracteres: 245 - palabras: 43 - líneas: 2 -->
+          <p class="descripcion"><?php echo $datos['descripcionPublicacion']; ?></p>
 
-        </div>
+          <div class="seccion-cta">
+            <div class="cantidad">
+              <p>Cantidad</p>
+              <input value="1" min="1" type="number">
+            </div>
+            <div class="cta">
+              <a class="btn btn-accion" href="#">Comprar Ahora</a>
+              <a class="btn btn-accion" href="#">Agregar al carrito</a>
+            </div>
+
+          </div>
         <?php } ?>
 
-      </div>
+        </div>
 
     </div>
 
@@ -112,23 +112,6 @@ if (isset($_GET['id'])) {
       </div>
       <div class="informacion-complementaria">
 
-<<<<<<< HEAD
-    </div>
-    <div class="informacion-complementaria">
-      <p>lorem</p>
-      <p>lorem</p>
-      <p>lorem</p>
-    </div>
-    <div class="perfil-proveedor">
-      <div class="tarjeta-perfil">
-        <img src="../../assets/img/10.jpg" alt="Imagen de perfil del proveedor">
-        <a href="">
-          Interoriente SAS
-        </a>
-      </div>
-    </div>
-  </section>
-=======
       </div>
       <div class="perfil-proveedor">
         <div class="tarjeta-perfil">
@@ -145,7 +128,6 @@ if (isset($_GET['id'])) {
       </div>
 
     </section>
->>>>>>> b28a8e47855c049f11e7af525bc36ee62b114166
 
     <!-- Comentarios Publicación -->
 
@@ -159,7 +141,7 @@ if (isset($_GET['id'])) {
 
   </html>
 <?php
-}else {
+} else {
   echo "<script>alert('Por favor selecciona una publicación.');</script>";
   echo "<script> document.location.href='index.php';</script>";
 }

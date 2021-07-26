@@ -120,17 +120,18 @@
     <!-- NOTA: títulos de máximo 100 caracteres ó 14 palabras -->
     <section class="publicaciones">
 
-        <<<<<<< HEAD <!-- Tarjeta Final -->
+        <?php foreach ($resultadoImagenPubli as $datos) {
+        ?>
+            <!-- Tarjeta Final -->
             <div class="tarjeta">
-                <a href="publicacion.php">
+                <a href="publicacion.php?id=<?php echo $datos['idPublicacion']; ?>">
                     <div class="img-tarjeta">
-                        <img id="img-p" src="../../assets/img/publicaciones/2.jpg" alt="Imagen tarjeta publicación">
-                        <img id="img-s" src="../../assets/img/publicaciones/4.jpg" alt="Imagen tarjeta publicación">
+                        <img src="../../users/dashboard/principal/imagenes/<?php echo $datos['urlImagen'] ?>" alt="">
                     </div>
                     <div class="contenido-tarjeta">
-                        <h5> $1.400.200</h5>
-                        <h3>Monitor Samsung Ips De 24 Full Hd Freesync Hdmi Lf24t400fh </h3>
-                        <p>Resitente computadora excelente sesdfa excelente excelente... <span>más</span></p>
+                        <h5> $<?php echo $datos['costoPublicacion'] ?></h5>
+                        <h3><?php echo $datos['nombrePublicacion'] ?></h3>
+                        <p><?php echo $datos['descripcionPublicacion'] ?>... <span>más</span></p>
                 </a>
             </div>
             <div class="cta-btns">
@@ -138,120 +139,10 @@
                 <img src="../../assets/img/iconos/carrito_2.svg" alt="Bolsa de la compra">
             </div>
             </div>
-            <!-- -- Fin tarjeta final--  -->
-            <!-- Tarjeta PHP (Comentario temporal) -->
-            <?php foreach ($resultadoImagenPubli as $datos) {
-            ?>
-                <!-- Tarjeta Final -->
-                <div class="tarjeta">
-                    <a href="publicacion.php?id=<?php echo $datos['idPublicacion']; ?>">
-                        <div class="img-tarjeta">
-                            <img id="img-p" src="../../users/dashboard/principal/imagenes/<?php echo $datos['urlImagen'] ?>" alt="Imagen tarjeta publicación">
-                            <img id="img-s" src="../../assets/img/publicaciones/4.jpg" alt="Imagen tarjeta publicación">
-                        </div>
-                        <div class="contenido-tarjeta">
-                            <h5> $<?php echo $datos['costoPublicacion'] ?></h5>
-                            <h3><?php echo $datos['nombrePublicacion'] ?></h3>
-                            <p><?php echo $datos['descripcionPublicacion'] ?>... <span>más</span></p>
-                    </a>
-                </div>
-                <div class="cta-btns">
-                    <img src="../../assets/img/iconos/compras.svg" alt="Bolsa de la compra">
-                    <img src="../../assets/img/iconos/carrito_2.svg" alt="Bolsa de la compra">
-                </div>
-                </div>
-                <!-- ----  -->
-            <?php
-            }
-            ?>
-            <!-- Fin tarjeta PHP -->
-
-            <div class="tarjeta">
-                <a href="publicacion.php">
-                    <div class="img-tarjeta">
-                        <img src="../../assets/img/publicaciones/2.jpg" alt="">
-                    </div>
-                    <div class="contenido-tarjeta">
-                        <h5> $1.400.200</h5>
-                        <h3>Monitor Samsung Ips De 24 Full Hd Freesync Hdmi Lf24t400fh </h3>
-                        <p>Resitente computadora excelente sesdfa excelente excelente... <span>más</span></p>
-                </a>
-            </div>
-            <div class="cta-btns">
-                <img src="../../assets/img/iconos/compras.svg" alt="Bolsa de la compra">
-                <img src="../../assets/img/iconos/carrito_2.svg" alt="Bolsa de la compra">
-            </div>
-            </div>
-            <div class="tarjeta">
-                <a href="">
-                    <div class="img-tarjeta">
-                        <img src="../../assets/img/publicaciones/2.jpg" alt="">
-                    </div>
-                    <div class="contenido-tarjeta">
-                        <h5> $1.400.200</h5>
-                        <h3>Monitor Samsung Ips De 24 Full Hd Freesync Hdmi Lf24t400fh </h3>
-                        <p>Resitente computadora excelente sesdfa excelente excelente... <span>más</span></p>
-                </a>
-            </div>
-            <div class="cta-btns">
-                <img src="../../assets/img/iconos/compras.svg" alt="Bolsa de la compra">
-                <img src="../../assets/img/iconos/carrito_2.svg" alt="Bolsa de la compra">
-            </div>
-            </div>
-            <div class="tarjeta">
-                <a href="">
-                    <div class="img-tarjeta">
-                        <img src="../../assets/img/publicaciones/2.jpg" alt="">
-                    </div>
-                    <div class="contenido-tarjeta">
-                        <h5> $1.400.200</h5>
-                        <h3>Monitor Samsung Ips De 24 Full Hd Freesync Hdmi Lf24t400fh </h3>
-                        <p>Resitente computadora excelente sesdfa excelente excelente... <span>más</span></p>
-                </a>
-            </div>
-            <div class="cta-btns">
-                <img src="../../assets/img/iconos/compras.svg" alt="Bolsa de la compra">
-                <img src="../../assets/img/iconos/carrito_2.svg" alt="Bolsa de la compra">
-            </div>
-            </div>
-            <div class="tarjeta">
-                <a href="">
-                    <div class="img-tarjeta">
-                        <img src="../../assets/img/publicaciones/2.jpg" alt="">
-                    </div>
-                    <div class="contenido-tarjeta">
-                        <h5> $1.400.200</h5>
-                        <h3>Monitor Samsung Ips De 24 Full Hd Freesync Hdmi Lf24t400fh </h3>
-                        <p>Resitente computadora excelente sesdfa excelente excelente... <span>más</span></p>
-                </a>
-            </div>
-            <div class="cta-btns">
-                <img src="../../assets/img/iconos/compras.svg" alt="Bolsa de la compra">
-                <img src="../../assets/img/iconos/carrito_2.svg" alt="Bolsa de la compra">
-            </div>
-            </div>
-
-            <div class="tarjeta">
-                <a href="">
-                    <div class="img-tarjeta">
-                        <img src="../../assets/img/publicaciones/3.jpg" alt="">
-                    </div>
-                    <div class="contenido-tarjeta">
-                        <!-- Precio de la publicación -->
-                        <h5> $1.400.200</h5>
-                        <!-- Título de la publicación -->
-                        <h3>Monitor Samsung Ips De 24 Full Hd Freesync Hdmi Lf24t400fh </h3>
-                        <!-- Descripción de la publicación -->
-                        <p>Resitente computadora excelente sesdfa excelente excelente... <span>más</span></p>
-                </a>
-            </div>
-            <div class="cta-btns">
-                <img src="../../assets/img/iconos/compras.svg" alt="Bolsa de la compra">
-                <img src="../../assets/img/iconos/carrito_2.svg" alt="Bolsa de la compra">
-            </div>
-            </div>
-
-
+            <!-- ----  -->
+        <?php
+        }
+        ?>
 
     </section>
     <br>
