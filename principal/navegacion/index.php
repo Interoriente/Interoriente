@@ -102,6 +102,7 @@
                         5. Modificar navbar para dispositivos móviles
                             6. Maquetar footer
                                 7. Detalles a sidebar
+                                    8. Agregar Mediaqueries para cambiar tamaño de tarjetas
 -->
 
 
@@ -113,9 +114,10 @@
 
         <!-- Tarjeta Final -->
         <div class="tarjeta">
-            <a href="">
+            <a href="publicacion.php">
                 <div class="img-tarjeta">
-                    <img src="../../assets/img/publicaciones/2.jpg" alt="">
+                    <img id="img-p" src="../../assets/img/publicaciones/2.jpg" alt="Imagen tarjeta publicación">
+                    <img id="img-s" src="../../assets/img/publicaciones/4.jpg" alt="Imagen tarjeta publicación">
                 </div>
                 <div class="contenido-tarjeta">
                     <h5> $1.400.200</h5>
@@ -128,10 +130,10 @@
             <img src="../../assets/img/iconos/carrito_2.svg" alt="Bolsa de la compra">
         </div>
         </div>
-        <!-- ----  -->
+        <!-- -- Fin tarjeta final--  -->
 
         <div class="tarjeta">
-            <a href="">
+            <a href="publicacion.php">
                 <div class="img-tarjeta">
                     <img src="../../assets/img/publicaciones/2.jpg" alt="">
                 </div>

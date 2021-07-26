@@ -98,22 +98,18 @@
 
     </div>
     <div class="informacion-complementaria">
-
+      <p>lorem</p>
+      <p>lorem</p>
+      <p>lorem</p>
     </div>
     <div class="perfil-proveedor">
       <div class="tarjeta-perfil">
         <img src="../../assets/img/10.jpg" alt="Imagen de perfil del proveedor">
-
         <a href="">
           Interoriente SAS
         </a>
-
-
-
       </div>
-
     </div>
-
   </section>
 
   <!-- Comentarios Publicación -->
