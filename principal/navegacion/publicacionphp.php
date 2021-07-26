@@ -1,5 +1,13 @@
+<?php
+if (isset($_GET['id'])) {
 
-
+  $idPubli = $_GET['id'];
+  include_once '../../dao/conexion.php';
+  $sqlPubli="SELECT * FROM tblPublicacion INNER JOIN tblImagenes ON tblPublicacion.idPublicacion = tblImagenes.publicacionImagen WHERE idPublicacion=?";
+  $consultaPubli=$pdo->prepare($sqlPubli);
+  $consultaPubli->execute(array($idPubli));
+  $resultadoPubli=$consultaPubli->fetchAll();
+?>
   <!DOCTYPE html>
   <html lang="en">
 
@@ -55,12 +63,12 @@
           <img id="slideRight" class="flecha" src="../../assets/img/navegacion/flechaDer.png">
         </div>
       </div>
-
+<?php foreach ($resultadoPubli as $datos) {?>
       <div class="column">
         <div class="descripcion-d">
-          <h2>Monitor Samsung Ips De 24 Full Hd Freesync Hdmi Lf24t400fh</h2>
+          <h2><?php echo $datos['nombrePublicacion']; ?></h2>
           <hr>
-          <h3>$2.323.123</h3>
+          <h3>$<?php echo $datos['costoPublicacion']; ?></h3>
         </div>
         <!-- Nota: Número máximo de caracteres: 245 - palabras: 43 - líneas: 2 -->
         <p class="descripcion"><?php echo $datos['descripcionPublicacion']; ?></p>
@@ -76,7 +84,7 @@
           </div>
 
         </div>
-      
+        <?php } ?>
 
       </div>
 
