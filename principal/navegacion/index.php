@@ -116,7 +116,7 @@
 
         <!-- Tarjeta Final -->
         <div class="tarjeta">
-            <a href="publicacion.php">
+                     <a href="publicacion.php">
                 <div class="img-tarjeta">
                     <img id="img-p" src="../../assets/img/publicaciones/2.jpg" alt="Imagen tarjeta publicación">
                     <img id="img-s" src="../../assets/img/publicaciones/4.jpg" alt="Imagen tarjeta publicación">

@@ -16,21 +16,143 @@
 
     <!-- Css local  -->
     <link rel="stylesheet" href="../../assets/css/general.css" />
+    <link rel="stylesheet" href="../../assets/css/pagos.css" />
     <title>Interoriente | Pago</title>
   </head>
   <body>
     <!-- Barra de navegación -->
-
+    <div class="navegacion">
+     <a href="index.php"> <img id="logo" src="../../assets/img/LogoCuaternario.svg" alt="Logo barra de navegación"></a>
+    </div>
 
     <!-- Fin barra de navegación -->
 
+    <!-- Acordeón para dispositivos móviles  -->
+    <div class="accordion accordion-flush acordeon" id="accordionFlushExample">
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="flush-headingOne">
+      
+      <button class="accordion-button collapsed titulo-colapse" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+          <div class="carrito-descripcion">
+            <div class="carrito-texto">
+              <img id="carrito" src="../../assets/img/iconos/carrito_2.svg" alt="carrito">   Mostrar resumen del pedido 
+             </div>
+              <div class="precios">
+               $432.000
+              </div>
+         </div>
+        
+      </div>
+      </button>
+    </h2>
+    <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+      <div class="accordion-body acordeon-c">
 
-    <!-- Tarjeta  -->
+        <!-- Publicación -->
+       <div class="contenedor-items">
+         <div class="img-descripcion">
+           <div class="contenedor-imagen">
+            <img src="../../assets/img/stock/4.jpg" alt="imagen alusiva a la compra">
+           </div>
+           <p id="titulo-publicacion">Monitor Samsung Ips De 24 Full Hd Freesync Hdmi Lf24t400fh </p>
+         </div>
+         <div class="precio">
+         <p>$93.000</p>
+         </div>
+       </div>
+    <!-- FIN Publicación -->
+     <!-- Publicación -->
+       <div class="contenedor-items">
+         <div class="img-descripcion">
+           <div class="contenedor-imagen">
+            <img src="../../assets/img/stock/4.jpg" alt="imagen alusiva a la compra">
+           </div>
+           <p id="titulo-publicacion">Monitor Samsung Ips De 24 Full Hd Freesync Hdmi Lf24t400fh </p>
+         </div>
+         <div class="precio">
+         <p>$93.000</p>
+         </div>
+       </div>
+    <!-- FIN Publicación -->
+     <!-- Publicación -->
+       <div class="contenedor-items">
+         <div class="img-descripcion">
+           <div class="contenedor-imagen">
+            <img src="../../assets/img/stock/4.jpg" alt="imagen alusiva a la compra">
+           </div>
+           <p id="titulo-publicacion">Monitor Samsung Ips De 24 Full Hd Freesync Hdmi Lf24t400fh </p>
+         </div>
+         <div class="precio">
+         <p>$93.000</p>
+         </div>
+       </div>
+    <!-- FIN Publicación -->
 
+    <!-- Datos de compra  -->
+    <hr>
+       <div class="main-container">
+        <div class="contenedor-datos g">
+          <div class="titulo">
+            <p>Subtotal</p>
+            <p>Descuentos</p>
+            <p>IVA</p>
+          </div>
+          <div class="valor">
+            <p>$23.000</p>
+            <p>$23.000</p>
+            <p>$23.000</p>
+          </div>
+        </div>
+          <hr>
+          <div class="total g">
+              <p>total</p>
+              <p>$69.000</p>
+            </div>
+       </div>
 
-    <!-- Fin tarjeta  -->
-
+    <!-- Fin de datos de compra -->
+      </div>
+    </div>
+  </div>
+<hr>
+    <!-- Fin Acordeón para dispositivos móviles   -->
+ <div class="contenedor-principal">
+   
+ <!-- Tarjeta de contacto -->
+       <div class="tarjeta-contacto">
+         <!-- Contenedor información de contacto -->
+         <div class="contacto">
+          
+            <div class="correo-contacto">
+                <h6>Contacto</h6>
+                <p>Sramirex@misena.edu.co</p>
+            </div>
+              <div class="btn-cambiar">
+               <a href=""> <p id="cambiar">cambiar</p></a>
+              </div>
+         
+         </div>
+         <!-- FIN Contenedor información de contacto -->
+         <hr>
+         <div class="direccion">
+          <div class="contacto">
+          
+            <div class="direccion correo-contacto">
+                <h6>Enviar a</h6>
+                <p>Calle 14 No. 55 AC 138</p>
+            </div>
+              <div class="btn-cambiar">
+               <a href=""> <p id="cambiar">cambiar</p></a>
+              </div>
+         
+         </div>
+         </div>
+       </div>
+  </div>   
+        <!-- Fin tarjeta de contacto -->
+        <!-- Botón "Finalizar compra" -->
 
     <!-- JavaScript  -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
   </body>
 </html>
