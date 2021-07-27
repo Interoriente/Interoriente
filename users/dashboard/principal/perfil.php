@@ -94,7 +94,7 @@ if (isset($_SESSION["documentoIdentidad"])) {
                       <div class="col-lg-3 order-lg-2">
                         <div class="card-profile-image">
                           <a data-toggle="modal" data-target="#fotoperfil">
-                            <img src="<?php echo $prueba->imagenUsuario; ?>" class="rounded-circle">
+                            <img src="<?php echo $objetoLlamado->imagenUsuario; ?>" class="rounded-circle">
                           </a>
                         </div>
                       </div>
@@ -139,7 +139,7 @@ if (isset($_SESSION["documentoIdentidad"])) {
                   <div class="modal-dialog" role="document">
                     <div class="modal-content">
                       <div class="modal-body">
-                        <img class=" card-img-top" src="<?php echo $prueba->imagenUsuario; ?>">
+                        <img class=" card-img-top" src="<?php echo $objetoLlamado->imagenUsuario; ?>">
                       </div>
                     </div>
                   </div>
