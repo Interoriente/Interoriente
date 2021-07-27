@@ -98,7 +98,7 @@
                                         <div class="input-group-prepend">
                                             <span class="input-group-text"><i class="ni ni-badge"></i></span>
                                         </div>
-                                        <input class="form-control" placeholder="Documento" type="number" max="9999999999" name="documento" required>
+                                        <input class="form-control" placeholder="" type="number" max="9999999999" name="documento" required>
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -135,7 +135,7 @@
                                         <div class="input-group-prepend">
                                             <span class="input-group-text"><i class="ni ni-email-83"></i></span>
                                         </div>
-                                        <input class="form-control" placeholder="Correo" type="email" name="correo" required>
+                                        <input class="form-control" placeholder="example@gmail.com" type="email" name="correo" required>
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -144,7 +144,7 @@
                                         <div class="input-group-prepend">
                                             <span class="input-group-text"><i class="ni ni-key-25"></i></span>
                                         </div>
-                                        <input class="form-control" placeholder="Contraseña" type="password" name="contrasena" maxlength="20" required>
+                                        <input class="form-control" placeholder="*********" type="password" name="contrasena" maxlength="20" required>
                                     </div>
                                 </div>
                                 <div class="text-muted font-italic"><small>password strength: <span class="text-success font-weight-700">strong</span></small></div>

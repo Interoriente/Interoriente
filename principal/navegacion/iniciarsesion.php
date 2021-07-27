@@ -30,6 +30,35 @@
 </head>
 
 <body class="bg-default">
+    <!-- Script para llamar ciertos caracteres -->
+    <script>
+    function Sololetras(e) {
+
+      key = e.keycode || e.which;
+      teclado = String.fromCharCode(key).toLowerCase();
+
+      usuario = "abcdefghijklmnñopqrstuvwxyz1234567890@.";
+
+      especiales = "8-37-39-46-164"; //aray
+
+      teclado_especial = false;
+
+      for (var i in especiales) {
+
+        if (key == especiales[i]) {
+          teclado_especial = true;
+          break;
+
+        }
+
+      }
+
+      if (usuario.indexOf(teclado) == -1 && !teclado_especial) {
+        return false;
+
+      }
+    }
+  </script>
     <!-- Main content -->
     <div class="main-content">
         <!-- Header -->
@@ -78,9 +107,9 @@
                                     <label for="">Correo o documento:</label>
                                     <div class="input-group input-group-merge input-group-alternative mb-3">
                                         <div class="input-group-prepend">
-                                            <span class="input-group-text"><i class="ni ni-badge"></i></span>
+                                            <span class="input-group-text"><i class="ni ni-email-83"></i></span>
                                         </div>
-                                        <input class="form-control" placeholder="Documento" type="number" name="documento" max="9999999999" required>
+                                        <input class="form-control" placeholder="example@gmail.com" type="text" name="id" onkeypress="return Sololetras(event)" required>
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -89,7 +118,7 @@
                                         <div class="input-group-prepend">
                                             <span class="input-group-text"><i class="ni ni-key-25"></i></span>
                                         </div>
-                                        <input class="form-control" placeholder="Contraseña" type="password" name="contrasena" maxlength="20" required>
+                                        <input class="form-control" placeholder="**********" type="password" name="contrasena" maxlength="20" required>
                                     </div>
                                 </div>
                                 <div class="text-center">
