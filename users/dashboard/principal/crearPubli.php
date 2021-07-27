@@ -112,7 +112,7 @@ if (isset($_SESSION["documentoIdentidad"])) {
                       </div>
                     </div>
                     <div class="card-body">
-                      <form action="prueba.php" method="POST" enctype="multipart/form-data">
+                      <form action="crud/crearPublicacion.php" method="POST" enctype="multipart/form-data">
                         <h6 class="heading-small text-muted mb-4">Información del producto</h6>
                         <div class="pl-lg-4">
                           <div class="row">
@@ -174,7 +174,7 @@ if (isset($_SESSION["documentoIdentidad"])) {
                             <div class="col-lg-6">
                               <div class="form-group">
                                 <label class="form-control-label" for="input-username">Imagenes</label>
-                                <input type="file" id="input-username" name="file[]" id="file[]" class="form-control-file" multiple accept="image/*">
+                                <input type="file" id="input-username" name="imagen[]" id="file[]" class="form-control-file" multiple accept="image/*">
                                 <div class="description">
                                   <br>
                                   limite de 2048MB por imágenes
