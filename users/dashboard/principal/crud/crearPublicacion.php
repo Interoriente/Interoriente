@@ -1,15 +1,30 @@
 <?php
 if (isset($_POST['subir'])) {
+    include_once '../../../../dao/conexion.php';
+    //Llamado idPublicacion
+    $sqlLlamarId = "SELECT Max(idPublicacion) FROM tblPublicacion";
+    $consultaLlamarId = $pdo->prepare($sqlLlamarId);
+    $consultaLlamarId->execute();
+    $resultadoLlamarId = $consultaLlamarId->fetch();
+    //Se debe utilizar mientras se encuentra una forma más rápida o mejor
+    foreach ($resultadoLlamarId as $datos) {
+    }
+    $datos=$datos+1;
+    $idPubli="id".$datos." ";
+    //Crear carpetas
+    /* if (mkdir($idPubli, 0777, true)) {
+    } */
 
     //Captura de imagen
-    $directorio = "../imagenes/";
+    $directorio = "../imagenesPubli/$idPubli";
 
-    $archivo = $directorio . basename($_FILES['file']['name']);
+
+    $archivo = $directorio. basename($_FILES['file']['name']);
 
     $tipo_archivo = strtolower(pathinfo($archivo, PATHINFO_EXTENSION));
 
     //Validar que es imagen
-    $checarsiimagen = getimagesize($_FILES['file']['tmp_name']);
+     $checarsiimagen = getimagesize($_FILES['file']['tmp_name']);
 
     //var_dump($size);
 
@@ -22,6 +37,7 @@ if (isset($_POST['subir'])) {
             if ($tipo_archivo == 'jpg' || $tipo_archivo == 'jpeg' || $tipo_archivo == 'png') {
                 //Se validó el archivo correctamente
                 if (move_uploaded_file($_FILES['file']['tmp_name'], $archivo)) {
+                    
                     include_once '../../../../dao/conexion.php';
                     $nombre = $_POST['nombre'];
                     $descripcion = $_POST['descripcion'];
@@ -38,14 +54,7 @@ if (isset($_POST['subir'])) {
                     $consulta_insertar = $pdo->prepare($sql_insertar);
                     //Ejecutar la sentencia
                     $consulta_insertar->execute(array($nombre, $usuario, $descripcion, $color, $costo, $estadoarticulo, $stock, $categoria, $verificacion));
-
-                    //Llamado idPublicacion
-                    $sqlLlamarId = "SELECT MAX(idPublicacion) AS id FROM tblPublicacion";
-                    $consultaLlamarId = $pdo->prepare($sqlLlamarId);
-                    $consultaLlamarId->execute();
-                    $resultado_mostrar_publi1 = $consultaLlamarId->fetch();
-                    foreach ($resultado_mostrar_publi1 as $datos) { //Llamado al foreach para convertir el valor a entero
-                    }
+                    
                     //Insertando imagen en la tabla
                     $sqlInsertarImagen = "INSERT INTO tblImagenes (urlImagen,publicacionImagen)VALUES (?,?)";
                     $consultaInsertar = $pdo->prepare($sqlInsertarImagen);

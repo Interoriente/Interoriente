@@ -1,30 +1,27 @@
 <?php
 session_start();
 
-if (isset($_SESSION["emailUsuario"]) or isset($_SESSION["documentoIdentidad"])) {
-    $id = $_SESSION["emailUsuario"];
+if (isset($_SESSION["documentoIdentidad"])) {
+    $documento = $_SESSION["documentoIdentidad"];
     $sesionRol = $_SESSION['roles'];
     include_once '../../../dao/conexion.php';
-    $sql_validacion = "SELECT*FROM tblUsuario WHERE emailUsuario ='$id' AND estadoUsuario= '1'";
+    $sql_validacion = "SELECT*FROM tblUsuario WHERE documentoIdentidad =? AND estadoUsuario= '1'";
     $consulta_resta_validacion = $pdo->prepare($sql_validacion);
-    $consulta_resta_validacion->execute();
+    $consulta_resta_validacion->execute(array($documento));
     $resultado_validacion = $consulta_resta_validacion->rowCount();
     $validacion = $consulta_resta_validacion->fetch(PDO::FETCH_OBJ);
     //Llamado tabla intermedia
-    $documento = $_SESSION["documentoIdentidad"];
     $sqlSesionRol = "SELECT * FROM tblUsuarioRol WHERE docIdentidadUsuarioRol=? AND idUsuarioRol=?";
     $consultaSesionRol = $pdo->prepare($sqlSesionRol);
     $consultaSesionRol->execute(array($documento, $sesionRol));
     $resultadoSesionRol = $consultaSesionRol->rowCount();
-    //Llamado a documento del usuario logueado
-    $idDoc = $_SESSION["documentoIdentidad"];
 
     //Llamado a tabla empresa, función: contar registros
     $sqlMostrarEmpresa = "SELECT * FROM tblEmpresa WHERE documentoRepresentanteEmpresa=?";
     //Prepara sentencia
     $consultarMostrarEmpresa = $pdo->prepare($sqlMostrarEmpresa);
     //Ejecutar consulta
-    $consultarMostrarEmpresa->execute(array($idDoc));
+    $consultarMostrarEmpresa->execute(array($documento));
     $contadorEmpresa = $consultarMostrarEmpresa->rowCount();
 
     //Validacion de roles
@@ -74,7 +71,7 @@ if (isset($_SESSION["emailUsuario"]) or isset($_SESSION["documentoIdentidad"])) 
                             //Cargar los datos del id seleccionado
                             $idpubli = $_GET["id"];
                             //Mostrar los datos almacenados
-                            $sql_mostrar_publi1 = "SELECT * FROM tblPublicacion WHERE idPublicacion ='$idpubli'";
+                            $sql_mostrar_publi1 = "SELECT * FROM tblPublicacion WHERE idPublicacion =?";
                             //Prepara sentencia
                             $consultar_mostrar_publi1 = $pdo->prepare($sql_mostrar_publi1);
                             //Ejecutar consulta
@@ -156,7 +153,7 @@ if (isset($_SESSION["emailUsuario"]) or isset($_SESSION["documentoIdentidad"])) 
                                                         </div>
                                                         <div class="col-lg-6">
                                                             <div class="form-group">
-                                                                <input type="hidden" id="input-username" name="usuario" class="form-control" placeholder="Usuario" value="<?php echo $idDoc; ?>">
+                                                                <input type="hidden" id="input-username" name="usuario" class="form-control" placeholder="Usuario" value="<?php echo $documento; ?>">
                                                             </div>
                                                         </div>
                                                     </div>

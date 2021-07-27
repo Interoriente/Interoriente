@@ -119,8 +119,5 @@
     <!-- Argon JS -->
     <script src="../../users/dashboard/assets/js/argon.js?v=1.2.0"></script>
 
-    <body background="assets/img/im12.jpg" style="background-repeat: no-repeat; background-position: center center;">
-
-    </body>
 
 </html>

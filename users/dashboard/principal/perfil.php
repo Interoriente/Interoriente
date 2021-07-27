@@ -1,17 +1,16 @@
 <?php
 session_start();
 
-if (isset($_SESSION["emailUsuario"]) or isset($_SESSION["documentoIdentidad"])) {
-  $id = $_SESSION["emailUsuario"];
+if (isset($_SESSION["documentoIdentidad"])) {
+  $documento = $_SESSION["documentoIdentidad"];
   $sesionRol = $_SESSION['roles'];
   include_once '../../../dao/conexion.php';
-  $sql_validacion = "SELECT*FROM tblUsuario WHERE emailUsuario ='$id' AND estadoUsuario= '1'";
+  $sql_validacion = "SELECT*FROM tblUsuario WHERE documentoIdentidad =? AND estadoUsuario= '1'";
   $consulta_resta_validacion = $pdo->prepare($sql_validacion);
-  $consulta_resta_validacion->execute();
+  $consulta_resta_validacion->execute(array($documento));
   $resultado_validacion = $consulta_resta_validacion->rowCount();
   $validacion = $consulta_resta_validacion->fetch(PDO::FETCH_OBJ);
   //Llamado tabla intermedia
-  $documento = $_SESSION["documentoIdentidad"];
   $sqlSesionRol = "SELECT * FROM tblUsuarioRol WHERE docIdentidadUsuarioRol=? AND idUsuarioRol=?";
   $consultaSesionRol = $pdo->prepare($sqlSesionRol);
   $consultaSesionRol->execute(array($documento, $sesionRol));
@@ -61,9 +60,9 @@ if (isset($_SESSION["emailUsuario"]) or isset($_SESSION["documentoIdentidad"])) 
           $consultar_mostrar_ciudad->execute();
           $resultado_ciudad = $consultar_mostrar_ciudad->fetchAll();
           //Mostrar la información del usuario logueado
-          $sql_inicio = "SELECT*FROM tblUsuario WHERE emailUsuario =? ";
+          $sql_inicio = "SELECT*FROM tblUsuario WHERE documentoIdentidad =? ";
           $consulta_resta = $pdo->prepare($sql_inicio);
-          $consulta_resta->execute(array($id));
+          $consulta_resta->execute(array($documento));
           $resultado = $consulta_resta->rowCount();
           $resultado2 = $consulta_resta->fetch(PDO::FETCH_OBJ);
 
@@ -193,7 +192,6 @@ if (isset($_SESSION["emailUsuario"]) or isset($_SESSION["documentoIdentidad"])) 
                                 </select>
                               </div>
                             </div>
-                            <p>Ten en cuenta que si modificas el correo deberás iniciar sesión nuevamente</p>
                             <div class="col-lg-6">
                               <div class="form-group">
                                 <label class="form-control-label" for="input-email">Correo</label>

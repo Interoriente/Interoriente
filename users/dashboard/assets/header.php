@@ -32,16 +32,16 @@
             </div>
           </li>
           <?php
-          $id = $_SESSION["emailUsuario"];
+          $documento = $_SESSION["documentoIdentidad"];
           include_once '../../../dao/conexion.php';
-          $sql_inicio = "SELECT*FROM tblUsuario WHERE emailUsuario ='$id' ";
-          $consulta_resta = $pdo->prepare($sql_inicio);
-          $consulta_resta->execute();
-          $resultado = $consulta_resta->rowCount();
-          $prueba = $consulta_resta->fetch(PDO::FETCH_OBJ);
+          $sqlLlamado = "SELECT*FROM tblUsuario WHERE documentoIdentidad =? ";
+          $consultaLlamado = $pdo->prepare($sqlLlamado);
+          $consultaLlamado->execute(array($documento));
+          $resultadoLlamado = $consultaLlamado->rowCount();
+          $objetoLlamado = $consultaLlamado->fetch(PDO::FETCH_OBJ);
           //Validacion de roles
-          if ($resultado) {
-            $Nombre = $prueba->nombresUsuario . " " . $prueba->apellidoUsuario;
+          if ($resultadoLlamado) {
+            $Nombre = $objetoLlamado->nombresUsuario . " " . $objetoLlamado->apellidoUsuario;
           ?>
             <ul class="navbar-nav align-items-center  ml-auto ml-md-0 ">
               <li class="nav-item dropdown">
@@ -49,7 +49,7 @@
                   <div class="media align-items-center">
                     <span class="avatar avatar-sm rounded-circle">
                       <!--- Impresión imagen de perfil -->
-                      <img alt="Image placeholder" src="<?php echo $prueba->imagenUsuario; ?>">
+                      <img alt="Image placeholder" src="<?php echo $objetoLlamado->imagenUsuario; ?>">
                     </span>
                     <div class="media-body  ml-2  d-none d-lg-block">
 

@@ -1,17 +1,16 @@
 <?php
 session_start();
 
-if (isset($_SESSION["emailUsuario"]) or isset($_SESSION["documentoIdentidad"])) {
-    $id = $_SESSION["emailUsuario"];
+if (isset($_SESSION["documentoIdentidad"])) {
+    $documento = $_SESSION["documentoIdentidad"];
     $sesionRol = $_SESSION['roles'];
     include_once '../../../dao/conexion.php';
-    $sql_validacion = "SELECT*FROM tblUsuario WHERE emailUsuario ='$id' AND estadoUsuario= '1'";
+    $sql_validacion = "SELECT*FROM tblUsuario WHERE documentoIdentidad =? AND estadoUsuario= '1'";
     $consulta_resta_validacion = $pdo->prepare($sql_validacion);
-    $consulta_resta_validacion->execute();
+    $consulta_resta_validacion->execute(array($documento));
     $resultado_validacion = $consulta_resta_validacion->rowCount();
     $validacion = $consulta_resta_validacion->fetch(PDO::FETCH_OBJ);
     //Llamado tabla intermedia
-    $documento = $_SESSION["documentoIdentidad"];
     $sqlSesionRol = "SELECT * FROM tblUsuarioRol WHERE docIdentidadUsuarioRol=? AND idUsuarioRol=?";
     $consultaSesionRol = $pdo->prepare($sqlSesionRol);
     $consultaSesionRol->execute(array($documento, $sesionRol));
@@ -43,9 +42,9 @@ if (isset($_SESSION["emailUsuario"]) or isset($_SESSION["documentoIdentidad"])) 
                 </head>
 
                 <body>
-                    <?php 
+                    <?php
                     require_once '../assets/sidebarDashboard.php';
-                    require_once '../assets/header.php';?>
+                    require_once '../assets/header.php'; ?>
                     <br>
                     <div class="col-xl-8 order-xl-1">
                         <div class="card">

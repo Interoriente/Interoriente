@@ -1,17 +1,16 @@
 <?php
 session_start();
 
-if (isset($_SESSION["emailUsuario"]) or isset($_SESSION["documentoIdentidad"])) {
-  $id = $_SESSION["emailUsuario"];
+if (isset($_SESSION["documentoIdentidad"])) {
+  $documento = $_SESSION["documentoIdentidad"];
   $sesionRol = $_SESSION['roles'];
   include_once '../../../dao/conexion.php';
-  $sql_validacion = "SELECT*FROM tblUsuario WHERE emailUsuario ='$id' AND estadoUsuario= '1'";
+  $sql_validacion = "SELECT*FROM tblUsuario WHERE documentoIdentidad =? AND estadoUsuario= '1'";
   $consulta_resta_validacion = $pdo->prepare($sql_validacion);
-  $consulta_resta_validacion->execute();
+  $consulta_resta_validacion->execute(array($documento));
   $resultado_validacion = $consulta_resta_validacion->rowCount();
   $validacion = $consulta_resta_validacion->fetch(PDO::FETCH_OBJ);
   //Llamado tabla intermedia
-  $documento = $_SESSION["documentoIdentidad"];
   $sqlSesionRol = "SELECT * FROM tblUsuarioRol WHERE docIdentidadUsuarioRol=? AND idUsuarioRol=?";
   $consultaSesionRol = $pdo->prepare($sqlSesionRol);
   $consultaSesionRol->execute(array($documento, $sesionRol));
@@ -45,16 +44,16 @@ if (isset($_SESSION["emailUsuario"]) or isset($_SESSION["documentoIdentidad"])) 
           <?php
           require_once '../assets/sidebarDashboard.php';
           require_once '../assets/header.php';
-          
+
           include_once '../../../dao/conexion.php';
           //Llamar a la conexion base de datos -> Muestro el contenido de tabla publicación, pero muestro mis publicaciones
-          $id = $_SESSION["documentoIdentidad"];
+
           //Mostrar los datos almacenados
           $sql_mostrar_publi = "SELECT * FROM tblPublicacion WHERE docIdentidadPublicacion =?";
           //Prepara sentencia
           $consultar_mostrar_publi = $pdo->prepare($sql_mostrar_publi);
           //Ejecutar consulta
-          $consultar_mostrar_publi->execute(array($id));
+          $consultar_mostrar_publi->execute(array($documento));
           $contadorPubli = $consultar_mostrar_publi->rowCount();
           $resultado_mostrar_publi = $consultar_mostrar_publi->fetchAll();
 
@@ -82,7 +81,7 @@ if (isset($_SESSION["emailUsuario"]) or isset($_SESSION["documentoIdentidad"])) 
             //Cargar los datos del id seleccionado
             $idpubli = $_GET["id"];
             //Mostrar los datos almacenados
-            $sql_mostrar_publi1 = "SELECT * FROM tblPublicacion WHERE idPublicacion ='$idpubli'";
+            $sql_mostrar_publi1 = "SELECT * FROM tblPublicacion WHERE idPublicacion =?";
             //Prepara sentencia
             $consultar_mostrar_publi1 = $pdo->prepare($sql_mostrar_publi1);
             //Ejecutar consulta
@@ -90,12 +89,11 @@ if (isset($_SESSION["emailUsuario"]) or isset($_SESSION["documentoIdentidad"])) 
             $resultado_mostrar_publi1 = $consultar_mostrar_publi1->fetch();
           }
           //Llamado a tabla empresa, función: contar registros
-          $documentoRepresen = $_SESSION['documentoIdentidad'];
           $sqlMostrarEmpresa = "SELECT * FROM tblEmpresa WHERE documentoRepresentanteEmpresa=?";
           //Prepara sentencia
           $consultarMostrarEmpresa = $pdo->prepare($sqlMostrarEmpresa);
           //Ejecutar consulta
-          $consultarMostrarEmpresa->execute(array($documentoRepresen));
+          $consultarMostrarEmpresa->execute(array($documento));
           $contadorEmpresa = $consultarMostrarEmpresa->rowCount();
           $resultadoEmpresa = $consultarMostrarEmpresa->fetch();
           ?>
@@ -181,7 +179,7 @@ if (isset($_SESSION["emailUsuario"]) or isset($_SESSION["documentoIdentidad"])) 
                             </div>
                             <div class="col-lg-6">
                               <div class="form-group">
-                                <input type="hidden" id="input-username" name="usuario" class="form-control" placeholder="Usuario" value="<?php echo $id; ?>">
+                                <input type="hidden" id="input-username" name="usuario" class="form-control" placeholder="Usuario" value="<?php echo $documento; ?>">
                               </div>
                             </div>
                           </div>
@@ -267,57 +265,59 @@ if (isset($_SESSION["emailUsuario"]) or isset($_SESSION["documentoIdentidad"])) 
               <center>
                 <h1>Mis publicaciones</h1>
               </center>
-              <table class="table">
-                <thead>
-                  <tr>
-                    <th scope="col">Nombre</th>
-                    <th scope="col">Descripcion</th>
-                    <th scope="col">Costo</th>
-                    <th scope="col">Stock</th>
-                    <th scope="col">Editar</th>
-                    <th scope="col">Eliminar</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <?php if ($contadorPubli == '0') { ?>
-                    <th></th>
-                    <td>Opps, por ahora no tenes publicaciones</td>
-                  <?php }
-                  foreach ($resultado_mostrar_publi as $datos_publi) {
-                  ?>
+              <div class="table-responsive">
+                <table class="table align-items-center table-flush">
+                  <thead class="thead-light">
                     <tr>
-                      <th><?php echo $datos_publi['nombrePublicacion'] ?></th>
-                      <td><?php echo $datos_publi['descripcionPublicacion'] ?></td>
-                      <td><?php echo $datos_publi['costoPublicacion'] ?></td>
-                      <td><?php echo $datos_publi['stockPublicacion'] ?></td>
-                      <td><a href="crearPubli.php?id=<?php echo $datos_publi['idPublicacion']; ?>"><i class="icono2 fas fa-pencil-alt"></i></a></td>
-                      <td><a data-toggle="modal" data-target="#eliminarPubliModal<?php echo $datos_publi['idPublicacion'] ?>"><i class="icono1 fas fa-trash"></i></a></td>
+                      <th scope="col">Nombre</th>
+                      <th scope="col">Descripcion</th>
+                      <th scope="col">Costo</th>
+                      <th scope="col">Stock</th>
+                      <th scope="col">Editar</th>
+                      <th scope="col">Eliminar</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <?php if ($contadorPubli == '0') { ?>
+                      <th></th>
+                      <td>Opps, por ahora no tenes publicaciones</td>
+                    <?php }
+                    foreach ($resultado_mostrar_publi as $datos_publi) {
+                    ?>
+                      <tr>
+                        <th><?php echo $datos_publi['nombrePublicacion'] ?></th>
+                        <td><?php echo $datos_publi['descripcionPublicacion'] ?></td>
+                        <td><?php echo $datos_publi['costoPublicacion'] ?></td>
+                        <td><?php echo $datos_publi['stockPublicacion'] ?></td>
+                        <td><a href="crearPubli.php?id=<?php echo $datos_publi['idPublicacion']; ?>"><i class="icono2 fas fa-pencil-alt"></i></a></td>
+                        <td><a data-toggle="modal" data-target="#eliminarPubliModal<?php echo $datos_publi['idPublicacion'] ?>"><i class="icono1 fas fa-trash"></i></a></td>
 
-                      <!--Modal Eliminar publicación -->
-                      <div class="modal fade" id="eliminarPubliModal<?php echo $datos_publi['idPublicacion'] ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog" role="document">
-                          <div class="modal-content">
-                            <div class="modal-header">
-                              <h5 class="modal-title" id="exampleModalLabel">¿Seguro quieres eliminar esta publicación?</h5>
-                              <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">×</span>
-                              </button>
-                            </div>
-                            <div class="modal-body">Seleccione "Eliminar" para eliminar la publicación, esta acción no se podrá deshacer.</div>
-                            <div class="modal-footer">
-                              <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
-                              <a class="btn btn-danger" href="crud/eliminarPubli.php?id=<?php echo $datos_publi['idPublicacion'] ?>">Eliminar</a>
+                        <!--Modal Eliminar publicación -->
+                        <div class="modal fade" id="eliminarPubliModal<?php echo $datos_publi['idPublicacion'] ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                          <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                              <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">¿Seguro quieres eliminar esta publicación?</h5>
+                                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                                  <span aria-hidden="true">×</span>
+                                </button>
+                              </div>
+                              <div class="modal-body">Seleccione "Eliminar" para eliminar la publicación, esta acción no se podrá deshacer.</div>
+                              <div class="modal-footer">
+                                <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
+                                <a class="btn btn-danger" href="crud/eliminarPubli.php?id=<?php echo $datos_publi['idPublicacion'] ?>">Eliminar</a>
+                              </div>
                             </div>
                           </div>
                         </div>
-                      </div>
-                    </tr>
-                <?php }
-                } ?>
-                </tbody>
-              </table>
-              <!-- Footer -->
-              <?php require_once '../assets/footer.php' ?>
+              </div>
+              </tr>
+          <?php }
+                  } ?>
+          </tbody>
+          </table>
+          <!-- Footer -->
+          <?php require_once '../assets/footer.php' ?>
           </div>
         </body>
 
