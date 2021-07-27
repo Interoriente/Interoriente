@@ -173,8 +173,14 @@ if (isset($_SESSION["documentoIdentidad"])) {
                             </div>
                             <div class="col-lg-6">
                               <div class="form-group">
-                                <label class="form-control-label" for="input-username">Imagen</label>
-                                <input type="file" id="input-username" name="file" class="form-control" placeholder="Imagen" value="">
+                                <label class="form-control-label" for="input-username">Imagenes</label>
+                                <input type="file" id="input-username" name="imagen[]" id="file[]" class="form-control-file" multiple accept="image/*">
+                                <div class="description">
+                                  <br>
+                                  limite de 2048MB por imágenes
+                                  <br>
+                                  Tipos permitidos: jpeg, png, jpg
+                                </div>
                               </div>
                             </div>
                             <div class="col-lg-6">

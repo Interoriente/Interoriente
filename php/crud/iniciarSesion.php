@@ -18,22 +18,24 @@ session_start();
         //Llamar a la conexion base de datos
         require '../../dao/conexion.php';
         //Capturo información
-        $id = strip_tags($_POST['documento']);
+        $id = strip_tags($_POST['id']);
         $contrasena = strip_tags($_POST['contrasena']);
         $contrasena = sha1($_POST['contrasena']);
         $estado = '1';
-        $sql_inicio = "SELECT*FROM tblUsuario WHERE documentoIdentidad='$id'  AND contrasenaUsuario='$contrasena'AND estadoUsuario = '$estado'";
+        $sql_inicio = "SELECT*FROM tblUsuario WHERE (documentoIdentidad=? OR emailUsuario=?)  AND contrasenaUsuario=? AND estadoUsuario = ?";
         $consulta_inicio = $pdo->prepare($sql_inicio);
-        $consulta_inicio->execute();
+        $consulta_inicio->execute(array($id, $id,$contrasena, $estado));
         $resultado_inicio = $consulta_inicio->rowCount();
         $prueba = $consulta_inicio->fetch(PDO::FETCH_OBJ);
 
+        //Llamado al documento independiente si ingresa correo o documento
+        $documento= $prueba->documentoIdentidad;
 
         //Llamado a tabla rol
         if ($resultado_inicio) { //Verifico que la informacion que se digitó en el formulario sea la que existe en BD, para llamar a tabla USuarioRol
-            $sql_inicio1 = "SELECT idUsuarioRol FROM tblUsuarioRol WHERE docIdentidadUsuarioRol='$id'";
+            $sql_inicio1 = "SELECT idUsuarioRol FROM tblUsuarioRol WHERE docIdentidadUsuarioRol=?";
             $consulta_inicio1 = $pdo->prepare($sql_inicio1);
-            $consulta_inicio1->execute();
+            $consulta_inicio1->execute(array($documento));
             $resultado_inicio1 = $consulta_inicio1->rowCount();
             $rol = $consulta_inicio1->fetch(PDO::FETCH_OBJ);
             if ($resultado_inicio1) {
@@ -41,8 +43,6 @@ session_start();
             }
         }
         if ($resultado_inicio) {
-
-            $_SESSION["emailUsuario"] = $prueba->emailUsuario;
             $_SESSION["documentoIdentidad"] = $prueba->documentoIdentidad;
             $_SESSION['roles'] = $rol;
             $_SESSION["rolUsuario"] = '1';
@@ -61,7 +61,7 @@ session_start();
                 $_SESSION["rolUsuario"] = '3';
             }
         } else {
-            echo "<script>alert('Documento y/o contraseña incorrecto, o validación denegada');</script>";
+            echo "<script>alert('Correo o documento y/o contraseña incorrecto, o validación denegada');</script>";
             echo "<script> document.location.href='../../principal/navegacion/iniciarsesion.php';</script>";
         }
     }
