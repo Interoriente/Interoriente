@@ -102,23 +102,23 @@
                             <div class="text-center text-muted mb-4">
                                 <small>O con tus datos puedes diligenciar tus datos en los siguientes campos</small>
                             </div>
-                            <form action="../../php/crud/iniciarSesion.php" method="POST">
+                            <form action="../../php/crud/iniciarSesion.php" method="POST" id="formulario">
                                 <div class="form-group">
-                                    <label for="">Correo o documento:</label>
+                                    <label for="id">Correo o documento:</label>
                                     <div class="input-group input-group-merge input-group-alternative mb-3">
                                         <div class="input-group-prepend">
                                             <span class="input-group-text"><i class="ni ni-email-83"></i></span>
                                         </div>
-                                        <input class="form-control" placeholder="example@gmail.com" type="text" name="id" onkeypress="return Sololetras(event)" required>
+                                        <input class="form-control" id="id" placeholder="example@gmail.com" type="text" name="id" onkeypress="return Sololetras(event)" required>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="">Contraseña:</label>
+                                    <label for="contrasena">Contraseña:</label>
                                     <div class="input-group input-group-merge input-group-alternative mb-3">
                                         <div class="input-group-prepend">
                                             <span class="input-group-text"><i class="ni ni-key-25"></i></span>
                                         </div>
-                                        <input class="form-control" placeholder="**********" type="password" name="contrasena" maxlength="20" required>
+                                        <input class="form-control" id="contrasena" placeholder="**********" type="password" name="contrasena" maxlength="20" required>
                                     </div>
                                 </div>
                                 <div class="text-center">
@@ -140,6 +140,7 @@
         </div>
     </div>
     <!-- Core -->
+    <script src="../../assets/js/formulario.js"></script>
     <script src="../../users/dashboard/assets/vendor/jquery/dist/jquery.min.js"></script>
     <script src="../../users/dashboard/assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="../../users/dashboard/assets/vendor/js-cookie/js.cookie.js"></script>
