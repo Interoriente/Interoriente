@@ -75,7 +75,7 @@
                             </div>
                             <form action="../../php/crud/iniciarSesion.php" method="POST">
                                 <div class="form-group">
-                                    <label for="">Documento:</label>
+                                    <label for="">Correo o documento:</label>
                                     <div class="input-group input-group-merge input-group-alternative mb-3">
                                         <div class="input-group-prepend">
                                             <span class="input-group-text"><i class="ni ni-badge"></i></span>
