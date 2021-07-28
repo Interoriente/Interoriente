@@ -29,7 +29,7 @@
     <link rel="stylesheet" href="../../users/dashboard/assets/css/argon.css?v=1.2.0" type="text/css">
 </head>
 
-<body class="bg-default" oncontextmenu="return false" onkeydown="return false">
+<body class="bg-default" oncontextmenu="return false">
     <!-- Script para llamar ciertos caracteres -->
     <script>
     function Sololetras(e) {

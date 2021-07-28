@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="../../users/dashboard/assets/css/argon.css?v=1.2.0" type="text/css">
 </head>
 
-<body class="bg-default">
+<body class="bg-default" oncontextmenu="return false">
     <?php
     //Sirve para mostrar el contenido de la tabla Ciudad, para mostrarlo en la lista desplegable
     include_once '../../dao/conexion.php';
