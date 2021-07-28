@@ -29,7 +29,7 @@
     <link rel="stylesheet" href="../../users/dashboard/assets/css/argon.css?v=1.2.0" type="text/css">
 </head>
 
-<body class="bg-default">
+<body class="bg-default" oncontextmenu="return false" onkeydown="return false">
     <!-- Script para llamar ciertos caracteres -->
     <script>
     function Sololetras(e) {
@@ -118,7 +118,7 @@
                                         <div class="input-group-prepend">
                                             <span class="input-group-text"><i class="ni ni-key-25"></i></span>
                                         </div>
-                                        <input class="form-control" id="contrasena" placeholder="**********" type="password" name="contrasena" maxlength="20" required>
+                                        <input class="form-control" id="contrasena" placeholder="**********" type="password" name="contrasena" minlength="8" maxlength="20" required>
                                     </div>
                                 </div>
                                 <div class="text-center">
