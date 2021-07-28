@@ -29,7 +29,7 @@
     <link rel="stylesheet" href="../../users/dashboard/assets/css/argon.css?v=1.2.0" type="text/css">
 </head>
 
-<body class="bg-default">
+<body class="bg-default" oncontextmenu="return false">
     <!-- Script para llamar ciertos caracteres -->
     <script>
     function Sololetras(e) {
@@ -83,42 +83,42 @@
         <div class="container mt--8 pb-5">
             <!-- Table -->
             <div class="row justify-content-center">
-                <div class="col-lg-5 col-md-7">
+                <div class="col-lg-6 col-md-7">
                     <div class="card bg-secondary border-0">
                         <div class="card-header bg-transparent pb-5">
                             <div class="text-muted text-center mt-2 mb-4"><small>Puedes iniciar sesión por:</small></div>
                             <div class="text-center">
-                                <a href="productos.php" class="btn btn-neutral btn-icon mr-4">
+                                <a href="../navegacion/index.php" class="btn btn-neutral btn-icon mr-4">
                                     <span class="btn-inner--icon"><img src="../../users/dashboard/assets/img/icons/common/github.svg"></span>
-                                    <span class="btn-inner--text">Productos</span>
+                                    <span class="btn-inner--text">Index</span>
                                 </a>
-                                <a href="../publicacion/index.php" class="btn btn-neutral btn-icon">
+                                <a href="#" class="btn btn-neutral btn-icon">
                                     <span class="btn-inner--icon"><img src="../../users/dashboard/assets/img/icons/common/google.svg"></span>
-                                    <span class="btn-inner--text">Comprar</span>
+                                    <span class="btn-inner--text">Google</span>
                                 </a>
                             </div>
                         </div>
                         <div class="card-body px-lg-5 py-lg-5">
                             <div class="text-center text-muted mb-4">
-                                <small>O con tus datos puedes diligenciar tus datos en los siguientes campos</small>
+                                <small>O con tus datos personales:</small>
                             </div>
                             <form action="../../php/crud/iniciarSesion.php" method="POST">
                                 <div class="form-group">
-                                    <label for="">Correo o documento:</label>
+                                    <label for="id">Correo o documento:</label>
                                     <div class="input-group input-group-merge input-group-alternative mb-3">
                                         <div class="input-group-prepend">
                                             <span class="input-group-text"><i class="ni ni-email-83"></i></span>
                                         </div>
-                                        <input class="form-control" placeholder="example@gmail.com" type="text" name="id" onkeypress="return Sololetras(event)" required>
+                                        <input class="form-control" id="id" placeholder="example@gmail.com" type="text" name="id" onkeypress="return Sololetras(event)" required>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="">Contraseña:</label>
+                                    <label for="contrasena">Contraseña:</label>
                                     <div class="input-group input-group-merge input-group-alternative mb-3">
                                         <div class="input-group-prepend">
                                             <span class="input-group-text"><i class="ni ni-key-25"></i></span>
                                         </div>
-                                        <input class="form-control" placeholder="**********" type="password" name="contrasena" maxlength="20" required>
+                                        <input class="form-control" id="contrasena" placeholder="**********" type="password" name="contrasena" minlength="2" maxlength="20" required>
                                     </div>
                                 </div>
                                 <div class="text-center">
@@ -140,6 +140,7 @@
         </div>
     </div>
     <!-- Core -->
+    <!-- <script src="../../assets/js/formulario.js"></script> -->
     <script src="../../users/dashboard/assets/vendor/jquery/dist/jquery.min.js"></script>
     <script src="../../users/dashboard/assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="../../users/dashboard/assets/vendor/js-cookie/js.cookie.js"></script>

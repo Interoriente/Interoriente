@@ -9,4 +9,10 @@
 <script src="../assets/vendor/chart.js/dist/Chart.extension.js"></script>
 <!-- Argon JS -->
 <script src="../assets/js/argon.js?v=1.2.0"></script>
+
+<!-- Script que le da el filtro a la tabla -->
+
+<script src="../assets/js/datatables.min.js"></script>
+<script src="../assets/js//dataTables.bootstrap.min.js"></script>
+<script src="../assets/js/datatables-init.js"></script>
 </div>

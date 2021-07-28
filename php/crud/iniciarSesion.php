@@ -24,12 +24,13 @@ session_start();
         $estado = '1';
         $sql_inicio = "SELECT*FROM tblUsuario WHERE (documentoIdentidad=? OR emailUsuario=?)  AND contrasenaUsuario=? AND estadoUsuario = ?";
         $consulta_inicio = $pdo->prepare($sql_inicio);
-        $consulta_inicio->execute(array($id, $id,$contrasena, $estado));
-        $resultado_inicio = $consulta_inicio->rowCount();
-        $prueba = $consulta_inicio->fetch(PDO::FETCH_OBJ);
-
-        //Llamado al documento independiente si ingresa correo o documento
-        $documento= $prueba->documentoIdentidad;
+        if ($consulta_inicio->execute(array($id, $id, $contrasena, $estado))) {
+            $resultado_inicio = $consulta_inicio->rowCount();
+            if ($prueba = $consulta_inicio->fetch(PDO::FETCH_OBJ)) {
+                //Llamado al documento independiente si ingresa correo o documento
+                $documento = $prueba->documentoIdentidad;
+            }
+        }
 
         //Llamado a tabla rol
         if ($resultado_inicio) { //Verifico que la informacion que se digitó en el formulario sea la que existe en BD, para llamar a tabla USuarioRol

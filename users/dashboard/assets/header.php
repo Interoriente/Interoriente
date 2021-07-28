@@ -20,7 +20,7 @@
         </form>
         <!-- Navbar links -->
         <ul class="navbar-nav align-items-center  ml-md-auto ">
-        <!-- Botones para cerrar el sidebar -> Revisar para vistas pequeñas porque se esconde -->
+          <!-- Botones para cerrar el sidebar -> Revisar para vistas pequeñas porque se esconde -->
           <li class="nav-item d-xl-none">
             <!-- Sidenav toggler -->
             <div class="pr-3 sidenav-toggler sidenav-toggler-dark" data-action="sidenav-pin" data-target="#sidenav-main">
@@ -79,7 +79,7 @@
                     <span>Soporte</span>
                   </a>
                   <div class="dropdown-divider"></div>
-                  <a href="../../../controller/cerrar_sesion.php" class="dropdown-item"  data-toggle="modal" data-target="#logoutModal">
+                  <a href="#" class="dropdown-item" data-toggle="modal" data-target="#logoutModal">
                     <i class="ni ni-user-run"></i>
                     <span>Cerrar sesión</span>
                   </a>
@@ -100,7 +100,9 @@
             <span aria-hidden="true">×</span>
           </button>
         </div>
-        <div class="modal-body">Seleccione "Cerrar sesión" a continuación si está listo para finalizar su sesión actual.</div>
+        <div class="modal-body">
+          Seleccione "Cerrar sesión" a continuación si está listo para finalizar su sesión actual.
+        </div>
         <div class="modal-footer">
           <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
           <a class="btn btn-primary" href="../../../controller/cerrar_sesion.php">Cerrar sesión</a>

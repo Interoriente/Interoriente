@@ -160,16 +160,22 @@ if (isset($_SESSION["documentoIdentidad"])) {
                         <h6 class="heading-small text-muted mb-4">Información de usuario</h6>
                         <div class="pl-lg-4">
                           <div class="row">
+                          <div class="col-lg-6">
+                              <div class="form-group">
+                                <label class="form-control-label" for="docu">Documento</label>
+                                <input type="text" id="docu" name="nombre" class="form-control" placeholder="Username" value="<?php echo $resultado2->documentoIdentidad; ?>" disabled>
+                              </div>
+                            </div>
                             <div class="col-lg-6">
                               <div class="form-group">
                                 <label class="form-control-label" for="input-username">Nombre</label>
-                                <input type="text" id="input-username" name="nombre" class="form-control" placeholder="Username" value="<?php echo $resultado2->nombresUsuario; ?>">
+                                <input type="text" id="input-username" name="nombre" class="form-control" placeholder="Username" value="<?php echo $resultado2->nombresUsuario; ?>" disabled>
                               </div>
                             </div>
                             <div class="col-lg-6">
                               <div class="form-group">
                                 <label class="form-control-label" for="input-username">Apellido</label>
-                                <input type="text" id="input-username" name="apellido" class="form-control" placeholder="Username" value="<?php echo $resultado2->apellidoUsuario; ?>">
+                                <input type="text" id="input-username" name="apellido" class="form-control" placeholder="Username" value="<?php echo $resultado2->apellidoUsuario; ?>" disabled>
                               </div>
                             </div>
                             <div class="col-lg-6">
@@ -181,7 +187,7 @@ if (isset($_SESSION["documentoIdentidad"])) {
                             <div class="col-lg-6">
                               <div class="form-group">
                                 <label class="form-control-label" for="input-username">Ciudad</label>
-                                <select name="ciudad" class="form-control" required>
+                                <select name="ciudad" class="form-control" required disabled>
                                   <option value="<?php //echo $resultadoCiudad->idCiudad; 
                                                   ?>" selected><?php // echo $resultadoCiudad->nombreCiudad; 
                                                                 ?>Seleccione ciudad</option>

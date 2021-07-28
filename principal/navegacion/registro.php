@@ -18,7 +18,35 @@
     <link rel="stylesheet" href="../../users/dashboard/assets/css/argon.css?v=1.2.0" type="text/css">
 </head>
 
-<body class="bg-default">
+<body class="bg-default" oncontextmenu="return false">
+    <script>
+        function Sololetras(e) {
+
+            key = e.keycode || e.which;
+            teclado = String.fromCharCode(key).toLowerCase();
+
+            usuario = "abcdefghijklmnñopqrstuvwxyz1234567890@.";
+
+            especiales = "8-37-39-46-164"; //aray
+
+            teclado_especial = false;
+
+            for (var i in especiales) {
+
+                if (key == especiales[i]) {
+                    teclado_especial = true;
+                    break;
+
+                }
+
+            }
+
+            if (usuario.indexOf(teclado) == -1 && !teclado_especial) {
+                return false;
+
+            }
+        }
+    </script>
     <?php
     //Sirve para mostrar el contenido de la tabla Ciudad, para mostrarlo en la lista desplegable
     include_once '../../dao/conexion.php';
@@ -98,7 +126,7 @@
                                         <div class="input-group-prepend">
                                             <span class="input-group-text"><i class="ni ni-badge"></i></span>
                                         </div>
-                                        <input class="form-control" placeholder="" type="number" max="9999999999" name="documento" required>
+                                        <input class="form-control" placeholder="Documento" type="number" max="9999999999" name="documento" required>
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -144,7 +172,16 @@
                                         <div class="input-group-prepend">
                                             <span class="input-group-text"><i class="ni ni-key-25"></i></span>
                                         </div>
-                                        <input class="form-control" placeholder="*********" type="password" name="contrasena" maxlength="20" required>
+                                        <input class="form-control" placeholder="*********" type="password" name="contrasena" minlength="5" maxlength="20" required>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="">Repita contraseña:</label>
+                                    <div class="input-group input-group-merge input-group-alternative mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"><i class="ni ni-key-25"></i></span>
+                                        </div>
+                                        <input class="form-control" placeholder="*********" type="password" name="recontrasena" minlength="5" maxlength="20" required>
                                     </div>
                                 </div>
                                 <div class="text-muted font-italic"><small>password strength: <span class="text-success font-weight-700">strong</span></small></div>

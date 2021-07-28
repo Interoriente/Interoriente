@@ -44,7 +44,7 @@ if (isset($_SESSION["documentoIdentidad"])) {
           <?php
           require_once '../assets/sidebarDashboard.php';
           require_once '../assets/header.php';
-          
+
           include_once '../../../dao/conexion.php';
           //Llamar a la conexion base de datos -> Muestro el contenido de tabla usuario
           //Mostrar los datos almacenados
@@ -84,16 +84,16 @@ if (isset($_SESSION["documentoIdentidad"])) {
                   </div>
                   <!-- Light table -->
                   <div class="table-responsive">
-                    <table class="table align-items-center table-flush">
+                    <table id="bootstrap-data-table" class="table align-items-center table-flush">
                       <thead class="thead-light">
                         <tr>
-                          <th scope="col" class="sort" data-sort="name">Nombre</th>
-                          <th scope="col" class="sort" data-sort="budget">Descripción</th>
-                          <th scope="col" class="sort" data-sort="status">Costo</th>
-                          <th scope="col" class="sort" data-sort="status">Stock</th>
-                          <th scope="col" class="sort" data-sort="status">Estado</th>
-                          <th scope="col" class="sort" data-sort="status">Actualizar</th>
-                          <th scope="col" class="sort" data-sort="status">Eliminar</th>
+                          <th scope="col">Nombre</th>
+                          <th scope="col">Descripción</th>
+                          <th scope="col">Costo</th>
+                          <th scope="col">Stock</th>
+                          <th scope="col">Estado</th>
+                          <th scope="col">Actualizar</th>
+                          <th scope="col">Eliminar</th>
                         </tr>
                       </thead>
                       <tbody class="list">
@@ -140,37 +140,12 @@ if (isset($_SESSION["documentoIdentidad"])) {
                       </tbody>
                     </table>
                   </div>
-                  <!-- Card footer -->
-                  <div class="card-footer py-4">
-                    <nav aria-label="...">
-                      <ul class="pagination justify-content-end mb-0">
-                        <li class="page-item disabled">
-                          <a class="page-link" href="#" tabindex="-1">
-                            <i class="fas fa-angle-left"></i>
-                            <span class="sr-only">Previous</span>
-                          </a>
-                        </li>
-                        <li class="page-item active">
-                          <a class="page-link" href="#">1</a>
-                        </li>
-                        <li class="page-item">
-                          <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
-                        </li>
-                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                        <li class="page-item">
-                          <a class="page-link" href="#">
-                            <i class="fas fa-angle-right"></i>
-                            <span class="sr-only">Next</span>
-                          </a>
-                        </li>
-                      </ul>
-                    </nav>
-                  </div>
                 </div>
               </div>
             </div>
             <!-- Footer -->
             <?php require_once '../assets/footer.php' ?>
+          </div>
         </body>
 
         </html>

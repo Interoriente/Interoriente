@@ -99,7 +99,7 @@ if (isset($_SESSION["documentoIdentidad"])) {
                       <div class="card-body">
                         <div class="row">
                           <div class="col">
-                            <h5 class="card-title text-uppercase text-muted mb-0">Total publicaciones</h5>
+                            <h5 class="card-title text-uppercase text-muted mb-0">Nuevas publicaciones</h5>
                             <span class="h2 font-weight-bold mb-0"><?php echo $resultadoMostrarConteoPubli; ?></span>
                           </div>
                           <div class="col-auto">

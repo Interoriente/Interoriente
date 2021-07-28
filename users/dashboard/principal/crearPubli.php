@@ -185,7 +185,8 @@ if (isset($_SESSION["documentoIdentidad"])) {
                             </div>
                             <div class="col-lg-6">
                               <div class="form-group">
-                                <input type="hidden" id="input-username" name="usuario" class="form-control" placeholder="Usuario" value="<?php echo $documento; ?>">
+                                <!-- <label class="form-control-label" for="usu">Usuario</label> -->
+                                <input type="hidden" id="usu" name="usuario" class="form-control" placeholder="Usuario" value="<?php echo $documento; ?>">
                               </div>
                             </div>
                           </div>
