@@ -1,3 +1,5 @@
+<?php session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,7 +10,7 @@
     <link rel="stylesheet" href="../../assets/css/estiOpcionesEnvio.css">
     <link rel="icon" href="../../assets/img/favicon.png" type="image/png">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous" />
-    <title>Opviones de Envío</title>
+    <title>Opciones de Envío</title>
 </head>
 
 <body background="../../assets/img/fondocatalogo.jpg">
