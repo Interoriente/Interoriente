@@ -83,20 +83,20 @@ if (isset($_SESSION["documentoIdentidad"])) {
                   </div>
                   <!-- Tabla empresa -->
                   <div class="table-responsive">
-                    <table class="table align-items-center table-flush">
+                    <table id="bootstrap-data-table" class="table align-items-center table-flush">
                       <thead class="thead-light">
                         <tr>
-                          <th scope="col" class="sort" data-sort="name">NIT</th>
-                          <th scope="col" class="sort" data-sort="budget">Doc Representante</th>
-                          <th scope="col" class="sort" data-sort="budget">Nombre</th>
-                          <th scope="col" class="sort" data-sort="status">Descripción</th>
-                          <th scope="col" class="sort" data-sort="status">Correo</th>
-                          <th scope="col" class="sort" data-sort="status">Imagen</th>
-                          <th scope="col" class="sort" data-sort="status">Dirección</th>
-                          <th scope="col" class="sort" data-sort="status">Ciudad</th>
-                          <th scope="col" class="sort" data-sort="status">Teléfono</th>
-                          <th scope="col" class="sort" data-sort="status">Estado</th>
-                          <th scope="col" class="sort" data-sort="status">Opciones</th>
+                          <th scope="col">NIT</th>
+                          <th scope="col">Doc Representante</th>
+                          <th scope="col">Nombre</th>
+                          <th scope="col">Descripción</th>
+                          <th scope="col">Correo</th>
+                          <th scope="col">Imagen</th>
+                          <th scope="col">Dirección</th>
+                          <th scope="col">Ciudad</th>
+                          <th scope="col">Teléfono</th>
+                          <th scope="col">Estado</th>
+                          <th scope="col">Opciones</th>
                         </tr>
                       </thead>
                       <tbody class="list">
