@@ -65,7 +65,7 @@
           <!-- <input value="1" min="1" type="number"> -->
         </div>
         <div class="cta">
-          <a class="btn btn-accion" href="#">Comprar Ahora</a>
+          <a class="btn btn-accion" href="pago.php">Comprar Ahora</a>
           <a class="btn btn-accion" href="#">Agregar al carrito</a>
         </div>
 
