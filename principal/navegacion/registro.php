@@ -25,7 +25,7 @@
             key = e.keycode || e.which;
             teclado = String.fromCharCode(key).toLowerCase();
 
-            usuario = "abcdefghijklmnñopqrstuvwxyz1234567890@.";
+            usuario = "abcdefghijklmnñopqrstuvwxyz";
 
             especiales = "8-37-39-46-164"; //aray
 
@@ -108,7 +108,7 @@
                                         <div class="input-group-prepend">
                                             <span class="input-group-text"><i class="ni ni-single-02"></i></span>
                                         </div>
-                                        <input class="form-control" placeholder="Nombres" type="text" name="nombres" required autofocus>
+                                        <input class="form-control" placeholder="Nombres" type="text" name="nombres" onkeypress="return Sololetras(event)" required autofocus>
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -117,7 +117,7 @@
                                         <div class="input-group-prepend">
                                             <span class="input-group-text"><i class="ni ni-single-02"></i></span>
                                         </div>
-                                        <input class="form-control" placeholder="Apellidos" type="text" name="apellidos" required>
+                                        <input class="form-control" placeholder="Apellidos" type="text" name="apellidos" onkeypress="return Sololetras(event)" required>
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -128,34 +128,6 @@
                                         </div>
                                         <input class="form-control" placeholder="Documento" type="number" max="9999999999" name="documento" required>
                                     </div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="">Teléfono:</label>
-                                    <div class="input-group input-group-merge input-group-alternative mb-3">
-                                        <div class="input-group-prepend">
-                                            <span class="input-group-text"><i class="ni ni-mobile-button"></i></span>
-                                        </div>
-                                        <input class="form-control" placeholder="Telefono (0pcional)" type="number" max="9999999" name="telefono">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="">Celular:</label>
-                                    <div class="input-group input-group-merge input-group-alternative mb-3">
-                                        <div class="input-group-prepend">
-                                            <span class="input-group-text"><i class="ni ni-mobile-button"></i></span>
-                                        </div>
-                                        <input class="form-control" placeholder="Celular" type="number" name="celular" max="9999999999" required>
-                                    </div>
-                                </div>
-                                <label for="">Ciudad:</label>
-                                <div class="form-group">
-                                    <select name="ciudad" class="form-control" required>
-                                        <option value="" disabled selected>Seleccione una ciudad</option>
-                                        <?php
-                                        foreach ($resultado_ciudad as $datos_ciudad) { ?>
-                                            <option value="<?php echo $datos_ciudad['codigoCiudad']; ?>"><?php echo $datos_ciudad['nombreCiudad']; ?></option>
-                                        <?php } ?>
-                                    </select>
                                 </div>
                                 <div class="form-group">
                                     <label for="">Correo:</label>

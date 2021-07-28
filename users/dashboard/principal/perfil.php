@@ -181,21 +181,7 @@ if (isset($_SESSION["documentoIdentidad"])) {
                             <div class="col-lg-6">
                               <div class="form-group">
                                 <label class="form-control-label" for="input-username">Celular</label>
-                                <input type="text" id="input-username" name="celular" class="form-control" placeholder="Celular" max="9999999999" value="<?php echo $resultado2->telefonomovilUsuario; ?>">
-                              </div>
-                            </div>
-                            <div class="col-lg-6">
-                              <div class="form-group">
-                                <label class="form-control-label" for="input-username">Ciudad</label>
-                                <select name="ciudad" class="form-control" required disabled>
-                                  <option value="<?php //echo $resultadoCiudad->idCiudad; 
-                                                  ?>" selected><?php // echo $resultadoCiudad->nombreCiudad; 
-                                                                ?>Seleccione ciudad</option>
-                                  <?php
-                                  foreach ($resultado_ciudad as $datos_ciudad) { ?>
-                                    <option value="<?php echo $datos_ciudad['idCiudad'] ?>"><?php echo $datos_ciudad['nombreCiudad'] ?></option>
-                                  <?php } ?>
-                                </select>
+                                <input type="text" id="input-username" name="celular" class="form-control" placeholder="Ingresa tu número" max="9999999999" value="<?php echo $resultado2->telefonomovilUsuario; ?>">
                               </div>
                             </div>
                             <div class="col-lg-6">

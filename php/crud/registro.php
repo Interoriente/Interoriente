@@ -22,9 +22,6 @@
             $nombres = strip_tags($_POST['nombres']);
             $apellidos = strip_tags($_POST['apellidos']);
             $documento = strip_tags($_POST['documento']);
-            $telefono = strip_tags($_POST['telefono']);
-            $celular = strip_tags($_POST['celular']);
-            //$ciudad = strip_tags($_POST['ciudad']);
             $correo = strip_tags($_POST['correo']);
             $contrasena = strip_tags($_POST['contrasena']);
             //Sha1 -> Método de encriptación
@@ -45,11 +42,11 @@
             } else {
                 //Consulta correo ingresado no existe en BD
                 //sentencia Sql
-                $sql_insertar = "INSERT INTO tblUsuario (documentoIdentidad,nombresUsuario, apellidoUsuario, telefonofijoUsuario,telefonomovilUsuario, emailUsuario,contrasenaUsuario,estadoUsuario,imagenUsuario)VALUES (?,?,?,?,?,?,?,?,?)";
+                $sql_insertar = "INSERT INTO tblUsuario (documentoIdentidad,nombresUsuario, apellidoUsuario, emailUsuario,contrasenaUsuario,estadoUsuario,imagenUsuario)VALUES (?,?,?,?,?,?,?)";
                 //Preparar consulta
                 $consulta_insertar = $pdo->prepare($sql_insertar);
                 //Ejecutar la sentencia
-                $consulta_insertar->execute(array($documento, $nombres, $apellidos, $telefono, $celular, $correo, $contrasena,  $estado, $perfil));
+                $consulta_insertar->execute(array($documento, $nombres, $apellidos, $correo, $contrasena,  $estado, $perfil));
 
                 //llamado a la tabla rol (intermedia) para almacenar el rol predeterminado
                 $sql_insertar = "INSERT INTO tblUsuarioRol (idUsuarioRol,docIdentidadUsuarioRol)VALUES (?,?)";
