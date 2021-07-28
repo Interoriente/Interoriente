@@ -136,10 +136,16 @@ if (isset($_SESSION["documentoIdentidad"])) {
                         <h6 class="heading-small text-muted mb-4">Información de la empresa</h6>
                         <div class="pl-lg-4">
                           <div class="row">
+                          <div class="col-lg-6">
+                              <div class="form-group">
+                                <label class="form-control-label" for="nit">NIT</label>
+                                <input type="text" id="nit" name="nombre" class="form-control" value="<?php echo $resultado2->nitEmpresa; ?>" required disabled>
+                              </div>
+                            </div>
                             <div class="col-lg-6">
                               <div class="form-group">
                                 <label class="form-control-label" for="input-username">Nombre</label>
-                                <input type="text" id="input-username" name="nombre" class="form-control" value="<?php echo $resultado2->nombreEmpresa; ?>" required>
+                                <input type="text" id="input-username" name="nombre" class="form-control" value="<?php echo $resultado2->nombreEmpresa; ?>" required disabled>
                               </div>
                             </div>
                             <div class="col-lg-6">

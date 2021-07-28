@@ -8,6 +8,20 @@
     <title>Document</title>
 </head>
 <body>
+    <!-- Barra de navegación -->
+    <?php
+    include '../includes/superior.php';
+    ?>
+    <!-- ----- -->
+
     
+    <!-- Sidebar -->
+    <?php include '../includes/navInferior.php'; ?>
+    <!-- ------- -->
+
+    <!-- Barra de navegación para dispositivos móviles -->
+    <?php
+    include '../includes/navMovil.php';
+    ?>
 </body>
 </html>

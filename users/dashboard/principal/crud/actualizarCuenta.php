@@ -3,18 +3,22 @@
 include_once '../../../../dao/conexion.php';
 //Captura id
 $id = $_GET['ideditar'];
-$nombre = $_GET['nombre'];
-$apellido = $_GET['apellido'];
 $celular = $_GET['celular'];
 //$ciudad = $_GET['ciudad'];
 $correo = $_GET['correo'];
 //Sentencia sql
-$sql_actualizar = "UPDATE tblUsuario SET nombresUsuario=?,apellidoUsuario=?,telefonomovilUsuario=?,emailUsuario=? WHERE documentoIdentidad=?";
+$sql_actualizar = "UPDATE tblUsuario SET telefonomovilUsuario=?,emailUsuario=? WHERE documentoIdentidad=?";
 //Preparar la consulta
 $consultar_actualizar = $pdo->prepare($sql_actualizar);
 //Ejecutar
-$consultar_actualizar->execute(array($nombre, $apellido, $celular,  $correo, $id));
-//Redireccionar
-echo "<script>alert('Datos actualizados correctamente');</script>";
 
-echo "<script> document.location.href='../perfil.php';</script>";
+//Redireccionar
+if ($consultar_actualizar->execute(array($celular,  $correo, $id))) {
+    echo "<script>alert('Datos actualizados correctamente');</script>";
+
+    echo "<script> document.location.href='../perfil.php';</script>";
+} else {
+    echo "<script>alert('Error!, verifica e intenta nuevamente');</script>";
+
+    echo "<script> document.location.href='../perfil.php';</script>";
+}

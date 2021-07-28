@@ -88,13 +88,13 @@
                         <div class="card-header bg-transparent pb-5">
                             <div class="text-muted text-center mt-2 mb-4"><small>Puedes iniciar sesión por:</small></div>
                             <div class="text-center">
-                                <a href="productos.php" class="btn btn-neutral btn-icon mr-4">
+                                <a href="../navegacion/index.php" class="btn btn-neutral btn-icon mr-4">
                                     <span class="btn-inner--icon"><img src="../../users/dashboard/assets/img/icons/common/github.svg"></span>
-                                    <span class="btn-inner--text">Productos</span>
+                                    <span class="btn-inner--text">Index</span>
                                 </a>
-                                <a href="../publicacion/index.php" class="btn btn-neutral btn-icon">
+                                <a href="#" class="btn btn-neutral btn-icon">
                                     <span class="btn-inner--icon"><img src="../../users/dashboard/assets/img/icons/common/google.svg"></span>
-                                    <span class="btn-inner--text">Comprar</span>
+                                    <span class="btn-inner--text">Google</span>
                                 </a>
                             </div>
                         </div>
@@ -140,7 +140,7 @@
         </div>
     </div>
     <!-- Core -->
-    <script src="../../assets/js/formulario.js"></script>
+    <!-- <script src="../../assets/js/formulario.js"></script> -->
     <script src="../../users/dashboard/assets/vendor/jquery/dist/jquery.min.js"></script>
     <script src="../../users/dashboard/assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="../../users/dashboard/assets/vendor/js-cookie/js.cookie.js"></script>

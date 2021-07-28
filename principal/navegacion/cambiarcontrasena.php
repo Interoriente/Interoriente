@@ -11,13 +11,13 @@
 </head>
 
 <body background="../../assets/img/fondocambiarcontrasena.jpg">
+    <!-- Barra de navegación -->
+    <?php
+    include '../includes/superior.php';
+    ?>
+    <!-- ----- -->
     <div class="padre">
         <div class="header">
-            <nav class="nav">
-                <div class="tit-nav-caja">
-                    <h1 class="tit-nav">INTER ORIENTE</h1>
-                </div>
-            </nav>
             <div class="menu1">
                 <h1 class="tit-menu">CAMBIA TU CONTRASEÑA</h1>
                 <div class="caja-formulario">
@@ -36,6 +36,14 @@
                     <a href="index.php"><button class="BotonRegresar">Regresar</button></a>
                 </div>
             </div>
+            <!-- Sidebar -->
+            <?php include '../includes/navInferior.php'; ?>
+            <!-- ------- -->
+
+            <!-- Barra de navegación para dispositivos móviles -->
+            <?php
+            include '../includes/navMovil.php';
+            ?>
 </body>
 
 </html>

@@ -9,30 +9,43 @@
     <link rel="icon" href="../../assets/img/favicon.png" type="image/png">
     <title>Opviones de Envío</title>
 </head>
+
 <body background="../../assets/img/fondocatalogo.jpg">
-    <div class="padre">
+    <!-- Barra de navegación -->
     <?php
-        include '../includes/navSuperior.php';
-        ?>
+    include '../includes/superior.php';
+    ?>
+    <!-- ----- -->
+    <div class="padre">
+
         <div class="header">
             <div class="contenedor-menuuno">
                 <h1 class="tit-menudos">¿Cómo deseas recibir tu producto?</h1>
             </div>
             <div class="contenedor-menudos">
                 <div class="menuuno"><a href="#">
-                    <h1 class="tit-menuuno">Quiero retirarlo en la tienda</h1>
-                </a>    
+                        <h1 class="tit-menuuno">Quiero retirarlo en la tienda</h1>
+                    </a>
                 </div>
-            
+
                 <div class="menuuno"><a href="#">
-                    <h1 class="tit-menuuno">Quiero retirarlo a domicilio</h1>
-                </a>    
-                </div>  
+                        <h1 class="tit-menuuno">Quiero retirarlo a domicilio</h1>
+                    </a>
+                </div>
             </div>
             <div class="contenedor-regresar">
-                <a href="#"><button class="BotonRegresar">Regresar</button></a>            
+                <a href="#"><button class="BotonRegresar">Regresar</button></a>
             </div>
         </div>
     </div>
+    <!-- Sidebar -->
+    <?php include '../includes/navInferior.php'; ?>
+    <!-- ------- -->
+
+    <!-- Barra de navegación para dispositivos móviles -->
+    <?php
+    include '../includes/navMovil.php';
+    ?>
 </body>
+
 </html>

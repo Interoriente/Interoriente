@@ -9,7 +9,16 @@
     <link rel="icon" href="../../assets/img/favicon.png" type="image/png" />
     <title>Recuperar Contraseña</title>
 </head>
+
 <body background="../../assets/img/fondorecuperarcontrasena.jpg">
+    <!-- Barra de navegación -->
+    <?php
+    include '../includes/superior.php';
+    ?>
+    <!-- ----- -->
+
+
+
     <div class="padre">
         <div class="header">
             <nav class="nav">
@@ -21,14 +30,23 @@
                 <h1 class="tit-menu1">RECUPERA TU CONTRASEÑA</h1>
                 <div class="caja-formulario">
                     <p class="etiqueta"><strong>¿Cual es tu correo?</strong></p>
-                    <input class="form-input" type="email" id="correo"required/>
+                    <input class="form-input" type="email" id="correo" required />
                 </div>
                 <div class="conte-botonIniRe">
                     <a href="#"><button class="borecuperar"><strong>Recuperar mi Contraseña</strong></button></a>
                     <p class="text-RecorCon"><strong>¿Recordaste tu Contraseña?</strong><br>
-                        <a class="boIniciaRecu" href="iniciarsesion.php"><strong> Inicia Sesión</strong></a></p>
+                        <a class="boIniciaRecu" href="iniciarsesion.php"><strong> Inicia Sesión</strong></a>
+                    </p>
                 </div>
             </div>
+            <!-- Sidebar -->
+            <?php include '../includes/navInferior.php'; ?>
+            <!-- ------- -->
+
+            <!-- Barra de navegación para dispositivos móviles -->
+            <?php
+            include '../includes/navMovil.php';
+            ?>
 </body>
 
 </html>

@@ -1,3 +1,5 @@
+<?php session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,7 +15,10 @@
 
 <body>
     <!-- Barra de navegación -->
-
+    <?php
+    include '../includes/superior.php';
+    ?>
+    <!-- ----- -->
 
     <div class="contenedor-prin">
         <div class="contenedor-principal">
@@ -35,6 +40,14 @@
 
         </div>
     </div>
+    <!-- Sidebar -->
+    <?php include '../includes/navInferior.php'; ?>
+    <!-- ------- -->
+
+    <!-- Barra de navegación para dispositivos móviles -->
+    <?php
+    include '../includes/navMovil.php';
+    ?>
 
 </body>
 
