@@ -88,7 +88,10 @@ if (isset($_SESSION["documentoIdentidad"])) {
                       </select>
                       <button type="submit" class="btn btn-sm btn-neutral">Cambiar rol</button>
 
-                    </form>
+                    </form><?php if ($_SESSION['roles'] == '3') {
+                            ?><br>
+                      <a href="backupsbd.php"><button type="submit" class="btn btn-sm btn-neutral">Copia de seguridad BD</button></a>
+                    <?php } ?>
                   </div>
                 </div>
                 <!-- Card stats -->
@@ -171,9 +174,7 @@ if (isset($_SESSION["documentoIdentidad"])) {
               </div>
             </div>
           </div>
-          <div class="container mt--6">
-            <?php require_once '../assets/footer.php' ?>
-          </div>
+          <?php require_once '../assets/footer.php' ?>
         </body>
 
         </html>

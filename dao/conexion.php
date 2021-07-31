@@ -1,5 +1,7 @@
 <?php
-$host = "mysql:host=localhost;dbname=interori_interoriente";
+$nombrehost="localhost";
+$nombreBD="interori_interoriente";
+$host = "mysql:host=$nombrehost;dbname=$nombreBD";
 
 /* $usuario = "root";
 $contrasena = ""; */
