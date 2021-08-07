@@ -64,6 +64,6 @@ if (isset($_FILES['imagen'])) {
         echo "<script> document.location.href='../crearPubli.php';</script>";
     }
 } else {
-    echo "<script>alert('Ocurrió un error');</script>";
-    echo "<script> document.location.href='../crearPubli.php';</script>";
+    echo "<script>alert('Error!, no se ha iniciado sesión');</script>";
+    echo "<script> document.location.href='../403.php';</script>";
 }

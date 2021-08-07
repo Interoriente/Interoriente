@@ -18,7 +18,7 @@ if (isset($_SESSION["documentoIdentidad"])) {
   //Validacion de roles
   if ($resultado_validacion) {
     if ($resultadoSesionRol) {
-      if ($sesionRol == '1') {
+      if ($sesionRol == '1' Or $sesionRol == '2') {
 ?>
         <!DOCTYPE html>
         <html>
@@ -186,7 +186,11 @@ if (isset($_SESSION["documentoIdentidad"])) {
                             <div class="col-lg-6">
                               <div class="form-group">
                                 <!-- <label class="form-control-label" for="usu">Usuario</label> -->
-                                <input type="hidden" id="usu" name="usuario" class="form-control" placeholder="Usuario" value="<?php echo $documento; ?>">
+                                <?php if ($_SESSION['roles']=='1') {?>
+                               <input type="hidden" id="usu" name="usuario" class="form-control" placeholder="Usuario" value="<?php echo $documento; ?>">
+                               <?php }elseif ($_SESSION['roles']=='2') {?>
+                               <input type="hidden" id="usu" name="usuario" class="form-control" placeholder="Usuario" value="<?php echo $documento; ?>">
+                               <?php } ?>
                               </div>
                             </div>
                           </div>
@@ -224,25 +228,25 @@ if (isset($_SESSION["documentoIdentidad"])) {
                             <div class="col-lg-6">
                               <div class="form-group">
                                 <label class="form-control-label" for="input-username">Descripcion</label>
-                                <input type="text" id="input-username" name="descripcion" class="form-control" placeholder="Descripcion" value="<?php echo $resultado_mostrar_publi1['descripcionPublicacion']; ?>">
+                                <input type="text" id="input-username" name="descripcion" class="form-control" placeholder="Descripcion" value="<?php echo $resultado_mostrar_publi1['descripcionPublicacion']; ?>" required>
                               </div>
                             </div>
                             <div class="col-lg-6">
                               <div class="form-group">
                                 <label class="form-control-label" for="input-username">Costo</label>
-                                <input type="number" id="input-username" name="costo" class="form-control" placeholder="Costo" max="9999999999" value="<?php echo $resultado_mostrar_publi1['costoPublicacion']; ?>">
+                                <input type="number" id="input-username" name="costo" class="form-control" placeholder="Costo" max="9999999999" value="<?php echo $resultado_mostrar_publi1['costoPublicacion']; ?>" required>
                               </div>
                             </div>
 
                             <div class="col-lg-6">
                               <div class="form-group">
                                 <label class="form-control-label" for="input-username">Stock Producto</label>
-                                <input type="number" id="input-username" name="stock" class="form-control" placeholder="Stock (cantidad)" max="99999" value="<?php echo $resultado_mostrar_publi1['stockPublicacion']; ?>">
+                                <input type="number" id="input-username" name="stock" class="form-control" placeholder="Stock (cantidad)" max="99999" value="<?php echo $resultado_mostrar_publi1['stockPublicacion']; ?>" required>
                               </div>
                             </div>
                             <div class="col-lg-6">
                               <div class="form-group">
-                                <input type="hidden" id="input-username" name="ideditar" class="form-control" value="<?php echo $resultado_mostrar_publi1['idPublicacion']; ?>">
+                                <input type="hidden" id="input-username" name="ideditar" class="form-control" value="<?php echo $resultado_mostrar_publi1['idPublicacion']; ?>" required>
                               </div>
                             </div>
                           </div>

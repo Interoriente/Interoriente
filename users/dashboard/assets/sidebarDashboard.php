@@ -41,6 +41,12 @@
                 </a>
               </li>
               <li class="nav-item">
+                <a class="nav-link" href="crearPubli.php">
+                  <i class="ni ni-album-2 text-red"></i>
+                  <span class="nav-link-text">Crear publicación</span>
+                </a>
+              </li>
+              <li class="nav-item">
                 <a class="nav-link" href="perfil.php">
                   <i class="ni ni-single-02 text-yellow"></i>
                   <span class="nav-link-text">Mi perfil</span>

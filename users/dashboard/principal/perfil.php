@@ -163,35 +163,35 @@ if (isset($_SESSION["documentoIdentidad"])) {
                           <div class="col-lg-6">
                               <div class="form-group">
                                 <label class="form-control-label" for="docu">Documento</label>
-                                <input type="text" id="docu" name="nombre" class="form-control" placeholder="Username" value="<?php echo $resultado2->documentoIdentidad; ?>" disabled>
+                                <input type="text" id="docu" name="nombre" class="form-control" placeholder="Username" value="<?php echo $resultado2->documentoIdentidad; ?>" disabled required>
                               </div>
                             </div>
                             <div class="col-lg-6">
                               <div class="form-group">
                                 <label class="form-control-label" for="input-username">Nombre</label>
-                                <input type="text" id="input-username" name="nombre" class="form-control" placeholder="Username" value="<?php echo $resultado2->nombresUsuario; ?>" disabled>
+                                <input type="text" id="input-username" name="nombre" class="form-control" placeholder="Username" value="<?php echo $resultado2->nombresUsuario; ?>" required disabled>
                               </div>
                             </div>
                             <div class="col-lg-6">
                               <div class="form-group">
                                 <label class="form-control-label" for="input-username">Apellido</label>
-                                <input type="text" id="input-username" name="apellido" class="form-control" placeholder="Username" value="<?php echo $resultado2->apellidoUsuario; ?>" disabled>
+                                <input type="text" id="input-username" name="apellido" class="form-control" placeholder="Username" value="<?php echo $resultado2->apellidoUsuario; ?>" required disabled>
                               </div>
                             </div>
                             <div class="col-lg-6">
                               <div class="form-group">
                                 <label class="form-control-label" for="input-username">Celular</label>
-                                <input type="text" id="input-username" name="celular" class="form-control" placeholder="Ingresa tu número" max="9999999999" value="<?php echo $resultado2->telefonomovilUsuario; ?>">
+                                <input type="text" id="input-username" name="celular" class="form-control" placeholder="Ingresa tu número" max="9999999999" value="<?php echo $resultado2->telefonomovilUsuario; ?>" required>
                               </div>
                             </div>
                             <div class="col-lg-6">
                               <div class="form-group">
                                 <label class="form-control-label" for="input-email">Correo</label>
-                                <input type="email" id="input-email" name="correo" class="form-control" value="<?php echo $resultado2->emailUsuario; ?>">
+                                <input type="email" id="input-email" name="correo" class="form-control" value="<?php echo $resultado2->emailUsuario; ?>" required>
                               </div>
                             </div>
                             <div class="form-group">
-                              <input type="hidden" name="ideditar" value="<?php echo $resultado2->documentoIdentidad; ?>">
+                              <input type="hidden" name="ideditar" value="<?php echo $resultado2->documentoIdentidad; ?>" required>
                             </div>
                           </div>
                           <button class="btn btn-primary btn-xs" type="submit" name="subir">Editar</button>
