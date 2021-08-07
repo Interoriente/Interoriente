@@ -13,7 +13,7 @@
   <!-- Css local  -->
   <link rel="stylesheet" href="../../assets/css/general.css" />
   <link rel="stylesheet" href="../../assets/css/pagos.css" />
-  <title>Interoriente | Pago</title>
+  <title>Pago | Interoriente</title>
 </head>
 
 <body>
