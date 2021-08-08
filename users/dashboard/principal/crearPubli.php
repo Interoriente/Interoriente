@@ -290,7 +290,13 @@ if (isset($_SESSION["documentoIdentidad"])) {
                   </thead>
                   <tbody>
                     <?php if ($contadorPubli == '0') { ?>
-                      Opps, por ahora no tenés publicaciones
+                      <tbody>
+                        <tr>
+                          <td colspan="8">
+                            <div class="alert alert-danger" role="alert" style="text-align: center;">Opps, por ahora no hay publicaciones</div>
+                          </td>
+                        </tr>
+                      </tbody>
                     <?php }
                     foreach ($resultado_mostrar_publi as $datos_publi) {
                     ?>

@@ -119,6 +119,7 @@ if (isset($_SESSION["documentoIdentidad"])) {
                       ?>
                       </tbody>
                     </table>
+                    <a href="reportesBD.php" target="_blank">Imprimir</a>
                   </div>
                 </div>
               </div>
