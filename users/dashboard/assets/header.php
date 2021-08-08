@@ -66,9 +66,9 @@
                     <i class="ni ni-single-02"></i>
                     <span>Mi perfil</span>
                   </a>
-                  <a href="../principal/configfotoperfil.php" class="dropdown-item">
+                  <a href="#!" class="dropdown-item">
                     <i class="ni ni-settings-gear-65"></i>
-                    <span>Cambiar foto perfil</span>
+                    <span>Ayuda</span>
                   </a>
                   <a href="#!" class="dropdown-item">
                     <i class="ni ni-calendar-grid-58"></i>
