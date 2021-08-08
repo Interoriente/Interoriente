@@ -202,7 +202,7 @@ if (isset($_SESSION["documentoIdentidad"])) {
                 </div>
               </div>
             <?php }
-            if ($_GET) { ?>
+            if (isset($_GET['id'])) { ?>
               <!-- Edición Publicacion producto -->
               <div class="row">
                 <div class="col-xl-8 order-xl-1">
@@ -215,7 +215,7 @@ if (isset($_SESSION["documentoIdentidad"])) {
                       </div>
                     </div>
                     <div class="card-body">
-                      <form action="crud/actualizarPubli.php" method="GET">
+                      <form action="crud/actualizarPubli.php" method="POST">
                         <h6 class="heading-small text-muted mb-4">Información del producto</h6>
                         <div class="pl-lg-4">
                           <div class="row">
@@ -246,7 +246,7 @@ if (isset($_SESSION["documentoIdentidad"])) {
                             </div>
                             <div class="col-lg-6">
                               <div class="form-group">
-                                <input type="hidden" id="input-username" name="ideditar" class="form-control" value="<?php echo $resultado_mostrar_publi1['idPublicacion']; ?>" required>
+                                <input type="text" id="input-username" name="ideditar" class="form-control" value="<?php echo $_GET['id'] ?>" required>
                               </div>
                             </div>
                           </div>
@@ -290,8 +290,7 @@ if (isset($_SESSION["documentoIdentidad"])) {
                   </thead>
                   <tbody>
                     <?php if ($contadorPubli == '0') { ?>
-                      <th></th>
-                      <td>Opps, por ahora no tenes publicaciones</td>
+                      Opps, por ahora no tenés publicaciones
                     <?php }
                     foreach ($resultado_mostrar_publi as $datos_publi) {
                     ?>

@@ -49,7 +49,7 @@ if (isset($_SESSION["documentoIdentidad"])) {
           <?php
           require_once '../assets/sidebarDashboard.php';
           require_once '../assets/header.php';
-          
+
           //Sirve para mostrar el contenido de la tabla Ciudad, para mostrarlo en la lista desplegable
           include_once '../../../dao/conexion.php';
           //Mostrar los datos almacenados
@@ -94,7 +94,7 @@ if (isset($_SESSION["documentoIdentidad"])) {
                       <div class="col-lg-3 order-lg-2">
                         <div class="card-profile-image">
                           <a data-toggle="modal" data-target="#fotoperfil">
-                            <img src="<?php echo $objetoLlamado->imagenUsuario; ?>" class="rounded-circle">
+                            <img src="crud/<?php echo $objetoLlamado->imagenUsuario; ?>" class="rounded-circle">
                           </a>
                         </div>
                       </div>
@@ -139,7 +139,7 @@ if (isset($_SESSION["documentoIdentidad"])) {
                   <div class="modal-dialog" role="document">
                     <div class="modal-content">
                       <div class="modal-body">
-                        <img class=" card-img-top" src="<?php echo $objetoLlamado->imagenUsuario; ?>">
+                        <img class=" card-img-top" src="crud/<?php echo $objetoLlamado->imagenUsuario; ?>">
                       </div>
                     </div>
                   </div>
@@ -156,11 +156,11 @@ if (isset($_SESSION["documentoIdentidad"])) {
                       </div>
                     </div>
                     <div class="card-body">
-                      <form action="crud/actualizarCuenta.php" method="GET">
+                      <form action="crud/actualizarCuenta.php" method="POST" enctype="multipart/form-data">
                         <h6 class="heading-small text-muted mb-4">Información de usuario</h6>
                         <div class="pl-lg-4">
                           <div class="row">
-                          <div class="col-lg-6">
+                            <div class="col-lg-6">
                               <div class="form-group">
                                 <label class="form-control-label" for="docu">Documento</label>
                                 <input type="text" id="docu" name="nombre" class="form-control" placeholder="Username" value="<?php echo $resultado2->documentoIdentidad; ?>" disabled required>
@@ -169,19 +169,19 @@ if (isset($_SESSION["documentoIdentidad"])) {
                             <div class="col-lg-6">
                               <div class="form-group">
                                 <label class="form-control-label" for="input-username">Nombre</label>
-                                <input type="text" id="input-username" name="nombre" class="form-control" placeholder="Username" value="<?php echo $resultado2->nombresUsuario; ?>" required disabled>
+                                <input type="text" id="input-username" name="nombre" class="form-control" placeholder="Nombre" value="<?php echo $resultado2->nombresUsuario; ?>" required disabled>
                               </div>
                             </div>
                             <div class="col-lg-6">
                               <div class="form-group">
                                 <label class="form-control-label" for="input-username">Apellido</label>
-                                <input type="text" id="input-username" name="apellido" class="form-control" placeholder="Username" value="<?php echo $resultado2->apellidoUsuario; ?>" required disabled>
+                                <input type="text" id="input-username" name="apellido" class="form-control" placeholder="Apellido" value="<?php echo $resultado2->apellidoUsuario; ?>" required disabled>
                               </div>
                             </div>
                             <div class="col-lg-6">
                               <div class="form-group">
                                 <label class="form-control-label" for="input-username">Celular</label>
-                                <input type="text" id="input-username" name="celular" class="form-control" placeholder="Ingresa tu número" max="9999999999" value="<?php echo $resultado2->telefonomovilUsuario; ?>" required>
+                                <input type="text" id="input-username" name="celular" class="form-control" placeholder="Celular" max="9999999999" value="<?php echo $resultado2->telefonomovilUsuario; ?>" required>
                               </div>
                             </div>
                             <div class="col-lg-6">
@@ -189,6 +189,13 @@ if (isset($_SESSION["documentoIdentidad"])) {
                                 <label class="form-control-label" for="input-email">Correo</label>
                                 <input type="email" id="input-email" name="correo" class="form-control" value="<?php echo $resultado2->emailUsuario; ?>" required>
                               </div>
+                            </div>
+                            <div class="col-lg-6">
+                              <div class="form-group">
+                                <label class="form-control-label" for="input-image">Foto de Perfil</label>
+                                <input type="file" id="input-image" name="file" class="form-control-file">
+                              </div>
+                              Si no quieres cambiar la foto de perfil, puedes dejar este campo en blanco
                             </div>
                             <div class="form-group">
                               <input type="hidden" name="ideditar" value="<?php echo $resultado2->documentoIdentidad; ?>" required>

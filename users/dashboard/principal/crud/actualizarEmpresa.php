@@ -4,12 +4,12 @@ if (isset($_SESSION['documentoIdentidad'])) {
     //Llamar a la conexión
     include_once '../../../../dao/conexion.php';
     //Captura id
-    $id = $_GET['ideditar'];
-    $descripcion = $_GET['descripcion'];
-    $correo = $_GET['correo'];
-    $direccion = $_GET['direccion'];
-    $telefono = $_GET['telefono'];
-    $ciudad = $_GET['ciudad'];
+    $id = $_POST['ideditar'];
+    $descripcion = $_POST['descripcion'];
+    $correo = $_POST['correo'];
+    $direccion = $_POST['direccion'];
+    $telefono = $_POST['telefono'];
+    $ciudad = $_POST['ciudad'];
     //Sentencia sql
     $sql_actualizar = "UPDATE tblEmpresa SET descripcionEmpresa=?,correoEmpresa=?,direccionEmpresa=?,telefonoEmpresa=?,ciudadEmpresa=? WHERE nitEmpresa=?";
     //Preparar la consulta

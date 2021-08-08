@@ -49,7 +49,7 @@
                   <div class="media align-items-center">
                     <span class="avatar avatar-sm rounded-circle">
                       <!--- Impresión imagen de perfil -->
-                      <img alt="Image placeholder" src="<?php echo $objetoLlamado->imagenUsuario; ?>">
+                      <img alt="Image placeholder" src="crud/<?php echo $objetoLlamado->imagenUsuario; ?>">
                     </span>
                     <div class="media-body  ml-2  d-none d-lg-block">
 

@@ -132,7 +132,7 @@ if (isset($_SESSION["documentoIdentidad"])) {
                       </div>
                     </div>
                     <div class="card-body">
-                      <form action="crud/actualizarEmpresa.php" method="GET">
+                      <form action="crud/actualizarEmpresa.php" method="POST">
                         <h6 class="heading-small text-muted mb-4">Información de la empresa</h6>
                         <div class="pl-lg-4">
                           <div class="row">
