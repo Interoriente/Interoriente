@@ -105,11 +105,6 @@ if (isset($_SESSION["documentoIdentidad"])) {
                             <h5 class="card-title text-uppercase text-muted mb-0">Nuevas publicaciones</h5>
                             <span class="h2 font-weight-bold mb-0"><?php echo $resultadoMostrarConteoPubli; ?></span>
                           </div>
-                          <div class="col-auto">
-                            <div class="icon icon-shape bg-gradient-red text-white rounded-circle shadow">
-                              <i class="ni ni-active-40"></i>
-                            </div>
-                          </div>
                         </div>
                       </div>
                     </div>
@@ -122,11 +117,6 @@ if (isset($_SESSION["documentoIdentidad"])) {
                           <div class="col">
                             <h5 class="card-title text-uppercase text-muted mb-0">Nuevos usuarios</h5>
                             <span class="h2 font-weight-bold mb-0"><?php echo $resultadoMostrarConteo; ?></span>
-                          </div>
-                          <div class="col-auto">
-                            <div class="icon icon-shape bg-gradient-orange text-white rounded-circle shadow">
-                              <i class="ni ni-chart-pie-35"></i>
-                            </div>
                           </div>
                         </div>
                       </div>
@@ -160,11 +150,6 @@ if (isset($_SESSION["documentoIdentidad"])) {
                           <div class="col">
                             <h5 class="card-title text-uppercase text-muted mb-0">Contador de visitas</h5>
                             <span class="h2 font-weight-bold mb-0"><img style="border: 0px solid; display: inline;" alt="contador de visitas" src="http://www.websmultimedia.com/contador-de-visitas.php?id=300190"></span>
-                          </div>
-                          <div class="col-auto">
-                            <div class="icon icon-shape bg-gradient-info text-white rounded-circle shadow">
-                              <i class="ni ni-chart-bar-32"></i>
-                            </div>
                           </div>
                         </div>
                       </div>
