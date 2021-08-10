@@ -1,4 +1,7 @@
 <?php
+//Configurar zona horaria en colombia
+date_default_timezone_set('America/Bogota');
+
 $nombrehost="localhost";
 $nombreBD="interori_interoriente";
 $host = "mysql:host=$nombrehost;dbname=$nombreBD";

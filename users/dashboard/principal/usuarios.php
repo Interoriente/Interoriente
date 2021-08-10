@@ -47,11 +47,11 @@ if (isset($_SESSION["documentoIdentidad"])) {
           include_once '../../../dao/conexion.php';
           //Llamar a la conexion base de datos -> Muestro el contenido de tabla usuario
           //Mostrar los datos almacenados
-          $sql_mostrar_usu = "SELECT * FROM tblUsuario";
+          $sql_mostrar_usu = "SELECT * FROM tblUsuario WHERE documentoIdentidad <> ?";
           //Prepara sentencia
           $consultar_mostrar_usu = $pdo->prepare($sql_mostrar_usu);
           //Ejecutar consulta
-          $consultar_mostrar_usu->execute();
+          $consultar_mostrar_usu->execute(array($documento));
           $resultado_mostrar_usu = $consultar_mostrar_usu->fetchAll();
           ?>
           <!-- Header -->
