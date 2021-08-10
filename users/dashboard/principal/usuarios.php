@@ -63,8 +63,8 @@ if (isset($_SESSION["documentoIdentidad"])) {
                     <h6 class="h2 text-white d-inline-block mb-0">Tabla de usuarios registrados</h6>
                   </div>
                   <div class="col-lg-6 col-5 text-right">
-                    <a href="#" class="btn btn-sm btn-neutral">New</a>
-                    <a href="#" class="btn btn-sm btn-neutral">Filters</a>
+                    <a href="reportesBD.php" target="_blank" class="btn btn-sm btn-neutral">Imprimir reporte</a>
+                    <!-- <a href="#" class="btn btn-sm btn-neutral">Filters</a> -->
                   </div>
                 </div>
               </div>
@@ -119,7 +119,6 @@ if (isset($_SESSION["documentoIdentidad"])) {
                       ?>
                       </tbody>
                     </table>
-                    <a href="reportesBD.php" target="_blank">Imprimir</a>
                   </div>
                 </div>
               </div>

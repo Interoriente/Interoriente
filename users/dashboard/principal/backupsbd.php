@@ -3,6 +3,26 @@ session_start();
 if ($_SESSION['roles'] == '3') {
 
     include_once '../../../dao/conexion.php';
+    /* $fecha = date('Y-m-d H:i:s');
+    $salidaSql = $nombreBD . '_' . $fecha . '.sql';
+    //$dump = "mysqldump -u $usuario -p$contrasena $nombreBD > C:\xampp\htdocs\Interoriente\prueba1.sql";
+    //system($dump, $output);
+    //funciona en simbolo de sistema->mysqldump -u root -p interori_inteoriente > C:\xampp\htdocs\Interoriente\prueba.sql
+
+    $command = 'mysqldump --opt -h' . $nombrehost . ' -u' . $usuario . ' --password="' . $contrasena . '" ' . $nombreBD . ' > ' . $salidaSql;
+    exec($command, $output, $worked);
+    switch ($worked) {
+        case 0:
+            echo 'La base de datos <b>' . $nombreBD . '</b> se ha almacenado correctamente en la siguiente ruta ' . getcwd() . '/' . $salidaSql . '</b>';
+            break;
+        case 1:
+            echo 'Se ha producido un error al exportar <b>' . $nombreBD . '</b> a ' . getcwd() . '/' . $salidaSql . '</b>';
+            break;
+        case 2:
+            echo 'Se ha producido un error de exportación, compruebe la siguiente información: <br/><br/><table><tr><td>Nombre de la base de datos:</td><td><b>' . $nombreBD . '</b></td></tr><tr><td>Nombre de usuario MySQL:</td><td><b>' . $usuario . '</b></td></tr><tr><td>Contraseña MySQL:</td><td><b>NOTSHOWN</b></td></tr><tr><td>Nombre de host MySQL:</td><td><b>' . $nombrehost . '</b></td></tr></table>';
+            break;
+    }
+ */
     // file header stuff
     $output = "-- PHP MySQL Dump\n--\n";
     $output .= "-- Host: $host\n";

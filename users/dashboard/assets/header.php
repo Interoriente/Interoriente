@@ -110,3 +110,15 @@
       </div>
     </div>
   </div>
+
+  <!-- Modal -->
+  <div class="modal" id="fotoperfil" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-body">
+          <img class=" card-img-top" src="crud/<?php echo $objetoLlamado->imagenUsuario; ?>">
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--/Modal -->

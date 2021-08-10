@@ -1,3 +1,4 @@
+</div>
 <!-- Core -->
 <script src="../assets/vendor/jquery/dist/jquery.min.js"></script>
 <script src="../assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
@@ -13,6 +14,5 @@
 <!-- Script que le da el filtro a la tabla -->
 
 <script src="../assets/js/datatables.min.js"></script>
-<script src="../assets/js//dataTables.bootstrap.min.js"></script>
+<script src="../assets/js/dataTables.bootstrap.min.js"></script>
 <script src="../assets/js/datatables-init.js"></script>
-</div>

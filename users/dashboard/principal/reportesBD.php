@@ -18,10 +18,10 @@ $pdf->SetX(120);
 $pdf->Write(5,utf8_decode('DETALLES DEL ENVÍO'));
 $pdf->Ln();
 $pdf->SetX(120);
-$pdf->Write(5,'Fecha de la orden: '.date('Y-m-d'));//H:i:s -> Hora
+$pdf->Write(5,'Fecha de la orden: '.date('Y-m-d H:i:s'));//H:i:s -> Hora
 $pdf->Ln();
 $pdf->SetX(120);
-$pdf->Write(5,utf8_decode('Fecha de envío: ').date('Y-m-d'));
+$pdf->Write(5,utf8_decode('Fecha de envío: ').date('Y-m-d H:i:s'));
 $pdf->Ln();
 $pdf->SetX(120);
 $pdf->Write(5,utf8_decode('Dirección: Cra34'));
