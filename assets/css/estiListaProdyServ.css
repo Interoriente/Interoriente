@@ -33,16 +33,16 @@
   .pestana{
     display: flex;
     flex-flow: row;
-    width: 80%;
+    width: 90%;
   }
   .pestana-pest{
     display: flex;
     flex-flow: row;
     flex-wrap: wrap;
     justify-content: space-around;
-    width: 300px;
+    width: 450px;
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 15px;
+    font-size: 20px;
     color: black;
   }
   .tit-hdos{
@@ -53,6 +53,11 @@
       text-align: center;
       font-family: Arial, Helvetica, sans-serif;
   }
+  .par-cat{
+    color: black;
+    font-size: 20px;
+  }
+  
   .categorias{
       display: flex;
       flex-flow: row;
@@ -61,24 +66,46 @@
       width: 60%;
       height: 1200px;
       padding: 20px;
-      font-family: Arial, Helvetica, sans-serif;
   }
   .caja-categorias{
+      display: flex;
+      flex-flow: column;
+      justify-content: space-between;
       border-radius: 10px;
-      background: var(--clr-cta-a);
-      text-align: center;
-      justify-content: center;
+      flex-wrap: wrap;
+      background: var(--clr-neutro-c);
       width: 300px;
-      height: 250px;
+      height: 300px;
       margin: 10px;
   }
-  .caja-categorias:hover{
-      background: var(--crl-cta-b);
+  .caja-categorias-subuno{
+    display: flex;
+    flex-flow: row;
+    flex-wrap: wrap;
+    width: 100%;
+    height: 70%;
+    background: blueviolet;
+    filter: brightness(50%);
+    border-radius: 10px 10px 0px 0px;
   }
   .img-categorias{
     filter: brightness(50%);
     border-radius: 10px 10px 0px 0px;
-    width: 300px;
-    height: 200px;
+    width: 100%;
+    height: 100%;
   }
+  .caja-categorias-subdos{
+    display: flex;
+    flex-flow: column;
+    justify-content: space-around;
+    width: 100%;
+    height: 30%;
+    font-family: Arial, Helvetica, sans-serif;
+    justify-content: center;
+    text-align: center;
+  }
+  .caja-categorias:hover{
+      background: var(--crl-cta-b);
+  }
+  
   

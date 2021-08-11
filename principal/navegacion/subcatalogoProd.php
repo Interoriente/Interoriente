@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="../../assets/css/estiCataySubCata.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <link rel="icon" href="../../assets/img/favicon.png" type="image/png" />
-    <title>Catalógo Servicios | Interoriente</title>
+    <title>Catalógo Producto | Interoriente</title>
 </head>
 
 <body>
@@ -25,7 +25,11 @@
                     </a>
                     <i class="fas fa-chevron-right"></i>
                     <a href="#" class="tit-hdos">
-                        <h2>Servicios</h2>
+                        <h2>Productos</h2>
+                    </a>
+                    <i class="fas fa-chevron-right"></i>
+                    <a href="#" class="tit-hdos">
+                        <h2>Tecnología</h2>
                     </a>
 
                 </div>
@@ -34,7 +38,7 @@
             <br>
             <br>
             <div class="titulo">
-                <h1 class="titulo-tit">Escoge entre nuestras categorías de productos</h1>
+                <h1 class="titulo-tit">Escoge entre nuestras subcategorías de Tecnología</h1>
             </div>
             <br>
             <br>
@@ -42,71 +46,11 @@
                 <a href="">
                     <div class="caja-categorias">
                     <div class="caja-categorias-subuno">
-                    <img src="../../assets/img/tecnologia.jpg" alt="" class="img-categorias">
+                    <img src="../../assets/img/hogar.jpg" alt="" class="img-categorias">
                         </div>
                         <div class="caja-categorias-subdos">
-                        <h2 class="tit-hdos">Belleza</h2>
-                        </div>
-                    </div>
-                </a>
-                <a href="">
-                    <div class="caja-categorias">
-                    <div class="caja-categorias-subuno">
-                    <img src="../../assets/img/comida.jpg" alt="" class="img-categorias">
-                        </div>
-                        <div class="caja-categorias-subdos">
-                        <h2 class="tit-hdos">Cursos</h2>
-                        </div>
-                    </div>
-                </a>
-                <a href="">
-                    <div class="caja-categorias">
-                    <div class="caja-categorias-subuno">
-                    <img src="../../assets/img/calzado.jpg" alt="" class="img-categorias">
-                        </div>
-                        <div class="caja-categorias-subdos">
-                        <h2 class="tit-hdos">Fiestas</h2>
-                        </div>
-                    </div>
-                </a>
-                <a href="">
-                    <div class="caja-categorias">
-                    <div class="caja-categorias-subuno">
-                    <img src="../../assets/img/vehiculos.jpg" alt="" class="img-categorias">
-                        </div>
-                        <div class="caja-categorias-subdos">
-                        <h2 class="tit-hdos">Mantenimiento</h2>
-                        </div>
-                    </div>
-                </a>
-                <a href="">
-                    <div class="caja-categorias">
-                    <div class="caja-categorias-subuno">
-                    <img src="../../assets/img/estudio.jpg" alt="" class="img-categorias">
-                        </div>
-                        <div class="caja-categorias-subdos">
-                        <h2 class="tit-hdos">Reparaciones</h2>
-                        </div>
-                    </div>
-                </a>
-                <a href="">
-                    <div class="caja-categorias">
-                    <div class="caja-categorias-subuno">
-                    <img src="../../assets/img/belleza.jpg" alt="" class="img-categorias">
-                        </div>
-                        <div class="caja-categorias-subdos">
-                        <h2 class="tit-hdos">Instalaciones</h2>
-                        </div>
-                    </div>
-                </a>
-                <a href="">
-                    <div class="caja-categorias">
-                    <div class="caja-categorias-subuno">
-                    <img src="../../assets/img/ropa.jpg" alt="" class="img-categorias">
-                        </div>
-                        <div class="caja-categorias-subdos">
-                        <h2 class="tit-hdos">Profesiones</h2>
-                        </div>
+                        <h2 class="tit-hdos">Teléfonos Móviles</h2>
+                        </div>                        
                     </div>
                 </a>
                 <a href="">
@@ -115,28 +59,78 @@
                     <img src="../../assets/img/hogar.jpg" alt="" class="img-categorias">
                         </div>
                         <div class="caja-categorias-subdos">
-                        <h2 class="tit-hdos">Turismo</h2>
-                        </div>
+                        <h2 class="tit-hdos">Computadoras</h2>
+                        </div>                        
                     </div>
                 </a>
                 <a href="">
                     <div class="caja-categorias">
                     <div class="caja-categorias-subuno">
-                    <img src="../../assets/img/oficina.jpg" alt="" class="img-categorias">
+                    <img src="../../assets/img/hogar.jpg" alt="" class="img-categorias">
                         </div>
                         <div class="caja-categorias-subdos">
-                        <h2 class="tit-hdos">Mascotas</h2>
-                        </div>
+                        <h2 class="tit-hdos">Tablets</h2>
+                        </div>                        
                     </div>
                 </a>
                 <a href="">
                     <div class="caja-categorias">
                     <div class="caja-categorias-subuno">
-                    <img src="../../assets/img/fitness.jpg" alt="" class="img-categorias">
+                    <img src="../../assets/img/hogar.jpg" alt="" class="img-categorias">
                         </div>
                         <div class="caja-categorias-subdos">
-                        <h2 class="tit-hdos">Salud</h2>
+                        <h2 class="tit-hdos">Sonido y Video</h2>
+                        </div>                        
+                    </div>
+                </a>
+                <a href="">
+                    <div class="caja-categorias">
+                    <div class="caja-categorias-subuno">
+                    <img src="../../assets/img/hogar.jpg" alt="" class="img-categorias">
                         </div>
+                        <div class="caja-categorias-subdos">
+                        <h2 class="tit-hdos">Monitores</h2>
+                        </div>                        
+                    </div>
+                </a>
+                <a href="">
+                    <div class="caja-categorias">
+                    <div class="caja-categorias-subuno">
+                    <img src="../../assets/img/hogar.jpg" alt="" class="img-categorias">
+                        </div>
+                        <div class="caja-categorias-subdos">
+                        <h2 class="tit-hdos">Videojuegos</h2>
+                        </div>                        
+                    </div>
+                </a>
+                <a href="">
+                    <div class="caja-categorias">
+                    <div class="caja-categorias-subuno">
+                    <img src="../../assets/img/hogar.jpg" alt="" class="img-categorias">
+                        </div>
+                        <div class="caja-categorias-subdos">
+                        <h2 class="tit-hdos">Partes PC</h2>
+                        </div>                        
+                    </div>
+                </a>
+                <a href="">
+                    <div class="caja-categorias">
+                    <div class="caja-categorias-subuno">
+                    <img src="../../assets/img/hogar.jpg" alt="" class="img-categorias">
+                        </div>
+                        <div class="caja-categorias-subdos">
+                        <h2 class="tit-hdos">Accesorios</h2>
+                        </div>                        
+                    </div>
+                </a>
+                <a href="">
+                    <div class="caja-categorias">
+                    <div class="caja-categorias-subuno">
+                    <img src="../../assets/img/hogar.jpg" alt="" class="img-categorias">
+                        </div>
+                        <div class="caja-categorias-subdos">
+                        <h2 class="tit-hdos">Gaming</h2>
+                        </div>                        
                     </div>
                 </a>
             </div>
