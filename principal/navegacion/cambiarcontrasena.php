@@ -36,7 +36,7 @@
                     </p>
                 </div>
                 <div class="contenedor-regresar">
-                    <a href="index.php"><button class="BotonRegresar">Regresar</button></a>
+                    <a href="javascript: history.go(-1)"><button class="BotonRegresar">Regresar</button></a>
                 </div>
             </div>
             <!-- Sidebar -->

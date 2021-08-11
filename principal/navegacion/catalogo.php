@@ -12,18 +12,18 @@
 <body background="../../assets/img/fondocatalogo.jpg">
     <div class="padre">
         <?php
-        include '../includes/navSuperior.php';
+        include '../includes/superior.php';
         ?>
         <div class="header">
             <div class="contenedor-menu">
-                <div class="menuuno"><a href="#">
+                <div class="menuuno"><a href="catalogoProd.php">
                     <i class="fas fa-box-open"></i>
                     <h1 class="tit-menu">Productos</h1>
                     <p class="par-menu">Ejemplo: Libros...</p>  
                 </a>    
                 </div>
             
-                <div class="menuuno"><a href="#">
+                <div class="menuuno"><a href="catalogoServ.php">
                     <i class="fas fa-cogs"></i>                    
                     <h1 class="tit-menu">Servicios</h1>
                     <p class="par-menu">Ejemplo: Reparación...</p>  
@@ -31,7 +31,7 @@
                 </div>  
             </div>
             <div class="contenedor-regresar">
-                <a href="#"><button class="BotonRegresar">Regresar</button></a>            
+                <a href="javascript: history.go(-1)"><button class="BotonRegresar">Regresar</button></a><!-- Regresar a la página anterior -->         
             </div>
         </div>
     </div>

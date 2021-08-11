@@ -37,7 +37,7 @@
                 </div>
             </div>
             <div class="contenedor-regresar">
-                <a href="#"><button class="BotonRegresar">Regresar</button></a>
+                <a href="javascript: history.go(-1)"><button class="BotonRegresar">Regresar</button></a>
             </div>
         </div>
     </div>

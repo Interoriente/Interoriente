@@ -38,7 +38,7 @@ session_start();
                 <a href="#"><button class="caja4"><strong>Anular Proceso</strong></button></a>
             </div>
             <div class="menu3">
-                <a href="#"><button class="caja5">Regresar</button></a>
+                <a href="javascript: history.go(-1)"><button class="caja5">Regresar</button></a>
             </div>
         </div>
     </div>

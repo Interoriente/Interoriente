@@ -53,8 +53,8 @@
                             <img src="../../assets/img/tecnologia.jpg" alt="" class="img-categorias">
                         </div>
                         <div class="caja-categorias-subdos">
-                        <h2 class="tit-hdos">i7 4GB RAM GTX 1000</h2>
-                        <p class="par-cat">$1.000.000</p>
+                            <h2 class="tit-hdos">i7 4GB RAM GTX 1000</h2>
+                            <p class="par-cat">$1.000.000</p>
                         </div>
                     </div>
                 </a>
@@ -64,8 +64,8 @@
                             <img src="../../assets/img/tecnologia.jpg" alt="" class="img-categorias">
                         </div>
                         <div class="caja-categorias-subdos">
-                        <h2 class="tit-hdos">i7 4GB RAM GTX 1000</h2>
-                        <p class="par-cat">$1.000.000</p>
+                            <h2 class="tit-hdos">i7 4GB RAM GTX 1000</h2>
+                            <p class="par-cat">$1.000.000</p>
                         </div>
                     </div>
                 </a>
@@ -75,8 +75,8 @@
                             <img src="../../assets/img/tecnologia.jpg" alt="" class="img-categorias">
                         </div>
                         <div class="caja-categorias-subdos">
-                        <h2 class="tit-hdos">i7 4GB RAM GTX 1000</h2>
-                        <p class="par-cat">$1.000.000</p>
+                            <h2 class="tit-hdos">i7 4GB RAM GTX 1000</h2>
+                            <p class="par-cat">$1.000.000</p>
                         </div>
                     </div>
                 </a>
@@ -86,8 +86,8 @@
                             <img src="../../assets/img/tecnologia.jpg" alt="" class="img-categorias">
                         </div>
                         <div class="caja-categorias-subdos">
-                        <h2 class="tit-hdos">i7 4GB RAM GTX 1000</h2>
-                        <p class="par-cat">$1.000.000</p>
+                            <h2 class="tit-hdos">i7 4GB RAM GTX 1000</h2>
+                            <p class="par-cat">$1.000.000</p>
                         </div>
                     </div>
                 </a>
@@ -97,8 +97,8 @@
                             <img src="../../assets/img/tecnologia.jpg" alt="" class="img-categorias">
                         </div>
                         <div class="caja-categorias-subdos">
-                        <h2 class="tit-hdos">i7 4GB RAM GTX 1000</h2>
-                        <p class="par-cat">$1.000.000</p>
+                            <h2 class="tit-hdos">i7 4GB RAM GTX 1000</h2>
+                            <p class="par-cat">$1.000.000</p>
                         </div>
                     </div>
                 </a>
@@ -108,8 +108,8 @@
                             <img src="../../assets/img/tecnologia.jpg" alt="" class="img-categorias">
                         </div>
                         <div class="caja-categorias-subdos">
-                        <h2 class="tit-hdos">i7 4GB RAM GTX 1000</h2>
-                        <p class="par-cat">$1.000.000</p>
+                            <h2 class="tit-hdos">i7 4GB RAM GTX 1000</h2>
+                            <p class="par-cat">$1.000.000</p>
                         </div>
                     </div>
                 </a>
@@ -119,8 +119,8 @@
                             <img src="../../assets/img/tecnologia.jpg" alt="" class="img-categorias">
                         </div>
                         <div class="caja-categorias-subdos">
-                        <h2 class="tit-hdos">i7 4GB RAM GTX 1000</h2>
-                        <p class="par-cat">$1.000.000</p>
+                            <h2 class="tit-hdos">i7 4GB RAM GTX 1000</h2>
+                            <p class="par-cat">$1.000.000</p>
                         </div>
                     </div>
                 </a>
@@ -130,8 +130,8 @@
                             <img src="../../assets/img/tecnologia.jpg" alt="" class="img-categorias">
                         </div>
                         <div class="caja-categorias-subdos">
-                        <h2 class="tit-hdos">i7 4GB RAM GTX 1000</h2>
-                        <p class="par-cat">$1.000.000</p>
+                            <h2 class="tit-hdos">i7 4GB RAM GTX 1000</h2>
+                            <p class="par-cat">$1.000.000</p>
                         </div>
                     </div>
                 </a>
@@ -141,8 +141,8 @@
                             <img src="../../assets/img/tecnologia.jpg" alt="" class="img-categorias">
                         </div>
                         <div class="caja-categorias-subdos">
-                        <h2 class="tit-hdos">i7 4GB RAM GTX 1000</h2>
-                        <p class="par-cat">$1.000.000</p>
+                            <h2 class="tit-hdos">i7 4GB RAM GTX 1000</h2>
+                            <p class="par-cat">$1.000.000</p>
                         </div>
                     </div>
                 </a>
