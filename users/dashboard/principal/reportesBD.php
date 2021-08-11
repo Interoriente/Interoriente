@@ -76,7 +76,7 @@ while ($resultado_mostrar_publi = $consultar_mostrar_publi->fetch(PDO::FETCH_OBJ
     $pdf->Cell(17, 10, utf8_decode($resultado_mostrar_publi->telefonomovilUsuario), 'B', 0, 'C', 0); //Celda
     $pdf->Cell(100, 10, utf8_decode($resultado_mostrar_publi->emailUsuario), 'B', 1, 'C', 0); //Celda
 }
-$fecha = date('d-m-Y H:i:s');
-$pdf->Output('I',"TablaUsuarios$fecha.pdf"); //I->Mostrar en el navegador,D->Forzando a descargar, F->Guardar en fichero local, S->
+$fecha = date('d-m-Y_H:i:s');
+$pdf->Output('D',"TablaUsuarios$fecha.pdf"); //I->Mostrar en el navegador,D->Forzando a descargar, F->Guardar en fichero local, S->
 //I->abrir nueva ventana
 //D->Descargar
