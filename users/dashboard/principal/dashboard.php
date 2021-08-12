@@ -132,8 +132,6 @@ if (isset($_SESSION["documentoIdentidad"])) {
                             <span class="h2 font-weight-bold mb-0">
                               <?php if ($_SESSION['roles'] == '1') { ?>
                                 Comprador/Proveedor
-                              <?php } else if ($_SESSION['roles'] == '2') { ?>
-                                Admin-Empresa
                               <?php } else { ?>
                                 Administrador
                               <?php } ?></span>

@@ -12,12 +12,7 @@ if (isset($_FILES['imagen'])) {
     $usuario = $_POST['usuario'];
     $verificacion = '0';
     //sentencia Sql
-    if ($_SESSION['roles']=='1') {
-        $sql_insertar = "INSERT INTO tblPublicacion (nombrePublicacion,docIdentidadPublicacion,descripcionPublicacion,colorPublicacion,costoPublicacion,estadoArticuloPublicacion,stockPublicacion,categoriaPublicacion,validacionPublicacion)VALUES (?,?,?,?,?,?,?,?,?)";
-    }else{
-        $sql_insertar = "INSERT INTO tblPublicacion (nombrePublicacion,nitEmpresaPublicacion,descripcionPublicacion,colorPublicacion,costoPublicacion,estadoArticuloPublicacion,stockPublicacion,categoriaPublicacion,validacionPublicacion)VALUES (?,?,?,?,?,?,?,?,?)";
-    }
-    
+    $sql_insertar = "INSERT INTO tblPublicacion (nombrePublicacion,docIdentidadPublicacion,descripcionPublicacion,colorPublicacion,costoPublicacion,estadoArticuloPublicacion,stockPublicacion,categoriaPublicacion,validacionPublicacion)VALUES (?,?,?,?,?,?,?,?,?)";
     //Preparar consulta
     $consulta_insertar = $pdo->prepare($sql_insertar);
 
@@ -32,7 +27,7 @@ if (isset($_FILES['imagen'])) {
     }
     $datos = $datos + 1;
     $idPubli = "id" . $datos . " ";
-
+    echo $datos;
     //Crear carpetas
     /* if (mkdir($idPubli, 0777, true)) {
         } */

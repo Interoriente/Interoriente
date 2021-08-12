@@ -47,38 +47,14 @@ if (isset($_SESSION["documentoIdentidad"])) {
 
           include_once '../../../dao/conexion.php';
           //Llamar a la conexion base de datos -> Muestro el contenido de tabla publicación, pero muestro mis publicaciones
-          if ($_SESSION['roles'] == '1') {
-            //Mostrar los datos almacenados
-            $sql_mostrar_publi = "SELECT * FROM tblPublicacion WHERE docIdentidadPublicacion =?";
-            //Prepara sentencia
-            $consultar_mostrar_publi = $pdo->prepare($sql_mostrar_publi);
-            //Ejecutar consulta
-            $consultar_mostrar_publi->execute(array($documento));
-            $contadorPubli = $consultar_mostrar_publi->rowCount();
-            $resultado_mostrar_publi = $consultar_mostrar_publi->fetchAll();
-          }
-          //Llamado a tabla empresa, función: contar registros, además por medio del nit capturo la publicación que tenga ese nit
-          $sqlMostrarEmpresa = "SELECT * FROM tblEmpresa WHERE documentoRepresentanteEmpresa=?";
+          //Mostrar los datos almacenados
+          $sql_mostrar_publi = "SELECT * FROM tblPublicacion WHERE docIdentidadPublicacion =?";
           //Prepara sentencia
-          $consultarMostrarEmpresa = $pdo->prepare($sqlMostrarEmpresa);
+          $consultar_mostrar_publi = $pdo->prepare($sql_mostrar_publi);
           //Ejecutar consulta
-          $consultarMostrarEmpresa->execute(array($documento));
-          $contadorEmpresa = $consultarMostrarEmpresa->rowCount();
-          $resultadoEmpresa = $consultarMostrarEmpresa->fetch();
-          $nitEmpresa = $resultadoEmpresa['nitEmpresa'];
-
-          //Ejecutar consulta
-          if ($_SESSION['roles'] == '2') {
-            //Mostrar los datos almacenados
-            $sql_mostrar_publi = "SELECT * FROM tblPublicacion WHERE nitEmpresaPublicacion =?";
-            //Prepara sentencia
-            $consultar_mostrar_publi = $pdo->prepare($sql_mostrar_publi);
-            $consultar_mostrar_publi->execute(array($nitEmpresa));
-            $resultado_mostrar_publi = $consultar_mostrar_publi->fetchAll();
-          }
+          $consultar_mostrar_publi->execute(array($documento));
           $contadorPubli = $consultar_mostrar_publi->rowCount();
-
-
+          $resultado_mostrar_publi = $consultar_mostrar_publi->fetchAll();
 
           //Sirve para mostrar el contenido de la tabla Estado, para mostrarlo en la lista desplegable
           //Mostrar los datos almacenados
@@ -122,12 +98,7 @@ if (isset($_SESSION["documentoIdentidad"])) {
                     <div class="card-header">
                       <div class="row align-items-center">
                         <div class="col-8">
-                          <?php if ($_SESSION['roles'] == '1') { ?>
-                            <h3 class="mb-0">Crear Publicación Proveedor</h3>
-                          <?php  } elseif ($_SESSION['roles'] == '2') { ?>
-                            <h3 class="mb-0">Crear Publicación Empresa</h3>
-                          <?php   } ?>
-
+                          <h3 class="mb-0">Crear Publicación Proveedor</h3>
                         </div>
                       </div>
                     </div>
@@ -206,11 +177,7 @@ if (isset($_SESSION["documentoIdentidad"])) {
                             <div class="col-lg-6">
                               <div class="form-group">
                                 <!-- <label class="form-control-label" for="usu">Usuario</label> -->
-                                <?php if ($_SESSION['roles'] == '1') { ?>
-                                  <input type="hidden" id="usu" name="usuario" class="form-control" placeholder="Usuario" value="<?php echo $documento; ?>">
-                                <?php } elseif ($_SESSION['roles'] == '2') { ?>
-                                  <input type="hidden" id="usu" name="usuario" class="form-control" placeholder="Usuario" value="<?php echo $nitEmpresa; ?>">
-                                <?php } ?>
+                                <input type="hidden" id="usu" name="usuario" class="form-control" placeholder="Usuario" value="<?php echo $documento; ?>">
                               </div>
                             </div>
                           </div>
@@ -277,9 +244,9 @@ if (isset($_SESSION["documentoIdentidad"])) {
                   </div>
                 </div>
               </div>
-              <?php }
+            <?php }
             if (!$_GET) {
-              ?>
+            ?>
               <center>
                 <h1>Mis publicaciones</h1>
               </center>
