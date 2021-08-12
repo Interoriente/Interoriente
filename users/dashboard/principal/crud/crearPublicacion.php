@@ -12,7 +12,12 @@ if (isset($_FILES['imagen'])) {
     $usuario = $_POST['usuario'];
     $verificacion = '0';
     //sentencia Sql
-    $sql_insertar = "INSERT INTO tblPublicacion (nombrePublicacion,docIdentidadPublicacion,descripcionPublicacion,colorPublicacion,costoPublicacion,estadoArticuloPublicacion,stockPublicacion,categoriaPublicacion,validacionPublicacion)VALUES (?,?,?,?,?,?,?,?,?)";
+    if ($_SESSION['roles']=='1') {
+        $sql_insertar = "INSERT INTO tblPublicacion (nombrePublicacion,docIdentidadPublicacion,descripcionPublicacion,colorPublicacion,costoPublicacion,estadoArticuloPublicacion,stockPublicacion,categoriaPublicacion,validacionPublicacion)VALUES (?,?,?,?,?,?,?,?,?)";
+    }else{
+        $sql_insertar = "INSERT INTO tblPublicacion (nombrePublicacion,nitEmpresaPublicacion,descripcionPublicacion,colorPublicacion,costoPublicacion,estadoArticuloPublicacion,stockPublicacion,categoriaPublicacion,validacionPublicacion)VALUES (?,?,?,?,?,?,?,?,?)";
+    }
+    
     //Preparar consulta
     $consulta_insertar = $pdo->prepare($sql_insertar);
 

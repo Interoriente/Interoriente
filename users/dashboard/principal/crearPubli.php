@@ -18,7 +18,7 @@ if (isset($_SESSION["documentoIdentidad"])) {
   //Validacion de roles
   if ($resultado_validacion) {
     if ($resultadoSesionRol) {
-      if ($sesionRol == '1' Or $sesionRol == '2') {
+      if ($sesionRol == '1' or $sesionRol == '2') {
 ?>
         <!DOCTYPE html>
         <html>
@@ -47,19 +47,42 @@ if (isset($_SESSION["documentoIdentidad"])) {
 
           include_once '../../../dao/conexion.php';
           //Llamar a la conexion base de datos -> Muestro el contenido de tabla publicación, pero muestro mis publicaciones
-
-          //Mostrar los datos almacenados
-          $sql_mostrar_publi = "SELECT * FROM tblPublicacion WHERE docIdentidadPublicacion =?";
+          if ($_SESSION['roles'] == '1') {
+            //Mostrar los datos almacenados
+            $sql_mostrar_publi = "SELECT * FROM tblPublicacion WHERE docIdentidadPublicacion =?";
+            //Prepara sentencia
+            $consultar_mostrar_publi = $pdo->prepare($sql_mostrar_publi);
+            //Ejecutar consulta
+            $consultar_mostrar_publi->execute(array($documento));
+            $contadorPubli = $consultar_mostrar_publi->rowCount();
+            $resultado_mostrar_publi = $consultar_mostrar_publi->fetchAll();
+          }
+          //Llamado a tabla empresa, función: contar registros, además por medio del nit capturo la publicación que tenga ese nit
+          $sqlMostrarEmpresa = "SELECT * FROM tblEmpresa WHERE documentoRepresentanteEmpresa=?";
           //Prepara sentencia
-          $consultar_mostrar_publi = $pdo->prepare($sql_mostrar_publi);
+          $consultarMostrarEmpresa = $pdo->prepare($sqlMostrarEmpresa);
           //Ejecutar consulta
-          $consultar_mostrar_publi->execute(array($documento));
+          $consultarMostrarEmpresa->execute(array($documento));
+          $contadorEmpresa = $consultarMostrarEmpresa->rowCount();
+          $resultadoEmpresa = $consultarMostrarEmpresa->fetch();
+          $nitEmpresa = $resultadoEmpresa['nitEmpresa'];
+
+          //Ejecutar consulta
+          if ($_SESSION['roles'] == '2') {
+            //Mostrar los datos almacenados
+            $sql_mostrar_publi = "SELECT * FROM tblPublicacion WHERE nitEmpresaPublicacion =?";
+            //Prepara sentencia
+            $consultar_mostrar_publi = $pdo->prepare($sql_mostrar_publi);
+            $consultar_mostrar_publi->execute(array($nitEmpresa));
+            $resultado_mostrar_publi = $consultar_mostrar_publi->fetchAll();
+          }
           $contadorPubli = $consultar_mostrar_publi->rowCount();
-          $resultado_mostrar_publi = $consultar_mostrar_publi->fetchAll();
+
+
 
           //Sirve para mostrar el contenido de la tabla Estado, para mostrarlo en la lista desplegable
           //Mostrar los datos almacenados
-          $sql_mostrar_estado = "SELECT * FROM tblEstadoArticulo";
+          $sql_mostrar_estado = "SELECT * FROM tblEstadoArticulo ORDER BY nombreEstadoArticulo ASC";
           //Prepara sentencia
           $consultar_mostrar_estado = $pdo->prepare($sql_mostrar_estado);
           //Ejecutar consulta
@@ -70,7 +93,7 @@ if (isset($_SESSION["documentoIdentidad"])) {
           //Sirve para mostrar el contenido de la tabla Categoria, para mostrarlo en la lista desplegable
 
           //Mostrar los datos almacenados
-          $sql_mostrar_categoria = "SELECT * FROM tblCategoria";
+          $sql_mostrar_categoria = "SELECT * FROM tblCategoria ORDER BY nombreCategoria ASC";
           //Prepara sentencia
           $consultar_mostrar_categoria = $pdo->prepare($sql_mostrar_categoria);
           //Ejecutar consulta
@@ -88,14 +111,6 @@ if (isset($_SESSION["documentoIdentidad"])) {
             $consultar_mostrar_publi1->execute(array($idpubli));
             $resultado_mostrar_publi1 = $consultar_mostrar_publi1->fetch();
           }
-          //Llamado a tabla empresa, función: contar registros
-          $sqlMostrarEmpresa = "SELECT * FROM tblEmpresa WHERE documentoRepresentanteEmpresa=?";
-          //Prepara sentencia
-          $consultarMostrarEmpresa = $pdo->prepare($sqlMostrarEmpresa);
-          //Ejecutar consulta
-          $consultarMostrarEmpresa->execute(array($documento));
-          $contadorEmpresa = $consultarMostrarEmpresa->rowCount();
-          $resultadoEmpresa = $consultarMostrarEmpresa->fetch();
           ?>
           <br><br><br><br>
           <!-- Publicacion producto -->
@@ -107,7 +122,12 @@ if (isset($_SESSION["documentoIdentidad"])) {
                     <div class="card-header">
                       <div class="row align-items-center">
                         <div class="col-8">
-                          <h3 class="mb-0">Crear Publicación</h3>
+                          <?php if ($_SESSION['roles'] == '1') { ?>
+                            <h3 class="mb-0">Crear Publicación Proveedor</h3>
+                          <?php  } elseif ($_SESSION['roles'] == '2') { ?>
+                            <h3 class="mb-0">Crear Publicación Empresa</h3>
+                          <?php   } ?>
+
                         </div>
                       </div>
                     </div>
@@ -124,8 +144,8 @@ if (isset($_SESSION["documentoIdentidad"])) {
                             </div>
                             <div class="col-lg-6">
                               <div class="form-group">
-                                <label class="form-control-label" for="input-username">Descripcion</label>
-                                <input type="text" id="input-username" name="descripcion" class="form-control" placeholder="Descripcion" maxlength="5000" value="" required>
+                                <label class="form-control-label" for="input-username">Descripción</label>
+                                <input type="text" id="input-username" name="descripcion" class="form-control" placeholder="Descripción" maxlength="5000" value="" required>
                               </div>
                             </div>
                             <div class="col-lg-6">
@@ -174,10 +194,10 @@ if (isset($_SESSION["documentoIdentidad"])) {
                             <div class="col-lg-6">
                               <div class="form-group">
                                 <label class="form-control-label" for="input-username">Imagenes</label>
-                                <input type="file" id="input-username" name="imagen[]" id="file[]" class="form-control-file" multiple accept="image/*">
+                                <input type="file" id="input-username" name="imagen[]" id="file[]" class="form-control-file" multiple accept="image/x-png,image/jpeg">
                                 <div class="description">
-                                  <br>
-                                  limite de 2048MB por imágenes
+                                  <!-- <br>
+                                  limite de 2048MB por imágenes -->
                                   <br>
                                   Tipos permitidos: jpeg, png, jpg
                                 </div>
@@ -186,11 +206,11 @@ if (isset($_SESSION["documentoIdentidad"])) {
                             <div class="col-lg-6">
                               <div class="form-group">
                                 <!-- <label class="form-control-label" for="usu">Usuario</label> -->
-                                <?php if ($_SESSION['roles']=='1') {?>
-                               <input type="hidden" id="usu" name="usuario" class="form-control" placeholder="Usuario" value="<?php echo $documento; ?>">
-                               <?php }elseif ($_SESSION['roles']=='2') {?>
-                               <input type="hidden" id="usu" name="usuario" class="form-control" placeholder="Usuario" value="<?php echo $documento; ?>">
-                               <?php } ?>
+                                <?php if ($_SESSION['roles'] == '1') { ?>
+                                  <input type="hidden" id="usu" name="usuario" class="form-control" placeholder="Usuario" value="<?php echo $documento; ?>">
+                                <?php } elseif ($_SESSION['roles'] == '2') { ?>
+                                  <input type="hidden" id="usu" name="usuario" class="form-control" placeholder="Usuario" value="<?php echo $nitEmpresa; ?>">
+                                <?php } ?>
                               </div>
                             </div>
                           </div>
@@ -259,20 +279,7 @@ if (isset($_SESSION["documentoIdentidad"])) {
               </div>
               <?php }
             if (!$_GET) {
-              if ($contadorEmpresa and $_SESSION['roles'] == '1' or $_SESSION['roles'] == '3') {
               ?>
-                <center>
-                  <h2>Tienes una empresa, tu empresa es: <?php echo $resultadoEmpresa['nombreEmpresa'] ?>. Para editar debes cambiar de rol en el <a href="dashboard.php">dashboard</a></h2>
-                </center>
-              <?php } else if ($contadorEmpresa and $_SESSION['roles'] == '2') { ?>
-                <center>
-                  <h2>Puedes editar tu empresa <a href="perfilEmpresa.php">aquí</a></h2>
-                </center>
-              <?php } else { ?>
-                <center>
-                  <h2>Tienes empresa? puedes crear una cuenta <a href="registroAdminEmpresa.php">aquí</a></h2>
-                </center>
-              <?php } ?>
               <center>
                 <h1>Mis publicaciones</h1>
               </center>
@@ -290,42 +297,42 @@ if (isset($_SESSION["documentoIdentidad"])) {
                   </thead>
                   <tbody>
                     <?php if ($contadorPubli == '0') { ?>
-                      <tbody>
-                        <tr>
-                          <td colspan="8">
-                            <div class="alert alert-danger" role="alert" style="text-align: center;">Opps, por ahora no hay publicaciones</div>
-                          </td>
-                        </tr>
-                      </tbody>
-                    <?php }
+                  <tbody>
+                    <tr>
+                      <td colspan="8">
+                        <div class="alert alert-danger" role="alert" style="text-align: center;">Opps, por ahora no hay publicaciones</div>
+                      </td>
+                    </tr>
+                  </tbody>
+                <?php }
                     foreach ($resultado_mostrar_publi as $datos_publi) {
-                    ?>
-                      <tr>
-                        <th><?php echo $datos_publi['nombrePublicacion'] ?></th>
-                        <td><?php echo $datos_publi['descripcionPublicacion'] ?></td>
-                        <td><?php echo $datos_publi['costoPublicacion'] ?></td>
-                        <td><?php echo $datos_publi['stockPublicacion'] ?></td>
-                        <td><a href="crearPubli.php?id=<?php echo $datos_publi['idPublicacion']; ?>"><i class="icono2 fas fa-pencil-alt"></i></a></td>
-                        <td><a data-toggle="modal" data-target="#eliminarPubliModal<?php echo $datos_publi['idPublicacion'] ?>"><i class="icono1 fas fa-trash"></i></a></td>
+                ?>
+                  <tr>
+                    <th><?php echo $datos_publi['nombrePublicacion'] ?></th>
+                    <td><?php echo $datos_publi['descripcionPublicacion'] ?></td>
+                    <td><?php echo $datos_publi['costoPublicacion'] ?></td>
+                    <td><?php echo $datos_publi['stockPublicacion'] ?></td>
+                    <td><a href="crearPubli.php?id=<?php echo $datos_publi['idPublicacion']; ?>"><i class="icono2 fas fa-pencil-alt"></i></a></td>
+                    <td><a data-toggle="modal" data-target="#eliminarPubliModal<?php echo $datos_publi['idPublicacion'] ?>"><i class="icono1 fas fa-trash"></i></a></td>
 
-                        <!--Modal Eliminar publicación -->
-                        <div class="modal fade" id="eliminarPubliModal<?php echo $datos_publi['idPublicacion'] ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                          <div class="modal-dialog" role="document">
-                            <div class="modal-content">
-                              <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">¿Seguro quieres eliminar esta publicación?</h5>
-                                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                                  <span aria-hidden="true">×</span>
-                                </button>
-                              </div>
-                              <div class="modal-body">Seleccione "Eliminar" para eliminar la publicación, esta acción no se podrá deshacer.</div>
-                              <div class="modal-footer">
-                                <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
-                                <a class="btn btn-danger" href="crud/eliminarPubli.php?id=<?php echo $datos_publi['idPublicacion'] ?>">Eliminar</a>
-                              </div>
-                            </div>
+                    <!--Modal Eliminar publicación -->
+                    <div class="modal fade" id="eliminarPubliModal<?php echo $datos_publi['idPublicacion'] ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                      <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">¿Seguro quieres eliminar esta publicación?</h5>
+                            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                              <span aria-hidden="true">×</span>
+                            </button>
+                          </div>
+                          <div class="modal-body">Seleccione "Eliminar" para eliminar la publicación, esta acción no se podrá deshacer.</div>
+                          <div class="modal-footer">
+                            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
+                            <a class="btn btn-danger" href="crud/eliminarPubli.php?id=<?php echo $datos_publi['idPublicacion'] ?>">Eliminar</a>
                           </div>
                         </div>
+                      </div>
+                    </div>
               </div>
               </tr>
           <?php }
