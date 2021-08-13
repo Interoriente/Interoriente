@@ -49,12 +49,12 @@
                   <div class="media align-items-center">
                     <span class="avatar avatar-sm rounded-circle">
                       <!--- Impresión imagen de perfil -->
-                      <img alt="Image placeholder" src="<?php echo $objetoLlamado->imagenUsuario; ?>">
+                      <img alt="Image placeholder" src="crud/<?php echo $objetoLlamado->imagenUsuario; ?>">
                     </span>
                     <div class="media-body  ml-2  d-none d-lg-block">
 
                       <span class="mb-0 text-sm  font-weight-bold"><?php echo $Nombre; ?></span>
-                    <?php } ?>
+
                     </div>
                   </div>
                 </a>
@@ -66,9 +66,9 @@
                     <i class="ni ni-single-02"></i>
                     <span>Mi perfil</span>
                   </a>
-                  <a href="../principal/configfotoperfil.php" class="dropdown-item">
+                  <a href="#!" class="dropdown-item">
                     <i class="ni ni-settings-gear-65"></i>
-                    <span>Cambiar foto perfil</span>
+                    <span>Ayuda</span>
                   </a>
                   <a href="#!" class="dropdown-item">
                     <i class="ni ni-calendar-grid-58"></i>
@@ -86,6 +86,7 @@
                 </div>
               </li>
             </ul>
+          <?php } ?>
       </div>
     </div>
   </nav>
@@ -110,3 +111,15 @@
       </div>
     </div>
   </div>
+
+  <!-- Modal -->
+  <div class="modal" id="fotoperfil" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-body">
+          <img class=" card-img-top" src="crud/<?php echo $objetoLlamado->imagenUsuario; ?>">
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--/Modal -->

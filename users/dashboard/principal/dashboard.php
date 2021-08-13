@@ -88,7 +88,10 @@ if (isset($_SESSION["documentoIdentidad"])) {
                       </select>
                       <button type="submit" class="btn btn-sm btn-neutral">Cambiar rol</button>
 
-                    </form>
+                    </form><?php if ($_SESSION['roles'] == '3') {
+                            ?><br>
+                      <a href="backupsbd.php"><button type="submit" class="btn btn-sm btn-neutral">Copia de seguridad BD</button></a>
+                    <?php } ?>
                   </div>
                 </div>
                 <!-- Card stats -->
@@ -102,11 +105,6 @@ if (isset($_SESSION["documentoIdentidad"])) {
                             <h5 class="card-title text-uppercase text-muted mb-0">Nuevas publicaciones</h5>
                             <span class="h2 font-weight-bold mb-0"><?php echo $resultadoMostrarConteoPubli; ?></span>
                           </div>
-                          <div class="col-auto">
-                            <div class="icon icon-shape bg-gradient-red text-white rounded-circle shadow">
-                              <i class="ni ni-active-40"></i>
-                            </div>
-                          </div>
                         </div>
                       </div>
                     </div>
@@ -119,11 +117,6 @@ if (isset($_SESSION["documentoIdentidad"])) {
                           <div class="col">
                             <h5 class="card-title text-uppercase text-muted mb-0">Nuevos usuarios</h5>
                             <span class="h2 font-weight-bold mb-0"><?php echo $resultadoMostrarConteo; ?></span>
-                          </div>
-                          <div class="col-auto">
-                            <div class="icon icon-shape bg-gradient-orange text-white rounded-circle shadow">
-                              <i class="ni ni-chart-pie-35"></i>
-                            </div>
                           </div>
                         </div>
                       </div>
@@ -139,8 +132,6 @@ if (isset($_SESSION["documentoIdentidad"])) {
                             <span class="h2 font-weight-bold mb-0">
                               <?php if ($_SESSION['roles'] == '1') { ?>
                                 Comprador/Proveedor
-                              <?php } else if ($_SESSION['roles'] == '2') { ?>
-                                Admin-Empresa
                               <?php } else { ?>
                                 Administrador
                               <?php } ?></span>
@@ -158,11 +149,6 @@ if (isset($_SESSION["documentoIdentidad"])) {
                             <h5 class="card-title text-uppercase text-muted mb-0">Contador de visitas</h5>
                             <span class="h2 font-weight-bold mb-0"><img style="border: 0px solid; display: inline;" alt="contador de visitas" src="http://www.websmultimedia.com/contador-de-visitas.php?id=300190"></span>
                           </div>
-                          <div class="col-auto">
-                            <div class="icon icon-shape bg-gradient-info text-white rounded-circle shadow">
-                              <i class="ni ni-chart-bar-32"></i>
-                            </div>
-                          </div>
                         </div>
                       </div>
                     </div>
@@ -171,9 +157,7 @@ if (isset($_SESSION["documentoIdentidad"])) {
               </div>
             </div>
           </div>
-          <div class="container mt--6">
-            <?php require_once '../assets/footer.php' ?>
-          </div>
+          <?php require_once '../assets/footer.php' ?>
         </body>
 
         </html>

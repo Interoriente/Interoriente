@@ -47,11 +47,11 @@ if (isset($_SESSION["documentoIdentidad"])) {
           include_once '../../../dao/conexion.php';
           //Llamar a la conexion base de datos -> Muestro el contenido de tabla usuario
           //Mostrar los datos almacenados
-          $sql_mostrar_usu = "SELECT * FROM tblUsuario";
+          $sql_mostrar_usu = "SELECT * FROM tblUsuario WHERE documentoIdentidad <> ?";
           //Prepara sentencia
           $consultar_mostrar_usu = $pdo->prepare($sql_mostrar_usu);
           //Ejecutar consulta
-          $consultar_mostrar_usu->execute();
+          $consultar_mostrar_usu->execute(array($documento));
           $resultado_mostrar_usu = $consultar_mostrar_usu->fetchAll();
           ?>
           <!-- Header -->
@@ -63,8 +63,8 @@ if (isset($_SESSION["documentoIdentidad"])) {
                     <h6 class="h2 text-white d-inline-block mb-0">Tabla de usuarios registrados</h6>
                   </div>
                   <div class="col-lg-6 col-5 text-right">
-                    <a href="#" class="btn btn-sm btn-neutral">New</a>
-                    <a href="#" class="btn btn-sm btn-neutral">Filters</a>
+                    <a href="reportesBD.php" class="btn btn-sm btn-neutral">Descargar reporte</a>
+                    <!-- <a href="#" class="btn btn-sm btn-neutral">Filters</a> -->
                   </div>
                 </div>
               </div>

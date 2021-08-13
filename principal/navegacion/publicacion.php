@@ -11,7 +11,7 @@
   <link rel="stylesheet" href="../../assets/css/estilosPublicacion.css">
 
   <!-- Nota: Debe aparecer el nombre de la publicación en el título -->
-  <title>Interoriente | Publicación</title>
+  <title>Publicación | Interoriente</title>
 </head>
 
 <body>
