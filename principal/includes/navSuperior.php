@@ -107,7 +107,7 @@
             <!-- Le puse width para que no se desborde la imagen de lo grande que es. -->
             <img src="../../assets/img/stock/1.jpg" alt="product" width="100%">
             <div>
-              <h4>Lorem.</h4>
+              <h4>Monitor Samsung Ips De 24 Full Hd Freesync Hdmi Lf24t400fh</h4>
               <h5>$9.000</h5>
               <span class="remove-item">Eliminar</span>
             </div>
