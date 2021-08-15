@@ -59,7 +59,7 @@ if (isset($_SESSION["documentoIdentidad"])) {
                                         </div>
                                     </div>
                                     <div class="card-body">
-                                        <form action="" method="POST">
+                                        <form action="../../../email/mail.php" method="POST" enctype="multipart/form-data">
                                             <h6 class="heading-small text-muted mb-4">Aquí podrás realizar las preguntas, quejas, reclamos o sugerencias del funcionamiento de la aplicación</h6>
                                             <div class="pl-lg-4">
                                                 <div class="row">
@@ -100,6 +100,12 @@ if (isset($_SESSION["documentoIdentidad"])) {
                                                             <textarea name="mensaje" id="input-username" class="form-control" cols="34" rows="6" required></textarea>
                                                         </div>
                                                     </div>
+                                                    <div class="col-lg-6">
+                                                        <div class="form-group">
+                                                            <label class="form-control-label" for="input-username">Pantallazo</label>
+                                                            <input type="file" name="imagen" id="input-username" class="form-control-file" multiple required>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                                 <button class="btn btn-primary btn-xs" type="submit" name="subir">Enviar</button>
                                             </div>
@@ -108,37 +114,6 @@ if (isset($_SESSION["documentoIdentidad"])) {
                                 </div>
                             </div>
                         </div>
-                        <?php 
-                            /* //Llamando a los campos
-                            $nombre = $_POST['nombre'];
-                            $correo = $_POST['correo'];
-                            $telefono = $_POST['telefono'];
-                            $mensaje = $_POST['mensaje'];
-                            $tipo = $_POST['tipo'];
-                            $micorreo = "From: sgomez9002@misena.edu.co"; */
-
-                            //Datos para el correo
-                            $destinatario = "rubenduque276@gmail.com";
-                            $asunto = "Probando soporte";
-
-                            /* $carta = "De: $nombre\n";
-                            $carta .= "Correo: $correo \n";
-                            $carta .= "Telefono: $telefono \n";
-                            $carta .= "Tipo de mensaje: $tipo \n";
-                            $carta .= "Mensaje: $mensaje"; */
-
-                            $mensaje ="Hola mundo";
-                            $micorreo = "From: sgomez9002@misena.edu.co";
-
-                            //Enviando mensaje
-                            if (mail($destinatario, $asunto, $mensaje, $micorreo)) {
-
-                                echo "<script>alert('Correo enviado correctamente');</script>";
-                            } else {
-                                echo "<script>alert('Error!');</script>";
-                            }
-                            echo "<script> document.location.href='dashboard.php';</script>";
-                        ?>
                         <!-- Footer -->
                         <?php require_once '../assets/footer.php' ?>
                     </div>
