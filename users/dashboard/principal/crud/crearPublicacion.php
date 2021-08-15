@@ -15,19 +15,10 @@ if (isset($_FILES['imagen'])) {
     $sql_insertar = "INSERT INTO tblPublicacion (nombrePublicacion,docIdentidadPublicacion,descripcionPublicacion,colorPublicacion,costoPublicacion,estadoArticuloPublicacion,stockPublicacion,categoriaPublicacion,validacionPublicacion)VALUES (?,?,?,?,?,?,?,?,?)";
     //Preparar consulta
     $consulta_insertar = $pdo->prepare($sql_insertar);
-
-
-    //Llamado idPublicacion
-    $sqlLlamarId = "SELECT Max(idPublicacion) FROM tblPublicacion";
-    $consultaLlamarId = $pdo->prepare($sqlLlamarId);
-    $consultaLlamarId->execute();
-    $resultadoLlamarId = $consultaLlamarId->fetch();
-    //Se debe utilizar mientras se encuentra una forma más rápida o mejor
-    foreach ($resultadoLlamarId as $datos) {
-    }
-    $datos = $datos + 1;
+    $consulta_insertar->execute(array($nombre, $usuario, $descripcion, $color, $costo, $estadoarticulo, $stock, $categoria, $verificacion));
+    //Seleccionar último id en la BD
+    echo $datos = ($pdo->lastInsertId());
     $idPubli = "id" . $datos . " ";
-    echo $datos;
     //Crear carpetas
     /* if (mkdir($idPubli, 0777, true)) {
         } */
@@ -35,9 +26,6 @@ if (isset($_FILES['imagen'])) {
 
         $cantidad = count($_FILES["imagen"]["tmp_name"]);
         //Ejecutar la sentencia
-        if ($consulta_insertar->execute(array($nombre, $usuario, $descripcion, $color, $costo, $estadoarticulo, $stock, $categoria, $verificacion))) {
-            echo "<script>alert('El registro se subió correctamente');</script>";
-        }
         for ($i = 0; $i < $cantidad; $i++) {
             //Comprobamos si el fichero es una imagen
             if ($_FILES['imagen']['type'][$i] == 'image/png' || $_FILES['imagen']['type'][$i] == 'image/jpeg' || $_FILES['imagen']['type'][$i] == 'image/jpg') {
@@ -51,14 +39,15 @@ if (isset($_FILES['imagen'])) {
                     $sqlInsertarImagen = "INSERT INTO tblImagenes (urlImagen,publicacionImagen)VALUES (?,?)";
                     $consultaInsertar = $pdo->prepare($sqlInsertarImagen);
                     $consultaInsertar->execute(array($ruta, $datos));
+                    echo "<script>alert('El registro se subió correctamente');</script>";
+                    /* Redirigir después de almacenar la información */
+                    echo "<script> document.location.href='../crearPubli.php';</script>";
                 }
             } else {
                 echo "<script>alert('Error: el archivo no es una imagen');</scrip>";
                 echo "<script> document.location.href='../crearPubli.php';</script>";
             }
         }
-        /* Redirigir después de almacenar la información */
-        echo "<script> document.location.href='../crearPubli.php';</script>";
     } else {
         echo "<script>alert('Ocurrió un error');</script>";
         echo "<script> document.location.href='../crearPubli.php';</script>";
