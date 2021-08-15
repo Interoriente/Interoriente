@@ -251,7 +251,8 @@ if (isset($_SESSION["documentoIdentidad"])) {
                 <h1>Mis publicaciones</h1>
               </center>
               <div class="table-responsive">
-                <table class="table align-items-center table-flush">
+                <input id="buscar" type="text" class="form-control" placeholder="Escriba algo para filtrar" /><br>
+                <table id="tabla" class="table align-items-center table-flush">
                   <thead class="thead-light">
                     <tr>
                       <th scope="col">Nombre</th>

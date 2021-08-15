@@ -84,7 +84,8 @@ if (isset($_SESSION["documentoIdentidad"])) {
                   </div>
                   <!-- Light table -->
                   <div class="table-responsive">
-                    <table id="bootstrap-data-table" class="table align-items-center table-flush">
+                  <input id="buscar" type="text" class="form-control" placeholder="Escriba algo para filtrar" /><br>
+                    <table id="tabla" class="table align-items-center table-flush">
                       <thead class="thead-light">
                         <tr>
                           <th scope="col">Nombre</th>
