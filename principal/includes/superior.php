@@ -6,11 +6,14 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="../../assets/css/navegacion.css" />
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+  <script src="../../assets/js/carrito.js"></script>
+
   <title>Navbar Superior</title>
 </head>
 
 <body>
- <!--  <div class="carrusel-superior">
+  <!--  <div class="carrusel-superior">
     <p>promoción</p>
   </div> -->
   <div class="contenedor">
@@ -30,7 +33,7 @@
         <div class="barra-busqueda">
           <input type="text" placeholder="Buscar...">
         </div>
-        
+
         <a href="#">
           <div class="carrito"><img src="../../assets/img/iconos/carrito.svg" alt="Carrito de la compra"></div>
           <div class="items-carrito">0</div>
@@ -101,6 +104,7 @@
     <div class="contenido">
       <!--  Contenido Principal del la página -->
     </div>
+
     <!-- Carrito -->
     <div class="cart-overlay">
       <div class="cart">
@@ -128,9 +132,12 @@
         </div>
         <div class="cart-footer">
           <h3>Costo total: $ <span class="cart-total">0</span></h3>
-          <button class="clear-cart banner-btn">Eliminar todo</button>
+          <button class="clear-cart eliminar-btn">Eliminar todo</button>
         </div>
       </div>
 
     </div>
-    <!-- End Cart -->
+
+    <script src="../../assets/js/carrito.js"></script>
+
+    <!-- Fin Carrito -->
