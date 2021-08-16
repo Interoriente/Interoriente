@@ -50,7 +50,7 @@
         <a href="../navegacion/productos.php">Catálogos</a>
         <a href="#">Ayuda</a>
         <a href="../../users/dashboard/principal/dashboard.php">Volver al panel</a>
-        <a href="../../controller/cerrar_sesion.php">Cerrar sesión</a>
+        <a href="../../controller/cerrarSesion.php">Cerrar sesión</a>
       <?php } else if ($_SESSION['roles'] == "2") { ?>
         <!-- ROl admininistrador Empresa-->
         <a href="index.php">Inicio</a>
@@ -58,7 +58,7 @@
         <a href="#">Catálogos</a>
         <a href="#">Ayuda</a>
         <a href="../../users/dashboard/principal/dashboard.php">Volver al panel</a>
-        <a href="../../controller/cerrar_sesion.php">Cerrar sesión</a>
+        <a href="../../controller/cerrarSesion.php">Cerrar sesión</a>
 
       <?php } else { ?>
         <!-- ROl comprador/Proveedor -->
@@ -69,7 +69,7 @@
         <a href="#">Mis compras</a>
         <a href="#">Ayuda</a>
         <a href="../../users/dashboard/principal/dashboard.php">Volver al panel</a>
-        <a href="../../controller/cerrar_sesion.php">Cerrar sesión</a>
+        <a href="../../controller/cerrarSesion.php">Cerrar sesión</a>
 
       <?php } ?>
 
