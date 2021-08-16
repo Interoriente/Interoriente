@@ -1,5 +1,11 @@
+   <?php
+    //Subir imágenes al servidor
+    if ($_FILES['archivo']['name']) {
+        $target_path = "imagenes/";
+        $target_path = $target_path . basename($_FILES['archivo']['name']);
+        move_uploaded_file($_FILES['archivo']['tmp_name'], $target_path);
+    }
 
-    <?php
 
 
     use PHPMailer\PHPMailer\PHPMailer;
@@ -21,12 +27,15 @@
             $telefono = $_POST['telefono'];
             $tipo = $_POST['tipo'];
             $mensaje = $_POST['mensaje'];
-            //$archivo = $_FILES['archivo'];
+            if ($_FILES['archivo']['name']) {
+                $archivo = $_FILES['archivo']['name']; //Nombre del archivo
+            }
+
 
             $mail = new PHPMailer(true);                              // Passing `true` enables exceptions
             try {
                 //Server settings
-                $mail->SMTPDebug = 2;                                 // Enable verbose debug output
+                $mail->SMTPDebug = 0;                                 // Enable verbose debug output
                 $mail->isSMTP();                                      // Set mailer to use SMTP
                 $mail->Host = 'smtp.gmail.com';                   // Specify main and backup SMTP servers
                 $mail->SMTPAuth = true;                               // Enable SMTP authentication
@@ -36,17 +45,15 @@
                 $mail->Port = 587;                                    // TCP port to connect to
 
                 //Recipients
-                $mail->setFrom($correo, 'Mailer');
-                $mail->addAddress('interoriente437@gmail.com', 'Mailer');     // Add a recipient
-                //$mail->addAddress('ellen@example.com');               // Name is optional
-                //$mail->addReplyTo('info@example.com', 'Information');
-                //$mail->addCC('cc@example.com');
-                //$mail->addBCC('bcc@example.com');
+                $mail->setFrom('interoriente437@gmail.com', $nombre);//Se debe dejar el mismo del Username
+                $mail->addAddress('interoriente437@gmail.com', 'Administrador');//Correo que recibe 
 
-                //Attachments
-                $mail->addAttachment('../assets/img/10.jpg');         // Add attachments
-                //$mail->addAttachment('/tmp/image.jpg', 'new.jpg');    // Optional name
-
+                //Envío de imágenes
+                if ($_FILES['archivo']['name']) {
+                    //Adjuntar archivos en el correo
+                    $mail->addAttachment("imagenes/$archivo");
+                }
+                
                 $mensaje2 = "<!DOCTYPE html>
                 <html lang='en'>
                 
@@ -78,6 +85,7 @@
                             Tipo de mensaje: $tipo <br>
                             Celular: $telefono <br>
                             Mensaje: $mensaje <br>
+                            Pantallazo:
                         </div>
                     </div>
                     
@@ -90,9 +98,10 @@
                 $mail->Body    = $mensaje2;
                 //$mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
 
-                $mail->send();
-                echo 'Mensaje enviado';
-                echo "<script> document.location.href='../users/dashboard/principal/dashboard.php';</script>";
+                if ($mail->send()) {
+                    echo "<script>alert('Correo enviado correctamente');</script>";
+                    echo "<script> document.location.href='../users/dashboard/principal/dashboard.php';</script>";
+                }
             } catch (Exception $e) {
                 echo 'Message could not be sent. Mailer Error: ', $mail->ErrorInfo;
             }

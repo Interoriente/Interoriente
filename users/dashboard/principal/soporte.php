@@ -59,7 +59,7 @@ if (isset($_SESSION["documentoIdentidad"])) {
                                         </div>
                                     </div>
                                     <div class="card-body">
-                                        <form action="../../../email/mail.php" method="POST" enctype="multipart/form-data">
+                                        <form action="../../../email/mailSoporte.php" method="POST" enctype="multipart/form-data">
                                             <h6 class="heading-small text-muted mb-4">Aquí podrás realizar las preguntas, quejas, reclamos o sugerencias del funcionamiento de la aplicación</h6>
                                             <div class="pl-lg-4">
                                                 <div class="row">
@@ -102,8 +102,8 @@ if (isset($_SESSION["documentoIdentidad"])) {
                                                     </div>
                                                     <div class="col-lg-6">
                                                         <div class="form-group">
-                                                            <label class="form-control-label" for="input-username">Pantallazo</label>
-                                                            <input type="file" name="imagen" id="input-username" class="form-control-file" multiple required>
+                                                            <label class="form-control-label" for="input-username">Pantallazo (Opcional)</label>
+                                                            <input type="file" name="archivo" id="input-username" class="form-control-file">
                                                         </div>
                                                     </div>
                                                 </div>
