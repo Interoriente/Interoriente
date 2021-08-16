@@ -19,25 +19,24 @@
     include '../includes/superior.php';
     ?>
     <!-- ----- -->
-
-
-
     <div class="padre">
-        <div class="header">
-            <div class="menu1">
-                <h1 class="tit-menu1">RECUPERA TU CONTRASEÑA</h1>
-                <div class="caja-formulario">
-                    <p class="etiqueta"><strong>¿Cual es tu correo?</strong></p>
-                    <input class="form-input" type="email" id="correo" required />
-                </div>
-                <div class="conte-botonIniRe">
-                    <a href="#"><button class="borecuperar"><strong>Recuperar mi Contraseña</strong></button></a>
-                    <p class="text-RecorCon"><strong>¿Recordaste tu Contraseña?</strong><br>
-                        <a class="boIniciaRecu" href="iniciarsesion.php"><strong> Inicia Sesión</strong></a>
-                    </p>
+        <form action="../../email/mailRecuContra.php" method="post">
+            <div class="header">
+                <div class="menu1">
+                    <h1 class="tit-menu1">RECUPERA TU CONTRASEÑA</h1>
+                    <div class="caja-formulario">
+                        <p class="etiqueta"><strong>¿Cual es tu correo?</strong></p>
+                        <input class="form-input" type="email" id="correo" name="correo" required />
+                    </div>
+                    <div class="conte-botonIniRe">
+                        <button class="borecuperar" type="submit"><strong>Recuperar mi Contraseña</strong></button>
+                        <p class="text-RecorCon"><strong>¿Recordaste tu Contraseña?</strong><br>
+                            <a class="boIniciaRecu" href="iniciarsesion.php"><strong> Inicia Sesión</strong></a>
+                        </p>
+                    </div>
                 </div>
             </div>
-        </div>
+        </form>
     </div>
     <!-- Sidebar -->
     <?php include '../includes/navInferior.php'; ?>

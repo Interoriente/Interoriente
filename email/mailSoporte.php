@@ -11,9 +11,9 @@
     use PHPMailer\PHPMailer\PHPMailer;
     use PHPMailer\PHPMailer\Exception;
 
-    require 'phpmailer/PHPMailer/src/Exception.php';
-    require 'phpmailer/PHPMailer/src/PHPMailer.php';
-    require 'phpmailer/PHPMailer/src/SMTP.php';
+    require 'phpmailer/Exception.php';
+    require 'phpmailer/PHPMailer.php';
+    require 'phpmailer/SMTP.php';
 
 
     enviarEmail();
@@ -103,7 +103,7 @@
                     echo "<script> document.location.href='../users/dashboard/principal/dashboard.php';</script>";
                 }
             } catch (Exception $e) {
-                echo 'Message could not be sent. Mailer Error: ', $mail->ErrorInfo;
+                echo 'Ha ocurrido un error! ', $mail->ErrorInfo;
             }
         } else {
             return;

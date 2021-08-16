@@ -3,9 +3,9 @@
     use PHPMailer\PHPMailer\PHPMailer;
     use PHPMailer\PHPMailer\Exception;
 
-    require 'phpmailer/PHPMailer/src/Exception.php';
-    require 'phpmailer/PHPMailer/src/PHPMailer.php';
-    require 'phpmailer/PHPMailer/src/SMTP.php';
+    require 'phpmailer/Exception.php';
+    require 'phpmailer/PHPMailer.php';
+    require 'phpmailer/SMTP.php';
 
 
     enviarEmail();
@@ -30,7 +30,7 @@
                 $mail->Port = 587;                                    // TCP port to connect to
 
                 //Recipients
-                $mail->setFrom('interoriente437@gmail.com', 'Cambio Contraseña');//Se debe dejar el mismo del Username
+                $mail->setFrom('interoriente437@gmail.com', '');//Se debe dejar el mismo del Username
                 $mail->addAddress($correo, ' ');//Correo que recibe 
 
                 $mensaje2 = "<!DOCTYPE html>
@@ -60,6 +60,7 @@
                     <div class='container'>
                         <div class='mensaje'>
                             Correo: $correo <br>
+                            Prueba 123
                         </div>
                     </div>
                     
@@ -73,10 +74,11 @@
 
                 if ($mail->send()) {
                     echo "<script>alert('Correo enviado correctamente');</script>";
-                    echo "<script> document.location.href='../users/dashboard/principal/dashboard.php';</script>";
+                    echo "<script>alert('Por favor revisa tu correo');</script>";
+                    echo "<script> document.location.href='../principal/navegacion/iniciarsesion.php';</script>";
                 }
             } catch (Exception $e) {
-                echo 'Message could not be sent. Mailer Error: ', $mail->ErrorInfo;
+                echo 'Ha ocurrido un error! ', $mail->ErrorInfo;
             }
         } else {
             return;
