@@ -23,8 +23,7 @@ function getPublicaciones()
   $resultado = $consulta->fetchAll();
   /* Devolviendo resultado */
 
-  //Para Jquery
-  return $resultado; //Para PHP
+  return $resultado; 
 }
 
 /* Función para agregar publicaciones al carrito */
@@ -46,5 +45,22 @@ function addCarrito($id)
   $consulta = $pdo->prepare($sql);
   $consulta->execute();
   $resultado = $consulta->fetchAll(\PDO::FETCH_ASSOC);
+  /* Función para reducir el arreglo a una sola dimensión */
+  function simplificarArreglo($array){
+    if (!is_array($array)) {
+      return false;
+    }
+    $resultado = array();
+    foreach ($array as $key => $value) {
+      if (is_array($value)) {
+        $resultado = array_merge($resultado, simplificarArreglo($value));
+      } else {
+        $resultado[$key] = $value;
+      }
+    }
+    return $resultado;
+  } 
+  $resultado = simplificarArreglo($resultado);
+  /* Resultado a devolver */
   echo json_encode($resultado);
 }

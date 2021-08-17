@@ -114,27 +114,8 @@
         </span>
         <h2 id="carritotu">Tu carrito</h2>
         <div class="cart-content">
-
-          <!--Item del carrito-->
-
-          <div class="cart-item">
-            <!-- Le puse width para que no se desborde la imagen de lo grande que es. -->
-            <img src="../../assets/img/stock/1.jpg" alt="product" width="100%">
-            <div>
-              <h4>Lorem.</h4>
-              <h5>$9.000</h5>
-              <span class="remove-item">Eliminar</span>
-            </div>
-            <div>
-              <i class="fas fa-chevron-up"></i>
-              <p class="item-amount">1</p>
-              <i class="fas fa-chevron-down"></i>
-            </div>
-          </div>
+          <!--Contenido del carrito controlado por JavaScript-->
           
-          <!-- FINAL item del carrito -->
-
-
         </div>
         <div class="cart-footer">
           <h3>Costo total: $ <span class="cart-total">0</span></h3>
