@@ -124,10 +124,12 @@ $publicacion = getPublicaciones();
                     <div class="img-tarjeta">
                         <img id="img-p" src="../../assets/img/publicaciones/2.jpg" alt="Imagen tarjeta publicación">
                         <img id="img-s" src="../../assets/img/publicaciones/4.jpg" alt="Imagen tarjeta publicación">
+                        <!-- <img id="img-p" src="../../users/dashboard/principal/imagenesPubli/<?php //echo $x['urlImagen']; ?>" alt="Imagen tarjeta publicación">
+                        <img id="img-s" src="../../users/dashboard/principal/imagenesPubli/<?php //echo $x['urlImagen']; ?>" alt="Imagen tarjeta publicación"> -->
                     </div>
                     <div class="contenido-tarjeta">
                         <h5> $<?php echo $x['costoPublicacion']; ?></h5>
-                        <h3><?php echo $x['nombrePublicacion'] ?></h3>
+                        <h3><?php echo $x['nombrePublicacion']; ?></h3>
                         <p><?php echo $x['descripcionPublicacion'] ?><span>más</span></p>
                     </div>
                 </a>

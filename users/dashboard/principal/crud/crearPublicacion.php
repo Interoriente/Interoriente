@@ -17,7 +17,7 @@ if (isset($_FILES['imagen'])) {
     $consulta_insertar = $pdo->prepare($sql_insertar);
     $consulta_insertar->execute(array($nombre, $usuario, $descripcion, $color, $costo, $estadoarticulo, $stock, $categoria, $verificacion));
     //Seleccionar último id en la BD
-    echo $datos = ($pdo->lastInsertId());
+    $datos = ($pdo->lastInsertId());
     $idPubli = "id" . $datos . " ";
     //Crear carpetas
     /* if (mkdir($idPubli, 0777, true)) {
