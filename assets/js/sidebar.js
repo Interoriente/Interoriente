@@ -17,7 +17,6 @@
 /* Set the width of the side navigation to 250px and the left margin of the page content to 250px */
 function openNav() {
    // If localStorage is supported by the browser
-   console.log("Click")
     if (typeof(Storage) !== "undefined") {
         // Save the state of the sidebar as "open"
         localStorage.setItem("sidebar", "opened");
