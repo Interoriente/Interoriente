@@ -1,6 +1,7 @@
 <?php
 /* TODO: Verificar existencia de la variable de sessión antes de iniciarla. */
 session_start();
+include_once "../includes/errores.php";
 /* Llamado SQL */
 require "../../php/crud/consultas.php";
 $publicacion = getPublicaciones();
@@ -17,6 +18,8 @@ $publicacion = getPublicaciones();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../assets/css/indexEstilos.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous" />
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+
 
     <title> Inicio | Interoriente</title>
 </head>
@@ -24,10 +27,9 @@ $publicacion = getPublicaciones();
 <body>
 
     <!-- Navegación -->
-    <?php
-    include '../includes/superior.php';
-    ?>
+    <?php require '../includes/superior.php'; ?>
     <!-- ----- -->
+
 
     <!-- Sección del carrusel -->
     <section class="hero">
@@ -84,7 +86,7 @@ $publicacion = getPublicaciones();
     <h1 class="titulo-filtrado ">Aquí podrás filtrar resultados </h1>
     <section class="btns-filtrado ">
         <a href="">
-            <div class="btn-productos btn-filtro">
+            <div id="productos" class="btn-productos btn-filtro">
                 Productos
             </div>
         </a>
@@ -100,6 +102,8 @@ $publicacion = getPublicaciones();
         </a>
 
     </section>
+  
+
 
     <!-- TODO: 1. Botones "Comprar Ahora" y "Agregar al carrito" cuando tarjeta:hover
             2. Hipervínculo tarjeta con publicación
@@ -119,7 +123,7 @@ $publicacion = getPublicaciones();
     <section class="publicaciones">
         <!-- Tarjeta Final -->
         <?php foreach ($publicacion as $x) : ?>
-            <div class="tarjeta" >
+            <div class="tarjeta">
                 <a href="publicacion.php?id=<?php echo $x['idPublicacion'] ?>">
                     <div class="img-tarjeta">
                         <img id="img-p" src="../../assets/img/publicaciones/2.jpg" alt="Imagen tarjeta publicación">
@@ -134,12 +138,12 @@ $publicacion = getPublicaciones();
 
                 <div class="cta-btns">
                     <img src="../../assets/img/iconos/compras.svg" alt="Bolsa de la compra">
-                    <img data-id="<?php echo $x['idPublicacion']?>" src="../../assets/img/iconos/carrito_2.svg" alt="Carro de la compra">
+                    <img class="carrito-tarjeta " onclick="addCarrito(this.id)" id="<?php echo $x['idPublicacion'] ?>" src="../../assets/img/iconos/carrito_2.svg" alt="Carro de la compra">
                 </div>
-            </div> 
+            </div>
         <?php endforeach; ?>
         <!-- -- Fin tarjeta final--  -->
-        
+
 
     </section>
     <!-- Fin sección Publicaciones -->
@@ -155,6 +159,7 @@ $publicacion = getPublicaciones();
 
     <!-- Js -->
 
+    <script src="../../assets/js/carrito.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
 </body>
 
