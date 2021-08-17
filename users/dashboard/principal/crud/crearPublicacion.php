@@ -12,7 +12,9 @@ if (isset($_FILES['imagen'])) {
     $usuario = $_POST['usuario'];
     $verificacion = '0';
     //sentencia Sql
-    $sql_insertar = "INSERT INTO tblPublicacion (nombrePublicacion,docIdentidadPublicacion,descripcionPublicacion,colorPublicacion,costoPublicacion,estadoArticuloPublicacion,stockPublicacion,categoriaPublicacion,validacionPublicacion)VALUES (?,?,?,?,?,?,?,?,?)";
+    $sql_insertar = "INSERT INTO tblPublicacion 
+    (nombrePublicacion,docIdentidadPublicacion,descripcionPublicacion,colorPublicacion,costoPublicacion,estadoArticuloPublicacion,stockPublicacion,categoriaPublicacion,validacionPublicacion)
+    VALUES (?,?,?,?,?,?,?,?,?)";
     //Preparar consulta
     $consulta_insertar = $pdo->prepare($sql_insertar);
     $consulta_insertar->execute(array($nombre, $usuario, $descripcion, $color, $costo, $estadoarticulo, $stock, $categoria, $verificacion));
@@ -36,7 +38,8 @@ if (isset($_FILES['imagen'])) {
                 //Subimos el fichero al servidor
                 if (move_uploaded_file($temporal, $ruta)) {
                     //Insertando imagen en la tabla
-                    $sqlInsertarImagen = "INSERT INTO tblImagenes (urlImagen,publicacionImagen)VALUES (?,?)";
+                    $sqlInsertarImagen = "INSERT INTO tblImagenes (urlImagen,publicacionImagen)
+                    VALUES (?,?)";
                     $consultaInsertar = $pdo->prepare($sqlInsertarImagen);
                     $consultaInsertar->execute(array($ruta, $datos));
                     echo "<script>alert('El registro se subió correctamente');</script>";
