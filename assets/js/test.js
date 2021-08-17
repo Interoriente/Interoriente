@@ -6,7 +6,7 @@ const cartDOM  = document.querySelector(".cart");
 const cartOverlay  = document.querySelector(".cart-overlay");
 const cartItems  = document.querySelector(".items-carrito");
 const cartTotal  = document.querySelector(".cart-total");
-const cartContent  = document.querySelector(".cart-content");
+const contenidoCarrito  = document.querySelector(".cart-content");
 const productsDom  = document.querySelector(".publicaciones");
 
 /* Carrito */
@@ -17,7 +17,7 @@ let carrito = [];
 class Productos{
     async getProducts(){
         try{
-            let result = await fetch("../../assets/json/products.json"); /* Ajax request */
+            let result = await fetch("../../assets/json/productos.json"); /* Ajax request */
             let data = await result.json();
             let products = data.items;
             products = products.map(item =>{
