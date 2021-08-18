@@ -11,9 +11,9 @@ function getPublicaciones()
   /* Consulta */
 
   $sql = "SELECT * 
-        FROM tblPublicacion /* as PU
+        FROM tblPublicacion as PU
         INNER JOIN tblImagenes 
-        as IMG ON PU.idPublicacion = IMG.publicacionImagen */";
+        as IMG ON PU.idPublicacion = IMG.publicacionImagen";
 
   /* Envío de la consulta a través del objeto PDO */
   $consulta = $pdo->prepare($sql);   /* PDO statement-> Ejecutarlo */

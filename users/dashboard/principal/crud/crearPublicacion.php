@@ -31,17 +31,22 @@ if (isset($_FILES['imagen'])) {
         for ($i = 0; $i < $cantidad; $i++) {
             //Comprobamos si el fichero es una imagen
             if ($_FILES['imagen']['type'][$i] == 'image/png' || $_FILES['imagen']['type'][$i] == 'image/jpeg' || $_FILES['imagen']['type'][$i] == 'image/jpg') {
-                $directorio = "../imagenesPubli/$idPubli";
+                //Le defino una ruta a la imagen
+                $directorio = "../../../../imagenesPubli/$idPubli";
+                //Nombre de la imagen
                 $filename = $_FILES['imagen']['name'][$i];
+                //Nombre temporal de la imagen -> Por defecto se necesita este paso.
                 $temporal = $_FILES['imagen']['tmp_name'][$i];
-                $ruta = $directorio . $filename;
-                //Subimos el fichero al servidor
+                $ruta = $directorio . "" . $filename;
+                //Especifico el nombre que se va a guardar en la BD
+                $archivo = $idPubli . "" . $filename;
+                //Subimos la imagen al servidor
                 if (move_uploaded_file($temporal, $ruta)) {
                     //Insertando imagen en la tabla
                     $sqlInsertarImagen = "INSERT INTO tblImagenes (urlImagen,publicacionImagen)
                     VALUES (?,?)";
                     $consultaInsertar = $pdo->prepare($sqlInsertarImagen);
-                    $consultaInsertar->execute(array($ruta, $datos));
+                    $consultaInsertar->execute(array($archivo, $datos));
                     echo "<script>alert('El registro se subió correctamente');</script>";
                     /* Redirigir después de almacenar la información */
                     echo "<script> document.location.href='../crearPubli.php';</script>";

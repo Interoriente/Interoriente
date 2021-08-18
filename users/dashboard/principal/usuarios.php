@@ -37,7 +37,7 @@ if (isset($_SESSION["documentoIdentidad"])) {
           <link rel="stylesheet" href="../assets/vendor/@fortawesome/fontawesome-free/css/all.min.css" type="text/css">
           <!-- Argon CSS -->
           <link rel="stylesheet" href="../assets/css/argon.css?v=1.2.0" type="text/css">
-          <link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap4.min.css">
+          <!-- <link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap4.min.css"> -->
         </head>
 
         <body>
