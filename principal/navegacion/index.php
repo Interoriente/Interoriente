@@ -128,6 +128,8 @@ $publicacion = getPublicaciones();
                     <div class="img-tarjeta">
                         <img id="img-p" src="../../assets/img/publicaciones/1.jpg" alt="Imagen tarjeta publicación">
                         <img id="img-s" src="../../assets/img/publicaciones/2.jpg" alt="Imagen tarjeta publicación">
+                        <!-- <img id="img-p" src="../../imagenesPubli/<?php //echo $x['urlImagen']; ?>" alt="Imagen tarjeta publicación">
+                        <img id="img-s" src="../../imagenesPubli/<?php //echo $x['urlImagen']; ?>" alt="Imagen tarjeta publicación"> -->
                     </div>
                     <div class="contenido-tarjeta">
                         <!-- number_format para agregar los puntos de mil -->

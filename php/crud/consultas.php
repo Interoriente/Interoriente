@@ -12,7 +12,7 @@ function getPublicaciones()
 
   $sql = "SELECT IMG.urlImagen,PU.idPublicacion,PU.costoPublicacion,PU.nombrePublicacion,PU.descripcionPublicacion 
   FROM tblPublicacion as PU 
-  INNER JOIN tblImagenes as IMG ON PU.idPublicacion = IMG.publicacionImagen GROUP BY PU.costoPublicacion,PU.nombrePublicacion,PU.descripcionPublicacion";
+  INNER JOIN tblImagenes as IMG ON PU.idPublicacion = IMG.publicacionImagen WHERE validacionPublicacion=1 GROUP BY PU.costoPublicacion,PU.nombrePublicacion,PU.descripcionPublicacion";
 
   /* Envío de la consulta a través del objeto PDO */
   $consulta = $pdo->prepare($sql);   /* PDO statement-> Ejecutarlo */
