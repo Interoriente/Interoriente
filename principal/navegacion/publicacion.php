@@ -1,3 +1,7 @@
+<?php
+/* TODO: Verificar existencia de la variable de sessión antes de iniciarla. */
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 

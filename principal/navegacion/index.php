@@ -1,6 +1,5 @@
 <?php
 /* TODO: Verificar existencia de la variable de sessión antes de iniciarla. */
-session_start();
 include_once "../includes/errores.php";
 /* Llamado SQL */
 require "../../php/crud/consultas.php";
