@@ -126,13 +126,16 @@ $publicacion = getPublicaciones();
             <div class="tarjeta">
                 <a href="publicacion.php?id=<?php echo $x['idPublicacion'] ?>">
                     <div class="img-tarjeta">
-                        <img id="img-p" src="../../assets/img/publicaciones/2.jpg" alt="Imagen tarjeta publicación">
-                        <img id="img-s" src="../../assets/img/publicaciones/4.jpg" alt="Imagen tarjeta publicación">
+                        <img id="img-p" src="../../assets/img/publicaciones/1.jpg" alt="Imagen tarjeta publicación">
+                        <img id="img-s" src="../../assets/img/publicaciones/2.jpg" alt="Imagen tarjeta publicación">
                     </div>
                     <div class="contenido-tarjeta">
-                        <h5> $<?php echo $x['costoPublicacion']; ?></h5>
+                        <!-- number_format para agregar los puntos de mil -->
+                        <h5> $<?php echo number_format($x['costoPublicacion'], 0, '', '.'); ?></h5>
+
                         <h3><?php echo $x['nombrePublicacion'] ?></h3>
-                        <p><?php echo $x['descripcionPublicacion'] ?><span>más</span></p>
+                        <!-- substr para limitar el tamaño del estring en este caso a 140 caracteres -->
+                        <p><?php echo substr($x['descripcionPublicacion'],0, 140) . "...   ";?><span class="mas-info">Más Información</span></p>
                     </div>
                 </a>
 
@@ -159,7 +162,6 @@ $publicacion = getPublicaciones();
 
     <!-- Js -->
 
-    <script src="../../assets/js/carrito.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
 </body>
 

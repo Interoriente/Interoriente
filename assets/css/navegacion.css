@@ -113,8 +113,8 @@ a {
   right: 0;
   width: 100%;
   height: 100%;
-  transition: var(--mainTransition);
-  background: rgba(1, 28, 32, 0.5);
+  transition: all .2s ease-in-out;
+  background: rgba(0, 0, 0, 0.2);
   z-index: 2;
   visibility: hidden;
 }
@@ -128,7 +128,7 @@ a {
   z-index: 3;
   background: rgb(231, 226, 221);
   padding: 1.5rem;
-  transition: var(--mainTransition);
+  transition: all .2s ease-in-out;
   transform: translateX(100%);
 }
 .showCart {
@@ -145,7 +145,7 @@ a {
 }
 
 .close-cart {
-  font-size: 1.7rem;
+  font-size: 2rem;
   cursor: pointer;
 }
 .cart h2 {
@@ -195,18 +195,20 @@ a {
 }
 .cart-footer h3 {
   text-transform: capitalize;
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
 }
 
 .eliminar-btn {
-  padding: 1rem 3rem;
+  padding: .5rem ;
   text-transform: uppercase;
   letter-spacing: var(--mainSpacing);
-  font-size: 1rem;
   background: var(--clr-cta-a);
   border: 1px solid var(--crl-cta-b);
   transition: var(--mainTransition);
   cursor: pointer;
+}
+.eliminar-btn:hover{
+    box-shadow: 0px 0px 10px -1px rgba(0, 0, 0, 0.1);
 }
 /* --------------- Fin Carrito ---------------- */
 /* Media query para mostrar logo */
