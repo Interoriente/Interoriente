@@ -195,3 +195,6 @@ font-size: small;
   padding: 2em 0 1em 0;
   margin: .2em;
 }
+.cta-btns img:hover{
+   margin-top: -3px;
+}

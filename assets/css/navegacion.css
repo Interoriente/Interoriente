@@ -10,6 +10,8 @@
   --clr-neutro-c: #e5e5e5;
   --clr-cta-a: #ffb930;
   --crl-cta-b: #fce61e;
+  --titulos: 'Poppins', sans-serif;
+  --textos: 'Open Sans', sans-serif;
   --mainSpacing: 0.1rem;
   --mainTransition: all 0.3s linear;
 }
@@ -82,7 +84,7 @@ a {
   align-items: center;
   align-content: space-around;
 }
-.carrito:hover {
+.carrito-busqueda:hover {
   cursor: pointer;
 }
 .carrito {
@@ -182,11 +184,18 @@ a {
   color: grey;
   cursor: pointer;
 }
-.fa-chevron-up,
+.titulos{
+  font-family: var(--titulos);
+}
+/* Título de la publicación en el carrito */
+.item-h{
+  font-weight: bold;
+}
+/* .fa-chevron-up,
 .fa-chevron-down {
   color: var(--clr-cta-a);
   cursor: pointer;
-}
+} */
 /*---------- Fin item del carrito ------------------- */
 .cart-footer {
   margin-top: 2rem;
@@ -210,6 +219,14 @@ a {
 .eliminar-btn:hover{
     box-shadow: 0px 0px 10px -1px rgba(0, 0, 0, 0.1);
 }
+/* Imput cantidad */
+
+#cantidad-carrito{
+  width: 3em;
+}
+
+
+
 /* --------------- Fin Carrito ---------------- */
 /* Media query para mostrar logo */
 

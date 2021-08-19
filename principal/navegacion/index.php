@@ -85,6 +85,7 @@ $publicacion = getPublicaciones();
     <h1 class="titulo-filtrado ">Aquí podrás filtrar resultados </h1>
     <section class="btns-filtrado ">
         <a href="">
+
             <div id="productos" class="btn-productos btn-filtro">
                 Productos
             </div>
@@ -100,8 +101,11 @@ $publicacion = getPublicaciones();
             </div>
         </a>
 
+
+
+
     </section>
-  
+
 
 
     <!-- TODO: 1. Botones "Comprar Ahora" y "Agregar al carrito" cuando tarjeta:hover
@@ -127,8 +131,10 @@ $publicacion = getPublicaciones();
                     <div class="img-tarjeta">
                         <img id="img-p" src="../../assets/img/publicaciones/1.jpg" alt="Imagen tarjeta publicación">
                         <img id="img-s" src="../../assets/img/publicaciones/2.jpg" alt="Imagen tarjeta publicación">
-                        <!-- <img id="img-p" src="../../imagenesPubli/<?php //echo $x['urlImagen']; ?>" alt="Imagen tarjeta publicación">
-                        <img id="img-s" src="../../imagenesPubli/<?php //echo $x['urlImagen']; ?>" alt="Imagen tarjeta publicación"> -->
+                        <!-- <img id="img-p" src="../../imagenesPubli/<?php //echo $x['urlImagen']; 
+                                                                        ?>" alt="Imagen tarjeta publicación">
+                        <img id="img-s" src="../../imagenesPubli/<?php //echo $x['urlImagen']; 
+                                                                    ?>" alt="Imagen tarjeta publicación"> -->
                     </div>
                     <div class="contenido-tarjeta">
                         <!-- number_format para agregar los puntos de mil -->
@@ -136,12 +142,12 @@ $publicacion = getPublicaciones();
 
                         <h3><?php echo $x['nombrePublicacion'] ?></h3>
                         <!-- substr para limitar el tamaño del estring en este caso a 140 caracteres -->
-                        <p><?php echo substr($x['descripcionPublicacion'],0, 140) . "...   ";?><span class="mas-info">Más Información</span></p>
+                        <p><?php echo substr($x['descripcionPublicacion'], 0, 140) . "...   "; ?><span class="mas-info">Más Información</span></p>
                     </div>
                 </a>
 
                 <div class="cta-btns">
-                    <img src="../../assets/img/iconos/compras.svg" alt="Bolsa de la compra">
+                    <a href="./pago.php?id=<?php echo $x['idPublicacion']?>"><img src="../../assets/img/iconos/compras.svg" alt="Bolsa de la compra"></a>
                     <img class="carrito-tarjeta " onclick="addCarrito(this.id)" id="<?php echo $x['idPublicacion'] ?>" src="../../assets/img/iconos/carrito_2.svg" alt="Carro de la compra">
                 </div>
             </div>

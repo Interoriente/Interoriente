@@ -8,7 +8,21 @@ const cartItems  = document.querySelector(".items-carrito");
 const carritoTotal  = document.querySelector(".cart-total");
 const contenidoCarrito  = document.querySelector(".cart-content");
 const carritoTarjeta  = document.querySelector(".carrito-tarjeta");
-const carritoBtn = document.getElementById("btn-carrito");
+const carritoBtn = document.querySelector(".carrito-busqueda");
+const cantidadCarrito = document.getElementById("cantidad-carrito");
+
+    /* TODO: 
+
+    FUNCIONAL:
+                1. Eliminar publicaciones del carrito (ls)
+                2. Actualizar valor del contador cuando se elimine la publicación
+                3. Crear funcionalidad al input de cantidad (contador + actualizar Ls)
+                4. Crear función para eliminar todos los elementos
+                5. Redirigir a la publicación cuando se haga click
+                6. Almacenar información cuando haya un evento en el btn "Finalizar Compra"
+                7. Limpiar carrito cuando la compra haya finalizado
+
+    */
 /* Local storage */
 class Storage{
  
@@ -22,30 +36,31 @@ class Storage{
     }
 }
 
-/* TODO: Solucionar problema de sobreescritura cuando se renderizan 
-    los elemenentos en el carrito.
-*/
 /* Carrito */
-/* localStorage.clear(); */
+
 let carrito = [];
-let item;
+
 
 
 /* Verificando existencia de llave en localStorage  */
 let publicacionLocalStorage = Storage.getPublicacion();
 if (publicacionLocalStorage) {
     carrito = publicacionLocalStorage;
-    console.log(carrito)
-    renderPublicacion(carrito);
+    mathCarrito(carrito);
+    renderPubli(carrito);
 }else{
     console.log("No hay publicaciones en LocalStorage");
-    
 }
+//Event listeners
 
-/* Abriendo carrito desde el botón */
+    /* Abriendo y cerrando carrito desde el botón */
 carritoBtn.addEventListener("click", abrirCarrito);
 closeCartBtn.addEventListener("click", cerrarCarrito)
-/* Función principal del carrito */
+
+    /* Eliminando publicación del carrito */
+
+
+/* Función principal del carrito AJAX-JQUERY*/
 function addCarrito(id){
     /* Obteniendo id de la publicación para hacer consulta a la bd */
     $.ajax({
@@ -61,56 +76,48 @@ function addCarrito(id){
             carrito.push(respuesta); //Almacenando datos en el carrito
             Storage.setPublicacion(carrito); // Subiendo info a Localstorage
            /* console.log("Id de la publicación " + carrito[0].Id); */
+           renderPubli(Storage.getPublicacion());
            mathCarrito(carrito);
-           renderPublicacion(Storage.getPublicacion());
-         
            abrirCarrito()
+         
         }
     }); 
-    /* Función para obtener valores del carrito */
-     function mathCarrito(carrito){
-        let totalTmp = 0, totalItems = 0, costo = 0;
-        carrito.map(item => {
-            costo = parseFloat(item.Costo);
-            totalTmp += costo * item.cantidad;
-            totalItems += item.cantidad;   
-        });
-        carritoTotal.textContent = parseFloat(totalTmp.toFixed(2));
-        cartItems.textContent = totalItems;  
-     }
+}
+/* Función para obtener valores del carrito */
+ function mathCarrito(item){
+    let totalTmp = 0, totalItems = 0, costo = 0;
+    carrito.map(item => {
+        costo = parseFloat(item.Costo);
+        totalTmp += costo * item.cantidad;
+        totalItems += item.cantidad;   
+    });
+    carritoTotal.textContent = parseFloat(totalTmp.toFixed(2));
+    cartItems.textContent = totalItems;  
 }
 
-
-
-function renderPublicacion(item) {
-    const div = document.createElement('div'); //método del objeto "document" para crear elementos HTML
-    div.classList.add("cart-item");
-    let count = 0;
-   /*  console.log("Tamaño del arreglo:" + item.length); */ //Revisión
-    
-   /* Renderizando elementos en el carrito */
-        item.map(item => {
-            div.innerHTML = `
-            <img src="../../assets/img/stock/1.jpg" alt="product" width="100%">
-            <div>
-            <h4>${item.Título}</h4>
-            <h5>$${item.Costo}</h5>
-            <span class="remove-item" data-id = "${item.Id}">Eliminar</span>
+/* Mostrar elementos en el carrito */
+function renderPubli(item){
+    let clase = "";
+    item.map(item => {
+            clase += 
+            `
+            <div class = "cart-item">
+                <img src="../../assets/img/stock/1.jpg" alt="product" width="100%">
+                <div>
+                    <h4 class="titulos item-h" >${item.Título}</h4>
+                    <h5>$${item.Costo}</h5>
+                    <span class="remove-item" id = "${item.Id}">Eliminar</span>
+                </div>
+                <div>
+                <input type="number" id="cantidad-carrito" min = "1" value = "${item.cantidad}">
+                </div>
             </div>
-            <div>
-            <i class="fas fa-chevron-up" data-id = "${item.Id}"></i>
-            <p class="item-amount">${item.cantidad}</p>
-            <i class="fas fa-chevron-down"data-id = "${item.Id}"></i>
-            </div>
-    `
-    count++;
+            `
         })
-       
-            console.log(count);
-      
-     contenidoCarrito.appendChild(div)
-     /* console.log(contenidoCarrito); */ //Mostrando por consola el elemento con sus valores
+        contenidoCarrito.innerHTML = clase;
 }
+
+/* Funciones para abrir y cerrar el carrito */
 function abrirCarrito(){
     /* Agregando clases al overlay y al carrito para abrirlo */
     cartOverlay.classList.add('transparentBcg');
@@ -123,7 +130,7 @@ function cerrarCarrito(){
     cartDOM.classList.remove('showCart');
    
 }
-/* Mostrar elementos en el carrito */
+/* Obteniendo elemento después de ser creado */
 
 
  

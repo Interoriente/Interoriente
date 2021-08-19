@@ -1,4 +1,4 @@
-<?php 
+<?php
 session_start();
 ?>
 <!DOCTYPE html>
@@ -32,10 +32,11 @@ session_start();
           <div class="vender">Vender</div>
         </a>
       </div>
+      <div class="barra-busqueda">
+        <input type="text" placeholder="Buscar...">
+      </div>
       <div class="carrito-busqueda">
-        <div class="barra-busqueda">
-          <input type="text" placeholder="Buscar...">
-        </div>
+
 
         <a href="javascript:void(0)">
           <div class="carrito" id="btn-carrito"><img src="../../assets/img/iconos/carrito.svg" alt="Carrito de la compra"></div>
@@ -116,9 +117,11 @@ session_start();
         <span class="close-cart">
           <i class="fas fa-window-close"></i>
         </span>
-        <h2 id="carritotu">Tu carrito</h2>
+        <h2 class="titulos">Tu carrito</h2>
         <div class="cart-content">
           <!--Contenido del carrito controlado por JavaScript-->
+
+
 
         </div>
         <div class="cart-footer">
@@ -130,6 +133,6 @@ session_start();
       </div>
 
     </div>
-  
+
 
     <!-- Fin Carrito -->
