@@ -34,8 +34,8 @@
           <input type="text" placeholder="Buscar...">
         </div>
 
-        <a href="#">
-          <div class="carrito"><img src="../../assets/img/iconos/carrito.svg" alt="Carrito de la compra"></div>
+        <a href="javascript:void(0)">
+          <div class="carrito" id="btn-carrito"><img src="../../assets/img/iconos/carrito.svg" alt="Carrito de la compra"></div>
           <div class="items-carrito">0</div>
         </a>
       </div>
@@ -105,6 +105,7 @@
 
       <!--  Contenido Principal del la página -->
 
+
     </div>
     <!-- Carrito -->
     <div class="cart-overlay">
@@ -115,15 +116,17 @@
         <h2 id="carritotu">Tu carrito</h2>
         <div class="cart-content">
           <!--Contenido del carrito controlado por JavaScript-->
-          
+
         </div>
         <div class="cart-footer">
-          <h3>Costo total: $ <span class="cart-total">0</span></h3>
-          <button class="clear-cart eliminar-btn">Eliminar todo</button>
+          <h4>Subtotal: $ <span class="cart-total">0</span></h4>
+          <!-- Botones temporales  -->
+          <button class="clear-cart eliminar-btn">Finalizar comprar</button>
+          <button class="clear-cart eliminar-btn">Eliminar Todo</button>
         </div>
       </div>
 
     </div>
-
+  
 
     <!-- Fin Carrito -->
