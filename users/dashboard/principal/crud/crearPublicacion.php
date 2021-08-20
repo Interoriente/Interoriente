@@ -3,6 +3,7 @@ if (isset($_FILES['imagen'])) {
     /* Almacenando información del formulario crear publicacion */
     include_once '../../../../dao/conexion.php';
     $nombre = $_POST['nombre'];
+    echo $nombre;
     $descripcion = $_POST['descripcion'];
     $color = $_POST['color'];
     $costo = $_POST['costo'];
