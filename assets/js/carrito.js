@@ -14,9 +14,9 @@ const cantidadCarrito = document.getElementById("cantidad-carrito");
     /* TODO: 
 
     FUNCIONAL:
-                1. Eliminar publicaciones del carrito (ls)
-                2. Actualizar valor del contador cuando se elimine la publicación
-                3. Crear funcionalidad al input de cantidad (contador + actualizar Ls)
+                1. Eliminar publicaciones del carrito (ls) * DONE
+                2. Actualizar valor del contador cuando se elimine la publicación DONE
+                3. Crear funcionalidad al input de cantidad (contador + actualizar Ls) 
                 4. Crear función para eliminar todos los elementos
                 5. Redirigir a la publicación cuando se haga click
                 6. Almacenar información cuando haya un evento en el btn "Finalizar Compra"
@@ -37,11 +37,7 @@ class Storage{
 }
 
 /* Carrito */
-
 let carrito = [];
-
-
-
 /* Verificando existencia de llave en localStorage  */
 let publicacionLocalStorage = Storage.getPublicacion();
 if (publicacionLocalStorage) {
@@ -51,14 +47,25 @@ if (publicacionLocalStorage) {
 }else{
     console.log("No hay publicaciones en LocalStorage");
 }
+
 //Event listeners
 
     /* Abriendo y cerrando carrito desde el botón */
 carritoBtn.addEventListener("click", abrirCarrito);
 closeCartBtn.addEventListener("click", cerrarCarrito)
-
-    /* Eliminando publicación del carrito */
-
+/* Funciones para abrir y cerrar el carrito */
+function abrirCarrito(){
+    /* Agregando clases al overlay y al carrito para abrirlo */
+    cartOverlay.classList.add('transparentBcg');
+    cartDOM.classList.add('showCart');
+   
+}
+function cerrarCarrito(){
+    /* Agregando clases al overlay y al carrito para abrirlo */
+    cartOverlay.classList.remove('transparentBcg');
+    cartDOM.classList.remove('showCart');
+   
+}
 
 /* Función principal del carrito AJAX-JQUERY*/
 function addCarrito(id){
@@ -83,19 +90,8 @@ function addCarrito(id){
         }
     }); 
 }
-/* Función para obtener valores del carrito */
- function mathCarrito(item){
-    let totalTmp = 0, totalItems = 0, costo = 0;
-    carrito.map(item => {
-        costo = parseFloat(item.Costo);
-        totalTmp += costo * item.cantidad;
-        totalItems += item.cantidad;   
-    });
-    carritoTotal.textContent = parseFloat(totalTmp.toFixed(2));
-    cartItems.textContent = totalItems;  
-}
 
-/* Mostrar elementos en el carrito */
+/* Crear clase para mostrar elementos en el carrito */
 function renderPubli(item){
     let clase = "";
     item.map(item => {
@@ -106,10 +102,10 @@ function renderPubli(item){
                 <div>
                     <h4 class="titulos item-h" >${item.Título}</h4>
                     <h5>$${item.Costo}</h5>
-                    <span class="remove-item" id = "${item.Id}">Eliminar</span>
+                    <span class="remove-item" onclick = "removeItem(this.id)" id = "${item.Id}">Eliminar</span>
                 </div>
                 <div>
-                <input type="number" id="cantidad-carrito" min = "1" value = "${item.cantidad}">
+                <input type="number" class="cantidad-items" id="test" min = "1" value = "${item.cantidad}">
                 </div>
             </div>
             `
@@ -117,20 +113,36 @@ function renderPubli(item){
         contenidoCarrito.innerHTML = clase;
 }
 
-/* Funciones para abrir y cerrar el carrito */
-function abrirCarrito(){
-    /* Agregando clases al overlay y al carrito para abrirlo */
-    cartOverlay.classList.add('transparentBcg');
-    cartDOM.classList.add('showCart');
-   
+/* Función para eliminar items */
+function removeItem(id) {
+    let publicaciones = Storage.getPublicacion();
+    publicaciones.forEach(element => {
+        if (element.Id === id) {
+            publicaciones.splice(element, 1)
+        }
+  
+    });
+    Storage.setPublicacion(publicaciones);
+    carrito = Storage.getPublicacion();
+    renderPubli(carrito);
+    mathCarrito(carrito);
 }
-function cerrarCarrito(){
-    /* Agregando clases al overlay y al carrito para abrirlo */
-    cartOverlay.classList.remove('transparentBcg');
-    cartDOM.classList.remove('showCart');
-   
+/* Función para obtener valores del carrito */
+ function mathCarrito(item){
+    let totalTmp = 0, totalItems = 0, costo = 0;
+    carrito.map(item => {
+        costo = parseFloat(item.Costo);
+        totalTmp += costo * item.cantidad;
+        totalItems += item.cantidad;   
+    });
+    carritoTotal.textContent = parseFloat(totalTmp.toFixed(2));
+    cartItems.textContent = totalItems;  
+    
 }
 /* Obteniendo elemento después de ser creado */
+HTMLInputElementObject.addEventListener('input', function (evt) {
+   console.log( something(this.value));
+});
 
 
  
