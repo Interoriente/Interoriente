@@ -269,7 +269,10 @@ a {
   background-color: var(--crl-cta-b);
   overflow-x: hidden; /* se desabilita scroll en x */
   padding-top: 60px; /* Place content 60px from the top */
-  transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+  ; /* 0.5 second transition effect to slide in the sidenav */
+}
+.tr-side{
+  transition: 0.3s
 }
 /* Imagen e Info cta */
 #cta-login-img {
@@ -303,7 +306,7 @@ a {
 }
 
 .sidenav a:hover {
-  box-shadow: 10px 10px 10px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.1);
 }
 /* Posición y estilos botón de cerrar (x) */
 
@@ -334,7 +337,7 @@ a {
   margin-top: 2.5em;
   position: fixed; /* Position them relative to the browser window */
   left: -70px; /* Position them outside of the screen */
-  transition: 0.1s; /* Add transition on hover */
+  transition: 0.03s; /* Add transition on hover */
   padding: 15px; /* 15px padding */
   width: 100px; /* Set a specific width */
   text-decoration: none; /* Remove underline */
@@ -347,6 +350,10 @@ a {
 #boton a:hover {
   left: 0; /* On mouse-over, make the elements appear as they should */
   font-weight: bolder;
+}
+
+.rem-btn{
+  display: none;
 }
 
 /* Botón menú lateral */
