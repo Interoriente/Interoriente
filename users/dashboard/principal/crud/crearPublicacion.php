@@ -17,10 +17,9 @@ if (isset($_FILES['imagen'])) {
     VALUES (?,?,?,?,?,?,?,?,?)";
     //Preparar consulta
     $consulta_insertar = $pdo->prepare($sql_insertar);
-    if ($consulta_insertar->execute(array($nombre, $usuario, $descripcion, $color, $costo, $estadoarticulo, $stock, $categoria, $verificacion))) {
-        echo "<script>alert('Registro almacenado');</script>";
-    }
-    
+    //Almaceno información
+    $consulta_insertar->execute(array($nombre, $usuario, $descripcion, $color, $costo, $estadoarticulo, $stock, $categoria, $verificacion));
+
     //Seleccionar último id en la BD
     $datos = ($pdo->lastInsertId());
     $idPubli = "id" . $datos . " ";
@@ -30,7 +29,6 @@ if (isset($_FILES['imagen'])) {
     $cantidad = count($_FILES['imagen']['tmp_name']);
     //Ejecutar la sentencia
     for ($i = 0; $i < $cantidad; $i++) {
-        echo $_FILES['imagen']['name'];
         //Comprobamos si el fichero es una imagen
         if ($_FILES['imagen']['type'][$i] == 'image/png' || $_FILES['imagen']['type'][$i] == 'image/jpeg' || $_FILES['imagen']['type'][$i] == 'image/jpg') {
             //Le defino una ruta a la imagen
@@ -39,7 +37,7 @@ if (isset($_FILES['imagen'])) {
             $filename = $_FILES['imagen']['name'][$i];
             //Nombre temporal de la imagen -> Por defecto se necesita este paso.
             $temporal = $_FILES['imagen']['tmp_name'][$i];
-            $ruta = $directorio . "" . $filename;
+            $ruta = $directorio . "" .basename($filename);
             //Especifico el nombre que se va a guardar en la BD
             $archivo = $idPubli . "" . $filename;
             //Subimos la imagen al servidor
@@ -48,16 +46,17 @@ if (isset($_FILES['imagen'])) {
                 $sqlInsertarImagen = "INSERT INTO tblImagenes (urlImagen,publicacionImagen)
                     VALUES (?,?)";
                 $consultaInsertar = $pdo->prepare($sqlInsertarImagen);
-            }
-            if ($consultaInsertar->execute(array($archivo, $datos))) {
-                echo "<script>alert('El registro se subió correctamente');</>";
-                /* Redirigir después de almacenar la información */
-                echo "<script> document.location.href='../crearPubli.php';</script>";
+                $consultaInsertar->execute(array($archivo, $datos));
             }
         } else {
-            echo "<script>alert('Error: el archivo no es una imagen');</scrip>";
+            echo "<script>alert('Error: el archivo no es una imagen');</script>";
             echo "<script> document.location.href='../crearPubli.php';</script>";
         }
+    }
+    if ($consultaInsertar->execute(array($archivo, $datos))) {
+        echo "<script>alert('El registro se subió correctamente');</script>";
+        /* Redirigir después de almacenar la información */
+        echo "<script> document.location.href='../crearPubli.php';</script>";
     }
 } else {
     echo "<script>alert('Error!, no se ha iniciado sesión');</script>";

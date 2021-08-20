@@ -8,7 +8,7 @@ if (isset($_SESSION['documentoIdentidad'])) {
     //$ciudad = $_GET['ciudad'];
     $correo = $_POST['correo'];
 
-    $img = $_FILES['file']['name'];
+    @$img = $_FILES['file']['name'];
     if (isset($_FILES['file']) && ($img == !NULL)) {
         //Captura de imagen
         $directorio = "imagenes/";
