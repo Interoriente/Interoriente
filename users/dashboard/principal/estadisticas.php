@@ -27,9 +27,9 @@ if (isset($_SESSION["documentoIdentidad"])) {
     $consultaMostrarConteo->execute();
     $resultadoMostrarConteo = $consultaMostrarConteo->rowCount();
     //Llamado tabla publicaciones
-    $sqlMostrarConteoPubli = "SELECT*FROM tblPublicacion";
+    $sqlMostrarConteoPubli = "SELECT*FROM tblPublicacion WHERE docIdentidadPublicacion";
     $consultaMostrarConteoPubli = $pdo->prepare($sqlMostrarConteoPubli);
-    $consultaMostrarConteoPubli->execute();
+    $consultaMostrarConteoPubli->execute(array($documento));
     $resultadoMostrarConteoPubli = $consultaMostrarConteoPubli->rowCount();
     //Validacion de roles
     if ($resultado_validacion) {
@@ -74,8 +74,8 @@ if (isset($_SESSION["documentoIdentidad"])) {
                                         <div class="card-body">
                                             <div class="row">
                                                 <div class="col">
-                                                    <h5 class="card-title text-uppercase text-muted mb-0">Tráfico total</h5>
-                                                    <span class="h2 font-weight-bold mb-0">350,897</span>
+                                                    <h5 class="card-title text-uppercase text-muted mb-0">Publicación</h5>
+                                                    <span class="h2 font-weight-bold mb-0"><?php echo $resultadoMostrarConteoPubli; ?></span>
                                                 </div>
                                                 <div class="col-auto">
                                                     <div class="icon icon-shape bg-gradient-red text-white rounded-circle shadow">
@@ -83,10 +83,6 @@ if (isset($_SESSION["documentoIdentidad"])) {
                                                     </div>
                                                 </div>
                                             </div>
-                                            <p class="mt-3 mb-0 text-sm">
-                                                <span class="text-success mr-2"><i class="fa fa-arrow-up"></i> 3.48%</span>
-                                                <span class="text-nowrap">Since last month</span>
-                                            </p>
                                         </div>
                                     </div>
                                 </div>
@@ -96,7 +92,7 @@ if (isset($_SESSION["documentoIdentidad"])) {
                                         <div class="card-body">
                                             <div class="row">
                                                 <div class="col">
-                                                    <h5 class="card-title text-uppercase text-muted mb-0">Usuarios</h5>
+                                                    <h5 class="card-title text-uppercase text-muted mb-0">Ventas hoy</h5>
                                                     <span class="h2 font-weight-bold mb-0">2,356</span>
                                                 </div>
                                                 <div class="col-auto">
@@ -105,10 +101,6 @@ if (isset($_SESSION["documentoIdentidad"])) {
                                                     </div>
                                                 </div>
                                             </div>
-                                            <p class="mt-3 mb-0 text-sm">
-                                                <span class="text-success mr-2"><i class="fa fa-arrow-up"></i> 3.48%</span>
-                                                <span class="text-nowrap">Since last month</span>
-                                            </p>
                                         </div>
                                     </div>
                                 </div>
@@ -127,10 +119,6 @@ if (isset($_SESSION["documentoIdentidad"])) {
                                                     </div>
                                                 </div>
                                             </div>
-                                            <p class="mt-3 mb-0 text-sm">
-                                                <span class="text-success mr-2"><i class="fa fa-arrow-up"></i> 3.48%</span>
-                                                <span class="text-nowrap">Since last month</span>
-                                            </p>
                                         </div>
                                     </div>
                                 </div>
@@ -149,10 +137,6 @@ if (isset($_SESSION["documentoIdentidad"])) {
                                                     </div>
                                                 </div>
                                             </div>
-                                            <p class="mt-3 mb-0 text-sm">
-                                                <span class="text-success mr-2"><i class="fa fa-arrow-up"></i> 3.48%</span>
-                                                <span class="text-nowrap">Since last month</span>
-                                            </p>
                                         </div>
                                     </div>
                                 </div>
