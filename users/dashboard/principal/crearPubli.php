@@ -147,7 +147,7 @@ if (isset($_SESSION["documentoIdentidad"])) {
                             <div class="col-lg-6">
                               <div class="form-group">
                                 <label class="form-control-label" for="input-username">Stock Producto</label>
-                                <input type="number" id="input-username" name="stock" class="form-control" placeholder="Stock (cantidad)" max="99999" value="">
+                                <input type="number" id="input-username" name="stock" class="form-control" placeholder="Stock (cantidad)" max="99999" value="" required>
                               </div>
                             </div>
                             <div class="col-lg-6">
@@ -165,7 +165,7 @@ if (isset($_SESSION["documentoIdentidad"])) {
                             <div class="col-lg-6">
                               <div class="form-group">
                                 <label class="form-control-label" for="input-username">Imagenes</label>
-                                <input type="file" id="input-username" name="imagen[]" id="file[]" class="form-control-file" multiple accept="image/x-png,image/jpeg">
+                                <input type="file" id="input-username" name="imagen[]" id="file[]" class="form-control-file" multiple accept="image/x-png,image/jpeg" required>
                                 <div class="description">
                                   <!-- <br>
                                   limite de 2048MB por imágenes -->
