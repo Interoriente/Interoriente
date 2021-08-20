@@ -10,6 +10,7 @@ const contenidoCarrito = document.querySelector(".cart-content");
 const carritoTarjeta = document.querySelector(".carrito-tarjeta");
 const carritoBtn = document.querySelector(".carrito-busqueda");
 const cantidadCarrito = document.getElementById("cantidad-carrito");
+const overlay = document.getElementById("overlay");
 
 /* TODO: 
 
@@ -48,6 +49,13 @@ if (publicacionLocalStorage) {
 
 //Event listeners
 
+/* Seleccionar elemento padre para ejecutar una acción, en este caso, cerrar el carrito */
+overlay.addEventListener("click", (e) => {
+  if (e.target == e.currentTarget){
+    cerrarCarrito();
+  }
+  
+});
 /* Abriendo y cerrando carrito desde el botón */
 carritoBtn.addEventListener("click", abrirCarrito);
 closeCartBtn.addEventListener("click", cerrarCarrito);

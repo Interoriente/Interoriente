@@ -112,7 +112,7 @@ session_start();
 
     </div>
     <!-- Carrito -->
-    <div class="cart-overlay">
+    <div class="cart-overlay" id="overlay">
       <div class="cart">
         <span class="close-cart">
           <i class="fas fa-window-close"></i>
@@ -127,8 +127,7 @@ session_start();
         <div class="cart-footer">
           <h4>Subtotal: $ <span class="cart-total">0</span></h4>
           <!-- Botones temporales  -->
-          <button class="clear-cart eliminar-btn">Finalizar comprar</button>
-          <button class="clear-cart eliminar-btn">Eliminar Todo</button>
+          <button class="finalizar-compra">Finalizar comprar</button>
         </div>
       </div>
 

@@ -115,7 +115,7 @@ a {
   right: 0;
   width: 100%;
   height: 100%;
-  transition: all .2s ease-in-out;
+  transition: all .1s ease-in-out;
   background: rgba(0, 0, 0, 0.2);
   z-index: 2;
   visibility: hidden;
@@ -126,11 +126,12 @@ a {
   right: 0;
   width: 100%;
   height: 100%;
-  overflow: scroll; /* Scrroll through items */
   z-index: 3;
-  background: rgb(231, 226, 221);
+  overflow: scroll;
+  /* background: rgb(231, 226, 221); */
+  background: var(--clr-neutro-a);
   padding: 1.5rem;
-  transition: all .2s ease-in-out;
+  transition: all .1s ease-in-out;
   transform: translateX(100%);
 }
 .showCart {
@@ -154,19 +155,23 @@ a {
   text-transform: capitalize;
   text-align: center;
   letter-spacing: var(--mainSpacing);
-  margin-bottom: 2rem;
+  margin-top: -1.3em;
+  margin-bottom: 1rem;
 }
 /*---------- Item del carrito -------------------- */
+
 .cart-item {
   display: grid;
   align-items: center;
   grid-template-columns: auto 1fr auto;
   grid-column-gap: 1.5rem;
   margin: 1.5rem 0;
+ 
 }
 .cart-item img {
   width: 95px;
   height: 95px;
+  border-radius: 4%;
 }
 .cart-item h4 {
   font-size: 0.85rem;
@@ -193,33 +198,31 @@ a {
 .cantidad-items{
   width: 3em;
 }
-/* .fa-chevron-up,
-.fa-chevron-down {
-  color: var(--clr-cta-a);
-  cursor: pointer;
-} */
+
 /*---------- Fin item del carrito ------------------- */
 .cart-footer {
-  margin-top: 2rem;
+  margin: 1rem 0 2em 0;
   letter-spacing: var(--mainSpacing);
   text-align: center;
 }
 .cart-footer h3 {
   text-transform: capitalize;
-  margin-bottom: 2rem;
+  margin-bottom: 5rem;
+  padding-bottom: 5em;
 }
 
-.eliminar-btn {
+.finalizar-compra{
   padding: .5rem ;
+  width: 100%;
   text-transform: uppercase;
   letter-spacing: var(--mainSpacing);
   background: var(--clr-cta-a);
   border: 1px solid var(--crl-cta-b);
-  transition: var(--mainTransition);
+  transition: 0.3s;
   cursor: pointer;
 }
-.eliminar-btn:hover{
-    box-shadow: 0px 0px 10px -1px rgba(0, 0, 0, 0.1);
+.finalizar-compra:hover{
+    box-shadow: 0px 0px 10px -1px rgba(0, 0, 0, 0.4);
 }
 /* Imput cantidad */
 
