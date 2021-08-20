@@ -46,7 +46,8 @@ if (isset($_FILES['imagen'])) {
                     $sqlInsertarImagen = "INSERT INTO tblImagenes (urlImagen,publicacionImagen)
                     VALUES (?,?)";
                     $consultaInsertar = $pdo->prepare($sqlInsertarImagen);
-                    $consultaInsertar->execute(array($archivo, $datos));
+                }
+                if ($consultaInsertar->execute(array($archivo, $datos))) {
                     echo "<script>alert('El registro se subió correctamente');</script>";
                     /* Redirigir después de almacenar la información */
                     echo "<script> document.location.href='../crearPubli.php';</script>";
