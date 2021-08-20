@@ -140,9 +140,9 @@ function removeItem(id) {
     
 }
 /* Obteniendo elemento después de ser creado */
-HTMLInputElementObject.addEventListener('input', function (evt) {
-   console.log( something(this.value));
-});
+/* HTMLInputElementObject.addEventListener('input', function (evt) {
+   console.log( something(this.value))=
+}); */
 
 
  
