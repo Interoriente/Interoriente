@@ -177,9 +177,7 @@ a {
   margin: 0.5rem 0;
   letter-spacing: var(--mainSpacing);
 }
-.item-amount {
-  text-align: center;
-}
+
 .remove-item {
   color: grey;
   cursor: pointer;
@@ -190,6 +188,10 @@ a {
 /* Título de la publicación en el carrito */
 .item-h{
   font-weight: bold;
+}
+/* Cantidad item del carrito por publicación */
+.cantidad-items{
+  width: 3em;
 }
 /* .fa-chevron-up,
 .fa-chevron-down {
@@ -221,9 +223,6 @@ a {
 }
 /* Imput cantidad */
 
-#cantidad-carrito{
-  width: 3em;
-}
 
 
 
