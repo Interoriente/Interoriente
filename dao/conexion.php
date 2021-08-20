@@ -6,11 +6,9 @@ $nombrehost="localhost";
 $nombreBD="interori_interoriente";
 $host = "mysql:host=$nombrehost;dbname=$nombreBD";
 
-/* $usuario = "interori_interori";
-$contrasena = "B4O#ugJ]C#%,4"; */
+$usuario = "interori_interori";
+$contrasena = "B4O#ugJ]C#%,4";
 
-$usuario = "root";
-$contrasena = "";
 
 try {
      //Conexion exitosa	
