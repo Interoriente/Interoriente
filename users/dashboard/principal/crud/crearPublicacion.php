@@ -27,9 +27,10 @@ if (isset($_FILES['imagen'])) {
     //Crear carpetas
     /* if (mkdir($idPubli, 0777, true)) {
         } */
-    $cantidad = count($_FILES["imagen"]["tmp_name"]);
+    $cantidad = count($_FILES['imagen']['tmp_name']);
     //Ejecutar la sentencia
     for ($i = 0; $i < $cantidad; $i++) {
+        echo $_FILES['imagen']['name'];
         //Comprobamos si el fichero es una imagen
         if ($_FILES['imagen']['type'][$i] == 'image/png' || $_FILES['imagen']['type'][$i] == 'image/jpeg' || $_FILES['imagen']['type'][$i] == 'image/jpg') {
             //Le defino una ruta a la imagen
