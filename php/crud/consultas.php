@@ -13,7 +13,7 @@ function getPublicaciones()
   $sql = "SELECT * 
         FROM tblPublicacion /* as PU
         INNER JOIN tblImagenes 
-        as IMG ON PU.idPublicacion = IMG.publicacionImagen */";
+        as IMG ON PU.idPublicacion = IMG.publicacionImagen */ WHERE validacionPublicacion='1' order by rand()";
 
   /* Envío de la consulta a través del objeto PDO */
   $consulta = $pdo->prepare($sql);   /* PDO statement-> Ejecutarlo */

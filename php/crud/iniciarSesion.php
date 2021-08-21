@@ -45,22 +45,10 @@ session_start();
         }
         if ($resultado_inicio) {
             $_SESSION["documentoIdentidad"] = $prueba->documentoIdentidad;
+            //Siempre para iniciar se inicia como Comprador/Proveedor -> O por lo menos con el primer rol que se tenga
             $_SESSION['roles'] = $rol;
-            $_SESSION["rolUsuario"] = '1';
-            echo $_SESSION['roles'];
-            if ($rol == '1') {
-                //Comprador/Proveedor
-                header("Location: ../../users/dashboard/principal/dashboard.php");
-                $_SESSION["rolUsuario"] = '1';
-            } else if ($rol == '2') {
-                //Empleado
-                header("Location: ../../users/dashboard/principal/dashboard.php");
-                $_SESSION["rolUsuario"] = '2';
-            } else {
-                //Administrador
-                header("Location: ../../users/dashboard/principal/dashboard.php");
-                $_SESSION["rolUsuario"] = '3';
-            }
+            //Comprador/Proveedor
+            header("Location: ../../users/dashboard/principal/dashboard.php");
         } else {
             echo "<script>alert('Correo o documento y/o contraseña incorrecto, o validación denegada');</script>";
             echo "<script> document.location.href='../../principal/navegacion/iniciarsesion.php';</script>";
