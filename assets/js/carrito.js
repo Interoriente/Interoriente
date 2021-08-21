@@ -11,7 +11,7 @@ const carritoTarjeta = document.querySelector(".carrito-tarjeta");
 const carritoBtn = document.querySelector(".carrito-busqueda");
 const cantidadCarrito = document.getElementById("cantidad-carrito");
 const overlay = document.getElementById("overlay");
-
+const finCompra = document.getElementById("finalizar-compra");
 /* TODO: 
 
     FUNCIONAL:
@@ -54,10 +54,9 @@ if (publicacionLocalStorage) {
 
 /* Seleccionar elemento padre para ejecutar una acción, en este caso, cerrar el carrito */
 overlay.addEventListener("click", (e) => {
-  if (e.target == e.currentTarget){
+  if (e.target == e.currentTarget) {
     cerrarCarrito();
   }
-  
 });
 /* Abriendo y cerrando carrito desde el botón */
 carritoBtn.addEventListener("click", abrirCarrito);
@@ -88,7 +87,6 @@ function addCarrito(id) {
       renderPubli(Storage.getPublicacion());
       mathCarrito(carrito);
       abrirCarrito();
-      
     },
   });
 }
@@ -117,30 +115,31 @@ function renderPubli(item) {
 
 let inputCantidad;
 function abrirCarrito() {
-    /* Agregando clases al overlay y al carrito para abrirlo */
-    cartOverlay.classList.add("transparentBcg");
-    cartDOM.classList.add("showCart");
-    inputCantidad = document.querySelectorAll(".cantidad-items"); //Seleccionando todos los elementos con esa clase
-    console.log(inputCantidad);
+  /* Agregando clases al overlay y al carrito para abrirlo */
+  cartOverlay.classList.add("transparentBcg");
+  cartDOM.classList.add("showCart");
+  inputCantidad = document.querySelectorAll(".cantidad-items"); //Seleccionando todos los elementos con esa clase
+  console.log(inputCantidad);
 }
 
 /* Cambiar Cantidad */
 
 function cambiarCantidad(idItem) {
-    let id = idItem, inputId = 0;
-   
-    /* Identificando cuál es el input que está siendo usado */
-    inputCantidad.forEach(element => {
-        if (element.id === id) {
-            inputId = element;
-        }else{
-            console.log("No coinside");
-        }
-    });  
-    console.log("Resultado");
-    console.log("Id: "+id);
-    console.log("Cantidad: " + inputId.value);
-    console.log(inputId);
+  let id = idItem,
+    inputId = 0;
+
+  /* Identificando cuál es el input que está siendo usado */
+  inputCantidad.forEach((element) => {
+    if (element.id === id) {
+      inputId = element;
+    } else {
+      console.log("No coinside");
+    }
+  });
+  console.log("Resultado");
+  console.log("Id: " + id);
+  console.log("Cantidad: " + inputId.value);
+  console.log(inputId);
 
   carrito = Storage.getPublicacion();
 
@@ -154,10 +153,10 @@ function cambiarCantidad(idItem) {
 
   Storage.setPublicacion(carrito);
   mathCarrito(Storage.getPublicacion());
- 
+
   /* Revisar por qué no funcionó con esta estructura */
 
-     /*  for (let i = 0; i < carrito.length; i++) {
+  /*  for (let i = 0; i < carrito.length; i++) {
         if (carrito[i].Id === id) {
           carrito[i].cantidad = parseInt(inputId.value);
           console.log(carrito);
@@ -197,4 +196,19 @@ function mathCarrito(item) {
   cartItems.textContent = totalItems;
 }
 
-/* Obteniendo elemento después de ser creado */
+/* Finalizar Compra */
+finCompra.addEventListener("click", function(){
+  let carrito = localStorage.getItem("carrito");
+  console.log(carrito);
+  $.ajax({
+    url: "../../php/crud/consultas.php",
+    type: "POST",
+    dataType: "JSON",
+    data: {carrito: carrito},
+    success: function (respuesta) {
+      console.log(respuesta);
+     console.log("Carrito alamacenado!");
+    },
+
+  });
+});

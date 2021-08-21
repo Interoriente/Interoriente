@@ -1,7 +1,13 @@
 <?php
-if (isset($_POST['id'])) {
-  $id = $_POST['id'];
-  addCarrito($id);
+if (isset($_POST['id']) or isset($_POST['carrito'])) {
+  if ($_POST['id']) {
+    $id = $_POST['id'];
+    addCarrito($id);
+  } else {
+    $carrito = $_POST['carrito'];
+    $carrito = json_decode($carrito, true);
+    almacenarCarrito($carrito);
+  }
 }
 
 function getPublicaciones()
@@ -69,13 +75,20 @@ function addCarrito($id)
 function almacenarCarrito($carrito){
   
   if (isset($_SESSION['documentoIdentidad'])) {
+    require('../../dao/conexion.php');
     $idUsuario = $_SESSION['documentoIdentidad'];
     $sql = "INSERT INTO tblCarrito 
-    VALUES(null, :idPubli, :idUsuario, :cantidad)";
-    foreach ($carrito as $key => $value) {
-      
-    } 
-    
+    VALUES(:idPubli, :idUsuario, :cantidad)";
+
+    foreach ($carrito as $item) {
+      $stmt = $pdo->prepare($sql);
+      $stmt->bindValue(':idPubli', $item->Id);
+      $stmt->bindValue(':idUsuario', $idUsuario);
+      $stmt->bindValue(':cantidad', $item->cantidad);
+      $stmt->execute();
+     
+    }
+    echo 'Almacenado!';
   } else {
     echo 'La sesión no existe';
   }
