@@ -54,6 +54,9 @@
                 $consulta_insertar = $pdo->prepare($sql_insertar);
                 //Ejecutar la sentencia
                 $consulta_insertar->execute(array($rol, $documento));
+                /* Almacenado documento de identidad en variable de sesión */
+                $_SESSION['documentoIdentidad'] = $documento;
+
                 echo "<script>alert('Datos almacenados correctamente');</script>";
                 echo "<script> document.location.href='../../principal/navegacion/iniciarsesion.php';</script>";
             }

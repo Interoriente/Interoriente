@@ -64,3 +64,19 @@ function addCarrito($id)
   /* Resultado a devolver */
   echo json_encode($resultado);
 }
+
+/* función para guardar información del carrito en tblCarrito */
+function almacenarCarrito($carrito){
+  
+  if (isset($_SESSION['documentoIdentidad'])) {
+    $idUsuario = $_SESSION['documentoIdentidad'];
+    $sql = "INSERT INTO tblCarrito 
+    VALUES(null, :idPubli, :idUsuario, :cantidad)";
+    foreach ($carrito as $key => $value) {
+      
+    } 
+    
+  } else {
+    echo 'La sesión no existe';
+  }
+}

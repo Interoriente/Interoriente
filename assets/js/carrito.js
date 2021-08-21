@@ -23,6 +23,9 @@ const overlay = document.getElementById("overlay");
                 6. Almacenar información cuando haya un evento en el btn "Finalizar Compra"
                 7. Limpiar carrito cuando la compra haya finalizado
 
+
+     BUGS:
+            1. Cuando se tienen varios elementos y se elimina uno, no permite cambiar la cantidad de los que quedan             
     */
 /* Local storage */
 class Storage {
