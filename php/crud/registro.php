@@ -46,19 +46,24 @@
                 //Preparar consulta
                 $consulta_insertar = $pdo->prepare($sql_insertar);
                 //Ejecutar la sentencia
-                $consulta_insertar->execute(array($documento, $nombres, $apellidos, $correo, $contrasena,  $estado, $perfil));
 
-                //llamado a la tabla rol (intermedia) para almacenar el rol predeterminado
-                $sql_insertar = "INSERT INTO tblUsuarioRol (idUsuarioRol,docIdentidadUsuarioRol)VALUES (?,?)";
-                //Preparar consulta
-                $consulta_insertar = $pdo->prepare($sql_insertar);
-                //Ejecutar la sentencia
-                $consulta_insertar->execute(array($rol, $documento));
-                /* Almacenado documento de identidad en variable de sesión */
-                $_SESSION['documentoIdentidad'] = $documento;
-
-                echo "<script>alert('Datos almacenados correctamente');</script>";
-                echo "<script> document.location.href='../../principal/navegacion/iniciarsesion.php';</script>";
+                if ($consulta_insertar->execute(array($documento, $nombres, $apellidos, $correo, $contrasena,  $estado, $perfil))) {
+                    //llamado a la tabla rol (intermedia) para almacenar el rol predeterminado
+                    $sql_insertar = "INSERT INTO tblUsuarioRol (idUsuarioRol,docIdentidadUsuarioRol)VALUES (?,?)";
+                    //Preparar consulta
+                    $consulta_insertar = $pdo->prepare($sql_insertar);
+                    //Ejecutar la sentencia
+                    $consulta_insertar->execute(array($rol, $documento));
+                    echo "<script>alert('Datos almacenados correctamente');</script>";
+                    /* Almacenado documento de identidad en variable de sesión
+                    Creación de la sesión
+                    */
+                    session_start();
+                    $_SESSION['roles'] = '1';
+                    $_SESSION["documentoIdentidad"] = $documento;
+                    //Comprador/Proveedor
+                    echo "<script> document.location.href='../../users/dashboard/principal/dashboard.php';</script>";
+                }
             }
         }
     } else {
