@@ -12,6 +12,7 @@ const carritoBtn = document.querySelector(".carrito-busqueda");
 const cantidadCarrito = document.getElementById("cantidad-carrito");
 const overlay = document.getElementById("overlay");
 const finCompra = document.getElementById("finalizar-compra");
+let idUsuario;
 /* TODO: 
 
     FUNCIONAL:
@@ -49,9 +50,6 @@ if (publicacionLocalStorage) {
 } else {
   console.log("No hay publicaciones en LocalStorage");
 }
-
-//Event listeners
-
 /* Seleccionar elemento padre para ejecutar una acción, en este caso, cerrar el carrito */
 overlay.addEventListener("click", (e) => {
   if (e.target == e.currentTarget) {
@@ -73,6 +71,7 @@ function cerrarCarrito() {
 function addCarrito(id) {
   /* Obteniendo id de la publicación para hacer consulta a la bd */
   $.ajax({
+
     /* LLamando clase PHP */
     url: "../../php/crud/consultas.php", //Ruta de la clase
     type: "POST", //Tipo de request,
@@ -80,6 +79,7 @@ function addCarrito(id) {
     data: { id: id }, //Datos a recibir en el script .php a traves de $_POST
     success: function (respuesta) {
       /* En caso de una respuesta exitosa */
+      
       respuesta["cantidad"] = 1; //Agregando nuevo key and value al JSON
       carrito.push(respuesta); //Almacenando datos en el carrito
       Storage.setPublicacion(carrito); // Subiendo info a Localstorage
@@ -100,12 +100,12 @@ function renderPubli(item) {
             <div class = "cart-item">
                 <img src="../../assets/img/stock/1.jpg" alt="product" width="100%">
                 <div>
-                    <h4 class="titulos item-h" >${item.Título}</h4>
-                    <h5>$${item.Costo}</h5>
-                    <span class="remove-item" onclick = "removeItem(this.id)" id = "${item.Id}">Eliminar</span>
+                    <h4 class="titulos item-h" >${item.titulo}</h4>
+                    <h5>$${item.costo}</h5>
+                    <span class="remove-item" onclick = "removeItem(this.id)" id = "${item.id}">Eliminar</span>
                 </div>
                 <div>
-                <input type="number" class="cantidad-items" id="${item.Id}" oninput = "cambiarCantidad(this.id)" min = "1" value="${item.cantidad}" >
+                <input type="number" class="cantidad-items" id="${item.id}" oninput = "cambiarCantidad(this.id)" min = "1" value="${item.cantidad}" >
                 </div>
             </div>
             `;
@@ -119,7 +119,6 @@ function abrirCarrito() {
   cartOverlay.classList.add("transparentBcg");
   cartDOM.classList.add("showCart");
   inputCantidad = document.querySelectorAll(".cantidad-items"); //Seleccionando todos los elementos con esa clase
-  console.log(inputCantidad);
 }
 
 /* Cambiar Cantidad */
@@ -145,7 +144,7 @@ function cambiarCantidad(idItem) {
 
   /* Recorriendo el arreglo en busca del item con el mismo id */
   carrito.map((item) => {
-    if (item.Id === id) {
+    if (item.id === id) {
       item.cantidad = parseInt(inputId.value);
       console.log(carrito);
     }
@@ -153,26 +152,13 @@ function cambiarCantidad(idItem) {
 
   Storage.setPublicacion(carrito);
   mathCarrito(Storage.getPublicacion());
-
-  /* Revisar por qué no funcionó con esta estructura */
-
-  /*  for (let i = 0; i < carrito.length; i++) {
-        if (carrito[i].Id === id) {
-          carrito[i].cantidad = parseInt(inputId.value);
-          console.log(carrito);
-          break;
-        }else{
-            console.log("nothing found...");
-            break;
-        }
-      } */
 }
 
 /* Función para eliminar items */
 function removeItem(id) {
   let publicaciones = Storage.getPublicacion();
   for (let i = 0; i < publicaciones.length; i++) {
-    if (publicaciones[i].Id === id) {
+    if (publicaciones[i].id === id) {
       publicaciones.splice([i], 1);
       break;
     }
@@ -188,7 +174,7 @@ function mathCarrito(item) {
     totalItems = 0,
     costo = 0;
   carrito.map((item) => {
-    costo = parseFloat(item.Costo);
+    costo = parseFloat(item.costo);
     totalTmp += costo * item.cantidad;
     totalItems += item.cantidad;
   });
@@ -198,7 +184,10 @@ function mathCarrito(item) {
 
 /* Finalizar Compra */
 finCompra.addEventListener("click", function(){
-  let carrito = localStorage.getItem("carrito");
+  let carrito = Storage.getPublicacion();
+  /* Removiendo items para enviar solo los necesarios al la bd  */
+  carrito = carrito.map(({titulo,costo,...rest}) =>({...rest}));
+  carrito = JSON.stringify(carrito);
   console.log(carrito);
   $.ajax({
     url: "../../php/crud/consultas.php",
@@ -207,7 +196,6 @@ finCompra.addEventListener("click", function(){
     data: {carrito: carrito},
     success: function (respuesta) {
       console.log(respuesta);
-     console.log("Carrito alamacenado!");
     },
 
   });

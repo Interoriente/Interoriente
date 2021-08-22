@@ -1,12 +1,28 @@
 <?php
-if (isset($_POST['id']) or isset($_POST['carrito'])) {
+
+
+if (isset($_POST['id']) || isset($_POST['carrito']) || isset($_POST['idUsuarioLogeado'])) {
   if ($_POST['id']) {
     $id = $_POST['id'];
     addCarrito($id);
-  } else {
+  } else if (isset($_POST['carrito'])) {
     $carrito = $_POST['carrito'];
-    $carrito = json_decode($carrito, true);
+    /*             Problema encontrado al almacenar varios elementos */
+    $carrito = json_decode($carrito);
     almacenarCarrito($carrito);
+  } else {
+    getIdUsuario();
+  }
+}
+
+function getIdUsuario()
+{
+  session_start();
+  $idUsuario = $_SESSION['documentoIdentidad'];
+  if (isset($idUsuario)) {
+    echo $idUsuario;
+  } else {
+    echo "No es posible obtener id porque la sesión no existe";
   }
 }
 
@@ -29,7 +45,7 @@ function getPublicaciones()
   $resultado = $consulta->fetchAll();
   /* Devolviendo resultado */
 
-  return $resultado; 
+  return $resultado;
 }
 
 /* Función para agregar publicaciones al carrito */
@@ -37,14 +53,14 @@ function addCarrito($id)
 {
   require('../../dao/conexion.php');
 
-    /* 
+  /* 
     -Título
     -imagen
     -precio
     */
-  $sql = "SELECT idPublicacion as 'Id', 
-          nombrePublicacion as 'Título', 
-          costoPublicacion as 'Costo'
+  $sql = "SELECT idPublicacion as 'id', 
+          nombrePublicacion as 'titulo', 
+          costoPublicacion as 'costo'
           FROM tblPublicacion 
           WHERE idPublicacion = $id";
 
@@ -52,7 +68,8 @@ function addCarrito($id)
   $consulta->execute();
   $resultado = $consulta->fetchAll(\PDO::FETCH_ASSOC);
   /* Función para reducir el arreglo a una sola dimensión */
-  function simplificarArreglo($array){
+  function simplificarArreglo($array)
+  {
     if (!is_array($array)) {
       return false;
     }
@@ -65,31 +82,37 @@ function addCarrito($id)
       }
     }
     return $resultado;
-  } 
+  }
   $resultado = simplificarArreglo($resultado);
   /* Resultado a devolver */
   echo json_encode($resultado);
 }
 
 /* función para guardar información del carrito en tblCarrito */
-function almacenarCarrito($carrito){
-  
-  if (isset($_SESSION['documentoIdentidad'])) {
-    require('../../dao/conexion.php');
-    $idUsuario = $_SESSION['documentoIdentidad'];
-    $sql = "INSERT INTO tblCarrito 
-    VALUES(:idPubli, :idUsuario, :cantidad)";
+function almacenarCarrito($carrito)
+{
+  session_start(); // Se debe usar antes de tratar de acceder a una variable de sessión
+  $idUsuario = $_SESSION['documentoIdentidad'];
 
+  if ($idUsuario) {
+    require('../../dao/conexion.php');
     foreach ($carrito as $item) {
+      $idPubli = $item->id;
+      $cantidad = $item->cantidad;
+      $sql = "INSERT INTO tblCarrito 
+      (idPublicacionCarrito, docIdentidadCarrito, cantidadCarrito)
+      VALUES(:idPubli, :idUser, :cantidad)";
       $stmt = $pdo->prepare($sql);
-      $stmt->bindValue(':idPubli', $item->Id);
-      $stmt->bindValue(':idUsuario', $idUsuario);
-      $stmt->bindValue(':cantidad', $item->cantidad);
+      $stmt->bindValue(':idPubli', $idPubli);
+      $stmt->bindValue(':idUser', $idUsuario);
+      $stmt->bindValue(':cantidad', $cantidad);
       $stmt->execute();
-     
     }
+    
+    
     echo 'Almacenado!';
   } else {
     echo 'La sesión no existe';
   }
+
 }
