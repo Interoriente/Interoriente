@@ -2,21 +2,9 @@
 session_start();
 
 if (isset($_SESSION["documentoIdentidad"])) {
-  $documento = $_SESSION["documentoIdentidad"];
-  $sesionRol = $_SESSION['roles'];
-  include_once '../../../dao/conexion.php';
-  $sql_validacion = "SELECT*FROM tblUsuario WHERE documentoIdentidad =? AND estadoUsuario= '1'";
-  $consulta_resta_validacion = $pdo->prepare($sql_validacion);
-  $consulta_resta_validacion->execute(array($documento));
-  $resultado_validacion = $consulta_resta_validacion->rowCount();
-  $validacion = $consulta_resta_validacion->fetch(PDO::FETCH_OBJ);
-  //Llamado tabla intermedia
-  $sqlSesionRol = "SELECT * FROM tblUsuarioRol WHERE docIdentidadUsuarioRol=? AND idUsuarioRol=?";
-  $consultaSesionRol = $pdo->prepare($sqlSesionRol);
-  $consultaSesionRol->execute(array($documento, $sesionRol));
-  $resultadoSesionRol = $consultaSesionRol->rowCount();
+  include_once 'crud/consultas.php';
   //Validacion de roles
-  if ($resultado_validacion) {
+  if ($contadorValidacion) {
     if ($resultadoSesionRol) {
       if ($sesionRol == '3') {
 ?>
@@ -48,13 +36,17 @@ if (isset($_SESSION["documentoIdentidad"])) {
           include_once '../../../dao/conexion.php';
           //Llamar a la conexion base de datos -> Muestro el contenido de tabla usuario
           //Mostrar los datos almacenados
-          $sql_mostrar_publi = "SELECT * FROM tblPublicacion"; //Prepara sentencia
-          $consultar_mostrar_publi = $pdo->prepare($sql_mostrar_publi);
+          $sqlMostrarPubli = "SELECT * FROM tblPublicacion as PU
+          INNER JOIN tblImagenes 
+          as IMG ON PU.idPublicacion = IMG.publicacionImagen
+          GROUP BY PU.nombrePublicacion, PU.descripcionPublicacion,PU.costoPublicacion 
+          ORDER BY nombrePublicacion asc"; //Prepara sentencia
+          $consultarMostrarPubli = $pdo->prepare($sqlMostrarPubli);
           //Ejecutar consulta
-          $consultar_mostrar_publi->execute();
-          $resultado_mostrar_publi = $consultar_mostrar_publi->fetchAll();
+          $consultarMostrarPubli->execute();
+          $resultadoMostrarPubli = $consultarMostrarPubli->fetchAll();
           //Contador de registros totales en tabla
-          $contador = $consultar_mostrar_publi->rowCount();
+          $contador = $consultarMostrarPubli->rowCount();
           ?>
           <!-- Header -->
           <div class="header bg-primary pb-6">
@@ -84,55 +76,71 @@ if (isset($_SESSION["documentoIdentidad"])) {
                   </div>
                   <!-- Light table -->
                   <div class="table-responsive">
-                  <input id="buscar" type="text" class="form-control" placeholder="Escriba algo para filtrar" /><br>
+                    <input id="buscar" type="text" class="form-control" placeholder="Escriba algo para filtrar" /><br>
                     <table id="tabla" class="table align-items-center table-flush">
                       <thead class="thead-light">
                         <tr>
+                          <th scope="col">Imagen</th>
                           <th scope="col">Nombre</th>
                           <th scope="col">Descripción</th>
                           <th scope="col">Costo</th>
                           <th scope="col">Stock</th>
                           <th scope="col">Estado</th>
-                          <th scope="col">Actualizar</th>
-                          <th scope="col">Eliminar</th>
+                          <th scope="col">Acciones</th>
                         </tr>
                       </thead>
                       <tbody class="list">
                         <?php
-                        foreach ($resultado_mostrar_publi as $datos) { ?>
+                        foreach ($resultadoMostrarPubli as $datos) { ?>
                           <tr>
+                            <th><img src="../../../imagenesPubli/<?php echo $datos['urlImagen'];  ?>" alt=".." width="130px"></th>
                             <th><?php echo $datos['nombrePublicacion']; ?></th>
-                            <th><?php echo $datos['descripcionPublicacion']; ?></th>
+                            <th><?php echo substr($datos['descripcionPublicacion'], 0, 30); ?>...</th>
                             <th><?php echo $datos['costoPublicacion']; ?></th>
                             <th><?php echo $datos['stockPublicacion']; ?></th>
                             <?php if ($datos['validacionPublicacion'] == '1') { ?>
                               <th>Validada</th>
-                              <th><a class="btn btn-danger" href="crud/desactivarPubli.php?id=<?php echo $datos['idPublicacion']; ?>">Desactivar</a></th>
-                              <th><a class="btn btn-info" data-toggle="modal" data-target="#eliminarPubliModal<?php echo $datos['idPublicacion'] ?>">Eliminar</a></th>
-                            <?php } else { ?>
-                              <th>En revisión</th>
-                              <th><a class="btn btn-success" href="crud/activarPubli.php?id=<?php echo $datos['idPublicacion']; ?>">Validar</a></th>
-                              <th><a class="btn btn-info" data-toggle="modal" data-target="#eliminarPubliModal<?php echo $datos['idPublicacion'] ?>">Eliminar</a></th>
-                              <!-- Cierre else -->
-                            <?php } ?>
-                            <!--Modal Eliminar publicación -->
-                            <div class="modal fade" id="eliminarPubliModal<?php echo $datos['idPublicacion'] ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                              <div class="modal-dialog" role="document">
-                                <div class="modal-content">
-                                  <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">¿Seguro quieres eliminar esta publicación?</h5>
-                                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                                      <span aria-hidden="true">×</span>
-                                    </button>
+                              <div class="btn-group">
+                                <th>
+                                  <button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Acciones
+                                  </button>
+                                  <div class="dropdown-menu">
+                                    <a class="btn btn-success" href="crud/desactivarPubli.php?id=<?php echo $datos['idPublicacion']; ?>">Desactivar</a>
+                                    <a class="btn btn-danger" data-toggle="modal" data-target="#eliminarPubliModal<?php echo $datos['idPublicacion'] ?>">Eliminar</a>
                                   </div>
-                                  <div class="modal-body">Seleccione "Eliminar" para eliminar la publicación, esta acción no se podrá deshacer.</div>
-                                  <div class="modal-footer">
-                                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
-                                    <a class="btn btn-danger" href="crud/eliminarPubli.php?id=<?php echo $datos['idPublicacion'] ?>">Eliminar</a>
+                                </th>
+                              <?php } else { ?>
+                                <th>En revisión</th>
+                                <th>
+                                  <button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Acciones
+                                  </button>
+                                  <div class="dropdown-menu">
+                                    <a class="btn btn-info" href="crud/activarPubli.php?id=<?php echo $datos['idPublicacion']; ?>">Activar</a>
+                                    <a class="btn btn-danger" data-toggle="modal" data-target="#eliminarPubliModal<?php echo $datos['idPublicacion'] ?>">Eliminar</a>
+                                  </div>
+                                </th>
+                                <!-- Cierre else -->
+                              <?php } ?>
+                              <!--Modal Eliminar publicación -->
+                              <div class="modal fade" id="eliminarPubliModal<?php echo $datos['idPublicacion'] ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                  <div class="modal-content">
+                                    <div class="modal-header">
+                                      <h5 class="modal-title" id="exampleModalLabel">¿Seguro quieres eliminar esta publicación?</h5>
+                                      <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">×</span>
+                                      </button>
+                                    </div>
+                                    <div class="modal-body">Seleccione "Eliminar" para eliminar la publicación, esta acción no se podrá deshacer.</div>
+                                    <div class="modal-footer">
+                                      <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
+                                      <a class="btn btn-danger" href="crud/eliminarPubli.php?id=<?php echo $datos['idPublicacion'] ?>">Eliminar</a>
+                                    </div>
                                   </div>
                                 </div>
                               </div>
-                            </div>
                           </tr>
                         <?php
 

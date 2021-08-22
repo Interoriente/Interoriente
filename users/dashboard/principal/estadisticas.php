@@ -2,19 +2,7 @@
 session_start();
 
 if (isset($_SESSION["documentoIdentidad"])) {
-    $documento = $_SESSION["documentoIdentidad"];
-    $sesionRol = $_SESSION['roles'];
-    include_once '../../../dao/conexion.php';
-    $sql_validacion = "SELECT*FROM tblUsuario WHERE documentoIdentidad =? AND estadoUsuario= '1'";
-    $consulta_resta_validacion = $pdo->prepare($sql_validacion);
-    $consulta_resta_validacion->execute(array($documento));
-    $resultado_validacion = $consulta_resta_validacion->rowCount();
-    $validacion = $consulta_resta_validacion->fetch(PDO::FETCH_OBJ);
-    //Llamado tabla intermedia
-    $sqlSesionRol = "SELECT * FROM tblUsuarioRol WHERE docIdentidadUsuarioRol=? AND idUsuarioRol=?";
-    $consultaSesionRol = $pdo->prepare($sqlSesionRol);
-    $consultaSesionRol->execute(array($documento, $sesionRol));
-    $resultadoSesionRol = $consultaSesionRol->rowCount();
+    include_once 'crud/consultas.php';
 
     //Mostrando roles almacenados
     $sqlRol = "SELECT * FROM tblUsuarioRol INNER JOIN tblRol ON tblUsuarioRol.idUsuarioRol = tblRol.idRol WHERE docIdentidadUsuarioRol=?";
@@ -32,7 +20,7 @@ if (isset($_SESSION["documentoIdentidad"])) {
     $consultaMostrarConteoPubli->execute(array($documento));
     $resultadoMostrarConteoPubli = $consultaMostrarConteoPubli->rowCount();
     //Validacion de roles
-    if ($resultado_validacion) {
+    if ($contadorValidacion) {
         if ($resultadoSesionRol) {
             if ($sesionRol == '1' or $sesionRol == '2' or $sesionRol == '3') {
 ?>
