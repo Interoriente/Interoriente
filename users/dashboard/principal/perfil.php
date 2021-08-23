@@ -170,7 +170,7 @@ if (isset($_SESSION["documentoIdentidad"])) {
                             <div class="col-lg-6">
                               <div class="form-group">
                                 <label class="form-control-label" for="input-username">Celular</label>
-                                <input type="text" id="input-username" name="celular" class="form-control" placeholder="Celular" maxlength="10" value="<?php echo $resultado2->telefonomovilUsuario; ?>" required>
+                                <input type="number" id="input-username" name="celular" class="form-control" placeholder="Celular" max="9999999999" value="<?php echo $resultado2->telefonomovilUsuario; ?>" required>
                               </div>
                             </div>
                             <div class="col-lg-6">
