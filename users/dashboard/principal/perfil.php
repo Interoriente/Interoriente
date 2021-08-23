@@ -159,7 +159,7 @@ if (isset($_SESSION["documentoIdentidad"])) {
                               <div class="form-group">
                                 <label class="form-control-label" for="input-username">Nombre</label>
                                 <input type="text" id="input-username" name="nombre" class="form-control" placeholder="Nombre" value="<?php echo $resultado2->nombresUsuario; ?>" required disabled>
-                              </div>
+                              </div> 
                             </div>
                             <div class="col-lg-6">
                               <div class="form-group">
