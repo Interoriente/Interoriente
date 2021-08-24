@@ -171,15 +171,15 @@ font-family: 'Poppins', sans-serif; */
 
 
 /* Estilos cambio de información */
-.cambioEmail p{
+.info-con p{
   margin: 1em .3em;
 }
-.cambioEmail input{
+.info-con input{
   height: 2.5em;
   margin-bottom: 1em;
 }
 
-.btn-guardar-cambios button{
+.info-con button{
  background-color: var(--clr-secundario);
  color:var(--clr-neutro-a);
  border: none;
