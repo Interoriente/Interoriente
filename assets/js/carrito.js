@@ -57,7 +57,6 @@ function cerrarCarrito() {
 function addCarrito(id) {
   /* Obteniendo id de la publicación para hacer consulta a la bd */
   $.ajax({
-
     /* LLamando clase PHP */
     url: "../../php/crud/consultas.php", //Ruta de la clase
     type: "POST", //Tipo de request,
@@ -65,7 +64,6 @@ function addCarrito(id) {
     data: { id: id }, //Datos a recibir en el script .php a traves de $_POST
     success: function (respuesta) {
       /* En caso de una respuesta exitosa */
-      
       respuesta["cantidad"] = 1; //Agregando nuevo key and value al JSON
       carrito.push(respuesta); //Almacenando datos en el carrito
       Storage.setPublicacion(carrito); // Subiendo info a Localstorage

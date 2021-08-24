@@ -17,7 +17,9 @@ $publicacion = getPublicaciones();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../assets/css/indexEstilos.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous" />
-    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+
+    <!--Revisar tipo de conección  - http y https-->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js."></script>
 
 
     <title> Inicio | Interoriente</title>
