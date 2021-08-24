@@ -26,6 +26,8 @@ if (isset($_SESSION["documentoIdentidad"])) {
           <link rel="stylesheet" href="../assets/vendor/@fortawesome/fontawesome-free/css/all.min.css" type="text/css">
           <!-- Argon CSS -->
           <link rel="stylesheet" href="../assets/css/argon.css?v=1.2.0" type="text/css">
+          <!-- Llamado a hoja de estilos para traer los iconos de asc y desc en las tablas -->
+          <link rel="stylesheet" href="../assets/css/dataTables.bootstrap5.min.css">
         </head>
 
         <body>
@@ -244,7 +246,6 @@ if (isset($_SESSION["documentoIdentidad"])) {
                 <h1>Mis publicaciones</h1>
               </center>
               <div class="table-responsive">
-                <input id="buscar" type="text" class="form-control" placeholder="Escriba algo para filtrar" /><br>
                 <table id="tabla" class="table align-items-center table-flush">
                   <thead class="thead-light">
                     <tr>
