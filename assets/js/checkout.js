@@ -3,13 +3,16 @@ const cambiarDireccion = document.getElementById("cambiar-direccion");
 const contactoEmail = document.getElementById("contacto-email");
 const contactoDireccion = document.getElementById("contacto-direccion");
 let emailContactoP = document.getElementById("email-contacto-p");
+
+
+
+
 let nuevoEmail;
 let guardarEmail;
 
 let infoCheckout
 
 function cambiarCorreoContacto(){
-    console.log("cambio correo");
     let correoUsuario = emailContactoP.textContent;
     const cambioEmail = `
        <div class="cambioEmail">
@@ -22,7 +25,6 @@ function cambiarCorreoContacto(){
           `;
     guardarEmail = document.getElementById("btn-guardar-email");
     contactoEmail.innerHTML = cambioEmail;
-    
 };
 
 function guardarE(){
@@ -38,10 +40,10 @@ function guardarE(){
    contactoEmail.innerHTML = nuevoContactoEmail;
 
 }
+/* Cambiar dirección en el caso de que exista */
+
+function cambiarDireccion() {
 
 
-cambiarDireccion.addEventListener("click", function () {
-
-});
-
+}
 

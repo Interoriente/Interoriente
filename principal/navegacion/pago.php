@@ -115,8 +115,12 @@
         <hr>
         <div class="direccion">
           <!-- Contenedor Contacto -->
+          <div class="addDireccion">
+            
+          </div>
 
-          <div id="contacto-direccion" class="contacto">
+
+        <!--   <div id="contacto-direccion" class="contacto">
             <div class="direccion correo-contacto">
               <h6>Dirección de envío</h6>
               <p id="direccion">Calle 14 No. 55 AC 138</p>
@@ -124,7 +128,7 @@
             <div id="cambiar-direccion" class="btn-cambiar">
               <p id="cambiar">cambiar</p>
             </div>
-          </div>
+          </div> -->
 
           <!-- FIN Contenedor Contacto -->
         </div>
