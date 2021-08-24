@@ -1,13 +1,10 @@
 <?php
-
-
 if (isset($_POST['id']) || isset($_POST['carrito']) || isset($_POST['idUsuarioLogeado'])) {
   if ($_POST['id']) {
     $id = $_POST['id'];
     addCarrito($id);
   } else if (isset($_POST['carrito'])) {
     $carrito = $_POST['carrito'];
-    /*             Problema encontrado al almacenar varios elementos */
     $carrito = json_decode($carrito);
     almacenarCarrito($carrito);
   } else {
@@ -108,11 +105,26 @@ function almacenarCarrito($carrito)
       $stmt->bindValue(':cantidad', $cantidad);
       $stmt->execute();
     }
-    
-    
-    echo 'Almacenado!';
+    echo 1;
   } else {
     echo 'La sesión no existe';
+  }
+
+}
+/* Check-out */
+
+class Checkout{
+
+  public function getCheckoutInfo(){
+    require('../../dao/conexion.php');
+    $sql = "SELECT US.emailUsuario as 'email', CA.cantidadCarrito as 'cantidad',
+    PU.nombrePublicacion as 'titulo', PU.costoPublicacion as 'costo'
+    FROM tblUsuario as US INNER JOIN tblCarrito as CA ON CA.docIdentidadCarrito = US.documentoIdentidad
+    INNER JOIN tblPublicacion as PU ON PU.idPublicacion = CA.idPublicacionCarrito";
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute();
+    $resultado = $stmt->fetchAll();
+    return $resultado;
   }
 
 }

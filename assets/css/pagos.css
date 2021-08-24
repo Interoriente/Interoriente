@@ -18,6 +18,7 @@
 font-family: 'Poppins', sans-serif; */
 /* --------------------- */
 /* Navbar */
+
 .navegacion {
   background-color: var(--clr-primario-a);
   width: 100%;
@@ -119,6 +120,10 @@ font-family: 'Poppins', sans-serif; */
   font-size: 15px;
 }
 /* Fin  */
+.contenedor-principal h1{
+  font-family: var(--poppins);
+  font-size: 2rem;
+}
 
 .tarjeta-contacto {
   border: 1px solid #dbdada;
@@ -136,11 +141,11 @@ font-family: 'Poppins', sans-serif; */
   align-items: center;
 }
 .contacto h6 {
-  font-size: 12px;
+  font-size: 15px;
   color: #737373;
 }
 .contacto p {
-  font-size: 12px;
+  font-size: 14px;
   color: #001014;
 }
 .correo-contacto {
@@ -152,9 +157,35 @@ font-family: 'Poppins', sans-serif; */
   text-decoration: none;
 }
 #cambiar {
+  cursor: pointer;
   color: var(--clr-primario-a);
-  font-size: 10.2857px;
+  font-size: 12px;
 }
+
+/* Estilos cambio de información */
+.cambioEmail p{
+  margin: 1em .3em;
+}
+.cambioEmail input{
+  height: 2.5em;
+  margin-bottom: 1em;
+}
+
+.btn-guardar-cambios button{
+ background-color: var(--clr-secundario);
+ color:var(--clr-neutro-a);
+ border: none;
+ font-family: var(--poppins);
+ font-size: small;
+ padding: .3em;
+ text-transform: capitalize;
+ border-radius: .2rem;
+
+}
+.btn-guardar-cambios button:hover{
+  box-shadow: 0px 0px 10px -1px rgba(0, 0, 0, 0.4);
+}
+
 
 /* Tarjeta */
 
@@ -526,8 +557,8 @@ input {
     margin: 2em;
     padding: 1em;
     border-radius: .4rem;
-    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.3);
-    transition: .3s ease-in;
+    box-shadow: 0px 0px 10px -1px rgba(0, 0, 0, 0.4);
+    transition: .1s ease-in;
     
   }
 /* FIN Botón "Finalizar Compra" */
@@ -573,15 +604,13 @@ input {
   }
   .contenedor-publi {
     width: 90%;
-    height: 17rem;
-
+    max-height: 17rem;
     margin: 2em;
     /* crear div scroll */
     overflow: scroll;
     overflow-y: scroll;
     overflow-x: hidden;
     /* crear div scroll */
-
     display: flex;
     flex-direction: column;
   }
@@ -614,6 +643,7 @@ input {
   }
   .btn-fin-compra button:hover{
     background-color: var(--crl-cta-b);
+    box-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 0.4);
     
  }
  .btn-movil{

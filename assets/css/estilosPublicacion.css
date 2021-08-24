@@ -55,14 +55,15 @@
   background-color: var(--clr-cta-a);
   font-family: "Poppins", sans-serif;
   font-weight: bold;
-  transition: 0.5s;
-  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.3);
-   margin: .5em .5em;
+  transition: 0.2s ease-in-out;
+  box-shadow: 0px 0px 10px -3px rgba(0, 0, 0, 0.3);
+  margin: .5em .5em;
 }
 .btn-accion:hover {
   background-color: orangered;
   color: white;
   font-weight: bolder;
+  box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.3);
 }
 .thumbnail {
   object-fit: cover;
@@ -148,11 +149,9 @@
 /* Sección Datos Proveedor */
 .info-proveedor {
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
   flex-wrap: wrap;
+  justify-content: space-between;
   width: 100%;
- 
   background-color: #408e8d;
   margin-top: 3em;
   margin-bottom: 3em;
@@ -172,7 +171,6 @@
   align-items: center;
   background-color: yellow;
   width: 10%;
- 
   margin-left: 2em;
 }
 .perfil-proveedor {
@@ -185,13 +183,12 @@
 }
 .tarjeta-perfil {
   background-color: var(--clr-primario-b);
-  height: 77%;
   width: 15rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   border-radius: 1em 1em 0 0;
-  box-shadow: 10px 10px 10px 12px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 0.1);
 }
 .tarjeta-perfil img {
   width: 100%;
@@ -204,10 +201,9 @@
 }
 .tarjeta-perfil a {
   width: 100%;
-  height: 15%;
   text-align: center;
   font-weight: bold;
-  transition: 1s;
+  transition: .3s;
   
 }
 .tarjeta-perfil a:hover {
@@ -234,7 +230,8 @@
   .carrusel {
     width: 17.5rem;
     padding: 1rem;
-  }
+  }Eliminar
+
   .descripcion-m{
     text-align: center;
     display: block;
@@ -348,23 +345,22 @@
 /* Media query sección información proveedor */
 @media only screen and (min-device-width: 320px) and (max-device-width: 1222px) {
   /* Contenedor General */
- .info-proveedor{
-   flex-wrap: nowrap;
+ /* .info-proveedor{
+   flex-wrap: wrap;
    flex-direction: column-reverse;
    align-items: center;
-   height: 55rem;
    padding: 1em 0;
    justify-content: space-around;
     
- }
+ } */
  /* Tarjeta */
- .perfil-proveedor {
+ /* .perfil-proveedor {
    width: 75%;
    height: 40%;
    margin: 0 auto;
-}
+} */
   /* Amarilla */
- .informacion-complementaria{
+ /* .informacion-complementaria{
    width: 100%;
    height: 10%;
    flex-direction: row;
@@ -373,13 +369,13 @@
    padding-top: 1em;
    
   
- }
+ } */
  /* Naranja */
- .descripcion-proveedor {
+ /* .descripcion-proveedor {
   width: 100%;
   height: 50%;
   margin: 0 auto;
-}
+} */
 }
 @media only screen and (min-device-width: 420px) and (max-device-width: 1220px) {
   /* Contenedor General */

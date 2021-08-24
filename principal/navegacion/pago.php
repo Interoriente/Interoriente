@@ -46,6 +46,7 @@
       <div class="accordion-body acordeon-c">
 
         <!-- Publicación -->
+
         <div class="contenedor-items">
           <div class="img-descripcion">
             <div class="contenedor-imagen">
@@ -58,33 +59,6 @@
           </div>
         </div>
         <!-- FIN Publicación -->
-        <!-- Publicación -->
-        <div class="contenedor-items">
-          <div class="img-descripcion">
-            <div class="contenedor-imagen">
-              <img src="../../assets/img/stock/5.jpg" alt="imagen alusiva a la compra">
-            </div>
-            <p id="titulo-publicacion">Monitor Samsung Ips De 24 Full Hd Freesync Hdmi Lf24t400fh </p>
-          </div>
-          <div class="precio">
-            <p>$93.000</p>
-          </div>
-        </div>
-        <!-- FIN Publicación -->
-        <!-- Publicación -->
-        <div class="contenedor-items">
-          <div class="img-descripcion">
-            <div class="contenedor-imagen">
-              <img src="../../assets/img/stock/6.jpg" alt="imagen alusiva a la compra">
-            </div>
-            <p id="titulo-publicacion">Monitor Samsung Ips De 24 Full Hd Freesync Hdmi Lf24t400fh </p>
-          </div>
-          <div class="precio">
-            <p>$903.000</p>
-          </div>
-        </div>
-        <!-- FIN Publicación -->
-
         <!-- Datos de compra  -->
 
         <hr>
@@ -92,13 +66,13 @@
         <div class="main-container">
           <div class="contenedor-datos g">
             <div class="titulo">
+              <!-- <p>Descuentos</p> -->
               <p>Subtotal</p>
-              <p>Descuentos</p>
               <p>IVA</p>
             </div>
             <div class="valor">
-              <p>$23.000</p>
-              <p>$23.000</p>
+              <!-- <p>$23.000</p> -->
+              <p>$23.0200</p>
               <p>$23.000</p>
             </div>
           </div>
@@ -115,42 +89,44 @@
   </div>
   <hr id="separador">
   <!-- Fin Acordeón para dispositivos móviles   -->
+
+
   <div class="contenedor-desk">
 
     <div class="contenedor-principal">
 
       <!-- Tarjeta de contacto -->
+      <h1>Datos de contacto</h1>
+
+
       <div class="tarjeta-contacto">
         <!-- Contenedor información de contacto -->
-        <div class="contacto">
-
-          <div class="correo-contacto">
-            <h6>Contacto</h6>
-            <p>Sramirex@misena.edu.co</p>
+        <div id="contacto-email" class="contacto">
+      
+          <div id = "email-contacto" class="correo-contacto">
+            <h6>Correo Electrónico</h6>
+            <p id="email-contacto-p">test@gmail.com</p>
           </div>
-          <div class="btn-cambiar">
-            <a href="">
-              <p id="cambiar">cambiar</p>
-            </a>
+          <div id="cambiar-email" class="btn-cambiar">
+              <p id="cambiar" onclick="cambiarCorreoContacto()">cambiar</p>
           </div>
-
         </div>
         <!-- FIN Contenedor información de contacto -->
         <hr>
         <div class="direccion">
-          <div class="contacto">
+          <!-- Contenedor Contacto -->
 
+          <div id="contacto-direccion" class="contacto">
             <div class="direccion correo-contacto">
-              <h6>Enviar a</h6>
-              <p>Calle 14 No. 55 AC 138</p>
+              <h6>Dirección de envío</h6>
+              <p id="direccion">Calle 14 No. 55 AC 138</p>
             </div>
-            <div class="btn-cambiar">
-              <a href="">
-                <p id="cambiar">cambiar</p>
-              </a>
+            <div id="cambiar-direccion" class="btn-cambiar">
+              <p id="cambiar">cambiar</p>
             </div>
-
           </div>
+
+          <!-- FIN Contenedor Contacto -->
         </div>
       </div>
       <!-- Fin tarjeta de contacto -->
@@ -291,59 +267,19 @@
       <!-- Contenedor Publicación  -->
       <div class="contenedor-publi">
         <!-- Publicación  -->
-        <div class="publicacion-desktop">
-          <img id="img-publicacion-d" src="../../assets/img/stock/9.jpg" alt="Imagen publicación">
-          <div class="texto-publicacion-d">
-            <p>Monitor Samsung Ips De 24 Full Hd Freesync Hdmi Lf24t400fh</p>
-            <p>$232.123</p>
+       
+          <div class="publicacion-desktop">
+            <img id="img-publicacion-d" src="../../assets/img/stock/9.jpg" alt="Imagen publicación">
+            <div class="texto-publicacion-d">
+              <p>Monitor </p>
+              <p>$34343423</p>
+            </div>
           </div>
-        </div>
+       
         <!-- Fin Publicación  -->
-
-        <div class="publicacion-desktop">
-          <img id="img-publicacion-d" src="../../assets/img/stock/9.jpg" alt="Imagen publicación">
-          <div class="texto-publicacion-d">
-            <p>Monitor Samsung Ips De 24 Full Hd Freesync Hdmi Lf24t400fh</p>
-            <p>$232.123</p>
-          </div>
-        </div>
-        <div class="publicacion-desktop">
-          <img id="img-publicacion-d" src="../../assets/img/stock/9.jpg" alt="Imagen publicación">
-          <div class="texto-publicacion-d">
-            <p>Monitor Samsung Ips De 24 Full Hd Freesync Hdmi Lf24t400fh</p>
-            <p>$232.123</p>
-          </div>
-        </div>
-        <div class="publicacion-desktop">
-          <img id="img-publicacion-d" src="../../assets/img/stock/9.jpg" alt="Imagen publicación">
-          <div class="texto-publicacion-d">
-            <p>Monitor Samsung Ips De 24 Full Hd Freesync Hdmi Lf24t400fh</p>
-            <p>$232.123</p>
-          </div>
-        </div>
-        <div class="publicacion-desktop">
-          <img id="img-publicacion-d" src="../../assets/img/stock/9.jpg" alt="Imagen publicación">
-          <div class="texto-publicacion-d">
-            <p>Monitor Samsung Ips De 24 Full Hd Freesync Hdmi Lf24t400fh</p>
-            <p>$232.123</p>
-          </div>
-        </div>
-        <div class="publicacion-desktop">
-          <img id="img-publicacion-d" src="../../assets/img/stock/9.jpg" alt="Imagen publicación">
-          <div class="texto-publicacion-d">
-            <p>Monitor Samsung Ips De 24 Full Hd Freesync Hdmi Lf24t400fh</p>
-            <p>$232.123</p>
-          </div>
-        </div>
-        <div class="publicacion-desktop">
-          <img id="img-publicacion-d" src="../../assets/img/stock/9.jpg" alt="Imagen publicación">
-          <div class="texto-publicacion-d">
-            <p>Monitor Samsung Ips De 24 Full Hd Freesync Hdmi Lf24t400fh</p>
-            <p>$232.123</p>
-          </div>
-        </div>
       </div>
       <!-- FIN Contenedor Publicación  -->
+
       <!-- Resumen de compra -->
       <h1 id="titulo-resumen">Resumen de compra</h1>
       <hr>
@@ -352,12 +288,13 @@
         <div class="contenedor-datos g">
           <div class="titulo">
             <p>Subtotal</p>
-            <p>Descuentos</p>
+            <!-- <p>Descuentos</p> -->
             <p>IVA</p>
           </div>
           <div class="valor">
             <p>$23.000</p>
-            <p>$23.000</p>
+            <!-- <p>$23.000</p> -->
+
             <p>$23.000</p>
           </div>
         </div>
@@ -379,8 +316,8 @@
 
   <!-- JavaScript  -->
   <script src="../../assets/js/tarjeta.js"></script>
+  <script src="../../assets/js/checkout.js"></script>
   <script src='https://cdnjs.cloudflare.com/ajax/libs/imask/3.4.0/imask.min.js'></script>
-  <script src="./script.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
 </body>
 

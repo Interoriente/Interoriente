@@ -12,22 +12,8 @@ const carritoBtn = document.querySelector(".carrito-busqueda");
 const cantidadCarrito = document.getElementById("cantidad-carrito");
 const overlay = document.getElementById("overlay");
 const finCompra = document.getElementById("finalizar-compra");
-let idUsuario;
-/* TODO: 
-
-    FUNCIONAL:
-                1. Eliminar publicaciones del carrito (ls) * DONE
-                2. Actualizar valor del contador cuando se elimine la publicación DONE
-                3. Crear funcionalidad al input de cantidad (contador + actualizar Ls) DONE
-                4. Crear función para eliminar todos los elementos
-                5. Redirigir a la publicación cuando se haga click
-                6. Almacenar información cuando haya un evento en el btn "Finalizar Compra"
-                7. Limpiar carrito cuando la compra haya finalizado
 
 
-     BUGS:
-            1. Cuando se tienen varios elementos y se elimina uno, no permite cambiar la cantidad de los que quedan             
-    */
 /* Local storage */
 class Storage {
   static setPublicacion(publicacion) {
@@ -195,8 +181,9 @@ finCompra.addEventListener("click", function(){
     dataType: "JSON",
     data: {carrito: carrito},
     success: function (respuesta) {
-      console.log(respuesta);
+      if (respuesta === 1) {
+        window.location = "pago.php"
+      }
     },
-
   });
 });

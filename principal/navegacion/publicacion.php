@@ -92,24 +92,18 @@
     <div class="descripcion-proveedor">
       <h2>Coordinadora recoge y entrega contra reloj.</h2>
       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda soluta nemo placeat sunt nobis odio dolorem fuga asperiores expedita quos earum error omnis, voluptas vitae velit repellat veritatis at ipsa?</p>
-
     </div>
     <div class="informacion-complementaria">
       <p>lorem</p>
       <p>lorem</p>
       <p>lorem</p>
-
     </div>
     <div class="perfil-proveedor">
       <div class="tarjeta-perfil">
         <img src="../../assets/img/10.jpg" alt="Imagen de perfil del proveedor">
-
         <a href="">
           Interoriente SAS
         </a>
-
-
-
       </div>
 
     </div>
