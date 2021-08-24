@@ -115,11 +115,14 @@
         <hr>
         <div class="direccion">
           <!-- Contenedor Contacto -->
-          <div class="addDireccion">
-            
+          <div class="addDireccion info-con">
+          <p>Ingresa dirección a la cuál quieres que llegue tu pedido:</p>
+          <input type="text" id="input-direccion">
+          <div class="info-con">
+            <button id= "guardar-direccion" onclick = "guardarDir()">Guardar Dirección</button>
           </div>
-
-
+          </div>
+          
         <!--   <div id="contacto-direccion" class="contacto">
             <div class="direccion correo-contacto">
               <h6>Dirección de envío</h6>

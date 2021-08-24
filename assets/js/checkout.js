@@ -2,11 +2,10 @@ const cambiarCorreo = document.getElementById("cambiar-email");
 const cambiarDireccion = document.getElementById("cambiar-direccion");
 const contactoEmail = document.getElementById("contacto-email");
 const contactoDireccion = document.getElementById("contacto-direccion");
+const guardarDireccion = document.getElementById("guardar-direccion");
+const guardarDireccionInput = document.getElementById("input-direccion");
 let emailContactoP = document.getElementById("email-contacto-p");
-
-
-
-
+let emailContactoP = document.getElementById("email-contacto-p");
 let nuevoEmail;
 let guardarEmail;
 
@@ -15,10 +14,10 @@ let infoCheckout
 function cambiarCorreoContacto(){
     let correoUsuario = emailContactoP.textContent;
     const cambioEmail = `
-       <div class="cambioEmail">
+       <div class="cambioEmail info-con">
             <p>Se enviará información de esta compra al siguiente correo electrónico</p>
             <input id="nuevo-email" type="email" placeholder="Ej: pepe@gmail.com" value = "${correoUsuario}" >
-            <div class="btn-guardar-cambios">
+            <div class="btn-guardar-cambios info-con">
               <button id="btn-guardar-email" onclick = "guardarE()">guardar</button>
             </div>
           </div>
@@ -42,8 +41,8 @@ function guardarE(){
 }
 /* Cambiar dirección en el caso de que exista */
 
-function cambiarDireccion() {
-
+function guardarDir() {
+ 
 
 }
 

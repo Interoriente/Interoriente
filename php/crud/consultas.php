@@ -1,4 +1,5 @@
 <?php
+
 if (isset($_POST['id']) || isset($_POST['carrito']) || isset($_POST['idUsuarioLogeado'])) {
   if ($_POST['id']) {
     $id = $_POST['id'];
@@ -125,6 +126,24 @@ class Checkout{
     $stmt->execute();
     $resultado = $stmt->fetchAll();
     return $resultado;
+  }
+  
+  public function validarDireccion(){
+    session_start();
+    $idUsuario = $_SESSION['documentoIdentidad'];
+    if (isset($idUsuario)) {
+      require('../../dao/conexion.php');
+      $sql = "SELECT docIdentidadDireccion FROM tbldirecciones
+      WHERE docIdentidadDireccion = $idUsuario";
+      $stmt = $pdo->prepare($slq);
+      $stmt->execute();
+      $resultado = $stmt->fetch();
+      if (isset($resultado)) {
+        echo 1;
+      }
+    }else{
+      echo 0;
+    }
   }
 
 }
