@@ -5,4 +5,4 @@ if (isset($_POST['arr'])) {
     /* Llamar función */
 }
 
-public class 
+//public class 

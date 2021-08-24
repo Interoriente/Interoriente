@@ -1,5 +1,3 @@
-<?php session_start();
-?>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -9,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../assets/css/estilosMisCompras.css">
     <link rel="icon" href="../../assets/img/favicon.png" type="image/png">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous" />
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous" /> -->
     <title>Mis Compras | Interoriente</title>
 </head>
 
@@ -23,7 +21,7 @@
         <div class="header">
             <div class="contenedores-menu">
                 <div class="menu-menu">
-                    <div class="menu">
+                    <div class="menu-principal">
                         <div class="cont-menuuno">
                             <img class="imagen-cont" src="../../assets/img/computador.jpg" alt="">
                         </div>
@@ -38,7 +36,7 @@
                             <button class="boton-menu">Hacer un reclamo</button>
                         </div>
                     </div>
-                    <div class="menu">
+                    <div class="menu-principal">
                         <div class="cont-menuuno">
                             <img class="imagen-cont" src="../../assets/img/cajas.jpg" alt="">
                         </div>
@@ -53,7 +51,7 @@
                             <button class="boton-menu">Hacer un reclamo</button>
                         </div>
                     </div>
-                    <div class="menu">
+                    <div class="menu-principal">
                         <div class="cont-menuuno">
                             <img class="imagen-cont" src="../../assets/img/manorobot.jpg" alt="">
                         </div>
@@ -68,7 +66,7 @@
                             <button class="boton-menu">Hacer un reclamo</button>
                         </div>
                     </div>
-                    <div class="menu">
+                    <div class="menu-principal">
                         <div class="cont-menuuno">
                             <img class="imagen-cont" src="../../assets/img/php.png" alt="">
                         </div>
@@ -83,7 +81,7 @@
                             <button class="boton-menu">Hacer un reclamo</button>
                         </div>
                     </div>
-                    <div class="menu">
+                    <div class="menu-principal">
                         <div class="cont-menuuno">
                             <img class="imagen-cont" src="../../assets/img/banderaingles.jpg" alt="">
                         </div>
@@ -98,7 +96,7 @@
                             <button class="boton-menu">Hacer un reclamo</button>
                         </div>
                     </div>
-                    <div class="menu">
+                    <div class="menu-principal">
                         <div class="cont-menuuno">
                             <img class="imagen-cont" src="../../assets/img/iarobots.jpg" alt="">
                         </div>
