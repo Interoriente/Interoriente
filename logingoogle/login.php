@@ -53,35 +53,13 @@ if (isset($_GET['code'])) {
   $consultaInicio = $pdo->prepare($sqlInicio);
   if ($consultaInicio->execute(array($email, $estado))) {
       $resultadoInicio = $consultaInicio->rowCount();
+      var_dump($resultadoInicio);
       if ($resultadoObjetoInicio = $consultaInicio->fetch(PDO::FETCH_OBJ)) {
           //Llamado al documento independiente si ingresa correo o documento
           $documento = $resultadoObjetoInicio->documentoIdentidad;
       }
   }
-  /*
-  //Llamado a tabla rol
-  if ($resultadoInicio) { //Verifico que la informacion que se digitó en el formulario sea la que existe en BD, para llamar a tabla USuarioRol
-      $sqlInicioUR = "SELECT idUsuarioRol FROM tblUsuarioRol WHERE docIdentidadUsuarioRol=?";
-      $consultaInicioUR = $pdo->prepare($sqlInicioUR);
-      $consultaInicioUR->execute(array($documento));
-      $resultadoInicioUR = $consultaInicioUR->rowCount();
-      $rol = $consultaInicioUR->fetch(PDO::FETCH_OBJ);
-      if ($resultadoInicioUR) {
-          $rol = $rol->idUsuarioRol;
-      }
-  }
-  */
-  if ($resultadoInicio) {
-      $_SESSION["documentoIdentidad"] = $resultadoObjetoInicio->documentoIdentidad;
-      //Siempre para iniciar se inicia como Comprador/Proveedor -> O por lo menos con el primer rol que se tenga
-      $_SESSION['roles'] = $rol;
-      //Comprador/Proveedor
-      echo "<script>alert('LINDO');</script>";
-      //header("Location: ../../users/dashboard/principal/dashboard.php");
-  } else {
-      echo "<script>alert('Correo o documento y/o contraseña incorrecto, o validación denegada');</script>";
-      //echo "<script> document.location.href='../../principal/navegacion/iniciarsesion.php';</script>";
-  }
+  
 }
 
   /* echo "Email= ".$email .'<br>';
