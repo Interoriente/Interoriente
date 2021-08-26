@@ -51,15 +51,9 @@ if (isset($_GET['code'])) {
   $estado = '1';
   $sqlInicio = "SELECT*FROM tblUsuario WHERE (emailUsuario=?) AND estadoUsuario = ?";
   $consultaInicio = $pdo->prepare($sqlInicio);
-  if ($consultaInicio->execute(array($email, $estado))) {
-      $resultadoInicio = $consultaInicio->rowCount();
-      var_dump($resultadoInicio);
-      if ($resultadoObjetoInicio = $consultaInicio->fetch(PDO::FETCH_OBJ)) {
-          //Llamado al documento independiente si ingresa correo o documento
-          $documento = $resultadoObjetoInicio->documentoIdentidad;
-      }
-  }
-  
+  $consultaInicio->execute(array($email, $estado));
+  $resultadoInicio = $consultaInicio->rowCount();
+  var_dump($resultadoInicio);
 }
 
   /* echo "Email= ".$email .'<br>';
