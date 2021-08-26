@@ -48,13 +48,12 @@ if (isset($_GET['code'])) {
   require_once '../dao/conexion.php';
 
   //Capturo información
-  /*$estado = '1';
-  $sqlInicio = "SELECT*FROM tblUsuario WHERE (emailUsuario=?) AND estadoUsuario = ?";
+  $estado = '1';
+  $sqlInicio = "SELECT*FROM tblUsuario WHERE emailUsuario=? AND estadoUsuario = ?";
   $consultaInicio = $pdo->prepare($sqlInicio);
   $consultaInicio->execute(array($email, $estado));
   $resultadoInicio = $consultaInicio->rowCount();
-  var_dump($resultadoInicio);
-  */
+  /*
   echo "Email= ".$email .'<br>';
   echo "familyName= ".$familyName .'<br>';
   echo "Name= ".$name .'<br>';
@@ -64,6 +63,7 @@ if (isset($_GET['code'])) {
   echo "Id= ".$id .'<br>';
   echo "Locale= ".$locale .'<br>';
   echo "Verified Email= ".$verifiedEmail .'<br>';
+  */
 }  
 ?>
 <!DOCTYPE html>
