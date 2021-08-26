@@ -37,11 +37,14 @@ if (isset($_GET['code'])) {
   $email =  $google_account_info->email;
 
   $name =  $google_account_info->name;
+  
+  $familyName =  $google_account_info->familyName;
 
 
   // Estos datos son los que obtenemos....	
 
   echo $email .'<br>';
+  echo $familyName;
   echo $name ;
 
   
