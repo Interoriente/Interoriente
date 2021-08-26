@@ -22,29 +22,29 @@ session_start();
         $contrasena = strip_tags($_POST['contrasena']);
         $contrasena = sha1($_POST['contrasena']);
         $estado = '1';
-        $sql_inicio = "SELECT*FROM tblUsuario WHERE (documentoIdentidad=? OR emailUsuario=?)  AND contrasenaUsuario=? AND estadoUsuario = ?";
-        $consulta_inicio = $pdo->prepare($sql_inicio);
-        if ($consulta_inicio->execute(array($id, $id, $contrasena, $estado))) {
-            $resultado_inicio = $consulta_inicio->rowCount();
-            if ($prueba = $consulta_inicio->fetch(PDO::FETCH_OBJ)) {
+        $sqlInicio = "SELECT*FROM tblUsuario WHERE (documentoIdentidad=? OR emailUsuario=?)  AND contrasenaUsuario=? AND estadoUsuario = ?";
+        $consultaInicio = $pdo->prepare($sqlInicio);
+        if ($consultaInicio->execute(array($id, $id, $contrasena, $estado))) {
+            $resultadoInicio = $consultaInicio->rowCount();
+            if ($resultadoObjetoInicio = $consultaInicio->fetch(PDO::FETCH_OBJ)) {
                 //Llamado al documento independiente si ingresa correo o documento
-                $documento = $prueba->documentoIdentidad;
+                $documento = $resultadoObjetoInicio->documentoIdentidad;
             }
         }
 
         //Llamado a tabla rol
-        if ($resultado_inicio) { //Verifico que la informacion que se digitó en el formulario sea la que existe en BD, para llamar a tabla USuarioRol
-            $sql_inicio1 = "SELECT idUsuarioRol FROM tblUsuarioRol WHERE docIdentidadUsuarioRol=?";
-            $consulta_inicio1 = $pdo->prepare($sql_inicio1);
-            $consulta_inicio1->execute(array($documento));
-            $resultado_inicio1 = $consulta_inicio1->rowCount();
-            $rol = $consulta_inicio1->fetch(PDO::FETCH_OBJ);
-            if ($resultado_inicio1) {
+        if ($resultadoInicio) { //Verifico que la informacion que se digitó en el formulario sea la que existe en BD, para llamar a tabla USuarioRol
+            $sqlInicioUR = "SELECT idUsuarioRol FROM tblUsuarioRol WHERE docIdentidadUsuarioRol=?";
+            $consultaInicioUR = $pdo->prepare($sqlInicioUR);
+            $consultaInicioUR->execute(array($documento));
+            $resultadoInicioUR = $consultaInicioUR->rowCount();
+            $rol = $consultaInicioUR->fetch(PDO::FETCH_OBJ);
+            if ($resultadoInicioUR) {
                 $rol = $rol->idUsuarioRol;
             }
         }
-        if ($resultado_inicio) {
-            $_SESSION["documentoIdentidad"] = $prueba->documentoIdentidad;
+        if ($resultadoInicio) {
+            $_SESSION["documentoIdentidad"] = $resultadoObjetoInicio->documentoIdentidad;
             //Siempre para iniciar se inicia como Comprador/Proveedor -> O por lo menos con el primer rol que se tenga
             $_SESSION['roles'] = $rol;
             //Comprador/Proveedor

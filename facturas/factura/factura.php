@@ -19,7 +19,7 @@
 		<tr>
 			<td class="logo_factura">
 				<div>
-					<img src="img/logo.png">
+					<img src="img/LogoTerciario.svg">
 				</div>
 			</td>
 			<td class="info_empresa">
@@ -42,7 +42,7 @@
 			<td class="info_factura">
 				<div class="round">
 					<span class="h3">Factura</span>
-					<p>No. Factura: <strong><?php echo $factura['nofactura']; ?></strong></p>
+					<p>No. Factura: <strong><?php echo $factura['idCompra']; ?></strong></p>
 					<p>Fecha: <?php echo $factura['fecha']; ?></p>
 					<p>Hora: <?php echo $factura['hora']; ?></p>
 					<p>Vendedor: <?php echo $factura['vendedor']; ?></p>

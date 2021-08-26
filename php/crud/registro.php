@@ -13,8 +13,8 @@
     <?php
     //Verifico que coincidan las contraseñas
     $contrasena = $_POST['contrasena'];
-    $recontrasena = $_POST['recontrasena'];
-    if ($contrasena == $recontrasena) {
+    $reContrasena = $_POST['recontrasena'];
+    if ($contrasena == $reContrasena) {
         if ($_POST) {
             //Llamar a la conexion base de datos
             include_once '../../dao/conexion.php';
@@ -30,30 +30,30 @@
             $perfil = "imagenes/NO_borrar.png";
             $rol = '1';
             //Verificación correo existente
-            $sql_correoexistente = "SELECT*FROM tblUsuario WHERE emailUsuario=? or documentoIdentidad=?";
-            $consulta_correo = $pdo->prepare($sql_correoexistente);
-            $consulta_correo->execute(array($correo, $documento));
-            $resultado_correo = $consulta_correo->rowCount();
+            $sqlExistente = "SELECT*FROM tblUsuario WHERE emailUsuario=? or documentoIdentidad=?";
+            $consultaExistente = $pdo->prepare($sqlExistente);
+            $consultaExistente->execute(array($correo, $documento));
+            $resultadoExistente = $consultaExistente->rowCount();
 
-            if ($resultado_correo) {
+            if ($resultadoExistente) {
                 //Impresión correo ingresado, ya existe en BD
                 echo "<script>alert('El correo y/o documento ingresado ya existe!, por favor verificalo e intenta nuevamente');</script>";
                 echo "<script> document.location.href='../../principal/navegacion/registro.php';</script>";
             } else {
                 //Consulta correo ingresado no existe en BD
                 //sentencia Sql
-                $sql_insertar = "INSERT INTO tblUsuario (documentoIdentidad,nombresUsuario, apellidoUsuario, emailUsuario,contrasenaUsuario,estadoUsuario,imagenUsuario)VALUES (?,?,?,?,?,?,?)";
+                $sqlRegistro = "INSERT INTO tblUsuario (documentoIdentidad,nombresUsuario, apellidoUsuario, emailUsuario,contrasenaUsuario,estadoUsuario,imagenUsuario)VALUES (?,?,?,?,?,?,?)";
                 //Preparar consulta
-                $consulta_insertar = $pdo->prepare($sql_insertar);
+                $consultaRegistro = $pdo->prepare($sqlRegistro);
                 //Ejecutar la sentencia
 
-                if ($consulta_insertar->execute(array($documento, $nombres, $apellidos, $correo, $contrasena,  $estado, $perfil))) {
+                if ($consultaRegistro->execute(array($documento, $nombres, $apellidos, $correo, $contrasena,  $estado, $perfil))) {
                     //llamado a la tabla rol (intermedia) para almacenar el rol predeterminado
-                    $sql_insertar = "INSERT INTO tblUsuarioRol (idUsuarioRol,docIdentidadUsuarioRol)VALUES (?,?)";
+                    $sqlRegistroUR = "INSERT INTO tblUsuarioRol (idUsuarioRol,docIdentidadUsuarioRol)VALUES (?,?)";
                     //Preparar consulta
-                    $consulta_insertar = $pdo->prepare($sql_insertar);
+                    $consultaRegistroUR = $pdo->prepare($sqlRegistroUR);
                     //Ejecutar la sentencia
-                    $consulta_insertar->execute(array($rol, $documento));
+                    $consultaRegistroUR->execute(array($rol, $documento));
                     echo "<script>alert('Datos almacenados correctamente');</script>";
                     /* Almacenado documento de identidad en variable de sesión
                     Creación de la sesión
