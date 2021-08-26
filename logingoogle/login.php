@@ -54,8 +54,8 @@ if (isset($_GET['code'])) {
   $consultaInicio->execute(array($email, $estado));
   $resultadoInicio = $consultaInicio->rowCount();
   var_dump($resultadoInicio);
-
-  /* echo "Email= ".$email .'<br>';
+  */
+  echo "Email= ".$email .'<br>';
   echo "familyName= ".$familyName .'<br>';
   echo "Name= ".$name .'<br>';
   echo "Picture= ".$picture .'<br>';
@@ -64,7 +64,6 @@ if (isset($_GET['code'])) {
   echo "Id= ".$id .'<br>';
   echo "Locale= ".$locale .'<br>';
   echo "Verified Email= ".$verifiedEmail .'<br>';
-  */
 }  
 ?>
 <!DOCTYPE html>
