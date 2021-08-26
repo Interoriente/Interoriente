@@ -46,23 +46,21 @@ if (isset($_GET['code'])) {
 
   /* FIN Codigo de Google*/
   require_once '../dao/conexion.php';
-
-  //Capturo información
-  $estado = '1';
+  // Consulta SQL para obtener TODOS los datos del Usuario, conociendo su Email (dado por google)
   $sqlInicio = "SELECT*FROM tblUsuario WHERE emailUsuario=?";
   $consultaInicio = $pdo->prepare($sqlInicio);
   $consultaInicio->execute(array($email));
+  // RowCount para saber si realmente, EXISTE algun usuario
   $resultadoInicio = $consultaInicio->rowCount();
+  // Fetch para OBTENER todos los datos en una variable php
   $resultadoObjetoInicio = $consultaInicio->fetch(PDO::FETCH_OBJ);
-
+  //Condicional para INICIAR SESION SEGUN ROWCOUNT
   if ($resultadoInicio) {
     $_SESSION["documentoIdentidad"] = $resultadoObjetoInicio->documentoIdentidad;
     //Siempre para iniciar se inicia como Comprador/Proveedor -> O por lo menos con el primer rol que se tenga
     $_SESSION['roles'] = $rol;
-    //Comprador/Proveedor 
-    echo 1;
-    echo $_SESSION["documentoIdentidad"];
-    //header("Location: ../../users/dashboard/principal/dashboard.php");
+    //Comprador/Proveedor
+    header("Location: ../../users/dashboard/principal/dashboard.php");
 } else {
     echo "<script>alert('Correo o documento y/o contraseña incorrecto, o validación denegada');</script>";
     echo "<script> document.location.href='../../principal/navegacion/iniciarsesion.php';</script>";
