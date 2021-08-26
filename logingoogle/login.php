@@ -39,14 +39,22 @@ if (isset($_GET['code'])) {
   $name =  $google_account_info->name;
   
   $familyName =  $google_account_info->familyName;
-
+  $picture =  $google_account_info->picture;
+  $givenName =  $google_account_info->givenName;
+  $gender =  $google_account_info->gender;
+  $id =  $google_account_info->id;
+  $locale =  $google_account_info->locale;
 
   // Estos datos son los que obtenemos....	
 
-  echo $email .'<br>';
-  echo $familyName;
-  echo $name ;
-
+  echo "Email= ".$email .'<br>';
+  echo "familyName= ".$familyName .'<br>';
+  echo "Name= ".$name .'<br>';
+  echo "Picture= ".$picture .'<br>';
+  echo "Given Name= ".$givenName .'<br>';
+  echo "Gender= ".$gender .'<br>';
+  echo "Id= ".$id .'<br>';
+  echo "Locale= ".$locale .'<br>';
   
 
 }  
