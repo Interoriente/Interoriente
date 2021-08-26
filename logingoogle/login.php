@@ -58,7 +58,7 @@ if (isset($_GET['code'])) {
           $documento = $resultadoObjetoInicio->documentoIdentidad;
       }
   }
-
+  /*
   //Llamado a tabla rol
   if ($resultadoInicio) { //Verifico que la informacion que se digitó en el formulario sea la que existe en BD, para llamar a tabla USuarioRol
       $sqlInicioUR = "SELECT idUsuarioRol FROM tblUsuarioRol WHERE docIdentidadUsuarioRol=?";
