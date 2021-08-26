@@ -49,13 +49,14 @@ if (isset($_GET['code'])) {
 
   //Capturo información
   $estado = '1';
-  $sqlInicio = "SELECT*FROM tblUsuario WHERE emailUsuario=? AND estadoUsuario = ?";
+  $sqlInicio = "SELECT*FROM tblUsuario WHERE emailUsuario=?";
   $consultaInicio = $pdo->prepare($sqlInicio);
-  $consultaInicio->execute(array($email, $estado));
+  $consultaInicio->execute(array($email));
   $resultadoInicio = $consultaInicio->rowCount();
+  $resultadoObjetoInicio = $consultaInicio->fetch(PDO::FETCH_OBJ);
 
   if ($resultadoInicio) {
-    $_SESSION["documentoIdentidad"] = $consultaInicio->documentoIdentidad;
+    $_SESSION["documentoIdentidad"] = $resultadoObjetoInicio->documentoIdentidad;
     //Siempre para iniciar se inicia como Comprador/Proveedor -> O por lo menos con el primer rol que se tenga
     $_SESSION['roles'] = $rol;
     //Comprador/Proveedor 
