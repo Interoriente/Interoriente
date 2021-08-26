@@ -9,6 +9,8 @@
   <link rel="icon" href="../../assets/img/favicon.png" type="image/png" />
   <!-- Bootstrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous" />
+  
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 
   <!-- Css local  -->
   <link rel="stylesheet" href="../../assets/css/general.css" />
@@ -102,13 +104,13 @@
       <div class="tarjeta-contacto">
         <!-- Contenedor información de contacto -->
         <div id="contacto-email" class="contacto">
-      
-          <div id = "email-contacto" class="correo-contacto">
+
+          <div id="email-contacto" class="correo-contacto">
             <h6>Correo Electrónico</h6>
             <p id="email-contacto-p">test@gmail.com</p>
           </div>
           <div id="cambiar-email" class="btn-cambiar">
-              <p id="cambiar" onclick="cambiarCorreoContacto()">cambiar</p>
+            <p id="cambiar" onclick="cambiarCorreoContacto()">cambiar</p>
           </div>
         </div>
         <!-- FIN Contenedor información de contacto -->
@@ -116,14 +118,14 @@
         <div class="direccion">
           <!-- Contenedor Contacto -->
           <div class="addDireccion info-con">
-          <p>Ingresa dirección a la cuál quieres que llegue tu pedido:</p>
-          <input type="text" id="input-direccion">
-          <div class="info-con">
-            <button id= "guardar-direccion" onclick = "guardarDir()">Guardar Dirección</button>
+            <p>Ingresa dirección a la cuál quieres que llegue tu pedido:</p>
+            <input type="text" id="input-direccion">
+            <div class="info-con">
+              <button id="guardar-direccion" onclick="guardarDir()">Guardar Dirección</button>
+            </div>
           </div>
-          </div>
-          
-        <!--   <div id="contacto-direccion" class="contacto">
+
+          <!--   <div id="contacto-direccion" class="contacto">
             <div class="direccion correo-contacto">
               <h6>Dirección de envío</h6>
               <p id="direccion">Calle 14 No. 55 AC 138</p>
@@ -274,15 +276,15 @@
       <!-- Contenedor Publicación  -->
       <div class="contenedor-publi">
         <!-- Publicación  -->
-       
-          <div class="publicacion-desktop">
-            <img id="img-publicacion-d" src="../../assets/img/stock/9.jpg" alt="Imagen publicación">
-            <div class="texto-publicacion-d">
-              <p>Monitor </p>
-              <p>$34343423</p>
-            </div>
+
+        <div class="publicacion-desktop">
+          <img id="img-publicacion-d" src="../../assets/img/stock/9.jpg" alt="Imagen publicación">
+          <div class="texto-publicacion-d">
+            <p>Monitor </p>
+            <p>$34343423</p>
           </div>
-       
+        </div>
+
         <!-- Fin Publicación  -->
       </div>
       <!-- FIN Contenedor Publicación  -->

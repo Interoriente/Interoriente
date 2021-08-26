@@ -1,5 +1,7 @@
 /* TODO: 
 
+CARRITO.
+
     FUNCIONAL:
                 1. Eliminar publicaciones del carrito (ls) * DONE
                 2. Actualizar valor del contador cuando se elimine la publicación DONE
@@ -39,4 +41,8 @@ A tener en cuenta:
 
 BD
 
-1. Evaluar relación direcciónCompra con tabla direcciones
+1. Evaluar relación direcciónCompra con tabla direcciones LISTO
+
+CHECKOUT
+
+1. Validar si el usuario tiene direcciones asociadas

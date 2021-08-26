@@ -9,7 +9,9 @@ if (isset($_POST['id']) || isset($_POST['carrito']) || isset($_POST['idUsuarioLo
     $carrito = json_decode($carrito);
     almacenarCarrito($carrito);
   } else {
-    getIdUsuario();
+    $checkout = new Checkout();
+    $checkout = $checkout->validarDireccion();
+    echo $checkout;
   }
 }
 
@@ -133,16 +135,16 @@ class Checkout{
     $idUsuario = $_SESSION['documentoIdentidad'];
     if (isset($idUsuario)) {
       require('../../dao/conexion.php');
-      $sql = "SELECT docIdentidadDireccion FROM tbldirecciones
+      $sql = "SELECT * FROM tblDirecciones
       WHERE docIdentidadDireccion = $idUsuario";
-      $stmt = $pdo->prepare($slq);
+   /*    $sql = "SELECT idDireccion FROM tbldirecciones
+      WHERE docIdentidadDireccion = $idUsuario"; */
+      $stmt = $pdo->prepare($sql);
       $stmt->execute();
-      $resultado = $stmt->fetch();
-      if (isset($resultado)) {
-        echo 1;
-      }
-    }else{
-      echo 0;
+      $resultado = $stmt->fetchAll();
+      return $resultado;
+    } else {
+      return "La sesión no existe";
     }
   }
 

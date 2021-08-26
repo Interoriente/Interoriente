@@ -5,11 +5,24 @@ const contactoDireccion = document.getElementById("contacto-direccion");
 const guardarDireccion = document.getElementById("guardar-direccion");
 const guardarDireccionInput = document.getElementById("input-direccion");
 let emailContactoP = document.getElementById("email-contacto-p");
-let emailContactoP = document.getElementById("email-contacto-p");
 let nuevoEmail;
 let guardarEmail;
-
 let infoCheckout
+/* Check if tblDirecciones has matches */
+
+  $.ajax({
+    /* LLamando clase PHP */
+    url: "../../php/crud/consultas.php", //Ruta de la clase
+    type: "POST", //Tipo de request,
+    data: {idUsuarioLogeado: true}, //Datos a recibir en el script .php a traves de $_POST
+    success: function (respuesta) {
+      /* En caso de una respuesta exitosa */
+      console.log(respuesta); //Agregando nuevo key and value al JSON
+      
+    },
+  });
+
+
 
 function cambiarCorreoContacto(){
     let correoUsuario = emailContactoP.textContent;
@@ -43,6 +56,5 @@ function guardarE(){
 
 function guardarDir() {
  
-
 }
 
