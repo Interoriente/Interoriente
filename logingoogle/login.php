@@ -44,6 +44,7 @@ if (isset($_GET['code'])) {
   $gender =  $google_account_info->gender;
   $id =  $google_account_info->id;
   $locale =  $google_account_info->locale;
+  $verifiedEmail =  $google_account_info->verifiedEmail;
 
   // Estos datos son los que obtenemos....	
 
@@ -55,6 +56,8 @@ if (isset($_GET['code'])) {
   echo "Gender= ".$gender .'<br>';
   echo "Id= ".$id .'<br>';
   echo "Locale= ".$locale .'<br>';
+  echo "Verified Email= ".$verifiedEmail .'<br>';
+  
   
 
 }  
