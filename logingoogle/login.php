@@ -43,7 +43,6 @@ if (isset($_GET['code'])) {
   $id =  $google_account_info->id;
   $locale =  $google_account_info->locale;
   $verifiedEmail =  $google_account_info->verifiedEmail;
-
   /* FIN Codigo de Google*/
   require_once '../dao/conexion.php';
   // Consulta SQL para obtener TODOS los datos del Usuario, conociendo su Email (dado por google)
@@ -55,6 +54,21 @@ if (isset($_GET['code'])) {
   // Fetch para OBTENER todos los datos en una variable php
   $resultadoObjetoInicio = $consultaInicio->fetch(PDO::FETCH_OBJ);
   //Condicional para INICIAR SESION SEGUN ROWCOUNT
+
+  $documento=$resultadoObjetoInicio->documentoIdentidad;
+
+  // Consulta SQL para ROL
+  if ($resultadoInicio) { //Verifico que la informacion que se digitó en el formulario sea la que existe en BD, para llamar a tabla USuarioRol
+    $sqlInicioUR = "SELECT idUsuarioRol FROM tblUsuarioRol WHERE docIdentidadUsuarioRol=?";
+    $consultaInicioUR = $pdo->prepare($sqlInicioUR);
+    $consultaInicioUR->execute(array($documento));
+    $resultadoInicioUR = $consultaInicioUR->rowCount();
+    $rol = $consultaInicioUR->fetch(PDO::FETCH_OBJ);
+    if ($resultadoInicioUR) {
+        $rol = $rol->idUsuarioRol;
+    }
+  }
+
   if ($resultadoInicio) {
     $_SESSION["documentoIdentidad"] = $resultadoObjetoInicio->documentoIdentidad;
     //Siempre para iniciar se inicia como Comprador/Proveedor -> O por lo menos con el primer rol que se tenga
