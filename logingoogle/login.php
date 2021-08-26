@@ -76,10 +76,11 @@ if (isset($_GET['code'])) {
       //Siempre para iniciar se inicia como Comprador/Proveedor -> O por lo menos con el primer rol que se tenga
       $_SESSION['roles'] = $rol;
       //Comprador/Proveedor
-      header("Location: ../../users/dashboard/principal/dashboard.php");
+      echo "<script>alert('LINDO');</script>";
+      //header("Location: ../../users/dashboard/principal/dashboard.php");
   } else {
       echo "<script>alert('Correo o documento y/o contraseña incorrecto, o validación denegada');</script>";
-      echo "<script> document.location.href='../../principal/navegacion/iniciarsesion.php';</script>";
+      //echo "<script> document.location.href='../../principal/navegacion/iniciarsesion.php';</script>";
   }
 }
 
