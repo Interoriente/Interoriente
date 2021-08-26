@@ -55,10 +55,11 @@ if (isset($_GET['code'])) {
   $resultadoInicio = $consultaInicio->rowCount();
 
   if ($resultadoInicio) {
-    $_SESSION["documentoIdentidad"] = $resultadoObjetoInicio->documentoIdentidad;
+    $_SESSION["documentoIdentidad"] = $consultaInicio->documentoIdentidad;
     //Siempre para iniciar se inicia como Comprador/Proveedor -> O por lo menos con el primer rol que se tenga
     $_SESSION['roles'] = $rol;
-    //Comprador/Proveedor
+    //Comprador/Proveedor 
+    echo 1;
     echo $_SESSION["documentoIdentidad"];
     //header("Location: ../../users/dashboard/principal/dashboard.php");
 } else {
