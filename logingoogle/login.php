@@ -53,6 +53,7 @@ if (isset($_GET['code'])) {
   $consultaInicio = $pdo->prepare($sqlInicio);
   $consultaInicio->execute(array($email, $estado));
   $resultadoInicio = $consultaInicio->rowCount();
+  var_dump($resultadoInicio);
   /*
   echo "Email= ".$email .'<br>';
   echo "familyName= ".$familyName .'<br>';
