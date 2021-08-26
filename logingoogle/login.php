@@ -70,6 +70,7 @@ if (isset($_GET['code'])) {
           $rol = $rol->idUsuarioRol;
       }
   }
+  */
   if ($resultadoInicio) {
       $_SESSION["documentoIdentidad"] = $resultadoObjetoInicio->documentoIdentidad;
       //Siempre para iniciar se inicia como Comprador/Proveedor -> O por lo menos con el primer rol que se tenga
