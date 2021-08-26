@@ -53,7 +53,17 @@ if (isset($_GET['code'])) {
   $consultaInicio = $pdo->prepare($sqlInicio);
   $consultaInicio->execute(array($email, $estado));
   $resultadoInicio = $consultaInicio->rowCount();
-  var_dump($resultadoInicio);
+
+  if ($resultadoInicio) {
+    $_SESSION["documentoIdentidad"] = $resultadoObjetoInicio->documentoIdentidad;
+    //Siempre para iniciar se inicia como Comprador/Proveedor -> O por lo menos con el primer rol que se tenga
+    $_SESSION['roles'] = $rol;
+    //Comprador/Proveedor
+    header("Location: ../../users/dashboard/principal/dashboard.php");
+} else {
+    echo "<script>alert('Correo o documento y/o contraseña incorrecto, o validación denegada');</script>";
+    echo "<script> document.location.href='../../principal/navegacion/iniciarsesion.php';</script>";
+}
   /*
   echo "Email= ".$email .'<br>';
   echo "familyName= ".$familyName .'<br>';
