@@ -1,6 +1,7 @@
 <?php
 
-if (isset($_POST['id']) || isset($_POST['carrito']) || isset($_POST['idUsuarioLogeado'])) {
+if (isset($_POST['id']) || isset($_POST['carrito']) || isset($_GET['idUsuarioLogeado']) || isset($_GET['ciudades'])) {
+
   if ($_POST['id']) {
     $id = $_POST['id'];
     addCarrito($id);
@@ -8,11 +9,31 @@ if (isset($_POST['id']) || isset($_POST['carrito']) || isset($_POST['idUsuarioLo
     $carrito = $_POST['carrito'];
     $carrito = json_decode($carrito);
     almacenarCarrito($carrito);
+  } else if(isset($_GET['idUsuarioLogeado'])) {
+    $checkout = new Checkout();
+    $valDirecciones = $checkout->validarDireccion();
+    echo $valDirecciones;
   } else {
     $checkout = new Checkout();
-    $checkout = $checkout->validarDireccion();
-    echo $checkout;
+    $ciudades = $checkout->getCiudades();
+    echo $ciudades;
   }
+}
+/* Función para reducir el arreglo a una sola dimensión */
+function simplificarArreglo($array)
+{
+  if (!is_array($array)) {
+    return false;
+  }
+  $resultado = array();
+  foreach ($array as $key => $value) {
+    if (is_array($value)) {
+      $resultado = array_merge($resultado, simplificarArreglo($value));
+    } else {
+      $resultado[$key] = $value;
+    }
+  }
+  return $resultado;
 }
 
 function getIdUsuario()
@@ -25,6 +46,7 @@ function getIdUsuario()
     echo "No es posible obtener id porque la sesión no existe";
   }
 }
+
 
 function getPublicaciones()
 {
@@ -67,22 +89,7 @@ function addCarrito($id)
   $consulta = $pdo->prepare($sql);
   $consulta->execute();
   $resultado = $consulta->fetchAll(\PDO::FETCH_ASSOC);
-  /* Función para reducir el arreglo a una sola dimensión */
-  function simplificarArreglo($array)
-  {
-    if (!is_array($array)) {
-      return false;
-    }
-    $resultado = array();
-    foreach ($array as $key => $value) {
-      if (is_array($value)) {
-        $resultado = array_merge($resultado, simplificarArreglo($value));
-      } else {
-        $resultado[$key] = $value;
-      }
-    }
-    return $resultado;
-  }
+ 
   $resultado = simplificarArreglo($resultado);
   /* Resultado a devolver */
   echo json_encode($resultado);
@@ -114,6 +121,7 @@ function almacenarCarrito($carrito)
   }
 
 }
+
 /* Check-out */
 
 class Checkout{
@@ -135,17 +143,30 @@ class Checkout{
     $idUsuario = $_SESSION['documentoIdentidad'];
     if (isset($idUsuario)) {
       require('../../dao/conexion.php');
-      $sql = "SELECT * FROM tblDirecciones
+      $sql = "SELECT nombreDireccion as 'nombreDireccion', 
+      descripcionDireccion as 'direccion' 
+      FROM tblDirecciones
       WHERE docIdentidadDireccion = $idUsuario";
-   /*    $sql = "SELECT idDireccion FROM tbldirecciones
-      WHERE docIdentidadDireccion = $idUsuario"; */
       $stmt = $pdo->prepare($sql);
       $stmt->execute();
-      $resultado = $stmt->fetchAll();
+      $resultado = $stmt->fetchAll(\PDO::FETCH_ASSOC); /* FETCH_ASSOC permite devolver solo un tipo de arreglo, en este caso, asociativo */
+      $resultado = json_encode($resultado);
       return $resultado;
+
     } else {
       return "La sesión no existe";
     }
   }
 
+  public function getCiudades(){
+    require ('../../dao/conexion.php');
+    $sql = "SELECT idCiudad as 'id', 
+    nombreCiudad as 'nombre' 
+    FROM tblCiudad ORDER BY nombreCiudad";
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute();
+    $resultado = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    $resultado = json_encode($resultado);
+    return $resultado;
+  }
 }

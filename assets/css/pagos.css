@@ -163,16 +163,46 @@ font-family: 'Poppins', sans-serif; */
 }
 
 /* Ingreso de direcciones */
+.cont-dir{
+  width: 100%;
+}
+.elemento-lista-direcciones{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: .5em 0;
+}
+.elemento-lista-direcciones p{
+ margin: 0; 
+}
+.elemento-lista-direcciones input{
+  width: 1em;
+}
+.direccion-final{
+  display: flex;
+  justify-content: space-between;
+}
+.titulo-eleccion-direccion{
+  width: 100%;
+  font-family: var(--serif);  
+}
+.titulo-eleccion-direccion p{
+  font-size: 13px;
+  margin: 0;
+}
 
 
+/* Nueva dirección */
 
-
-
-
-
+.titulo-nueva-direccion{
+  font-family: var(--poppins);
+  font-size: smaller;
+}
 /* Estilos cambio de información */
+
 .info-con p{
   margin: 1em .3em;
+  display: flex;
 }
 .info-con input{
   height: 2.5em;
@@ -192,6 +222,11 @@ font-family: 'Poppins', sans-serif; */
 }
 .btn-guardar-cambios button:hover{
   box-shadow: 0px 0px 10px -1px rgba(0, 0, 0, 0.4);
+}
+.save-dir{
+  margin-top: 1em;
+  display: flex;
+  justify-content: flex-end;
 }
 
 

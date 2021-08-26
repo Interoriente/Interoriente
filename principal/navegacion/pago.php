@@ -9,13 +9,13 @@
   <link rel="icon" href="../../assets/img/favicon.png" type="image/png" />
   <!-- Bootstrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous" />
-  
+
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 
   <!-- Css local  -->
   <link rel="stylesheet" href="../../assets/css/general.css" />
   <link rel="stylesheet" href="../../assets/css/pagos.css" />
-  <title>Pago | Interoriente</title>
+  <title>Checkout | Interoriente</title>
 </head>
 
 <body>
@@ -99,13 +99,13 @@
 
       <!-- Tarjeta de contacto -->
       <h1>Datos de contacto</h1>
-
-
       <div class="tarjeta-contacto">
+
         <!-- Contenedor información de contacto -->
+
         <div id="contacto-email" class="contacto">
 
-          <div id="email-contacto" class="correo-contacto">
+          <div id="email-contacto" class="correo-contacto ">
             <h6>Correo Electrónico</h6>
             <p id="email-contacto-p">test@gmail.com</p>
           </div>
@@ -113,31 +113,37 @@
             <p id="cambiar" onclick="cambiarCorreoContacto()">cambiar</p>
           </div>
         </div>
+
         <!-- FIN Contenedor información de contacto -->
         <hr>
-        <div class="direccion">
+        <div id="contenedor-direccion-principal" class="direccion">
           <!-- Contenedor Contacto -->
-          <div class="addDireccion info-con">
-            <p>Ingresa dirección a la cuál quieres que llegue tu pedido:</p>
-            <input type="text" id="input-direccion">
-            <div class="info-con">
-              <button id="guardar-direccion" onclick="guardarDir()">Guardar Dirección</button>
+
+        
+
+          <div class="direcciones contacto">
+            <div class="direccion correo-contacto cont-dir">
+              <h6>Dirección de envío</h6>
+              <div class="direccion-final">
+                <p id="direccion">Calle 14 No. 55 AC 138</p>
+                <p id="cambiar" class="editar-direccion" onclick="cambiarDireccionEnvio()">cambiar</p>
+              </div>
+
+              <div class="titulo-eleccion-direccion">
+                <p>Tus direcciones:</p>
+              </div>
+
+              <div id="contenedor-lista-dir" class="lista-direcciones">
+                <!-- Lista de Direcciones Cargadas desde JS -->
+
+              </div>
             </div>
           </div>
 
-          <!--   <div id="contacto-direccion" class="contacto">
-            <div class="direccion correo-contacto">
-              <h6>Dirección de envío</h6>
-              <p id="direccion">Calle 14 No. 55 AC 138</p>
-            </div>
-            <div id="cambiar-direccion" class="btn-cambiar">
-              <p id="cambiar">cambiar</p>
-            </div>
-          </div> -->
-
-          <!-- FIN Contenedor Contacto -->
         </div>
+        <!-- FIN contenedor direccion -->
       </div>
+      <!-- FIN Contenedor Contacto -->
       <!-- Fin tarjeta de contacto -->
       <!-- Método de pago Tarjeta -->
       <div class="payment-title">
