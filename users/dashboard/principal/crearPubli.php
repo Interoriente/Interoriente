@@ -259,17 +259,17 @@ if (isset($_SESSION["documentoIdentidad"])) {
                   </thead>
                   <tbody>
                     <?php if ($contadorPubli == '0') { ?>
-                  <tbody>
-                    <tr>
-                      <td colspan="8">
-                        <div class="alert alert-danger" role="alert" style="text-align: center;">Opps, por ahora no hay publicaciones</div>
-                      </td>
-                    </tr>
+                      <tr>
+                        <td colspan="8">
+                          <div class="alert alert-danger" role="alert" style="text-align: center;">Opps, por ahora no hay publicaciones</div>
+                        </td>
+                      </tr>
                   </tbody>
-                <?php }
-                    foreach ($resultadoPubli as $datosPubli) {
-                ?>
+
                   <tr>
+                  <?php }
+                    foreach ($resultadoPubli as $datosPubli) {
+                  ?>
                     <th><img src="../../../imagenesPubli/<?php echo $datosPubli['urlImagen'];  ?>" alt=".." width="130px"></th>
                     <td><?php echo $datosPubli['nombrePublicacion']; ?></td>
                     <td><?php echo substr($datosPubli['descripcionPublicacion'], 0, 30); ?></td>
@@ -303,14 +303,13 @@ if (isset($_SESSION["documentoIdentidad"])) {
                         </div>
                       </div>
                     </div>
-              </div>
-              </tr>
-          <?php }
+                  </tr>
+              <?php }
                   } ?>
-          </tbody>
-          </table>
-          <!-- Footer -->
-          <?php require_once '../assets/footer.php' ?>
+                </table>
+              </div>
+              <!-- Footer -->
+              <?php require_once '../assets/footer.php' ?>
           </div>
         </body>
 

@@ -50,13 +50,6 @@
     <?php
     //Sirve para mostrar el contenido de la tabla Ciudad, para mostrarlo en la lista desplegable
     include_once '../../dao/conexion.php';
-    //Mostrar los datos almacenados
-    $sql_mostrar_ciudad = "SELECT * FROM tblCiudad";
-    //Prepara sentencia
-    $consultar_mostrar_ciudad = $pdo->prepare($sql_mostrar_ciudad);
-    //Ejecutar consulta
-    $consultar_mostrar_ciudad->execute();
-    $resultado_ciudad = $consultar_mostrar_ciudad->fetchAll();
     ?>
     <!-- Main content -->
     <div class="main-content">
