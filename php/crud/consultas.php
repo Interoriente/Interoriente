@@ -146,7 +146,7 @@ class Checkout{
       $sql = "SELECT nombreDireccion as 'nombreDireccion', 
       descripcionDireccion as 'direccion' 
       FROM tblDirecciones
-      WHERE docIdentidadDireccion = 112";
+      WHERE docIdentidadDireccion = $idUsuario";
       $stmt = $pdo->prepare($sql);
       $stmt->execute();
       $resultado = $stmt->fetchAll(\PDO::FETCH_ASSOC); /* FETCH_ASSOC permite devolver solo un tipo de arreglo, en este caso, asociativo */
