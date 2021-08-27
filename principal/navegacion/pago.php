@@ -118,19 +118,16 @@
         <hr>
         <div id="contenedor-direccion-principal" class="direccion">
           <!-- Contenedor Contacto -->
-
-        
-
           <div class="direcciones contacto">
             <div class="direccion correo-contacto cont-dir">
               <h6>Dirección de envío</h6>
               <div class="direccion-final">
-                <p id="direccion">Calle 14 No. 55 AC 138</p>
+                <p id="direccion">Verificando...</p>
                 <p id="cambiar" class="editar-direccion" onclick="cambiarDireccionEnvio()">cambiar</p>
               </div>
 
               <div class="titulo-eleccion-direccion">
-                <p>Tus direcciones:</p>
+                <p>Verificando...</p>
               </div>
 
               <div id="contenedor-lista-dir" class="lista-direcciones">

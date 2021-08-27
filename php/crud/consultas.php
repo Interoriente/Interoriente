@@ -1,6 +1,6 @@
 <?php
 
-if (isset($_POST['id']) || isset($_POST['carrito']) || isset($_GET['idUsuarioLogeado']) || isset($_GET['ciudades'])) {
+if (isset($_POST['id']) || isset($_POST['carrito']) || isset($_POST['idUsuarioLogeado']) || isset($_POST['ciudades'])) {
 
   if ($_POST['id']) {
     $id = $_POST['id'];
@@ -9,7 +9,7 @@ if (isset($_POST['id']) || isset($_POST['carrito']) || isset($_GET['idUsuarioLog
     $carrito = $_POST['carrito'];
     $carrito = json_decode($carrito);
     almacenarCarrito($carrito);
-  } else if(isset($_GET['idUsuarioLogeado'])) {
+  } else if(isset($_POST['idUsuarioLogeado'])) {
     $checkout = new Checkout();
     $valDirecciones = $checkout->validarDireccion();
     echo $valDirecciones;
@@ -146,7 +146,7 @@ class Checkout{
       $sql = "SELECT nombreDireccion as 'nombreDireccion', 
       descripcionDireccion as 'direccion' 
       FROM tblDirecciones
-      WHERE docIdentidadDireccion = $idUsuario";
+      WHERE docIdentidadDireccion = 112";
       $stmt = $pdo->prepare($sql);
       $stmt->execute();
       $resultado = $stmt->fetchAll(\PDO::FETCH_ASSOC); /* FETCH_ASSOC permite devolver solo un tipo de arreglo, en este caso, asociativo */

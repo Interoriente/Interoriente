@@ -4,81 +4,87 @@ const contactoEmail = document.getElementById("contacto-email");
 const contactoDireccion = document.getElementById("contacto-direccion");
 const guardarDireccion = document.getElementById("guardar-direccion");
 const guardarDireccionInput = document.getElementById("input-direccion");
-const contDirPrincipal = document.getElementById(
-  "contenedor-direccion-principal"
-);
+const contDirPrincipal = document.getElementById("contenedor-direccion-principal");
+const direccion = document.getElementById("direccion");
 const contListaDirecciones = document.getElementById("contenedor-lista-dir");
-const dire = document.querySelector(".direcciones");
+const direccionesContacto = document.querySelector(".direcciones");
 let emailContactoP = document.getElementById("email-contacto-p");
 let nuevoEmail;
 let guardarEmail;
 let infoCheckout;
 let direcciones = [];
 /* Verificar si direcciones existe en localstorage */
-/* direcciones = localStorage.getItem("direcciones"); */
-
+let nuevaDir = localStorage.getItem("nueva-direccion");
+if (nuevaDir) {
+  direccionFinal();
+}
 /* Validar direcciones */
 
 $.ajax({
   /* LLamando clase PHP */
   url: "../../php/crud/consultas.php", //Ruta de la clase
-  type: "GET", //Tipo de request,
+  type: "POST", //Tipo de request,
   data: { idUsuarioLogeado: true }, //Datos a recibir en el script .php a traves de $_POST
   success: function (respuesta) {
     /* En caso de una respuesta exitosa */
     
     if (respuesta !== "[]") {
       /* En caso de que el usuario sí tenga una o más direcciones asociadas */
-      /*  localStorage.setItem("direcciones", respuesta); */
+     
+      localStorage.setItem("direcciones-usuario", respuesta);
       direcciones = JSON.parse(respuesta);
       renderDireccion(direcciones);
     } else {
       /* En caso de que el usuario NO tenga direcciones asociadas */
-      $.ajax({
-        url: "../../php/crud/consultas.php", //Ruta de la clase
-        type: "GET", //Tipo de request,
-        data: { ciudades: true }, //Datos a recibir en el script .php a traves de $_POST
-        success: function (respuesta) {
-          let ciudades = JSON.parse(respuesta);
+      if (!nuevaDir) {
+        direccionesContacto.style.display = "none";
+        contDirPrincipal.innerHTML = `  <!-- Ingreso de dirección  -->
+                  <div class="addDireccion info-con ">
+                    <p class="titulo-nueva-direccion">Por favor ingresa una dirección</p>
+                    <label for="">Pon un nombre a la dirección (Opcional)</label>
+                    <input type="text" id="input-nombre-direccion" placeholder="Ejemplo: mi casa, oficina, amigo pepe...">
+                    <label for="">Ingresa la dirección (Nomenclatura)</label>
+                    <input type="text" id="input-direccion" placeholder="Ejemplo: Calle 14 No. 45 AD 232">
+                    <label for="">¿En qué ciudad se encuentra ubicada? </label> <br>
+                    <div class = "select-ciudades">
+                    <select name="ciudad" id="ciudad-nueva-direccion">
+                  
+                    </select>
+                    </div>
+                    <div class="info-con save-dir"> 
+                      <button id="guardar-direccion" onclick="guardarDir()">Guardar Dirección</button>
+                    </div>
+                  </div>
+                  <!-- FIN Ingreso de dirección  -->`;
 
-          let ingresoDirDOM = `  <!-- Ingreso de dirección  -->
-                <div class="addDireccion info-con ">
-                  <p class="titulo-nueva-direccion">Por favor ingresa una dirección</p>
-                  <label for="">Pon un nombre a la dirección (Opcional)</label>
-                  <input type="text" id="input-nombre-direccion" placeholder="Ejemplo: mi casa, oficina, amigo pepe...">
-                  <label for="">Ingresa la dirección (Nomenclatura)</label>
-                  <input type="text" id="input-direccion" placeholder="Ejemplo: Calle 14 No. 45 AD 232">
-                  <label for="">¿En qué ciudad se encuentra ubicada? </label> <br>
-                  <div class = "select-ciudades">
-                  <select name="ciudad" id="ciudad-nueva-direccion">
-                
-                  </select>
-                  </div>
-                  <div class="info-con save-dir"> 
-                    <button id="guardar-direccion" onclick="guardarDir()">Guardar Dirección</button>
-                  </div>
-                </div>
-                <!-- FIN Ingreso de dirección  -->`;
-          contDirPrincipal.innerHTML = ingresoDirDOM;
-          const selectCiudad = document.getElementById(
-            "ciudad-nueva-direccion"
-          );
-          ciudades.map((item) => {
-            let opciones = "";
-            opciones = `<option value="${item.id}">${item.nombre}</option>;`;
-            selectCiudad.innerHTML += opciones;
-          });
-        },
-      });
+        const selectCiudad = document.getElementById("ciudad-nueva-direccion");
+
+        $.ajax({
+          url: "../../php/crud/consultas.php", //Ruta de la clase
+          type: "POST", //Tipo de request,
+          data: { ciudades: true }, //Datos a recibir en el script .php a traves de $_POST
+          success: function (respuesta) {
+            let ciudades = JSON.parse(respuesta);
+            ciudades.map((item) => {
+              let opciones = "";
+              opciones = `<option value="${item.id}">${item.nombre}</option>;`;
+              selectCiudad.innerHTML += opciones;
+            });
+          },
+        });
+      }
     }
   },
 });
+
+
 
 /* Mostrar ciudades en lista desplegable */
 function renderCiudades(ciudades) {
   ciudades.map((item) => {});
   console.log(selectCiudades);
 }
+
 
 function renderDireccion(direcciones) {
   let listaDireccionesDOM = "";
@@ -92,7 +98,10 @@ function renderDireccion(direcciones) {
                   </div>
                `;
   });
+  /* Hasta aquí llega bien */
+
   contListaDirecciones.innerHTML = listaDireccionesDOM;
+
 }
 
 /* Datos direccion */
@@ -128,6 +137,32 @@ function guardarE() {
 }
 
 function guardarDir() {
-  let guardarNuevoNombre = document.getElementById("input-nombre-direccion");
-  let guardarNuevaDir = document.getElementById("input-direccion");
+  let nuevaDireccion = [];
+  let nuevoNombre = document.getElementById("input-nombre-direccion").value;
+  let nuevaDir = document.getElementById("input-direccion").value;
+  let codMunicipio = document.getElementById("ciudad-nueva-direccion").value;
+  let direccion = {
+    nombreDireccion: nuevoNombre,
+    direccion: nuevaDir
+  };
+  nuevaDireccion.push(direccion);
+  localStorage.setItem("nueva-direccion", JSON.stringify(nuevaDireccion));
+  direccionFinal()
+  
+}
+
+function direccionFinal() {
+  let direccionFinal = localStorage.getItem("nueva-direccion");
+  direccionFinal = JSON.parse(direccionFinal);
+  direccionFinal.map(item =>{
+    contDirPrincipal.innerHTML = `  <div class="direcciones contacto">
+              <div class="direccion correo-contacto cont-dir">
+                <h6>Dirección de envío</h6>
+                <div class="direccion-final">
+                  <p id="direccion">${item.direccion}</p>
+                  <p id="cambiar" class="editar-direccion" onclick="cambiarDireccionEnvio()">cambiar</p>
+                </div>              
+              </div>
+            </div>`;
+  });
 }

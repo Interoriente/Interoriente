@@ -228,6 +228,10 @@ font-family: 'Poppins', sans-serif; */
   display: flex;
   justify-content: flex-end;
 }
+.save-dir button:hover{
+  box-shadow: 0px 0px 10px -1px rgba(0, 0, 0, 0.4);
+}
+
 
 
 /* Tarjeta */
