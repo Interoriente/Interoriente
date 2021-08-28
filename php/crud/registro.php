@@ -67,7 +67,7 @@
             }
         }
     } else {
-        echo "<script>alert('Error!, las contraseñas ingresadas no coinciden, verifca e intenta nuevamente');</script>";
+        echo "<script>alert('Error!, las contraseñas ingresadas no coinciden, verifica e intenta nuevamente');</script>";
         echo "<script> document.location.href='../../principal/navegacion/registro.php';</script>";
     }
     ?>
