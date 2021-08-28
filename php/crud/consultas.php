@@ -142,11 +142,13 @@ class Checkout{
     session_start();
     $idUsuario = $_SESSION['documentoIdentidad'];
     if (isset($idUsuario)) {
+      /* TODO: TENER EN CUENTA AQUELLOS CASOS EN LOS QUE LA VARIABLE NO ESTÉ ASIGNADA*/
       require('../../dao/conexion.php');
-      $sql = "SELECT nombreDireccion as 'nombreDireccion', 
-      descripcionDireccion as 'direccion' 
-      FROM tblDirecciones
-      WHERE docIdentidadDireccion = $idUsuario";
+      $sql = "SELECT DI.idDireccion as 'id', DI.nombreDireccion as 'nombreDireccion', 
+      DI.descripcionDireccion as 'direccion', US.emailUsuario as 'correo'
+      FROM tblDirecciones as DI INNER JOIN tblUsuario as US 
+      ON US.documentoIdentidad = DI.docIdentidadDireccion
+      WHERE DI.docIdentidadDireccion = 11";
       $stmt = $pdo->prepare($sql);
       $stmt->execute();
       $resultado = $stmt->fetchAll(\PDO::FETCH_ASSOC); /* FETCH_ASSOC permite devolver solo un tipo de arreglo, en este caso, asociativo */
@@ -154,7 +156,8 @@ class Checkout{
       return $resultado;
 
     } else {
-      return "La sesión no existe";
+      $arr = array();
+      return $arr;
     }
   }
 

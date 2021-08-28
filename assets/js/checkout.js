@@ -6,13 +6,18 @@ const guardarDireccion = document.getElementById("guardar-direccion");
 const guardarDireccionInput = document.getElementById("input-direccion");
 const contDirPrincipal = document.getElementById("contenedor-direccion-principal");
 const direccion = document.getElementById("direccion");
+const btnFinCompra = document.getElementById("btn-fin-compra");
 const contListaDirecciones = document.getElementById("contenedor-lista-dir");
 const direccionesContacto = document.querySelector(".direcciones");
+let direccionFinalCont = document.getElementById("direccion-final-cont");
+let contenedorDirFin = document.getElementById("contenedor-direccion-final");
 let emailContactoP = document.getElementById("email-contacto-p");
+let tituloDireccion = document.getElementById("direccion");
 let nuevoEmail;
-let guardarEmail;
-let infoCheckout;
 let direcciones = [];
+/* Datos finales */
+let correoElectronicoF = emailContactoP.innerText;
+let direccionEnvioF = tituloDireccion.innerText;
 /* Verificar si direcciones existe en localstorage */
 let nuevaDir = localStorage.getItem("nueva-direccion");
 if (nuevaDir) {
@@ -78,6 +83,7 @@ $.ajax({
 });
 
 
+/* Funciones */
 
 /* Mostrar ciudades en lista desplegable */
 function renderCiudades(ciudades) {
@@ -87,13 +93,19 @@ function renderCiudades(ciudades) {
 
 
 function renderDireccion(direcciones) {
+  
+  tituloDireccion = document.getElementById("direccion");
+  tituloDireccion.textContent = direcciones[0].direccion;
+  emailContactoP.textContent =  direcciones[0].correo
+  direccionEnvioF = direcciones[0].direccion;
+  correoElectronicoF = direcciones[0].correo;
   let listaDireccionesDOM = "";
   direcciones.map((item) => {
   listaDireccionesDOM += `
                  <div class="elemento-lista-direcciones">
                     <div class="nombre-direccion">
-                      <input type="radio" id="#" name="#" value="dewey">
-                      <label for="dewey">${item.nombreDireccion} - ${item.direccion}</label>
+                      <input class = "radio-dir" type="radio" id="${item.id}" name="direccion" value="${item.nombreDireccion}">
+                      <label for="${item.id}">${item.nombreDireccion} - ${item.direccion}</label>
                     </div>
                   </div>
                `;
@@ -101,13 +113,13 @@ function renderDireccion(direcciones) {
   /* Hasta aquí llega bien */
 
   contListaDirecciones.innerHTML = listaDireccionesDOM;
-
 }
 
-/* Datos direccion */
+
 
 function cambiarCorreoContacto() {
   let correoUsuario = emailContactoP.textContent;
+ 
   const cambioEmail = `
        <div class="cambioEmail info-con">
             <p>Se enviará información de esta compra al siguiente correo electrónico</p>
@@ -117,7 +129,6 @@ function cambiarCorreoContacto() {
             </div>
           </div>
           `;
-  guardarEmail = document.getElementById("btn-guardar-email");
   contactoEmail.innerHTML = cambioEmail;
 }
 
@@ -125,6 +136,7 @@ function cambiarCorreoContacto() {
 
 function guardarE() {
   nuevoEmail = document.getElementById("nuevo-email").value;
+  correoElectronicoF = nuevoEmail;
   emailContactoP.textContent = nuevoEmail;
   const nuevoContactoEmail = ` <div id = "email-contacto" class="correo-contacto">
                 <h6>Correo Electrónico</h6>
@@ -166,3 +178,42 @@ function direccionFinal() {
             </div>`;
   });
 }
+
+function cambiarDireccionEnvio() {
+  let direccionActual = tituloDireccion.textContent;
+  const cambioDir = `
+       <div class="cambioEmail info-con">
+            <p>Puedes modificar la direccion a continuación:</p>
+            <input id="nueva-dir" type="text" placeholder="Ej: Carrera 23 No. 34 23" value = "${direccionActual}" >
+            <div class="btn-guardar-cambios info-con">
+              <button id="btn-guardar-email" onclick = "guardarNuevaDireccion()">guardar</button>
+            </div>
+          </div>
+          `; 
+  contenedorDirFin.innerHTML = cambioDir;
+}
+function guardarNuevaDireccion() {
+
+  nuevaDir = document.getElementById("nueva-dir").value;
+  direccionEnvioF = nuevaDir;
+  tituloDireccion.textContent = nuevaDir;
+  const nuevaDireccion = ` 
+  <div id="direccion-final-cont" class="direccion-final">
+                <p id="direccion">${nuevaDir}</p>
+                <p id="cambiar" class="editar-direccion" onclick = "cambiarDireccionEnvio()" >cambiar</p>
+              </div>`;
+  contenedorDirFin.innerHTML = nuevaDireccion;
+}
+
+btnFinCompra.addEventListener("click",function(){
+
+  let checkout = {
+    direccion: direccionFinal,
+    email: correoElectronicoF
+  }
+
+
+  /* Ajax Call */
+
+
+});

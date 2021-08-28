@@ -107,7 +107,7 @@
 
           <div id="email-contacto" class="correo-contacto ">
             <h6>Correo Electrónico</h6>
-            <p id="email-contacto-p">test@gmail.com</p>
+            <p id="email-contacto-p">Cargando...</p>
           </div>
           <div id="cambiar-email" class="btn-cambiar">
             <p id="cambiar" onclick="cambiarCorreoContacto()">cambiar</p>
@@ -121,15 +121,15 @@
           <div class="direcciones contacto">
             <div class="direccion correo-contacto cont-dir">
               <h6>Dirección de envío</h6>
-              <div class="direccion-final">
-                <p id="direccion">Verificando...</p>
-                <p id="cambiar" class="editar-direccion" onclick="cambiarDireccionEnvio()">cambiar</p>
+              <div id="contenedor-direccion-final">
+                <div class="direccion-final">
+                  <p id="direccion">Cargando...</p>
+                  <p id="cambiar" class="editar-direccion" onclick="cambiarDireccionEnvio()">cambiar</p>
+                </div>
               </div>
-
               <div class="titulo-eleccion-direccion">
-                <p>Verificando...</p>
+                <p>Tus direcciones:</p>
               </div>
-
               <div id="contenedor-lista-dir" class="lista-direcciones">
                 <!-- Lista de Direcciones Cargadas desde JS -->
 
@@ -267,7 +267,7 @@
       <!-- Botón "Finalizar compra" -->
 
       <div class="btn-fin-compra btn-movil ">
-        <button>Finalizar Compra</button>
+        <button id="btn-fin-compra">Finalizar Compra</button>
       </div>
 
       <!--FIN botón de compra -->

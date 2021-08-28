@@ -185,8 +185,9 @@ font-family: 'Poppins', sans-serif; */
 .titulo-eleccion-direccion{
   width: 100%;
   font-family: var(--serif);  
+  margin-top: .5em;
 }
-.titulo-eleccion-direccion p{
+#titulo-eleccion-direcciones p{
   font-size: 13px;
   margin: 0;
 }
