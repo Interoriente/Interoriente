@@ -11,8 +11,9 @@ $html = ob_get_clean();
 require_once '../pdf/vendor/autoload.php';
 
 use Dompdf\Dompdf;
+use Google\Service\AlertCenter\Attachment;
 
-		// instantiate and use the dompdf class
+// instantiate and use the dompdf class
 		$dompdf = new Dompdf();
 
 		$dompdf->loadHtml($html);
@@ -21,4 +22,4 @@ use Dompdf\Dompdf;
 		// Render the HTML as PDF
 		$dompdf->render();
 		// Output the generated PDF to Browser
-		$dompdf->stream('factura_' . $no_factura . '.pdf');
+		$dompdf->stream('factura_' . $no_factura . '.pdf',array('Attachment'=>0));

@@ -1,11 +1,13 @@
 <?php
+session_start();
+if (isset($_SESSION['documentoIdentidad'])) {
+
 /* Inicializando variables para luego utilizarlas en la factura */
 $subtotal = 0;
 $impuesto = 0;
 $totalSinIva = 0;
 $totalPagar = 0;
-$codCliente = 1007382009;
-$noFactura = 1;
+$codCliente = $_SESSION['documentoIdentidad'];
 $anulada = '';
 $iva = 0.19;
 
@@ -25,7 +27,9 @@ $resultadoCliente = $prepararCliente->fetch(PDO::FETCH_OBJ);
 $sqlProductos = "SELECT PU.nombrePublicacion,PU.costoPublicacion,FP.cantidadFacturaPublicacion, FP.cantidadFacturaPublicacion*PU.costoPublicacion as pagar
 FROM tblFactura as FA
 INNER JOIN tblFacturaPublicacion as FP ON FP.numFacturaPublicacion = FA.numFactura
-WHERE FA.numFactura =1 AND FA.docIdentidadFactura = '1007382009' AND FA.estadoFactura <> 2 ";
+INNER JOIN tblPublicacion as PU ON PU.idPublicacion=FP.idPublicacionFactura
+WHERE FA.numFactura =1 AND FA.docIdentidadFactura = '1007382009' AND FA.estadoFactura <> 2
+ORDER BY PU.nombrePublicacion ASC";
 $prepararProductos = $pdo->prepare($sqlProductos);
 $prepararProductos->execute();
 $resultadoProductos = $prepararProductos->fetchAll();
@@ -52,7 +56,7 @@ if ($resultadoCliente->estadoFactura == 2) {
 			<tr>
 				<td class="logo_factura">
 					<div>
-						<img src="img/LogoTerciario.svg">
+						<img src="img/logoAcortado.png">
 					</div>
 				</td>
 				<td class="info_empresa">
@@ -121,32 +125,33 @@ if ($resultadoCliente->estadoFactura == 2) {
 				foreach ($resultadoProductos as $datos) {
 				?>
 					<tr>
-						<td class="textcenter"><?php echo $datos['cantidadFacturaPublicacion']; ?></td>
+						<td class="textcenter"><?php echo number_format($datos['cantidadFacturaPublicacion']); ?></td>
 						<td><?php echo $datos['nombrePublicacion']; ?></td>
-						<td class="textright"><?php echo $datos['costoPublicacion']; ?></td>
-						<td class="textright"><?php echo $datos['cantidadFacturaPublicacion'] * $datos['costoPublicacion']; ?></td>
+						<td class="textright"><?php echo number_format($datos['costoPublicacion']); ?></td>
+						<td class="textright"><?php echo number_format($datos['cantidadFacturaPublicacion'] * $datos['costoPublicacion']); ?></td>
 					</tr>
 				<?php
 					$precioTotal = $datos['pagar'];
+					//Round()->Redondeo
 					$subtotal = round($subtotal + $precioTotal);
 					$impuesto 	= round($subtotal * $iva, 2);
 					$totalSinIva 	= round($subtotal - $impuesto, 2);
-					$totalPagar 		= $totalSinIva + $impuesto;
+					$totalPagar 		= round($totalSinIva + $impuesto,2);
 				}
 				?>
 			</tbody>
 			<tfoot id="detalle_totales">
 				<tr>
 					<td colspan="3" class="textright"><span>SUBTOTAL</span></td>
-					<td class="textright"><span>$<?php echo $totalSinIva; ?></span></td>
+					<td class="textright"><span>$<?php echo number_format($totalSinIva); ?></span></td>
 				</tr>
 				<tr>
 					<td colspan="3" class="textright"><span>IVA (<?php echo $iva; ?> %)</span></td>
-					<td class="textright"><span>$<?php echo $impuesto; ?></span></td>
+					<td class="textright"><span>$<?php echo number_format($impuesto); ?></span></td>
 				</tr>
 				<tr>
 					<td colspan="3" class="textright"><span>TOTAL A PAGAR</span></td>
-					<td class="textright"><span>$<?php echo $totalPagar; ?></span></td>
+					<td class="textright"><span>$<?php echo number_format($totalPagar); ?></span></td>
 				</tr>
 			</tfoot>
 		</table>
@@ -160,3 +165,6 @@ if ($resultadoCliente->estadoFactura == 2) {
 </body>
 
 </html>
+<?php }else {
+	echo "Error no se tiene la sesión iniciada";
+}
