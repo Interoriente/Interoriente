@@ -2,6 +2,9 @@
 include "../../php/crud/consultas.php";
 $checkout = new Checkout();
 $checkoutData = $checkout->getCheckoutInfo();
+$subtotal = 0; 
+$total = 0; 
+$iva = 0;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -310,22 +313,21 @@ $checkoutData = $checkout->getCheckoutInfo();
           <div class="titulo">
             <p>Subtotal</p>
             <!-- <p>Descuentos</p> -->
-            <p>IVA</p>
+            <p>+ 19% IVA</p>
           </div>
           <div class="valor">
-            <p><?php echo number_format($subtotal, 0, '', '.');?></p>
+            <p>$<?php echo number_format($subtotal, 0, '', '.');?></p>
             <!-- <p>$23.000</p> -->
-            <p><?php echo number_format($iva, 0, '', '.');?></p>
+            <p>$<?php echo number_format($iva, 0, '', '.');?></p>
           </div>
         </div>
         <hr>
         <div class="total g">
           <p>total</p>
           
-          <p><?php echo number_format($total, 0, '', '.'); ?></p>
+          <p>$<?php echo number_format($total, 0, '', '.'); ?></p>
         </div>
       </div>
-
       <!-- Botón "Finalizar compra" -->
       <div class="btn-fin-compra ">
         <button>Finalizar Compra</button>

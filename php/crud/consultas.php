@@ -125,9 +125,10 @@ function almacenarCarrito($carrito)
 /* Check-out */
 
 class Checkout{
-
   public function getCheckoutInfo(){
     require('../../dao/conexion.php');
+    session_start();
+    $idUsuario = $_SESSION['documentoIdentidad'];
     $sql = "SELECT PU.nombrePublicacion AS 'titulo', 
     PU.costoPublicacion AS 'costo', 
     SUM(CA.cantidadCarrito * PU.costoPublicacion) AS 'subtotal', 
@@ -139,7 +140,8 @@ class Checkout{
     ON PU.idPublicacion = CA.idPublicacionCarrito
     INNER JOIN tblUsuario AS US 
     ON CA.docIdentidadCarrito = US.documentoIdentidad
-    GROUP BY US.documentoIdentidad";
+    WHERE CA.docIdentidadCarrito = $idUsuario
+    GROUP BY CA.idPublicacionCarrito";
     $stmt = $pdo->prepare($sql);
     $stmt->execute();
     $resultado = $stmt->fetchAll();
