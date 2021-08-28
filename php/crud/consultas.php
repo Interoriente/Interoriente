@@ -128,10 +128,18 @@ class Checkout{
 
   public function getCheckoutInfo(){
     require('../../dao/conexion.php');
-    $sql = "SELECT US.emailUsuario as 'email', CA.cantidadCarrito as 'cantidad',
-    PU.nombrePublicacion as 'titulo', PU.costoPublicacion as 'costo'
-    FROM tblUsuario as US INNER JOIN tblCarrito as CA ON CA.docIdentidadCarrito = US.documentoIdentidad
-    INNER JOIN tblPublicacion as PU ON PU.idPublicacion = CA.idPublicacionCarrito";
+    $sql = "SELECT PU.nombrePublicacion AS 'titulo', 
+    PU.costoPublicacion AS 'costo', 
+    SUM(CA.cantidadCarrito * PU.costoPublicacion) AS 'subtotal', 
+    (SUM(CA.cantidadCarrito * PU.costoPublicacion) * 0.19) AS 'iva', 
+    (SUM(CA.cantidadCarrito * PU.costoPublicacion) + 
+    (SUM(CA.cantidadCarrito * PU.costoPublicacion) * 0.19)) AS 'total'
+    FROM tblPublicacion AS PU 
+    INNER JOIN tblCarrito AS CA 
+    ON PU.idPublicacion = CA.idPublicacionCarrito
+    INNER JOIN tblUsuario AS US 
+    ON CA.docIdentidadCarrito = US.documentoIdentidad
+    GROUP BY US.documentoIdentidad";
     $stmt = $pdo->prepare($sql);
     $stmt->execute();
     $resultado = $stmt->fetchAll();
@@ -148,7 +156,7 @@ class Checkout{
       DI.descripcionDireccion as 'direccion', US.emailUsuario as 'correo'
       FROM tblDirecciones as DI INNER JOIN tblUsuario as US 
       ON US.documentoIdentidad = DI.docIdentidadDireccion
-      WHERE DI.docIdentidadDireccion = 11";
+      WHERE DI.docIdentidadDireccion =$idUsuario";
       $stmt = $pdo->prepare($sql);
       $stmt->execute();
       $resultado = $stmt->fetchAll(\PDO::FETCH_ASSOC); /* FETCH_ASSOC permite devolver solo un tipo de arreglo, en este caso, asociativo */

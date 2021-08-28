@@ -212,7 +212,6 @@ btnFinCompra.addEventListener("click",function(){
     email: correoElectronicoF
   }
 
-
   /* Ajax Call */
 
 
