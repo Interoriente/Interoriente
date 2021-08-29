@@ -4,7 +4,7 @@
     <!-- Brand -->
     <div class="sidenav-header  align-items-center">
       <a class="navbar-brand" href="../../../principal/navegacion/index.php">
-        <img src="../../../assets/img/logo.svg" class="navbar-brand-img" alt="...">
+        <img src="../../../assets/img/logoDashboard.svg" class="navbar-brand-img" alt="...">
       </a>
     </div>
     <div class="navbar-inner">

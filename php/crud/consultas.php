@@ -1,8 +1,12 @@
 <?php
 
-if (isset($_POST['id']) || isset($_POST['carrito']) || isset($_POST['idUsuarioLogeado']) || isset($_POST['ciudades'])) {
+if (isset($_POST['id']) || 
+isset($_POST['carrito']) || 
+isset($_POST['idUsuarioLogeado']) || 
+isset($_POST['ciudades']) ||
+isset($_POST['checkout'])) {
 
-  if ($_POST['id']) {
+  if (isset($_POST['id'])) {
     $id = $_POST['id'];
     addCarrito($id);
   } else if (isset($_POST['carrito'])) {
@@ -13,10 +17,17 @@ if (isset($_POST['id']) || isset($_POST['carrito']) || isset($_POST['idUsuarioLo
     $checkout = new Checkout();
     $valDirecciones = $checkout->validarDireccion();
     echo $valDirecciones;
-  } else {
+  } else if (isset($_POST['ciudades'])) {
     $checkout = new Checkout();
     $ciudades = $checkout->getCiudades();
     echo $ciudades;
+  }else {
+    $userData = $_POST['checkout'];
+    $direccion = $userData[0];
+    $email = $userData[1];
+    $checkout = new Checkout();
+    $respuesta = $checkout->finalizarCompra($direccion, $email);
+    echo $respuesta;
   }
 }
 /* Función para reducir el arreglo a una sola dimensión */
@@ -35,7 +46,7 @@ function simplificarArreglo($array)
   }
   return $resultado;
 }
-
+/* Función para obtener el id un usuario que tenga la sesión iniciada */
 function getIdUsuario()
 {
   session_start();
@@ -47,7 +58,7 @@ function getIdUsuario()
   }
 }
 
-
+/* Funcion para llamar publicaciones en el index */
 function getPublicaciones()
 {
   /* Llamado a la base de datos*/
@@ -122,7 +133,7 @@ function almacenarCarrito($carrito)
 
 }
 
-/* Check-out */
+/* Clase Check-out con funciones implicadas */
 
 class Checkout{
   public function getCheckoutInfo(){
@@ -181,5 +192,45 @@ class Checkout{
     $resultado = $stmt->fetchAll(PDO::FETCH_ASSOC);
     $resultado = json_encode($resultado);
     return $resultado;
+  }
+  public function finalizarCompra($direccion, $email){
+    require('../../dao/conexion.php');
+    session_start();
+    $idUsuario = $_SESSION['documentoIdentidad'];
+    /* Almacenar información de la compra */
+    $sqlFa = "INSERT INTO `tblFactura`
+    VALUES (null,:idUser,CURRENT_TIMESTAMP,:direccion,null,:email,null)";
+    $stmt = $pdo->prepare($sqlFa);
+    $stmt->bindValue(':idUser', $idUsuario);
+    $stmt->bindValue(':direccion', $direccion);
+    $stmt->bindValue(':email', $email);
+    $stmt->execute();
+    $idFactura = $pdo->lastInsertId();
+    /* Almacenar información en tabla intermedia tblfacturapublicacion */
+    $sqlCa = "SELECT idPublicacionCarrito as 'idPu',
+    cantidadCarrito as 'cantidad' 
+    FROM tblCarrito
+    WHERE docIdentidadCarrito = $idUsuario";
+    $stmtCa = $pdo->prepare($sqlCa);
+    $stmtCa->execute();
+    $respuesta = $stmtCa->fetchAll(PDO::FETCH_ASSOC);
+    foreach ($respuesta as $fila) {
+      $idPubli = $fila['idPu'];
+      $cantidad = $fila['cantidad'];
+      $sqlFacPu = "INSERT INTO tblFacturaPublicacion
+      VALUES (:idFact, :idPubli, :cantidad)";
+      $stmtFacPu = $pdo->prepare($sqlFacPu);
+      $stmtFacPu->bindValue(':idFact', $idFactura);
+      $stmtFacPu->bindValue(':idPubli', $idPubli);
+      $stmtFacPu->bindValue(':cantidad', $cantidad);
+      $stmtFacPu->execute();
+    /* Eliminar información de la tabla carrito */
+     $sqlDeleteCart = "DELETE FROM tblCarrito 
+     WHERE idPublicacionCarrito = $idPubli 
+     AND docIdentidadCarrito = $idUsuario";
+     $stmtDeleteCart = $pdo->prepare($sqlDeleteCart);
+     $stmtDeleteCart->execute();
+    }
+    return "Proceso de Compra Finalizado!!";
   }
 }

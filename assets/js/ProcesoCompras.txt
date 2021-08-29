@@ -20,7 +20,7 @@ TENER EN CUENTA TENER LA SESIÓN INICIADA ANTES DE PROBAR EL ALMACENAMIENTO DEL 
   1.2 - Hacer cálculos matemáticos de los items a mostrar en el resumen
   
   1.3 - Mostrar resultados al usuario
-  1.4 - Almacenar información de la compra cuando se de click en "Finaliza Compra"
+  1.4 - Almacenar información de la compra cuando se de click en "Finalizar Compra"
   1.5 - Dar a entender al usuario que la compra ha finalizado
   1.6 - Redirigir al usuario a "Mis compras" 
   1.7 - cargar información de la compra en mis compras --> Opcional de momento
@@ -45,5 +45,6 @@ BD
 
 CHECKOUT
 
-1. Validar si el usuario tiene direcciones asociadas
+1. Validar si el usuario tiene direcciones asociadas LISTO
 
+2. Mostrar tarjeta dentro del carrito DOM cuando hayan cosas en la tabla carrito

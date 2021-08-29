@@ -121,7 +121,7 @@ session_start();
         <div class="cart-content">
           <!--Contenido del carrito controlado por JavaScript-->
        
-
+      
 
         </div>
         <div class="cart-footer">

@@ -293,7 +293,7 @@ $iva = 0;
           $total += $fila['total'];
         ?>
           <div class="publicacion-desktop">
-            <img id="img-publicacion-d" src="../../assets/img/stock/9.jpg" alt="Imagen publicación">
+            <img id="img-publicacion-d" src="../../assets/img/stock/6.jpg" alt="Imagen publicación">
             <div class="texto-publicacion-d">
               <p><?php echo $fila['titulo'] ?></p>
               <p>$<?php echo $fila['costo'] ?></p>
@@ -330,7 +330,7 @@ $iva = 0;
       </div>
       <!-- Botón "Finalizar compra" -->
       <div class="btn-fin-compra ">
-        <button>Finalizar Compra</button>
+        <button onclick="finalizarCompra()">Finalizar Compra</button>
       </div>
       <!--FIN botón de compra -->
     </div>

@@ -165,19 +165,22 @@ function guardarDir() {
 
 function direccionFinal() {
   let direccionFinal = localStorage.getItem("nueva-direccion");
-  direccionFinal = JSON.parse(direccionFinal);
-  direccionFinal.map(item =>{
-    contDirPrincipal.innerHTML = `  <div class="direcciones contacto">
-              <div class="direccion correo-contacto cont-dir">
-                <h6>Dirección de envío</h6>
-                <div class="direccion-final">
-                  <p id="direccion">${item.direccion}</p>
-                  <p id="cambiar" class="editar-direccion" onclick="cambiarDireccionEnvio()">cambiar</p>
-                </div>              
-              </div>
-            </div>`;
-  });
-}
+  if (direccionFinal) {
+    direccionFinal = JSON.parse(direccionFinal);
+    direccionFinal.map(item =>{
+      contDirPrincipal.innerHTML = `  <div class="direcciones contacto">
+                <div class="direccion correo-contacto cont-dir">
+                  <h6>Dirección de envío</h6>
+                  <div class="direccion-final">
+                    <p id="direccion">${item.direccion}</p>
+                    <p id="cambiar" class="editar-direccion" onclick="cambiarDireccionEnvio()">cambiar</p>
+                  </div>              
+                </div>
+              </div>`;
+    });
+  }
+
+  }
 
 function cambiarDireccionEnvio() {
   let direccionActual = tituloDireccion.textContent;
@@ -205,14 +208,20 @@ function guardarNuevaDireccion() {
   contenedorDirFin.innerHTML = nuevaDireccion;
 }
 
-btnFinCompra.addEventListener("click",function(){
-
-  let checkout = {
-    direccion: direccionFinal,
-    email: correoElectronicoF
-  }
-
+function finalizarCompra() {
+  console.log("Click en Finalizar Compra "); 
+  let checkout = [direccionEnvioF, correoElectronicoF];
   /* Ajax Call */
+  $.ajax({
+    url: "../../php/crud/consultas.php",
+    type: "POST",
+    data: { checkout: checkout },
+    success: function (respuesta) {
 
+      /* Limpiar variables y DOM carrito */
 
-});
+      /* Redirigir y/o mostrar mensaje de finalización */
+      console.log(respuesta);
+    },
+  });
+}
