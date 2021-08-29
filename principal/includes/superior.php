@@ -120,7 +120,7 @@ session_start();
         <h2 class="titulos">Tu carrito</h2>
         <div class="cart-content">
           <!--Contenido del carrito controlado por JavaScript-->
-
+       
 
 
         </div>

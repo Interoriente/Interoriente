@@ -6,7 +6,7 @@ CARRITO.
                 1. Eliminar publicaciones del carrito (ls) * DONE
                 2. Actualizar valor del contador cuando se elimine la publicación DONE
                 3. Crear funcionalidad al input de cantidad (contador + actualizar Ls) DONE
-                4. Crear función para eliminar todos los elementos CACELADA
+                4. Crear función para eliminar todos los elementos CANCELADA
                 5. Redirigir a la publicación cuando se haga click DETALLE
                 6. Almacenar información cuando haya un evento en el btn "Finalizar Compra" DONE
 
@@ -46,3 +46,4 @@ BD
 CHECKOUT
 
 1. Validar si el usuario tiene direcciones asociadas
+
