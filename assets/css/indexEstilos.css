@@ -9,19 +9,9 @@
   --clr-neutro-c: #e5e5e5;
   --clr-cta-a: #ffb930;
   --crl-cta-b: #fce61e;
+  --poppins: 'Open Sans', sans-serif;
+  --opensans: 'Poppins', sans-serif;;
 }
-
-/* Sintaxis para el uso de las fuentes*/
-/* --------------------- */
-/* font-family: 'Open Sans', sans-serif;
-font-family: 'Poppins', sans-serif; */
-/* --------------------- */
-
-/* Estandares --> Estilos Generales */
-
-
-/* Copia Final */
-
 /* Imagen para version móvil */
 body{
   background-color: var(--clr-neutro-a);

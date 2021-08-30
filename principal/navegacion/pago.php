@@ -2,8 +2,8 @@
 include "../../php/crud/consultas.php";
 $checkout = new Checkout();
 $checkoutData = $checkout->getCheckoutInfo();
-$subtotal = 0; 
-$total = 0; 
+$subtotal = 0;
+$total = 0;
 $iva = 0;
 ?>
 <!DOCTYPE html>
@@ -18,6 +18,7 @@ $iva = 0;
   <!-- Bootstrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous" />
 
+  <!--Link solución protocolo: https://www.bugsnag.com/blog/jquery-is-not-defined-cause-solution-->
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 
   <!-- Css local  -->
@@ -104,6 +105,27 @@ $iva = 0;
   <div class="contenedor-desk">
 
     <div class="contenedor-principal">
+
+      <!-- Modal -->
+      <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              ...
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+          </div>
+        </div>
+      </div>
 
       <!-- Tarjeta de contacto -->
       <h1>Datos de contacto</h1>
@@ -283,6 +305,7 @@ $iva = 0;
 
     <!-- Layout para version de escritorio -->
 
+
     <div class="resumen-desk">
       <!-- Contenedor Publicación  -->
       <div class="contenedor-publi">
@@ -316,15 +339,15 @@ $iva = 0;
             <p>+ 19% IVA</p>
           </div>
           <div class="valor">
-            <p>$<?php echo number_format($subtotal, 0, '', '.');?></p>
+            <p>$<?php echo number_format($subtotal, 0, '', '.'); ?></p>
             <!-- <p>$23.000</p> -->
-            <p>$<?php echo number_format($iva, 0, '', '.');?></p>
+            <p>$<?php echo number_format($iva, 0, '', '.'); ?></p>
           </div>
         </div>
         <hr>
         <div class="total g">
           <p>total</p>
-          
+
           <p>$<?php echo number_format($total, 0, '', '.'); ?></p>
         </div>
       </div>
@@ -332,6 +355,8 @@ $iva = 0;
       <div class="btn-fin-compra ">
         <button onclick="finalizarCompra()">Finalizar Compra</button>
       </div>
+
+
       <!--FIN botón de compra -->
     </div>
     <!-- Layout para version de escritorio -->

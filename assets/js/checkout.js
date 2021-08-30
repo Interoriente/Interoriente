@@ -6,6 +6,7 @@ const guardarDireccion = document.getElementById("guardar-direccion");
 const guardarDireccionInput = document.getElementById("input-direccion");
 const contDirPrincipal = document.getElementById("contenedor-direccion-principal");
 const direccion = document.getElementById("direccion");
+const modal = document.getElementById("exampleModalCenter");
 const btnFinCompra = document.getElementById("btn-fin-compra");
 const contListaDirecciones = document.getElementById("contenedor-lista-dir");
 const direccionesContacto = document.querySelector(".direcciones");
@@ -209,7 +210,6 @@ function guardarNuevaDireccion() {
 }
 
 function finalizarCompra() {
-  console.log("Click en Finalizar Compra "); 
   let checkout = [direccionEnvioF, correoElectronicoF];
   /* Ajax Call */
   $.ajax({
@@ -217,11 +217,9 @@ function finalizarCompra() {
     type: "POST",
     data: { checkout: checkout },
     success: function (respuesta) {
-
-      /* Limpiar variables y DOM carrito */
-
-      /* Redirigir y/o mostrar mensaje de finalización */
       console.log(respuesta);
+      /* Redirigir y/o mostrar mensaje de finalización */
+     window.location = "./index.php";
     },
   });
 }

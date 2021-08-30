@@ -172,7 +172,6 @@ finCompra.addEventListener("click", function(){
   /* Removiendo items para enviar solo los necesarios al la bd  */
   carrito = carrito.map(({titulo,costo,...rest}) =>({...rest}));
   carrito = JSON.stringify(carrito);
-  console.log(carrito);
   $.ajax({
     url: "../../php/crud/consultas.php",
     type: "POST",
@@ -180,7 +179,7 @@ finCompra.addEventListener("click", function(){
     data: {carrito: carrito},
     success: function (respuesta) {
       if (respuesta === 1) {
-        window.location = "pago.php"
+        window.location = "pago.php";
       }
     },
   });

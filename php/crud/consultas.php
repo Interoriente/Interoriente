@@ -205,7 +205,7 @@ class Checkout{
     $stmt->bindValue(':direccion', $direccion);
     $stmt->bindValue(':email', $email);
     $stmt->execute();
-    $idFactura = $pdo->lastInsertId();
+    $idFactura = $pdo->lastInsertId(); //Regresar el id del último registro insertado
     /* Almacenar información en tabla intermedia tblfacturapublicacion */
     $sqlCa = "SELECT idPublicacionCarrito as 'idPu',
     cantidadCarrito as 'cantidad' 
@@ -231,6 +231,6 @@ class Checkout{
      $stmtDeleteCart = $pdo->prepare($sqlDeleteCart);
      $stmtDeleteCart->execute();
     }
-    return "Proceso de Compra Finalizado!!";
+    return "Proceso de Compras Finalizado!!";
   }
 }
