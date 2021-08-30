@@ -179,7 +179,7 @@ finCompra.addEventListener("click", function(){
     data: {carrito: carrito},
     success: function (respuesta) {
       if (respuesta === 1) {
-        window.location = "pago.php";
+        window.location = "checkout.php";
       }
     },
   });

@@ -124,9 +124,8 @@ $publicacion = getPublicaciones();
                         <p><?php echo substr($x['descripcionPublicacion'], 0, 140) . "...   "; ?><span class="mas-info">Más Información</span></p>
                     </div>
                 </a>
-
                 <div class="cta-btns">
-                    <a href="./pago.php?id=<?php echo $x['idPublicacion']?>"><img src="../../assets/img/iconos/compras.svg" alt="Bolsa de la compra"></a>
+                    <a href="./checkout.php?id=<?php echo $x['idPublicacion']?>"><img src="../../assets/img/iconos/compras.svg" alt="Bolsa de la compra"></a>
                     <img class="carrito-tarjeta " onclick="addCarrito(this.id)" id="<?php echo $x['idPublicacion'] ?>" src="../../assets/img/iconos/carrito_2.svg" alt="Carro de la compra">
                 </div>
             </div>
