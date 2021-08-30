@@ -343,40 +343,7 @@
  
  
 /* Media query sección información proveedor */
-@media only screen and (min-device-width: 320px) and (max-device-width: 1222px) {
-  /* Contenedor General */
- /* .info-proveedor{
-   flex-wrap: wrap;
-   flex-direction: column-reverse;
-   align-items: center;
-   padding: 1em 0;
-   justify-content: space-around;
-    
- } */
- /* Tarjeta */
- /* .perfil-proveedor {
-   width: 75%;
-   height: 40%;
-   margin: 0 auto;
-} */
-  /* Amarilla */
- /* .informacion-complementaria{
-   width: 100%;
-   height: 10%;
-   flex-direction: row;
-   justify-content: space-evenly;
-   margin: 0 auto;
-   padding-top: 1em;
-   
-  
- } */
- /* Naranja */
- /* .descripcion-proveedor {
-  width: 100%;
-  height: 50%;
-  margin: 0 auto;
-} */
-}
+
 @media only screen and (min-device-width: 420px) and (max-device-width: 1220px) {
   /* Contenedor General */
  .info-proveedor{

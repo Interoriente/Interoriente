@@ -15,7 +15,7 @@ $publicacion = getPublicaciones();
     <link rel="icon" href="../../assets/img/favicon.png" type="image/png">
     <!-- General -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../assets/css/indexEstilos.css">
+    <link rel="stylesheet" href="../../assets/css/index.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous" />
     <!--Link solución protocolo: https://www.bugsnag.com/blog/jquery-is-not-defined-cause-solution-->
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
@@ -49,22 +49,19 @@ $publicacion = getPublicaciones();
                     <div class="carousel-item active">
                         <img src="../../assets/img/index_2/1.jpg" class="d-block w-100" alt="...">
                         <div class="carousel-caption d-none d-md-block">
-                            <!--    <h5>First slide label</h5>
-                            <p>Some representative placeholder content for the first slide.</p> -->
+                           
                         </div>
                     </div>
                     <div class="carousel-item">
                         <img src="../../assets/img/index_2/2.jpg" class="d-block w-100" alt="...">
                         <div class="carousel-caption d-none d-md-block">
-                            <!-- <h5>Second slide label</h5>
-                            <p>Some representative placeholder content for the second slide.</p> -->
+                            
                         </div>
                     </div>
                     <div class="carousel-item">
                         <img src="../../assets/img/index_2/3.jpg" class="d-block w-100" alt="...">
                         <div class="carousel-caption d-none d-md-block">
-                            <!--  <h5>Third slide label</h5>
-                            <p>Some representative placeholder content for the third slide.</p> -->
+
                         </div>
                     </div>
                 </div>
@@ -101,26 +98,7 @@ $publicacion = getPublicaciones();
                 Servicios
             </div>
         </a>
-
-
-
-
     </section>
-
-
-
-    <!-- TODO: 1. Botones "Comprar Ahora" y "Agregar al carrito" cuando tarjeta:hover
-            2. Hipervínculo tarjeta con publicación
-                3. Íconos sidebar
-                    4. Definir estado de hover para tarjetas
-                        5. Modificar navbar para dispositivos móviles
-                            6. Maquetar footer
-                                7. Detalles a sidebar
-                                    8. Agregar Mediaqueries para cambiar tamaño de tarjetas
--->
-
-
-
     <!-- Sección de las tarjetas -->
 
     <!-- NOTA: títulos de máximo 100 caracteres ó 14 palabras -->
@@ -155,7 +133,6 @@ $publicacion = getPublicaciones();
         <?php endforeach; ?>
         <!-- -- Fin tarjeta final--  -->
 
-
     </section>
     <!-- Fin sección Publicaciones -->
 
@@ -169,7 +146,6 @@ $publicacion = getPublicaciones();
     ?>
 
     <!-- Js -->
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
 </body>
 

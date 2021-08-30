@@ -15,10 +15,6 @@ session_start();
 </head>
 
 <body>
-  <!--  <div class="carrusel-superior">
-    <p>promoción</p>
-  </div> -->
-  <!-- Navbar -->
   <div class="contenedor">
     <div class="contenedor-s">
       <div class="logoT">

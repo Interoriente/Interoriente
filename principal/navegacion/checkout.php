@@ -23,7 +23,7 @@ $iva = 0;
 
   <!-- Css local  -->
   <link rel="stylesheet" href="../../assets/css/general.css" />
-  <link rel="stylesheet" href="../../assets/css/pagos.css" />
+  <link rel="stylesheet" href="../../assets/css/checkout.css" />
   <title>Checkout | Interoriente</title>
 </head>
 
