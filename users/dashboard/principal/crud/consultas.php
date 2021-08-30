@@ -10,9 +10,4 @@ $contadorValidacion = $consultaValidacion->rowCount();
 $sqlSesionRol = "SELECT * FROM tblUsuarioRol WHERE docIdentidadUsuarioRol=? AND idUsuarioRol=?";
 $consultaSesionRol = $pdo->prepare($sqlSesionRol);
 $consultaSesionRol->execute(array($documento, $sesionRol));
-$resultadoSesionRol = $consultaSesionRol->rowCount(); //Llamado tabla intermedia
-$sqlSesionRol = "SELECT * FROM tblUsuarioRol WHERE docIdentidadUsuarioRol=? AND idUsuarioRol=?";
-$consultaSesionRol = $pdo->prepare($sqlSesionRol);
-$consultaSesionRol->execute(array($documento, $sesionRol));
 $resultadoSesionRol = $consultaSesionRol->rowCount();
-?>

@@ -16,7 +16,7 @@ if (isset($_SESSION["documentoIdentidad"])) {
           <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
           <meta name="description" content="Bienvenidos a Interoriente, podrás comprar, vender y mucho más.">
           <meta name="author" content="Inter-oriente">
-          <title>Crear publicación - Interoriente</title>
+          <title>Crear publicación | Interoriente</title>
           <!-- Favicon -->
           <link rel="icon" href="../../../assets/img/favicon.png" type="image/png">
           <!-- Fonts -->
@@ -38,6 +38,8 @@ if (isset($_SESSION["documentoIdentidad"])) {
           include_once '../../../dao/conexion.php';
           //Llamar a la conexion base de datos -> Muestro el contenido de tabla publicación, pero muestro mis publicaciones
           //Mostrar los datos almacenados
+
+          /* Muestra las publicacion en la tabla de publicaciones */
           $sqlPubli = "SELECT * FROM tblPublicacion as PU
           INNER JOIN tblImagenes 
           as IMG ON PU.idPublicacion = IMG.publicacionImagen
@@ -53,6 +55,8 @@ if (isset($_SESSION["documentoIdentidad"])) {
 
           //Sirve para mostrar el contenido de la tabla Estado, para mostrarlo en la lista desplegable
           //Mostrar los datos almacenados
+
+          /* Lista desplegable de los estados de artículos */
           $sqlEstado = "SELECT * FROM tblEstadoArticulo ORDER BY nombreEstadoArticulo ASC";
           //Prepara sentencia
           $consultarEstado = $pdo->prepare($sqlEstado);
@@ -64,13 +68,20 @@ if (isset($_SESSION["documentoIdentidad"])) {
           //Sirve para mostrar el contenido de la tabla Categoria, para mostrarlo en la lista desplegable
 
           //Mostrar los datos almacenados
+
+          /* Lista desplegable de categoría */
+
           $sqlCategoria = "SELECT * FROM tblCategoria ORDER BY nombreCategoria ASC";
           //Prepara sentencia
           $consultarCategoria = $pdo->prepare($sqlCategoria);
           //Ejecutar consulta
           $consultarCategoria->execute();
           $resultadoCategoria = $consultarCategoria->fetchAll();
-          if ($_GET) {
+
+
+          /* Actualizar publicación */
+          if ($_GET) {  
+
             include_once '../../../dao/conexion.php';
             //Cargar los datos del id seleccionado
             $idPubli = $_GET["id"];
@@ -82,6 +93,8 @@ if (isset($_SESSION["documentoIdentidad"])) {
             $consultaEditPubli->execute(array($idPubli));
             $resultadoEditPubli = $consultaEditPubli->fetch();
           }
+
+
           ?>
           <br><br><br><br>
           <!-- Publicacion producto -->

@@ -12,6 +12,8 @@
 
 <!-- PHP para inicio de Sesion con Google -->
 <?php
+
+
 require_once '../../logingoogle/vendor/autoload.php';
 
 require_once '../../logingoogle/config.php';
@@ -51,35 +53,6 @@ $GoogleLogin = $client->createAuthUrl();
 </head>
 
 <body class="bg-default" oncontextmenu="return false">
-    <!-- Script para llamar ciertos caracteres -->
-    <script>
-    function Sololetras(e) {
-
-      key = e.keycode || e.which;
-      teclado = String.fromCharCode(key).toLowerCase();
-
-      usuario = "abcdefghijklmnñopqrstuvwxyz1234567890@.";
-
-      especiales = "8-37-39-46-164"; //aray
-
-      teclado_especial = false;
-
-      for (var i in especiales) {
-
-        if (key == especiales[i]) {
-          teclado_especial = true;
-          break;
-
-        }
-
-      }
-
-      if (usuario.indexOf(teclado) == -1 && !teclado_especial) {
-        return false;
-
-      }
-    }
-  </script>
     <!-- Main content -->
     <div class="main-content">
         <!-- Header -->
@@ -113,7 +86,7 @@ $GoogleLogin = $client->createAuthUrl();
                                     <span class="btn-inner--icon"><img src="../../users/dashboard/assets/img/icons/common/github.svg"></span>
                                     <span class="btn-inner--text">Index</span>
                                 </a>
-                                <a href="<?php echo $GoogleLogin;?>" class="btn btn-neutral btn-icon">
+                                <a href="<?php echo $GoogleLogin; ?>" class="btn btn-neutral btn-icon">
                                     <span class="btn-inner--icon"><img src="../../users/dashboard/assets/img/icons/common/google.svg"></span>
                                     <span class="btn-inner--text">Google</span>
                                 </a>
@@ -123,7 +96,8 @@ $GoogleLogin = $client->createAuthUrl();
                             <div class="text-center text-muted mb-4">
                                 <small>O con tus datos personales:</small>
                             </div>
-                            <form action="../../php/crud/iniciarSesion.php" method="POST">
+                            <form action="../../php/users/acceso.php" method="POST">
+                                <input type="hidden" name="iniciarSesion">
                                 <div class="form-group">
                                     <label for="id">Correo o documento:</label>
                                     <div class="input-group input-group-merge input-group-alternative mb-3">
@@ -143,6 +117,7 @@ $GoogleLogin = $client->createAuthUrl();
                                     </div>
                                 </div>
                                 <div class="text-center">
+
                                     <button type="submit" class="btn btn-primary mt-4">Iniciar sesión</button>
                                 </div>
                             </form>
