@@ -17,7 +17,7 @@ if (isset($_SESSION['documentoIdentidad'])) {
     $consultar_actualizar->execute(array($nombre, $descripcion, $costo, $stock, $id));
     //Redireccionar
     echo "<script>alert('Datos actualizados correctamente');</script>";
-    echo "<script> document.location.href='../crearPubli.php';</script>";
+    echo "<script> document.location.href='../crearPublicacion.php';</script>";
 } else {
     echo "<script>alert('Error!, no se ha iniciado sesión');</script>";
     echo "<script> document.location.href='../403.php';</script>";

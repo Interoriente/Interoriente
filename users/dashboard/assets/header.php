@@ -41,7 +41,7 @@
                     </span>
                     <div class="media-body  ml-2  d-none d-lg-block">
 
-                      <span class="mb-0 text-sm  font-weight-bold"><?php echo $nombreUsuario; ?></span>
+                      <span class="mb-0 text-sm  font-weight-bold"><?php echo $respUserData->nombresUsuario. " ".$respUserData->apellidoUsuario; ?></span>
 
                     </div>
                   </div>
@@ -104,7 +104,7 @@
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-body">
-          <img class=" card-img-top" src="crud/<?php echo $objetoLlamado->imagenUsuario; ?>">
+          <img class=" card-img-top" src="crud/<?php echo $respUserData->imagenUsuario; ?>">
         </div>
       </div>
     </div>

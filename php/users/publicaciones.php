@@ -75,7 +75,8 @@ class Publicaciones
     {
         require '../../../dao/conexion.php';
         /* Lista desplegable de categoría */
-        $sqlCategoria = "SELECT * FROM tblCategoria ORDER BY nombreCategoria ASC";
+        $sqlCategoria = "SELECT * 
+        FROM tblCategoria ORDER BY nombreCategoria ASC";
         //Prepara sentencia
         $consultarCategoria = $pdo->prepare($sqlCategoria);
         //Ejecutar consulta
@@ -144,14 +145,14 @@ class Publicaciones
 
                     echo "<script>alert('El registro se subió correctamente');</script>";
                     /* Redirigir después de almacenar la información */
-                    echo "<script> document.location.href='../../users/dashboard/principal/crearPubli.php';</script>";
+                    echo "<script> document.location.href='../../users/dashboard/principal/crearPublicacion.php';</script>";
                     sleep(5);
                 } else {
                     echo "Error moviendo archivo";
                 }
             } else {
                 echo "<script>alert('Error: formato de imagen no válido');</script>";
-                echo "<script> document.location.href='../../users/dashboard/principal/crearPubli.php';</script>";
+                echo "<script> document.location.href='../../users/dashboard/principal/crearPublicacion.php';</script>";
             }
         }
     }
