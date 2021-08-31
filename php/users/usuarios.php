@@ -25,7 +25,7 @@ class Usuario
             $stmt->execute();
             $contadorValidacion = $stmt->rowCount();
             if ($contadorValidacion) {
-                
+
                 return $objetoRol = $stmt->fetch(PDO::FETCH_OBJ);
             }
         } else {
@@ -34,9 +34,9 @@ class Usuario
     }
     public function getDirecciones($docId)
     {
-    
+
         require '../../../dao/conexion.php';
-         $sqlDireccion = "SELECT 
+        $sqlDireccion = "SELECT 
           DI.idDireccion, 
           DI.nombreDireccion,
           DI.descripcionDireccion,
@@ -61,5 +61,18 @@ class Usuario
         $stmt->execute();
         $resultado = $stmt->fetchAll(PDO::FETCH_ASSOC);
         return $resultado;
+    }
+
+    public function getRoles($docId)
+    {
+        require "../../../dao/conexion.php";
+        $sql = "SELECT RO.nombreRol, UR.idUsuarioRol
+        FROM tblUsuarioRol AS UR
+        INNER JOIN tblRol AS RO ON RO.idRol = UR.idUsuarioRol
+        WHERE docIdentidadUsuarioRol = :id";
+        $stmt = $pdo->prepare($sql);
+        $stmt->bindParam(':id', $docId);
+        $stmt->execute();
+        return $stmt->fetchAll();
     }
 }

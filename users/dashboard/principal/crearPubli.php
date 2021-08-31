@@ -243,7 +243,7 @@ if (isset($respUserData)) {
                     Acciones
                   </button>
                   <div class="dropdown-menu">
-                    <a class="btn btn-info" href="crearPubli.php?id=<?php echo $datosPubli['idPublicacion']; ?>">Actualizar</a>
+                    <a class="btn btn-info" href="crearPublicacion.phpon.php?id=<?php echo $datosPubli['idPublicacion']; ?>">Actualizar</a>
                     <a class="btn btn-danger" data-toggle="modal" data-target="#eliminarPubliModal<?php echo $datosPubli['idPublicacion'] ?>">Eliminar</a>
                   </div>
                 </td>
