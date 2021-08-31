@@ -9,7 +9,7 @@ require "../../../php/users/usuarios.php";
 $usuario = new Usuario($documento);
 $respUserData = $usuario->getUserData($usuario->id);
 $respGetRoles = $usuario->getRoles($usuario->id);
-
+/* Probando git  */
 if (isset($respUserData)) {
 
   //Validacion de roles
