@@ -1,0 +1,5 @@
+Refactorizar:
+
+    1. Publicaciones.php
+    2. usuarios.php
+    3. Contenido de la carpeta crud
