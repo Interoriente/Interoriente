@@ -28,7 +28,7 @@ if (isset($respUserData)) {
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
       <meta name="description" content="Bienvenidos a Interoriente, podrás comprar, vender y mucho más.">
-      <meta name="author" content="Inter-oriente">
+      <meta name="author" content="Interoriente">
       <title>Mi perfil | Interoriente</title>
       <!-- Favicon -->
       <link rel="icon" href="../../../assets/img/favicon.png" type="image/png">

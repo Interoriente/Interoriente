@@ -1,5 +1,4 @@
 <?php
-
 if (isset($_POST['iniciarSesion']) || isset($_POST['registrarse'])) {
     if (isset($_POST['iniciarSesion'])) {
         $idUsuario = $_POST['id'];
@@ -17,7 +16,6 @@ if (isset($_POST['iniciarSesion']) || isset($_POST['registrarse'])) {
         $registro->registrarUsuario($nombre, $apellido, $docIdentidad, $email, $contrasena, $contrasenaRepetida);
     }
 }
-
 
 class Registro
 {

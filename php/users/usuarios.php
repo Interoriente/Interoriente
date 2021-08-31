@@ -1,18 +1,15 @@
 <?php
-
 class Usuario
 {
-
+    /* Atributos */
     public int $docId;
-    
 
-
+    /* Constructor */
     public function __construct(int $docId)
     {
         $this->id = $docId;
     }
-
-
+    /* Funciones */
     public function getUserData($docId)
     {
         if (isset($docId)) {
@@ -54,7 +51,8 @@ class Usuario
         $consultarDireccion->execute(array($docId));
         return $consultarDireccion->fetchAll();
     }
-    public function getCiudades(){
+    public function getCiudades()
+    {
         require('../../../dao/conexion.php');
         $sql = "SELECT idCiudad,
         nombreCiudad 
