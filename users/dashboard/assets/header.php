@@ -31,36 +31,24 @@
               </div>
             </div>
           </li>
-          <?php
-          $documento = $_SESSION["documentoIdentidad"];
-          include_once '../../../dao/conexion.php';
-          $sqlLlamado = "SELECT*FROM tblUsuario WHERE documentoIdentidad =? ";
-          $consultaLlamado = $pdo->prepare($sqlLlamado);
-          $consultaLlamado->execute(array($documento));
-          $resultadoLlamado = $consultaLlamado->rowCount();
-          $objetoLlamado = $consultaLlamado->fetch(PDO::FETCH_OBJ);
-          //Validacion de roles
-          if ($resultadoLlamado) {
-            $Nombre = $objetoLlamado->nombresUsuario . " " . $objetoLlamado->apellidoUsuario;
-          ?>
             <ul class="navbar-nav align-items-center  ml-auto ml-md-0 ">
               <li class="nav-item dropdown">
                 <a class="nav-link pr-0" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   <div class="media align-items-center">
                     <span class="avatar avatar-sm rounded-circle">
                       <!--- Impresión imagen de perfil -->
-                      <img alt="Image placeholder" src="crud/<?php echo $objetoLlamado->imagenUsuario; ?>">
+                      <img alt="Image placeholder" src="crud/<?php echo $respUserData->imagenUsuario; ?>">
                     </span>
                     <div class="media-body  ml-2  d-none d-lg-block">
 
-                      <span class="mb-0 text-sm  font-weight-bold"><?php echo $Nombre; ?></span>
+                      <span class="mb-0 text-sm  font-weight-bold"><?php echo $nombreUsuario; ?></span>
 
                     </div>
                   </div>
                 </a>
                 <div class="dropdown-menu  dropdown-menu-right ">
                   <div class="dropdown-header noti-title">
-                    <h6 class="text-overflow m-0">Bienvenidos!</h6>
+                    <h6 class="text-overflow m-0">Bienvenido!</h6>
                   </div>
                   <a href="../principal/perfil.php" class="dropdown-item">
                     <i class="ni ni-single-02"></i>
@@ -86,7 +74,6 @@
                 </div>
               </li>
             </ul>
-          <?php } ?>
       </div>
     </div>
   </nav>

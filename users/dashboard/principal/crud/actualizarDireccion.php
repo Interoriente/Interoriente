@@ -5,7 +5,10 @@ $direccion = $_REQUEST['direccion'];
 $ciudad = $_REQUEST['ciudad'];
 
 include '../../../../dao/conexion.php';
-$sqlActualizarDir = "UPDATE tblDirecciones SET nombreDireccion=?,descripcionDireccion=?,ciudadDireccion=? WHERE idDireccion=?";
+$sqlActualizarDir = "UPDATE tblDirecciones 
+SET nombreDireccion = ?,descripcionDireccion = ?, 
+ciudadDireccion = ? 
+WHERE idDireccion=?";
 $consultaActualizarDir = $pdo->prepare($sqlActualizarDir);
 if ($consultaActualizarDir->execute(array($nombre, $direccion, $ciudad, $id))) {
     echo "<script>alert('Dirección actualizada correctamente');</script>";

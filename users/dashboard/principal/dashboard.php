@@ -1,11 +1,18 @@
 <?php
 session_start();
+$documento = $_SESSION["documentoIdentidad"];
+require "../../../php/users/usuarios.php";
+$usuario = new Usuario($documento);
+$respUserData = $usuario->getUserData($usuario->id);
 
-if (isset($_SESSION["documentoIdentidad"])) {
-  include_once 'crud/consultas.php';
+if (isset($respUserData)) {
 
   //Mostrando roles almacenados
-  $sqlRol = "SELECT * FROM tblUsuarioRol INNER JOIN tblRol ON tblUsuarioRol.idUsuarioRol = tblRol.idRol WHERE docIdentidadUsuarioRol=?";
+  /* $sqlRol = "SELECT * 
+  FROM tblUsuarioRol 
+  INNER JOIN tblRol 
+  ON tblUsuarioRol.idUsuarioRol = tblRol.idRol 
+  WHERE docIdentidadUsuarioRol=?";
   $consultaRol = $pdo->prepare($sqlRol);
   $consultaRol->execute(array($documento));
   $resultadoRol = $consultaRol->fetchAll();
@@ -18,11 +25,9 @@ if (isset($_SESSION["documentoIdentidad"])) {
   $sqlMostrarConteoPubli = "SELECT*FROM tblPublicacion";
   $consultaMostrarConteoPubli = $pdo->prepare($sqlMostrarConteoPubli);
   $consultaMostrarConteoPubli->execute();
-  $resultadoMostrarConteoPubli = $consultaMostrarConteoPubli->rowCount();
+  $resultadoMostrarConteoPubli = $consultaMostrarConteoPubli->rowCount(); */
   //Validacion de roles
-  if ($contadorValidacion) {
-    if ($resultadoSesionRol) {
-      if ($sesionRol == '1' or $sesionRol == '2' or $sesionRol == '3') {
+      if ($respUserData->idUsuarioRol == '1' or $respUserData->idUsuarioRol == '2' or $resultado->idUsuarioRol == '3') {
 ?>
         <!DOCTYPE html>
         <html>
@@ -158,10 +163,5 @@ if (isset($_SESSION["documentoIdentidad"])) {
       echo "<script>alert('Has perdido acceso a este rol');</script>";
       echo "<script> document.location.href='403.php';</script>";
     }
-  } else {
-    echo "<script> document.location.href='403.php';</script>";
-  }
-} else {
-  echo "<script> document.location.href='403.php';</script>";
-}
+
 ?>
