@@ -14,7 +14,7 @@ $iva = 0.19;
 include_once '../../dao/conexion.php';
 
 /* LLamado al encabezado */
-$sqlCliente   = "SELECT US.descripcionUsuario,FA.direccionFactura,US.telefonoMovilUsuario,FA.estadoFactura,FA.telefonoFactura,FA.numFactura,DATE_FORMAT(FA.fechaFactura, '%d/%m/%Y') as fecha, DATE_FORMAT(FA.fechaFactura,'%H:%i:%s') as  hora,US.documentoIdentidad,concat(US.nombresUsuario,'-',US.apellidoUsuario) as Cliente 
+$sqlCliente   = "SELECT US.descripcionUsuario,FA.direccionFactura,US.telefonoMovilUsuario,FA.estadoFactura,FA.telefonoFactura,FA.numFactura,DATE_FORMAT(FA.fechaFactura, '%d/%m/%Y') as fecha, DATE_FORMAT(FA.fechaFactura,'%H:%i:%s') as  hora,US.documentoIdentidad,concat(US.nombresUsuario,' ',US.apellidoUsuario) as Cliente 
 FROM tblUsuario AS US
 INNER JOIN tblFactura AS FA ON FA.docIdentidadFactura=US.documentoIdentidad
 WHERE US.documentoIdentidad =? AND FA.numFactura=1";
@@ -73,7 +73,7 @@ if ($resultadoCliente->estadoFactura == 2) {
 						<p>No. Factura: <strong><?php echo $no_factura; ?></strong></p>
 						<p>Fecha: <?php echo $resultadoCliente->fecha; ?></p>
 						<p>Hora: <?php echo $resultadoCliente->hora; ?></p>
-						<p>Factura electrónica</p>
+						<p>Factura Electrónica</p>
 					</div>
 				</td>
 			</tr>
@@ -115,8 +115,8 @@ if ($resultadoCliente->estadoFactura == 2) {
 				<tr>
 					<th width="50px">Cant.</th>
 					<th class="textleft">Descripción</th>
-					<th class="textright" width="150px">Precio Unitario.</th>
-					<th class="textright" width="150px"> Precio Total</th>
+					<th class="textright" width="150px">Precio Unitario</th>
+					<th class="textright" width="150px">Precio Total</th>
 				</tr>
 			</thead>
 			<tbody id="detalle_productos">
