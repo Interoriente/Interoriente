@@ -7,17 +7,19 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../assets/css/estiCambiarContra.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous" />
     <link rel="icon" href="../../assets/img/favicon.png" type="image/png" />
     <title>Cambiar Contraseña</title>
 </head>
-
 <body background="../../assets/img/fondocambiarcontrasena.jpg">
     <!-- Barra de navegación -->
     <?php
     include '../includes/superior.php';
     ?>
+    <!-- ----- -->
+    <!-- CCS Local-->
+    <link rel="stylesheet" href="../../assets/css/general.css">
+    <link rel="stylesheet" href="../../assets/css/CambiarContrasena.css">
     <!-- ----- -->
     <div class="padre">
         <div class="header">

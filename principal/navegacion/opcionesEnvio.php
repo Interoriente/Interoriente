@@ -7,20 +7,22 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../assets/css/estiOpcionesEnvio.css">
     <link rel="icon" href="../../assets/img/favicon.png" type="image/png">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous" />
     <title>Opciones Envío | Interoriente</title>
 </head>
 
 <body background="../../assets/img/fondocatalogo.jpg">
-    <!-- Barra de navegación -->
+<!-- CSS Local -->
+<link rel="stylesheet" href="../../assets/css/general.css" />
+<link rel="stylesheet" href="../../assets/css/opcionesEnvio.css">
+<!-- ----- -->
+<!-- Barra de navegación -->
     <?php
     include '../includes/superior.php';
     ?>
     <!-- ----- -->
     <div class="padre">
-
         <div class="header">
             <div class="contenedor-menuuno">
                 <h1 class="tit-menudos">¿Cómo deseas recibir tu producto?</h1>

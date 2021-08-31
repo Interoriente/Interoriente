@@ -15,6 +15,10 @@
     <?php
     include '../includes/superior.php';
     ?>
+    <!-- CCS Local-->
+    <link rel="stylesheet" href="../../assets/css/general.css">
+    <link rel="stylesheet" href="../../assets/css/categorias.css">
+    <!-- ----- -->
     <div class="padre">
         <div class="header">
             <!--Inicio Pestaña de resultados-->
@@ -46,7 +50,7 @@
                 <a href="">
                     <div class="caja-categorias">
                     <div class="caja-categorias-subuno">
-                    <img src="../../assets/img/hogar.jpg" alt="" class="img-categorias">
+                    <img src="../../assets/img/catalogos/excel.jpg" alt="" class="img-categorias">
                         </div>
                         <div class="caja-categorias-subdos">
                         <h2 class="tit-hdos">Excel</h2>
@@ -56,7 +60,7 @@
                 <a href="">
                     <div class="caja-categorias">
                     <div class="caja-categorias-subuno">
-                    <img src="../../assets/img/hogar.jpg" alt="" class="img-categorias">
+                    <img src="../../assets/img/catalogos/matematicas.jpeg" alt="" class="img-categorias">
                         </div>
                         <div class="caja-categorias-subdos">
                         <h2 class="tit-hdos">Matemáticas</h2>
@@ -66,7 +70,7 @@
                 <a href="">
                     <div class="caja-categorias">
                     <div class="caja-categorias-subuno">
-                    <img src="../../assets/img/hogar.jpg" alt="" class="img-categorias">
+                    <img src="../../assets/img/catalogos/ciencia.jpg" alt="" class="img-categorias">
                         </div>
                         <div class="caja-categorias-subdos">
                         <h2 class="tit-hdos">Ciencia</h2>
@@ -76,7 +80,7 @@
                 <a href="">
                     <div class="caja-categorias">
                     <div class="caja-categorias-subuno">
-                    <img src="../../assets/img/hogar.jpg" alt="" class="img-categorias">
+                    <img src="../../assets/img/catalogos/idiomas.jpg" alt="" class="img-categorias">
                         </div>
                         <div class="caja-categorias-subdos">
                         <h2 class="tit-hdos">Idiomas</h2>
@@ -86,7 +90,7 @@
                 <a href="">
                     <div class="caja-categorias">
                     <div class="caja-categorias-subuno">
-                    <img src="../../assets/img/hogar.jpg" alt="" class="img-categorias">
+                    <img src="../../assets/img/catalogos/programacion.jpg" alt="" class="img-categorias">
                         </div>
                         <div class="caja-categorias-subdos">
                         <h2 class="tit-hdos">Programación</h2>
@@ -96,7 +100,7 @@
                 <a href="">
                     <div class="caja-categorias">
                     <div class="caja-categorias-subuno">
-                    <img src="../../assets/img/hogar.jpg" alt="" class="img-categorias">
+                    <img src="../../assets/img/catalogos/entrenamientoPersonal.jpg" alt="" class="img-categorias">
                         </div>
                         <div class="caja-categorias-subdos">
                         <h2 class="tit-hdos">Entrenamiento Personal</h2>
@@ -106,7 +110,7 @@
                 <a href="">
                     <div class="caja-categorias">
                     <div class="caja-categorias-subuno">
-                    <img src="../../assets/img/hogar.jpg" alt="" class="img-categorias">
+                    <img src="../../assets/img/catalogos/arte.jpeg" alt="" class="img-categorias">
                         </div>
                         <div class="caja-categorias-subdos">
                         <h2 class="tit-hdos">Arte</h2>
@@ -116,7 +120,7 @@
                 <a href="">
                     <div class="caja-categorias">
                     <div class="caja-categorias-subuno">
-                    <img src="../../assets/img/hogar.jpg" alt="" class="img-categorias">
+                    <img src="../../assets/img/catalogos/mecanico.jpg" alt="" class="img-categorias">
                         </div>
                         <div class="caja-categorias-subdos">
                         <h2 class="tit-hdos">Mecánico</h2>
@@ -126,7 +130,7 @@
                 <a href="">
                     <div class="caja-categorias">
                     <div class="caja-categorias-subuno">
-                    <img src="../../assets/img/hogar.jpg" alt="" class="img-categorias">
+                    <img src="../../assets/img/catalogos/diseno.jpg" alt="" class="img-categorias">
                         </div>
                         <div class="caja-categorias-subdos">
                         <h2 class="tit-hdos">Diseño</h2>
