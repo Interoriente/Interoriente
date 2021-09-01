@@ -21,7 +21,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="crearPubli.php">
+                <a class="nav-link" href="crearPublicacion.php">
                   <i class="ni ni-album-2 text-red"></i>
                   <span class="nav-link-text">Crear publicación</span>
                 </a>

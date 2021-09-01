@@ -1,9 +1,6 @@
 <?php
 session_start();
 $documento = $_SESSION["documentoIdentidad"];
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
 require "../../../php/users/usuarios.php";
 require "../../../php/users/publicaciones.php";
 $usuario = new Usuario($documento);
@@ -14,7 +11,8 @@ $respGetEstados = $publicaciones->getEstados();
 $respGetCategorias = $publicaciones->getCategorias(); 
 //Validacion de roles
 if (isset($respUserData)) {
-  if ($respUserData->idUsuarioRol == 1) {
+  $rol = $_SESSION['roles'];
+  if ($rol == 1) {
 ?>
     <!DOCTYPE html>
     <html>

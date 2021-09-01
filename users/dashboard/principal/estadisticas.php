@@ -11,7 +11,8 @@ $publicaciones = new Publicaciones($documento);
 $respMostrarPublicaciones = $publicaciones->MostrarPublicaciones($publicaciones->id);
 
 if ($respUserData) {
-    if ($respUserData->idUsuarioRol == 1 or $respUserData->idUsuarioRol  == 3) {
+    $rol = $_SESSION['roles'];
+    if ($rol == 1 or $rol  == 3) {
 ?>
         <!DOCTYPE html>
         <html lang="en">

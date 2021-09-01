@@ -25,7 +25,6 @@ class Usuario
             $stmt->execute();
             $contadorValidacion = $stmt->rowCount();
             if ($contadorValidacion) {
-
                 return $objetoRol = $stmt->fetch(PDO::FETCH_OBJ);
             }
         } else {
@@ -73,6 +72,20 @@ class Usuario
         $stmt = $pdo->prepare($sql);
         $stmt->bindParam(':id', $docId);
         $stmt->execute();
+        return $stmt->fetchAll();
+    }
+    public function getUsuarios($docId){
+
+        require "../../../dao/conexion.php";
+        //Llamar a la conexion base de datos -> Muestro el contenido de tabla usuario
+        //Mostrar todos los datos almacenados
+        $sql = "SELECT * 
+        FROM tblUsuario 
+        WHERE documentoIdentidad <> ?";
+        //Prepara sentencia
+        $stmt = $pdo->prepare($sql);
+        //Ejecutar consulta
+        $stmt->execute(array($docId));
         return $stmt->fetchAll();
     }
 }

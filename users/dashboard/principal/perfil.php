@@ -13,8 +13,9 @@ $respGetDirecciones = $usuario->getDirecciones($usuario->id);
  /* Mostrar nombre completo del usuario logeado */
 $nombreUsuario = $respUserData->nombresUsuario . " " . $respUserData->apellidoUsuario;
 if (isset($respUserData)) {
+  $rol = $_SESSION['roles'];
   //Validacion de roles
-  if ($respUserData->idUsuarioRol == 1 or $respUserData->idUsuarioRol  == 3) {
+  if ($rol == 1 or $rol  == 3) {
 ?>
 
     <!DOCTYPE html>

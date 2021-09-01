@@ -1,12 +1,15 @@
 <?php
 session_start();
-if (isset($_SESSION["documentoIdentidad"])) {
-  include_once 'crud/consultas.php';
+$documento = $_SESSION["documentoIdentidad"];
+$rol = $_SESSION["roles"];
+require "../../../php/users/usuarios.php";
+$usuario = new Usuario($documento);
+$respGetUsuarios = $usuario->getUsuarios($usuario->id);
+$respUserData = $usuario->getUserData($usuario->id);
 
   //Validacion de roles
-  if ($contadorValidacion) {
-    if ($resultadoSesionRol) {
-      if ($sesionRol == '3') {
+    if (isset($respUserData)) {
+      if ($rol == 3) {
 ?>
         <!DOCTYPE html>
         <html>
@@ -34,17 +37,6 @@ if (isset($_SESSION["documentoIdentidad"])) {
           <?php
           require_once '../assets/sidebarDashboard.php';
           require_once '../assets/header.php';
-          include_once '../../../dao/conexion.php';
-          //Llamar a la conexion base de datos -> Muestro el contenido de tabla usuario
-          //Mostrar los datos almacenados
-          $sql_mostrar_usu = "SELECT * 
-          FROM tblUsuario 
-          WHERE documentoIdentidad <> ?";
-          //Prepara sentencia
-          $consultar_mostrar_usu = $pdo->prepare($sql_mostrar_usu);
-          //Ejecutar consulta
-          $consultar_mostrar_usu->execute(array($documento));
-          $resultado_mostrar_usu = $consultar_mostrar_usu->fetchAll();
           ?>
           <!-- Header -->
           <div class="header bg-primary pb-6">
@@ -88,7 +80,7 @@ if (isset($_SESSION["documentoIdentidad"])) {
                       </thead>
                       <tbody class="list">
                         <?php
-                        foreach ($resultado_mostrar_usu as $datos) {
+                        foreach ($respGetUsuarios as $datos) {
                         ?>
                           <tr>
                             <th><?php echo $datos['documentoIdentidad']; ?></th>
@@ -132,10 +124,5 @@ if (isset($_SESSION["documentoIdentidad"])) {
       echo "<script>alert('Has perdido acceso a este rol');</script>";
       echo "<script> document.location.href='403.php';</script>";
     }
-  } else {
-    echo "<script> document.location.href='403.php';</script>";
-  }
-} else {
-  echo "<script> document.location.href='403.php';</script>";
-}
+  
 ?>

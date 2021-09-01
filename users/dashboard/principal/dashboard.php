@@ -7,9 +7,9 @@ $respUserData = $usuario->getUserData($usuario->id);
 $respGetRoles = $usuario->getRoles($usuario->id);
 
 if (isset($respUserData)) {
-
+  $rol = $_SESSION['roles'];
   //Validacion de roles
-  if ($respUserData->idUsuarioRol == 1 or $resultado->idUsuarioRol == 3) {
+  if ($rol == 1 or $rol == 3) {
 ?>
     <!DOCTYPE html>
     <html>

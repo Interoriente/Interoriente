@@ -1,7 +1,8 @@
 <?php
 if (isset($_POST['crearPublicacion'])) {
     /* Capturar datos */
-    ini_set('display_errors',
+    ini_set(
+        'display_errors',
         1
     );
     ini_set('display_startup_errors', 1);
@@ -18,8 +19,16 @@ if (isset($_POST['crearPublicacion'])) {
     /* Instanciar clase */
     $publicaciones = new Publicaciones($documentoIdentidad);
     /* Llamar función */
-    $publicaciones->CrearPublicacion($nombre,$descripcion,
-    $color,$costo,$estadoArticulo,$stock,$categoria,$documentoIdentidad);
+    $publicaciones->CrearPublicacion(
+        $nombre,
+        $descripcion,
+        $color,
+        $costo,
+        $estadoArticulo,
+        $stock,
+        $categoria,
+        $documentoIdentidad
+    );
 }
 
 class Publicaciones
@@ -85,15 +94,16 @@ class Publicaciones
         return $resultadoCategoria;
     }
 
-    public function CrearPublicacion($nombrePubli,
+    public function CrearPublicacion(
+        $nombrePubli,
         $descripcionPubli,
         $colorPubli,
         $costoPubli,
         $estadoArticuloPubli,
         $stockPubli,
         $categoriaPubli,
-        $documentoIdentidadPubli)
-    {
+        $documentoIdentidadPubli
+    ) {
         require '../../dao/conexion.php';
 
         $verificacion = '0';
@@ -146,7 +156,7 @@ class Publicaciones
                     echo "<script>alert('El registro se subió correctamente');</script>";
                     /* Redirigir después de almacenar la información */
                     echo "<script> document.location.href='../../users/dashboard/principal/crearPublicacion.php';</script>";
-                    sleep(5);
+                    //sleep(5);
                 } else {
                     echo "Error moviendo archivo";
                 }
@@ -155,5 +165,23 @@ class Publicaciones
                 echo "<script> document.location.href='../../users/dashboard/principal/crearPublicacion.php';</script>";
             }
         }
+    }
+    public function MostrarTodasPublicaciones()
+    {
+
+        require "../../../dao/conexion.php";
+
+        $sqlMostrarPubli = "SELECT * 
+        FROM tblPublicacion as PU
+        INNER JOIN tblImagenes as IMG 
+        ON PU.idPublicacion = IMG.publicacionImagen
+        GROUP BY PU.nombrePublicacion, PU.descripcionPublicacion,PU.costoPublicacion 
+        ORDER BY nombrePublicacion asc"; //Prepara sentencia
+
+        $consultarMostrarPubli = $pdo->prepare($sqlMostrarPubli);
+        //Ejecutar consultas
+        $consultarMostrarPubli->execute();
+
+        return $consultarMostrarPubli->fetchAll();
     }
 }
