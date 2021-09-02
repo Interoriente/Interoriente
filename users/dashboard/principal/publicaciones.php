@@ -135,7 +135,7 @@ if (isset($respUserData)) {
                             <!-- Cierre else -->
                           <?php } ?>
                           <!--Modal Eliminar publicación -->
-                          <?php require "../assets/modalEliminarPubli.php"; ?>
+                          <?php require "../assets/modalesPublicacion.php"; ?>
                       </tr>
                     <?php
 
