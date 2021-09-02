@@ -2,7 +2,7 @@
 /* TODO: Verificar existencia de la variable de sessión antes de iniciarla. */
 include_once "../includes/errores.php";
 /* Llamado SQL */
-require "../../php/crud/consultas.php";
+require "../../controller/php/crud/consultas.php";
 $publicacion = getPublicaciones();
 ?>
 <!DOCTYPE html>
