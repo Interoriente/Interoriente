@@ -10,7 +10,7 @@ $publicaciones = new Publicaciones($documento);
 $respContarPublicaciones = $publicaciones->ContarPublicaciones($publicaciones->id);
 $respGetCiudades = $usuario->getCiudades();
 $respGetDirecciones = $usuario->getDirecciones($usuario->id);
- /* Mostrar nombre completo del usuario logeado */
+/* Mostrar nombre completo del usuario logeado */
 $nombreUsuario = $respUserData->nombresUsuario . " " . $respUserData->apellidoUsuario;
 if (isset($respUserData)) {
   $rol = $_SESSION['roles'];
@@ -131,7 +131,7 @@ if (isset($respUserData)) {
                 </div>
               </div>
               <div class="card-body">
-                <form action="crud/actualizarCuenta.php" method="POST" enctype="multipart/form-data">
+                <form action="../../../php/users/usuarios.php" method="POST" enctype="multipart/form-data">
                   <h6 class="heading-small text-muted mb-4">Información de usuario</h6>
                   <div class="pl-lg-4">
                     <div class="row">
@@ -173,7 +173,8 @@ if (isset($respUserData)) {
                         Si no quieres cambiar la foto de perfil, puedes dejar este campo en blanco
                       </div>
                       <div class="form-group">
-                        <input type="hidden" name="ideditar" value="<?php echo $respUserData->documentoIdentidad; ?>" required>
+                        <input type="hidden" name="documentoUsuario" value="<?php echo $documento; ?>" required>
+                        <input type="hidden" name="actualizarCuenta" value="<?php echo $documento; ?>" required>
                       </div>
                     </div>
                     <button class="btn btn-primary btn-xs" type="submit" name="subir">Editar</button>
@@ -182,7 +183,7 @@ if (isset($respUserData)) {
               </div>
               <!-- Formulario para agregar direcciones -->
               <div class="card-body">
-                <form action="crud/agregarDirecciones.php" method="POST" enctype="multipart/form-data">
+                <form action="../../../php/users/usuarios.php" method="POST" enctype="multipart/form-data">
                   <h6 class="heading-small text-muted mb-4">Información de direcciones agregadas</h6>
                   <div class="pl-lg-4">
                     <div class="row">
@@ -190,6 +191,8 @@ if (isset($respUserData)) {
                         <div class="form-group">
                           <label class="form-control-label" for="nombre">Nombre (Opcional)</label>
                           <input type="text" id="nombre" name="nombre" class="form-control" placeholder="Madre, Casa, Trabajo..." value="">
+                          <input type="hidden" id="" name="agregarDirecciones" class="form-control" value="">
+                          <input type="hidden" id="" name="documentoUsuario" class="form-control" value="<?php echo $documento; ?>">
                         </div>
                       </div>
                       <div class="col-lg-6">
@@ -246,92 +249,22 @@ if (isset($respUserData)) {
                         </div>
                       </td>
 
-                      <!--Modal Eliminar direccion -->
-                      <div class="modal fade" id="eliminarDirModal<?php echo $direccion['idDireccion'] ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog" role="document">
-                          <div class="modal-content">
-                            <div class="modal-header">
-                              <h5 class="modal-title" id="exampleModalLabel">¿Seguro quieres eliminar esta dirección?</h5>
-                              <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">×</span>
-                              </button>
-                            </div>
-                            <div class="modal-body">Seleccione "Eliminar" para eliminar la dirección, esta acción no se podrá deshacer.</div>
-                            <div class="modal-footer">
-                              <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
-                              <a class="btn btn-danger" href="crud/eliminarDireccion.php?id=<?php echo $direccion['idDireccion'] ?>">Eliminar</a>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-
-                      <!-- Modal para actualizar direcciones -->
-                      <div class="modal fade" id="actualizarDirModal<?php echo $direccion['idDireccion'] ?>" role="dialog">
-                        <div class="modal-dialog">
-                          <div class="modal-content">
-                            <!-- Modal Header -->
-                            <div class="modal-header">
-                              <h4 class="modal-title" id="myModalLabel">Actualizar Dirección</h4>
-                              <button type="button" class="close" data-dismiss="modal">
-                                <span aria-hidden="true">×</span>
-                              </button>
-                            </div>
-
-                            <!-- Modal Body -->
-                            <div class="modal-body">
-                              <p class="statusMsg"></p>
-                              <form method="POST" action="crud/actualizarDireccion.php">
-                                <!-- Actualiar dirección -->
-                                <input type="hidden" name="actualizarDireccion">
-
-                                <div class="form-group">
-                                  <label for="inputName">Nombre</label>
-                                  <input type="text" class="form-control" id="inputName" name="nombre" placeholder="Nombre" value="<?php echo $direccion['nombreDireccion'] ?>">
-                                </div>
-                                <div class="form-group">
-                                  <label for="inputDireccion">Dirección</label>
-                                  <input type="text" class="form-control" id="inputDireccion" name="direccion" placeholder="Dirección" value="<?php echo $direccion['descripcionDireccion'] ?>">
-                                </div>
-                                <div class="form-group">
-                                  <label for="inputCiudad">Ciudad</label>
-                                  <select name="ciudad" id="ciudad" class="form-control">
-                                    <option value="<?php echo $direccion['idCiudad'] ?>"><?php echo $direccion['nombreCiudad'] ?></option>
-                                    <?php foreach ($respGetCiudades as $ciudad) {
-                                    ?>
-                                      <option value="<?php echo $ciudad['idCiudad'] ?>"><?php echo $ciudad['nombreCiudad'] ?></option>
-                                    <?php } ?>
-                                  </select>
-                                  <!-- Capturo id dirección a editar -->
-                                  <input type="hidden" name="id" value="<?php echo $direccion['idDireccion']; ?>">
-                                </div>
-
-                                <!-- Modal Footer -->
-                                <div class="modal-footer">
-                                  <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-                                  <button type="submit" class="btn btn-primary submitBtn">Actualizar</button>
-                                </div>
-                              </form>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-
-                      <!-- Fin modal -->
+                      <!--Modal Eliminar y actualizar direccion -->
+                      <?php require "../assets/modalesDireccion.php"; ?>
                     </tr>
                   <?php endforeach //Fin foreach 
                   ?>
                 </table>
               </div>
-
             </div>
           </div>
         </div>
       </div>
+
       <!-- Footer -->
       <?php require_once '../assets/footer.php' ?>
 
     </body>
-
     </html>
 <?php
   } else {

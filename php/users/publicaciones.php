@@ -1,13 +1,6 @@
 <?php
 if (isset($_POST['crearPublicacion'])) {
     /* Capturar datos */
-    ini_set(
-        'display_errors',
-        1
-    );
-    ini_set('display_startup_errors', 1);
-    error_reporting(E_ALL);
-
     $nombre = $_POST['nombre'];
     $descripcion = $_POST['descripcion'];
     $color = $_POST['color'];
@@ -29,8 +22,23 @@ if (isset($_POST['crearPublicacion'])) {
         $categoria,
         $documentoIdentidad
     );
+} else if (isset($_POST['activarPublicacion'])) {
+    $id = $_POST['id'];
+    $publicacion = new Publicaciones($id);
+    $publicacion->ActivarPublicacion($publicacion->id);
+} else if (isset($_POST['desactivarPublicacion'])) {
+    $id = $_POST['id'];
+    $publicacion = new Publicaciones($id);
+    $publicacion->DesactivarPublicacion($publicacion->id);
+} else if (isset($_POST['actualizarPublicacion'])) {
+    $id = $_POST['idPublicacion'];
+    $publicacion = new Publicaciones($id);
+    $publicacion->ActualizarPublicacion($publicacion->id);
+} else if (isset($_POST['eliminarPublicacion'])) {
+    $id = $_POST['idPublicacion'];
+    $publicacion = new Publicaciones($id);
+    $publicacion->EliminarPublicacion($publicacion->id);
 }
-
 class Publicaciones
 {
     public int $docId;
@@ -168,7 +176,6 @@ class Publicaciones
     }
     public function MostrarTodasPublicaciones()
     {
-
         require "../../../dao/conexion.php";
 
         $sqlMostrarPubli = "SELECT * 
@@ -183,5 +190,75 @@ class Publicaciones
         $consultarMostrarPubli->execute();
 
         return $consultarMostrarPubli->fetchAll();
+    }
+    public function ActivarPublicacion($docId)
+    {
+        //Llamada a la conexion
+        require '../../dao/conexion.php';
+        $estado = '1';
+        //sentencia sql para actualizar estado
+        $sqlActivar = "UPDATE tblPublicacion 
+        SET validacionPublicacion = ? 
+        WHERE idPublicacion = ?";
+        $activar = $pdo->prepare($sqlActivar);
+        $activar->execute(array($estado, $docId));
+
+        // TODO Comprobar existencia de excepciones
+
+        echo "<script>alert('Estado actualizado correctamente');</script>";
+        //redireccionar
+        echo "<script> document.location.href='../../users/dashboard/principal/publicaciones.php';</script>";
+    }
+
+    public function DesactivarPublicacion($id)
+    {
+        //Llamada a la conexion
+        require '../../dao/conexion.php';
+        $estado = '0';
+        //sentencia sql para actualizar estado
+        $sqlEditar = "UPDATE tblPublicacion 
+        SET validacionPublicacion = ?  
+        WHERE idPublicacion = ?";
+        $consultaEditar = $pdo->prepare($sqlEditar);
+        $consultaEditar->execute(array($estado, $id));
+        //alert
+        echo "<script>alert('Estado actualizado correctamente');</script>";
+        //redireccionar
+        echo "<script> document.location.href='../../users/dashboard/principal/publicaciones.php';</script>";
+    }
+    public function ActualizarPublicacion($id)
+    {
+        require '../../dao/conexion.php';
+        //Captura id
+        $nombre = $_POST['nombre'];
+        $descripcion = $_POST['descripcion'];
+        $costo = $_POST['costo'];
+        $stock = $_POST['stock'];
+        //Sentencia sql
+        $sql = "UPDATE tblPublicacion SET nombrePublicacion=?,descripcionPublicacion=?,costoPublicacion=?,stockPublicacion=? WHERE idPublicacion=?";
+        //Preparar la consulta
+        $stmt = $pdo->prepare($sql);
+        //Ejecutar
+        $stmt->execute(array($nombre, $descripcion, $costo, $stock, $id));
+        //Redireccionar
+        echo "<script>alert('Publicación actualizada correctamente');</script>";
+        echo "<script> document.location.href='../../users/dashboard/principal/crearPublicacion.php';</script>";
+    }
+    public function EliminarPublicacion($id)
+    {
+
+        require '../../dao/conexion.php';
+        //sentencia sql para eliminar Imagen
+        $sqlEliminar = "DELETE FROM tblImagenes WHERE publicacionImagen = ?";
+        $consultaEliminar = $pdo->prepare($sqlEliminar);
+        $consultaEliminar->execute(array($id));
+
+        //sentencia sql para eliminar Publicación
+        $sql_eliminar = "DELETE FROM tblPublicacion WHERE idPublicacion = ?";
+        $consulta_eliminar = $pdo->prepare($sql_eliminar);
+        $consulta_eliminar->execute(array($id));
+        //Redireccionar
+        echo "<script>alert('Publicación eliminada correctamente');</script>";
+        echo "<script> document.location.href='../../users/dashboard/principal/crearPublicacion.php';</script>";
     }
 }

@@ -1,8 +1,8 @@
 <?php
 
-ini_set('display_errors', 1);
+/* ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
+error_reporting(E_ALL); */
 // Iniciar variables de sesion, obtener DocId y Rol ACTUAL del usuario
 session_start();
 $documento = $_SESSION["documentoIdentidad"];
@@ -89,14 +89,14 @@ if (isset($respUserData)) {
                   </thead>
                   <tbody class="list">
                     <?php
-                    foreach ($respTodasPublicaciones as $datos) { ?>
+                    foreach ($respTodasPublicaciones as $datosPubli) { ?>
                       <tr>
-                        <th><img src="../../../imagenesPubli/<?php echo $datos['urlImagen'];  ?>" alt=".." width="130px"></th>
-                        <th><?php echo $datos['nombrePublicacion']; ?></th>
-                        <th><?php echo substr($datos['descripcionPublicacion'], 0, 30); ?>...</th>
-                        <th><?php echo $datos['costoPublicacion']; ?></th>
-                        <th><?php echo $datos['stockPublicacion']; ?></th>
-                        <?php if ($datos['validacionPublicacion'] == '1') { ?>
+                        <th><img src="../../../imagenesPubli/<?php echo $datosPubli['urlImagen'];  ?>" alt=".." width="130px"></th>
+                        <th><?php echo $datosPubli['nombrePublicacion']; ?></th>
+                        <th><?php echo substr($datosPubli['descripcionPublicacion'], 0, 30); ?>...</th>
+                        <th><?php echo $datosPubli['costoPublicacion']; ?></th>
+                        <th><?php echo $datosPubli['stockPublicacion']; ?></th>
+                        <?php if ($datosPubli['validacionPublicacion'] == '1') { ?>
                           <th>Validada</th>
                           <div class="btn-group">
                             <th>
@@ -104,8 +104,14 @@ if (isset($respUserData)) {
                                 Acciones
                               </button>
                               <div class="dropdown-menu">
-                                <a class="btn btn-success" href="crud/desactivarPubli.php?id=<?php echo $datos['idPublicacion']; ?>">Desactivar</a>
-                                <a class="btn btn-danger" data-toggle="modal" data-target="#eliminarPubliModal<?php echo $datos['idPublicacion'] ?>">Eliminar</a>
+                                <form action="../../../php/users/publicaciones.php" method="POST">
+                                  <input type="hidden" name="desactivarPublicacion">
+                                  <input type="hidden" name="id" value="<?php echo $datosPubli['idPublicacion']; ?>">
+                                  <button type="submit" class="btn btn-info">Desactivar</button>
+                                </form>
+                                <br>
+                                <!-- Botón eliminar publicación -->
+                                <a class="btn btn-danger" data-toggle="modal" data-target="#eliminarPubliModal<?php echo $datosPubli['idPublicacion'] ?>">Eliminar</a>
                               </div>
                             </th>
                           <?php } else { ?>
@@ -115,30 +121,21 @@ if (isset($respUserData)) {
                                 Acciones
                               </button>
                               <div class="dropdown-menu">
-                                <a class="btn btn-info" href="crud/activarPubli.php?id=<?php echo $datos['idPublicacion']; ?>">Activar</a>
-                                <a class="btn btn-danger" data-toggle="modal" data-target="#eliminarPubliModal<?php echo $datos['idPublicacion'] ?>">Eliminar</a>
+                                <form action="../../../php/users/publicaciones.php" method="POST">
+                                  <input type="hidden" name="activarPublicacion">
+
+                                  <input type="hidden" name="id" value="<?php echo $datosPubli['idPublicacion']; ?>">
+                                  <button type="submit" class="btn btn-info">Activar</button>
+                                </form>
+                                <br>
+                                <!-- Botón eliminar publicación -->
+                                <a class="btn btn-danger" data-toggle="modal" data-target="#eliminarPubliModal<?php echo $datosPubli['idPublicacion'] ?>">Eliminar</a>
                               </div>
                             </th>
                             <!-- Cierre else -->
                           <?php } ?>
                           <!--Modal Eliminar publicación -->
-                          <div class="modal fade" id="eliminarPubliModal<?php echo $datos['idPublicacion'] ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                            <div class="modal-dialog" role="document">
-                              <div class="modal-content">
-                                <div class="modal-header">
-                                  <h5 class="modal-title" id="exampleModalLabel">¿Seguro quieres eliminar esta publicación?</h5>
-                                  <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">×</span>
-                                  </button>
-                                </div>
-                                <div class="modal-body">Seleccione "Eliminar" para eliminar la publicación, esta acción no se podrá deshacer.</div>
-                                <div class="modal-footer">
-                                  <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
-                                  <a class="btn btn-danger" href="crud/eliminarPubli.php?id=<?php echo $datos['idPublicacion'] ?>">Eliminar</a>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
+                          <?php require "../assets/modalEliminarPubli.php"; ?>
                       </tr>
                     <?php
 

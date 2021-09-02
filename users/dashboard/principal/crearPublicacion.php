@@ -144,62 +144,6 @@ if (isset($respUserData)) {
             </div>
           </div>
         <?php }
-        if (isset($_GET['id'])) { ?>
-          <!-- Edición Publicacion producto -->
-          <div class="row">
-            <div class="col-xl-8 order-xl-1">
-              <div class="card">
-                <div class="card-header">
-                  <div class="row align-items-center">
-                    <div class="col-8">
-                      <h3 class="mb-0">Editar Publicación</h3>
-                    </div>
-                  </div>
-                </div>
-                <div class="card-body">
-                  <form action="crud/actualizarPubli.php" method="POST">
-                    <h6 class="heading-small text-muted mb-4">Información del producto</h6>
-                    <div class="pl-lg-4">
-                      <div class="row">
-                        <div class="col-lg-6">
-                          <div class="form-group">
-                            <label class="form-control-label" for="input-username">Nombre producto</label>
-                            <input type="text" id="input-username" name="nombre" class="form-control" placeholder="Nombre producto" value="<?php echo $resultadoEditPubli['nombrePublicacion']; ?>">
-                          </div>
-                        </div>
-                        <div class="col-lg-6">
-                          <div class="form-group">
-                            <label class="form-control-label" for="input-username">Descripcion</label>
-                            <input type="text" id="input-username" name="descripcion" class="form-control" placeholder="Descripcion" value="<?php echo $resultadoEditPubli['descripcionPublicacion']; ?>" required>
-                          </div>
-                        </div>
-                        <div class="col-lg-6">
-                          <div class="form-group">
-                            <label class="form-control-label" for="input-username">Costo</label>
-                            <input type="number" id="input-username" name="costo" class="form-control" placeholder="Costo" maxlength="20" value="<?php echo $resultadoEditPubli['costoPublicacion']; ?>" required>
-                          </div>
-                        </div>
-
-                        <div class="col-lg-6">
-                          <div class="form-group">
-                            <label class="form-control-label" for="input-username">Stock Producto</label>
-                            <input type="number" id="input-username" name="stock" class="form-control" placeholder="Stock (cantidad)" max="99999" value="<?php echo $resultadoEditPubli['stockPublicacion']; ?>" required>
-                          </div>
-                        </div>
-                        <div class="col-lg-6">
-                          <div class="form-group">
-                            <input type="hidden" id="input-username" name="ideditar" class="form-control" value="<?php echo $_GET['id'] ?>" required>
-                          </div>
-                        </div>
-                      </div>
-                      <button class="btn btn-primary btn-xs" type="submit" name="subir">Editar</button>
-                    </div>
-                  </form>
-                </div>
-              </div>
-            </div>
-          </div>
-        <?php }
         if (!$_GET) {
         ?>
           <center>
@@ -240,29 +184,13 @@ if (isset($respUserData)) {
                     Acciones
                   </button>
                   <div class="dropdown-menu">
-                    <a class="btn btn-info" href="crearPublicacion.php?id=<?php echo $datosPubli['idPublicacion']; ?>">Actualizar</a>
-                    <a class="btn btn-danger" data-toggle="modal" data-target="#eliminarPubliModal<?php echo $datosPubli['idPublicacion'] ?>">Eliminar</a>
+                    <a class="btn btn-info" data-toggle="modal" data-target="#actualizarPubliModal<?php echo $datosPubli['idPublicacion']; ?>">Actualizar</a>
+                    <a class="btn btn-danger" data-toggle="modal" data-target="#eliminarPubliModal<?php echo $datosPubli['idPublicacion']; ?>">Eliminar</a>
                   </div>
                 </td>
 
                 <!--Modal Eliminar publicación -->
-                <div class="modal fade" id="eliminarPubliModal<?php echo $datosPubli['idPublicacion'] ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                  <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">¿Seguro quieres eliminar esta publicación?</h5>
-                        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                          <span aria-hidden="true">×</span>
-                        </button>
-                      </div>
-                      <div class="modal-body">Seleccione "Eliminar" para eliminar la publicación, esta acción no se podrá deshacer.</div>
-                      <div class="modal-footer">
-                        <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
-                        <a class="btn btn-danger" href="crud/eliminarPubli.php?id=<?php echo $datosPubli['idPublicacion'] ?>">Eliminar</a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                <?php require "../assets/modalesPublicacion.php"; ?>
               </tr>
           <?php }
               } ?>
