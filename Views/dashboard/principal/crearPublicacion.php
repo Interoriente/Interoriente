@@ -1,14 +1,17 @@
 <?php
 session_start();
-$documento = $_SESSION["documentoIdentidad"];
-require "../../../Controller/php/view/usuarios.php";
-require "../../../Controller/php/view/publicaciones.php";
-$usuario = new Usuario($documento);
-$respUserData = $usuario->getUserData($usuario->id);
-$publicaciones = new Publicaciones($documento);
-$respMostrarPublicaciones = $publicaciones->MostrarPublicaciones($publicaciones->id); 
-$respGetEstados = $publicaciones->getEstados(); 
-$respGetCategorias = $publicaciones->getCategorias(); 
+$respUserData=null;
+if (isset($_SESSION['documentoIdentidad'])) {
+  $documento = $_SESSION["documentoIdentidad"];
+  require "../../../Controllers/php/users/usuarios.php";
+  require "../../../Controllers/php/users/publicaciones.php";
+  $usuario = new Usuario($documento);
+  $respUserData = $usuario->getUserData($usuario->id);
+  $publicaciones = new Publicaciones($documento);
+  $respMostrarPublicaciones = $publicaciones->MostrarPublicaciones($publicaciones->id);
+  $respGetEstados = $publicaciones->getEstados();
+  $respGetCategorias = $publicaciones->getCategorias();
+}
 //Validacion de roles
 if (isset($respUserData)) {
   $rol = $_SESSION['roles'];
@@ -24,7 +27,7 @@ if (isset($respUserData)) {
       <meta name="author" content="Inter-oriente">
       <title>Crear publicación | Interoriente</title>
       <!-- Favicon -->
-      <link rel="icon" href="../../../assets/img/favicon.png" type="image/png">
+      <link rel="icon" href="../../assets/img/favicon.png" type="image/png">
       <!-- Fonts -->
       <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700">
       <!-- Icons -->
@@ -57,8 +60,8 @@ if (isset($respUserData)) {
                   </div>
                 </div>
                 <div class="card-body">
-                  <form action="../../../Controller/php/view/publicaciones.php" method="POST" enctype="multipart/form-data">
-                  <input type="hidden" name = "crearPublicacion">
+                  <form action="../../../Controllers/php/users/publicaciones.php" method="POST" enctype="multipart/form-data">
+                    <input type="hidden" name="crearPublicacion">
                     <h6 class="heading-small text-muted mb-4">Información del producto</h6>
                     <div class="pl-lg-4">
                       <div class="row">
@@ -174,7 +177,7 @@ if (isset($respUserData)) {
               <?php }
                 foreach ($respMostrarPublicaciones as $datosPubli) {
               ?>
-                <th><img src="../../../view/assets/img/publicaciones/<?php echo $datosPubli['urlImagen'];  ?>" alt=".." width="130px"></th>
+                <th><img src="../../assets/img/publicaciones/<?php echo $datosPubli['urlImagen'];  ?>" alt=".." width="130px"></th>
                 <td><?php echo $datosPubli['nombrePublicacion']; ?></td>
                 <td><?php echo substr($datosPubli['descripcionPublicacion'], 0, 30); ?></td>
                 <td><?php echo $datosPubli['costoPublicacion']; ?></td>
@@ -204,11 +207,11 @@ if (isset($respUserData)) {
     </html>
 <?php
   } else {
-    echo "<script>alert('No puedes acceder a esta página con el rol que tienes');</script>";
-    echo "<script> document.location.href='dashboard.php';</script>";
+    echo "<script>alert('No puedes acceder a esta página!');</script>";
+    echo "<script> document.location.href='403.php';</script>";
   }
 } else {
-  echo "<script>alert('Has perdido acceso a este rol');</script>";
+  echo "<script>alert('No has iniciado sesión!');</script>";
   echo "<script> document.location.href='403.php';</script>";
 }
 ?>

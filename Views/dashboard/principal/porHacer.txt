@@ -1,7 +1,2 @@
-Refactorizar:
-
-    -->DASHBOARD
-
-    1. Publicaciones.php
-    2. usuarios.php
-    3. Contenido de la carpeta crud
+1. Detalles MVC
+2. Reportes.

@@ -1,6 +1,6 @@
 <div class="modal fade" id="eliminarPubliModal<?php echo $datosPubli['idPublicacion'] ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
-        <form action="../../../Controller/php/view/publicaciones.php" method="post">
+        <form action="../../../Controllers/php/users/publicaciones.php" method="post">
             <input type="hidden" name="eliminarPublicacion">
             <input type="hidden" name="idPublicacion" value="<?php echo $datosPubli['idPublicacion']; ?>">
             <div class="modal-content">
@@ -36,7 +36,7 @@
             <!-- Modal Body -->
             <div class="modal-body">
                 <p class="statusMsg"></p>
-                <form method="POST" action="../../../Controller/php/view/publicaciones.php">
+                <form method="POST" action="../../../Controllers/php/users/publicaciones.php">
                     <!-- Actualiar dirección -->
                     <input type="hidden" name="actualizarPublicacion">
                     <input type="hidden" name="idPublicacion" value="<?php echo $datosPubli['idPublicacion']; ?>">

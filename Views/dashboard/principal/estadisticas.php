@@ -1,15 +1,15 @@
 <?php
 session_start();
-
-$documento = $_SESSION["documentoIdentidad"];
-
-require "../../../Controller/php/view/usuarios.php";
-require "../../../Controller/php/view/publicaciones.php";
-$usuario = new Usuario($documento);
-$respUserData = $usuario->getUserData($usuario->id);
-$publicaciones = new Publicaciones($documento);
-$respMostrarPublicaciones = $publicaciones->MostrarPublicaciones($publicaciones->id);
-
+$respUserData = null;
+if (isset($_SESSION['documentoIdentidad'])) {
+    $documento = $_SESSION["documentoIdentidad"];
+    require "../../../Controllers/php/users/usuarios.php";
+    require "../../../Controllers/php/users/publicaciones.php";
+    $usuario = new Usuario($documento);
+    $respUserData = $usuario->getUserData($usuario->id);
+    $publicaciones = new Publicaciones($documento);
+    $respMostrarPublicaciones = $publicaciones->MostrarPublicaciones($publicaciones->id);
+}
 if ($respUserData) {
     $rol = $_SESSION['roles'];
     if ($rol == 1 or $rol  == 3) {
@@ -23,7 +23,7 @@ if ($respUserData) {
             <meta name="description" content="Bienvenidos a Interoriente, podrás comprar, vender y mucho más.">
             <meta name="author" content="Inter-oriente">
             <!-- Favicon -->
-            <link rel="icon" href="../../../assets/img/favicon.png" type="image/png">
+            <link rel="icon" href="../../assets/img/favicon.png" type="image/png">
             <!-- Fonts -->
             <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700">
             <!-- Icons -->
@@ -406,10 +406,11 @@ if ($respUserData) {
         </html>
 <?php
     } else {
-        echo "<script>alert('No puedes acceder a esta página.');</script>";
-        echo "<script> document.location.href='dashboard.php';</script>";
+        echo "<script>alert('No puedes acceder a esta página!');</script>";
+        echo "<script> document.location.href='403.php';</script>";
     }
 } else {
+    echo "<script>alert(No has iniciado sesión');</script>";
     echo "<script> document.location.href='403.php';</script>";
 }
 ?>

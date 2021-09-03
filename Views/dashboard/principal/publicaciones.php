@@ -6,17 +6,20 @@ error_reporting(E_ALL); */
 
 // Iniciar variables de sesion, obtener DocId y Rol ACTUAL del usuario
 session_start();
-$documento = $_SESSION["documentoIdentidad"];
-$rol = $_SESSION['roles'];
-// Pedir clases Usuarios y Publicaciones (Iniciarlas en variables PHP)
-require "../../../Controller/php/view/usuarios.php";
-require "../../../Controller/php/view/publicaciones.php";
-$usuario = new Usuario($documento);
-$respUserData = $usuario->getUserData($usuario->id);
+$respUserData = null;
+if (isset($_SESSION['documentoIdentidad'])) {
+  $documento = $_SESSION["documentoIdentidad"];
+  $rol = $_SESSION['roles'];
+  // Pedir clases Usuarios y Publicaciones (Iniciarlas en variables PHP)
+  require "../../../Controllers/php/users/usuarios.php";
+  require "../../../Controllers/php/users/publicaciones.php";
+  $usuario = new Usuario($documento);
+  $respUserData = $usuario->getUserData($usuario->id);
 
-$publicaciones = new Publicaciones($documento);
-$respTodasPublicaciones = $publicaciones->MostrarTodasPublicaciones();
-$contadorPublicaciones = count($respTodasPublicaciones);
+  $publicaciones = new Publicaciones($documento);
+  $respTodasPublicaciones = $publicaciones->MostrarTodasPublicaciones();
+  $contadorPublicaciones = count($respTodasPublicaciones);
+}
 //Validar si existe sesión
 if (isset($respUserData)) {
   if ($rol == 3) {
@@ -31,7 +34,7 @@ if (isset($respUserData)) {
       <meta name="author" content="Inter-oriente">
       <title>Publicaciones - Interoriente</title>
       <!-- Favicon -->
-      <link rel="icon" href="../../../assets/img/favicon.png" type="image/png">
+      <link rel="icon" href="../../assets/img/favicon.png" type="image/png">
       <!-- Fonts -->
       <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700">
       <!-- Icons -->
@@ -92,7 +95,7 @@ if (isset($respUserData)) {
                     <?php
                     foreach ($respTodasPublicaciones as $datosPubli) { ?>
                       <tr>
-                        <th><img src="../../../view/assets/img/publicaciones/<?php echo $datosPubli['urlImagen'];  ?>" alt=".." width="130px"></th>
+                        <th><img src="../../assets/img/publicaciones/<?php echo $datosPubli['urlImagen'];  ?>" alt=".." width="130px"></th>
                         <th><?php echo $datosPubli['nombrePublicacion']; ?></th>
                         <th><?php echo substr($datosPubli['descripcionPublicacion'], 0, 30); ?>...</th>
                         <th><?php echo $datosPubli['costoPublicacion']; ?></th>
@@ -105,7 +108,7 @@ if (isset($respUserData)) {
                                 Acciones
                               </button>
                               <div class="dropdown-menu">
-                                <form action="../../../Controller/php/view/publicaciones.php" method="POST">
+                                <form action="../../../Controllers/php/users/publicaciones.php" method="POST">
                                   <input type="hidden" name="desactivarPublicacion">
                                   <input type="hidden" name="id" value="<?php echo $datosPubli['idPublicacion']; ?>">
                                   <button type="submit" class="btn btn-info">Desactivar</button>
@@ -160,6 +163,7 @@ if (isset($respUserData)) {
     echo "<script> document.location.href='dashboard.php';</script>";
   }
 } else {
+  echo "<script>alert('No has iniciado sesión');</script>";
   echo "<script> document.location.href='403.php';</script>";
 }
 ?>

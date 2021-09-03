@@ -1,12 +1,14 @@
 <?php
 session_start();
-$documento = $_SESSION["documentoIdentidad"];
-$rol = $_SESSION["roles"];
-require "../../../Controller/php/view/usuarios.php";
-$usuario = new Usuario($documento);
-$respGetUsuarios = $usuario->getUsuarios($usuario->id);
-$respUserData = $usuario->getUserData($usuario->id);
-
+$respUserData = null;
+if (isset($_SESSION['documentoIdentidad'])) {
+  $documento = $_SESSION["documentoIdentidad"];
+  $rol = $_SESSION["roles"];
+  require "../../../Controllers/php/users/usuarios.php";
+  $usuario = new Usuario($documento);
+  $respGetUsuarios = $usuario->getUsuarios($usuario->id);
+  $respUserData = $usuario->getUserData($usuario->id);
+}
 //Validacion de roles
 if (isset($respUserData)) {
   if ($rol == 3) {
@@ -21,7 +23,7 @@ if (isset($respUserData)) {
       <meta name="author" content="Inter-oriente">
       <title>Usuarios | Interoriente</title>
       <!-- Favicon -->
-      <link rel="icon" href="../../../assets/img/favicon.png" type="image/png">
+      <link rel="icon" href="../../assets/img/favicon.png" type="image/png">
       <!-- Fonts -->
       <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700">
       <!-- Icons -->
@@ -92,7 +94,7 @@ if (isset($respUserData)) {
                         if ($datos['estadoUsuario'] == 1) { ?>
                           <th>Activo</th>
                           <th>
-                            <form action="../../../Controller/php/view/usuarios.php" method="POST">
+                            <form action="../../../Controllers/php/users/usuarios.php" method="POST">
                               <input type="hidden" name="desactivarUsuarios">
                               <input type="hidden" name="id" value="<?php echo $datos['documentoIdentidad']; ?>">
                               <button class="btn btn-danger">Desactivar Usuarios</button>
@@ -103,7 +105,7 @@ if (isset($respUserData)) {
                         } else { ?>
                       <th>Inactivo</th>
                       <th>
-                        <form action="../../../Controller/php/view/usuarios.php" method="POST">
+                        <form action="../../../Controller/php/users/usuarios.php" method="POST">
                           <input type="hidden" name="activarUsuarios">
                           <input type="hidden" name="id" value="<?php echo $datos['documentoIdentidad']; ?>">
                           <button class="btn btn-info">Activar Usuarios</button>
@@ -129,11 +131,11 @@ if (isset($respUserData)) {
     </html>
 <?php
   } else {
-    echo "<script>alert('No puedes acceder a esta página con el rol que tienes');</script>";
-    echo "<script> document.location.href='dashboard.php';</script>";
+    echo "<script>alert('No puedes acceder a esta página!');</script>";
+    echo "<script> document.location.href='404.php';</script>";
   }
 } else {
-  echo "<script>alert('Has perdido acceso a este rol');</script>";
+  echo "<script>alert('No has iniciado sesión!');</script>";
   echo "<script> document.location.href='403.php';</script>";
 }
 

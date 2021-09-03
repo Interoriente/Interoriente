@@ -1,11 +1,13 @@
 <?php
 session_start();
-$documento = $_SESSION["documentoIdentidad"];
-require "../../../Controller/php/view/usuarios.php";
-$usuario = new Usuario($documento);
-$respUserData = $usuario->getUserData($usuario->id);
-$respGetRoles = $usuario->getRoles($usuario->id);
-
+$respUserData = null;
+if (isset($_SESSION['documentoIdentidad'])) {
+  $documento = $_SESSION["documentoIdentidad"];
+  require "../../../Controllers/php/users/usuarios.php";
+  $usuario = new Usuario($documento);
+  $respUserData = $usuario->getUserData($usuario->id);
+  $respGetRoles = $usuario->getRoles($usuario->id);
+}
 if (isset($respUserData)) {
   $rol = $_SESSION['roles'];
   //Validacion de roles
@@ -21,7 +23,7 @@ if (isset($respUserData)) {
       <meta name="author" content="Inter-oriente">
       <title>Dashboard | Interoriente</title>
       <!-- Favicon -->
-      <link rel="icon" href="../../../assets/img/favicon.png" type="image/png">
+      <link rel="icon" href="../../assets/img/favicon.png" type="image/png">
       <!-- Fonts -->
       <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700">
       <!-- Icons -->
@@ -57,7 +59,7 @@ if (isset($respUserData)) {
                     <?php
                     foreach ($respGetRoles as $datosRol) : ?>
                       <option value="<?php echo $datosRol['idUsuarioRol']; ?>"><?php echo $datosRol['nombreRol']; ?></option>
-                    <?php endforeach;?>
+                    <?php endforeach; ?>
                   </select>
                   <button type="submit" class="btn btn-sm btn-neutral">Cambiar rol</button>
                 </form>
@@ -65,10 +67,10 @@ if (isset($respUserData)) {
 
                 <!-- Copia de seguridad DB -->
                 <?php if ($_SESSION['roles'] == '3') : ?><br>
-                  <a href="../../../php/app/backupDB.php"><button type="submit" class="btn btn-sm btn-neutral">Copia de seguridad BD</button></a>
-                  <?php endif; ?>
-                  <!-- FIN Copia de seguridad DB -->
-                  
+                  <a href="../../../Controllers/php/app/backupDB.php"><button type="submit" class="btn btn-sm btn-neutral">Copia de seguridad BD</button></a>
+                <?php endif; ?>
+                <!-- FIN Copia de seguridad DB -->
+
               </div>
             </div>
             <!-- Card stats -->
@@ -112,8 +114,9 @@ if (isset($respUserData)) {
                             Comprador/Proveedor
                           <?php } else { ?>
                             Administrador
-                          <?php } ?></span>
-                          <!-- FIN lista desplegable -->
+                          <?php } ?>
+                        </span>
+                        <!-- FIN lista desplegable -->
                       </div>
                     </div>
                   </div>
@@ -142,11 +145,11 @@ if (isset($respUserData)) {
     </html>
 <?php
   } else {
-    echo "<script>alert('No puedes acceder a esta página con el rol que tienes');</script>";
-    echo "<script> document.location.href='../../';</script>";
+    echo "<script>alert('No puedes acceder a esta página!');</script>";
+    echo "<script> document.location.href='403.php';</script>";
   }
 } else {
-  echo "<script>alert('Has perdido acceso a este rol');</script>";
+  echo "<script>alert('No has iniciado sesión!');</script>";
   echo "<script> document.location.href='403.php';</script>";
 }
 

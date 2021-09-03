@@ -37,7 +37,7 @@
                   <div class="media align-items-center">
                     <span class="avatar avatar-sm rounded-circle">
                       <!--- Impresión imagen de perfil -->
-                      <img alt="Image placeholder" src="crud/<?php echo $respUserData->imagenUsuario; ?>">
+                      <img alt="Image placeholder" src="<?php echo $respUserData->imagenUsuario; ?>">
                     </span>
                     <div class="media-body  ml-2  d-none d-lg-block">
 
@@ -93,7 +93,7 @@
         </div>
         <div class="modal-footer">
           <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
-          <a class="btn btn-primary" href="../../../Controller/cerrarSesion.php">Cerrar sesión</a>
+          <a class="btn btn-primary" href="../../../Controllers/cerrarSesion.php">Cerrar sesión</a>
         </div>
       </div>
     </div>
@@ -104,7 +104,7 @@
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-body">
-          <img class=" card-img-top" src="crud/<?php echo $respUserData->imagenUsuario; ?>">
+          <img class=" card-img-top" src="<?php echo $respUserData->imagenUsuario; ?>">
         </div>
       </div>
     </div>

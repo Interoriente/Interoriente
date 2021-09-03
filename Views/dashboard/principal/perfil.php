@@ -1,17 +1,20 @@
 <?php
 
 session_start();
-$documento = $_SESSION["documentoIdentidad"];
-require "../../../Controller/php/view/usuarios.php";
-require "../../../Controller/php/view/publicaciones.php";
-$usuario = new Usuario($documento);
-$respUserData = $usuario->getUserData($usuario->id);
-$publicaciones = new Publicaciones($documento);
-$respContarPublicaciones = $publicaciones->ContarPublicaciones($publicaciones->id);
-$respGetCiudades = $usuario->getCiudades();
-$respGetDirecciones = $usuario->getDirecciones($usuario->id);
-/* Mostrar nombre completo del usuario logeado */
-$nombreUsuario = $respUserData->nombresUsuario . " " . $respUserData->apellidoUsuario;
+$respUserData = null;
+if (isset($_SESSION['documentoIdentidad'])) {
+  $documento = $_SESSION["documentoIdentidad"];
+  require "../../../Controllers/php/users/usuarios.php";
+  require "../../../Controllers/php/users/publicaciones.php";
+  $usuario = new Usuario($documento);
+  $respUserData = $usuario->getUserData($usuario->id);
+  $publicaciones = new Publicaciones($documento);
+  $respContarPublicaciones = $publicaciones->ContarPublicaciones($publicaciones->id);
+  $respGetCiudades = $usuario->getCiudades();
+  $respGetDirecciones = $usuario->getDirecciones($usuario->id);
+  /* Mostrar nombre completo del usuario logeado */
+  $nombreUsuario = $respUserData->nombresUsuario . " " . $respUserData->apellidoUsuario;
+}
 if (isset($respUserData)) {
   $rol = $_SESSION['roles'];
   //Validacion de roles
@@ -28,7 +31,7 @@ if (isset($respUserData)) {
       <meta name="author" content="Interoriente">
       <title>Mi perfil | Interoriente</title>
       <!-- Favicon -->
-      <link rel="icon" href="../../../assets/img/favicon.png" type="image/png">
+      <link rel="icon" href="../../assets/img/favicon.png" type="image/png">
       <!-- Fonts -->
       <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700">
       <!-- Icons -->
@@ -63,7 +66,7 @@ if (isset($respUserData)) {
           <div class="col-xl-4 order-xl-2">
             <div class="card card-profile">
 
-              <img src="../../../assets/img/LogoCuaternario.svg" alt="Imagen fondo de pantalla" class="card-img-top">
+              <img src="../../assets/img/LogoCuaternario.svg" alt="Imagen fondo de pantalla" class="card-img-top">
 
               <div class="row justify-content-center">
                 <div class="col-lg-3 order-lg-2">
@@ -131,7 +134,7 @@ if (isset($respUserData)) {
                 </div>
               </div>
               <div class="card-body">
-                <form action="../../../Controller/php/view/usuarios.php" method="POST" enctype="multipart/form-data">
+                <form action="../../../Controllers/php/users/usuarios.php" method="POST" enctype="multipart/form-data">
                   <h6 class="heading-small text-muted mb-4">Información de usuario</h6>
                   <div class="pl-lg-4">
                     <div class="row">
@@ -183,7 +186,7 @@ if (isset($respUserData)) {
               </div>
               <!-- Formulario para agregar direcciones -->
               <div class="card-body">
-                <form action="../../../Controller/php/view/usuarios.php" method="POST" enctype="multipart/form-data">
+                <form action="../../../Controllers/php/users/usuarios.php" method="POST" enctype="multipart/form-data">
                   <h6 class="heading-small text-muted mb-4">Información de direcciones agregadas</h6>
                   <div class="pl-lg-4">
                     <div class="row">
@@ -265,14 +268,15 @@ if (isset($respUserData)) {
       <?php require_once '../assets/footer.php' ?>
 
     </body>
+
     </html>
 <?php
   } else {
-    echo "<script>alert('No puedes acceder a esta página con el rol que tienes');</script>";
-    echo "<script> document.location.href='dashboard.php';</script>";
+    echo "<script>alert('No puedes acceder a esta página!');</script>";
+    echo "<script> document.location.href='403.php';</script>";
   }
 } else {
-  echo "<script>alert('Has perdido acceso a este rol');</script>";
+  echo "<script>alert('No has iniciado sesión!');</script>";
   echo "<script> document.location.href='403.php';</script>";
 }
 ?>

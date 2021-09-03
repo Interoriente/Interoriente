@@ -14,9 +14,9 @@
 <?php
 
 
-require_once '../../Controller/logingoogle/vendor/autoload.php';
+require_once '../../Controllers/logingoogle/vendor/autoload.php';
 
-require_once '../../Controller/logingoogle/config.php';
+require_once '../../Controllers/logingoogle/config.php';
 
 $client = new Google_Client();
 
@@ -42,14 +42,14 @@ $GoogleLogin = $client->createAuthUrl();
     <meta name="author" content="Inter-oriente">
     <title>Iniciar sesión - Interoriente</title>
     <!-- Favicon -->
-    <link rel="icon" href="../../assets/img/favicon.png" type="image/png">
+    <link rel="icon" href="../assets/img/favicon.png" type="image/png">
     <!-- Fonts -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700">
     <!-- Icons -->
-    <link rel="stylesheet" href="../../view/dashboard/assets/vendor/nucleo/css/nucleo.css" type="text/css">
-    <link rel="stylesheet" href="../../view/dashboard/assets/vendor/@fortawesome/fontawesome-free/css/all.min.css" type="text/css">
+    <link rel="stylesheet" href="../dashboard/assets/vendor/nucleo/css/nucleo.css" type="text/css">
+    <link rel="stylesheet" href="../dashboard/assets/vendor/@fortawesome/fontawesome-free/css/all.min.css" type="text/css">
     <!-- Argon CSS -->
-    <link rel="stylesheet" href="../../view/dashboard/assets/css/argon.css?v=1.2.0" type="text/css">
+    <link rel="stylesheet" href="../dashboard/assets/css/argon.css?v=1.2.0" type="text/css">
 </head>
 
 <body class="bg-default" oncontextmenu="return false">
@@ -82,12 +82,12 @@ $GoogleLogin = $client->createAuthUrl();
                         <div class="card-header bg-transparent pb-5">
                             <div class="text-muted text-center mt-2 mb-4"><small>Puedes iniciar sesión por:</small></div>
                             <div class="text-center">
-                                <a href="../navegacion/index.php" class="btn btn-neutral btn-icon mr-4">
-                                    <span class="btn-inner--icon"><img src="../../view/dashboard/assets/img/icons/common/github.svg"></span>
+                                <a href="index.php" class="btn btn-neutral btn-icon mr-4">
+                                    <span class="btn-inner--icon"><img src="../dashboard/assets/img/icons/common/github.svg"></span>
                                     <span class="btn-inner--text">Index</span>
                                 </a>
                                 <a href="<?php echo $GoogleLogin; ?>" class="btn btn-neutral btn-icon">
-                                    <span class="btn-inner--icon"><img src="../../view/dashboard/assets/img/icons/common/google.svg"></span>
+                                    <span class="btn-inner--icon"><img src="../dashboard/assets/img/icons/common/google.svg"></span>
                                     <span class="btn-inner--text">Google</span>
                                 </a>
                             </div>
@@ -96,7 +96,7 @@ $GoogleLogin = $client->createAuthUrl();
                             <div class="text-center text-muted mb-4">
                                 <small>O con tus datos personales:</small>
                             </div>
-                            <form action="../../Controller/php/view/acceso.php" method="POST">
+                            <form action="../../Controllers/php/users/acceso.php" method="POST">
                                 <input type="hidden" name="iniciarSesion">
                                 <div class="form-group">
                                     <label for="id">Correo o documento:</label>
@@ -137,11 +137,11 @@ $GoogleLogin = $client->createAuthUrl();
     </div>
     <!-- Core -->
     <!-- <script src="../../Controller/js/formulario.js"></script> -->
-    <script src="../../view/dashboard/assets/vendor/jquery/dist/jquery.min.js"></script>
-    <script src="../../view/dashboard/assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="../../view/dashboard/assets/vendor/js-cookie/js.cookie.js"></script>
-    <script src="../../view/dashboard/assets/vendor/jquery.scrollbar/jquery.scrollbar.min.js"></script>
-    <script src="../../view/dashboard/assets/vendor/jquery-scroll-lock/dist/jquery-scrollLock.min.js"></script>
+    <script src="../dashboard/assets/vendor/jquery/dist/jquery.min.js"></script>
+    <script src="../dashboard/assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../dashboard/assets/vendor/js-cookie/js.cookie.js"></script>
+    <script src="../dashboard/assets/vendor/jquery.scrollbar/jquery.scrollbar.min.js"></script>
+    <script src="../dashboard/assets/vendor/jquery-scroll-lock/dist/jquery-scrollLock.min.js"></script>
     <!-- Argon JS -->
     <script src="../../view/dashboard/Controller/js/argon.js?v=1.2.0"></script>
 

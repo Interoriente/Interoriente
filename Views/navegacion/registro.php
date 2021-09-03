@@ -9,14 +9,14 @@
      <meta name="author" content="Inter-oriente">
      <title>Registrarse | Interoriente</title>
      <!-- Favicon -->
-     <link rel="icon" href="../../assets/img/favicon.png" type="image/png">
+     <link rel="icon" href="../assets/img/favicon.png" type="image/png">
      <!-- Fonts -->
      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700">
      <!-- Icons -->
-     <link rel="stylesheet" href="../../view/dashboard/assets/vendor/nucleo/css/nucleo.css" type="text/css">
-     <link rel="stylesheet" href="../../view/dashboard/assets/vendor/@fortawesome/fontawesome-free/css/all.min.css" type="text/css">
+     <link rel="stylesheet" href="../dashboard/assets/vendor/nucleo/css/nucleo.css" type="text/css">
+     <link rel="stylesheet" href="../dashboard/assets/vendor/@fortawesome/fontawesome-free/css/all.min.css" type="text/css">
      <!-- Argon CSS -->
-     <link rel="stylesheet" href="../../view/dashboard/assets/css/argon.css?v=1.2.0" type="text/css">
+     <link rel="stylesheet" href="../dashboard/assets/css/argon.css?v=1.2.0" type="text/css">
  </head>
 
  <body class="bg-default" oncontextmenu="return false">
@@ -51,11 +51,11 @@
                              <div class="text-muted text-center mt-2 mb-4"><small>Puedes registrarte por:</small></div>
                              <div class="text-center">
                                  <a href="#" class="btn btn-neutral btn-icon mr-4">
-                                     <span class="btn-inner--icon"><img src="../../view/dashboard/assets/img/icons/common/github.svg"></span>
+                                     <span class="btn-inner--icon"><img src="../dashboard/assets/img/icons/common/github.svg"></span>
                                      <span class="btn-inner--text">Github</span>
                                  </a>
                                  <a href="#" class="btn btn-neutral btn-icon">
-                                     <span class="btn-inner--icon"><img src="../../view/dashboard/assets/img/icons/common/google.svg"></span>
+                                     <span class="btn-inner--icon"><img src="../dashboard/assets/img/icons/common/google.svg"></span>
                                      <span class="btn-inner--text">Google</span>
                                  </a>
                              </div>
@@ -64,7 +64,7 @@
                              <div class="text-center text-muted mb-4">
                                  <small>O con tus datos personales:</small>
                              </div>
-                             <form action="../../Controller/php/view/acceso.php" method="POST">
+                             <form action="../../Controllers/php/users/acceso.php" method="POST">
                                  <input type="hidden" name="registrarse">
                                  <div class="form-group">
                                      <label for="">Nombres:</label>
@@ -81,7 +81,7 @@
                                          <div class="input-group-prepend">
                                              <span class="input-group-text"><i class="ni ni-single-02"></i></span>
                                          </div>
-                                         <input class="form-control" placeholder="Apellidos" type="text" name="apellidos" onkeypress="return Sololetras(event)" required>
+                                         <input class="form-control" placeholder="Apellidos" type="text" name="apellidos" required>
                                      </div>
                                  </div>
                                  <div class="form-group">
@@ -150,13 +150,13 @@
          </div>
      </div>
      <!-- Core -->
-     <script src="../../view/dashboard/assets/vendor/jquery/dist/jquery.min.js"></script>
-     <script src="../../view/dashboard/assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-     <script src="../../view/dashboard/assets/vendor/js-cookie/js.cookie.js"></script>
-     <script src="../../view/dashboard/assets/vendor/jquery.scrollbar/jquery.scrollbar.min.js"></script>
-     <script src="../../view/dashboard/assets/vendor/jquery-scroll-lock/dist/jquery-scrollLock.min.js"></script>
+     <script src="../dashboard/assets/vendor/jquery/dist/jquery.min.js"></script>
+     <script src="../dashboard/assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+     <script src="../dashboard/assets/vendor/js-cookie/js.cookie.js"></script>
+     <script src="../dashboard/assets/vendor/jquery.scrollbar/jquery.scrollbar.min.js"></script>
+     <script src="../dashboard/assets/vendor/jquery-scroll-lock/dist/jquery-scrollLock.min.js"></script>
      <!-- Argon JS -->
-     <script src="../../view/dashboard/Controller/js/argon.js?v=1.2.0"></script>
+     <script src="../dashboard/assets/js/argon.js?v=1.2.0"></script>
 
  </body>
 

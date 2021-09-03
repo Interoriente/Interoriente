@@ -112,7 +112,7 @@ class Publicaciones
         $categoriaPubli,
         $documentoIdentidadPubli
     ) {
-        require '../../Models/dao/conexion.php';
+        require '../../../Models/dao/conexion.php';
 
         $verificacion = '0';
         //sentencia SQL
@@ -142,7 +142,7 @@ class Publicaciones
             //Comprobamos si el fichero es una imagen
             if ($_FILES['imagen']['type'][$i] == 'image/png' || $_FILES['imagen']['type'][$i] == 'image/jpeg' || $_FILES['imagen']['type'][$i] == 'image/jpg') {
                 //Le defino una ruta a la imagen
-                $directorio = "../../view/assets/img/publicaciones/$idPubli";
+                $directorio = "../../../Views/assets/img/publicaciones/$idPubli";
                 //Nombre de la imagen
                 $filename = $_FILES['imagen']['name'][$i];
                 //Nombre temporal de la imagen -> Por defecto se necesita este paso.
@@ -163,14 +163,15 @@ class Publicaciones
 
                     echo "<script>alert('El registro se subió correctamente');</script>";
                     /* Redirigir después de almacenar la información */
-                    echo "<script> document.location.href='../../view/dashboard/principal/crearPublicacion.php';</script>";
+                    echo "<script> document.location.href='../../../Views/dashboard/principal/crearPublicacion.php';</script>";
                     //sleep(5);
                 } else {
-                    echo "Error moviendo archivo";
+                    echo "<script>alert('Error con el servidor!');</script>";
+                    echo "<script> document.location.href='../../../Views/dashboard/principal/crearPublicacion.php';</script>";
                 }
             } else {
                 echo "<script>alert('Error: formato de imagen no válido');</script>";
-                echo "<script> document.location.href='../../view/dashboard/principal/crearPublicacion.php';</script>";
+                echo "<script> document.location.href='../../../Views/dashboard/principal/crearPublicacion.php';</script>";
             }
         }
     }
@@ -194,7 +195,7 @@ class Publicaciones
     public function ActivarPublicacion($docId)
     {
         //Llamada a la conexion
-        require '../../Models/dao/conexion.php';
+        require '../../../Models/dao/conexion.php';
         $estado = '1';
         //sentencia sql para actualizar estado
         $sqlActivar = "UPDATE tblPublicacion 
@@ -207,13 +208,13 @@ class Publicaciones
 
         echo "<script>alert('Estado actualizado correctamente');</script>";
         //redireccionar
-        echo "<script> document.location.href='../../view/dashboard/principal/publicaciones.php';</script>";
+        echo "<script> document.location.href='../../../Views/dashboard/principal/publicaciones.php';</script>";
     }
 
     public function DesactivarPublicacion($id)
     {
         //Llamada a la conexion
-        require '../../Models/dao/conexion.php';
+        require '../../../Models/dao/conexion.php';
         $estado = '0';
         //sentencia sql para actualizar estado
         $sqlEditar = "UPDATE tblPublicacion 
@@ -224,11 +225,11 @@ class Publicaciones
         //alert
         echo "<script>alert('Estado actualizado correctamente');</script>";
         //redireccionar
-        echo "<script> document.location.href='../../view/dashboard/principal/publicaciones.php';</script>";
+        echo "<script> document.location.href='../../../Views/dashboard/principal/publicaciones.php';</script>";
     }
     public function ActualizarPublicacion($id)
     {
-        require '../../Models/dao/conexion.php';
+        require '../../../Models/dao/conexion.php';
         //Captura id
         $nombre = $_POST['nombre'];
         $descripcion = $_POST['descripcion'];
@@ -242,12 +243,12 @@ class Publicaciones
         $stmt->execute(array($nombre, $descripcion, $costo, $stock, $id));
         //Redireccionar
         echo "<script>alert('Publicación actualizada correctamente');</script>";
-        echo "<script> document.location.href='../../view/dashboard/principal/crearPublicacion.php';</script>";
+        echo "<script> document.location.href='../../../Views/dashboard/principal/crearPublicacion.php';</script>";
     }
     public function EliminarPublicacion($id)
     {
 
-        require '../../Models/dao/conexion.php';
+        require '../../../Models/dao/conexion.php';
         //sentencia sql para eliminar Imagen
         $sqlEliminar = "DELETE FROM tblImagenes WHERE publicacionImagen = ?";
         $consultaEliminar = $pdo->prepare($sqlEliminar);
@@ -259,6 +260,6 @@ class Publicaciones
         $consulta_eliminar->execute(array($id));
         //Redireccionar
         echo "<script>alert('Publicación eliminada correctamente');</script>";
-        echo "<script> document.location.href='../../view/dashboard/principal/crearPublicacion.php';</script>";
+        echo "<script> document.location.href='../../../Views/dashboard/principal/crearPublicacion.php';</script>";
     }
 }

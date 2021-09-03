@@ -2,7 +2,7 @@
 /* TODO: Verificar existencia de la variable de sessión antes de iniciarla. */
 /* require "../includes/errores.php"; */
 /* Llamado SQL */
-require "../../controller/php/crud/consultas.php";
+require "../../Controllers/php/crud/consultas.php";
 $publicacion = getPublicaciones();
 ?>
 <!DOCTYPE html>
@@ -12,10 +12,10 @@ $publicacion = getPublicaciones();
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <!-- Favicon -->
-    <link rel="icon" href="../../assets/img/favicon.png" type="image/png">
+    <link rel="icon" href="../assets/img/favicon.png" type="image/png">
     <!-- General -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../assets/css/index.css">
+    <link rel="stylesheet" href="../assets/css/index.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous" />
     <!--Link solución protocolo: https://www.bugsnag.com/blog/jquery-is-not-defined-cause-solution-->
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
@@ -35,7 +35,7 @@ $publicacion = getPublicaciones();
     <section class="hero">
         <div class="hero-principal">
             <div class="img-hero">
-                <img src="../../assets/img/index/index.svg" alt="">
+                <img src="../assets/img/index/index.svg" alt="">
             </div>
         </div>
         <div class="carrusel-container">
@@ -47,7 +47,7 @@ $publicacion = getPublicaciones();
                 </div>
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <img src="../../assets/img/index_2/1.jpg" class="d-block w-100" alt="...">
+                        <img src="../assets/img/index_2/1.jpg" class="d-block w-100" alt="...">
                         <div class="carousel-caption d-none d-md-block">
                            
                         </div>
@@ -59,7 +59,7 @@ $publicacion = getPublicaciones();
                         </div>
                     </div>
                     <div class="carousel-item">
-                        <img src="../../assets/img/index_2/3.jpg" class="d-block w-100" alt="...">
+                        <img src="../assets/img/index_2/3.jpg" class="d-block w-100" alt="...">
                         <div class="carousel-caption d-none d-md-block">
 
                         </div>
@@ -108,8 +108,8 @@ $publicacion = getPublicaciones();
             <div class="tarjeta">
                 <a href="publicacion.php?id=<?php echo $x['idPublicacion'] ?>">
                     <div class="img-tarjeta">
-                        <img id="img-p" src="../../assets/img/publicaciones/1.jpg" alt="Imagen tarjeta publicación">
-                        <img id="img-s" src="../../assets/img/publicaciones/2.jpg" alt="Imagen tarjeta publicación">
+                        <img id="img-p" src="../assets/img/publicaciones/1.jpg" alt="Imagen tarjeta publicación">
+                        <img id="img-s" src="../assets/img/publicaciones/2.jpg" alt="Imagen tarjeta publicación">
                         <!-- <img id="img-p" src="../../view/assets/img/publicaciones/<?php //echo $x['urlImagen']; 
                                                                         ?>" alt="Imagen tarjeta publicación">
                         <img id="img-s" src="../../view/assets/img/publicaciones/<?php //echo $x['urlImagen']; 
@@ -125,8 +125,8 @@ $publicacion = getPublicaciones();
                     </div>
                 </a>
                 <div class="cta-btns">
-                    <a href="./checkout.php?id=<?php echo $x['idPublicacion']?>"><img src="../../assets/img/iconos/compras.svg" alt="Bolsa de la compra"></a>
-                    <img class="carrito-tarjeta " onclick="addCarrito(this.id)" id="<?php echo $x['idPublicacion'] ?>" src="../../assets/img/iconos/carrito_2.svg" alt="Carro de la compra">
+                    <a href="../navegacion/checkout.php<?php echo $x['idPublicacion']?>"><img src="../assets/img/iconos/compras.svg" alt="Bolsa de la compra"></a>
+                    <img class="carrito-tarjeta " onclick="addCarrito(this.id)" id="<?php echo $x['idPublicacion'] ?>" src="../assets/img/iconos/carrito_2.svg" alt="Carro de la compra">
                 </div>
             </div>
         <?php endforeach; ?>

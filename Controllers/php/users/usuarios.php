@@ -128,7 +128,7 @@ class Administrador
     public function ActivarUsuario($id)
     {
         //Llamada a la conexion
-        require '../../Models/dao/conexion.php';
+        require '../../../Models/dao/conexion.php';
         $estado = '1';
         //sentencia sql para actualizar estado
         $sqlEditar = "UPDATE tblUsuario 
@@ -139,7 +139,7 @@ class Administrador
         //alert
         echo "<script>alert('Estado actualizado correctamente');</script>";
         //redireccionar
-        echo "<script> document.location.href='../../view/dashboard/principal/usuarios.php';</script>";
+        echo "<script> document.location.href='../../../Views/dashboard/principal/usuarios.php';</script>";
     }
 
     public function DesactivarUsuario($id)
@@ -156,12 +156,12 @@ class Administrador
         //alert
         echo "<script>alert('Estado actualizado correctamente');</script>";
         //redireccionar
-        echo "<script> document.location.href='../../view/dashboard/principal/usuarios.php';</script>";
+        echo "<script> document.location.href='../../../Views/dashboard/principal/usuarios.php';</script>";
     }
 
     public function ActualizarCuenta($id)
     {
-        require '../../Models/dao/conexion.php';
+        require '../../../Models/dao/conexion.php';
         //Capturo la sesión del usuario logueado
         $celular = $_POST['celular'];
         $correo = $_POST['correo'];
@@ -196,42 +196,36 @@ class Administrador
                             //Ejecutar la sentencia
                             $consulta_insertar->execute(array($celular,  $correo, $archivo, $id));
                             echo "<script>alert('Registro actualizado correctamente');</script>";
-                            echo "<script> document.location.href='../../view/dashboard/principal/perfil.php';</script>";
+                            echo "<script> document.location.href='../../../Views/dashboard/principal/perfil.php';</script>";
                         } else {
                             echo "<script>alert('Ocurrió un error');</script>";
-                            echo "<script> document.location.href='../../view/dashboard/principal/perfil.php';</script>";
+                            echo "<script> document.location.href='../../../Views/dashboard/principal/perfil.php';</script>";
                         }
                     } else {
                         echo "<script>alert('Error: solo se admiten archivos jpg, png y jpeg');</script>";
-                        echo "<script> document.location.href='../../view/dashboard/principal/perfil.php';</script>";
+                        echo "<script> document.location.href='../../../Views/dashboard/principal/perfil.php';</script>";
                     }
                 }
             } else {
                 echo "<script>alert('Error: el archivo no es una imagen');</script>";
-                echo "<script> document.location.href='../../view/dashboard/principal/perfil.php';</script>";
+                echo "<script> document.location.href='../../../Views/dashboard/principal/perfil.php';</script>";
             }
         } else {
             //Sentencia sql
-            $sql_actualizar = "UPDATE tblUsuario SET telefonomovilUsuario=?,emailUsuario=? WHERE documentoIdentidad=?";
+            $sql = "UPDATE tblUsuario SET telefonomovilUsuario=?,emailUsuario=? WHERE documentoIdentidad=?";
             //Preparar la consulta
-            $consultar_actualizar = $pdo->prepare($sql_actualizar);
+            $stmt = $pdo->prepare($sql);
             //Ejecutar
 
             //Redireccionar
-            if ($consultar_actualizar->execute(array($celular,  $correo, $id))) {
-                echo "<script>alert('Datos actualizados correctamente');</script>";
-
-                echo "<script> document.location.href='../../view/dashboard/principal/perfil.php';</script>";
-            } else {
-                echo "<script>alert('Error!, Verifica e intenta nuevamente');</script>";
-
-                echo "<script> document.location.href='../../view/dashboard/principal/perfil.php';</script>";
-            }
+            $stmt->execute(array($celular,  $correo, $id));
+            echo "<script>alert('Datos actualizados correctamente');</script>";
+            echo "<script> document.location.href='../../../Views/dashboard/principal/perfil.php';</script>";
         }
     }
     public function AgregarDireccion($id)
     {
-        require '../../Models/dao/conexion.php';
+        require '../../../Models/dao/conexion.php';
         @$nombre = $_POST['nombre'];
         $direccion = $_POST['direccion'];
         $ciudad = $_POST['ciudad'];
@@ -241,16 +235,16 @@ class Administrador
         $consultaAgregarDir = $pdo->prepare($sqlAgregarDir);
         $consultaAgregarDir->execute(array($id, $nombre, $direccion, $ciudad));
         echo "<script>alert('Dirección almacenada con exito!');</script>";
-        echo "<script>document.location.href='../../view/dashboard/principal/perfil.php';</script>";
+        echo "<script>document.location.href='../../../Views/dashboard/principal/perfil.php';</script>";
     }
     public function EliminarDireccion($id)
     {
-        require '../../Models/dao/conexion.php';
+        require '../../../Models/dao/conexion.php';
         $sqlEliminarDir = "DELETE FROM tblDirecciones WHERE idDireccion=?";
         $consultaEliminarDir = $pdo->prepare($sqlEliminarDir);
         $consultaEliminarDir->execute(array($id));
         echo "<script>alert('Dirección eliminada correctamente');</script>";
-        echo "<script>document.location.href='../../view/dashboard/principal/perfil.php';</script>";
+        echo "<script>document.location.href='../../../Views/dashboard/principal/perfil.php';</script>";
     }
     public function ActualizarDireccion($id)
     {
@@ -258,7 +252,7 @@ class Administrador
         $direccion = $_POST['direccion'];
         $ciudad = $_POST['ciudad'];
 
-        require '../../Models/dao/conexion.php';
+        require '../../../Models/dao/conexion.php';
         $sqlActualizarDir = "UPDATE tblDirecciones 
         SET nombreDireccion = ?,descripcionDireccion = ?, 
         ciudadDireccion = ? 
@@ -266,6 +260,6 @@ class Administrador
         $consultaActualizarDir = $pdo->prepare($sqlActualizarDir);
         $consultaActualizarDir->execute(array($nombre, $direccion, $ciudad, $id));
         echo "<script>alert('Dirección actualizada correctamente');</script>";
-        echo "<script>document.location.href='../../view/dashboard/principal/perfil.php';</script>";
+        echo "<script>document.location.href='../../../Views/dashboard/principal/perfil.php';</script>";
     }
 }

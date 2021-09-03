@@ -8,7 +8,7 @@ session_start();
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="../../assets/css/navegacion.css" />
+  <link rel="stylesheet" href="../assets/css/navegacion.css" />
   <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
 
   <title>Navbar Superior</title>
@@ -18,7 +18,7 @@ session_start();
   <div class="contenedor">
     <div class="contenedor-s">
       <div class="logoT">
-        <a id="logo" href="index.php"> <img src="../../assets/img/LogoTerciario.svg" alt="Logo interoriente" /></a>
+        <a id="logo" href="index.php"> <img src="../assets/img/LogoTerciario.svg" alt="Logo interoriente" /></a>
       </div>
       <div class="cont-elementos">
         <a href="">
@@ -35,7 +35,7 @@ session_start();
 
 
         <a href="javascript:void(0)">
-          <div class="carrito" id="btn-carrito"><img src="../../assets/img/iconos/carrito.svg" alt="Carrito de la compra"></div>
+          <div class="carrito" id="btn-carrito"><img src="../assets/img/iconos/carrito.svg" alt="Carrito de la compra"></div>
           <div class="items-carrito">0</div>
         </a>
       </div>
@@ -61,16 +61,16 @@ session_start();
         <a href="#">Mis ofertas</a>
         <a href="../navegacion/productos.php">Catálogos</a>
         <a href="#">Ayuda</a>
-        <a href="../../view/dashboard/principal/dashboard.php">Volver al panel</a>
-        <a href="../../Controller/cerrarSesion.php">Cerrar sesión</a>
+        <a href="../dashboard/principal/dashboard.php">Volver al panel</a>
+        <a href="../../Controllers/cerrarSesion.php">Cerrar sesión</a>
       <?php } else if ($_SESSION['roles'] == "2") { ?>
         <!-- ROl admininistrador Empresa-->
         <a href="index.php">Inicio</a>
         <a href="#">Mis ofertas</a>
         <a href="catalogo.php">Catálogos</a>
         <a href="#">Ayuda</a>
-        <a href="../../view/dashboard/principal/dashboard.php">Volver al panel</a>
-        <a href="../../Controller/cerrarSesion.php">Cerrar sesión</a>
+        <a href="../dashboard/principal/dashboard.php">Volver al panel</a>
+        <a href="../../Controllers/cerrarSesion.php">Cerrar sesión</a>
 
       <?php } else { ?>
         <!-- ROl comprador/Proveedor -->
@@ -80,15 +80,15 @@ session_start();
         <a href="#">Mi carrito</a>
         <a href="#">Mis compras</a>
         <a href="#">Ayuda</a>
-        <a href="../../view/dashboard/principal/dashboard.php">Volver al panel</a>
-        <a href="../../Controller/cerrarSesion.php">Cerrar sesión</a>
+        <a href="../dashboard/principal/dashboard.php">Volver al panel</a>
+        <a href="../../Controllers/cerrarSesion.php">Cerrar sesión</a>
 
       <?php } ?>
 
     <?php } else { ?>
       <!-- Poner imagen-->
       <a href="" id="log-info-a">
-        <img id="cta-login-img" src="../../assets/img/navegacion/login_2.svg" alt="Ingreso Interoriente">
+        <img id="cta-login-img" src="../assets/img/navegacion/login_2.svg" alt="Ingreso Interoriente">
         <p id="cta-p">¡Regístrate o Inicia sesión para comenzar!</p>
       </a>
       <a href="index.php">Inicio</a>

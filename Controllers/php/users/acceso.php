@@ -23,7 +23,7 @@ class Registro
     {
         if ($pass == $rePass) {
             //Llamar a la conexion base de datos
-            require '../../Models/dao/conexion.php';
+            require '../../../Models/dao/conexion.php';
             //Verificación si el id ya existe 
             $sqlExistente = "SELECT *
             FROM tblUsuario 
@@ -60,15 +60,15 @@ class Registro
                 $_SESSION['roles'] = '1';
                 $_SESSION["documentoIdentidad"] = $docId;
                 //Comprador/Proveedor
-                echo "<script> document.location.href='../../view/dashboard/principal/dashboard.php';</script>";
+                echo "<script> document.location.href='../../../Views/dashboard/principal/dashboard.php';</script>";
             } else {
                 //Impresión correo ingresado, ya existe en BD
                 echo "<script>alert('¡El correo y/o número de documento ingresado ya existen! Por favor verifícalos e intenta nuevamente.');</script>";
-                echo "<script> document.location.href='../../view/navegacion/registro.php';</script>";
+                echo "<script> document.location.href='../../../Views/navegacion/registro.php';</script>";
             }
         } else {
             echo "<script>alert('¡Error! Las contraseñas ingresadas no coinciden, verifica e intenta nuevamente.');</script>";
-            echo "<script> document.location.href='../../view/navegacion/registro.php';</script>";
+            echo "<script> document.location.href='../../../Views/navegacion/registro.php';</script>";
         }
     }
 }
@@ -78,7 +78,7 @@ class InicioSesion
 
     public function IniciarSesion($idUsuario, $clave)
     {
-        require "../../Models/dao/conexion.php";
+        require "../../../Models/dao/conexion.php";
         //Capturo información
         $id = strip_tags($idUsuario);
         $contrasena = sha1(strip_tags($clave));
@@ -111,11 +111,11 @@ class InicioSesion
                 //Siempre para iniciar se inicia como Comprador/Proveedor -> O por lo menos con el primer rol que se tenga
                 $_SESSION['roles'] = $rol;
                 //Comprador/Proveedor
-                header("Location: ../../view/dashboard/principal/dashboard.php");
+                header("Location: ../../../Views/dashboard/principal/dashboard.php");
             }
         } else {
             echo "<script>alert('Correo o documento y/o contraseña incorrecto, o validación denegada');</script>";
-            echo "<script> document.location.href='../../view/navegacion/iniciarsesion.php';</script>";
+            echo "<script> document.location.href='../../../Views/navegacion/iniciarsesion.php';</script>";
         }
     }
 }
