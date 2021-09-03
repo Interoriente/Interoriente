@@ -58,7 +58,7 @@ function addCarrito(id) {
   /* Obteniendo id de la publicación para hacer consulta a la bd */
   $.ajax({
     /* LLamando clase PHP */
-    url: "../../php/crud/consultas.php", //Ruta de la clase
+    url: "../php/crud/consultas.php", //Ruta de la clase
     type: "POST", //Tipo de request,
     dataType: "JSON", //Tipo de dato a retornar
     data: { id: id }, //Datos a recibir en el script .php a traves de $_POST
@@ -82,7 +82,7 @@ function renderPubli(item) {
   item.map((item) => {
     clase += `
             <div class = "cart-item">
-                <img src="../../assets/img/stock/1.jpg" alt="product" width="100%">
+                <img src="../assets/img/stock/1.jpg" alt="product" width="100%">
                 <div>
                     <h4 class="titulos item-h" >${item.titulo}</h4>
                     <h5>$${item.costo}</h5>
@@ -116,7 +116,7 @@ function cambiarCantidad(idItem) {
     if (element.id === id) {
       inputId = element;
     } else {
-      console.log("No coinside");
+      console.log("No coincide");
     }
   });
   console.log("Resultado");
@@ -173,7 +173,7 @@ finCompra.addEventListener("click", function(){
   carrito = carrito.map(({titulo,costo,...rest}) =>({...rest}));
   carrito = JSON.stringify(carrito);
   $.ajax({
-    url: "../../php/crud/consultas.php",
+    url: "../php/crud/consultas.php",
     type: "POST",
     dataType: "JSON",
     data: {carrito: carrito},

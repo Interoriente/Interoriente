@@ -5,7 +5,7 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="icon" href="../../assets/img/favicon.png" type="image/png" />
+  <link rel="icon" href="../assets/img/favicon.png" type="image/png" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous" />
   <!-- Nota: Debe aparecer el nombre de la publicación en el título -->
   <title>Publicación | Interoriente</title>
@@ -17,8 +17,8 @@
   <!-- Idea: Cambio imagen en hover -->
   <!-- Sección imágene(s) título, precio, cantidad, color y botones  "Comprar ahora" y "Añadir al carrito" -->
   <!-- CCS Local-->
-  <link rel="stylesheet" href="../../assets/css/general.css">
-  <link rel="stylesheet" href="../../assets/css/publicacion.css">
+  <link rel="stylesheet" href="../assets/css/general.css">
+  <link rel="stylesheet" href="../assets/css/publicacion.css">
   <!-- ----- -->
   <!-- TODO: Sección "Cantidad" -> Estilos -->
   <div id="contenedor-principal">
@@ -30,23 +30,23 @@
     </div>
 
     <div class="column carrusel">
-      <img id=img-principal src="../../assets/img/stock/8.jpg">
+      <img id=img-principal src="../assets/img/stock/8.jpg">
 
       <div id="slide-wrapper">
-        <img id="slideLeft" class="flecha" src="../../assets/img/navegacion/flechaIz.png">
+        <img id="slideLeft" class="flecha" src="../assets/img/navegacion/flechaIz.png">
 
         <div id="slider">
-          <img class="thumbnail active" src="../../assets/img/stock/1.jpg">
-          <img class="thumbnail" src="../../assets/img/stock/2.jpg">
-          <img class="thumbnail" src="../../assets/img/stock/3.jpg">
+          <img class="thumbnail active" src="../assets/img/stock/1.jpg">
+          <img class="thumbnail" src="../assets/img/stock/2.jpg">
+          <img class="thumbnail" src="../assets/img/stock/3.jpg">
 
-          <img class="thumbnail" src="../../assets/img/stock/4.jpg">
-          <img class="thumbnail" src="../../assets/img/stock/5.jpg">
-          <img class="thumbnail" src="../../assets/img/stock/6.jpg">
-          <img class="thumbnail" src="../../assets/img/stock/7.jpg">
+          <img class="thumbnail" src="../assets/img/stock/4.jpg">
+          <img class="thumbnail" src="../assets/img/stock/5.jpg">
+          <img class="thumbnail" src="../assets/img/stock/6.jpg">
+          <img class="thumbnail" src="../assets/img/stock/7.jpg">
         </div>
 
-        <img id="slideRight" class="flecha" src="../../assets/img/navegacion/flechaDer.png">
+        <img id="slideRight" class="flecha" src="../assets/img/navegacion/flechaDer.png">
       </div>
     </div>
 
@@ -74,7 +74,7 @@
 
   </div>
 
-  <script src="../../Controller/js/publicacion.js"></script>
+  <script src="../../Controllers/js/publicacion.js"></script>
 
 
   <!-- Sección "Descripción" Publicación-->
@@ -100,7 +100,7 @@
     </div>
     <div class="perfil-proveedor">
       <div class="tarjeta-perfil">
-        <img src="../../assets/img/10.jpg" alt="Imagen de perfil del proveedor">
+        <img src="../assets/img/10.jpg" alt="Imagen de perfil del proveedor">
         <a href="">
           Interoriente SAS
         </a>

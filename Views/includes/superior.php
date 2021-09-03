@@ -63,15 +63,6 @@ session_start();
         <a href="#">Ayuda</a>
         <a href="../dashboard/principal/dashboard.php">Volver al panel</a>
         <a href="../../Controllers/cerrarSesion.php">Cerrar sesión</a>
-      <?php } else if ($_SESSION['roles'] == "2") { ?>
-        <!-- ROl admininistrador Empresa-->
-        <a href="index.php">Inicio</a>
-        <a href="#">Mis ofertas</a>
-        <a href="catalogo.php">Catálogos</a>
-        <a href="#">Ayuda</a>
-        <a href="../dashboard/principal/dashboard.php">Volver al panel</a>
-        <a href="../../Controllers/cerrarSesion.php">Cerrar sesión</a>
-
       <?php } else { ?>
         <!-- ROl comprador/Proveedor -->
         <a href="index.php">Inicio</a>

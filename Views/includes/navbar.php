@@ -1,6 +1,6 @@
 <div class="contenedor">
     <div class="logoT">
-        <img src="../../assets/img/LogoTerciario.svg" alt="" />
+        <img src="../assets/img/LogoTerciario.svg" alt="" />
     </div>
     <div class="cont-elementos">
         <a href="">
