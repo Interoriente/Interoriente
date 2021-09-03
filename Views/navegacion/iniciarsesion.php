@@ -40,7 +40,7 @@ $GoogleLogin = $client->createAuthUrl();
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="Bienvenidos a Interoriente, podrás comprar, vender y mucho más.">
     <meta name="author" content="Inter-oriente">
-    <title>Iniciar sesión - Interoriente</title>
+    <title>Iniciar sesión | Interoriente</title>
     <!-- Favicon -->
     <link rel="icon" href="../assets/img/favicon.png" type="image/png">
     <!-- Fonts -->
@@ -49,7 +49,7 @@ $GoogleLogin = $client->createAuthUrl();
     <link rel="stylesheet" href="../dashboard/assets/vendor/nucleo/css/nucleo.css" type="text/css">
     <link rel="stylesheet" href="../dashboard/assets/vendor/@fortawesome/fontawesome-free/css/all.min.css" type="text/css">
     <!-- Argon CSS -->
-    <link rel="stylesheet" href="../dashboard/assets/css/argon.css?v=1.2.0" type="text/css">
+    <link rel="stylesheet" href="../dashboard/assets/css/argon.min.css?v=1.2.0" type="text/css">
 </head>
 
 <body class="bg-default" oncontextmenu="return false">

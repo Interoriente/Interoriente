@@ -34,7 +34,7 @@ if (isset($respUserData)) {
       <link rel="stylesheet" href="../assets/vendor/nucleo/css/nucleo.css" type="text/css">
       <link rel="stylesheet" href="../assets/vendor/@fortawesome/fontawesome-free/css/all.min.css" type="text/css">
       <!-- Argon CSS -->
-      <link rel="stylesheet" href="../assets/css/argon.css?v=1.2.0" type="text/css">
+      <link rel="stylesheet" href="../assets/css/argon.min.css?v=1.2.0" type="text/css">
       <!-- Llamado a hoja de estilos para traer los iconos de asc y desc en las tablas -->
       <link rel="stylesheet" href="../assets/css/dataTables.bootstrap5.min.css">
     </head>
@@ -49,8 +49,8 @@ if (isset($respUserData)) {
       <!-- Publicacion producto -->
       <div class="container-fluid mt--6">
         <?php if (!$_GET) { ?>
-          <div class="row">
-            <div class="col-xl-8 order-xl-1">
+          <div class="cont-form-crearPubli">
+           
               <div class="card">
                 <div class="card-header">
                   <div class="row align-items-center">
@@ -59,15 +59,15 @@ if (isset($respUserData)) {
                     </div>
                   </div>
                 </div>
-                <div class="card-body">
+                <div class="card-body form-crearPubli">
                   <form action="../../../Controllers/php/users/publicaciones.php" method="POST" enctype="multipart/form-data">
                     <input type="hidden" name="crearPublicacion">
-                    <h6 class="heading-small text-muted mb-4">Información del producto</h6>
+                    <h6 class="heading-small text-muted mb-4">¡Cuéntale a la gente lo que quieres ofrecer!</h6>
                     <div class="pl-lg-4">
                       <div class="row">
                         <div class="col-lg-6">
                           <div class="form-group">
-                            <label class="form-control-label" for="input-username">Nombre producto</label>
+                            <label class="form-control-label" for="input-username">Título</label>
                             <input type="text" id="input-username" name="nombre" class="form-control" placeholder="Nombre producto" value="" required>
                           </div>
                         </div>
@@ -144,7 +144,7 @@ if (isset($respUserData)) {
                   </form>
                 </div>
               </div>
-            </div>
+            
           </div>
         <?php }
         if (!$_GET) {

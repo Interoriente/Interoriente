@@ -2,9 +2,9 @@
 <nav class="sidenav navbar navbar-vertical  fixed-left  navbar-expand-xs navbar-light bg-white" id="sidenav-main">
   <div class="scrollbar-inner">
     <!-- Brand -->
-    <div class="sidenav-header  align-items-center">
-      <a class="navbar-brand" href="../../navegacion/index.php">
-        <img src="../../assets/img/logoDashboard.svg" class="navbar-brand-img" alt="...">
+    <div class="sidenav-header ">
+      <a class="logoHome" href="../../navegacion/index.php">
+        <img id="homeLogo" src="../../assets/img/logoDashboard.svg" class="navbar-brand-img" alt="home logo Interoriente">
       </a>
     </div>
     <div class="navbar-inner">
@@ -16,19 +16,19 @@
             <ul class="navbar-nav">
               <li class="nav-item">
                 <a class="nav-link" href="dashboard.php">
-                  <i class="ni ni-planet text-orange"></i>
+                  <i class="ni ni-tv-2 text-primary"></i>
                   <span class="nav-link-text">Dashboard</span>
                 </a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="crearPublicacion.php">
-                  <i class="ni ni-album-2 text-red"></i>
+                  <i class="ni ni-album-2" style="color: #FFB930"></i>
                   <span class="nav-link-text">Crear publicación</span>
                 </a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="perfil.php">
-                  <i class="ni ni-single-02 text-yellow"></i>
+                  <i class="ni ni-single-02" style="color: #5D9BAC"></i>
                   <span class="nav-link-text">Mi perfil</span>
                 </a>
               </li>

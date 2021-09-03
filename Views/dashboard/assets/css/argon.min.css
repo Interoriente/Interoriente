@@ -33,7 +33,7 @@
     --gray-dark: #32325d;
     --light: #ced4da;
     --lighter: #e9ecef;
-    --primary: #5e72e4;
+    --primary: #004E64;
     --secondary: #f7fafc;
     --success: #2dce89;
     --info: #11cdef;
@@ -59,7 +59,7 @@
 }
 
 html {
-    font-family: sans-serif;
+    font-family: var(--font-family-sans-serif);
     line-height: 1.15;
     -webkit-text-size-adjust: 100%;
     -webkit-tap-highlight-color: transparent
@@ -70,16 +70,27 @@ article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
 }
 
 body {
-    font-family: Open Sans, sans-serif;
+    font-family: var(--font-family-sans-serif);
     font-size: 1rem;
     font-weight: 400;
     line-height: 1.5;
     margin: 0;
     text-align: left;
     color: #525f7f;
-    background-color: #f8f9fe
-}
+    background-color: #f8f9fe;
 
+}
+.cerrar-sesion button{
+    border: none;
+    background: none;
+}
+.cerrar-sesion button:focus {
+    outline: 0;
+  }
+.cerrar-sesion button:active {
+    outline: none;
+    border: none;
+  }
 [tabindex='-1']:focus:not(:focus-visible) {
     outline: 0!important
 }
@@ -347,7 +358,7 @@ template {
 }
 
 .h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
-    font-family: inherit;
+    font-family: var(--font-family-sans-serif);
     font-weight: 600;
     line-height: 1.5;
     margin-bottom: .5rem;
@@ -363,13 +374,25 @@ template {
         font-size: calc(1.2875rem + .45vw)
     }
 }
+/* Logo del sidebar */
+.sidenav-header{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#homeLogo{
+    width: 100%;
+    height: 100%;
+}
+/* Fin logo del sidebar */
 
 .h2, h2 {
-    font-size: 1.25rem
+    font-size: 1rem
 }
 
 .h3, h3 {
-    font-size: 1.0625rem
+    font-size: 1rem
 }
 
 .h4, h4 {
@@ -4615,12 +4638,16 @@ input[type=button].btn-block, input[type=reset].btn-block, input[type=submit].bt
     border-bottom-left-radius: .375rem
 }
 
+
 .card-body {
     min-height: 1px;
     padding: 1.5rem;
     flex: 1 1 auto
 }
 
+.form-cardPubli{
+    width: 100%;
+}
 .card-title {
     margin-bottom: 1.25rem
 }
@@ -6596,7 +6623,7 @@ a.close.disabled {
 }
 
 .bg-primary {
-    background-color: #5e72e4!important
+    background-color: var(--primary)!important
 }
 
 a.bg-primary:focus, a.bg-primary:hover, button.bg-primary:focus, button.bg-primary:hover {
@@ -13977,7 +14004,7 @@ textarea[resize=horizontal] {
 }
 
 .icon-lg+.icon-text {
-    width: calc(100% - $icon-size-lg - 1)
+    width: calc(100% - icon-size-lg - 1)
 }
 
 .icon-sm {
@@ -13990,7 +14017,7 @@ textarea[resize=horizontal] {
 }
 
 .icon-sm+.icon-text {
-    width: calc(100% - $icon-size-sm - 1)
+    width: calc(100% - icon-size-sm - 1)
 }
 
 .icon-xs {
@@ -14003,7 +14030,7 @@ textarea[resize=horizontal] {
 }
 
 .icon-xs+.icon-text {
-    width: calc(100% - $icon-size-xs - 1)
+    width: calc(100% - icon-size-xs - 1)
 }
 
 .icon-shape {
@@ -14734,7 +14761,7 @@ textarea[resize=horizontal] {
 
 .navbar-vertical .navbar-brand-img, .navbar-vertical .navbar-brand>img {
     max-width: 100%;
-    max-height: 2rem
+    max-height: 4rem
 }
 
 @media (min-width:768px) {
@@ -15395,10 +15422,7 @@ textarea[resize=horizontal] {
     padding: 1.5rem
 }
 
-.sidenav-header {
-    height: 78px;
-    text-align: center
-}
+
 
 .g-sidenav-show .sidenav .navbar-brand, .g-sidenav-show .sidenav .navbar-heading {
     display: block

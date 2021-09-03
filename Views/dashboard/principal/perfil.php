@@ -38,7 +38,7 @@ if (isset($respUserData)) {
       <link rel="stylesheet" href="../assets/vendor/nucleo/css/nucleo.css" type="text/css">
       <link rel="stylesheet" href="../assets/vendor/@fortawesome/fontawesome-free/css/all.min.css" type="text/css">
       <!-- Argon CSS -->
-      <link rel="stylesheet" href="../assets/css/argon.css?v=1.2.0" type="text/css">
+      <link rel="stylesheet" href="../assets/css/argon.min.css?v=1.2.0" type="text/css">
     </head>
 
     <body>
@@ -48,8 +48,8 @@ if (isset($respUserData)) {
       ?>
       <!-- Header -->
       <div class="header pb-6 d-flex align-items-center" style="min-height: 500px; background-image: url(../../../assets/img/fondoperfil.jpg); background-size: cover; background-position: center top;">
+      <span class="mask" style="background-color: #004E64;"></span>
         <!-- Mask -->
-        <span class="mask bg-gradient-default opacity-8"></span>
         <!-- Header container -->
         <div class="container-fluid d-flex align-items-center">
           <div class="row">
@@ -65,14 +65,13 @@ if (isset($respUserData)) {
         <div class="row">
           <div class="col-xl-4 order-xl-2">
             <div class="card card-profile">
+              <img src="../../assets/img/LogoCuaternario.svg" alt="Imagen fondo de pantalla">
 
-              <img src="../../assets/img/LogoCuaternario.svg" alt="Imagen fondo de pantalla" class="card-img-top">
-
-              <div class="row justify-content-center">
+              <div class=" justify-content-center">
                 <div class="col-lg-3 order-lg-2">
                   <div class="card-profile-image">
                     <a data-toggle="modal" data-target="#fotoperfil">
-                      <img src="crud/<?php echo $respUserData->imagenUsuario; ?>" class="rounded-circle">
+                      <img src="imagenes/<?php echo $respUserData->imagenUsuario; ?>" class="rounded-circle" alt="Imagen de perfil Usuario">
                     </a>
                   </div>
                 </div>

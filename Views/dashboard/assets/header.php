@@ -48,7 +48,7 @@
                 </a>
                 <div class="dropdown-menu  dropdown-menu-right ">
                   <div class="dropdown-header noti-title">
-                    <h6 class="text-overflow m-0">Bienvenido!</h6>
+                    <h6 class="text-overflow m-0">!Bienvenid@!</h6>
                   </div>
                   <a href="../principal/perfil.php" class="dropdown-item">
                     <i class="ni ni-single-02"></i>
@@ -68,7 +68,7 @@
                   </a>
                   <div class="dropdown-divider"></div>
                   <a href="#" class="dropdown-item" data-toggle="modal" data-target="#logoutModal">
-                  <form action="../../../Controllers/php/users/usuarios.php" method="POST">
+                  <form class="cerrar-sesion" action="../../../Controllers/php/users/usuarios.php" method="POST">
                       <i class="ni ni-user-run"></i>
                       <input type="hidden" name = "cerrarSesion">
                       <button type="submit">Cerrar Sesión</button>
@@ -81,6 +81,9 @@
     </div>
   </nav>
   <!-- Header -->
+
+  <!-- ¿Quitar Logout modal? -->
+  
   <!-- Logout Modal-->
   <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -92,7 +95,7 @@
           </button>
         </div>
         <div class="modal-body">
-          Seleccione "Cerrar sesión" a continuación si está listo para finalizar su sesión actual.
+          Seleccione "Cerrar sesión" a continuación si estas listo para finalizar la sesión actual.
         </div>
         <div class="modal-footer">
           <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
