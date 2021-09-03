@@ -6,10 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../assets/css/catalogos.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
-    <link rel="icon" href="../../assets/img/favicon.png" type="image/png">
+    <link rel="icon" href="../assets/img/favicon.png" type="image/png">
     <title>Catálogo</title>
 </head>
-<body background="../../assets/img/fondocatalogo.jpg">
+<body background="../assets/img/fondocatalogo.jpg">
     <div class="padre">
         <?php
         include '../includes/superior.php';

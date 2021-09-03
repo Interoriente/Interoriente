@@ -2,7 +2,7 @@
 /* TODO: Verificar existencia de la variable de sessión antes de iniciarla. */
 /* require "../includes/errores.php"; */
 /* Llamado SQL */
-require "../../Controllers/php/crud/consultas.php";
+require "../../Controllers/php/users/compras.php";
 $publicacion = getPublicaciones();
 ?>
 <!DOCTYPE html>
@@ -125,7 +125,7 @@ $publicacion = getPublicaciones();
                     </div>
                 </a>
                 <div class="cta-btns">
-                    <a href="../navegacion/checkout.php<?php echo $x['idPublicacion']?>"><img src="../assets/img/iconos/compras.svg" alt="Bolsa de la compra"></a>
+                    <a href="../navegacion/checkout.php?id=<?php echo $x['idPublicacion']?>"><img src="../assets/img/iconos/compras.svg" alt="Bolsa de la compra"></a>
                     <img class="carrito-tarjeta " onclick="addCarrito(this.id)" id="<?php echo $x['idPublicacion'] ?>" src="../assets/img/iconos/carrito_2.svg" alt="Carro de la compra">
                 </div>
             </div>

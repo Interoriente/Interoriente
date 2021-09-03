@@ -9,8 +9,6 @@ $host = "mysql:host=$nombrehost;dbname=$nombreBD";
 $usuario = "interori_interori";
 $contrasena = "B4O#ugJ]C#%,4";
 
-
-
 try {
      //Conexion exitosa	
      $pdo = new PDO($host, $usuario, $contrasena);

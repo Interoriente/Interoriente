@@ -15,11 +15,11 @@ if (isset($_GET['id'])) {
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" href="../../assets/img/favicon.png" type="image/png" />
+    <link rel="icon" href="../assets/img/favicon.png" type="image/png" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous" />
-    <link rel="stylesheet" href="../../assets/css/general.css">
-    <link rel="stylesheet" href="../../assets/css/publicacion.css">
-    <link rel="stylesheet" href="../../assets/css/estilosNavs.css">
+    <link rel="stylesheet" href="../assets/css/general.css">
+    <link rel="stylesheet" href="../assets/css/publicacion.css">
+    <link rel="stylesheet" href="../assets/css/estilosNavs.css">
 
     <!-- Nota: Debe aparecer el nombre de la publicación en el título -->
     <?php foreach ($resultadoPubli as $datos) {?>
@@ -51,16 +51,16 @@ if (isset($_GET['id'])) {
 
           <div id="slider">
             <img class="thumbnail active" src="../../assets/img/stock/1.jpg">
-            <img class="thumbnail" src="../../assets/img/stock/2.jpg">
-            <img class="thumbnail" src="../../assets/img/stock/3.jpg">
+            <img class="thumbnail" src="../assets/img/stock/2.jpg">
+            <img class="thumbnail" src="../assets/img/stock/3.jpg">
 
-            <img class="thumbnail" src="../../assets/img/stock/4.jpg">
-            <img class="thumbnail" src="../../assets/img/stock/5.jpg">
-            <img class="thumbnail" src="../../assets/img/stock/6.jpg">
-            <img class="thumbnail" src="../../assets/img/stock/7.jpg">
+            <img class="thumbnail" src="../assets/img/stock/4.jpg">
+            <img class="thumbnail" src="../assets/img/stock/5.jpg">
+            <img class="thumbnail" src="../assets/img/stock/6.jpg">
+            <img class="thumbnail" src="../assets/img/stock/7.jpg">
           </div>
 
-          <img id="slideRight" class="flecha" src="../../assets/img/navegacion/flechaDer.png">
+          <img id="slideRight" class="flecha" src="../assets/img/navegacion/flechaDer.png">
         </div>
       </div>
 <?php foreach ($resultadoPubli as $datos) {?>

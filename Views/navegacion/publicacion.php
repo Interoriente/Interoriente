@@ -74,7 +74,7 @@
 
   </div>
 
-  <script src="../../Controllers/js/publicacion.js"></script>
+  <script src="../../Views/js/publicacion.js"></script>
 
 
   <!-- Sección "Descripción" Publicación-->

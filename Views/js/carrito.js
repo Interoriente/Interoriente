@@ -58,7 +58,7 @@ function addCarrito(id) {
   /* Obteniendo id de la publicación para hacer consulta a la bd */
   $.ajax({
     /* LLamando clase PHP */
-    url: "../php/crud/consultas.php", //Ruta de la clase
+    url: "../../Controllers/php/users/compras.php", //Ruta de la clase
     type: "POST", //Tipo de request,
     dataType: "JSON", //Tipo de dato a retornar
     data: { id: id }, //Datos a recibir en el script .php a traves de $_POST
@@ -173,7 +173,7 @@ finCompra.addEventListener("click", function(){
   carrito = carrito.map(({titulo,costo,...rest}) =>({...rest}));
   carrito = JSON.stringify(carrito);
   $.ajax({
-    url: "../php/crud/consultas.php",
+    url: "../../Controllers/php/users/compras.php",
     type: "POST",
     dataType: "JSON",
     data: {carrito: carrito},

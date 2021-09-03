@@ -67,7 +67,7 @@ if (isset($respUserData)) {
 
                 <!-- Copia de seguridad DB -->
                 <?php if ($_SESSION['roles'] == '3') : ?><br>
-                  <a href="../../../Controllers/php/app/backupDB.php"><button type="submit" class="btn btn-sm btn-neutral">Copia de seguridad BD</button></a>
+                  <a href="../../../Models/operaciones/backupDB.php"><button type="submit" class="btn btn-sm btn-neutral">Copia de seguridad BD</button></a>
                 <?php endif; ?>
                 <!-- FIN Copia de seguridad DB -->
 

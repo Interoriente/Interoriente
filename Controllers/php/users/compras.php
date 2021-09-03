@@ -84,7 +84,7 @@ function getPublicaciones()
 /* Función para agregar publicaciones al carrito */
 function addCarrito($id)
 {
-  require('../../Models/dao/conexion.php');
+  require '../../../Models/dao/conexion.php';
 
   /* 
     -Título
@@ -113,7 +113,7 @@ function almacenarCarrito($carrito)
   $idUsuario = $_SESSION['documentoIdentidad'];
 
   if ($idUsuario) {
-    require('../../Models/dao/conexion.php');
+    require('../../../Models/dao/conexion.php');
     foreach ($carrito as $item) {
       $idPubli = $item->id;
       $cantidad = $item->cantidad;
@@ -137,7 +137,7 @@ function almacenarCarrito($carrito)
 
 class Checkout{
   public function getCheckoutInfo(){
-    require('../../Models/dao/conexion.php');
+    require '../../Models/dao/conexion.php';
     session_start();
     $idUsuario = $_SESSION['documentoIdentidad'];
     $sql = "SELECT PU.nombrePublicacion AS 'titulo', 
@@ -164,7 +164,7 @@ class Checkout{
     $idUsuario = $_SESSION['documentoIdentidad'];
     if (isset($idUsuario)) {
       /* TODO: TENER EN CUENTA AQUELLOS CASOS EN LOS QUE LA VARIABLE NO ESTÉ ASIGNADA*/
-      require('../../Models/dao/conexion.php');
+      require('../../../Models/dao/conexion.php');
       $sql = "SELECT DI.idDireccion as 'id', DI.nombreDireccion as 'nombreDireccion', 
       DI.descripcionDireccion as 'direccion', US.emailUsuario as 'correo'
       FROM tblDirecciones as DI INNER JOIN tblUsuario as US 
@@ -183,7 +183,7 @@ class Checkout{
   }
 
   public function getCiudades(){
-    require ('../../Models/dao/conexion.php');
+    require '../../../Models/dao/conexion.php';
     $sql = "SELECT idCiudad as 'id', 
     nombreCiudad as 'nombre' 
     FROM tblCiudad ORDER BY nombreCiudad";
@@ -194,7 +194,7 @@ class Checkout{
     return $resultado;
   }
   public function finalizarCompra($direccion, $email){
-    require('../../Models/dao/conexion.php');
+    require('../../../Models/dao/conexion.php');
     session_start();
     $idUsuario = $_SESSION['documentoIdentidad'];
     /* Almacenar información de la compra */

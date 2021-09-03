@@ -23,6 +23,15 @@ if (isset($_POST['desactivarUsuarios'])) {
     $id = $_POST['idDireccion'];
     $administrador = new Administrador($id);
     $administrador->ActualizarDireccion($administrador->id);
+} else if (isset($_POST['cerrarSesion'])) {
+    CerrarSesion();
+}
+
+function CerrarSesion()
+{
+    session_start(); //Se necesita para que el session_destroy funciona, de lo contrario no se destrirá la sesión.
+    session_destroy();
+    echo "<script> document.location.href='../../../Views/navegacion/index.php';</script>";
 }
 
 class Usuario

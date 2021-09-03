@@ -68,8 +68,11 @@
                   </a>
                   <div class="dropdown-divider"></div>
                   <a href="#" class="dropdown-item" data-toggle="modal" data-target="#logoutModal">
-                    <i class="ni ni-user-run"></i>
-                    <span>Cerrar sesión</span>
+                  <form action="../../../Controllers/php/users/usuarios.php" method="POST">
+                      <i class="ni ni-user-run"></i>
+                      <input type="hidden" name = "cerrarSesion">
+                      <button type="submit">Cerrar Sesión</button>
+                    </form>
                   </a>
                 </div>
               </li>

@@ -28,7 +28,7 @@ if (nuevaDir) {
 
 $.ajax({
   /* LLamando clase PHP */
-  url: "../php/crud/consultas.php", //Ruta de la clase
+  url: "../../Controllers/php/users/compras.php", //Ruta de la clase
   type: "POST", //Tipo de request,
   data: { idUsuarioLogeado: true }, //Datos a recibir en el script .php a traves de $_POST
   success: function (respuesta) {
@@ -66,7 +66,7 @@ $.ajax({
         const selectCiudad = document.getElementById("ciudad-nueva-direccion");
 
         $.ajax({
-          url: "../php/crud/consultas.php", //Ruta de la clase
+          url: "../../Controllers/php/users/compras.php", //Ruta de la clase
           type: "POST", //Tipo de request,
           data: { ciudades: true }, //Datos a recibir en el script .php a traves de $_POST
           success: function (respuesta) {
@@ -213,7 +213,7 @@ function finalizarCompra() {
   let checkout = [direccionEnvioF, correoElectronicoF];
   /* Ajax Call */
   $.ajax({
-    url: "../php/crud/consultas.php",
+    url: "../../Controllers/php/users/compras.php",
     type: "POST",
     data: { checkout: checkout },
     success: function (respuesta) {

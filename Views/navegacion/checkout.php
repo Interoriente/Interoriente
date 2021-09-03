@@ -1,5 +1,8 @@
 <?php
-include "../../Controllers/php/crud/consultas.php";
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+include "../../Controllers/php/users/compras.php";
 $checkout = new Checkout();
 $checkoutData = $checkout->getCheckoutInfo();
 $subtotal = 0;
@@ -14,7 +17,7 @@ $iva = 0;
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <!-- Favicon -->
-  <link rel="icon" href="../../assets/img/favicon.png" type="image/png" />
+  <link rel="icon" href="../assets/img/favicon.png" type="image/png" />
   <!-- Bootstrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous" />
 
@@ -22,15 +25,15 @@ $iva = 0;
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 
   <!-- Css local  -->
-  <link rel="stylesheet" href="../../assets/css/general.css" />
-  <link rel="stylesheet" href="../../assets/css/checkout.css" />
+  <link rel="stylesheet" href="../assets/css/general.css" />
+  <link rel="stylesheet" href="../assets/css/checkout.css" />
   <title>Checkout | Interoriente</title>
 </head>
 
 <body>
   <!-- Barra de navegación -->
   <div class="navegacion">
-    <a href="index.php"> <img id="logo" src="../../assets/img/LogoCuaternario.svg" alt="Logo barra de navegación"></a>
+    <a href="index.php"> <img id="logo" src="../assets/img/LogoCuaternario.svg" alt="Logo barra de navegación"></a>
   </div>
 
   <!-- Fin barra de navegación -->
@@ -43,7 +46,7 @@ $iva = 0;
         <button class="accordion-button collapsed titulo-colapse" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
           <div class="carrito-descripcion">
             <div class="carrito-texto">
-              <img id="carrito" src="../../assets/img/iconos/carrito_2.svg" alt="carrito"> Mostrar resumen del pedido
+              <img id="carrito" src="../assets/img/iconos/carrito_2.svg" alt="carrito"> Mostrar resumen del pedido
             </div>
             <div class="precios">
               $432.000
@@ -61,7 +64,7 @@ $iva = 0;
         <div class="contenedor-items">
           <div class="img-descripcion">
             <div class="contenedor-imagen">
-              <img src="../../assets/img/stock/4.jpg" alt="imagen alusiva a la compra">
+              <img src="../assets/img/stock/4.jpg" alt="imagen alusiva a la compra">
             </div>
             <p id="titulo-publicacion">Monitor Samsung Ips De 24 Full Hd Freesync Hdmi Lf24t400fh </p>
           </div>
@@ -316,7 +319,7 @@ $iva = 0;
           $total += $fila['total'];
         ?>
           <div class="publicacion-desktop">
-            <img id="img-publicacion-d" src="../../assets/img/stock/6.jpg" alt="Imagen publicación">
+            <img id="img-publicacion-d" src="../assets/img/stock/6.jpg" alt="Imagen publicación">
             <div class="texto-publicacion-d">
               <p><?php echo $fila['titulo'] ?></p>
               <p>$<?php echo $fila['costo'] ?></p>
@@ -364,8 +367,8 @@ $iva = 0;
   </div>
 
   <!-- JavaScript  -->
-  <script src="../../Controller/js/tarjeta.js"></script>
-  <script src="../../Controller/js/checkout.js"></script>
+  <script src="../js/tarjeta.js"></script>
+  <script src="../js/checkout.js"></script>
   <script src='https://cdnjs.cloudflare.com/ajax/libs/imask/3.4.0/imask.min.js'></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
 </body>
