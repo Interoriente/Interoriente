@@ -1,5 +1,4 @@
 window.onload = function () {
-
 const name = document.getElementById('name');
 const cardnumber = document.getElementById('cardnumber');
 const expirationdate = document.getElementById('expirationdate');
@@ -9,11 +8,10 @@ const ccicon = document.getElementById('ccicon');
 const ccsingle = document.getElementById('ccsingle');
 const generatecard = document.getElementById('generatecard');
 
-
 let cctype = null;
 
 //Mask the Credit Card Number Input
-var cardnumber_mask = new IMask(cardnumber, {
+let cardnumber_mask = new IMask(cardnumber, {
     mask: [
         {
             mask: '0000 000000 00000',
@@ -35,16 +33,6 @@ var cardnumber_mask = new IMask(cardnumber, {
             regex: '^(5[1-5]\\d{0,2}|22[2-9]\\d{0,1}|2[3-7]\\d{0,2})\\d{0,12}',
             cardtype: 'mastercard'
         },
-        // {
-        //     mask: '0000-0000-0000-0000',
-        //     regex: '^(5019|4175|4571)\\d{0,12}',
-        //     cardtype: 'dankort'
-        // },
-        // {
-        //     mask: '0000-0000-0000-0000',
-        //     regex: '^63[7-9]\\d{0,13}',
-        //     cardtype: 'instapayment'
-        // },
         {
             mask: '0000 000000 00000',
             regex: '^(?:2131|1800)\\d{0,11}',
@@ -60,11 +48,6 @@ var cardnumber_mask = new IMask(cardnumber, {
             regex: '^(?:5[0678]\\d{0,2}|6304|67\\d{0,2})\\d{0,12}',
             cardtype: 'maestro'
         },
-        // {
-        //     mask: '0000-0000-0000-0000',
-        //     regex: '^220[0-4]\\d{0,12}',
-        //     cardtype: 'mir'
-        // },
         {
             mask: '0000 0000 0000 0000',
             regex: '^4\\d{0,15}',
@@ -81,9 +64,9 @@ var cardnumber_mask = new IMask(cardnumber, {
         }
     ],
     dispatch: function (appended, dynamicMasked) {
-        var number = (dynamicMasked.value + appended).replace(/\D/g, '');
+        let number = (dynamicMasked.value + appended).replace(/\D/g, '');
 
-        for (var i = 0; i < dynamicMasked.compiledMasks.length; i++) {
+        for (let i = 0; i < dynamicMasked.compiledMasks.length; i++) {
             let re = new RegExp(dynamicMasked.compiledMasks[i].regex);
             if (number.match(re) != null) {
                 return dynamicMasked.compiledMasks[i];
@@ -93,7 +76,7 @@ var cardnumber_mask = new IMask(cardnumber, {
 });
 
 //Mask the Expiration Date
-var expirationdate_mask = new IMask(expirationdate, {
+let expirationdate_mask = new IMask(expirationdate, {
     mask: 'MM{/}YY',
     groups: {
         YY: new IMask.MaskedPattern.Group.Range([21, 99]),
@@ -102,8 +85,8 @@ var expirationdate_mask = new IMask(expirationdate, {
 });
 
 //Mask the security code
-var securitycode_mask = new IMask(securitycode, {
-    mask: '0000',
+let securitycode_mask = new IMask(securitycode, {
+    mask: '000',
 });
 
 // SVGICONS
@@ -193,9 +176,6 @@ cardnumber_mask.on("accept", function () {
     }
 
 });
-
-
-
 //Generate random card number from list of known test numbers
 const randomCard = function () {
     let testCards = [
@@ -214,8 +194,6 @@ const randomCard = function () {
 generatecard.addEventListener('click', function () {
     randomCard();
 });
-
-
 // CREDIT CARD IMAGE JS
  document.querySelector('.preload').classList.remove('preload');
 document.querySelector('.creditcard').addEventListener('click', function () {
