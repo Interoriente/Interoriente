@@ -51,6 +51,10 @@ if (isset($_GET['code'])) {
   $consultaInicio->execute(array($email));
   // RowCount para saber si realmente, EXISTE algun usuario
   $resultadoInicio = $consultaInicio->rowCount();
+  if ($resultadoInicio=0){
+    echo "<script>alert('Usuario NO Existente en la Base de Datos-);</script>";
+    echo "<script> document.location.href='../../Views/navegacion/iniciarsesion.php';</script>";
+  }
   // Fetch para OBTENER todos los datos en una variable php
   $resultadoObjetoInicio = $consultaInicio->fetch(PDO::FETCH_OBJ);
   //Condicional para INICIAR SESION SEGUN ROWCOUNT
