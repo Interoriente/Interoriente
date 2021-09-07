@@ -77,7 +77,6 @@ if (isset($_GET['code'])) {
     //Comprador/Proveedor
     header("Location: ../../Views/dashboard/principal/dashboard.php");
     }
-  }
   /*
   echo "Email= ".$email .'<br>';
   echo "familyName= ".$familyName .'<br>';
