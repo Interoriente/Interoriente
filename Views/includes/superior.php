@@ -10,7 +10,7 @@ session_start();
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="../assets/css/navegacion.css" />
   <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
-
+ 
   <title>Navbar Superior</title>
 </head>
 
@@ -21,7 +21,7 @@ session_start();
         <a id="logo" href="index.php"> <img src="../assets/img/LogoTerciario.svg" alt="Logo interoriente" /></a>
       </div>
       <div class="cont-elementos">
-        <a href="">
+        <a href="Javascript:void(0)" id="comprar">
           <div class="comprar">Comprar</div>
         </a>
         <a href="">
@@ -122,3 +122,4 @@ session_start();
 
 
     <!-- Fin Carrito -->
+  <script src="../js/navegacion.js"></script>

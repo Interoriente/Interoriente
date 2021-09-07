@@ -346,9 +346,9 @@ a {
   display: none;
 }
 
-/* Botón menú lateral */
+/* Botón menú lateral para abri sidebar*/
 #menuLateral {
-  top: 30px;
+  top: 40px;
   background-color: var(--crl-cta-b); /* Color del botón */
   z-index: 2;
 }

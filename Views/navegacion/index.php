@@ -18,7 +18,6 @@ $publicacion = getPublicaciones();
     <link rel="stylesheet" href="../assets/css/index.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous" />
     <!--Link solución protocolo: https://www.bugsnag.com/blog/jquery-is-not-defined-cause-solution-->
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 
 
     <title> Inicio | Interoriente</title>
@@ -32,6 +31,7 @@ $publicacion = getPublicaciones();
 
 
     <!-- Sección del carrusel -->
+ <div class="contenedor-principal" id="contendor-principal">
     <section class="hero">
         <div class="hero-principal">
             <div class="img-hero">
@@ -77,8 +77,8 @@ $publicacion = getPublicaciones();
         </div>
     </section>
 
+    <section class="publicaciones">
     <!-- TODO Implementar sistema de filtrado js -->
-
     <!-- Sección de los botons de filtrado -->
     <h1 class="titulo-filtrado ">Aquí podrás filtrar resultados </h1>
     <section class="btns-filtrado ">
@@ -102,7 +102,7 @@ $publicacion = getPublicaciones();
     <!-- Sección de las tarjetas -->
 
     <!-- NOTA: títulos de máximo 100 caracteres ó 14 palabras -->
-    <section class="publicaciones">
+   
         <!-- Tarjeta Final -->
         <?php foreach ($publicacion as $x) : ?>
             <div class="tarjeta">
@@ -134,7 +134,7 @@ $publicacion = getPublicaciones();
 
     </section>
     <!-- Fin sección Publicaciones -->
-
+</div>
     <!-- navegación -->
     <?php include '../includes/navInferior.php'; ?>
     <!-- ------- -->
@@ -146,6 +146,7 @@ $publicacion = getPublicaciones();
 
     <!-- Js -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+    <script src="../js/navegacion.js"></script>
 </body>
 
 </html>
