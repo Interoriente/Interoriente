@@ -5,7 +5,7 @@ $docIdentidad = strip_tags($_POST['documento']);
 $email = strip_tags($_POST['correo']);
 $pass = strip_tags($_POST['contrasena']);
 $contrasenaRepetida = strip_tags($_POST['recontrasena']);
-if ($pass==$contrasenaRepetida) {
+if ($pass == $contrasenaRepetida) {
     //Llamar a la conexion base de datos
     require '../../Models/dao/conexion.php';
     //Sha1 -> Método de encriptación
@@ -35,7 +35,24 @@ if ($pass==$contrasenaRepetida) {
     $_SESSION['roles'] = '1';
     $_SESSION["documentoIdentidad"] = $docId;
     //Comprador/Proveedor
+    require_once '../../Controllers/logingoogle/vendor/autoload.php';
+
+    require_once '../../Controllers/logingoogle/config.php';
+
+    $client = new Google_Client();
+
+    $client->setClientId($clientID);
+
+    $client->setClientSecret($clientSecret);
+
+    $client->setRedirectUri($redirectUri);
+
+    $client->addScope("email");
+
+    $client->addScope("profile");
+
+    $GoogleLogin = $client->createAuthUrl();
     echo "<script> document.location.href='index.php';</script>";
-}else {
+} else {
     echo "<script>alert('Las contraseñas ingresadas no coinciden')</script>";
 }
