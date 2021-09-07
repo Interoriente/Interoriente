@@ -5,7 +5,7 @@ $docIdentidad = strip_tags($_POST['documento']);
 $email = strip_tags($_POST['correo']);
 $pass = strip_tags($_POST['contrasena']);
 $contrasenaRepetida = strip_tags($_POST['recontrasena']);
-if ($contrasena==$contrasenaRepetida) {
+if ($pass==$contrasenaRepetida) {
     //Llamar a la conexion base de datos
     require '../../Models/dao/conexion.php';
     //Sha1 -> Método de encriptación
