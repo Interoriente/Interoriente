@@ -52,8 +52,8 @@ if (isset($_GET['code'])) {
   // RowCount para saber si realmente, EXISTE algun usuario
   $resultadoInicio = $consultaInicio->rowCount();
   if ($resultadoInicio == 0) {
-    echo "<script>alert('Usuario NO Existente en la Base de Datos-);</script>";
-    echo "<script> document.location.href='../../Views/navegacion/iniciarsesion.php';</script>";
+    echo "<script>alert('Usuario NO Existente en la Base de Datos');</script>";
+    echo "<script> document.location.href='register.php';</script>";
   } else {
 
     // Fetch para OBTENER todos los datos en una variable php
