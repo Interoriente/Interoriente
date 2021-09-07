@@ -410,7 +410,7 @@ if ($respUserData) {
         echo "<script> document.location.href='403.php';</script>";
     }
 } else {
-    echo "<script>alert(No has iniciado sesión');</script>";
+    echo "<script>alert('No has iniciado sesión');</script>";
     echo "<script> document.location.href='403.php';</script>";
 }
 ?>

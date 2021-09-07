@@ -66,12 +66,11 @@ if (isset($respUserData)) {
           <div class="col-xl-4 order-xl-2">
             <div class="card card-profile">
               <img src="../../assets/img/LogoCuaternario.svg" alt="Imagen fondo de pantalla">
-
-              <div class=" justify-content-center">
+              <div class="row justify-content-center">
                 <div class="col-lg-3 order-lg-2">
                   <div class="card-profile-image">
                     <a data-toggle="modal" data-target="#fotoperfil">
-                      <img src="imagenes/<?php echo $respUserData->imagenUsuario; ?>" class="rounded-circle" alt="Imagen de perfil Usuario">
+                      <img src="<?php echo $respUserData->imagenUsuario; ?>" class="rounded-circle" alt="Imagen de perfil Usuario">
                     </a>
                   </div>
                 </div>
