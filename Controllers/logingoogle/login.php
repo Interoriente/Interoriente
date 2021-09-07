@@ -51,38 +51,33 @@ if (isset($_GET['code'])) {
   $consultaInicio->execute(array($email));
   // RowCount para saber si realmente, EXISTE algun usuario
   $resultadoInicio = $consultaInicio->rowCount();
-  if ($resultadoInicio=0){
+  if ($resultadoInicio == 0) {
     echo "<script>alert('Usuario NO Existente en la Base de Datos-);</script>";
     echo "<script> document.location.href='../../Views/navegacion/iniciarsesion.php';</script>";
-  }
-  // Fetch para OBTENER todos los datos en una variable php
-  $resultadoObjetoInicio = $consultaInicio->fetch(PDO::FETCH_OBJ);
-  //Condicional para INICIAR SESION SEGUN ROWCOUNT
+  } else {
 
-  $documento=$resultadoObjetoInicio->documentoIdentidad;
+    // Fetch para OBTENER todos los datos en una variable php
+    $resultadoObjetoInicio = $consultaInicio->fetch(PDO::FETCH_OBJ);
+    //Condicional para INICIAR SESION SEGUN ROWCOUNT
 
-  // Consulta SQL para ROL
-  if ($resultadoInicio) { //Verifico que la informacion que se digitó en el formulario sea la que existe en BD, para llamar a tabla USuarioRol
+    $documento = $resultadoObjetoInicio->documentoIdentidad;
+
+    // Consulta SQL para ROL
     $sqlInicioUR = "SELECT idUsuarioRol FROM tblUsuarioRol WHERE docIdentidadUsuarioRol=?";
     $consultaInicioUR = $pdo->prepare($sqlInicioUR);
     $consultaInicioUR->execute(array($documento));
     $resultadoInicioUR = $consultaInicioUR->rowCount();
     $rol = $consultaInicioUR->fetch(PDO::FETCH_OBJ);
     if ($resultadoInicioUR) {
-        $rol = $rol->idUsuarioRol;
+      $rol = $rol->idUsuarioRol;
     }
-  }
-
-  if ($resultadoInicio) {
     $_SESSION["documentoIdentidad"] = $resultadoObjetoInicio->documentoIdentidad;
     //Siempre para iniciar se inicia como Comprador/Proveedor -> O por lo menos con el primer rol que se tenga
     $_SESSION['roles'] = $rol;
     //Comprador/Proveedor
     header("Location: ../../Views/dashboard/principal/dashboard.php");
-} else {
-    echo "<script>alert('Correo o documento y/o contraseña incorrecto, o validación denegada');</script>";
-    echo "<script> document.location.href='../../Views/navegacion/iniciarsesion.php';</script>";
-}
+    }
+  }
   /*
   echo "Email= ".$email .'<br>';
   echo "familyName= ".$familyName .'<br>';
@@ -94,17 +89,20 @@ if (isset($_GET['code'])) {
   echo "Locale= ".$locale .'<br>';
   echo "Verified Email= ".$verifiedEmail .'<br>';
   */
-}  
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Iniciando Sesion...</title>
 </head>
+
 <body>
-  
+
 </body>
+
 </html>
