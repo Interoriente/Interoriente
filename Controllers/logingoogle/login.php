@@ -44,7 +44,7 @@ if (isset($_GET['code'])) {
   $locale =  $google_account_info->locale;
   $verifiedEmail =  $google_account_info->verifiedEmail;
   /* FIN Codigo de Google*/
-  require_once '../../models/dao/conexion.php';
+  require_once '../../Models/dao/conexion.php';
   // Consulta SQL para obtener TODOS los datos del Usuario, conociendo su Email (dado por google)
   $sqlInicio = "SELECT*FROM tblUsuario WHERE emailUsuario=?";
   $consultaInicio = $pdo->prepare($sqlInicio);
