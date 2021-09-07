@@ -44,7 +44,7 @@ if (isset($_GET['code'])) {
   $locale =  $google_account_info->locale;
   $verifiedEmail =  $google_account_info->verifiedEmail;
   /* FIN Codigo de Google*/
-  require_once '../models/dao/conexion.php';
+  require_once '../../models/dao/conexion.php';
   // Consulta SQL para obtener TODOS los datos del Usuario, conociendo su Email (dado por google)
   $sqlInicio = "SELECT*FROM tblUsuario WHERE emailUsuario=?";
   $consultaInicio = $pdo->prepare($sqlInicio);
@@ -74,10 +74,10 @@ if (isset($_GET['code'])) {
     //Siempre para iniciar se inicia como Comprador/Proveedor -> O por lo menos con el primer rol que se tenga
     $_SESSION['roles'] = $rol;
     //Comprador/Proveedor
-    header("Location: ../../users/dashboard/principal/dashboard.php");
+    header("Location: ../../Views/dashboard/principal/dashboard.php");
 } else {
     echo "<script>alert('Correo o documento y/o contraseña incorrecto, o validación denegada');</script>";
-    echo "<script> document.location.href='../../view/navegacion/iniciarsesion.php';</script>";
+    echo "<script> document.location.href='../../Views/navegacion/iniciarsesion.php';</script>";
 }
   /*
   echo "Email= ".$email .'<br>';
