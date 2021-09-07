@@ -60,9 +60,9 @@ if (isset($_GET['code'])) {
   echo "Id= " . $id . '<br>';
   echo "Locale= " . $locale . '<br>';
   echo "Verified Email= " . $verifiedEmail . '<br>';
-  $_SESSION['email']->$email;
-  $_SESSION['name']->$name;
-  $_SESSION['familyName']->$familyName;
+  $_SESSION['email']=$email;
+  $_SESSION['name']=$name;
+  $_SESSION['familyName']=$familyName;
   if ($resultadoInicio == 0) {
     echo "<script>alert('Usuario NO Existente en la Base de Datos');</script>";
     echo "<script> document.location.href='register.php';</script>";
