@@ -51,21 +51,21 @@ if (isset($_GET['code'])) {
   $consultaInicio->execute(array($email));
   // RowCount para saber si realmente, EXISTE algun usuario
   $resultadoInicio = $consultaInicio->rowCount();
-  echo "Email= ".$email .'<br>';
-  echo "familyName= ".$familyName .'<br>';
-  echo "Name= ".$name .'<br>';
-  echo "Picture= ".$picture .'<br>';
-  echo "Given Name= ".$givenName .'<br>';
-  echo "Gender= ".$gender .'<br>';
-  echo "Id= ".$id .'<br>';
-  echo "Locale= ".$locale .'<br>';
-  echo "Verified Email= ".$verifiedEmail .'<br>';
+  echo "Email= " . $email . '<br>';
+  echo "familyName= " . $familyName . '<br>';
+  echo "Name= " . $name . '<br>';
+  echo "Picture= " . $picture . '<br>';
+  echo "Given Name= " . $givenName . '<br>';
+  echo "Gender= " . $gender . '<br>';
+  echo "Id= " . $id . '<br>';
+  echo "Locale= " . $locale . '<br>';
+  echo "Verified Email= " . $verifiedEmail . '<br>';
+  $_SESSION['email']->$email;
+  $_SESSION['name']->$name;
+  $_SESSION['familyName']->$familyName;
   if ($resultadoInicio == 0) {
-    $_SESSION['email']->$email;
-    $_SESSION['name']->$name;
-    $_SESSION['familyName']->$familyName;
     echo "<script>alert('Usuario NO Existente en la Base de Datos');</script>";
-    //echo "<script> document.location.href='register.php';</script>";
+    echo "<script> document.location.href='register.php';</script>";
   } else {
 
     // Fetch para OBTENER todos los datos en una variable php
@@ -88,7 +88,7 @@ if (isset($_GET['code'])) {
     $_SESSION['roles'] = $rol;
     //Comprador/Proveedor
     header("Location: ../../Views/dashboard/principal/dashboard.php");
-    }
+  }
   /*
   echo "Email= ".$email .'<br>';
   echo "familyName= ".$familyName .'<br>';
