@@ -80,17 +80,6 @@ if (isset($_GET['code'])) {
     //Comprador/Proveedor
     header("Location: ../../Views/dashboard/principal/dashboard.php");
   }
-  /*
-  echo "Email= ".$email .'<br>';
-  echo "familyName= ".$familyName .'<br>';
-  echo "Name= ".$name .'<br>';
-  echo "Picture= ".$picture .'<br>';
-  echo "Given Name= ".$givenName .'<br>';
-  echo "Gender= ".$gender .'<br>';
-  echo "Id= ".$id .'<br>';
-  echo "Locale= ".$locale .'<br>';
-  echo "Verified Email= ".$verifiedEmail .'<br>';
-  */
 }
 ?>
 <!DOCTYPE html>

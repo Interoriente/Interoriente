@@ -50,7 +50,7 @@ session_start();
                 <div class="card bg-secondary border-0">
                     <div class="card-body px-lg-5 py-lg-5">
                         
-                        <form action="../../Controllers/php/users/acceso.php" method="POST">
+                        <form action="acceso.php" method="POST">
                             <input type="hidden" name="registrarse">
                             <div class="form-group">
                                 <label for="">Nombres:</label>
