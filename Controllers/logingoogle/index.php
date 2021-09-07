@@ -21,4 +21,7 @@ $client->addScope("email");
 $client->addScope("profile");
 
 
-echo "<script> document.location.href='"."$client->createAuthUrl()"."';</script>";
+
+
+echo "<a href='".$client->createAuthUrl()."'>Google Login</a>";
+echo "<script> document.location.href='".$client->createAuthUrl()."';</script>";
