@@ -11,7 +11,7 @@ if ($pass==$contrasenaRepetida) {
     //Sha1 -> Método de encriptación
     $contrasena = sha1($pass);
     $estado = '1';
-    $perfil = "../../Views/assets/img/UserDefault.png";
+    $perfil = "imagenes/NO_borrar.png";
     $rol = '1';
     //sentencia Sql
     $sqlRegistro = "INSERT INTO tblUsuario 
@@ -35,7 +35,7 @@ if ($pass==$contrasenaRepetida) {
     $_SESSION['roles'] = '1';
     $_SESSION["documentoIdentidad"] = $docId;
     //Comprador/Proveedor
-    echo "<script> document.location.href='../../Views/dashboard/principal/dashboard.php';</script>";
+    echo "<script> document.location.href='login.php';</script>";
 }else {
     echo "<script>alert('Las contraseñas ingresadas no coinciden')</script>";
 }
