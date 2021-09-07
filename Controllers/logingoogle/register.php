@@ -1,5 +1,10 @@
 <?php
 session_start();
+echo $_SESSION['email'];
+
+echo $_SESSION['name'];
+
+echo $_SESSION['familyName'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
