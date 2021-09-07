@@ -35,7 +35,7 @@ if ($pass==$contrasenaRepetida) {
     $_SESSION['roles'] = '1';
     $_SESSION["documentoIdentidad"] = $docId;
     //Comprador/Proveedor
-    echo "<script> document.location.href='login.php';</script>";
+    echo "<script> document.location.href='index.php';</script>";
 }else {
     echo "<script>alert('Las contraseñas ingresadas no coinciden')</script>";
 }
