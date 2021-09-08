@@ -69,7 +69,7 @@ session_start();
                                         <input class="form-control" placeholder="Nombres" type="text" name="nombres" onkeypress="return Sololetras(event)" required autofocus value="<?php echo $_SESSION['name']; ?>">
                                     </div>
                                 </div>
-                                <!-- <div class="form-group">
+                                <div class="form-group">
                                     <label for="">Correo:</label>
                                     <div class="input-group input-group-merge input-group-alternative mb-3">
                                         <div class="input-group-prepend">
@@ -77,8 +77,7 @@ session_start();
                                         </div>
                                         <input class="form-control" placeholder="tuemail@email.com" type="email" name="correo" required value="<?php echo $_SESSION['email']; ?>">
                                     </div>
-                                </div> -->
-                                <input class="hidden" name="correo" required value="<?php echo $_SESSION['email']; ?>">
+                                </div>
                                 <div class="form-group">
                                     <label for="">Apellidos:</label>
                                     <div class="input-group input-group-merge input-group-alternative mb-3">
