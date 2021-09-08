@@ -2,6 +2,7 @@
 $nombre = strip_tags($_POST['nombres']);
 $apellido = strip_tags($_POST['apellidos']);
 $docIdentidad = strip_tags($_POST['documento']);
+$docId = strip_tags($_POST['documento']);
 $email = strip_tags($_POST['correo']);
 $pass = strip_tags($_POST['contrasena']);
 $contrasenaRepetida = strip_tags($_POST['recontrasena']);
