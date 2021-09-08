@@ -35,24 +35,7 @@ if ($pass == $contrasenaRepetida) {
     $_SESSION['roles'] = '1';
     $_SESSION["documentoIdentidad"] = $docId;
     //Comprador/Proveedor
-    require_once '../../Controllers/logingoogle/vendor/autoload.php';
-
-    require_once '../../Controllers/logingoogle/config.php';
-
-    $client = new Google_Client();
-
-    $client->setClientId($clientID);
-
-    $client->setClientSecret($clientSecret);
-
-    $client->setRedirectUri($redirectUri);
-
-    $client->addScope("email");
-
-    $client->addScope("profile");
-
-    $GoogleLogin = $client->createAuthUrl();
-    echo "<script> document.location.href='index.php';</script>";
+    echo "<script> document.location.href='../../Views/dashboard/principal/dashboard';</script>";
 } else {
     echo "<script>alert('Las contraseñas ingresadas no coinciden')</script>";
 }
