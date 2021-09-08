@@ -55,7 +55,6 @@ if (isset($_GET['code'])) {
   $_SESSION['name']=$givenName;
   $_SESSION['familyName']=$familyName;
   if ($resultadoInicio == 0) {
-    echo "<script>alert('Usuario NO Existente en la Base de Datos');</script>";
     echo "<script> document.location.href='register.php';</script>";
   } else {
 
