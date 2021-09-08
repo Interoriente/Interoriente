@@ -35,13 +35,13 @@ if (isset($respUserData)) {
 
     <body>
       <?php
-      /* if (isset($_GET['rol'])) {
-        if ($_GET['rol'] == 'MQ') {
+      if (isset($_POST['cambioRol'])) {
+        if ($_POST['rol'] == '1') {
           $_SESSION['roles'] = 1;
-        } else if ($_GET['rol'] == 'Mw'){
+        } else {
           $_SESSION['roles'] = 3;
         }
-      } */
+      }
       require_once '../assets/sidebarDashboard.php';
       require_once '../assets/header.php';
       ?>
@@ -54,8 +54,11 @@ if (isset($respUserData)) {
             <div class="row align-items-center py-4">
               <div class="col-lg-6 col-5 text-center">
                 <?php
-                foreach ($respGetRoles as $datosRol) : ?>
-                  <a href="dashboard.php<?php echo $_SESSION['roles']= 1; ?>" class="btn btn-sm btn-neutral"><?php echo $datosRol['nombreRol']; ?></a>
+                foreach ($respGetRoles as $datosRol) : $cont = 1 ?>
+                  <form action="dashboard.php" method="post">
+                    <input type="hidden" name="rol" value="<?php echo $datosRol['idUsuarioRol'] ?>">
+                    <br><button type="submit" class="btn btn-sm btn-neutral" name="cambioRol"><?php echo $datosRol['nombreRol']; ?></button>
+                  </form>
                 <?php endforeach; ?>
                 <br>
                 <!-- FIN Lista desplegable de cambio de roles -->
