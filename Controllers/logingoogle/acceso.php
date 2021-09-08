@@ -1,10 +1,8 @@
 <?php
-session_start();
 $nombre = strip_tags($_POST['nombres']);
 $apellido = strip_tags($_POST['apellidos']);
 $docIdentidad = strip_tags($_POST['documento']);
-$docId = strip_tags($_POST['documento']);
-$email = $_SESSION['email']=$email;
+$email = strip_tags($_POST['correo']);
 $pass = strip_tags($_POST['contrasena']);
 $contrasenaRepetida = strip_tags($_POST['recontrasena']);
 if ($pass == $contrasenaRepetida) {
@@ -31,13 +29,7 @@ if ($pass == $contrasenaRepetida) {
     $consultaRegistroUR = $pdo->prepare($sqlRegistroUR);
     //Ejecutar la sentencia
     $consultaRegistroUR->execute(array($rol, $docIdentidad));
-    /* Almacenado documento de identidad en variable de sesión
-        Creación de la sesión */
-    session_start();
-    $_SESSION['roles'] = '1';
-    $_SESSION["documentoIdentidad"] = $docId;
-    //Comprador/Proveedor
-    echo "<script> document.location.href='../../Views/dashboard/principal/dashboard.php';</script>";
+    echo "<script> document.location.href='index.php';</script>";
 } else {
     echo "<script>alert('Las contraseñas ingresadas no coinciden')</script>";
 }
