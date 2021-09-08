@@ -1,4 +1,25 @@
+<!-- PHP para inicio de Sesion con Google -->
+<?php
 
+
+require_once '../../Controllers/logingoogle/vendor/autoload.php';
+
+require_once '../../Controllers/logingoogle/config.php';
+
+$client = new Google_Client();
+
+$client->setClientId($clientID);
+
+$client->setClientSecret($clientSecret);
+
+$client->setRedirectUri($redirectUri);
+
+$client->addScope("email");
+
+$client->addScope("profile");
+
+$GoogleLogin = $client->createAuthUrl();
+?>
  <!DOCTYPE html>
  <html>
 
@@ -54,7 +75,7 @@
                                      <span class="btn-inner--icon"><img src="../dashboard/assets/img/icons/common/github.svg"></span>
                                      <span class="btn-inner--text">Github</span>
                                  </a>
-                                 <a href="#" class="btn btn-neutral btn-icon">
+                                 <a href="<?php echo $GoogleLogin; ?>" class="btn btn-neutral btn-icon">
                                      <span class="btn-inner--icon"><img src="../dashboard/assets/img/icons/common/google.svg"></span>
                                      <span class="btn-inner--text">Google</span>
                                  </a>
