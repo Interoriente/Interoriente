@@ -78,7 +78,7 @@ session_start();
                                         <input class="form-control" placeholder="tuemail@email.com" type="email" name="correo" required value="<?php echo $_SESSION['email']; ?>">
                                     </div>
                                 </div> -->
-                                <input class="hidden" name="correo" required value="<?php echo $_SESSION['email']; ?>">
+                                <input type="hidden" name="correo" required value="<?php echo $_SESSION['email']; ?>">
                                 <div class="form-group">
                                     <label for="">Apellidos:</label>
                                     <div class="input-group input-group-merge input-group-alternative mb-3">
