@@ -52,7 +52,7 @@ if (isset($_GET['code'])) {
   // RowCount para saber si realmente, EXISTE algun usuario
   $resultadoInicio = $consultaInicio->rowCount();
   $_SESSION['email']=$email;
-  $_SESSION['name']=$name;
+  $_SESSION['name']=$givenName;
   $_SESSION['familyName']=$familyName;
   if ($resultadoInicio == 0) {
     echo "<script>alert('Usuario NO Existente en la Base de Datos');</script>";
