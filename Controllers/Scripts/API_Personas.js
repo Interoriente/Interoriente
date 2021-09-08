@@ -13,7 +13,7 @@ async function getUsuarios() {
   for (let i = 0; i < cantidadRegistros; i++) {
     /* No olvidar async y await para que la fn() termine antes de continuar con lo demás */
     let res = await fetch(url, {
-      /* Especificar el tipo de dato a recibir */
+      /* Especificar el formato esperado, en este caso JSON */
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json",
@@ -61,7 +61,8 @@ async function getUsuarios() {
     }) => ({ ...rest })
   );
 
-  /*Direcciones de correo electrónico que tendrán cada usuario  */
+  /*Direcciones de correo electrónico que tendrán cada usuario */
+
   const dirEmail = [
     "gmail",
     "outlook",
@@ -85,12 +86,17 @@ async function getUsuarios() {
 
   /* Agregando nuevas keys y values al JSON */
   for (let i in users) {
+    /* Obteniendo dominio de Email aleatorio */
     let randomEmail = Math.floor(Math.random() * dirEmail.length);
-    let nombreCompleto = users[i].name;
+    /* Obteniendo Documento de Identidad Generado */
     let docId = getId();
+    /* Separando el nombre completo en Nombres y Apellidos */
+    let nombreCompleto = users[i].name;
     let nombres = nombreCompleto.split(" ").slice(0, -1).join(" ");
     let apellidos = nombreCompleto.split(" ").slice(-1).join(" ");
+    /* Creando dirección de Email del Usuario */
     let email = `${users[i].email_u}@${dirEmail[randomEmail]}.com`;
+    /* Creando Keys y asigando Values */
     users[i].name = nombres;
     users[i].lastname = apellidos;
     users[i].id = docId;
@@ -109,21 +115,13 @@ async function getUsuarios() {
 
   console.log(users);
 }
-
+/* Llamando a la función */
 getUsuarios();
 
 /* TODO: 
-    1. Eliminar los prefijos de los nombres CANCELADO
-    2. Separa el nombre completo en nombres y apellidos LISTO
-    3. Crear función Generadora de Documentos de Identidad LISTO
-    4. Definir campo a usar para la contraseña LISTO
-    5. Definir situación con la dirección LISTO
-    6. Definir Situación con la imagen POR REVISAR
+    1. Estudiar la API de MercadoLibre
 
-
-    7. Estudiar la API de MercadoLibre
-
-    El estado y la imagen desde php
+    El estado, la cotraseña y la imagen desde php
 
     Definir situación de la descripción en tblUsuario
 */
