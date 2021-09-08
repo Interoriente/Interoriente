@@ -54,7 +54,7 @@ if (isset($respUserData)) {
             <div class="row align-items-center py-4">
               <div class="col-lg-6 col-5 text-center">
                 <?php
-                foreach ($respGetRoles as $datosRol) : $cont = 1 ?>
+                foreach ($respGetRoles as $datosRol) : ?>
                   <form action="dashboard.php" method="post">
                     <input type="hidden" name="rol" value="<?php echo $datosRol['idUsuarioRol'] ?>">
                     <br><button type="submit" class="btn btn-sm btn-neutral" name="cambioRol"><?php echo $datosRol['nombreRol']; ?></button>
