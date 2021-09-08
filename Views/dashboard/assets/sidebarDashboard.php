@@ -12,7 +12,7 @@
       <div class="collapse navbar-collapse" id="sidenav-collapse-main">
         <!-- Nav items -->
         <?php if (isset($_SESSION['roles']) == "3" or isset($_SESSION['roles']) == "1") { ?>
-          <?php if ($_SESSION['roles'] == "1") { ?>
+          <?php if ($_SESSION['roles'] == "1" or $_SESSION['roles'] == "3") { ?>
             <ul class="navbar-nav">
               <li class="nav-item">
                 <a class="nav-link" href="dashboard.php">
@@ -21,43 +21,22 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="crearPublicacion.php">
-                  <i class="ni ni-album-2" style="color: #FFB930"></i>
-                  <span class="nav-link-text">Crear publicación</span>
-                </a>
-              </li>
-              <li class="nav-item">
                 <a class="nav-link" href="perfil.php">
                   <i class="ni ni-single-02" style="color: #5D9BAC"></i>
                   <span class="nav-link-text">Mi perfil</span>
                 </a>
               </li>
+            <?php }
+          if ($_SESSION['roles'] == "1") { ?>
               <li class="nav-item">
-                <a class="nav-link" href="estadisticas.php">
-                  <i class="ni ni-building text-brown"></i>
-                  <span class="nav-link-text">Estadísticas</span>
+                <a class="nav-link" href="crearPublicacion.php">
+                  <i class="ni ni-album-2" style="color: #FFB930"></i>
+                  <span class="nav-link-text">Crear publicación</span>
                 </a>
               </li>
-            </ul><?php } else { ?>
-            <ul class="navbar-nav">
-              <li class="nav-item">
-                <a class="nav-link" href="dashboard.php">
-                  <i class="ni ni-planet text-orange"></i>
-                  <span class="nav-link-text">Dashboard</span>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="perfil.php">
-                  <i class="ni ni-single-02 text-yellow"></i>
-                  <span class="nav-link-text">Mi perfil</span>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="usuarios.php">
-                  <i class="ni ni-circle-08 text-default"></i>
-                  <span class="nav-link-text">Usuarios</span>
-                </a>
-              </li>
+
+            <?php }
+          if ($_SESSION['roles'] == "3") { ?>
               <li class="nav-item">
                 <a class="nav-link" href="#!">
                   <i class="ni ni-delivery-fast text-brown"></i>
@@ -70,9 +49,10 @@
                   <span class="nav-link-text">Publicaciones</span>
                 </a>
               </li>
+              <?php } ?>
             </ul>
-        <?php     }
-              } ?>
+        <?php 
+        } ?>
       </div>
     </div>
   </div>

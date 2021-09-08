@@ -7,7 +7,10 @@
                 <a href="catalogoProd.php">Catálogos</a>
                 <a href="#">Ayuda</a><!-- Este botón se puede utilizar para que redireccione al manual del aplicativo -->
                 <a href="../dashboard/principal/dashboard.php">Volver al panel</a>
-                <a href="../../Controllers/cerrarSesion.php">Cerrar sesión</a>
+                <form class="cerrar-sesion" action="../../Controllers/php/users/usuarios.php" method="POST">
+                    <input type="hidden" name="cerrarSesion">
+                    <button class="btn btn-primary" type="submit">Cerrar Sesión</button>
+                </form>
             <?php } else { ?>
                 <!-- ROl comprador/Proveedor -->
 
@@ -17,7 +20,10 @@
                 <a href="#">Mis compras</a>
                 <a href="#">Ayuda</a>
                 <a href="../dashboard/principal/dashboard.php">Volver al panel</a>
-                <a href="../../Controllers/cerrarSesion.php">Cerrar sesión</a>
+                <form class="cerrar-sesion" action="../../Controllers/php/users/usuarios.php" method="POST">
+                    <input type="hidden" name="cerrarSesion">
+                    <button class="btn btn-primary" type="submit">Cerrar Sesión</button>
+                </form>
 
             <?php } ?>
 

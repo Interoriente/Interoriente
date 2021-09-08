@@ -10,7 +10,7 @@ session_start();
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="../assets/css/navegacion.css" />
   <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
- 
+
   <title>Navbar Superior</title>
 </head>
 
@@ -62,7 +62,10 @@ session_start();
         <a href="../navegacion/productos.php">Catálogos</a>
         <a href="#">Ayuda</a>
         <a href="../dashboard/principal/dashboard.php">Volver al panel</a>
-        <a href="../../Controllers/cerrarSesion.php">Cerrar sesión</a>
+        <form class="cerrar-sesion" action="../../Controllers/php/users/usuarios.php" method="POST">
+          <input type="hidden" name="cerrarSesion">
+          <button class="btn btn-primary" type="submit">Cerrar Sesión</button>
+        </form>
       <?php } else { ?>
         <!-- ROl comprador/Proveedor -->
         <a href="index.php">Inicio</a>
@@ -72,7 +75,10 @@ session_start();
         <a href="#">Mis compras</a>
         <a href="#">Ayuda</a>
         <a href="../dashboard/principal/dashboard.php">Volver al panel</a>
-        <a href="../../Controllers/cerrarSesion.php">Cerrar sesión</a>
+        <form class="cerrar-sesion" action="../../Controllers/php/users/usuarios.php" method="POST">
+          <input type="hidden" name="cerrarSesion">
+          <button class="btn btn-primary" type="submit">Cerrar Sesión</button>
+        </form>
 
       <?php } ?>
 
@@ -107,8 +113,8 @@ session_start();
         <h2 class="titulos">Tu carrito</h2>
         <div class="cart-content">
           <!--Contenido del carrito controlado por JavaScript-->
-       
-      
+
+
 
         </div>
         <div class="cart-footer">
@@ -122,4 +128,4 @@ session_start();
 
 
     <!-- Fin Carrito -->
-  <script src="../js/navegacion.js"></script>
+    <script src="../js/navegacion.js"></script>
