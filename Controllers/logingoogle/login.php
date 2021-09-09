@@ -45,16 +45,19 @@ if (isset($_GET['code'])) {
   $verifiedEmail =  $google_account_info->verifiedEmail;
   /* FIN Codigo de Google*/
   require_once '../../Models/dao/conexion.php';
-  // Consulta SQL para obtener TODOS los datos del Usuario, conociendo su Email (dado por google)
-  $sqlInicio = "SELECT*FROM tblUsuario WHERE emailUsuario=?";
+  // Consulta SQL para obtener TODOS los datos del Usuario, incluyendo el rol conociendo su Email (dado por google)
+  $sqlInicio = "SELECT*
+  FROM tblUsuario as US
+  INNER JOIN tblUsuarioRol as UR ON US.documentoIdentidad = UR.docIdentidadUsuarioRol
+  WHERE emailUsuario=?";
   $consultaInicio = $pdo->prepare($sqlInicio);
   $consultaInicio->execute(array($email));
   // RowCount para saber si realmente, EXISTE algun usuario
   $resultadoInicio = $consultaInicio->rowCount();
-  $_SESSION['email']=$email;
-  $_SESSION['name']=$givenName;
-  $_SESSION['familyName']=$familyName;
-  if ($resultadoInicio == 0) {
+  $_SESSION['email'] = $email;
+  $_SESSION['name'] = $givenName;
+  $_SESSION['familyName'] = $familyName;
+  if ($consultaInicio == 0) {
     echo "<script> document.location.href='register.php';</script>";
   } else {
 
@@ -63,17 +66,9 @@ if (isset($_GET['code'])) {
     //Condicional para INICIAR SESION SEGUN ROWCOUNT
 
     $documento = $resultadoObjetoInicio->documentoIdentidad;
-
-    // Consulta SQL para ROL
-    $sqlInicioUR = "SELECT idUsuarioRol FROM tblUsuarioRol WHERE docIdentidadUsuarioRol=?";
-    $consultaInicioUR = $pdo->prepare($sqlInicioUR);
-    $consultaInicioUR->execute(array($documento));
-    $resultadoInicioUR = $consultaInicioUR->rowCount();
-    $rol = $consultaInicioUR->fetch(PDO::FETCH_OBJ);
-    if ($resultadoInicioUR) {
-      $rol = $rol->idUsuarioRol;
-    }
-    $_SESSION["documentoIdentidad"] = $resultadoObjetoInicio->documentoIdentidad;
+    $rol = $resultadoObjetoInicio->idUsuarioRol;
+    
+    $_SESSION["documentoIdentidad"] = $documento;
     //Siempre para iniciar se inicia como Comprador/Proveedor -> O por lo menos con el primer rol que se tenga
     $_SESSION['roles'] = $rol;
     //Comprador/Proveedor
