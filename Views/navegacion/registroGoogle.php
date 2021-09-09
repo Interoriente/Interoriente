@@ -50,6 +50,8 @@ session_start();
                         <div class="card-body px-lg-5 py-lg-5">
                             <form action="../../Controllers/php/users/acceso.php" method="POST">
                                 <input type="hidden" name="registrarse">
+                                <input type="hidden" name="imagen" value="<?php echo $_SESSION['picture']; ?>">
+                                <input type="hidden" name="correo" required value="<?php echo $_SESSION['email']; ?>">
                                 <div class="form-group">
                                     <label for="">Documento:</label>
                                     <div class="input-group input-group-merge input-group-alternative mb-3">
@@ -68,7 +70,6 @@ session_start();
                                         <input class="form-control" placeholder="Nombres" type="text" name="nombres" onkeypress="return Sololetras(event)" required autofocus value="<?php echo $_SESSION['name']; ?>">
                                     </div>
                                 </div>
-                                    <input type="hidden" name="correo" required value="<?php echo $_SESSION['email']; ?>">
                                 <div class="form-group">
                                     <label for="">Apellidos:</label>
                                     <div class="input-group input-group-merge input-group-alternative mb-3">

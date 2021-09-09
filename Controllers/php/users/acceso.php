@@ -12,8 +12,9 @@ if (isset($_POST['iniciarSesion']) || isset($_POST['registrarse'])) {
         $email = strip_tags($_POST['correo']);
         $contrasena = strip_tags($_POST['contrasena']);
         $contrasenaRepetida = strip_tags($_POST['recontrasena']);
+        $perfil = strip_tags($_POST['imagen']);
         $registro = new Registro();
-        $registro->registrarUsuario($nombre, $apellido, $docIdentidad, $email, $contrasena, $contrasenaRepetida);
+        $registro->registrarUsuario($nombre, $apellido, $docIdentidad, $email, $contrasena, $contrasenaRepetida,$perfil);
     }
 }
 if ($_GET['comprobandoAcceso']) {
@@ -23,7 +24,7 @@ if ($_GET['comprobandoAcceso']) {
 
 class Registro
 {
-    public function registrarUsuario($nombres, $apellidos, $docId, $correo, $pass, $rePass)
+    public function registrarUsuario($nombres, $apellidos, $docId, $correo, $pass, $rePass,$imagen)
     {
         if ($pass == $rePass) {
             //Llamar a la conexion base de datos
@@ -39,7 +40,7 @@ class Registro
                 //Sha1 -> Método de encriptación
                 $contrasena = sha1($pass);
                 $estado = '1';
-                $perfil = "imagenes/NO_borrar.png";
+                $perfil = $imagen;
                 $rol = '1';
                 //Consulta correo ingresado no existe en BD
                 //sentencia Sql
@@ -82,8 +83,6 @@ class InicioSesion
 
     public function IniciarSesion($idUsuario, $clave)
     {
-
-
         require "../../../Models/dao/conexion.php";
         //Capturo información
         $id = strip_tags($idUsuario);
@@ -160,14 +159,9 @@ class InicioSesion
             $google_account_info = $google_oauth->userinfo->get();
             // INFORMACION CAPTURADA EN VARIABLES PHP
             $email =  $google_account_info->email;
-            $name =  $google_account_info->name;
             $familyName =  $google_account_info->familyName;
             $picture =  $google_account_info->picture;
             $givenName =  $google_account_info->givenName;
-            $gender =  $google_account_info->gender;
-            $id =  $google_account_info->id;
-            $locale =  $google_account_info->locale;
-            $verifiedEmail =  $google_account_info->verifiedEmail;
             /* FIN Codigo de Google*/
             require_once '../../../Models/dao/conexion.php';
             // Consulta SQL para obtener TODOS los datos del Usuario, incluyendo el rol conociendo su Email (dado por google)
@@ -182,6 +176,7 @@ class InicioSesion
             $_SESSION['email'] = $email;
             $_SESSION['name'] = $givenName;
             $_SESSION['familyName'] = $familyName;
+            $_SESSION['picture'] = $picture;
             if ($resultadoInicio == 0) {
                 echo "<script> document.location.href='../../../Views/navegacion/registroGoogle.php';</script>";
             } else {
