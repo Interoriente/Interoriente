@@ -183,7 +183,7 @@ class InicioSesion
             $_SESSION['name'] = $givenName;
             $_SESSION['familyName'] = $familyName;
             if ($resultadoInicio == 0) {
-                echo "<script> document.location.href='../../logingoogle/register.php';</script>";
+                echo "<script> document.location.href='../../../Views/navegacion/registroGoogle.php';</script>";
             } else {
 
                 // Fetch para OBTENER todos los datos en una variable php
