@@ -32,7 +32,7 @@ if (isset($respUserData)) {
       <!-- Argon CSS -->
       <link rel="stylesheet" href="../assets/css/argon.min.css.?v=1.2.0" type="text/css">
       <!-- Llamado a hoja de estilos para traer los iconos de asc y desc en las tablas -->
-      <link rel="stylesheet" href="../assets/css/dataTables.bootstrap5.min.css">
+      <!-- <link rel="stylesheet" href="../assets/css/dataTables.bootstrap5.min.css"> -->
     </head>
 
     <body>
