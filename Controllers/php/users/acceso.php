@@ -169,7 +169,7 @@ class InicioSesion
             $locale =  $google_account_info->locale;
             $verifiedEmail =  $google_account_info->verifiedEmail;
             /* FIN Codigo de Google*/
-            require_once '../../Models/dao/conexion.php';
+            require_once '../../../Models/dao/conexion.php';
             // Consulta SQL para obtener TODOS los datos del Usuario, incluyendo el rol conociendo su Email (dado por google)
             $sqlInicio = "SELECT*
             FROM tblUsuario as US
@@ -183,7 +183,7 @@ class InicioSesion
             $_SESSION['name'] = $givenName;
             $_SESSION['familyName'] = $familyName;
             if ($resultadoInicio == 0) {
-                echo "<script> document.location.href='register.php';</script>";
+                echo "<script> document.location.href='../../logingoogle/register.php';</script>";
             } else {
 
                 // Fetch para OBTENER todos los datos en una variable php
@@ -197,7 +197,7 @@ class InicioSesion
                 //Siempre para iniciar se inicia como Comprador/Proveedor -> O por lo menos con el primer rol que se tenga
                 $_SESSION['roles'] = $rol;
                 //Comprador/Proveedor
-                header("Location: ../../Views/dashboard/principal/dashboard.php");
+                header("Location: ../../../Views/dashboard/principal/dashboard.php");
             }
         }
     }
