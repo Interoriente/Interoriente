@@ -51,7 +51,7 @@ class Registro
                 //Preparar consulta
                 $consultaRegistro = $pdo->prepare($sqlRegistro);
                 //Ejecutar la sentencia
-                $consultaRegistro->execute(array($docId, $nombres, $apellidos, $correo, $pass,  $estado, $perfil));
+                $consultaRegistro->execute(array($docId, $nombres, $apellidos, $correo, $contrasena,  $estado, $perfil));
                 //llamado a la tabla rol (intermedia) para almacenar el rol predeterminado
                 $sqlRegistroUR = "INSERT INTO tblUsuarioRol 
                 (idUsuarioRol,docIdentidadUsuarioRol)VALUES (?,?)";
