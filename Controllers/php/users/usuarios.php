@@ -178,9 +178,12 @@ class Administrador
         @$img = $_FILES['file']['name'];
         if (isset($_FILES['file']) && ($img == !NULL)) {
             //Captura de imagen
-            $directorio = "imagenes/";
+            $directorio = "../../../Views/dashboard/principal/imagenes/";
 
             $archivo = $directorio . basename($_FILES['file']['name']);
+
+            //Ruta para almacenar en la base de datos
+            $nombreArchivo = "imagenes/" . basename($_FILES['file']['name']);
 
             $tipo_archivo = strtolower(pathinfo($archivo, PATHINFO_EXTENSION));
 
@@ -203,7 +206,7 @@ class Administrador
                             //Preparar consulta
                             $consulta_insertar = $pdo->prepare($sql_insertar);
                             //Ejecutar la sentencia
-                            $consulta_insertar->execute(array($celular,  $correo, $archivo, $id));
+                            $consulta_insertar->execute(array($celular,  $correo, $nombreArchivo, $id));
                             echo "<script>alert('Registro actualizado correctamente');</script>";
                             echo "<script> document.location.href='../../../Views/dashboard/principal/perfil.php';</script>";
                         } else {
