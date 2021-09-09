@@ -57,7 +57,7 @@ if (isset($_GET['code'])) {
   $_SESSION['email'] = $email;
   $_SESSION['name'] = $givenName;
   $_SESSION['familyName'] = $familyName;
-  if ($consultaInicio == 0) {
+  if ($resultadoInicio == 0) {
     echo "<script> document.location.href='register.php';</script>";
   } else {
 
