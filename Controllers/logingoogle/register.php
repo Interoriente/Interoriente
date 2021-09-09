@@ -48,8 +48,7 @@ session_start();
                 <div class="col-lg-6 col-md-8">
                     <div class="card bg-secondary border-0">
                         <div class="card-body px-lg-5 py-lg-5">
-
-                            <form action="acceso.php" method="POST">
+                            <form action="../php/users/acceso.php" method="POST">
                                 <input type="hidden" name="registrarse">
                                 <div class="form-group">
                                     <label for="">Documento:</label>
@@ -69,7 +68,7 @@ session_start();
                                         <input class="form-control" placeholder="Nombres" type="text" name="nombres" onkeypress="return Sololetras(event)" required autofocus value="<?php echo $_SESSION['name']; ?>">
                                     </div>
                                 </div>
-                                <input type="hidden" name="correo" required value="<?php echo $_SESSION['email']; ?>">
+                                    <input type="hidden" name="correo" required value="<?php echo $_SESSION['email']; ?>">
                                 <div class="form-group">
                                     <label for="">Apellidos:</label>
                                     <div class="input-group input-group-merge input-group-alternative mb-3">
