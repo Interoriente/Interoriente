@@ -9,14 +9,14 @@ session_start();
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Favicon -->
-    <link rel="icon" href="../../Views/assets/img/favicon.png" type="image/png">
+    <link rel="icon" href="../assets/img/favicon.png" type="image/png">
     <!-- Fonts -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700">
     <!-- Icons -->
-    <link rel="stylesheet" href="../../Views/dashboard/assets/vendor/nucleo/css/nucleo.css" type="text/css">
-    <link rel="stylesheet" href="../../Views/dashboard/assets/vendor/@fortawesome/fontawesome-free/css/all.min.css" type="text/css">
+    <link rel="stylesheet" href="../dashboard/assets/vendor/nucleo/css/nucleo.css" type="text/css">
+    <link rel="stylesheet" href="../dashboard/assets/vendor/@fortawesome/fontawesome-free/css/all.min.css" type="text/css">
     <!-- Argon CSS -->
-    <link rel="stylesheet" href="../../Views/dashboard/assets/css/argon.min.css?v=1.2.0" type="text/css">
+    <link rel="stylesheet" href="../dashboard/assets/css/argon.min.css?v=1.2.0" type="text/css">
     <title>Registrarse | Interoriente</title>
 </head>
 
@@ -48,9 +48,10 @@ session_start();
                 <div class="col-lg-6 col-md-8">
                     <div class="card bg-secondary border-0">
                         <div class="card-body px-lg-5 py-lg-5">
-
-                            <form action="acceso.php" method="POST">
+                            <form action="../../Controllers/php/users/acceso.php" method="POST">
                                 <input type="hidden" name="registrarse">
+                                <input type="hidden" name="imagen" value="<?php echo $_SESSION['picture']; ?>">
+                                <input type="hidden" name="correo" required value="<?php echo $_SESSION['email']; ?>">
                                 <div class="form-group">
                                     <label for="">Documento:</label>
                                     <div class="input-group input-group-merge input-group-alternative mb-3">
@@ -69,7 +70,6 @@ session_start();
                                         <input class="form-control" placeholder="Nombres" type="text" name="nombres" onkeypress="return Sololetras(event)" required autofocus value="<?php echo $_SESSION['name']; ?>">
                                     </div>
                                 </div>
-                                <input type="hidden" name="correo" required value="<?php echo $_SESSION['email']; ?>">
                                 <div class="form-group">
                                     <label for="">Apellidos:</label>
                                     <div class="input-group input-group-merge input-group-alternative mb-3">
@@ -116,10 +116,10 @@ session_start();
                     </div>
                     <div class="row mt-3">
                         <div class="col-6">
-                            <a href="../../Views/navegacion/index.php" class="text-light"><small>Regresar a inicio</small></a>
+                            <a href="index.php" class="text-light"><small>Regresar a inicio</small></a>
                         </div>
                         <div class="col-6 text-right">
-                            <a href="../../Views/navegacion/iniciarsesion.php" class="text-light"><small>Tienes cuenta?</small></a>
+                            <a href="iniciarsesion.php" class="text-light"><small>Tienes cuenta?</small></a>
                         </div>
                     </div>
                 </div>
@@ -127,13 +127,13 @@ session_start();
         </div>
     </div>
     <!-- Core -->
-    <script src="../../Views/dashboard/assets/vendor/jquery/dist/jquery.min.js"></script>
-    <script src="../../Views/dashboard/assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="../../Views/dashboard/assets/vendor/js-cookie/js.cookie.js"></script>
-    <script src="../../Views/dashboard/assets/vendor/jquery.scrollbar/jquery.scrollbar.min.js"></script>
-    <script src="../../Views/dashboard/assets/vendor/jquery-scroll-lock/dist/jquery-scrollLock.min.js"></script>
+    <script src="../dashboard/assets/vendor/jquery/dist/jquery.min.js"></script>
+    <script src="../dashboard/assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../dashboard/assets/vendor/js-cookie/js.cookie.js"></script>
+    <script src="../dashboard/assets/vendor/jquery.scrollbar/jquery.scrollbar.min.js"></script>
+    <script src="../dashboard/assets/vendor/jquery-scroll-lock/dist/jquery-scrollLock.min.js"></script>
     <!-- Argon JS -->
-    <script src="../../Views/dashboard/assets/js/argon.js?v=1.2.0"></script>
+    <script src="../dashboard/assets/js/argon.js?v=1.2.0"></script>
 
 </body>
 

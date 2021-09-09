@@ -87,6 +87,7 @@ $GoogleLogin = $client->createAuthUrl();
                              </div>
                              <form action="../../Controllers/php/users/acceso.php" method="POST">
                                  <input type="hidden" name="registrarse">
+                                 <input type="hidden" name="imagen" value="imagenes/NO_borrar.png">
                                  <div class="form-group">
                                      <label for="">Nombres:</label>
                                      <div class="input-group input-group-merge input-group-alternative mb-3">

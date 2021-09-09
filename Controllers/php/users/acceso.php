@@ -12,14 +12,19 @@ if (isset($_POST['iniciarSesion']) || isset($_POST['registrarse'])) {
         $email = strip_tags($_POST['correo']);
         $contrasena = strip_tags($_POST['contrasena']);
         $contrasenaRepetida = strip_tags($_POST['recontrasena']);
+        $perfil = strip_tags($_POST['imagen']);
         $registro = new Registro();
-        $registro->registrarUsuario($nombre, $apellido, $docIdentidad, $email, $contrasena, $contrasenaRepetida);
+        $registro->registrarUsuario($nombre, $apellido, $docIdentidad, $email, $contrasena, $contrasenaRepetida,$perfil);
     }
+}
+if ($_GET['comprobandoAcceso']) {
+    $loginGoogle=new InicioSesion();
+    $loginGoogle->LoginGoogle();
 }
 
 class Registro
 {
-    public function registrarUsuario($nombres, $apellidos, $docId, $correo, $pass, $rePass)
+    public function registrarUsuario($nombres, $apellidos, $docId, $correo, $pass, $rePass,$imagen)
     {
         if ($pass == $rePass) {
             //Llamar a la conexion base de datos
@@ -35,7 +40,7 @@ class Registro
                 //Sha1 -> Método de encriptación
                 $contrasena = sha1($pass);
                 $estado = '1';
-                $perfil = "imagenes/NO_borrar.png";
+                $perfil = $imagen;
                 $rol = '1';
                 //Consulta correo ingresado no existe en BD
                 //sentencia Sql
@@ -46,7 +51,7 @@ class Registro
                 //Preparar consulta
                 $consultaRegistro = $pdo->prepare($sqlRegistro);
                 //Ejecutar la sentencia
-                $consultaRegistro->execute(array($docId, $nombres, $apellidos, $correo, $pass,  $estado, $perfil));
+                $consultaRegistro->execute(array($docId, $nombres, $apellidos, $correo, $contrasena,  $estado, $perfil));
                 //llamado a la tabla rol (intermedia) para almacenar el rol predeterminado
                 $sqlRegistroUR = "INSERT INTO tblUsuarioRol 
                 (idUsuarioRol,docIdentidadUsuarioRol)VALUES (?,?)";
@@ -116,6 +121,79 @@ class InicioSesion
         } else {
             echo "<script>alert('Correo o documento y/o contraseña incorrecto, o validación denegada');</script>";
             echo "<script> document.location.href='../../../Views/navegacion/iniciarsesion.php';</script>";
+        }
+    }
+    public function LoginGoogle()
+    {
+        session_start();
+        require_once '../../logingoogle/vendor/autoload.php';
+
+        require_once '../../logingoogle/config.php';
+        
+        $client = new Google_Client();
+
+        $client->setClientId($clientID);
+
+        $client->setClientSecret($clientSecret);
+
+        $client->setRedirectUri($redirectUri);
+
+        $client->addScope("email");
+
+        $client->addScope("profile");
+
+
+
+        if (isset($_GET['code'])) {
+
+            $token = $client->fetchAccessTokenWithAuthCode($_GET['code']);
+
+            $client->setAccessToken($token['access_token']);
+
+
+
+            // get profile info
+
+            $google_oauth = new Google_Service_Oauth2($client);
+
+            $google_account_info = $google_oauth->userinfo->get();
+            // INFORMACION CAPTURADA EN VARIABLES PHP
+            $email =  $google_account_info->email;
+            $familyName =  $google_account_info->familyName;
+            $picture =  $google_account_info->picture;
+            $givenName =  $google_account_info->givenName;
+            /* FIN Codigo de Google*/
+            require_once '../../../Models/dao/conexion.php';
+            // Consulta SQL para obtener TODOS los datos del Usuario, incluyendo el rol conociendo su Email (dado por google)
+            $sqlInicio = "SELECT*
+            FROM tblUsuario as US
+            INNER JOIN tblUsuarioRol as UR ON US.documentoIdentidad = UR.docIdentidadUsuarioRol
+            WHERE emailUsuario=?";
+            $consultaInicio = $pdo->prepare($sqlInicio);
+            $consultaInicio->execute(array($email));
+            // RowCount para saber si realmente, EXISTE algun usuario
+            $resultadoInicio = $consultaInicio->rowCount();
+            $_SESSION['email'] = $email;
+            $_SESSION['name'] = $givenName;
+            $_SESSION['familyName'] = $familyName;
+            $_SESSION['picture'] = $picture;
+            if ($resultadoInicio == 0) {
+                echo "<script> document.location.href='../../../Views/navegacion/registroGoogle.php';</script>";
+            } else {
+
+                // Fetch para OBTENER todos los datos en una variable php
+                $resultadoObjetoInicio = $consultaInicio->fetch(PDO::FETCH_OBJ);
+                //Condicional para INICIAR SESION SEGUN ROWCOUNT
+
+                $documento = $resultadoObjetoInicio->documentoIdentidad;
+                $rol = $resultadoObjetoInicio->idUsuarioRol;
+
+                $_SESSION["documentoIdentidad"] = $documento;
+                //Siempre para iniciar se inicia como Comprador/Proveedor -> O por lo menos con el primer rol que se tenga
+                $_SESSION['roles'] = $rol;
+                //Comprador/Proveedor
+                header("Location: ../../../Views/dashboard/principal/dashboard.php");
+            }
         }
     }
 }
