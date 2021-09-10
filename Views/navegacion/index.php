@@ -20,7 +20,6 @@ $publicacion = getPublicaciones();
     <!--Link solución protocolo: https://www.bugsnag.com/blog/jquery-is-not-defined-cause-solution-->
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 
-
     <title> Inicio | Interoriente</title>
 </head>
 

@@ -37,3 +37,9 @@ async function scraprePublicacion(url) {
 }
 /* Llamando la función */
 scraprePublicacion(url);
+
+/* TODO:
+    1. Definir la tabla donde se van a alamacenar los links
+    2. Terminar la extensión
+    3. Buscar la manera de automatizar las consultas desde el servidor
+*/
