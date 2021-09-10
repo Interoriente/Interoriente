@@ -199,7 +199,7 @@ class Checkout{
     $idUsuario = $_SESSION['documentoIdentidad'];
     /* Almacenar información de la compra */
     $sqlFa = "INSERT INTO `tblFactura`
-    VALUES (null,:idUser,CURRENT_TIMESTAMP,:direccion,:email,null)";
+    VALUES (null,:idUser,CURRENT_TIMESTAMP,:direccion,:email,1)";
     $stmt = $pdo->prepare($sqlFa);
     $stmt->bindValue(':idUser', $idUsuario);
     $stmt->bindValue(':direccion', $direccion);
