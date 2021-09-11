@@ -27,7 +27,7 @@ if (isset($respUserData)) {
       <!-- Fonts -->
       <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700">
       <!-- Icons -->
-      <link rel="stylesheet" href="../assets/vendor/nucleo/css/nucleo.css" type="text/css">
+      <link rel="stylesheet" href="../assets/css/iconos.css" type="text/css">
       <link rel="stylesheet" href="../assets/vendor/@fortawesome/fontawesome-free/css/all.min.css" type="text/css">
       <!-- Argon CSS -->
       <link rel="stylesheet" href="../assets/css/argon.min.css?v=1.2.0" type="text/css">
@@ -185,12 +185,6 @@ if (isset($respUserData)) {
                         <a href="#" class="nav-link py-2 px-3 active" data-toggle="tab">
                           <span class="d-none d-md-block">Month</span>
                           <span class="d-md-none">M</span>
-                        </a>
-                      </li>
-                      <li class="nav-item" data-toggle="chart" data-target="#chart-sales-dark" data-update='{"data":{"datasets":[{"data":[0, 20, 5, 25, 10, 30, 15, 40, 40]}]}}' data-prefix="$" data-suffix="k">
-                        <a href="#" class="nav-link py-2 px-3" data-toggle="tab">
-                          <span class="d-none d-md-block">Week</span>
-                          <span class="d-md-none">W</span>
                         </a>
                       </li>
                     </ul>
@@ -446,20 +440,6 @@ if (isset($respUserData)) {
         </div>
         <?php require_once '../assets/footer.php' ?>
       </div>
-      <!-- Core -->
-      <script src="../assets/vendor/jquery/dist/jquery.min.js"></script>
-
-      <!-- Este script estaba causando algunos problemas  -->
-      <!--   <script src="../assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
- -->
-      <script src="../assets/vendor/js-cookie/js.cookie.js"></script>
-      <script src="../assets/vendor/jquery.scrollbar/jquery.scrollbar.min.js"></script>
-      <script src="../assets/vendor/jquery-scroll-lock/dist/jquery-scrollLock.min.js"></script>
-      <!-- Optional JS -->
-      <script src="../assets/vendor/chart.js/dist/Chart.min.js"></script>
-      <script src="../assets/vendor/chart.js/dist/Chart.extension.js"></script>
-      <!-- Argon JS -->
-      <script src="../assets/js/argon.js?v=1.2.0"></script>
     </body>
 
     </html>
