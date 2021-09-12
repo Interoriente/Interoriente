@@ -45,15 +45,15 @@
                 $mail->Port = 587;                                    // TCP port to connect to
 
                 //Recipients
-                $mail->setFrom('interoriente437@gmail.com', $nombre);//Se debe dejar el mismo del Username
-                $mail->addAddress('interoriente437@gmail.com', 'Administrador');//Correo que recibe 
+                $mail->setFrom('interoriente437@gmail.com', $nombre); //Se debe dejar el mismo del Username
+                $mail->addAddress('interoriente437@gmail.com', 'Administrador'); //Correo que recibe 
 
                 //Envío de imágenes
                 if ($_FILES['archivo']['name']) {
                     //Adjuntar archivos en el correo
                     $mail->addAttachment("imagenes/$archivo");
                 }
-                
+
                 $mensaje2 = "<!DOCTYPE html>
                 <html lang='en'>
                 
@@ -100,12 +100,12 @@
 
                 if ($mail->send()) {
                     echo "<script>alert('Correo enviado correctamente');</script>";
-                    echo "<script> document.location.href='../view/dashboard/principal/dashboard.php';</script>";
+                    echo "<script> document.location.href='../../Views/dashboard/principal/soporte.php';</script>";
                 }
             } catch (Exception $e) {
                 echo 'Ha ocurrido un error! ', $mail->ErrorInfo;
             }
         } else {
-            return;
+            echo "<script>alert('No existe información.');</script>";
         }
     } ?>
