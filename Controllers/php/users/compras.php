@@ -133,6 +133,8 @@ function almacenarCarrito($carrito)
 
 }
 
+
+/* Test nueva rama */
 /* Clase Check-out con funciones implicadas */
 
 class Checkout{
