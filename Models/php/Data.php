@@ -4,13 +4,8 @@ Este Script es especificamente para Interlink (Extensión)
 */
 
 if (isset($_POST['links'])) {
-    require '../dao/conexion.php';
     $urls = $_POST['links'];
-    /* Tabla de las urls
-    */
-    foreach ($urls as $link) {
-        
-    }
+    setLinks($urls);
 } else {
     $categorias = json_encode(getCategorias());
     echo $categorias;
@@ -18,8 +13,34 @@ if (isset($_POST['links'])) {
 
 function getCategorias(){
     require '../dao/conexion.php';
-    $sql = 'SELECT idCategoria as id, nombreCategoria as nombre FROM tblCategoria';
+    $sql = 'SELECT idCategoria as id, nombreCategoria as nombre 
+    FROM tblCategoria 
+    ORDER BY nombreCategoria';
     $stmt = $pdo->prepare($sql);
     $stmt->execute();
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
+
+function setLinks($links){
+    require '../dao/conexion.php';
+    /* Tabla de las urls
+    Campos:
+    1. id
+    2. url
+    3. categoria
+    */
+    $arrLinks = $links;
+    $categoria = array_shift($arrLinks);
+    foreach ($arrLinks as $link) {
+        $id = substr($link, 41, 9);
+        $sql = "INSERT INTO tblLinks 
+        VALUES(:id, :link, :categoria)";
+        $stmt = $pdo->prepare($sql);
+        $stmt->bindValue(':id', $id);
+        $stmt->bindValue(':id', $link);
+        $stmt->bindValue(':id', $categoria);
+        $stmt->execute();
+    }
+    //Obtener Categoría
+    
 }
