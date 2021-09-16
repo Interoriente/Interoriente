@@ -34,8 +34,7 @@ function setLinks($links){
     $arrLinks = $links;
     $categoria = array_shift($arrLinks);
     foreach ($arrLinks as $link) {
-        /* $id = substr($link, 41, 9); */
-        $id = substr($link, strpos($link, "MCO") + 8);
+        $id = substr($link, 41, 9);
         $sql = "INSERT INTO tblLinks 
         VALUES(:id, :link, :categoria, :estado)";
         $stmt = $pdo->prepare($sql);
