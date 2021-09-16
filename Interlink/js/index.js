@@ -6,7 +6,6 @@ const leadsFromLocalStorage = JSON.parse(localStorage.getItem("myLeads"));
 const tabBtn = document.getElementById("tab-btn");
 const select = document.getElementById("categorias");
 const error = document.getElementById("error");
-const urlValida = "https://articulo.mercadolibre.com.co";
 $("#loader").hide();
 let categoriasLs = localStorage.getItem("categorias");
 let flag = false;
@@ -40,9 +39,9 @@ function renderCategorias(arr) {
 tabBtn.addEventListener("click", function () {
   chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
     let link = tabs[0].url;
-    let tabUrl = link.slice(0, 36);
+    let tabUrl = link.slice(8, 37);
     /* Validación de url */
-    if (tabUrl === urlValida) {
+    if (tabUrl.includes("mercadolibre")) {
       myLeads = JSON.parse(localStorage.getItem("myLeads"));
       if (myLeads) {
         for (let i = 0; i < myLeads.length; i++) {
@@ -72,7 +71,7 @@ tabBtn.addEventListener("click", function () {
         flag = false;
       }
     } else {
-      alert("Recuerda: Solo links de articulo.mercadolibre.com.co");
+      alert("Recuerda: Solo links de mercadolibre.com.co");
     }
   });
 });
@@ -97,9 +96,10 @@ inputBtn.addEventListener("click", function () {
   if (inputEl.value !== "") {
     //Por qué estaba almacenando el valor anterior del localstorage??
     let link = inputEl.value;
-    let url = link.slice(0, 36);
+    let url = link.slice(8, 37);
+
     /* Verificando que la url ingresada en el imput sea válida */
-    if (url === urlValida) {
+    if (url.includes("mercadolibre")) {
       /* Verificando exitencia de links en Localstorage */
       let leads = JSON.parse(localStorage.getItem("myLeads"));
       if (leads) {
