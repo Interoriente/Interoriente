@@ -40,7 +40,6 @@ function setLinks($links){
         $stmt->bindValue(':id', $link);
         $stmt->bindValue(':id', $categoria);
         $stmt->execute();
+        echo 1;
     }
-    //Obtener Categoría
-    
 }

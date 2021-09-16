@@ -1,5 +1,5 @@
 function validar() {
-	var id, contrasena,expresion,expresion1;
+	let id, contrasena,expresion,expresion1;
 	id=document.getElementById("id").value;
 	contrasena=document.getElementById("contrasena").value;
 

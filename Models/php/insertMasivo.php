@@ -8,8 +8,9 @@
     -Hace falta la información de tblPublicacion
     -Hace falta definir los nombres de las direcciones
     -Qué va a pasar con las tablas que ya tienen información? tblCiudad, tblEstadoCompra, tblCategoria
-    -Cómo asiganarle una imágen al usuario?
+    -Cómo asiganarle una imagen al usuario?
     1.1 Resolver tblPublicación antes de continuar.
+        1.1.2 - Respuesta: Crear tabla para almacenar: url,
     
 2. Recibir datos desde API_Personas
 */
