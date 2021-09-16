@@ -1,3 +1,8 @@
+<<<<<<< Updated upstream
+=======
+<<<<<<< Updated upstream
+=======
+>>>>>>> Stashed changes
 <?php
 /* 
 1. Analisis:
@@ -8,6 +13,7 @@
     -Qué va a pasar con las tablas que ya tienen información? tblCiudad, tblEstadoCompra, tblCategoria
     -Cómo asiganarle una imagen al usuario?
     1.1 Resolver tblPublicación antes de continuar.
+<<<<<<< Updated upstream
         1.1.2 - Respuesta: Crear tabla para almacenar: url,
     
 2. Recibir datos desde API_Personas
