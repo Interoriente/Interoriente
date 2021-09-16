@@ -1,6 +1,4 @@
 <?php
-
-
 /* 
 1. Analisis:
 -Se deben insertar datos en las siguientes tablas: tblUsuario, tblDirecciones,
