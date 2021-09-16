@@ -30,17 +30,19 @@ function setLinks($links){
     2. url
     3. categoria
     */
+    $estado = 0;
     $arrLinks = $links;
     $categoria = array_shift($arrLinks);
     foreach ($arrLinks as $link) {
         $id = substr($link, 41, 9);
         $sql = "INSERT INTO tblLinks 
-        VALUES(:id, :link, :categoria)";
+        VALUES(:id, :link, :categoria, :estado)";
         $stmt = $pdo->prepare($sql);
         $stmt->bindValue(':id', $id);
         $stmt->bindValue(':link', $link);
         $stmt->bindValue(':categoria', $categoria);
+        $stmt->bindValue(':estado', $estado);
         $stmt->execute();
-        echo 1;
+        
     }
 }
