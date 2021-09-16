@@ -1,0 +1,20 @@
+{
+    "manifest_version": 3,
+    "version": "1.0",
+    "description": "Extensión para almacenar links de publicaciones con el fin de extraer su información pública",
+    "name": "Interlink - Interoriente",
+    "action": {
+        "default_popup": "index.html",
+        "default_icon": "img/icon.png"
+    },
+    "permissions": [
+        "tabs"
+    ],
+    "content_scripts": [
+        {
+          "matches": ["http://www.google.com/*"],
+          "css": ["css/index.css"],
+          "js": ["jquery/dist/jquery.min.js", "js/index.js"]
+        }
+      ]
+}
