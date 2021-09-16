@@ -6,6 +6,7 @@ Este Script es especificamente para Interlink (Extensión)
 if (isset($_POST['links'])) {
     $urls = $_POST['links'];
     setLinks($urls);
+   
 } else {
     $categorias = json_encode(getCategorias());
     echo $categorias;
@@ -37,8 +38,8 @@ function setLinks($links){
         VALUES(:id, :link, :categoria)";
         $stmt = $pdo->prepare($sql);
         $stmt->bindValue(':id', $id);
-        $stmt->bindValue(':id', $link);
-        $stmt->bindValue(':id', $categoria);
+        $stmt->bindValue(':link', $link);
+        $stmt->bindValue(':categoria', $categoria);
         $stmt->execute();
         echo 1;
     }
