@@ -1,0 +1,41 @@
+Objetivos: 
+
+1. Obtener información de la Api de Personas y almacenarla en la bd 
+de manera automática. Siéndo "automática" que el servidor ejecute el script 
+cada cierto tiempo. 
+2. Obtener información (Título, precio, imagenes y descripcion) 
+de los links almacenados en tblLinks y luego crear registro en 
+tblPublicaciones teniendo en cuenta la información extraída asignando 
+a un usuario al azar de la tabla tblUsuarios (En este caso su docId) la publicación
+3. Simular una compra de una publicación. 
+
+Para esto se debe almacenar el id de una publicación y el id de un usuario en la tabla tblFactura
+
+Análisis de la base de datos:
+
+    Se tienen las siguientes tablas involucradas:
+
+        1. tblUsuarios 
+        (docId(PK), nombres, apellidos, tel, email, contrasena, null, estado(1), 
+        imagen)
+        genUsuarios = {
+            address,
+            email_u,
+            id,
+            lastname,
+            name,
+            phone_h
+        }
+        2. tblDirecciones (id( PK AUTOINCR), idUsuario, nombreDir, descripcioDir(direccion como tal), ciudad(FK) )
+            2.1 tblCiudades (id, nombre)
+
+        3. tblPublicacion (id(PK AUTOINCR), nombre, usuario, descripcion, costo, puntuacion, stock, categoria(FK), urlData(FK));
+        4. tblCategorias (id(PK), nombre, imagen(NULL));
+
+        5. tblFactura (id(PK AUTOINCR), usuario, fechaCreacion, direccionUsuario, emailUsuario)
+        6. tblFacturaPublicacion (idFactura, idPublicacion, cantidad)
+
+
+
+
+

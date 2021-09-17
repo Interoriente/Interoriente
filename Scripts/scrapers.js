@@ -1,7 +1,7 @@
 /* Se importa la librería puppeteer -- Headless browser */
 const puppeteer = require('puppeteer');
 //Link de la publicación a extraer la información
-let url = 'https://articulo.mercadolibre.com.co/MCO-631397217-alcancia-electronica-perro-come-monedas-juguete-para-ninos-_JM#reco_item_pos=2&reco_backend=machinalis-seller-items&reco_backend_type=low_level&reco_client=vip-seller_items-above&reco_id=674fc534-2b4c-4292-8ac6-d8de9af844cb';
+let url = 'https://articulo.mercadolibre.com.co/MCO-561640835-taladro-atornillador-14v-inalambrico-10mm-klatter-_JM#reco_item_pos=4&reco_backend=promotions-sorted-by-score-mco-B&reco_backend_type=low_level&reco_client=home_seller-promotions-recommendations&reco_id=48d73b94-424f-4534-b527-8c9b9352a7b1&c_id=/home/promotions-recommendations/element&c_element_order=5&c_uid=98598e73-aed3-407b-97a1-14db96912b28';
 
 /* Se crea función para extraer la información */
 async function scraprePublicacion(url) {
