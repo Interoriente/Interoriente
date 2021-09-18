@@ -23,6 +23,8 @@ require "../assets/linksGoogle.php";
     <meta name="description" content="Bienvenidos a Interoriente, podrás comprar, vender y mucho más.">
     <meta name="author" content="Inter-oriente">
     <title>Iniciar sesión | Interoriente</title>
+    <!--Jquert Temporal-->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <!-- Favicon -->
     <link rel="icon" href="../assets/img/favicon.png" type="image/png">
     <!-- Fonts -->
@@ -32,6 +34,7 @@ require "../assets/linksGoogle.php";
     <link rel="stylesheet" href="../dashboard/assets/vendor/@fortawesome/fontawesome-free/css/all.min.css" type="text/css">
     <!-- Argon CSS -->
     <link rel="stylesheet" href="../dashboard/assets/css/argon.min.css?v=1.2.0" type="text/css">
+    
 </head>
 
 <body class="bg-default" oncontextmenu="return false">
@@ -122,6 +125,6 @@ require "../assets/linksGoogle.php";
     <script src="../dashboard/assets/vendor/jquery-scroll-lock/dist/jquery-scrollLock.min.js"></script>
     <!-- Argon JS -->
     <script src="../../view/dashboard/Controller/js/argon.js?v=1.2.0"></script>
-
+  
 
 </html>

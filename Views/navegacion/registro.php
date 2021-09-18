@@ -13,6 +13,8 @@ require "../assets/linksGoogle.php";
     <title>Registrarse | Interoriente</title>
     <!-- Favicon -->
     <link rel="icon" href="../assets/img/favicon.png" type="image/png">
+    <!--Jquert Temporal-->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <!-- Fonts -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700">
     <!-- Icons -->
@@ -157,6 +159,7 @@ require "../assets/linksGoogle.php";
     <script src="../dashboard/assets/vendor/jquery-scroll-lock/dist/jquery-scrollLock.min.js"></script>
     <!-- Argon JS -->
     <script src="../dashboard/assets/js/argon.js?v=1.2.0"></script>
+     
 
 </body>
 

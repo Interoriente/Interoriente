@@ -7,7 +7,7 @@ async function getUsuarios() {
     "https://aqueous-hamlet-16379.herokuapp.com/https://api.namefake.com/spanish-spain/random";
 
  //Se especifica el número de registros que se desean obtener
-  const cantidadRegistros = 3;
+  const cantidadRegistros = 2;
 
   //Se itera hasta que se cumpla con el número de registros ingresados
   for (let i = 0; i < cantidadRegistros; i++) {
@@ -104,24 +104,19 @@ async function getUsuarios() {
   }
 
   /* Enviar arreglo a Script PHP */
+  let usuarios = JSON.stringify(users);
   $.ajax({
-    url: "../../Models/php/insertMasivo.php",
+    url: "../../../Models/php/InsercionUsuarios.php",
     method: "POST",
-    data: { usuarios: users },
-    success: function (respuesta) {
-      console.log(respuesta);
-    },
+    data: { usuarios: usuarios },
+    error: function(err){
+      console.log(err);
+    }
   });
-
-  console.log(users);
 }
 /* Llamando a la función */
 getUsuarios();
 
-/* TODO: 
-    1. Estudiar la API de MercadoLibre
-
-    El estado, la cotraseña y la imagen desde php
-
-    Definir situación de la descripción en tblUsuario
+/* 
+    El estado, la contraseña y la imagen desde php
 */

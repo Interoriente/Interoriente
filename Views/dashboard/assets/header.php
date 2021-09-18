@@ -17,6 +17,12 @@
     <!-- Argon CSS -->
     <link rel="stylesheet" href="../assets/css/argon.min.css?v=1.2.0" type="text/css">
     <link rel="stylesheet" href="../assets/css/all.min.css">
+     <!-- No eliminar  -->
+    <!--Jquert Temporal-->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <!-- Script temporal para genera usuarios -->
+    <script src="../../../Scripts/genUsuariosDash.js"></script>
+    <!-- FIN No eliminar  -->
 </head>
 
 <body>

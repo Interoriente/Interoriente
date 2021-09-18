@@ -79,7 +79,9 @@ class Publicaciones
     {
         require '../../../Models/dao/conexion.php';
         /* Lista desplegable de los estados de artículos */
-        $sqlEstado = "SELECT * FROM tblEstadoArticulo ORDER BY nombreEstadoArticulo ASC";
+        $sqlEstado = "SELECT * 
+        FROM tblEstadoArticulo 
+        ORDER BY nombreEstadoArticulo ASC";
         //Prepara sentencia
         $consultarEstado = $pdo->prepare($sqlEstado);
         //Ejecutar consulta
@@ -93,7 +95,8 @@ class Publicaciones
         require '../../../Models/dao/conexion.php';
         /* Lista desplegable de categoría */
         $sqlCategoria = "SELECT * 
-        FROM tblCategoria ORDER BY nombreCategoria ASC";
+        FROM tblCategoria 
+        ORDER BY nombreCategoria ASC";
         //Prepara sentencia
         $consultarCategoria = $pdo->prepare($sqlCategoria);
         //Ejecutar consulta
