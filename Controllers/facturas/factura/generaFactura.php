@@ -22,4 +22,4 @@ $dompdf->setPaper('letter', 'portrait');
 // Render the HTML as PDF
 $dompdf->render();
 // Output the generated PDF to Browser
-$dompdf->stream('factura_' . $no_factura . '.pdf', array('Attachment' => 0));
+$dompdf->stream('factura_' . $no_factura . '.pdf');
