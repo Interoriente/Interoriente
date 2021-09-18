@@ -9,7 +9,7 @@
                 <a href="../dashboard/principal/dashboard.php">Volver al panel</a>
                 <form class="cerrar-sesion" action="../../Controllers/php/users/usuarios.php" method="POST">
                     <input type="hidden" name="cerrarSesion">
-                    <button class="btn btn-primary" type="submit">Cerrar Sesión</button>
+                    <input class="btnCerrar" type="submit" value="Cerrar Sesión">
                 </form>
             <?php } else { ?>
                 <!-- ROl comprador/Proveedor -->
@@ -22,7 +22,7 @@
                 <a href="../dashboard/principal/dashboard.php">Volver al panel</a>
                 <form class="cerrar-sesion" action="../../Controllers/php/users/usuarios.php" method="POST">
                     <input type="hidden" name="cerrarSesion">
-                    <button class="btn btn-primary" type="submit">Cerrar Sesión</button>
+                    <input class="btnCerrar" type="submit" value="Cerrar Sesión">
                 </form>
 
             <?php } ?>

@@ -9,8 +9,8 @@
   --clr-neutro-c: #e5e5e5;
   --clr-cta-a: #ffb930;
   --crl-cta-b: #fce61e;
-  --titulos: 'Poppins', sans-serif;
-  --textos: 'Open Sans', sans-serif;
+  --titulos: "Poppins", sans-serif;
+  --textos: "Open Sans", sans-serif;
   --mainSpacing: 0.1rem;
   --mainTransition: all 0.3s linear;
 }
@@ -18,10 +18,12 @@
 body {
   background-color: var(--clr-neutro-a);
 }
+
 * {
   box-sizing: border-box;
   margin: 0;
 }
+
 .carrusel-superior {
   background-color: var(--clr-secundario);
   width: 100%;
@@ -40,6 +42,7 @@ body {
   top: 0;
   z-index: 5;
 }
+
 .contenedor-s {
   width: 100%;
   height: 100%;
@@ -47,21 +50,23 @@ body {
   display: flex;
   justify-content: space-between;
 }
+
 .cont-elementos {
   font-family: "Poppins", sans-serif;
   display: flex;
 }
-  
 
 a {
   text-decoration: none;
   color: white;
 }
+
 .cont-elementos a:hover {
   border-bottom: 2px white solid;
   padding-top: 4px;
   color: white;
 }
+
 .logoT {
   display: none;
 }
@@ -73,14 +78,17 @@ a {
   align-items: center;
   align-content: space-around;
 }
+
 .carrito-busqueda:hover {
   cursor: pointer;
 }
+
 .carrito {
   margin-right: 2em;
   size: 1em;
   font-size: larger;
 }
+
 .items-carrito {
   position: absolute;
   top: 4px;
@@ -90,12 +98,12 @@ a {
   border-radius: 15%;
   color: white;
 }
+
 .barra-busqueda {
   margin-right: 2em;
   display: flex;
   align-items: center;
 }
-
 
 /* --------------- Carrito ---------------- */
 .cart-overlay {
@@ -104,11 +112,12 @@ a {
   right: 0;
   width: 100%;
   height: 100%;
-  transition: all .1s ease-in-out;
+  transition: all 0.1s ease-in-out;
   background: rgba(0, 0, 0, 0.2);
   z-index: 2;
   visibility: hidden;
 }
+
 .cart {
   position: fixed;
   top: 3em;
@@ -119,12 +128,14 @@ a {
   overflow: scroll;
   background: var(--clr-neutro-a);
   padding: 1.5rem;
-  transition: all .04s ease-in-out;
+  transition: all 0.04s ease-in-out;
   transform: translateX(100%);
 }
+
 .showCart {
   transform: translateX(0);
 }
+
 .transparentBcg {
   visibility: visible;
 }
@@ -139,6 +150,7 @@ a {
   font-size: 2rem;
   cursor: pointer;
 }
+
 .cart h2 {
   text-transform: capitalize;
   text-align: center;
@@ -154,18 +166,20 @@ a {
   grid-template-columns: auto 1fr auto;
   grid-column-gap: 1.5rem;
   margin: 1.5rem 0;
- 
 }
+
 .cart-item img {
   width: 95px;
   height: 95px;
   border-radius: 4%;
 }
+
 .cart-item h4 {
   font-size: 0.85rem;
   text-transform: capitalize;
   letter-spacing: var(--mainSpacing);
 }
+
 .cart-item h5 {
   margin: 0.5rem 0;
   letter-spacing: var(--mainSpacing);
@@ -175,15 +189,17 @@ a {
   color: grey;
   cursor: pointer;
 }
-.titulos{
+
+.titulos {
   font-family: var(--titulos);
 }
+
 /* Título de la publicación en el carrito */
-.item-h{
+.item-h {
   font-weight: bold;
 }
 /* Cantidad item del carrito por publicación */
-.cantidad-items{
+.cantidad-items {
   width: 3em;
 }
 
@@ -193,14 +209,15 @@ a {
   letter-spacing: var(--mainSpacing);
   text-align: center;
 }
+
 .cart-footer h3 {
   text-transform: capitalize;
   margin-bottom: 5rem;
   padding-bottom: 5em;
 }
 
-.finalizar-compra{
-  padding: .5rem ;
+.finalizar-compra {
+  padding: 0.5rem;
   width: 100%;
   text-transform: uppercase;
   letter-spacing: var(--mainSpacing);
@@ -209,13 +226,11 @@ a {
   transition: 0.3s;
   cursor: pointer;
 }
-.finalizar-compra:hover{
-    box-shadow: 0px 0px 10px -1px rgba(0, 0, 0, 0.4);
+
+.finalizar-compra:hover {
+  box-shadow: 0px 0px 10px -1px rgba(0, 0, 0, 0.4);
 }
 /* Imput cantidad */
-
-
-
 
 /* --------------- Fin Carrito ---------------- */
 /* Media query para mostrar logo */
@@ -227,6 +242,7 @@ a {
     width: 40%;
     height: 100%;
   }
+
   .logoT img {
     text-align: left;
     width: 100%;
@@ -258,12 +274,13 @@ a {
   left: 0;
   background-color: var(--crl-cta-b);
   overflow-x: hidden; /* se desabilita scroll en x */
-  padding-top: 60px; /* Place content 60px from the top */
-  ; /* 0.5 second transition effect to slide in the sidenav */
+  padding-top: 60px; /* Place content 60px from the top */ /* 0.5 second transition effect to slide in the sidenav */
 }
-.tr-side{
-  transition: 0.3s
+
+.tr-side {
+  transition: 0.3s;
 }
+
 /* Imagen e Info cta */
 #cta-login-img {
   width: 12rem;
@@ -280,11 +297,19 @@ a {
 
 /* Links de navegación */
 
-.sidenav {
+.sidenav,
+.btnCerrar {
   display: flex;
   flex-direction: column;
 }
-.sidenav a {
+
+.btnCerrar {
+  background-color: var(--crl-cta-b);
+  cursor: pointer;
+}
+
+.sidenav a,
+.btnCerrar {
   padding: 8px 8px 8px 32px;
   text-decoration: none;
   font-size: 19px;
@@ -342,7 +367,7 @@ a {
   font-weight: bolder;
 }
 
-.rem-btn{
+.rem-btn {
   display: none;
 }
 
@@ -362,7 +387,6 @@ a {
     display: block;
   }
 }
-
 
 /* Navegación para dispositivos móviles */
 .navbar {
@@ -410,21 +434,18 @@ a {
 
 /* Navbar Mediaqueries */
 @media (min-width: 320px) {
-   .contenedor-s {
+  .contenedor-s {
     justify-content: space-between;
-   
   }
   .cont-elementos {
     align-items: center;
     justify-content: space-around;
     width: 90%;
-    
   }
 }
 @media (min-width: 1600px) {
-   .cont-elementos{
+  .cont-elementos {
     margin-right: 7em;
-   
   }
 }
 
@@ -435,4 +456,3 @@ a {
     display: none;
   }
 }
-
