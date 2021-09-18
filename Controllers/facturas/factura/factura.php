@@ -1,6 +1,6 @@
 <?php
 session_start();
-if (!isset($_SESSION['documentoIdentidad'])) {
+if (isset($_SESSION['documentoIdentidad'])) {
 
 	/* Inicializando variables para luego utilizarlas en la factura */
 	$subtotal = 0;
