@@ -11,7 +11,7 @@ if (isset($_SESSION['documentoIdentidad'])) {
 	$anulada = '';
 	$iva = 0.19;
 
-	include_once '../../../Models/dao/conexion.php';
+	include_once '../../Models/dao/conexion.php';
 
 	/* LLamado al encabezado */
 	$sqlCliente   = "SELECT US.descripcionUsuario,FA.direccionFactura,FA.numeroFactura,DATE_FORMAT(FA.fechaFactura, '%d/%m/%Y') as fecha, DATE_FORMAT(FA.fechaFactura,'%H:%i:%s') as  hora,US.documentoIdentidad,concat(US.nombresUsuario,' ',US.apellidoUsuario) as Cliente 
