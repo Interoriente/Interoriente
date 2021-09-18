@@ -27,6 +27,7 @@ if (isset($respUserData)) {
     require_once '../assets/navegacion.php';
 ?>
 
+ 
     <!-- Header -->
     <div class="header bg-primary pb-6">
       <div class="container-fluid">

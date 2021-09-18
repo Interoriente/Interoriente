@@ -106,14 +106,13 @@ async function getUsuarios() {
   /* Enviar arreglo a Script PHP */
   let usuarios = JSON.stringify(users);
   $.ajax({
-    url: "../Models/php/InsercionUsuarios.php",
+    url: "../../Models/php/InsercionUsuarios.php",
     method: "POST",
     data: { usuarios: usuarios },
     error: function(err){
       console.log(err);
     }
   });
-  console.log(users);
 }
 /* Llamando a la función */
 getUsuarios();

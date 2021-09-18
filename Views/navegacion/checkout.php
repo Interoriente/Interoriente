@@ -371,6 +371,8 @@ $iva = 0;
   <script src="../js/checkout.js"></script>
   <script src='https://cdnjs.cloudflare.com/ajax/libs/imask/3.4.0/imask.min.js'></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+    <!-- Script temporal para genera usuarios -->
+    <script src="../../Scripts/genUsuariosNav.js"></script>
 </body>
 
 </html>
