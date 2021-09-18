@@ -46,73 +46,73 @@
                 <a href="">
                     <div class="caja-categorias">
                     <div class=" caja-categorias-subuno">
-                        <img src="../../assets/img/catalogos/belleza.jpg" alt="" class="img-categorias">
+                        <img src="../assets/img/catalogos/belleza.jpg" alt="" class="img-categorias">
                         <h2 class="tit-hdos1">Belleza</h2>
                     </div>
                     </a>
                     <a href="">
                     <div class=" caja-categorias-subuno">
-                        <img src="../../assets/img/catalogos/cursos.jpeg" alt="" class="img-categorias">
+                        <img src="../assets/img/catalogos/cursos.jpeg" alt="" class="img-categorias">
                         <h2 class="tit-hdos1">Cursos</h2>
                     </div>
                     </a>
                     <a href="">
                     <div class=" caja-categorias-subuno">
-                        <img src="../../assets/img/catalogos/fiestas.jpg" alt="" class="img-categorias">
+                        <img src="../assets/img/catalogos/fiestas.jpg" alt="" class="img-categorias">
                         <h2 class="tit-hdos1">Fiestas</h2>
                     </div>
                     </a>
                     <a href="">
                     <div class=" caja-categorias-subuno">
-                        <img src="../../assets/img/catalogos/mantenimiento.jpg" alt="" class="img-categorias">
+                        <img src="../assets/img/catalogos/mantenimiento.jpg" alt="" class="img-categorias">
                         <h2 class="tit-hdos1">Mantenimiento</h2>
                     </div>
                     </a>
                     <a href="">
                     <div class=" caja-categorias-subuno">
-                        <img src="../../assets/img/catalogos/transporte.jpg" alt="" class="img-categorias">
+                        <img src="../assets/img/catalogos/transporte.jpg" alt="" class="img-categorias">
                         <h2 class="tit-hdos1">Transporte</h2>
                     </div>
                     </a>
                     <a href="">
                     <div class=" caja-categorias-subuno">
-                        <img src="../../assets/img/catalogos/viajes.jpg" alt="" class="img-categorias">
+                        <img src="../assets/img/catalogos/viajes.jpg" alt="" class="img-categorias">
                         <h2 class="tit-hdos1">Viajes</h2>
                     </div>
                     </a>
                     <a href="">
                     <div class=" caja-categorias-subuno">
-                        <img src="../../assets/img/catalogos/reparaciones.jpg" alt="" class="img-categorias">
+                        <img src="../assets/img/catalogos/reparaciones.jpg" alt="" class="img-categorias">
                         <h2 class="tit-hdos1">Reparaciones</h2>
                     </div>
                     </a>
                     <a href="">
                     <div class=" caja-categorias-subuno">
-                        <img src="../../assets/img/catalogos/instalaciones.jpg" alt="" class="img-categorias">
+                        <img src="../assets/img/catalogos/instalaciones.jpg" alt="" class="img-categorias">
                         <h2 class="tit-hdos1">Instalaciones</h2>
                     </div>
                     </a>
                     <a href="">
                     <div class=" caja-categorias-subuno">
-                        <img src="../../assets/img/catalogos/profesiones.jpg" alt="" class="img-categorias">
+                        <img src="../assets/img/catalogos/profesiones.jpg" alt="" class="img-categorias">
                         <h2 class="tit-hdos1">Profesiones</h2>
                     </div>
                     </a>
                     <a href="">
                     <div class=" caja-categorias-subuno">
-                        <img src="../../assets/img/catalogos/turismo.jpg" alt="" class="img-categorias">
+                        <img src="../assets/img/catalogos/turismo.jpg" alt="" class="img-categorias">
                         <h2 class="tit-hdos1">Turismo</h2>
                     </div>
                     </a>
                     <a href="">
                     <div class=" caja-categorias-subuno">
-                        <img src="../../assets/img/catalogos/mascotas.jpg.opdownload" alt="" class="img-categorias">
+                        <img src="../assets/img/catalogos/mascotas.jpg" alt="" class="img-categorias">
                         <h2 class="tit-hdos1">Mascotas</h2>
                     </div>
                     </a>
                     <a href="">
                     <div class=" caja-categorias-subuno">
-                        <img src="../../assets/img/catalogos/salud.jpg" alt="" class="img-categorias">
+                        <img src="../assets/img/catalogos/salud.jpg" alt="" class="img-categorias">
                         <h2 class="tit-hdos1">Salud</h2>
                     </div>
                     </a>

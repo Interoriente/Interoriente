@@ -47,6 +47,7 @@
   }
   
   .categorias{
+      background: yellow;
       display: flex;
       flex-flow: row;
       flex-wrap: wrap;
@@ -58,12 +59,11 @@
   .caja-categorias{
       display: flex;
       flex-flow: column;
-      justify-content: space-between;
       border-radius: 10px;
       flex-wrap: wrap;
       background: var(--clr-neutro-c);
       width: 300px;
-      height: 300px;
+      height: 500px;
       margin: 10px;
       box-shadow: 0px 5px 10px -1px #001014;
   }
@@ -73,16 +73,16 @@
     flex-wrap: wrap;
     width: 100%;
     height: 70%;
-    background: blueviolet;
     filter: brightness(50%);
   }
   .img-categorias{
     filter: brightness(50%);
-    border-radius: 10px 10px 0px 0px;
+    border-radius: 10px;
     width: 100%;
-    height: 100%;
+    height: 200px;
   }
   .caja-categorias-subdos{
+    background: yellowgreen;
     display: flex;
     flex-flow: column;
     justify-content: space-around;
@@ -92,8 +92,19 @@
     justify-content: center;
     text-align: center;
   }
-  .caja-categorias:hover{
-      background: var(--crl-cta-b);
+  .caja-categorias-subtres{
+    background: #EB5757;
+    display: flex;
+    flex-flow: column;
+    justify-content: space-around;
+    width: 100%;
+    height: 35%;
+    font-family: Arial, Helvetica, sans-serif;
+    justify-content: center;
+    text-align: center;
+  }
+  .descuento{
+    color: white;
   }
   
   

@@ -53,7 +53,7 @@
                 <a href="">
                     <div class="caja-categorias">
                         <div class="caja-categorias-subuno">
-                            <img src="../../assets/img/catalogos/computador.jpg" alt="" class="img-categorias">
+                            <img src="../assets/img/catalogos/computador.jpg" alt="" class="img-categorias">
                         </div>
                         <div class="caja-categorias-subdos">
                             <h2 class="tit-hdos">i7 4GB RAM GTX 1000</h2>
@@ -64,7 +64,7 @@
                 <a href="">
                     <div class="caja-categorias">
                         <div class="caja-categorias-subuno">
-                            <img src="../../assets/img/tecnologia.jpg" alt="" class="img-categorias">
+                            <img src="../assets/img/tecnologia.jpg" alt="" class="img-categorias">
                         </div>
                         <div class="caja-categorias-subdos">
                             <h2 class="tit-hdos">i7 4GB RAM GTX 1000</h2>
@@ -75,7 +75,7 @@
                 <a href="">
                     <div class="caja-categorias">
                         <div class="caja-categorias-subuno">
-                            <img src="../../assets/img/tecnologia.jpg" alt="" class="img-categorias">
+                            <img src="../assets/img/tecnologia.jpg" alt="" class="img-categorias">
                         </div>
                         <div class="caja-categorias-subdos">
                             <h2 class="tit-hdos">i7 4GB RAM GTX 1000</h2>
@@ -86,7 +86,7 @@
                 <a href="">
                     <div class="caja-categorias">
                         <div class="caja-categorias-subuno">
-                            <img src="../../assets/img/tecnologia.jpg" alt="" class="img-categorias">
+                            <img src="../assets/img/tecnologia.jpg" alt="" class="img-categorias">
                         </div>
                         <div class="caja-categorias-subdos">
                             <h2 class="tit-hdos">i7 4GB RAM GTX 1000</h2>
@@ -97,7 +97,7 @@
                 <a href="">
                     <div class="caja-categorias">
                         <div class="caja-categorias-subuno">
-                            <img src="../../assets/img/tecnologia.jpg" alt="" class="img-categorias">
+                            <img src="../assets/img/tecnologia.jpg" alt="" class="img-categorias">
                         </div>
                         <div class="caja-categorias-subdos">
                             <h2 class="tit-hdos">i7 4GB RAM GTX 1000</h2>
@@ -108,7 +108,7 @@
                 <a href="">
                     <div class="caja-categorias">
                         <div class="caja-categorias-subuno">
-                            <img src="../../assets/img/tecnologia.jpg" alt="" class="img-categorias">
+                            <img src="../assets/img/tecnologia.jpg" alt="" class="img-categorias">
                         </div>
                         <div class="caja-categorias-subdos">
                             <h2 class="tit-hdos">i7 4GB RAM GTX 1000</h2>
@@ -119,7 +119,7 @@
                 <a href="">
                     <div class="caja-categorias">
                         <div class="caja-categorias-subuno">
-                            <img src="../../assets/img/tecnologia.jpg" alt="" class="img-categorias">
+                            <img src="../assets/img/tecnologia.jpg" alt="" class="img-categorias">
                         </div>
                         <div class="caja-categorias-subdos">
                             <h2 class="tit-hdos">i7 4GB RAM GTX 1000</h2>
@@ -130,7 +130,7 @@
                 <a href="">
                     <div class="caja-categorias">
                         <div class="caja-categorias-subuno">
-                            <img src="../../assets/img/tecnologia.jpg" alt="" class="img-categorias">
+                            <img src="../assets/img/tecnologia.jpg" alt="" class="img-categorias">
                         </div>
                         <div class="caja-categorias-subdos">
                             <h2 class="tit-hdos">i7 4GB RAM GTX 1000</h2>
@@ -141,7 +141,7 @@
                 <a href="">
                     <div class="caja-categorias">
                         <div class="caja-categorias-subuno">
-                            <img src="../../assets/img/tecnologia.jpg" alt="" class="img-categorias">
+                            <img src="../assets/img/tecnologia.jpg" alt="" class="img-categorias">
                         </div>
                         <div class="caja-categorias-subdos">
                             <h2 class="tit-hdos">i7 4GB RAM GTX 1000</h2>
