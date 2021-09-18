@@ -117,7 +117,6 @@
             </div>
         </div>
     </div>
-    </div>
     <?php include '../includes/navInferior.php'; ?>
     <!-- Barra de navegación para dispositivos móviles -->
     <?php

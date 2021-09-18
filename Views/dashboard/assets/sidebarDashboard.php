@@ -11,8 +11,8 @@
       <!-- Collapse -->
       <div class="collapse navbar-collapse" id="sidenav-collapse-main">
         <!-- Nav items -->
-        <?php if (isset($_SESSION['roles']) == "3" or isset($_SESSION['roles']) == "1") { ?>
-          <?php if ($_SESSION['roles'] == "1" or $_SESSION['roles'] == "3") { ?>
+        <?php if (isset($_SESSION['roles']) == "3" or isset($_SESSION['roles']) == "1") {
+          if ($_SESSION['roles'] == "1" or $_SESSION['roles'] == "3") { ?>
             <ul class="navbar-nav">
               <li class="nav-item">
                 <a class="nav-link" href="dashboard.php">
@@ -34,7 +34,18 @@
                   <span class="nav-link-text">Crear publicación</span>
                 </a>
               </li>
-
+              <li class="nav-item">
+                <a class="nav-link" href="misCompras.php">
+                  <i class="ni ni-briefcase-24"></i>
+                  <span class="nav-link-text">Mis compras</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="verFactura.php">
+                  <i class="ni ni-credit-card text-green"></i>
+                  <span class="nav-link-text">Ver factura</span>
+                </a>
+              </li>
             <?php }
           if ($_SESSION['roles'] == "3") { ?>
               <li class="nav-item">
@@ -55,9 +66,9 @@
                   <span class="nav-link-text">Usuarios</span>
                 </a>
               </li>
-              <?php } ?>
+            <?php } ?>
             </ul>
-        <?php 
+          <?php
         } ?>
       </div>
     </div>

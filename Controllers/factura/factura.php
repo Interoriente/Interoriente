@@ -47,6 +47,7 @@ if (isset($_SESSION['documentoIdentidad'])) {
 		<meta charset="UTF-8">
 		<title>Factura</title>
 		<link rel="stylesheet" href="css/style.css">
+		<link rel="icon" href="../../Views/assets/img/favicon.png" type="image/png">
 	</head>
 
 	<body>

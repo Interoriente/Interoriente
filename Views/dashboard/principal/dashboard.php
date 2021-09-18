@@ -27,7 +27,7 @@ if (isset($respUserData)) {
     require_once '../assets/navegacion.php';
 ?>
 
- 
+
     <!-- Header -->
     <div class="header bg-primary pb-6">
       <div class="container-fluid">
@@ -421,12 +421,7 @@ if (isset($respUserData)) {
         </div>
       </div>
       <!-- Parte Inferior del HTML -->
-      <?php require_once '../assets/footer.php' ?>
-    </div>
-    </body>
-
-    </html>
-<?php
+  <?php require_once '../assets/footer.php';
   } else {
     echo "<script>alert('No puedes acceder a esta página!');</script>";
     echo "<script> document.location.href='403.php';</script>";
@@ -436,4 +431,4 @@ if (isset($respUserData)) {
   echo "<script> document.location.href='403.php';</script>";
 }
 
-?>
+  ?>

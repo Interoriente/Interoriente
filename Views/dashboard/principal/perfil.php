@@ -243,12 +243,7 @@ if (isset($respUserData)) {
     </div>
 
     <!-- Footer -->
-    <?php require_once '../assets/footer.php' ?>
-
-    </body>
-
-    </html>
-<?php
+    <?php require_once '../assets/footer.php';
   } else {
     echo "<script>alert('No puedes acceder a esta página!');</script>";
     echo "<script> document.location.href='403.php';</script>";

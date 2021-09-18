@@ -1,10 +1,12 @@
 <?php
 
-if (isset($_POST['id']) || 
-isset($_POST['carrito']) || 
-isset($_POST['idUsuarioLogeado']) || 
-isset($_POST['ciudades']) ||
-isset($_POST['checkout'])) {
+if (
+  isset($_POST['id']) ||
+  isset($_POST['carrito']) ||
+  isset($_POST['idUsuarioLogeado']) ||
+  isset($_POST['ciudades']) ||
+  isset($_POST['checkout'])
+) {
 
   if (isset($_POST['id'])) {
     $id = $_POST['id'];
@@ -13,7 +15,7 @@ isset($_POST['checkout'])) {
     $carrito = $_POST['carrito'];
     $carrito = json_decode($carrito);
     almacenarCarrito($carrito);
-  } else if(isset($_POST['idUsuarioLogeado'])) {
+  } else if (isset($_POST['idUsuarioLogeado'])) {
     $checkout = new Checkout();
     $valDirecciones = $checkout->validarDireccion();
     echo $valDirecciones;
@@ -21,7 +23,7 @@ isset($_POST['checkout'])) {
     $checkout = new Checkout();
     $ciudades = $checkout->getCiudades();
     echo $ciudades;
-  }else {
+  } else {
     $userData = $_POST['checkout'];
     $direccion = $userData[0];
     $email = $userData[1];
@@ -100,7 +102,7 @@ function addCarrito($id)
   $consulta = $pdo->prepare($sql);
   $consulta->execute();
   $resultado = $consulta->fetchAll(\PDO::FETCH_ASSOC);
- 
+
   $resultado = simplificarArreglo($resultado);
   /* Resultado a devolver */
   echo json_encode($resultado);
@@ -130,13 +132,14 @@ function almacenarCarrito($carrito)
   } else {
     echo 'La sesión no existe';
   }
-
 }
 
 /* Clase Check-out con funciones implicadas */
 
-class Checkout{
-  public function getCheckoutInfo(){
+class Checkout
+{
+  public function getCheckoutInfo()
+  {
     require '../../Models/dao/conexion.php';
     session_start();
     $idUsuario = $_SESSION['documentoIdentidad'];
@@ -158,8 +161,9 @@ class Checkout{
     $resultado = $stmt->fetchAll();
     return $resultado;
   }
-  
-  public function validarDireccion(){
+
+  public function validarDireccion()
+  {
     session_start();
     $idUsuario = $_SESSION['documentoIdentidad'];
     if (isset($idUsuario)) {
@@ -175,14 +179,14 @@ class Checkout{
       $resultado = $stmt->fetchAll(\PDO::FETCH_ASSOC); /* FETCH_ASSOC permite devolver solo un tipo de arreglo, en este caso, asociativo */
       $resultado = json_encode($resultado);
       return $resultado;
-
     } else {
       $arr = array();
       return $arr;
     }
   }
 
-  public function getCiudades(){
+  public function getCiudades()
+  {
     require '../../../Models/dao/conexion.php';
     $sql = "SELECT idCiudad as 'id', 
     nombreCiudad as 'nombre' 
@@ -193,7 +197,8 @@ class Checkout{
     $resultado = json_encode($resultado);
     return $resultado;
   }
-  public function finalizarCompra($direccion, $email){
+  public function finalizarCompra($direccion, $email)
+  {
     require('../../../Models/dao/conexion.php');
     session_start();
     $idUsuario = $_SESSION['documentoIdentidad'];
@@ -224,13 +229,43 @@ class Checkout{
       $stmtFacPu->bindValue(':idPubli', $idPubli);
       $stmtFacPu->bindValue(':cantidad', $cantidad);
       $stmtFacPu->execute();
-    /* Eliminar información de la tabla carrito */
-     $sqlDeleteCart = "DELETE FROM tblCarrito 
+      /* Eliminar información de la tabla carrito */
+      $sqlDeleteCart = "DELETE FROM tblCarrito 
      WHERE idPublicacionCarrito = $idPubli 
      AND docIdentidadCarrito = $idUsuario";
-     $stmtDeleteCart = $pdo->prepare($sqlDeleteCart);
-     $stmtDeleteCart->execute();
+      $stmtDeleteCart = $pdo->prepare($sqlDeleteCart);
+      $stmtDeleteCart->execute();
     }
     return "Proceso de Compras Finalizado!!";
+  }
+}
+class InformeCompra
+{
+  public int $id;
+
+  public function __construct($id)
+  {
+    $this->id = $id;
+  }
+  function misCompras($id)
+  {
+    require('../../../Models/dao/conexion.php');
+    $sqlMisCompras = "SELECT /* IM.urlImagen, */PU.nombrePublicacion,PU.costoPublicacion,
+    DATE_FORMAT(FA.fechaFactura, '%d/%m/%Y') as fecha
+    FROM tblFactura as FA
+    INNER JOIN tblFacturaPublicacion as FP
+    ON FP.numFacturaPublicacion=FA.numeroFactura
+    INNER JOIN tblPublicacion as PU
+    ON PU.idPublicacion=FP.idPublicacionFactura
+    /* INNER JOIN tblImagenes as IM
+    ON IM.publicacionImagen=PU.idPublicacion */
+    WHERE FA.docIdentidadFactura=?";
+    $consultaSql = $pdo->prepare($sqlMisCompras);
+    $consultaSql->execute(array($id));
+    return $consultaSql->fetchAll();
+  }
+  function MostrarFactura($id)
+  {
+    
   }
 }

@@ -15,7 +15,7 @@ if (isset($respUserData)) {
 
         //Parte superior del HTML
         require "../assets/header.php";
-        
+
         require_once '../assets/sidebarDashboard.php';
         require_once '../assets/navegacion.php'; ?>
 
@@ -89,12 +89,7 @@ if (isset($respUserData)) {
                 </div>
             </div>
             <!-- Footer -->
-            <?php require_once '../assets/footer.php' ?>
-        </div>
-        </body>
-
-        </html>
-<?php
+    <?php require_once '../assets/footer.php';
     } else {
         echo "<script>alert('No puedes acceder a esta página!');</script>";
         echo "<script> document.location.href='403.php';</script>";
@@ -104,4 +99,4 @@ if (isset($respUserData)) {
     echo "<script> document.location.href='403.php';</script>";
 }
 
-?>
+    ?>
