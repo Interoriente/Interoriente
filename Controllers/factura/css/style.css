@@ -1,5 +1,5 @@
-@import url('fonts/BrixSansRegular.css');
-@import url('fonts/BrixSansBlack.css');
+@import url('../fonts/BrixSansRegular.css');
+@import url('../fonts/BrixSansBlack.css');
 
 *{
 	margin: 0;
