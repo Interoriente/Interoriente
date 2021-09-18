@@ -9,7 +9,6 @@ if (isset($_SESSION['documentoIdentidad'])) {
   $respUserData = $usuario->getUserData($usuario->id);
   $publicaciones = new Publicaciones($documento);
   $respMostrarPublicaciones = $publicaciones->MostrarPublicaciones($publicaciones->id);
-  $respGetEstados = $publicaciones->getEstados();
   $respGetCategorias = $publicaciones->getCategorias();
 }
 //Validacion de roles
@@ -66,18 +65,6 @@ if (isset($respUserData)) {
                       <div class="form-group">
                         <label class="form-control-label" for="input-username">Costo</label>
                         <input type="number" id="input-username" name="costo" class="form-control" placeholder="Costo" max="999999999" value="" required>
-                      </div>
-                    </div>
-                    <div class="col-lg-6">
-                      <div class="form-group">
-                        <label class="form-control-label" for="input-email">Estado</label>
-                        <select name="estado" class="form-control" required>
-                          <option value="" disabled selected>Seleccione un estado del producto</option>
-                          <?php
-                          foreach ($respGetEstados as $datosEstado) { ?>
-                            <option value="<?php echo $datosEstado['idEstadoArticulo']; ?>"><?php echo $datosEstado['nombreEstadoArticulo']; ?></option>
-                          <?php } ?>
-                        </select>
                       </div>
                     </div>
 
