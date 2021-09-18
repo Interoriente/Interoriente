@@ -14,12 +14,12 @@ use Dompdf\Dompdf;
 use Google\Service\AlertCenter\Attachment;
 
 // instantiate and use the dompdf class
-		$dompdf = new Dompdf();
+$dompdf = new Dompdf();
 
-		$dompdf->loadHtml($html);
-		// (Optional) Setup the paper size and orientation
-		$dompdf->setPaper('letter', 'portrait');
-		// Render the HTML as PDF
-		$dompdf->render();
-		// Output the generated PDF to Browser
-		$dompdf->stream('factura_' . $no_factura . '.pdf',array('Attachment'=>0));
+$dompdf->loadHtml($html);
+// (Optional) Setup the paper size and orientation
+$dompdf->setPaper('letter', 'portrait');
+// Render the HTML as PDF
+$dompdf->render();
+// Output the generated PDF to Browser
+$dompdf->stream('factura_' . $no_factura . '.pdf', array('Attachment' => 0));
