@@ -8,10 +8,9 @@ ob_start();
 include(dirname('__FILE__') . '/factura.php');
 $html = ob_get_clean();
 
-require_once '../pdf/vendor/autoload.php';
+require_once '../dompdf/autoload.inc.php';
 
 use Dompdf\Dompdf;
-use Google\Service\AlertCenter\Attachment;
 
 // instantiate and use the dompdf class
 $dompdf = new Dompdf();
