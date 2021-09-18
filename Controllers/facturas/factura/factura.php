@@ -36,9 +36,9 @@ if (isset($_SESSION['documentoIdentidad'])) {
 
 
 	$no_factura = $resultadoCliente->numeroFactura;
-	if ($resultadoCliente->numeroFactura == 1) {
+	/* if ($resultadoCliente->numeroFactura == 1) {
 		$anulada = '<img class="anulada" src="img/anulado.png" alt="Anulada">';
-	}
+	} */
 ?>
 	<!DOCTYPE html>
 	<html lang="en">
