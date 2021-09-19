@@ -24,7 +24,7 @@ if (isset($respUserData)) {
         require_once '../assets/navegacion.php'; ?>
         <!-- Link estilos -->
         <link rel="stylesheet" href="../../assets/css/general.css">
-        <link rel="stylesheet" href="../../assets/css/misCompras.css">
+        <link rel="stylesheet" href="../assets/css/misCompras.css">
         <!-- Header -->
         <div class="header bg-primary pb-3">
             <div class="container-fluid">
