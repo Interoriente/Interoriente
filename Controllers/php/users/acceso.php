@@ -1,10 +1,13 @@
 <?php
-if (isset($_POST['iniciarSesion']) || isset($_POST['registrarse'])) {
+if (isset($_POST['iniciarSesion']) || isset($_POST['registrarse']) || isset($_GET['comprobandoAcceso'])) {
     if (isset($_POST['iniciarSesion'])) {
         $idUsuario = $_POST['id'];
         $contrasena = $_POST['contrasena'];
         $iniciar = new InicioSesion();
         $iniciar->iniciarSesion($idUsuario, $contrasena);
+    }else if ($_GET['comprobandoAcceso']) {
+        $loginGoogle = new InicioSesion();
+        $loginGoogle->LoginGoogle();
     } else {
         $nombre = strip_tags($_POST['nombres']);
         $apellido = strip_tags($_POST['apellidos']);
@@ -14,17 +17,13 @@ if (isset($_POST['iniciarSesion']) || isset($_POST['registrarse'])) {
         $contrasenaRepetida = strip_tags($_POST['recontrasena']);
         $perfil = strip_tags($_POST['imagen']);
         $registro = new Registro();
-        $registro->registrarUsuario($nombre, $apellido, $docIdentidad, $email, $contrasena, $contrasenaRepetida,$perfil);
+        $registro->registrarUsuario($nombre, $apellido, $docIdentidad, $email, $contrasena, $contrasenaRepetida, $perfil);
     }
-}
-if ($_GET['comprobandoAcceso']) {
-    $loginGoogle=new InicioSesion();
-    $loginGoogle->LoginGoogle();
 }
 
 class Registro
 {
-    public function registrarUsuario($nombres, $apellidos, $docId, $correo, $pass, $rePass,$imagen)
+    public function registrarUsuario($nombres, $apellidos, $docId, $correo, $pass, $rePass, $imagen)
     {
         if ($pass == $rePass) {
             //Llamar a la conexion base de datos
@@ -129,7 +128,7 @@ class InicioSesion
         require_once '../../logingoogle/vendor/autoload.php';
 
         require_once '../../logingoogle/config.php';
-        
+
         $client = new Google_Client();
 
         $client->setClientId($clientID);
