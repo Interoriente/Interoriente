@@ -1,11 +1,14 @@
 <?php
-if ($_GET['numero']) {
-    $numeroFactura=$_GET['numero'];
-    session_start();
-    if (isset($_SESSION['documentoIdentidad'])) {
+session_start();
+if (isset($_SESSION['documentoIdentidad'])) {
+    if ($_GET['numero']) {
+        $numeroFactura = $_GET['numero'];
+        $documento = $_SESSION['documentoIdentidad'];
+
         require "../../../Controllers/php/users/compras.php";
-        $factura = new InformeCompra($numeroFactura);
-        $respFactura = $factura->MostrarFactura($factura->id);
+        $factura = new Factura($documento, $numeroFactura);
+        $respEncabezadoFactura = $factura->EncabezadoFactura($factura->id, $factura->numero);
+        $respCuerpoFactura = $factura->CuerpoFactura($factura->id, $factura->numero);
 
         /* Inicializando variables para luego utilizarlas en la factura */
         $subtotal = 0;
@@ -15,12 +18,6 @@ if ($_GET['numero']) {
         $codCliente = $_SESSION['documentoIdentidad'];
         $anulada = '';
         $iva = 0.19;
-
-
-        $no_factura = $resultadoCliente->numeroFactura;
-        /* if ($resultadoCliente->numeroFactura == 1) {
-		$anulada = '<img class="anulada" src="img/anulado.png" alt="Anulada">';
-	} */
 ?>
         <!DOCTYPE html>
         <html lang="en">
@@ -39,7 +36,7 @@ if ($_GET['numero']) {
                     <tr>
                         <td class="logo_factura">
                             <div>
-                                <img src="img/logoAcortado.png">
+                                <img src="../assets/img/logoAcortado.png">
                             </div>
                         </td>
                         <td class="info_empresa">
@@ -53,9 +50,9 @@ if ($_GET['numero']) {
                         <td class="info_factura">
                             <div class="round">
                                 <span class="h3">Factura</span>
-                                <p>No. Factura: <strong><?php echo $respFactura; ?></strong></p>
-                                <p>Fecha: <?php echo $resultadoCliente->fecha; ?></p>
-                                <p>Hora: <?php echo $resultadoCliente->hora; ?></p>
+                                <p>No. Factura: <strong><?php echo $respEncabezadoFactura->numeroFactura; ?></strong></p>
+                                <p>Fecha: <?php echo $respEncabezadoFactura->fecha; ?></p>
+                                <p>Hora: <?php echo $respEncabezadoFactura->hora; ?></p>
                                 <p>Factura Electrónica</p>
                             </div>
                         </td>
@@ -69,10 +66,10 @@ if ($_GET['numero']) {
                                 <table class="datos_cliente">
                                     <tr>
                                         <td><label>Nit:</label>
-                                            <p><?php echo $resultadoCliente->documentoIdentidad; ?></p>
+                                            <p><?php echo $respEncabezadoFactura->documentoIdentidad; ?></p>
                                         </td>
                                         <td><label>Teléfono:</label>
-                                            <p><?php echo $resultadoCliente->documentoIdentidad; ?></p>
+                                            <p><?php echo $respEncabezadoFactura->telefonoMovilUsuario; ?></p>
                                         </td>
                                         <td><label>Municipio:</label>
                                             <p>Marinilla Ant</p>
@@ -80,10 +77,10 @@ if ($_GET['numero']) {
                                     </tr>
                                     <tr>
                                         <td><label>Nombre:</label>
-                                            <p><?php echo $resultadoCliente->Cliente; ?></p>
+                                            <p><?php echo $respEncabezadoFactura->Cliente; ?></p>
                                         </td>
                                         <td><label>Dirección:</label>
-                                            <p><?php echo $resultadoCliente->direccionFactura; ?></p>
+                                            <p><?php echo $respEncabezadoFactura->direccionFactura; ?></p>
                                         </td>
                                     </tr>
                                 </table>
@@ -105,7 +102,7 @@ if ($_GET['numero']) {
                     <tbody id="detalle_productos">
 
                         <?php
-                        foreach ($resultadoProductos as $datos) {
+                        foreach ($respCuerpoFactura as $datos) {
                         ?>
                             <tr>
                                 <td class="textcenter"><?php echo number_format($datos['cantidadFacturaPublicacion']); ?></td>
@@ -148,10 +145,12 @@ if ($_GET['numero']) {
         </body>
 
         </html>
-<?php } else {
-        echo "Error no se tiene la sesión iniciada";
+<?php
+    } else {
+        echo "<script>alert('¡Error! No se ha seleccionado una factura.');</script>";
+        echo "<script> document.location.href='dashboard.php';</script>";
     }
-}else {
-    echo "Error, No se ha seleccionado la factura";
-
+} else {
+    echo "<script>alert('No has iniciado sesión');</script>";
+    echo "<script> document.location.href='403.php';</script>";
 }

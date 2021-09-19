@@ -239,7 +239,7 @@ class Checkout
     return "Proceso de Compras Finalizado!!";
   }
 }
-class InformeCompra
+class Compra
 {
   public int $id;
 
@@ -268,25 +268,44 @@ class InformeCompra
     $consultaSql->execute(array($id));
     return $consultaSql->fetchAll();
   }
+}
+class Factura
+{
+  public int $id;
+  public int $numero;
 
-  function MostrarFactura($id)
+  public function __construct($id, $numero)
+  {
+    $this->id = $id;
+    $this->numero = $numero;
+  }
+  public function CuerpoFactura($id, $numero)
   {
     require('../../../Models/dao/conexion.php');
-    $sqlMisCompras = "SELECT /* IM.urlImagen, */FA.numeroFactura,FA.fechaFactura,
-    FA.direccionFactura,FA.emailFactura,
-    PU.nombrePublicacion,PU.costoPublicacion,
-    sum(FP.cantidadFacturaPublicacion) as 'cantidad',
-    DATE_FORMAT(FA.fechaFactura, '%d/%m/%Y') as fecha
+    $sqlMisCompras = "SELECT PU.nombrePublicacion,PU.costoPublicacion,FP.cantidadFacturaPublicacion, FP.cantidadFacturaPublicacion*PU.costoPublicacion as pagar
     FROM tblFactura as FA
-    INNER JOIN tblFacturaPublicacion as FP
-    ON FP.numFacturaPublicacion=FA.numeroFactura
-    INNER JOIN tblPublicacion as PU
-    ON PU.idPublicacion=FP.idPublicacionFactura
-    /* INNER JOIN tblImagenes as IM
-    ON IM.publicacionImagen=PU.idPublicacion */
-    WHERE FA.numeroFactura=?";
+    INNER JOIN tblFacturaPublicacion as FP ON FP.numFacturaPublicacion = FA.numeroFactura
+    INNER JOIN tblUsuario AS US ON FA.docIdentidadFactura=US.documentoIdentidad
+    INNER JOIN tblPublicacion as PU ON PU.idPublicacion=FP.idPublicacionFactura
+    WHERE FA.numeroFactura=? AND US.documentoIdentidad=? 
+    ORDER BY PU.nombrePublicacion ASC";
     $consultaSql = $pdo->prepare($sqlMisCompras);
-    $consultaSql->execute(array($id));
+    $consultaSql->execute(array($numero, $id));
     return $consultaSql->fetchAll();
+  }
+  public function EncabezadoFactura($id, $numero)
+  {
+    require('../../../Models/dao/conexion.php');
+    $sqlCliente   = "SELECT US.descripcionUsuario,FA.direccionFactura,
+    US.telefonoMovilUsuario,
+    FA.numeroFactura,DATE_FORMAT(FA.fechaFactura, '%d/%m/%Y') as fecha, 
+    DATE_FORMAT(FA.fechaFactura,'%H:%i:%s') as  hora,
+    US.documentoIdentidad,concat(US.nombresUsuario,' ',US.apellidoUsuario) as Cliente 
+    FROM tblUsuario AS US
+    INNER JOIN tblFactura AS FA ON FA.docIdentidadFactura=US.documentoIdentidad
+    WHERE US.documentoIdentidad=? AND FA.numeroFactura=?";
+    $prepararCliente = $pdo->prepare($sqlCliente);
+    $prepararCliente->execute(array($id,$numero));
+    return $prepararCliente->fetch(PDO::FETCH_OBJ);
   }
 }

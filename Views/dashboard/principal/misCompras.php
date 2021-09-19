@@ -10,7 +10,7 @@ if (isset($_SESSION['documentoIdentidad'])) {
     $usuario = new Usuario($documento);
     $respUserData = $usuario->getUserData($usuario->id);
     require "../../../Controllers/php/users/compras.php";
-    $compra = new InformeCompra($documento);
+    $compra = new Compra($documento);
     $respComprasData = $compra->misCompras($compra->id);
     $contadorCompras = count($respComprasData);
 }

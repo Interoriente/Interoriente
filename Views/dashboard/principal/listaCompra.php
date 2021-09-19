@@ -16,7 +16,7 @@ if (isset($_SESSION['documentoIdentidad'])) {
     $usuario = new Usuario($documento);
     $respUserData = $usuario->getUserData($usuario->id);
 
-    $compras = new InformeCompra($documento);
+    $compras = new Compra($documento);
     $respMisCompras = $compras->misCompras($compras->id);
     $contadorCompras = count($respMisCompras);
 }
@@ -76,10 +76,9 @@ if (isset($respUserData)) {
                                                     Acciones
                                                 </button>
                                                 <div class="dropdown-menu">
-                                                    <a href="verFactura.php?numero=<?php echo $datosCompra['numeroFactura']; ?>" class="btn btn-success" target="_blank"></a>
-                                                    <br>
+                                                    <a href="verFactura.php?numero=<?php echo $datosCompra['numeroFactura']; ?>" class="btn btn-info" target="_blank">Ver</a>
+                                                    <br><br>
                                                     <form action="../../../Controller/php/view/publicaciones.php" method="POST">
-                                                        <input type="hidden" name="descargarFactura">
                                                         <input type="hidden" name="id" value="<?php echo $datosCompra['numeroFactura']; ?>">
                                                         <button type="submit" class="btn btn-success">Descargar</button>
                                                     </form>
