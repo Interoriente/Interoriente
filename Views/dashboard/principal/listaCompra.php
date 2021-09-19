@@ -17,8 +17,8 @@ if (isset($_SESSION['documentoIdentidad'])) {
     $respUserData = $usuario->getUserData($usuario->id);
 
     $compras = new Compra($documento);
-    $respMisCompras = $compras->misCompras($compras->id);
-    $contadorCompras = count($respMisCompras);
+    $respFactura = $compras->FacturasCreadas($compras->id);
+    $contadorFactura = count($respFactura);
 }
 //Validar si existe sesión
 if (isset($respUserData)) {
@@ -36,7 +36,7 @@ if (isset($respUserData)) {
                     <div class="row align-items-center py-4">
                         <div class="col-lg-6 col-7">
                             <h6 class="h2 text-white d-inline-block mb-0">Compras realizadas</h6><br>
-                            <h6 class="h2 text-white d-inline-block mb-0">Total de facturas generadas: <?php echo $contadorCompras; ?></h6>
+                            <h6 class="h2 text-white d-inline-block mb-0">Total de facturas generadas: <?php echo $contadorFactura; ?></h6>
                         </div>
                     </div>
                 </div>
@@ -65,7 +65,7 @@ if (isset($respUserData)) {
                                 </thead>
                                 <tbody class="list">
                                     <?php
-                                    foreach ($respMisCompras as $datosCompra) { ?>
+                                    foreach ($respFactura as $datosCompra) { ?>
                                         <tr>
                                             <th><?php echo $datosCompra['numeroFactura']; ?></th>
                                             <th><?php echo $datosCompra['fechaFactura']; ?></th>

@@ -231,8 +231,8 @@ class Checkout
       $stmtFacPu->execute();
       /* Eliminar información de la tabla carrito */
       $sqlDeleteCart = "DELETE FROM tblCarrito 
-     WHERE idPublicacionCarrito = $idPubli 
-     AND docIdentidadCarrito = $idUsuario";
+      WHERE idPublicacionCarrito = $idPubli 
+      AND docIdentidadCarrito = $idUsuario";
       $stmtDeleteCart = $pdo->prepare($sqlDeleteCart);
       $stmtDeleteCart->execute();
     }
@@ -247,7 +247,7 @@ class Compra
   {
     $this->id = $id;
   }
-  function misCompras($id)
+  public function misCompras($id)
   {
     require('../../../Models/dao/conexion.php');
     $sqlMisCompras = "SELECT /* IM.urlImagen, */FA.numeroFactura,FA.fechaFactura,
@@ -264,6 +264,17 @@ class Compra
     ON IM.publicacionImagen=PU.idPublicacion */
     WHERE FA.docIdentidadFactura=?
     GROUP BY PU.nombrePublicacion";
+    $consultaSql = $pdo->prepare($sqlMisCompras);
+    $consultaSql->execute(array($id));
+    return $consultaSql->fetchAll();
+  }
+  public function FacturasCreadas($id)
+  {
+    require('../../../Models/dao/conexion.php');
+    $sqlMisCompras = "SELECT FA.numeroFactura,FA.fechaFactura,
+    FA.direccionFactura,FA.emailFactura
+    FROM tblFactura as FA
+    WHERE FA.docIdentidadFactura=?";
     $consultaSql = $pdo->prepare($sqlMisCompras);
     $consultaSql->execute(array($id));
     return $consultaSql->fetchAll();
@@ -305,7 +316,7 @@ class Factura
     INNER JOIN tblFactura AS FA ON FA.docIdentidadFactura=US.documentoIdentidad
     WHERE US.documentoIdentidad=? AND FA.numeroFactura=?";
     $prepararCliente = $pdo->prepare($sqlCliente);
-    $prepararCliente->execute(array($id,$numero));
+    $prepararCliente->execute(array($id, $numero));
     return $prepararCliente->fetch(PDO::FETCH_OBJ);
   }
 }

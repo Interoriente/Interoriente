@@ -112,18 +112,17 @@ if (isset($_SESSION['documentoIdentidad'])) {
                             </tr>
                         <?php
                             $precioTotal = $datos['pagar'];
+                            $subtotal+=$precioTotal;
                             //Round()->Redondeo
-                            $subtotal = round($subtotal + $precioTotal);
                             $impuesto = round($subtotal * $iva, 2);
-                            $totalSinIva = round($subtotal - $impuesto, 2);
-                            $totalPagar = round($totalSinIva + $impuesto, 2);
+                            $totalPagar = round($subtotal + $impuesto, 2);
                         }
                         ?>
                     </tbody>
                     <tfoot id="detalle_totales">
                         <tr>
                             <td colspan="3" class="textright"><span>SUBTOTAL</span></td>
-                            <td class="textright"><span>$<?php echo number_format($totalSinIva); ?></span></td>
+                            <td class="textright"><span>$<?php echo number_format($subtotal); ?></span></td>
                         </tr>
                         <tr>
                             <td colspan="3" class="textright"><span>IVA (<?php echo $iva; ?> %)</span></td>
