@@ -182,7 +182,8 @@ class Publicaciones
     {
         require "../../../Models/dao/conexion.php";
 
-        $sqlMostrarPubli = "SELECT * 
+        $sqlMostrarPubli = "SELECT IMG.urlImagen,PU.nombrePublicacion,PU.descripcionPublicacion,
+        PU.costoPublicacion,PU.stockPublicacion,PU.validacionPublicacion
         FROM tblPublicacion as PU
         INNER JOIN tblImagenes as IMG 
         ON PU.idPublicacion = IMG.publicacionImagen

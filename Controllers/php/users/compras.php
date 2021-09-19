@@ -204,7 +204,7 @@ class Checkout
     $idUsuario = $_SESSION['documentoIdentidad'];
     /* Almacenar información de la compra */
     $sqlFa = "INSERT INTO `tblFactura`
-    VALUES (null,:idUser,CURRENT_TIMESTAMP,:direccion,:email,1)";
+    VALUES (null,:idUser,CURRENT_TIMESTAMP,:direccion,:email)";
     $stmt = $pdo->prepare($sqlFa);
     $stmt->bindValue(':idUser', $idUsuario);
     $stmt->bindValue(':direccion', $direccion);
@@ -250,7 +250,10 @@ class InformeCompra
   function misCompras($id)
   {
     require('../../../Models/dao/conexion.php');
-    $sqlMisCompras = "SELECT /* IM.urlImagen, */PU.nombrePublicacion,PU.costoPublicacion,
+    $sqlMisCompras = "SELECT /* IM.urlImagen, */FA.numeroFactura,FA.fechaFactura,
+    FA.direccionFactura,FA.emailFactura,
+    PU.nombrePublicacion,PU.costoPublicacion,
+    sum(FP.cantidadFacturaPublicacion) as 'cantidad',
     DATE_FORMAT(FA.fechaFactura, '%d/%m/%Y') as fecha
     FROM tblFactura as FA
     INNER JOIN tblFacturaPublicacion as FP
@@ -259,13 +262,31 @@ class InformeCompra
     ON PU.idPublicacion=FP.idPublicacionFactura
     /* INNER JOIN tblImagenes as IM
     ON IM.publicacionImagen=PU.idPublicacion */
-    WHERE FA.docIdentidadFactura=?";
+    WHERE FA.docIdentidadFactura=?
+    GROUP BY PU.nombrePublicacion";
     $consultaSql = $pdo->prepare($sqlMisCompras);
     $consultaSql->execute(array($id));
     return $consultaSql->fetchAll();
   }
+
   function MostrarFactura($id)
   {
-    
+    require('../../../Models/dao/conexion.php');
+    $sqlMisCompras = "SELECT /* IM.urlImagen, */FA.numeroFactura,FA.fechaFactura,
+    FA.direccionFactura,FA.emailFactura,
+    PU.nombrePublicacion,PU.costoPublicacion,
+    sum(FP.cantidadFacturaPublicacion) as 'cantidad',
+    DATE_FORMAT(FA.fechaFactura, '%d/%m/%Y') as fecha
+    FROM tblFactura as FA
+    INNER JOIN tblFacturaPublicacion as FP
+    ON FP.numFacturaPublicacion=FA.numeroFactura
+    INNER JOIN tblPublicacion as PU
+    ON PU.idPublicacion=FP.idPublicacionFactura
+    /* INNER JOIN tblImagenes as IM
+    ON IM.publicacionImagen=PU.idPublicacion */
+    WHERE FA.numeroFactura=?";
+    $consultaSql = $pdo->prepare($sqlMisCompras);
+    $consultaSql->execute(array($id));
+    return $consultaSql->fetchAll();
   }
 }

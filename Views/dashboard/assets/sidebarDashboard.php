@@ -41,9 +41,9 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="verFactura.php">
+                <a class="nav-link" href="listaCompra.php">
                   <i class="ni ni-credit-card text-green"></i>
-                  <span class="nav-link-text">Ver factura</span>
+                  <span class="nav-link-text">Lista de Compras</span>
                 </a>
               </li>
             <?php }

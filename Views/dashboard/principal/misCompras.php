@@ -12,6 +12,7 @@ if (isset($_SESSION['documentoIdentidad'])) {
     require "../../../Controllers/php/users/compras.php";
     $compra = new InformeCompra($documento);
     $respComprasData = $compra->misCompras($compra->id);
+    $contadorCompras = count($respComprasData);
 }
 if (isset($respUserData)) {
     if ($rol == 1 or $rol == 3) {
@@ -24,7 +25,21 @@ if (isset($respUserData)) {
         <!-- Link estilos -->
         <link rel="stylesheet" href="../../assets/css/general.css">
         <link rel="stylesheet" href="../../assets/css/misCompras.css">
-        <!-- Formulario de soporte -->
+        <!-- Header -->
+        <div class="header bg-primary pb-3">
+            <div class="container-fluid">
+                <div class="header-body">
+                    <div class="row align-items-center">
+                        <h6 class="h2 text-white d-inline-block mb-0" style="text-align: center;">Productos adquiridos</h6><br>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Productos comprados -->
+        <?php if ($contadorCompras == 0) { ?>
+            <div class="alert alert-danger" role="alert" style="text-align: center;">Opps, por no ahora no has realizado compras</div>
+            <a class="btn btn-info" href="../../navegacion/index.php">Ver Productos</a>
+        <?php } ?>
         <div class="padre">
             <div class="header">
                 <div class="contenedores-menu">
@@ -37,7 +52,8 @@ if (isset($respUserData)) {
                                 </div>
                                 <div class="cont-menudos">
                                     <p><strong><?php echo $misCompras['nombrePublicacion']; ?></strong></p>
-                                    <p><?php echo $misCompras['costoPublicacion']; ?></p>
+                                    <p>$<?php echo $misCompras['costoPublicacion']; ?></p>
+                                    <p>Cantidad: <?php echo $misCompras['cantidad']; ?></p>
                                     <p><?php echo $misCompras['fecha']; ?></p>
                                 </div>
                                 <div class="cont-menutres">
