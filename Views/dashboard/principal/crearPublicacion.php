@@ -57,12 +57,6 @@ if (isset($respUserData)) {
                     </div>
                     <div class="col-lg-6">
                       <div class="form-group">
-                        <label class="form-control-label" for="input-username">Color</label>
-                        <input type="color" id="input-username" name="color" class="form-control" placeholder="Color" value="" required>
-                      </div>
-                    </div>
-                    <div class="col-lg-6">
-                      <div class="form-group">
                         <label class="form-control-label" for="input-username">Costo</label>
                         <input type="number" id="input-username" name="costo" class="form-control" placeholder="Costo" max="999999999" value="" required>
                       </div>

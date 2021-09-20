@@ -76,7 +76,7 @@ if (isset($respUserData)) {
                           <form action="../../../Controllers/php/users/usuarios.php" method="POST">
                             <input type="hidden" name="desactivarUsuarios">
                             <input type="hidden" name="id" value="<?php echo $datos['documentoIdentidad']; ?>">
-                            <button class="btn btn-danger">Desactivar Usuarios</button>
+                            <button class="btn btn-danger">Desactivar</button>
                           </form>
                         </th>
                     </tr>
@@ -84,10 +84,10 @@ if (isset($respUserData)) {
                       } else { ?>
                     <th>Inactivo</th>
                     <th>
-                      <form action="../../../Controller/php/users/usuarios.php" method="POST">
+                      <form action="../../../Controllers/php/users/usuarios.php" method="POST">
                         <input type="hidden" name="activarUsuarios">
                         <input type="hidden" name="id" value="<?php echo $datos['documentoIdentidad']; ?>">
-                        <button class="btn btn-info">Activar Usuarios</button>
+                        <button class="btn btn-info">Activar</button>
                       </form>
                     </th>
                 <?php

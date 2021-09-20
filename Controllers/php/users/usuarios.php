@@ -154,7 +154,7 @@ class Administrador
     public function DesactivarUsuario($id)
     {
         //Llamada a la conexion
-        require '../../Models/dao/conexion.php';
+        require '../../../Models/dao/conexion.php';
         $estado = '0';
         //sentencia sql para actualizar estado
         $sqlEditar = "UPDATE tblUsuario 

@@ -76,10 +76,13 @@ if (isset($respUserData)) {
                                                     Acciones
                                                 </button>
                                                 <div class="dropdown-menu">
-                                                    <a href="verFactura.php?numero=<?php echo $datosCompra['numeroFactura']; ?>" class="btn btn-info" target="_blank">Ver</a>
-                                                    <br><br>
-                                                    <form action="../../../Controller/php/view/publicaciones.php" method="POST">
-                                                        <input type="hidden" name="id" value="<?php echo $datosCompra['numeroFactura']; ?>">
+                                                    <form action="verFactura.php" method="POST" target="_blank">
+                                                        <input type="hidden" name="numero" value="<?php echo $datosCompra['numeroFactura']; ?>">
+                                                        <button type="submit" class="btn btn-info">Ver</button>
+                                                    </form>
+                                                    <br>
+                                                    <form action="#" method="POST" target="_blank">
+                                                        <input type="hidden" name="numero" value="<?php echo $datosCompra['numeroFactura']; ?>">
                                                         <button type="submit" class="btn btn-success">Descargar</button>
                                                     </form>
                                                 </div>

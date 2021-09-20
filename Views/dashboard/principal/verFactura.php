@@ -1,8 +1,9 @@
 <?php
 session_start();
 if (isset($_SESSION['documentoIdentidad'])) {
-    if ($_GET['numero']) {
-        $numeroFactura = $_GET['numero'];
+    @$numero=$_POST['numero'];
+    if (isset($numero)) {
+        $numeroFactura = $numero    ;
         $documento = $_SESSION['documentoIdentidad'];
 
         require "../../../Controllers/php/users/compras.php";
@@ -15,8 +16,6 @@ if (isset($_SESSION['documentoIdentidad'])) {
         $impuesto = 0;
         $totalSinIva = 0;
         $totalPagar = 0;
-        $codCliente = $_SESSION['documentoIdentidad'];
-        $anulada = '';
         $iva = 0.19;
 ?>
         <!DOCTYPE html>
@@ -30,7 +29,6 @@ if (isset($_SESSION['documentoIdentidad'])) {
         </head>
 
         <body>
-            <?php echo $anulada; ?>
             <div id="page_pdf">
                 <table id="factura_head">
                     <tr>
@@ -65,7 +63,7 @@ if (isset($_SESSION['documentoIdentidad'])) {
                                 <span class="h3">Cliente</span>
                                 <table class="datos_cliente">
                                     <tr>
-                                        <td><label>Nit:</label>
+                                        <td><label>Documento:</label>
                                             <p><?php echo $respEncabezadoFactura->documentoIdentidad; ?></p>
                                         </td>
                                         <td><label>Teléfono:</label>
@@ -81,6 +79,9 @@ if (isset($_SESSION['documentoIdentidad'])) {
                                         </td>
                                         <td><label>Dirección:</label>
                                             <p><?php echo $respEncabezadoFactura->direccionFactura; ?></p>
+                                        </td>
+                                        <td><label>Correo:</label>
+                                            <p><?php echo $respEncabezadoFactura->emailFactura; ?></p>
                                         </td>
                                     </tr>
                                 </table>

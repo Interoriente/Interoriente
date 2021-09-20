@@ -3,9 +3,7 @@ if (isset($_POST['crearPublicacion'])) {
     /* Capturar datos */
     $nombre = $_POST['nombre'];
     $descripcion = $_POST['descripcion'];
-    $color = $_POST['color'];
     $costo = $_POST['costo'];
-    $estadoArticulo = $_POST['estado'];
     $stock = $_POST['stock'];
     $categoria = $_POST['categoria'];
     $documentoIdentidad = $_POST['usuario'];
@@ -15,9 +13,7 @@ if (isset($_POST['crearPublicacion'])) {
     $publicaciones->CrearPublicacion(
         $nombre,
         $descripcion,
-        $color,
         $costo,
-        $estadoArticulo,
         $stock,
         $categoria,
         $documentoIdentidad
@@ -108,9 +104,7 @@ class Publicaciones
     public function CrearPublicacion(
         $nombrePubli,
         $descripcionPubli,
-        $colorPubli,
         $costoPubli,
-        $estadoArticuloPubli,
         $stockPubli,
         $categoriaPubli,
         $documentoIdentidadPubli
@@ -122,16 +116,15 @@ class Publicaciones
         $sql = "INSERT 
         INTO tblPublicacion 
         (nombrePublicacion,docIdentidadPublicacion,
-        descripcionPublicacion,colorPublicacion,
-        costoPublicacion,estadoArticuloPublicacion,
+        descripcionPublicacion,costoPublicacion,
         stockPublicacion,categoriaPublicacion,validacionPublicacion)
-        VALUES (?,?,?,?,?,?,?,?,?)";
+        VALUES (?,?,?,?,?,?,?)";
         //Preparar consulta
         $insertarPublicacion = $pdo->prepare($sql);
         //Almaceno información
         $insertarPublicacion->execute(array(
             $nombrePubli, $documentoIdentidadPubli,
-            $descripcionPubli, $colorPubli, $costoPubli, $estadoArticuloPubli,
+            $descripcionPubli, $costoPubli,
             $stockPubli, $categoriaPubli, $verificacion
         ));
 

@@ -308,7 +308,7 @@ class Factura
   {
     require('../../../Models/dao/conexion.php');
     $sqlCliente   = "SELECT US.descripcionUsuario,FA.direccionFactura,
-    US.telefonoMovilUsuario,
+    FA.emailFactura,US.telefonoMovilUsuario,
     FA.numeroFactura,DATE_FORMAT(FA.fechaFactura, '%d/%m/%Y') as fecha, 
     DATE_FORMAT(FA.fechaFactura,'%H:%i:%s') as  hora,
     US.documentoIdentidad,concat(US.nombresUsuario,' ',US.apellidoUsuario) as Cliente 
