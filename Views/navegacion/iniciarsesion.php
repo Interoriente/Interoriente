@@ -23,8 +23,7 @@ require "../assets/linksGoogle.php";
     <meta name="description" content="Bienvenidos a Interoriente, podrás comprar, vender y mucho más.">
     <meta name="author" content="Inter-oriente">
     <title>Iniciar sesión | Interoriente</title>
-    <!--Jquert Temporal-->
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    
     <!-- Favicon -->
     <link rel="icon" href="../assets/img/favicon.png" type="image/png">
     <!-- Fonts -->
