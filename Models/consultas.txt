@@ -1,0 +1,26 @@
+1. Valor ventas anuales.
+    Dos datos:
+        1. Mes
+        2. Vlr. Total de ventas realizadas en ese mes
+
+=========
+SELECT month(FA.fechaFactura) AS 'Mes', 
+sum(FP.cantidadFacturaPublicacion * PU.costoPublicacion) AS 'Total'
+FROM tblFactura AS FA
+INNER JOIN tblFacturaPublicacion AS FP
+ON FP.numFacturaPublicacion = FA.numeroFactura
+INNER JOIN tblPublicacion AS PU 
+ON PU.idPublicacion = FP.idPublicacionFactura
+GROUP BY month(FA.fechaFactura)
+HAVING YEAR(FA.fechaFactura) = YEAR(CURDATE());
+=========
+2. Cantidad de ventas de x día a y día por de la semana pasada
+3. Publicaciones más exitosas: 
+    1. Título
+    2. No. Ventas
+    3. Cantidad en stock
+    4. Porcentaje??
+4. Cantidad ventas hoy
+5. Total ventas hoy
+6. Ventas por ciudad
+
