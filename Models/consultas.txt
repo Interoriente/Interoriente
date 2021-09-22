@@ -16,7 +16,10 @@ ON PU.idPublicacion = FP.idPublicacionFactura
 WHERE YEAR(FA.fechaFactura) = YEAR(CURDATE())
 GROUP BY month(FA.fechaFactura)
 =========
-2. Cantidad de ventas de x día a y día por de la semana pasada
+2. Cantidad de ventas de x día a y día de la semana pasada
+
+
+
 
 3. Publicaciones más exitosas: 
     1. Título
