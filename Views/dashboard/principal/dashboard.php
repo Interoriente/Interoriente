@@ -6,6 +6,29 @@ if (isset($_SESSION['documentoIdentidad'])) {
   $usuario = new Usuario($documento);
   $respUserData = $usuario->getUserData($usuario->id);
   $respGetRoles = $usuario->getRoles($usuario->id);
+
+  //Se va a tener temporal (Para pruebas)
+  require "../../../Models/dao/conexion.php";
+  $sqlDatos = "SELECT month(FA.fechaFactura) AS 'Mes', 
+  SUM(FP.cantidadFacturaPublicacion * PU.costoPublicacion) AS 'Total'
+  FROM tblFactura AS FA
+  INNER JOIN tblFacturaPublicacion AS FP
+  ON FP.numFacturaPublicacion = FA.numeroFactura
+  INNER JOIN tblPublicacion AS PU 
+  ON PU.idPublicacion = FP.idPublicacionFactura
+  WHERE YEAR(FA.fechaFactura) = YEAR(CURDATE())
+  GROUP BY month(FA.fechaFactura)";
+  $stmtDatos = $pdo->prepare($sqlDatos);
+  $stmtDatos->execute();
+  $labelVentas = "";
+  $datosVentas = "";
+  $resultadoDatos = $stmtDatos->fetchAll();
+  foreach ($resultadoDatos as $datos) {
+    $labelVentas = $labelVentas . $datos['Mes'] . ",";
+    $datosVentas = $datosVentas . $datos['Total'] . ",";
+  }
+  $labelVentas=rtrim($labelVentas,",");
+  $datosVentas=rtrim($datosVentas,",");
 }
 
 if (isset($respUserData)) {
@@ -26,25 +49,27 @@ if (isset($respUserData)) {
     require_once '../assets/sidebarDashboard.php';
     require_once '../assets/navegacion.php';
 ?>
-
-
+    <script>
+      var labelVentas = [<?php echo $labelVentas; ?>]
+      var datosVentas = [<?php echo $datosVentas; ?>]
+    </script>
     <!-- Header -->
     <div class="header bg-primary pb-6">
       <div class="container-fluid">
         <div class="header-body">
           <!-- Fila de botones siperiores -->
           <?php
-              foreach ($respGetRoles as $datosRol) : ?>
-                <form action="dashboard.php" method="post">
-                  <input type="hidden" name="rol" value="<?php echo $datosRol['idUsuarioRol'] ?>">
-                  <br><button type="submit" class="btn btn-sm btn-neutral" name="cambioRol"><?php echo $datosRol['nombreRol']; ?></button>
-                </form>
-              <?php endforeach; ?>
-              <br>
+          foreach ($respGetRoles as $datosRol) : ?>
+            <form action="dashboard.php" method="post">
+              <input type="hidden" name="rol" value="<?php echo $datosRol['idUsuarioRol'] ?>">
+              <br><button type="submit" class="btn btn-sm btn-neutral" name="cambioRol"><?php echo $datosRol['nombreRol']; ?></button>
+            </form>
+          <?php endforeach; ?>
+          <br>
           <div class="row align-items-center py-4">
-         
+
             <div class="col-lg-6 col-5 text-center">
-              
+
               <!-- FIN Lista desplegable de cambio de roles -->
 
               <!-- Copia de seguridad DB -->
@@ -149,7 +174,6 @@ if (isset($respUserData)) {
               </div>
             </div>
           </div>
-
         </div>
       </div>
     </div>
@@ -200,9 +224,6 @@ if (isset($respUserData)) {
           </div>
         </div>
       </div>
-
-
-
       <div class="card">
         <div class="card-header border-0">
           <div class="row align-items-center">
@@ -301,131 +322,129 @@ if (isset($respUserData)) {
         </div>
       </div>
       <!-- Para el admin -->
-        <div class="card ">
-          <div class="card-header border-0">
-            <div class="row align-items-center">
-              <div class="col">
-                <h3 class="mb-0">Ventas por municipio</h3>
-              </div>
-              <div class="col text-right">
-                <a href="#!" class="btn btn-sm btn-primary">Ver todo</a>
-              </div>
+      <div class="card ">
+        <div class="card-header border-0">
+          <div class="row align-items-center">
+            <div class="col">
+              <h3 class="mb-0">Ventas por municipio</h3>
+            </div>
+            <div class="col text-right">
+              <a href="#!" class="btn btn-sm btn-primary">Ver todo</a>
             </div>
           </div>
-          <div class="table-responsive">
-            <!-- Projects table -->
-            <table class="table align-items-center table-flush">
-              <thead class="thead-light">
-                <tr>
-                  <th scope="col">Municipio</th>
-                  <th scope="col">No. Ventas</th>
-                  <th scope="col">Porcentaje sobre ventas totales</th>
-                  <th scope="col"></th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <th scope="row">
-                    Facebook
-                  </th>
-                  <td>
-                    1,480
-                  </td>
-                  <td>
-                    <div class="d-flex align-items-center">
-                      <span class="mr-2"><?php $x = 56;
-                                          echo $x ?>%</span>
-                      <div>
-                        <div class="progress">
-                          <div class="progress-bar bg-gradient-danger" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: <?php echo $x ?>%;"></div>
-                        </div>
-                      </div>
-                    </div>
-                  </td>
-                </tr>
-                <tr>
-                  <th scope="row">
-                    Facebook
-                  </th>
-                  <td>
-                    5,480
-                  </td>
-                  <td>
-                    <div class="d-flex align-items-center">
-                      <span class="mr-2">70%</span>
-                      <div>
-                        <div class="progress">
-                          <div class="progress-bar bg-gradient-success" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width: 70%;"></div>
-                        </div>
-                      </div>
-                    </div>
-                  </td>
-                </tr>
-                <tr>
-                  <th scope="row">
-                    Google
-                  </th>
-                  <td>
-                    4,807
-                  </td>
-                  <td>
-                    <div class="d-flex align-items-center">
-                      <span class="mr-2">80%</span>
-                      <div>
-                        <div class="progress">
-                          <div class="progress-bar bg-gradient-primary" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%;"></div>
-                        </div>
-                      </div>
-                    </div>
-                  </td>
-                </tr>
-                <tr>
-                  <th scope="row">
-                    Instagram
-                  </th>
-                  <td>
-                    3,678
-                  </td>
-                  <td>
-                    <div class="d-flex align-items-center">
-                      <span class="mr-2">75%</span>
-                      <div>
-                        <div class="progress">
-                          <div class="progress-bar bg-gradient-info" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%;"></div>
-                        </div>
-                      </div>
-                    </div>
-                  </td>
-                </tr>
-                <tr>
-                  <th scope="row">
-                    twitter
-                  </th>
-                  <td>
-                    2,645
-                  </td>
-                  <td>
-                    <div class="d-flex align-items-center">
-                      <span class="mr-2">30%</span>
-                      <div>
-                        <div class="progress">
-                          <div class="progress-bar bg-gradient-warning" role="progressbar" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100" style="width: 30%;"></div>
-                        </div>
-                      </div>
-                    </div>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          <!-- Para el admin -->
-          </div>
         </div>
+        <div class="table-responsive">
+          <!-- Projects table -->
+          <table class="table align-items-center table-flush">
+            <thead class="thead-light">
+              <tr>
+                <th scope="col">Municipio</th>
+                <th scope="col">No. Ventas</th>
+                <th scope="col">Porcentaje sobre ventas totales</th>
+                <th scope="col"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">
+                  Facebook
+                </th>
+                <td>
+                  1,480
+                </td>
+                <td>
+                  <div class="d-flex align-items-center">
+                    <span class="mr-2"><?php $x = 56;
+                                        echo $x ?>%</span>
+                    <div>
+                      <div class="progress">
+                        <div class="progress-bar bg-gradient-danger" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: <?php echo $x ?>%;"></div>
+                      </div>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">
+                  Facebook
+                </th>
+                <td>
+                  5,480
+                </td>
+                <td>
+                  <div class="d-flex align-items-center">
+                    <span class="mr-2">70%</span>
+                    <div>
+                      <div class="progress">
+                        <div class="progress-bar bg-gradient-success" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width: 70%;"></div>
+                      </div>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">
+                  Google
+                </th>
+                <td>
+                  4,807
+                </td>
+                <td>
+                  <div class="d-flex align-items-center">
+                    <span class="mr-2">80%</span>
+                    <div>
+                      <div class="progress">
+                        <div class="progress-bar bg-gradient-primary" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%;"></div>
+                      </div>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">
+                  Instagram
+                </th>
+                <td>
+                  3,678
+                </td>
+                <td>
+                  <div class="d-flex align-items-center">
+                    <span class="mr-2">75%</span>
+                    <div>
+                      <div class="progress">
+                        <div class="progress-bar bg-gradient-info" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%;"></div>
+                      </div>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">
+                  twitter
+                </th>
+                <td>
+                  2,645
+                </td>
+                <td>
+                  <div class="d-flex align-items-center">
+                    <span class="mr-2">30%</span>
+                    <div>
+                      <div class="progress">
+                        <div class="progress-bar bg-gradient-warning" role="progressbar" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100" style="width: 30%;"></div>
+                      </div>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <!-- Para el admin -->
+        </div>
+      </div>
+      <!-- Fin Clase columna -->
 
-
-        <!-- Fin Clase columna -->
-
-        <!-- Parte Inferior del HTML -->
-    <?php require_once '../assets/footer.php';
+      <!-- Parte Inferior del HTML -->
+  <?php require_once '../assets/footer.php';
   } else {
     echo "<script>alert('No puedes acceder a esta página!');</script>";
     echo "<script> document.location.href='403.php';</script>";
@@ -435,4 +454,4 @@ if (isset($respUserData)) {
   echo "<script> document.location.href='403.php';</script>";
 }
 
-    ?>
+  ?>
