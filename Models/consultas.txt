@@ -6,6 +6,7 @@
 
 =========
 Nota: Preguntar por qué no funcionó con Having
+
 SELECT month(FA.fechaFactura) AS 'Mes', 
 SUM(FP.cantidadFacturaPublicacion * PU.costoPublicacion) AS 'Total'
 FROM tblFactura AS FA
@@ -13,12 +14,24 @@ INNER JOIN tblFacturaPublicacion AS FP
 ON FP.numFacturaPublicacion = FA.numeroFactura
 INNER JOIN tblPublicacion AS PU 
 ON PU.idPublicacion = FP.idPublicacionFactura
-WHERE YEAR(FA.fechaFactura) = YEAR(CURDATE())
+WHERE YEAR(FA.fechaFactura) = YEAR(CURDATE()) 
+AND PU.docIdentidadPublicacion = 'documento'
 GROUP BY month(FA.fechaFactura)
 =========
 2. Cantidad de ventas de x día a y día de la semana pasada
 
+    Datos:
+        1. Cantidad de ventas realizadas por día en los últimos 7 días
+        2. De la semana anterior a la actual
 
+SELECT DAY(FA.fechaFactura), COUNT(FA.numeroFactura)
+FROM tblFactura as FA
+INNER JOIN tblFacturaPublicacion as FP
+ON FP.numFacturaPublicacion=FA.numeroFactura
+INNER JOIN tblPublicacion AS PU ON PU.idPublicacion = FP.idPublicacionFactura 
+WHERE FA.fechaFactura BETWEEN DATE_SUB(NOW(),INTERVAL 7 DAY) 
+AND NOW() AND PU.docIdentidadPublicacion='documento'
+GROUP BY DAY(FA.fechaFactura)
 
 
 3. Publicaciones más exitosas: 
@@ -26,6 +39,10 @@ GROUP BY month(FA.fechaFactura)
     2. No. Ventas
     3. Cantidad en stock
     4. Porcentaje??
+
+SELECT PU.nombrePublicacion AS 'titulo', COUNT(FP.idPublicacionFactura) 
+AS 'numVentas', FP.stockPublicacion AS 'stock', 
+
     
 4. Cantidad ventas hoy
 5. Total ventas hoy

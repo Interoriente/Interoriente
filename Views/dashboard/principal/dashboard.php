@@ -211,7 +211,7 @@ if (isset($respUserData)) {
               <div class="row align-items-center">
                 <div class="col">
                   <h6 class="text-uppercase text-muted ls-1 mb-1">Reporte Semanal </h6>
-                  <h5 class="h3 mb-0">No. de ventas del 4 al 5 de septiembre</h5>
+                  <h5 class="h3 mb-0">No. de ventas en los últimos 7 días</h5>
                 </div>
               </div>
             </div>
