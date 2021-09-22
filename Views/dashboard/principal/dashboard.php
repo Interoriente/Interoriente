@@ -16,10 +16,10 @@ if (isset($_SESSION['documentoIdentidad'])) {
   ON FP.numFacturaPublicacion = FA.numeroFactura
   INNER JOIN tblPublicacion AS PU 
   ON PU.idPublicacion = FP.idPublicacionFactura
-  WHERE YEAR(FA.fechaFactura) = YEAR(CURDATE())
+  WHERE YEAR(FA.fechaFactura) = YEAR(CURDATE()) AND docIdentidadPublicacion = ?
   GROUP BY month(FA.fechaFactura)";
   $stmtDatos = $pdo->prepare($sqlDatos);
-  $stmtDatos->execute();
+  $stmtDatos->execute(array($documento));
   $labelVentas = "";
   $datosVentas = "";
   $resultadoDatos = $stmtDatos->fetchAll();
@@ -27,8 +27,8 @@ if (isset($_SESSION['documentoIdentidad'])) {
     $labelVentas = $labelVentas . $datos['Mes'] . ",";
     $datosVentas = $datosVentas . $datos['Total'] . ",";
   }
-  $labelVentas=rtrim($labelVentas,",");
-  $datosVentas=rtrim($datosVentas,",");
+  $labelVentas = rtrim($labelVentas, ",");
+  $datosVentas = rtrim($datosVentas, ",");
 }
 
 if (isset($respUserData)) {
