@@ -29,6 +29,27 @@ if (isset($_SESSION['documentoIdentidad'])) {
   }
   $labelVentas = rtrim($labelVentas, ",");
   $datosVentas = rtrim($datosVentas, ",");
+
+  $sqlDatosSemana="SELECT DAY(FA.fechaFactura) as 'Dia', COUNT(FA.numeroFactura) as 'Total'
+  FROM tblFactura as FA
+  INNER JOIN tblFacturaPublicacion as FP
+  ON FP.numFacturaPublicacion=FA.numeroFactura
+  INNER JOIN tblPublicacion AS PU ON PU.idPublicacion = FP.idPublicacionFactura 
+  WHERE FA.fechaFactura BETWEEN DATE_SUB(NOW(),INTERVAL 7 DAY) 
+  AND NOW() AND PU.docIdentidadPublicacion=?
+  GROUP BY DAY(FA.fechaFactura)";
+  $stmtDatosSemana=$pdo->prepare($sqlDatosSemana);
+  $stmtDatosSemana->execute(array($documento));
+  $labelVentasSemana = "";
+  $datosVentasSemana = "";
+  $resultadoDatosSemana = $stmtDatosSemana->fetchAll();
+  foreach ($resultadoDatosSemana as $datosSemana) {
+    $labelVentasSemana = $labelVentasSemana . $datosSemana['Dia'] . ",";
+    $datosVentasSemana = $datosVentasSemana . $datosSemana['Total'] . ",";
+  }
+  $labelVentasSemana = rtrim($labelVentasSemana, ",");
+  $datosVentasSemana = rtrim($datosVentasSemana, ",");
+  //Fin código temporal (Se guardará en funciones o en código JS)
 }
 
 if (isset($respUserData)) {
@@ -52,6 +73,8 @@ if (isset($respUserData)) {
     <script>
       var labelVentas = [<?php echo $labelVentas; ?>]
       var datosVentas = [<?php echo $datosVentas; ?>]
+      var labelVentasSemana = [<?php echo $labelVentasSemana; ?>]
+      var datosVentasSemana = [<?php echo $datosVentasSemana; ?>]
     </script>
     <!-- Header -->
     <div class="header bg-primary pb-6">

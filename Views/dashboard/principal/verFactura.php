@@ -3,7 +3,7 @@ session_start();
 if (isset($_SESSION['documentoIdentidad'])) {
     @$numero=$_POST['numero'];
     if (isset($numero)) {
-        $numeroFactura = $numero    ;
+        $numeroFactura = $numero;
         $documento = $_SESSION['documentoIdentidad'];
 
         require "../../../Controllers/php/users/compras.php";
