@@ -10,7 +10,6 @@ const con = mysql.createConnection({
   password: "B4O#ugJ]C#%,4",
   database: "interori_interoriente",
   multipleStatements: true,
-  debug: true,
 });
 
 //Comprobando conexión y ejecutando consultas
