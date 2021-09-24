@@ -15,7 +15,7 @@ error_reporting(E_ALL);
 echo setFactura();
 
 function setFactura(){
-    require '../dao/conexion.php';
+    require 'conexion.php';
     $fecha = getRandomFecha();
     $user = getUsuario();
     $id =  $user["id"];
@@ -34,7 +34,7 @@ function setFactura(){
 }
 
 function setFacturaPublicacion($idFac){
-    require '../dao/conexion.php';
+    require 'conexion.php';
     $publicacion = getPublicacion();
     $id = $publicacion["id"];    
     $cantidad = rand(1, 30);
@@ -45,7 +45,7 @@ function setFacturaPublicacion($idFac){
 }
 
 function getPublicacion(){
-    require '../dao/conexion.php';
+    require 'conexion.php';
     $sql = "SELECT idPublicacion AS id
     FROM tblPublicacion ORDER BY RAND() LIMIT 1";
     $stmt = $pdo->prepare($sql);
@@ -54,7 +54,7 @@ function getPublicacion(){
 }
 
 function getUsuario(){
-    require '../dao/conexion.php';
+    require 'conexion.php';
     $sql = "SELECT documentoIdentidad AS id, emailUsuario AS email
     FROM tblUsuario ORDER BY RAND() LIMIT 1
     ";
