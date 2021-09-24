@@ -42,9 +42,9 @@ GROUP BY DAY(FA.fechaFactura)
 
 SELECT PU.nombrePublicacion AS 'titulo', COUNT(FP.idPublicacionFactura) 
 AS 'numVentas', FP.stockPublicacion AS 'stock', 
-
-    
-4. Cantidad ventas hoy
-5. Total ventas hoy
-6. Ventas por ciudad
+4. Cantidad ventas hoy. Total ventas hoy
+5. Ventas por ciudad
+6. Alerta de stock (A cuántas publicaciones se les va a terminar el stock)
+7. Total de ventas de este y porcentaje de último mes comparado con el actual.
+8. Número de publicaciones sin validar
 
