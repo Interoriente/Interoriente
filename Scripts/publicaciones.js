@@ -27,11 +27,11 @@ con.connect(function (err) {
     id = result[0].id;
     categoria = result[0].categoria;
     //Llamando función encargada de extraer la información
-    scraprePublicacion(link, id, categoria);
+    scraprePublicacion(link);
   });
 });
 //Función encargada de la extracción de información
-async function scraprePublicacion(url, id, categoria) {
+async function scraprePublicacion(url) {
   //Se inicializa el navegador
   const browser = await puppeteer.launch();
   //Se inicializa una página en blanco
@@ -45,7 +45,7 @@ async function scraprePublicacion(url, id, categoria) {
 
   const [el2] = await page.$$(".price-tag-fraction");
   const txt = await el2.getProperty("textContent"); //Propiedad para obtener el texto
-  const precio = await txt.jsonValue();
+  let precio = await txt.jsonValue();
 
   const [el3] = await page.$$(".ui-pdp-description__content");
   const txt2 = await el3.getProperty("textContent");
@@ -56,15 +56,12 @@ async function scraprePublicacion(url, id, categoria) {
     ".ui-pdp-gallery__figure__image[src]",
     (imgs) => imgs.map((img) => img.getAttribute("src"))
   );
-  /* Creando Publicación:
-    1. Elegir usuario de forma aleatoria
-    2. Asignar una puntuación
-    3. asignar un stock
-    4. asignar la categoria
-    5. asignar validación publucación
-    6. asignar id de url
-    */
-  console.log(procesarInformacion(titulo, precio, descripcion, imgs));
+
+   precio = precio.replace(/\./g,'')
+  let error = procesarInformacion(titulo, precio, descripcion, imgs);
+  if (error) {
+      exit();
+  }
   //Terminado el proceso
   browser.close(); //Cierra el navegador
   /*  exit(); */ //Termina el script
@@ -92,7 +89,7 @@ function procesarInformacion(titulo, precio, descripcion, imgs) {
       titulo,
       docId,
       descripcion,
-      parseFloat(precio),
+      Number(precio),
       puntuacion,
       stock,
       Number(cat),
