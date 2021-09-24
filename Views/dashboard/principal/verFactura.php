@@ -139,9 +139,7 @@ if (isset($_SESSION['documentoIdentidad'])) {
                     <p class="nota">Si usted tiene preguntas sobre esta factura, <br>pongase en contacto con Interoriente, 3197183038 y interoriente437@gmail.com</p>
                     <h4 class="label_gracias">¡Gracias por su compra!</h4>
                 </div>
-
             </div>
-
         </body>
 
         </html>

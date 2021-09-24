@@ -29,8 +29,9 @@ require "../assets/linksGoogle.php";
     <!-- Fonts -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700">
     <!-- Icons -->
-    <link rel="stylesheet" href="../dashboard/assets/vendor/nucleo/css/nucleo.css" type="text/css">
-    <link rel="stylesheet" href="../dashboard/assets/vendor/@fortawesome/fontawesome-free/css/all.min.css" type="text/css">
+    <link rel="stylesheet" href="../assets/css/iconos.css" type="text/css">
+    <link rel="stylesheet" href="../assets/css/iconosComplementos.css" type="text/css">
+    <link rel="stylesheet" href="../dashboard/assets/css/all.min.css" type="text/css">
     <!-- Argon CSS -->
     <link rel="stylesheet" href="../dashboard/assets/css/argon.min.css?v=1.2.0" type="text/css">
     
@@ -115,10 +116,7 @@ require "../assets/linksGoogle.php";
             </div>
         </div>
     </div>
-    <!-- Core -->
-    <!-- <script src="../../Controller/js/formulario.js"></script> -->
-    
     <!-- Argon JS -->
-    <script src="../../view/dashboard/Controller/js/argon.js?v=1.2.0"></script>
+    <script src="../dashboard/assets/js/argon.min.js?v=1.2.0"></script>
 
 </html>

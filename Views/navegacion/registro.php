@@ -16,8 +16,9 @@ require "../assets/linksGoogle.php";
     <!-- Fonts -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700">
     <!-- Icons -->
-    <link rel="stylesheet" href="../dashboard/assets/vendor/nucleo/css/nucleo.css" type="text/css">
-    <link rel="stylesheet" href="../dashboard/assets/vendor/@fortawesome/fontawesome-free/css/all.min.css" type="text/css">
+    <link rel="stylesheet" href="../assets/css/iconos.css" type="text/css">
+    <link rel="stylesheet" href="../assets/css/iconosComplementos.css" type="text/css">
+    <link rel="stylesheet" href="../dashboard/assets/css/all.min.css" type="text/css">
     <!-- Argon CSS -->
     <link rel="stylesheet" href="../dashboard/assets/css/argon.min.css?v=1.2.0" type="text/css">
 </head>
@@ -149,15 +150,9 @@ require "../assets/linksGoogle.php";
             </div>
         </div>
     </div>
-    <!-- Core -->
-    <script src="../dashboard/assets/vendor/jquery/dist/jquery.min.js"></script>
-    <script src="../dashboard/assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="../dashboard/assets/vendor/js-cookie/js.cookie.js"></script>
-    <script src="../dashboard/assets/vendor/jquery.scrollbar/jquery.scrollbar.min.js"></script>
-    <script src="../dashboard/assets/vendor/jquery-scroll-lock/dist/jquery-scrollLock.min.js"></script>
     <!-- Argon JS -->
-    <script src="../dashboard/assets/js/argon.js?v=1.2.0"></script>
-     
+    <script src="../dashboard/assets/js/argon.min.js?v=1.2.0"></script>
+
 
 </body>
 
