@@ -32,7 +32,10 @@ con.connect(function (err) {
 //Función encargada de la extracción de información
 async function scraprePublicacion(url) {
   //Se inicializa el navegador
-  const browser = await puppeteer.launch();
+  const browser = await puppeteer.launch({
+    eadless: true,
+    args: ['--use-gl=egl'],
+  });
   //Se inicializa una página en blanco
   const page = await browser.newPage();
   //Se indica la dirección, en este caso la url que reciba como argumento la fc()
