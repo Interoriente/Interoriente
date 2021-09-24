@@ -20,13 +20,20 @@ function setFactura(){
     $user = getUsuario();
     $id =  $user["id"];
     $email = $user["email"];
-    $direccion = 'Carrera 23 No. 44 AC 21';
+    $direcciones = [
+        'Carrera 23 No. 44 AC 21',
+        'Calle 23 No. 23 21',
+        'Carrera 34 No. 35 26',
+        'Calle 22 No. 56 AD 23',
+        'Avenida 23 456 AC 23'
+    ];
+    $dir = rand(0, 4);
     $sql = "INSERT INTO tblFactura 
     VALUES(null, :id, :fecha, :direccion, :email)";
     $stmt = $pdo->prepare($sql);
     $stmt->bindValue(":id", $id);
     $stmt->bindValue(":fecha", $fecha);
-    $stmt->bindValue(":direccion", $direccion);
+    $stmt->bindValue(":direccion", $direcciones[$dir]);
     $stmt->bindValue(":email", $email);
     $stmt->execute();
     $idFactura = $pdo->lastInsertId();
