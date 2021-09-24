@@ -1,0 +1,43 @@
+const sqlUsuario =
+    "SELECT documentoIdentidad AS id FROM tblUsuario ORDER BY RAND() LIMIT 1";
+  con.query(sqlUsuario, function (err, result) {
+    if (err) return err;
+    let docId = result[0].id;
+    let puntuacion = 5;
+    let stock = 345;
+    /*  let puntuacion = Math.floor(Math.random() * (5 - 1 + 1) + min);
+      let stock = Math.floor(Math.random() * (250 - 2 + 1) + min); */
+    let cat = categoria;
+    let val = 1;
+    let pk = id;
+    let values = [
+      null,
+      titulo,
+      docId,
+      descripcion,
+      precio,
+      puntuacion,
+      stock,
+      cat,
+      val,
+      id,
+    ];
+    const sqlPublicacion = "INSERT INTO tblPublicacion VALUES ?";
+    con.query(sqlPublicacion, [values], function (err, result) {
+      if (err) return err;
+      imgs.forEach((img) => {
+        let sqlImagenes = "INSERT INTO tblImagenes VALUES ?";
+        let imagen = [null, img, result.insertId];
+        con.query(sqlImagenes, [imagen], function (err) {
+          if (err) return err;
+        });
+      });
+      const sqlLink = `UPDATE tblLinks SET estado = 1 WHERE id = ${pk}`;
+      con.query(sqlLink, function (err) {
+        if (err) return err;
+      });
+    });
+  });
+    })
+
+    const { exit } = require("process");

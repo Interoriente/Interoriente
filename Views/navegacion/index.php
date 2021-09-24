@@ -122,7 +122,7 @@ $publicacion = getPublicaciones();
 
                         <h3><?php echo $x['nombrePublicacion'] ?></h3>
                         <!-- substr para limitar el tamaño del estring en este caso a 140 caracteres -->
-                        <p><?php echo substr($x['descripcionPublicacion'], 0, 140) . "...   "; ?><span class="mas-info">Más Información</span></p>
+                        <p><?php echo substr($x['descripcionPublicacion'], 0, 90) . "...   "; ?><span class="mas-info">Más Información</span></p>
                     </div>
                 </a>
                 <div class="cta-btns">

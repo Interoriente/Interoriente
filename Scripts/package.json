@@ -1,0 +1,7 @@
+{
+  "dependencies": {
+    "mysql": "^2.18.1",
+    "parse-strings-in-object": "^1.4.0",
+    "puppeteer": "^10.4.0"
+  }
+}
