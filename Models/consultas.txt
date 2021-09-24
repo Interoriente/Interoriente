@@ -28,8 +28,9 @@ SELECT DAY(FA.fechaFactura), COUNT(FA.numeroFactura)
 FROM tblFactura as FA
 INNER JOIN tblFacturaPublicacion as FP
 ON FP.numFacturaPublicacion=FA.numeroFactura
-INNER JOIN tblPublicacion AS PU ON PU.idPublicacion = FP.idPublicacionFactura 
-WHERE FA.fechaFactura BETWEEN DATE_SUB(NOW(),INTERVAL 7 DAY) 
+INNER JOIN tblPublicacion AS PU 
+ON PU.idPublicacion = FP.idPublicacionFactura 
+WHERE FA.fechaFactura BETWEEN DATE(DATE_SUB(NOW(),INTERVAL 7 DAY))
 AND NOW() AND PU.docIdentidadPublicacion='documento'
 GROUP BY DAY(FA.fechaFactura)
 
@@ -40,11 +41,51 @@ GROUP BY DAY(FA.fechaFactura)
     3. Cantidad en stock
     4. Porcentaje??
 
-SELECT PU.nombrePublicacion AS 'titulo', COUNT(FP.idPublicacionFactura) 
-AS 'numVentas', FP.stockPublicacion AS 'stock', 
-4. Cantidad ventas hoy. Total ventas hoy
-5. Ventas por ciudad
-6. Alerta de stock (A cuántas publicaciones se les va a terminar el stock)
-7. Total de ventas de este y porcentaje de último mes comparado con el actual.
-8. Número de publicaciones sin validar
+SELECT PU.nombrePublicacion AS 'titulo', COUNT(PU.idPublicacion)
+AS 'numVentas', PU.stockPublicacion AS 'stock', AVG(PU.costoPublicacion*FP.cantidadFacturaPublicacion)
+FROM tblPublicacion as PU
+INNER JOIN tblFacturaPublicacion as FP
+ON FP.idPublicacionFactura=PU.idPublicacion
+WHERE PU.docIdentidadPublicacion='documento'
+ORDER BY DESC
+LIMIT 5
 
+4. Cantidad ventas hoy. Total ventas hoy
+SELECT COUNT(FP.idPublicacionFactura) 'Cantidad ventas hoy',SUM(PU.costoPublicacion*FP.cantidadFacturaPublicacion) as 'Total ventas hoy'
+FROM tblFactura as FA
+INNER JOIN tblFacturaPublicacion as FP
+ON FP.numFacturaPublicacion=FA.numeroFactura
+INNER JOIN tblPublicacion AS PU 
+ON PU.idPublicacion = FP.idPublicacionFactura
+WHERE FA.fechaFactura=CURDATE() AND PU.docIdentidadPublicacion='documento'
+
+5. Ventas por ciudad//...\\
+SELECT CI.nombreCiudad,SUM(FP.cantidadFacturaPublicacion*PU.costoPublicacion) as 'Total Ventas'
+FROM tblCiudad as CI
+INNER JOIN tblDirecciones as DI
+ON DI.ciudadDireccion=CI.idCiudad
+INNER JOIN tblUsuario as US
+ON US.documentoIdentidad=DI.docIdentidadDireccion
+INNER JOIN tblFactura as FA
+ON FA.docIdentidadFactura=US.documentoIdentidad
+
+6. Alerta de stock (A cuántas publicaciones se les va a terminar el stock)
+SELECT nombrePublicacion,stockPublicacion
+FROM tblPublicacion
+WHERE stockPublicacion<=5 and docIdentidadPublicacion='documento'
+
+7. Total de ventas de este mes y porcentaje de último mes comparado con el actual.
+SELECT MONTH(FA.fechaFactura)
+FROM tblFactura as FA
+INNER JOIN tblFacturaPublicacion as FP
+ON FP.numFacturaPublicacion=FA.numeroFactura
+INNER JOIN tblPublicacion AS PU 
+ON PU.idPublicacion = FP.idPublicacionFactura
+WHERE FA.fechaFactura BETWEEN MONTH(DATE_SUB(NOW(), INTERVAL 1 MONTH))
+AND NOW()
+GROUP BY MONTH(FA.fechaFactura)
+
+8. Número de publicaciones sin validar
+SELECT nombrePublicacion
+FROM tblPublicacion
+WHERE validacionPublicacion=0 and docIdentidadPublicacion='documento'
