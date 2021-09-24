@@ -29,8 +29,8 @@ require "../assets/linksGoogle.php";
     <!-- Fonts -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700">
     <!-- Icons -->
-    <link rel="stylesheet" href="../assets/css/iconos.css" type="text/css">
-    <link rel="stylesheet" href="../assets/css/iconosComplementos.css" type="text/css">
+    <link rel="stylesheet" href="../dashboard/assets/css/iconos.css" type="text/css">
+    <link rel="stylesheet" href="../dashboard/assets/css/iconosComplementos.css" type="text/css">
     <link rel="stylesheet" href="../dashboard/assets/css/all.min.css" type="text/css">
     <!-- Argon CSS -->
     <link rel="stylesheet" href="../dashboard/assets/css/argon.min.css?v=1.2.0" type="text/css">
