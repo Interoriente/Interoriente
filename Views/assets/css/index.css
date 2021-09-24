@@ -109,6 +109,7 @@
   max-height: 9.3em;
   word-wrap: break-word;
   text-align: justify;
+  text-transform: capitalize;
   padding: .5em ;
 }
 .img-tarjeta:hover #img-p {
