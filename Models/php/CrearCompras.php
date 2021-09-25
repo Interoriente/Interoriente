@@ -1,19 +1,4 @@
 <?php
-
-/* Plan:
-
-Inserción datos en tblFactura y tblFacPu
-
-*/
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
-
-/* print_r(setFactura()); */
-/* echo setFactura(); */
-/* print_r(setFacturaPublicacion()); */
-echo setFactura();
-
 function setFactura(){
     require 'conexion.php';
     $fecha = getRandomFecha();
