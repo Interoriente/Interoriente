@@ -60,7 +60,7 @@ ON PU.idPublicacion = FP.idPublicacionFactura
 WHERE FA.fechaFactura=CURDATE() AND PU.docIdentidadPublicacion='documento'
 
 5. Ventas por ciudad//...\\
-SELECT CI.nombreCiudad,SUM(FP.cantidadFacturaPublicacion*PU.costoPublicacion) as 'Total Ventas'
+SELECT CI.nombreCiudad as 'Municipio',SUM(FP.cantidadFacturaPublicacion*PU.costoPublicacion) as 'Total Ventas'
 FROM tblCiudad as CI
 INNER JOIN tblDirecciones as DI
 ON DI.ciudadDireccion=CI.idCiudad
@@ -68,6 +68,8 @@ INNER JOIN tblUsuario as US
 ON US.documentoIdentidad=DI.docIdentidadDireccion
 INNER JOIN tblFactura as FA
 ON FA.docIdentidadFactura=US.documentoIdentidad
+GROUP BY CI.nombreCiudad
+ORDER BY SUM(FP.cantidadFacturaPublicacion*PU.costoPublicacion) DESC
 
 6. Alerta de stock (A cuántas publicaciones se les va a terminar el stock)
 SELECT nombrePublicacion,stockPublicacion
