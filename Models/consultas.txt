@@ -77,6 +77,7 @@ FROM tblPublicacion
 WHERE stockPublicacion<=5 and docIdentidadPublicacion='documento'
 
 7. Total de ventas de este mes y porcentaje de último mes comparado con el actual.
+
 SELECT MONTH(FA.fechaFactura)
 FROM tblFactura as FA
 INNER JOIN tblFacturaPublicacion as FP
@@ -85,6 +86,7 @@ INNER JOIN tblPublicacion AS PU
 ON PU.idPublicacion = FP.idPublicacionFactura
 WHERE FA.fechaFactura BETWEEN MONTH(DATE_SUB(NOW(), INTERVAL 1 MONTH))
 AND NOW()
+
 GROUP BY MONTH(FA.fechaFactura)
 
 8. Número de publicaciones sin validar
