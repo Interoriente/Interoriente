@@ -145,7 +145,7 @@ class Publicaciones
                 $temporal = $_FILES['imagen']['tmp_name'][$i];
                 $ruta = $directorio . "" . basename($filename);
                 //Especifico el nombre que se va a guardar en la BD
-                $archivo = $idPubli . $filename;
+                $archivo = "../../assets/img/publicaciones/$idPubli" . $filename;
                 //Subimos la imagen al servidor
                 if (move_uploaded_file($temporal, $ruta)) {
                     //Insertando imagen en la tabla
@@ -175,7 +175,7 @@ class Publicaciones
     {
         require "../../../Models/dao/conexion.php";
 
-        $sqlMostrarPubli = "SELECT IMG.urlImagen,PU.nombrePublicacion,PU.descripcionPublicacion,
+        $sqlMostrarPubli = "SELECT IMG.urlImagen,PU.idPublicacion,PU.nombrePublicacion,PU.descripcionPublicacion,
         PU.costoPublicacion,PU.stockPublicacion,PU.validacionPublicacion
         FROM tblPublicacion as PU
         INNER JOIN tblImagenes as IMG 
@@ -240,7 +240,7 @@ class Publicaciones
         $stmt->execute(array($nombre, $descripcion, $costo, $stock, $id));
         //Redireccionar
         echo "<script>alert('Publicación actualizada correctamente');</script>";
-        echo "<script> document.location.href='../../../Views/dashboard/principal/crearPublicacion.php';</script>";
+        echo "<script> document.location.href='../../../Views/dashboard/principal/misPublicaciones.php';</script>";
     }
     public function EliminarPublicacion($id)
     {
@@ -257,6 +257,6 @@ class Publicaciones
         $consulta_eliminar->execute(array($id));
         //Redireccionar
         echo "<script>alert('Publicación eliminada correctamente');</script>";
-        echo "<script> document.location.href='../../../Views/dashboard/principal/crearPublicacion.php';</script>";
+        echo "<script> document.location.href='../../../Views/dashboard/principal/misPublicaciones.php';</script>";
     }
 }

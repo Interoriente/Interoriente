@@ -58,7 +58,7 @@ if (isset($respUserData)) {
   if ($rol == 1 or $rol == 3) {
 
     //Parte superior del HTML
-    require "../assets/header.php";
+    require "../includes/header.php";
 
     if (isset($_POST['cambioRol'])) {
       if ($_POST['rol'] == '1') {
@@ -67,8 +67,8 @@ if (isset($respUserData)) {
         $_SESSION['roles'] = 3;
       }
     }
-    require_once '../assets/sidebarDashboard.php';
-    require_once '../assets/navegacion.php';
+    require_once '../includes/sidebarDashboard.php';
+    require_once '../includes/navegacion.php';
 ?>
     <script>
       var labelVentas = [<?php echo $labelVentas; ?>]
@@ -468,7 +468,7 @@ if (isset($respUserData)) {
       <!-- Fin Clase columna -->
 
       <!-- Parte Inferior del HTML -->
-  <?php require_once '../assets/footer.php';
+  <?php  require_once '../includes/footer.php';
   } else {
     echo "<script>alert('No puedes acceder a esta página!');</script>";
     echo "<script> document.location.href='403.php';</script>";
