@@ -73,7 +73,7 @@ if (isset($respUserData)) {
                   <?php
                   foreach ($respTodasPublicaciones as $datosPubli) { ?>
                     <tr>
-                      <th><img src="../../assets/img/publicaciones/<?php echo $datosPubli['urlImagen'];  ?>" alt=".." width="130px"></th>
+                      <th><img src="<?php echo $datosPubli['urlImagen'];  ?>" alt=".." width="130px"></th>
                       <th><?php echo $datosPubli['nombrePublicacion']; ?></th>
                       <th><?php echo substr($datosPubli['descripcionPublicacion'], 0, 30); ?>...</th>
                       <th><?php echo $datosPubli['costoPublicacion']; ?></th>
