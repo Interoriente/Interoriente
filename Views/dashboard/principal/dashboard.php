@@ -7,43 +7,29 @@ if (isset($_SESSION['documentoIdentidad'])) {
   $respUserData = $usuario->getUserData($usuario->id);
   $respGetRoles = $usuario->getRoles($usuario->id);
 
-  //Se va a tener temporal (Para pruebas)
-  require "../../../Models/dao/conexion.php";
-  $sqlDatos = "SELECT month(FA.fechaFactura) AS 'Mes', 
-  SUM(FP.cantidadFacturaPublicacion * PU.costoPublicacion) AS 'Total'
-  FROM tblFactura AS FA
-  INNER JOIN tblFacturaPublicacion AS FP
-  ON FP.numFacturaPublicacion = FA.numeroFactura
-  INNER JOIN tblPublicacion AS PU 
-  ON PU.idPublicacion = FP.idPublicacionFactura
-  WHERE YEAR(FA.fechaFactura) = YEAR(CURDATE()) AND docIdentidadPublicacion = ?
-  GROUP BY month(FA.fechaFactura)";
-  $stmtDatos = $pdo->prepare($sqlDatos);
-  $stmtDatos->execute(array($documento));
+
+  require "../../../Controllers/php/users/informes.php";
+  //Instancio la clase
+  $informe = new Informes($documento);
+  //Llamo la función para las ventas anuales
+  $respVentasAnual = $informe->MostrarVentasAnuales($informe->id);
+  //Llamo la función para las ventas de los 7 días anterior
+  $respVentasDia = $informe->VentasPorDias($informe->id);
+
+  //Mostrar gráfica de ventas anuales
   $labelVentas = "";
   $datosVentas = "";
-  $resultadoDatos = $stmtDatos->fetchAll();
-  foreach ($resultadoDatos as $datos) {
+  foreach ($respVentasAnual as $datos) {
     $labelVentas = $labelVentas . $datos['Mes'] . ",";
     $datosVentas = $datosVentas . $datos['Total'] . ",";
   }
   $labelVentas = rtrim($labelVentas, ",");
   $datosVentas = rtrim($datosVentas, ",");
 
-  $sqlDatosSemana="SELECT DAY(FA.fechaFactura) as 'Dia', COUNT(FA.numeroFactura) as 'Total'
-  FROM tblFactura as FA
-  INNER JOIN tblFacturaPublicacion as FP
-  ON FP.numFacturaPublicacion=FA.numeroFactura
-  INNER JOIN tblPublicacion AS PU ON PU.idPublicacion = FP.idPublicacionFactura 
-  WHERE FA.fechaFactura BETWEEN DATE_SUB(NOW(),INTERVAL 7 DAY) 
-  AND NOW() AND PU.docIdentidadPublicacion=?
-  GROUP BY DAY(FA.fechaFactura)";
-  $stmtDatosSemana=$pdo->prepare($sqlDatosSemana);
-  $stmtDatosSemana->execute(array($documento));
+  //Mostrar gráfica de ventas por semana
   $labelVentasSemana = "";
   $datosVentasSemana = "";
-  $resultadoDatosSemana = $stmtDatosSemana->fetchAll();
-  foreach ($resultadoDatosSemana as $datosSemana) {
+  foreach ($respVentasDia as $datosSemana) {
     $labelVentasSemana = $labelVentasSemana . $datosSemana['Dia'] . ",";
     $datosVentasSemana = $datosVentasSemana . $datosSemana['Total'] . ",";
   }
@@ -71,6 +57,7 @@ if (isset($respUserData)) {
     require_once '../includes/navegacion.php';
 ?>
     <script>
+      //Mando al JS la información, por medio de las variables declaradas
       var labelVentas = [<?php echo $labelVentas; ?>]
       var datosVentas = [<?php echo $datosVentas; ?>]
       var labelVentasSemana = [<?php echo $labelVentasSemana; ?>]
@@ -132,7 +119,7 @@ if (isset($respUserData)) {
             <div class="col-xl-3 col-md-6">
               <div class="card card-stats">
                 <!-- Tarjeta -->
-                
+
                 <!-- Tarjeta para el admin -->
                 <div class="card-body">
                   <div class="row">
@@ -468,7 +455,7 @@ if (isset($respUserData)) {
       <!-- Fin Clase columna -->
 
       <!-- Parte Inferior del HTML -->
-  <?php  require_once '../includes/footer.php';
+  <?php require_once '../includes/footer.php';
   } else {
     echo "<script>alert('No puedes acceder a esta página!');</script>";
     echo "<script> document.location.href='403.php';</script>";

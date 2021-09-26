@@ -231,7 +231,7 @@ if (isset($respUserData)) {
                     </td>
 
                     <!--Modal Eliminar y actualizar direccion -->
-                    <?php require "../assets/modalesDireccion.php"; ?>
+                    <?php require "../includes/modalesDireccion.php"; ?>
                   </tr>
                 <?php endforeach //Fin foreach 
                 ?>
