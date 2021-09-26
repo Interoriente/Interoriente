@@ -95,7 +95,7 @@ if (isset($respUserData)) {
           <div class="modal-dialog" role="document">
             <div class="modal-content">
               <div class="modal-body">
-                <img class=" card-img-top" src="crud/<?php echo $respUserData->imagenUsuario; ?>">
+                <img class=" card-img-top" src="<?php echo $respUserData->imagenUsuario; ?>">
               </div>
             </div>
           </div>
