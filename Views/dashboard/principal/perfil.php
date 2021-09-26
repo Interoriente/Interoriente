@@ -27,7 +27,7 @@ if (isset($respUserData)) {
     require_once '../assets/navegacion.php';
 ?>
     <!-- Header -->
-    <div class="header pb-6 d-flex align-items-center" style="min-height: 500px; background-image: url(../../../assets/img/fondoperfil.jpg); background-size: cover; background-position: center top;">
+    <div class="header pb-6 d-flex align-items-center">
       <span class="mask" style="background-color: #004E64;"></span>
       <!-- Mask -->
       <!-- Header container -->
