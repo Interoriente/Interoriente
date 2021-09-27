@@ -55,7 +55,7 @@ function getUsuario(){
     return $stmt->fetch(PDO::FETCH_ASSOC);
 }
 function getRandomFecha(){
-    $ano = strval(rand(2015, 2021));
+    $ano = strval(rand(2020, 2021));
     $mes = strval(rand(01, 12));
     $dia = strval(rand(01, 28));
     $randFecha = null;
