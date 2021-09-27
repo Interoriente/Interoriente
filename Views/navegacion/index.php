@@ -80,20 +80,20 @@ $publicacion = getPublicaciones();
         <section class="publicaciones">
             <!-- TODO Implementar sistema de filtrado js -->
             <!-- Sección de los botons de filtrado -->
-            <h1 class="titulo-filtrado ">Aquí podrás filtrar resultados </h1>
+            <h1 class="titulo-filtrado ">Aquí podrás encontrar el producto que deseas </h1>
             <section class="btns-filtrado ">
-                <a href="">
+                <a href="#">
 
                     <div id="productos" class="btn-productos btn-filtro">
                         Productos
                     </div>
                 </a>
-                <a href="">
+                <a href="#">
                     <div class="btn-productos todos btn-filtro" onclick="filterSelection('todos')">
                         Todos
                     </div>
                 </a>
-                <a href="">
+                <a href="#">
                     <div class=" btn-servicios btn-filtro">
                         Servicios
                     </div>
@@ -108,16 +108,10 @@ $publicacion = getPublicaciones();
                 <div class="tarjeta">
                     <a href="publicacion.php?id=<?php echo $x['idPublicacion'] ?>">
                         <div class="img-tarjeta">
-                            <img id="img-p" src="../assets/img/publicaciones/1.jpg" alt="Imagen tarjeta publicación">
-                            <img id="img-s" src="../assets/img/publicaciones/2.jpg" alt="Imagen tarjeta publicación">
-                            <!-- <img id="img-p" src="../../view/assets/img/publicaciones/<?php //echo $x['urlImagen']; 
-                                                                                            ?>" alt="Imagen tarjeta publicación">
-                        <img id="img-s" src="../../view/assets/img/publicaciones/<?php //echo $x['urlImagen']; 
-                                                                                    ?>" alt="Imagen tarjeta publicación"> -->
+                            <img id="img-p" src="<?php echo $x['urlImagen']; ?>" alt="Imagen tarjeta publicación">
                         </div>
                         <div class="contenido-tarjeta">
                             <!-- number_format para agregar los puntos de mil -->
-                            <h5> $<?php echo number_format($x['idPublicacion'], 0, '', '.'); ?></h5>
                             <h5> $<?php echo number_format($x['costoPublicacion'], 0, '', '.'); ?></h5>
 
                             <h3><?php echo $x['nombrePublicacion'] ?></h3>
