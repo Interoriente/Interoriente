@@ -1,8 +1,4 @@
 <?php
-/* 
-IMPORTANTE -> TODO:
-Eliminar todos los links a los Scripts de generación de usuarios.
-*/
 require "../../Controllers/php/users/compras.php";
 $publicacion = getPublicaciones();
 ?>

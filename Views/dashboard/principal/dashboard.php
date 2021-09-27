@@ -251,17 +251,22 @@ if (isset($respUserData)) {
           <table class="table align-items-center table-flush">
             <thead class="thead-light">
               <tr>
-                <th scope="col">Page name</th>
-                <th scope="col">Visitors</th>
-                <th scope="col">Unique users</th>
-                <th scope="col">Bounce rate</th>
+                <th scope="col">Título</th>
+                <th scope="col">No. Ventas</th>
+                <th scope="col">Total Ventas</th>
+                <th scope="col">Stock</th>
+                <th scope="col">Porcentaje</th>
               </tr>
             </thead>
             <tbody>
+              <!-- Fila -->
               <tr>
                 <th scope="row">
                   /argon/
                 </th>
+                <td>
+                  4,569
+                </td>
                 <td>
                   4,569
                 </td>
@@ -272,6 +277,8 @@ if (isset($respUserData)) {
                   <i class="fas fa-arrow-up text-success mr-3"></i> 46,53%
                 </td>
               </tr>
+            <!--Fin Fila -->
+
               <tr>
                 <th scope="row">
                   /argon/index.html
@@ -280,46 +287,25 @@ if (isset($respUserData)) {
                   3,985
                 </td>
                 <td>
+                  4,569
+                </td>
+                <td>
                   319
                 </td>
                 <td>
                   <i class="fas fa-arrow-down text-warning mr-3"></i> 46,53%
                 </td>
               </tr>
-              <tr>
-                <th scope="row">
-                  /argon/charts.html
-                </th>
-                <td>
-                  3,513
-                </td>
-                <td>
-                  294
-                </td>
-                <td>
-                  <i class="fas fa-arrow-down text-warning mr-3"></i> 36,49%
-                </td>
-              </tr>
-              <tr>
-                <th scope="row">
-                  /argon/tables.html
-                </th>
-                <td>
-                  2,050
-                </td>
-                <td>
-                  147
-                </td>
-                <td>
-                  <i class="fas fa-arrow-up text-success mr-3"></i> 50,87%
-                </td>
-              </tr>
+              
               <tr>
                 <th scope="row">
                   /argon/profile.html
                 </th>
                 <td>
                   1,795
+                </td>
+                <td>
+                  4,569
                 </td>
                 <td>
                   190

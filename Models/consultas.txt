@@ -1,11 +1,11 @@
 
-1. Valor ventas anuales.
+==================================
+
+1. Valor ventas anuales. LISTO
     Dos datos:
         1. Mes
-        2. Vlr. Total de ventas realizadas en ese mes
+        2. Vlr. Total de ventas realizadas en ese mes 
 
-=========
-Nota: Preguntar por qué no funcionó con Having
 
 SELECT month(FA.fechaFactura) AS 'Mes', 
 SUM(FP.cantidadFacturaPublicacion * PU.costoPublicacion) AS 'Total'
@@ -17,8 +17,9 @@ ON PU.idPublicacion = FP.idPublicacionFactura
 WHERE YEAR(FA.fechaFactura) = YEAR(CURDATE()) 
 AND PU.docIdentidadPublicacion = 'documento'
 GROUP BY month(FA.fechaFactura)
-=========
-2. Cantidad de ventas de x día a y día de la semana pasada
+==================================
+
+2. Cantidad de ventas de x día a y día de la semana pasada. LISTO
 
     Datos:
         1. Cantidad de ventas realizadas por día en los últimos 7 días
@@ -34,21 +35,88 @@ WHERE FA.fechaFactura BETWEEN DATE(DATE_SUB(NOW(),INTERVAL 7 DAY))
 AND NOW() AND PU.docIdentidadPublicacion='documento'
 GROUP BY DAY(FA.fechaFactura)
 
-
+==================================
 3. Publicaciones más exitosas: 
     1. Título
     2. No. Ventas
-    3. Cantidad en stock
-    4. Porcentaje??
+    3. Ventas Totales
+    4. Cantidad en stock
+    5. Porcentaje que representa sobre el total de las ventas
 
-SELECT PU.nombrePublicacion AS 'titulo', COUNT(PU.idPublicacion)
-AS 'numVentas', PU.stockPublicacion AS 'stock', AVG(PU.costoPublicacion*FP.cantidadFacturaPublicacion)
+$total = n;
+$total              100%
+$totalNProducto -> id  ?
+totalNProducto*100/total
+
+
+
+****
+$reporte["Titulos" => null, No. "Ventas" => null, ]
+
+SELECT PU.idPublicacion AS 'Id', PU.nombrePublicacion AS 'Titulo', 
+COUNT(PU.idPublicacion) AS 'CantidadVentas', PU.stockPublicacion AS 'Stock', 
+SUM(FP.cantidadFacturaPublicacion * PU.costoPublicacion) AS "Vlr_Ventas" 
+FROM tblPublicacion as PU INNER JOIN tblFacturaPublicacion as FP ON FP.idPublicacionFactura = PU.idPublicacion WHERE PU.docIdentidadPublicacion = 123456789 
+GROUP BY PU.idPublicacion 
+UNION 
+SELECT (SUM(FP.cantidadFacturaPublicacion * PU.costoPublicacion) / Vlr_Ventas) AS 'Total'
+FROM tblPublicacion as PU
+INNER JOIN tblFacturaPublicacion AS FP 
+ON PU.idPublicacion = FP.idPublicacionFactura
+GROUP BY FP.idPublicacionFactura
+ORDER BY Vlr_Ventas DESC LIMIT 5
+
+
+
+****
+SELECT PU.idPublicacion AS 'Id', PU.nombrePublicacion AS 'Titulo', 
+COUNT(PU.idPublicacion) AS 'CantidadVentas', 
+PU.stockPublicacion AS 'Stock', 
+SUM(FP.cantidadFacturaPublicacion * PU.costoPublicacion) AS "Vlr_Ventas" 
+FROM tblPublicacion as PU 
+INNER JOIN tblFacturaPublicacion as FP 
+ON FP.idPublicacionFactura = PU.idPublicacion 
+WHERE PU.docIdentidadPublicacion = 123456789 
+GROUP BY PU.idPublicacion ORDER BY Vlr_Ventas DESC LIMIT 5
+
+****
+
+$id = [93, 133, 172, 97, 157];
+$arr = [];
+
+
+
+For{
+SELECT SUM(FP.cantidadFacturaPublicacion * PU.costoPublicacion) AS 'Total'
+FROM tblPublicacion as PU
+INNER JOIN tblFacturaPublicacion AS FP 
+ON PU.idPublicacion = FP.idPublicacionFactura
+WHERE PU.idPublicacion = $id[n]
+GROUP BY FP.idPublicacionFactura;
+
+$resultado = stmt->fetch(PDO::FETCH_ASOCC);
+$resultado = $resultado["Total"];
+array_push($arr, $resultado);
+}
+
+return $reporte;
+****
+
+*******
+
+SELECT PU.nombrePublicacion AS 'Titulo', COUNT(PU.idPublicacion)
+AS 'CantidadVentas', PU.stockPublicacion AS 'Stock', 
+
+(SUM(FP.cantidadFacturaPublicacion * PU.costoPublicacion) AS 'Total') * 100 ) / SUM(FP.cantidadFacturaPublicacion * PU.costoPublicacion);
+
+
 FROM tblPublicacion as PU
 INNER JOIN tblFacturaPublicacion as FP
-ON FP.idPublicacionFactura=PU.idPublicacion
-WHERE PU.docIdentidadPublicacion='documento'
-ORDER BY DESC
+ON FP.idPublicacionFactura = PU.idPublicacion
+WHERE PU.docIdentidadPublicacion = 'documento'
+ORDER BY  DESC
 LIMIT 5
+==================================
 
 4. Cantidad ventas hoy. Total ventas hoy
 SELECT COUNT(FP.idPublicacionFactura) 'Cantidad ventas hoy',SUM(PU.costoPublicacion*FP.cantidadFacturaPublicacion) as 'Total ventas hoy'
@@ -58,6 +126,7 @@ ON FP.numFacturaPublicacion=FA.numeroFactura
 INNER JOIN tblPublicacion AS PU 
 ON PU.idPublicacion = FP.idPublicacionFactura
 WHERE FA.fechaFactura=CURDATE() AND PU.docIdentidadPublicacion='documento'
+==================================
 
 5. Ventas por ciudad//...\\
 SELECT CI.nombreCiudad as 'Municipio',SUM(FP.cantidadFacturaPublicacion*PU.costoPublicacion) as 'Total Ventas'
@@ -70,14 +139,18 @@ INNER JOIN tblFactura as FA
 ON FA.docIdentidadFactura=US.documentoIdentidad
 GROUP BY CI.nombreCiudad
 ORDER BY SUM(FP.cantidadFacturaPublicacion*PU.costoPublicacion) DESC
+==================================
 
-6. Alerta de stock (A cuántas publicaciones se les va a terminar el stock)
+6. Alerta de stock (A cuántas publicaciones se les va a terminar el stock) LISTO
 SELECT nombrePublicacion,stockPublicacion
 FROM tblPublicacion
-WHERE stockPublicacion<=5 and docIdentidadPublicacion='documento'
+WHERE stockPublicacion<=5 and docIdentidadPublicacion=123456789
 
+SELECT COUNT(nombrePublicacion) as "Número Publicaciones" 
+FROM tblPublicacion 
+WHERE stockPublicacion <= 5 and docIdentidadPublicacion=123456789
+==================================
 7. Total de ventas de este mes y porcentaje de último mes comparado con el actual.
-
 SELECT MONTH(FA.fechaFactura)
 FROM tblFactura as FA
 INNER JOIN tblFacturaPublicacion as FP
@@ -86,10 +159,10 @@ INNER JOIN tblPublicacion AS PU
 ON PU.idPublicacion = FP.idPublicacionFactura
 WHERE FA.fechaFactura BETWEEN MONTH(DATE_SUB(NOW(), INTERVAL 1 MONTH))
 AND NOW()
-
 GROUP BY MONTH(FA.fechaFactura)
-
+==================================
 8. Número de publicaciones sin validar
 SELECT nombrePublicacion
 FROM tblPublicacion
-WHERE validacionPublicacion=0 and docIdentidadPublicacion='documento'
+WHERE validacionPublicacion=0 AND docIdentidadPublicacion='documento'
+==================================
