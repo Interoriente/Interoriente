@@ -73,8 +73,8 @@ function getPublicaciones()
           INNER JOIN tblImagenes as IMG 
           ON PU.idPublicacion = IMG.publicacionImagen
           WHERE validacionPublicacion='1'
-          GROUP BY PU.nombrePublicacion, PU.descripcionPublicacion,PU.costoPublicacion 
-          ORDER BY rand()";
+          GROUP BY PU.idPublicacion
+          /* ORDER BY rand() */";
 
   /* Envío de la consulta a través del objeto PDO */
   $consulta = $pdo->prepare($sql);   /* PDO statement-> Ejecutarlo */
