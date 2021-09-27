@@ -1,11 +1,12 @@
 <?php
 if (isset($_POST['iniciarSesion']) || isset($_POST['registrarse']) || isset($_GET['comprobandoAcceso'])) {
+    @$logiGoogle=$_GET['comprobandoAcceso'];
     if (isset($_POST['iniciarSesion'])) {
         $idUsuario = $_POST['id'];
         $contrasena = $_POST['contrasena'];
         $iniciar = new InicioSesion();
         $iniciar->iniciarSesion($idUsuario, $contrasena);
-    }else if ($_GET['comprobandoAcceso']) {
+    }else if ($logiGoogle) {
         $loginGoogle = new InicioSesion();
         $loginGoogle->LoginGoogle();
     } else {

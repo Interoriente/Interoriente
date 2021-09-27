@@ -74,7 +74,7 @@ function getPublicaciones()
           ON PU.idPublicacion = IMG.publicacionImagen
           WHERE validacionPublicacion='1'
           GROUP BY PU.idPublicacion
-          /* ORDER BY rand() */
+          ORDER BY rand()
           LIMIT 30
           ";
 
