@@ -16,6 +16,7 @@ $publicacion = getPublicaciones();
     <link rel="icon" href="../assets/img/favicon.png" type="image/png">
     <!-- General -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../assets/css/general.css">
     <link rel="stylesheet" href="../assets/css/index.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous" />
     <!--Link solución protocolo: https://www.bugsnag.com/blog/jquery-is-not-defined-cause-solution-->
@@ -28,54 +29,6 @@ $publicacion = getPublicaciones();
     <!-- Navegación -->
     <?php require '../includes/superior.php'; ?>
     <!-- ----- -->
-
-
-    <!-- Sección del carrusel -->
-    <div class="contenedor-principal" id="contendor-principal">
-        <section class="hero">
-            <div class="hero-principal">
-                <div class="img-hero">
-                    <img src="../assets/img/index/index.svg" alt="">
-                </div>
-            </div>
-            <div class="carrusel-container">
-                <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
-                    <div class="carousel-indicators">
-                        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
-                    </div>
-                    <div class="carousel-inner">
-                        <div class="carousel-item active">
-                            <img src="../assets/img/index_2/1.jpg" class="d-block w-100" alt="...">
-                            <div class="carousel-caption d-none d-md-block">
-
-                            </div>
-                        </div>
-                        <div class="carousel-item">
-                            <img src="../assets/img/index_2/2.jpg" class="d-block w-100" alt="...">
-                            <div class="carousel-caption d-none d-md-block">
-
-                            </div>
-                        </div>
-                        <div class="carousel-item">
-                            <img src="../assets/img/index_2/3.jpg" class="d-block w-100" alt="...">
-                            <div class="carousel-caption d-none d-md-block">
-
-                            </div>
-                        </div>
-                    </div>
-                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Previous</span>
-                    </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Next</span>
-                    </button>
-                </div>
-            </div>
-        </section>
 
         <section class="publicaciones">
             <!-- TODO Implementar sistema de filtrado js -->
@@ -109,8 +62,8 @@ $publicacion = getPublicaciones();
                     <a href="publicacion.php?id=<?php echo $x['idPublicacion'] ?>">
                         <div class="img-tarjeta">
                             <img id="img-p" src="<?php echo $x['urlImagen']; ?>" alt="Imagen tarjeta publicación">
-                            <img id="img-s" src="../assets/img/publicaciones/1.jpg" alt="Imagen tarjeta publicación">
-                        </div>
+<!--                             <img id="img-s" src="../assets/img/publicaciones/1.jpg" alt="Imagen tarjeta publicación">
+ -->                        </div>
                         <div class="contenido-tarjeta">
                             <!-- number_format para agregar los puntos de mil -->
                             <h5> $<?php echo number_format($x['costoPublicacion'], 0, '', '.'); ?></h5>

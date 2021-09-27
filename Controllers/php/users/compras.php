@@ -74,7 +74,9 @@ function getPublicaciones()
           ON PU.idPublicacion = IMG.publicacionImagen
           WHERE validacionPublicacion='1'
           GROUP BY PU.idPublicacion
-          /* ORDER BY rand() */";
+          /* ORDER BY rand() */
+          LIMIT 30
+          ";
 
   /* Envío de la consulta a través del objeto PDO */
   $consulta = $pdo->prepare($sql);   /* PDO statement-> Ejecutarlo */
