@@ -80,17 +80,6 @@ body {
     background-color: #f8f9fe;
 
 }
-.cerrar-sesion button{
-    border: none;
-    background: none;
-}
-.cerrar-sesion button:focus {
-    outline: 0;
-  }
-.cerrar-sesion button:active {
-    outline: none;
-    border: none;
-  }
 [tabindex='-1']:focus:not(:focus-visible) {
     outline: 0!important
 }
@@ -2381,26 +2370,6 @@ a.btn.disabled, fieldset:disabled a.btn {
     color: #fff;
     border-color: #004e64;
     background-color: #004e64
-}
-
-.btn-primary.focus, .btn-primary:focus {
-    box-shadow: 0 4px 6px rgba(50, 50, 93, .11), 0 1px 3px rgba(0, 0, 0, .08), 0 0 0 0 rgba(94, 114, 228, .5)
-}
-
-.btn-primary.disabled, .btn-primary:disabled {
-    color: #fff;
-    border-color: #004e64;
-    background-color: #004e64
-}
-
-.btn-primary:not(:disabled):not(.disabled).active, .btn-primary:not(:disabled):not(.disabled):active, .show>.btn-primary.dropdown-toggle {
-    color: #fff;
-    border-color: #004e64;
-    background-color: #5d9bac
-}
-
-.btn-primary:not(:disabled):not(.disabled).active:focus, .btn-primary:not(:disabled):not(.disabled):active:focus, .show>.btn-primary.dropdown-toggle:focus {
-    box-shadow: none, 0 0 0 0 rgba(94, 114, 228, .5)
 }
 
 .btn-secondary {
@@ -18682,55 +18651,6 @@ a.text-lighter:focus, a.text-lighter:hover {
         transition: none
     }
 }
-
-[data-calendar-month='0'] {
-    background-image: url(../img/calendar/january.jpg)
-}
-
-[data-calendar-month='1'] {
-    background-image: url(../img/calendar/february.jpg)
-}
-
-[data-calendar-month='2'] {
-    background-image: url(../img/calendar/march.jpg)
-}
-
-[data-calendar-month='3'] {
-    background-image: url(../img/calendar/april.jpg)
-}
-
-[data-calendar-month='4'] {
-    background-image: url(../img/calendar/may.jpg)
-}
-
-[data-calendar-month='5'] {
-    background-image: url(../img/calendar/june.jpg)
-}
-
-[data-calendar-month='6'] {
-    background-image: url(../img/calendar/july.jpg)
-}
-
-[data-calendar-month='7'] {
-    background-image: url(../img/calendar/august.jpg)
-}
-
-[data-calendar-month='8'] {
-    background-image: url(../img/calendar/september.jpg)
-}
-
-[data-calendar-month='9'] {
-    background-image: url(../img/calendar/october.jpg)
-}
-
-[data-calendar-month='10'] {
-    background-image: url(../img/calendar/november.jpg)
-}
-
-[data-calendar-month='11'] {
-    background-image: url(../img/calendar/december.jpg)
-}
-
 .card-calendar .card-header {
     border-bottom: 0
 }

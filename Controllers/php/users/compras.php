@@ -67,11 +67,14 @@ function getPublicaciones()
   require('../../Models/dao/conexion.php');
   /* Consulta */
 
-  $sql = "SELECT * 
-        FROM tblPublicacion /* as PU
-        INNER JOIN tblImagenes 
-        as IMG ON PU.idPublicacion = IMG.publicacionImagen */ 
-        /* WHERE validacionPublicacion='1' */ order by rand()";
+  $sql = "SELECT IMG.urlImagen,PU.idPublicacion,PU.nombrePublicacion,PU.descripcionPublicacion,
+          PU.costoPublicacion,PU.stockPublicacion,PU.validacionPublicacion
+          FROM tblPublicacion as PU
+          INNER JOIN tblImagenes as IMG 
+          ON PU.idPublicacion = IMG.publicacionImagen
+          WHERE validacionPublicacion='1'
+          GROUP BY PU.nombrePublicacion, PU.descripcionPublicacion,PU.costoPublicacion 
+          ORDER BY rand()";
 
   /* Envío de la consulta a través del objeto PDO */
   $consulta = $pdo->prepare($sql);   /* PDO statement-> Ejecutarlo */
@@ -231,12 +234,12 @@ class Checkout
       $stmtFacPu->bindValue(':cantidad', $cantidad);
       $stmtFacPu->execute();
       //Restar stock a la publicación
-      $sqlStock="UPDATE tblPublicacion
+      $sqlStock = "UPDATE tblPublicacion
       SET stockPublicacion = (stockPublicacion-$cantidad)
       WHERE idPublicacion =?";
-      $stmtStock=$pdo->prepare($sqlStock);
+      $stmtStock = $pdo->prepare($sqlStock);
       $stmtStock->execute(array($idPubli));
-      
+
       /* Eliminar información de la tabla carrito */
       $sqlDeleteCart = "DELETE FROM tblCarrito 
       WHERE idPublicacionCarrito = $idPubli 

@@ -14,10 +14,10 @@ if (isset($respUserData)) {
   if ($rol == 3) {
 
     //Parte superior del HTML
-    require "../assets/header.php";
+    require "../includes/header.php";
 
-    require_once '../assets/sidebarDashboard.php';
-    require_once '../assets/navegacion.php';
+    require_once '../includes/sidebarDashboard.php';
+    require_once '../includes/navegacion.php';
 ?>
     <!-- Header -->
     <div class="header bg-primary pb-6">
@@ -103,7 +103,7 @@ if (isset($respUserData)) {
     </div>
 
     <!-- Footer -->
-<?php require_once '../assets/footer.php';
+<?php  require_once '../includes/footer.php';
   } else {
     echo "<script>alert('No puedes acceder a esta página!');</script>";
     echo "<script> document.location.href='404.php';</script>";

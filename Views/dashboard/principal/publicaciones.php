@@ -1,9 +1,5 @@
 <?php
 
-/* ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL); */
-
 // Iniciar variables de sesion, obtener DocId y Rol ACTUAL del usuario
 session_start();
 $respUserData = null;
@@ -24,10 +20,10 @@ if (isset($_SESSION['documentoIdentidad'])) {
 if (isset($respUserData)) {
   if ($rol == 3) {
     //Parte superior del HTML
-    require "../assets/header.php";
+    require "../includes/header.php";
 
-    require_once '../assets/sidebarDashboard.php';
-    require_once '../assets/navegacion.php';
+    require_once '../includes/sidebarDashboard.php';
+    require_once '../includes/navegacion.php';
 ?>
     <!-- Header -->
     <div class="header bg-primary pb-6">
@@ -37,10 +33,6 @@ if (isset($respUserData)) {
             <div class="col-lg-6 col-7">
               <h6 class="h2 text-white d-inline-block mb-0">Tabla de publicaciones</h6><br>
               <h6 class="h2 text-white d-inline-block mb-0">Total: <?php echo $contadorPublicaciones; ?></h6>
-            </div>
-            <div class="col-lg-6 col-5 text-right">
-              <a href="#" class="btn btn-sm btn-neutral">New</a>
-              <a href="#" class="btn btn-sm btn-neutral">Filters</a>
             </div>
           </div>
         </div>
@@ -73,7 +65,7 @@ if (isset($respUserData)) {
                   <?php
                   foreach ($respTodasPublicaciones as $datosPubli) { ?>
                     <tr>
-                      <th><img src="../../assets/img/publicaciones/<?php echo $datosPubli['urlImagen'];  ?>" alt=".." width="130px"></th>
+                      <th><img src="<?php echo $datosPubli['urlImagen'];  ?>" alt=".." width="130px"></th>
                       <th><?php echo $datosPubli['nombrePublicacion']; ?></th>
                       <th><?php echo substr($datosPubli['descripcionPublicacion'], 0, 30); ?>...</th>
                       <th><?php echo $datosPubli['costoPublicacion']; ?></th>
@@ -91,9 +83,6 @@ if (isset($respUserData)) {
                                 <input type="hidden" name="id" value="<?php echo $datosPubli['idPublicacion']; ?>">
                                 <button type="submit" class="btn btn-info">Desactivar</button>
                               </form>
-                              <br>
-                              <!-- Botón eliminar publicación -->
-                              <a class="btn btn-danger" data-toggle="modal" data-target="#eliminarPubliModal<?php echo $datosPubli['idPublicacion'] ?>">Eliminar</a>
                             </div>
                           </th>
                         <?php } else { ?>
@@ -109,15 +98,10 @@ if (isset($respUserData)) {
                                 <input type="hidden" name="id" value="<?php echo $datosPubli['idPublicacion']; ?>">
                                 <button type="submit" class="btn btn-info">Activar</button>
                               </form>
-                              <br>
-                              <!-- Botón eliminar publicación -->
-                              <a class="btn btn-danger" data-toggle="modal" data-target="#eliminarPubliModal<?php echo $datosPubli['idPublicacion'] ?>">Eliminar</a>
                             </div>
                           </th>
                           <!-- Cierre else -->
                         <?php } ?>
-                        <!--Modal Eliminar publicación -->
-                        <?php require "../assets/modalesPublicacion.php"; ?>
                     </tr>
                   <?php
 
@@ -130,7 +114,7 @@ if (isset($respUserData)) {
         </div>
       </div>
       <!-- Footer -->
-  <?php require_once '../assets/footer.php';
+  <?php require_once '../includes/footer.php';
   } else {
     echo "<script>alert('No puedes acceder a esta página');</script>";
     echo "<script> document.location.href='dashboard.php';</script>";

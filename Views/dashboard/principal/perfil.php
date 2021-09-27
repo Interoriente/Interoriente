@@ -21,13 +21,13 @@ if (isset($respUserData)) {
   if ($rol == 1 or $rol  == 3) {
 
     //Parte superior del HTML
-    require "../assets/header.php";
+    require "../includes/header.php";
     
-    require_once '../assets/sidebarDashboard.php';
-    require_once '../assets/navegacion.php';
+    require_once '../includes/sidebarDashboard.php';
+    require_once '../includes/navegacion.php';
 ?>
     <!-- Header -->
-    <div class="header pb-6 d-flex align-items-center" style="min-height: 500px; background-image: url(../../../assets/img/fondoperfil.jpg); background-size: cover; background-position: center top;">
+    <div class="header pb-6 d-flex align-items-center">
       <span class="mask" style="background-color: #004E64;"></span>
       <!-- Mask -->
       <!-- Header container -->
@@ -95,7 +95,7 @@ if (isset($respUserData)) {
           <div class="modal-dialog" role="document">
             <div class="modal-content">
               <div class="modal-body">
-                <img class=" card-img-top" src="crud/<?php echo $respUserData->imagenUsuario; ?>">
+                <img class=" card-img-top" src="<?php echo $respUserData->imagenUsuario; ?>">
               </div>
             </div>
           </div>
@@ -231,7 +231,7 @@ if (isset($respUserData)) {
                     </td>
 
                     <!--Modal Eliminar y actualizar direccion -->
-                    <?php require "../assets/modalesDireccion.php"; ?>
+                    <?php require "../includes/modalesDireccion.php"; ?>
                   </tr>
                 <?php endforeach //Fin foreach 
                 ?>
@@ -243,7 +243,7 @@ if (isset($respUserData)) {
     </div>
 
     <!-- Footer -->
-    <?php require_once '../assets/footer.php';
+    <?php  require_once '../includes/footer.php';
   } else {
     echo "<script>alert('No puedes acceder a esta página!');</script>";
     echo "<script> document.location.href='403.php';</script>";

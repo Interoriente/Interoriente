@@ -30,8 +30,14 @@
           if ($_SESSION['roles'] == "1") { ?>
               <li class="nav-item">
                 <a class="nav-link" href="crearPublicacion.php">
-                  <i class="ni ni-album-2" style="color: #FFB930"></i>
+                  <i class="ni ni-album-2" style="color: #FFB720"></i>
                   <span class="nav-link-text">Crear publicación</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="misPublicaciones.php">
+                  <i class="ni ni-book-bookmark" style="color: #FFB930"></i>
+                  <span class="nav-link-text">Mis publicaciones</span>
                 </a>
               </li>
               <li class="nav-item">
