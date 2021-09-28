@@ -22,6 +22,7 @@ if (isset($respUserData)) {
 
         require_once '../includes/sidebarDashboard.php';
         require_once '../includes/navegacion.php'; ?>
+    
         <!-- Link estilos -->
         <link rel="stylesheet" href="../../assets/css/general.css">
         <link rel="stylesheet" href="../assets/css/misCompras.css">
