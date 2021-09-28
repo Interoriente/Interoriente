@@ -1,17 +1,18 @@
 <?php
-
 /* Pasos:
     1. Obtener id de las ciudades
     2. Obtener id de un usuario
-    2. Insertar registro con una PK aleatoria teniendo en cuenta el id de la ciudad y el del usuario
+    3. Insertar registro con una PK aleatoria teniendo en cuenta el id de la ciudad y el del usuario
 */
 setDireccion();
 function setDireccion(){
-    /* TODO: LLamar info de la tbl usuarios para asignar id */
-    //$numCiudades = sizeof($ciudades);
     require 'conexion.php';
     $docId = getUsuario();
-    $tituloDirecciones = ["Casa", "Oficina", "Apartamento", "Hotel"];
+    $tituloDirecciones = [
+        "Casa", 
+        "Oficina", 
+        "Apartamento",
+        "Hotel"];
     $direcciones = [
         'Carrera 23 No. 44 AC 21',
         'Calle 23 No. 23 21',
@@ -31,12 +32,21 @@ function setDireccion(){
     $stmt->bindValue(":direccion", $direccion);
     $stmt->bindValue(":ciudadDir", $ciudadDir);
     $stmt->execute();
+    $sqlUsuario = "UPDATE tblUsuario 
+    SET estadoDir = 1 
+    WHERE documentoIdentidad = :docId"; 
+    $stmtUsuario = $pdo->prepare($sqlUsuario);
+    $stmtUsuario->bindValue(":docId", $docId);
+    $stmtUsuario->execute();
 }
 
 function getUsuario(){
     require 'conexion.php';
     $sql = "SELECT documentoIdentidad AS docId 
-    FROM tblUsuario ORDER BY RAND() LIMIT 1";
+    FROM tblUsuario 
+    WHERE estadoDir = 0
+    ORDER BY RAND() 
+    LIMIT 1";
     $stmt = $pdo->prepare($sql);
     $stmt->execute();
     $resultado = $stmt->fetch();
