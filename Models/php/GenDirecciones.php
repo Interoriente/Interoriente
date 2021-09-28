@@ -5,11 +5,6 @@
     2. Obtener id de un usuario
     2. Insertar registro con una PK aleatoria teniendo en cuenta el id de la ciudad y el del usuario
 */
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
-echo setDireccion();
-
 function setDireccion(){
     /* TODO: LLamar info de la tbl usuarios para asignar id */
     //$numCiudades = sizeof($ciudades);
