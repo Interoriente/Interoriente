@@ -31,30 +31,7 @@ if (isset($_POST['usuarios'])) {
         $stmtUs->execute();
     }
 
-    function getCiudades(){
-        require '../dao/conexion.php';
-        $sql = "SELECT idCiudad FROM tblCiudad";
-        $stmt = $pdo->prepare($sql);
-        $stmt->execute();
-        $resultado = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        return $resultado;
-    }
-    function setDireccion(){
-        /* TODO: LLamar info de la tbl usuarios para asignar id */
-        //$numCiudades = sizeof($ciudades);
-        require '../dao/conexion.php';
-        $direcciones = ["Casa", "Oficina"];
-        $sqlc = "SELECT idCiudad FROM tblCiudad";
-        $stmt = $pdo->prepare($sqlc);
-        $stmt->execute();
-        $ciudades = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        $nombreDir = $direcciones[rand(0,1)]; 
-        $ciudadDir = $ciudades[rand(0, $numCiudades)];
-        $sqlDir = "INSERT INTO tblDirecciones
-        VALUES (null, $docId, $nombreDir, $direccion, $ciudadDir)";
-        $stmtDir = $pdo->prepare($sqlDir);
-        $stmtDir->execute();
-    }
+    
 }
 
 
