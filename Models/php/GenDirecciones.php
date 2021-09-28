@@ -10,7 +10,7 @@ function setDireccion(){
     //$numCiudades = sizeof($ciudades);
     require 'conexion.php';
     $docId = getUsuario();
-    $tituloDirecciones = ["Casa", "Oficina"];
+    $tituloDirecciones = ["Casa", "Oficina", "Apartamento", "Hotel"];
     $direcciones = [
         'Carrera 23 No. 44 AC 21',
         'Calle 23 No. 23 21',
