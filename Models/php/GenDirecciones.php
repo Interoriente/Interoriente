@@ -5,7 +5,11 @@
     2. Obtener id de un usuario
     2. Insertar registro con una PK aleatoria teniendo en cuenta el id de la ciudad y el del usuario
 */
-setDireccion();
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+echo setDireccion();
+
 function setDireccion(){
     /* TODO: LLamar info de la tbl usuarios para asignar id */
     //$numCiudades = sizeof($ciudades);
@@ -23,8 +27,13 @@ function setDireccion(){
     $ciudadDir = getCiudad();
     $direccion = $direcciones[rand(0, 4)];
     $sql = "INSERT INTO tblDirecciones
-    VALUES (null, $docId, $nombreDir, $direccion, $ciudadDir)";
+    VALUES (null, :docId, :nombreDir, :direccion, :ciudadDir)";
     $stmt = $pdo->prepare($sql);
+    //Nota: Recordar usar bindValue para evitar errores en la consulta
+    $stmt->bindValue(":docId", $docId);
+    $stmt->bindValue(":nombreDir", $nombreDir);
+    $stmt->bindValue(":direccion", $direccion);
+    $stmt->bindValue(":ciudadDir", $ciudadDir);
     $stmt->execute();
 }
 
