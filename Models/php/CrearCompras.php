@@ -1,6 +1,7 @@
 <?php
-echo getRandomFecha();
-function setFactura(){
+getRandomFecha();
+function setFactura()
+{
     require 'conexion.php';
     $fecha = getRandomFecha();
     $user = getUsuario();
@@ -26,10 +27,11 @@ function setFactura(){
     setFacturaPublicacion($idFactura);
 }
 
-function setFacturaPublicacion($idFac){
+function setFacturaPublicacion($idFac)
+{
     require 'conexion.php';
     $publicacion = getPublicacion();
-    $id = $publicacion["id"];    
+    $id = $publicacion["id"];
     $cantidad = rand(1, 30);
     $sql = "INSERT INTO tblFacturaPublicacion
     VALUES($idFac, $id, $cantidad)";
@@ -37,7 +39,8 @@ function setFacturaPublicacion($idFac){
     $stmt->execute();
 }
 
-function getPublicacion(){
+function getPublicacion()
+{
     require 'conexion.php';
     $sql = "SELECT idPublicacion AS id
     FROM tblPublicacion ORDER BY RAND() LIMIT 1";
@@ -46,7 +49,8 @@ function getPublicacion(){
     return $stmt->fetch(PDO::FETCH_ASSOC);
 }
 
-function getUsuario(){
+function getUsuario()
+{
     require 'conexion.php';
     $sql = "SELECT documentoIdentidad AS id, emailUsuario AS email
     FROM tblUsuario ORDER BY RAND() LIMIT 1
@@ -55,30 +59,39 @@ function getUsuario(){
     $stmt->execute();
     return $stmt->fetch(PDO::FETCH_ASSOC);
 }
-function getRandomFecha(){
+function getRandomFecha()
+{
+    require 'conexion.php';
     $mesActual = date("m");
     $diaActual = date("d");
     $ano = strval(rand(2020, 2021));
     $mes = strval(rand(01, $mesActual));
-    return $diaActual;
-    $dia = strval(rand(01, 28));
+    if ($mes == $mesActual) {
+        $dia = strval(rand(01, $diaActual));
+    } else {
+        if ($mes == '02') {
+            $dia = strval(rand(01, 28));
+        } else {
+            $dia = strval(rand(01, 30));
+        }
+    }
     $randFecha = null;
-    $randFecha .= $ano . '-' ;
+    $randFecha .= $ano . '-';
     if ($dia < 10 ||  $mes < 10) {
         if ($mes < 10  && $dia < 10) {
             $randFecha .= "0" . $mes . '-';
             $randFecha .= "0" . $dia;
         } else {
             if ($mes < 10) {
-                $randFecha .= "0" . $mes . '-';  
+                $randFecha .= "0" . $mes . '-';
                 $randFecha .= $dia;
-            }else{
-             $randFecha .= $mes . '-';
+            } else {
+                $randFecha .= $mes . '-';
 
                 $randFecha .= "0" . $dia;
             }
         }
-    }else{
+    } else {
         $randFecha .= $mes . '-';
         $randFecha .= $dia;
     }
