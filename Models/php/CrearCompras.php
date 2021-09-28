@@ -1,4 +1,5 @@
 <?php
+echo getRandomFecha();
 function setFactura(){
     require 'conexion.php';
     $fecha = getRandomFecha();
@@ -55,8 +56,11 @@ function getUsuario(){
     return $stmt->fetch(PDO::FETCH_ASSOC);
 }
 function getRandomFecha(){
+    $mesActual = date("m");
+    $diaActual = date("d");
     $ano = strval(rand(2020, 2021));
-    $mes = strval(rand(01, 12));
+    $mes = strval(rand(01, $mesActual));
+    return $diaActual;
     $dia = strval(rand(01, 28));
     $randFecha = null;
     $randFecha .= $ano . '-' ;

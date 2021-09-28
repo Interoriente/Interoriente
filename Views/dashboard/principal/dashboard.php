@@ -1,4 +1,7 @@
 <?php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 session_start();
 if (isset($_SESSION['documentoIdentidad'])) {
   require "../../../Controllers/php/users/usuarios.php";
@@ -15,6 +18,8 @@ if (isset($_SESSION['documentoIdentidad'])) {
   $respVentasAnual = $informe->MostrarVentasAnuales($informe->id);
   //Llamo la función para las ventas de los 7 días anterior
   $respVentasDia = $informe->VentasPorDias($informe->id);
+
+  $respMasExitosas = $informe->GetPublicacionesExitosas($informe->id);
 
   //Mostrar gráfica de ventas anuales
   $labelVentas = "";
@@ -253,67 +258,35 @@ if (isset($respUserData)) {
               <tr>
                 <th scope="col">Título</th>
                 <th scope="col">No. Ventas</th>
-                <th scope="col">Total Ventas</th>
                 <th scope="col">Stock</th>
                 <th scope="col">Porcentaje</th>
+                <th scope="col">Total Ventas</th>
               </tr>
             </thead>
             <tbody>
               <!-- Fila -->
-              <tr>
-                <th scope="row">
-                  /argon/
-                </th>
-                <td>
-                  4,569
-                </td>
-                <td>
-                  4,569
-                </td>
-                <td>
-                  340
-                </td>
-                <td>
-                  <i class="fas fa-arrow-up text-success mr-3"></i> 46,53%
-                </td>
-              </tr>
-            <!--Fin Fila -->
-
-              <tr>
-                <th scope="row">
-                  /argon/index.html
-                </th>
-                <td>
-                  3,985
-                </td>
-                <td>
-                  4,569
-                </td>
-                <td>
-                  319
-                </td>
-                <td>
-                  <i class="fas fa-arrow-down text-warning mr-3"></i> 46,53%
-                </td>
-              </tr>
-              
-              <tr>
-                <th scope="row">
-                  /argon/profile.html
-                </th>
-                <td>
-                  1,795
-                </td>
-                <td>
-                  4,569
-                </td>
-                <td>
-                  190
-                </td>
-                <td>
-                  <i class="fas fa-arrow-down text-danger mr-3"></i> 46,53%
-                </td>
-              </tr>
+              <?php for ($i = 0; $i < 5; $i++) : ?>
+                <tr>
+                  <td>
+                   <a href="#"><?php echo $respMasExitosas->Titulos[$i]; ?></a> 
+                  </td>
+                  
+                  <td>
+                    <?php echo $respMasExitosas->NoVentas[$i]; ?>
+                  </td>
+                
+                  <td>
+                    <?php echo $respMasExitosas->Stock[$i]; ?>
+                  </td>
+                  <td>
+                    <?php echo "%" . round($respMasExitosas->Porcentajes[$i], 1); ?>
+                  </td>
+                  <td>
+                    <?php echo "$" . number_format($respMasExitosas->VlrVentas[$i], 0, '','.'); ?>
+                  </td>
+                </tr>
+              <?php endfor ?>
+              <!--Fin Fila -->
             </tbody>
           </table>
         </div>
