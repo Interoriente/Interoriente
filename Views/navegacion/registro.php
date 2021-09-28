@@ -73,7 +73,7 @@ require "../assets/linksGoogle.php";
                                         <div class="input-group-prepend">
                                             <span class="input-group-text"><i class="ni ni-single-02"></i></span>
                                         </div>
-                                        <input class="form-control" placeholder="Nombres" type="text" name="nombres" onkeypress="return Sololetras(event)" required autofocus>
+                                        <input class="form-control" placeholder="Nombres" type="text" name="nombres" required autofocus>
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -152,8 +152,6 @@ require "../assets/linksGoogle.php";
     </div>
     <!-- Argon JS -->
     <script src="../dashboard/assets/js/argon.min.js?v=1.2.0"></script>
-
-
 </body>
 
 </html>

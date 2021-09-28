@@ -13,8 +13,9 @@ session_start();
     <!-- Fonts -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700">
     <!-- Icons -->
-    <link rel="stylesheet" href="../dashboard/assets/vendor/nucleo/css/nucleo.css" type="text/css">
-    <link rel="stylesheet" href="../dashboard/assets/vendor/@fortawesome/fontawesome-free/css/all.min.css" type="text/css">
+    <link rel="stylesheet" href="../dashboard/assets/css/iconos.css" type="text/css">
+    <link rel="stylesheet" href="../dashboard/assets/css/iconosComplementos.css" type="text/css">
+    <link rel="stylesheet" href="../dashboard/assets/css/all.min.css" type="text/css">
     <!-- Argon CSS -->
     <link rel="stylesheet" href="../dashboard/assets/css/argon.min.css?v=1.2.0" type="text/css">
     <title>Registrarse | Interoriente</title>
@@ -52,6 +53,8 @@ session_start();
                                 <input type="hidden" name="registrarse">
                                 <input type="hidden" name="imagen" value="<?php echo $_SESSION['picture']; ?>">
                                 <input type="hidden" name="correo" required value="<?php echo $_SESSION['email']; ?>">
+                                <input class="form-control" placeholder="Nombres" type="hidden" name="nombres" value="<?php echo $_SESSION['name']; ?>">
+                                <input class="form-control" placeholder="Apellidos" type="hidden" name="apellidos" required value="<?php echo $_SESSION['familyName']; ?>">
                                 <div class="form-group">
                                     <label for="">Documento:</label>
                                     <div class="input-group input-group-merge input-group-alternative mb-3">
@@ -59,24 +62,6 @@ session_start();
                                             <span class="input-group-text"><i class="ni ni-badge"></i></span>
                                         </div>
                                         <input class="form-control" placeholder="Documento" type="number" max="9999999999" name="documento" required>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="">Nombres:</label>
-                                    <div class="input-group input-group-merge input-group-alternative mb-3">
-                                        <div class="input-group-prepend">
-                                            <span class="input-group-text"><i class="ni ni-single-02"></i></span>
-                                        </div>
-                                        <input class="form-control" placeholder="Nombres" type="text" name="nombres" onkeypress="return Sololetras(event)" required autofocus value="<?php echo $_SESSION['name']; ?>">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="">Apellidos:</label>
-                                    <div class="input-group input-group-merge input-group-alternative mb-3">
-                                        <div class="input-group-prepend">
-                                            <span class="input-group-text"><i class="ni ni-single-02"></i></span>
-                                        </div>
-                                        <input class="form-control" placeholder="Apellidos" type="text" name="apellidos" required value="<?php echo $_SESSION['familyName']; ?>">
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -127,14 +112,7 @@ session_start();
         </div>
     </div>
     <!-- Core -->
-    <script src="../dashboard/assets/vendor/jquery/dist/jquery.min.js"></script>
-    <script src="../dashboard/assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="../dashboard/assets/vendor/js-cookie/js.cookie.js"></script>
-    <script src="../dashboard/assets/vendor/jquery.scrollbar/jquery.scrollbar.min.js"></script>
-    <script src="../dashboard/assets/vendor/jquery-scroll-lock/dist/jquery-scrollLock.min.js"></script>
-    <!-- Argon JS -->
-    <script src="../dashboard/assets/js/argon.js?v=1.2.0"></script>
-
+    <script src="../dashboard/assets/js/argon.min.js?v=1.2.0"></script>
 </body>
 
 </html>
