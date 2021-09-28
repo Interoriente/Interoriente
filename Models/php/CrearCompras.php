@@ -1,5 +1,5 @@
 <?php
-getRandomFecha();
+setFactura();
 function setFactura()
 {
     require 'conexion.php';
