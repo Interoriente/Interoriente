@@ -8,6 +8,9 @@ setDireccion();
 function setDireccion(){
     require 'conexion.php';
     $docId = getUsuario();
+    if (!isset($docId)) {
+        return 0;
+    }
     $tituloDirecciones = [
         "Casa", 
         "Oficina", 
