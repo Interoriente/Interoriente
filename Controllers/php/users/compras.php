@@ -265,7 +265,7 @@ class Compra
     require('../../../Models/dao/conexion.php');
     $sqlMisCompras = "SELECT /* IM.urlImagen, */FA.numeroFactura,FA.fechaFactura,
     FA.direccionFactura,FA.emailFactura,
-    PU.nombrePublicacion,PU.costoPublicacion,
+    PU.nombrePublicacion,PU.costoPublicacion,US.telefonomovilUsuario,
     sum(FP.cantidadFacturaPublicacion) as 'cantidad',
     DATE_FORMAT(FA.fechaFactura, '%d/%m/%Y') as fecha
     FROM tblFactura as FA
@@ -273,6 +273,8 @@ class Compra
     ON FP.numFacturaPublicacion=FA.numeroFactura
     INNER JOIN tblPublicacion as PU
     ON PU.idPublicacion=FP.idPublicacionFactura
+    INNER JOIN tblUsuario as US
+    ON PU.docIdentidadPublicacion=US.documentoIdentidad
     /* INNER JOIN tblImagenes as IM
     ON IM.publicacionImagen=PU.idPublicacion */
     WHERE FA.docIdentidadFactura=?

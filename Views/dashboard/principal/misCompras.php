@@ -55,6 +55,7 @@ if (isset($respUserData)) {
                                     <p><strong><?php echo $misCompras['nombrePublicacion']; ?></strong></p>
                                     <p>$<?php echo $misCompras['costoPublicacion']; ?></p>
                                     <p>Cantidad: <?php echo $misCompras['cantidad']; ?></p>
+                                    <p>WhatsApp: <?php echo $misCompras['telefonomovilUsuario']; ?></p>
                                     <p><?php echo $misCompras['fecha']; ?></p>
                                 </div>
                                 <div class="cont-menutres">
