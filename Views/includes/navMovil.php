@@ -3,7 +3,7 @@
         <?php if (isset($_SESSION['roles']) == "3"  or isset($_SESSION['roles']) == "1") { ?>
             <?php if ($_SESSION['roles'] == "3") { ?>
                 <!-- ROl admin -->
-                <a href="#">Mis ofertas</a>
+               <a href="#">Mis ofertas</a>
                 <a href="catalogoProd.php">Catálogos</a>
                 <a href="#">Ayuda</a><!-- Este botón se puede utilizar para que redireccione al manual del aplicativo -->
                 <a href="../dashboard/principal/dashboard.php">Volver al panel</a>
@@ -29,7 +29,7 @@
 
         <?php } else { ?>
             <!-- Poner imagen-->
-            <a href="#">Ofertas</a>
+           <img src="" alt="">  <a href="#">Ofertas</a>
             <a href="catalogoProd.php">Catálogos</a>
             <a href="#">Ayuda</a>
             <a href="iniciarsesion.php">Iniciar sesión</a>

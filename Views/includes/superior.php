@@ -52,57 +52,53 @@ session_start();
             <img src="../../assets/img/perfil.svg" alt="">
 
     </div> -->
-
-    <?php if (isset($_SESSION['roles']) == "3" or isset($_SESSION['roles']) == "2"  or isset($_SESSION['roles']) == "1") { ?>
-
-      <?php if ($_SESSION['roles'] == "3") { ?>
-        <!-- ROl admin -->
-        <a href="index.php">Inicio</a>
-        <a href="#">Mis ofertas</a>
-        <a href="../navegacion/productos.php">Catálogos</a>
-        <a href="#">Ayuda</a>
-        <a href="../dashboard/principal/dashboard.php">Volver al panel</a>
-        <form class="cerrar-sesion" action="../../Controllers/php/users/usuarios.php" method="POST">
-          <input type="hidden" name="cerrarSesion">
-          <input class="btnCerrar" type="submit" value="Cerrar Sesión">
-        </form>
-      <?php } else { ?>
-        <!-- ROl comprador/Proveedor -->
-        <a href="index.php">Inicio</a>
-        <a href="#">Ofertas</a>
-        <a href="catalogo.php">Catálogos</a>
-        <a href="#">Mi carrito</a>
-        <a href="#">Mis compras</a>
-        <a href="#">Ayuda</a>
-        <a href="../dashboard/principal/dashboard.php">Volver al panel</a>
-        <form class="cerrar-sesion" action="../../Controllers/php/users/usuarios.php" method="POST">
-          <input type="hidden" name="cerrarSesion">
-          <input class="btnCerrar" type="submit" value="Cerrar Sesión">
-        </form>
-
-      <?php } ?>
-
-    <?php } else { ?>
-      <!-- Poner imagen-->
-      <a href="" id="log-info-a">
-        <img id="cta-login-img" src="../assets/img/navegacion/login_2.svg" alt="Ingreso Interoriente">
-        <p id="cta-p">¡Regístrate o Inicia sesión para comenzar!</p>
-      </a>
+    <div class="navegacion-a">
+      <img src="../assets/img/iconos/Tienda_Icon.svg" alt="">
       <a href="index.php">Inicio</a>
-      <a href="#">Ofertas</a>
-      <a href="catalogo.php">Catálogos</a>
+    </div>
+    <div class="navegacion-a">
+      <img src="../assets/img/iconos/Ayuda_Icon.svg" alt="">
       <a href="#">Ayuda</a>
-      <a href="iniciarsesion.php">Iniciar sesión</a>
+    </div>
+    <div class="navegacion-a">
+      <img src="../assets/img/iconos/dinero.svg" alt="">
+      <a href="#">Ofertas</a>
+    </div>
+    <div class="navegacion-a">
+      <img src="../assets/img/iconos/catalogo.svg" alt="">
+      <a href="catalogo.php">Catálogos</a>
+    </div>
+    <?php if ($_SESSION['roles'] == '1') : ?>
+      <div class="navegacion-a">
+        <img src="../assets/img/iconos/carrito_2.svg" alt="">
+        <a href="#">Mi carrito</a>
+      </div>
+      <div class="navegacion-a">
+        <img src="../assets/img/iconos/compras.svg" alt="">
+        <a href="#">Mis compras</a>
+      </div>
+      <div class="navegacion-a">
+        <img src="../assets/img/iconos/Estadisticas_Icon.svg" alt="">
+        <a href="../dashboard/principal/dashboard.php">Volver al panel</a>
+      </div>
+    <?php endif; ?>
+    <?php if (!isset($_SESSION['roles'])) {
+    ?>
+      <div class="navegacion-a">
+        <img src="../assets/img/iconos/compras.svg" alt="">
+        <a href="iniciarsesion.php">Iniciar sesión</a>
+      </div>
+    <?php } else { ?>
+      <form class="cerrar-sesion" action="../../Controllers/php/users/usuarios.php" method="POST">
+        <input type="hidden" name="cerrarSesion">
+        <input class="btnCerrar" type="submit" value="Cerrar Sesión">
+      </form>
     <?php } ?>
-
+    <!-- Poner imagen-->
   </div>
   <div id="main" class="main-container">
-
     <div class="contenido">
-
       <!--  Contenido Principal del la página -->
-
-
     </div>
     <!-- Carrito -->
     <div class="cart-overlay" id="overlay">
@@ -113,9 +109,6 @@ session_start();
         <h2 class="titulos">Tu carrito</h2>
         <div class="cart-content">
           <!--Contenido del carrito controlado por JavaScript-->
-
-
-
         </div>
         <div class="cart-footer">
           <h4>Subtotal: $ <span class="cart-total">0</span></h4>
@@ -125,7 +118,6 @@ session_start();
       </div>
 
     </div>
-
-
     <!-- Fin Carrito -->
     <script src="../js/navegacion.js"></script>
+    <script src="../js/sidebar.js"></script>

@@ -46,8 +46,9 @@ GROUP BY DAY(FA.fechaFactura)
 $total = n;
 $total              100%
 $totalNProducto -> id  ?
-totalNProducto*100/total
+totalNProducto*100/total 
 
+LISTO!!!!!!!!!!!!!!!->
 
 
 ****
@@ -80,12 +81,8 @@ WHERE PU.docIdentidadPublicacion = 123456789
 GROUP BY PU.idPublicacion ORDER BY Vlr_Ventas DESC LIMIT 5
 
 ****
-
 $id = [93, 133, 172, 97, 157];
 $arr = [];
-
-
-
 For{
 SELECT SUM(FP.cantidadFacturaPublicacion * PU.costoPublicacion) AS 'Total'
 FROM tblPublicacion as PU
@@ -125,7 +122,9 @@ INNER JOIN tblFacturaPublicacion as FP
 ON FP.numFacturaPublicacion=FA.numeroFactura
 INNER JOIN tblPublicacion AS PU 
 ON PU.idPublicacion = FP.idPublicacionFactura
-WHERE FA.fechaFactura=CURDATE() AND PU.docIdentidadPublicacion='documento'
+WHERE FA.fechaFactura='2021-09-27' AND PU.docIdentidadPublicacion='123456789'
+
+Tarjeta 3
 ==================================
 
 5. Ventas por ciudad//...\\
@@ -149,6 +148,8 @@ WHERE stockPublicacion<=5 and docIdentidadPublicacion=123456789
 SELECT COUNT(nombrePublicacion) as "Número Publicaciones" 
 FROM tblPublicacion 
 WHERE stockPublicacion <= 5 and docIdentidadPublicacion=123456789
+
+Tarjeta 1
 ==================================
 7. Total de ventas de este mes y porcentaje de último mes comparado con el actual.
 SELECT MONTH(FA.fechaFactura)
@@ -159,10 +160,14 @@ INNER JOIN tblPublicacion AS PU
 ON PU.idPublicacion = FP.idPublicacionFactura
 WHERE FA.fechaFactura BETWEEN MONTH(DATE_SUB(NOW(), INTERVAL 1 MONTH))
 AND NOW()
-GROUP BY MONTH(FA.fechaFactura)
+GROUP BY MONTH(FA.fechaFactura) 
+
+Tarjeta 4
 ==================================
 8. Número de publicaciones sin validar
 SELECT nombrePublicacion
 FROM tblPublicacion
 WHERE validacionPublicacion=0 AND docIdentidadPublicacion='documento'
+
+Tarjeta 2
 ==================================

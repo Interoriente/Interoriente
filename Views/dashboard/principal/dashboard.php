@@ -1,7 +1,4 @@
 <?php
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
 session_start();
 if (isset($_SESSION['documentoIdentidad'])) {
   require "../../../Controllers/php/users/usuarios.php";
@@ -9,8 +6,6 @@ if (isset($_SESSION['documentoIdentidad'])) {
   $usuario = new Usuario($documento);
   $respUserData = $usuario->getUserData($usuario->id);
   $respGetRoles = $usuario->getRoles($usuario->id);
-
-
   require "../../../Controllers/php/users/informes.php";
   //Instancio la clase
   $informe = new Informes($documento);
@@ -20,7 +15,6 @@ if (isset($_SESSION['documentoIdentidad'])) {
   $respVentasDia = $informe->VentasPorDias($informe->id);
 
   $respMasExitosas = $informe->GetPublicacionesExitosas($informe->id);
-
   //Mostrar gráfica de ventas anuales
   $labelVentas = "";
   $datosVentas = "";
@@ -30,7 +24,6 @@ if (isset($_SESSION['documentoIdentidad'])) {
   }
   $labelVentas = rtrim($labelVentas, ",");
   $datosVentas = rtrim($datosVentas, ",");
-
   //Mostrar gráfica de ventas por semana
   $labelVentasSemana = "";
   $datosVentasSemana = "";
@@ -42,7 +35,6 @@ if (isset($_SESSION['documentoIdentidad'])) {
   $datosVentasSemana = rtrim($datosVentasSemana, ",");
   //Fin código temporal (Se guardará en funciones o en código JS)
 }
-
 if (isset($respUserData)) {
   $rol = $_SESSION['roles'];
   //Validacion de roles
@@ -84,18 +76,14 @@ if (isset($respUserData)) {
           <div class="row align-items-center py-4">
 
             <div class="col-lg-6 col-5 text-center">
-
               <!-- FIN Lista desplegable de cambio de roles -->
-
               <!-- Copia de seguridad DB -->
               <?php if ($_SESSION['roles'] == '3') : ?><br>
                 <a href="../../../Models/operaciones/backupDB.php"><button type="submit" class="btn btn-sm btn-neutral">Copia de seguridad BD</button></a>
               <?php endif; ?>
               <!-- FIN Copia de seguridad DB -->
-
             </div>
           </div>
-
           <!-- Tarjetas -->
           <div class="row">
             <div class="col-xl-3 col-md-6">
@@ -105,7 +93,7 @@ if (isset($respUserData)) {
                 <div class="card-body">
                   <div class="row">
                     <div class="col">
-                      <h5 class="card-title text-uppercase text-muted mb-0">Total traffic</h5>
+                      <h5 class="card-title text-uppercase text-muted mb-0">Alerta Stock</h5>
                       <span class="h2 font-weight-bold mb-0"><?php echo $_SESSION['roles'] ?></span>
                     </div>
                     <div class="col-auto">
@@ -261,6 +249,7 @@ if (isset($respUserData)) {
                 <th scope="col">Stock</th>
                 <th scope="col">Porcentaje</th>
                 <th scope="col">Total Ventas</th>
+
               </tr>
             </thead>
             <tbody>
@@ -268,13 +257,13 @@ if (isset($respUserData)) {
               <?php for ($i = 0; $i < 5; $i++) : ?>
                 <tr>
                   <td>
-                   <a href="#"><?php echo $respMasExitosas->Titulos[$i]; ?></a> 
+                    <a href="#"><?php echo $respMasExitosas->Titulos[$i]; ?></a>
                   </td>
-                  
+
                   <td>
                     <?php echo $respMasExitosas->NoVentas[$i]; ?>
                   </td>
-                
+
                   <td>
                     <?php echo $respMasExitosas->Stock[$i]; ?>
                   </td>
@@ -282,7 +271,7 @@ if (isset($respUserData)) {
                     <?php echo "%" . round($respMasExitosas->Porcentajes[$i], 1); ?>
                   </td>
                   <td>
-                    <?php echo "$" . number_format($respMasExitosas->VlrVentas[$i], 0, '','.'); ?>
+                    <?php echo "$" . number_format($respMasExitosas->VlrVentas[$i], 0, '', '.'); ?>
                   </td>
                 </tr>
               <?php endfor ?>
@@ -315,97 +304,39 @@ if (isset($respUserData)) {
               </tr>
             </thead>
             <tbody>
+              <!-- Fila -->
               <tr>
                 <th scope="row">
-                  Facebook
+                  Prueba
                 </th>
                 <td>
                   1,480
                 </td>
                 <td>
                   <div class="d-flex align-items-center">
-                    <span class="mr-2"><?php $x = 56;
+                    <span class="mr-2"><?php $x = 76;
                                         echo $x ?>%</span>
                     <div>
                       <div class="progress">
-                        <div class="progress-bar bg-gradient-danger" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: <?php echo $x ?>%;"></div>
+                        <div class="progress-bar bg-gradient-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: <?php echo $x ?>%;"></div>
                       </div>
                     </div>
                   </div>
                 </td>
               </tr>
-              <tr>
-                <th scope="row">
-                  Facebook
-                </th>
-                <td>
-                  5,480
-                </td>
-                <td>
-                  <div class="d-flex align-items-center">
-                    <span class="mr-2">70%</span>
-                    <div>
-                      <div class="progress">
-                        <div class="progress-bar bg-gradient-success" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width: 70%;"></div>
-                      </div>
-                    </div>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <th scope="row">
-                  Google
-                </th>
-                <td>
-                  4,807
-                </td>
-                <td>
-                  <div class="d-flex align-items-center">
-                    <span class="mr-2">80%</span>
-                    <div>
-                      <div class="progress">
-                        <div class="progress-bar bg-gradient-primary" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%;"></div>
-                      </div>
-                    </div>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <th scope="row">
-                  Instagram
-                </th>
-                <td>
-                  3,678
-                </td>
-                <td>
-                  <div class="d-flex align-items-center">
-                    <span class="mr-2">75%</span>
-                    <div>
-                      <div class="progress">
-                        <div class="progress-bar bg-gradient-info" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%;"></div>
-                      </div>
-                    </div>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <th scope="row">
-                  twitter
-                </th>
-                <td>
-                  2,645
-                </td>
-                <td>
-                  <div class="d-flex align-items-center">
-                    <span class="mr-2">30%</span>
-                    <div>
-                      <div class="progress">
-                        <div class="progress-bar bg-gradient-warning" role="progressbar" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100" style="width: 30%;"></div>
-                      </div>
-                    </div>
-                  </div>
-                </td>
-              </tr>
+              <!-- Nombres de las clases de los colores de las barras:
+            -success
+            -primary
+            -info
+            -warning
+            -danger
+            -->
+
+              <!-- FIN Fila -->
+
+            
+              <!-- Final FILA -->
+             
             </tbody>
           </table>
           <!-- Para el admin -->

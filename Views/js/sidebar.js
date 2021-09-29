@@ -5,11 +5,13 @@
     // If localStorage is supported by the browser
     if (typeof(Storage) !== "undefined") {
         // If we need to open the bar
+        
         if(localStorage.getItem("sidebar") == "opened"){
           /* Quitando botón cuando se abre el sidebar */
             btn.style.display = 'none';
+           
             // Open the bar
-            document.getElementById("mySidenav").style.width = "250px";
+            document.getElementById("mySidenav").style.width = "220px";
             document.getElementById("main").style.marginLeft = "250px";
             // Add the transition class again
            
@@ -26,7 +28,7 @@ function openNav() {
         localStorage.setItem("sidebar", "opened");
     }
 
-    document.getElementById("mySidenav").style.width = "250px";
+    document.getElementById("mySidenav").style.width = "220px";
     document.getElementById("main").style.marginLeft = "250px";
 
   }
