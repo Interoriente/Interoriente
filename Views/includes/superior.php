@@ -48,10 +48,6 @@ session_start();
   <!-- Sidebar -->
   <div id="mySidenav" class="sidenav">
     <a href="javascript:void(0)" id="btn-close" class="closebtn" onclick="closeNav()">&times;</a>
-    <!--   <div class="perfil">
-            <img src="../../assets/img/perfil.svg" alt="">
-
-    </div> -->
     <div class="navegacion-a">
       <img src="../assets/img/iconos/Tienda_Icon.svg" alt="">
       <a href="index.php">Inicio</a>
@@ -66,7 +62,7 @@ session_start();
     </div>
     <div class="navegacion-a">
       <img src="../assets/img/iconos/catalogo.svg" alt="">
-      <a href="catalogo.php">Catálogos</a>
+      <a href="catalogo.php">Categorías</a>
     </div>
     <?php if ($_SESSION['roles'] == '1') : ?>
       <div class="navegacion-a">

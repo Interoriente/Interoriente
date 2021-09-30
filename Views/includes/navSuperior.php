@@ -47,7 +47,7 @@
         <!-- ROl admin -->
         <a href="index.php">Inicio</a>
         <a href="#">Mis ofertas</a>
-        <a href="../navegacion/productos.php">Catálogos</a>
+        <a href="../navegacion/productos.php">Categorías</a>
         <a href="#">Ayuda</a>
         <a href="../../view/dashboard/principal/dashboard.php">Volver al panel</a>
         <a href="../../Controller/cerrarSesion.php">Cerrar sesión</a>
@@ -64,7 +64,7 @@
         <!-- ROl comprador/Proveedor -->
         <a href="index.php">Inicio</a>
         <a href="#">Ofertas</a>
-        <a href="#">Catálogos</a>
+        <a href="#">Categorías</a>
         <a href="#">Mi carrito</a>
         <a href="#">Mis compras</a>
         <a href="#">Ayuda</a>
