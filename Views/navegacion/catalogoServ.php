@@ -46,8 +46,8 @@
                 <a href="">
                     <div class="caja-categorias">
                     <div class=" caja-categorias-subuno">
-                        <img src="../assets/img/catalogos/belleza.jpg" alt="" class="img-categorias">
                         <h2 class="tit-hdos1">Belleza</h2>
+                        <img src="../assets/img/catalogos/belleza.jpg" alt="" class="img-categorias">
                     </div>
                     </a>
                     <a href="">
