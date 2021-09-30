@@ -68,7 +68,7 @@ session_start();
       <img src="../assets/img/iconos/catalogo.svg" alt="">
       <a href="catalogo.php">Catálogos</a>
     </div>
-    <?php if ($_SESSION['roles'] == '1') : ?>
+    <?php if (isset($_SESSION['roles']) == '1') : ?>
       <div class="navegacion-a">
         <img src="../assets/img/iconos/carrito_2.svg" alt="">
         <a href="#">Mi carrito</a>
@@ -81,8 +81,8 @@ session_start();
         <img src="../assets/img/iconos/Estadisticas_Icon.svg" alt="">
         <a href="../dashboard/principal/dashboard.php">Volver al panel</a>
       </div>
-    <?php endif; ?>
-    <?php if (!isset($_SESSION['roles'])) {
+    <?php endif;
+    if (!isset($_SESSION['roles'])) {
     ?>
       <div class="navegacion-a">
         <img src="../assets/img/iconos/compras.svg" alt="">
