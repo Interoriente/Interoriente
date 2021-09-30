@@ -14,6 +14,10 @@ if (isset($_SESSION['documentoIdentidad'])) {
   //Llamo la función para las ventas de los 7 días anterior
   $respVentasDia = $informe->VentasPorDias($informe->id);
   $respMasExitosas = $informe->GetPublicacionesExitosas($informe->id);
+  $alertaStock = $informe->AlertaStock($informe->id);
+  $ventasHoy = $informe->VentasHoy($informe->id);
+
+
   //Mostrar gráfica de ventas anuales
   $labelVentas = "";
   $datosVentas = "";
@@ -85,6 +89,8 @@ if (isset($respUserData)) {
           </div>
           <!-- Tarjetas -->
           <div class="row">
+
+
             <div class="col-xl-3 col-md-6">
               <!-- Contenedor Tarjetas -->
               <div class="card card-stats">
@@ -93,7 +99,7 @@ if (isset($respUserData)) {
                   <div class="row">
                     <div class="col">
                       <h5 class="card-title text-uppercase text-muted mb-0">Alerta Stock</h5>
-                      <span class="h2 font-weight-bold mb-0"><?php echo $_SESSION['roles'] ?></span>
+                      <span class="h2 font-weight-bold mb-0"><?php echo $alertaStock['No_publicaciones'] ?></span>
                     </div>
                     <div class="col-auto">
                       <div class="icon icon-shape bg-gradient-red text-white rounded-circle shadow">
@@ -101,65 +107,20 @@ if (isset($respUserData)) {
                       </div>
                     </div>
                   </div>
-                  <p class="mt-3 mb-0 text-sm">
+                  <!--  <p class="mt-3 mb-0 text-sm">
                     <span class="text-success mr-2"><i class="fa fa-arrow-up"></i> 3.48%</span>
                     <span class="text-nowrap">Since last month</span>
-                  </p>
+                  </p> -->
                 </div>
               </div>
             </div>
             <div class="col-xl-3 col-md-6">
               <div class="card card-stats">
                 <!-- Tarjeta -->
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col">
 
-                <!-- Tarjeta para el admin -->
-                <div class="card-body">
-                  <div class="row">
-                    <div class="col">
-                      <h5 class="card-title text-uppercase text-muted mb-0">Usuarios Registrados</h5>
-                      <span class="h2 font-weight-bold mb-0">1053</span>
-                    </div>
-                    <div class="col-auto">
-                      <div class="icon icon-shape bg-gradient-orange text-white rounded-circle shadow">
-                        <i class="ni ni-chart-pie-35"></i>
-                      </div>
-                    </div>
-                  </div>
-                  <p class="mt-3 mb-0 text-sm">
-                    <span class="text-success mr-2"><i class="fa fa-arrow-up"></i> 3.48%</span>
-                    <span class="text-nowrap">Since last month</span>
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class="col-xl-3 col-md-6">
-              <div class="card card-stats">
-                <!-- Tarjeta -->
-                <div class="card-body">
-                  <div class="row">
-                    <div class="col">
-                      <h5 class="card-title text-uppercase text-muted mb-0">Ventas</h5>
-                      <span class="h2 font-weight-bold mb-0">924</span>
-                    </div>
-                    <div class="col-auto">
-                      <div class="icon icon-shape bg-gradient-green text-white rounded-circle shadow">
-                        <i class="ni ni-money-coins"></i>
-                      </div>
-                    </div>
-                  </div>
-                  <p class="mt-3 mb-0 text-sm">
-                    <span class="text-success mr-2"><i class="fa fa-arrow-up"></i> 3.48%</span>
-                    <span class="text-nowrap">Since last month</span>
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class="col-xl-3 col-md-6">
-              <div class="card card-stats">
-                <!-- Tarjeta -->
-                <div class="card-body">
-                  <div class="row">
-                    <div class="col">
                       <h5 class="card-title text-uppercase text-muted mb-0">Performance</h5>
                       <span class="h2 font-weight-bold mb-0">49,65%</span>
                     </div>
@@ -169,9 +130,54 @@ if (isset($respUserData)) {
                       </div>
                     </div>
                   </div>
-                  <p class="mt-3 mb-0 text-sm">
+                  <!-- <p class="mt-3 mb-0 text-sm">
                     <span class="text-success mr-2"><i class="fa fa-arrow-up"></i> 3.48%</span>
                     <span class="text-nowrap">Since last month</span>
+                  </p> -->
+                </div>
+              </div>
+            </div>
+            <!-- Tarjeta para el admin -->
+            <div class="col-xl-3 col-md-6">
+              <div class="card card-stats">
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col">
+                      <h5 class="card-title text-uppercase text-muted mb-0">Publicaciones Sin Validar</h5>
+                      <span class="h2 font-weight-bold mb-0"><?php echo 3 ?></span>
+                    </div>
+                    <div class="col-auto">
+                      <div class="icon icon-shape bg-gradient-orange text-white rounded-circle shadow">
+                        <i class="ni ni-chart-pie-35"></i>
+                      </div>
+                    </div>
+                  </div>
+                  <!--   <p class="mt-3 mb-0 text-sm">
+                      <span class="text-success mr-2"><i class="fa fa-arrow-up"></i> 3.48%</span>
+                      <span class="text-nowrap">Since last month</span>
+                    </p> -->
+                </div>
+              </div>
+            </div>
+            <!-- Fin tarjeta -->
+            <!-- Tarjeta -->
+            <div class="col-xl-3 col-md-6">
+              <div class="card card-stats">
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col">
+                      <h5 class="card-title text-uppercase text-muted mb-0">Ventas Hoy</h5>
+                      <span class="h2 font-weight-bold mb-0 text-success mr-2">$<?php echo number_format($ventasHoy["Total"], 0, '','.'); ?></span>
+                    </div>
+                    <div class="col-auto">
+                      <div class="icon icon-shape bg-gradient-green text-white rounded-circle shadow">
+                        <i class="ni ni-money-coins"></i>
+                      </div>
+                    </div>
+                  </div>
+                  <p class="mt-3 mb-0 text-sm">
+                    <span class="text-nowrap">No. Ventas:</span>
+                    <span class="h2 text-success mr-2"><?php echo $ventasHoy["No_ventas"] ?></i></span>
                   </p>
                 </div>
               </div>

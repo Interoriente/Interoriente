@@ -116,13 +116,13 @@ LIMIT 5
 ==================================
 
 4. Cantidad ventas hoy. Total ventas hoy
-SELECT COUNT(FP.idPublicacionFactura) 'Cantidad ventas hoy',SUM(PU.costoPublicacion*FP.cantidadFacturaPublicacion) as 'Total ventas hoy'
-FROM tblFactura as FA
-INNER JOIN tblFacturaPublicacion as FP
-ON FP.numFacturaPublicacion=FA.numeroFactura
-INNER JOIN tblPublicacion AS PU 
-ON PU.idPublicacion = FP.idPublicacionFactura
-WHERE FA.fechaFactura='2021-09-27' AND PU.docIdentidadPublicacion='123456789'
+SELECT COUNT(FP.idPublicacionFactura) 'NO_ventas',
+SUM(PU.costoPublicacion * FP.cantidadFacturaPublicacion) 
+AS 'Total' FROM tblFactura as FA 
+INNER JOIN tblFacturaPublicacion as FP ON FP.numFacturaPublicacion= FA.numeroFactura 
+INNER JOIN tblPublicacion AS PU ON PU.idPublicacion = FP.idPublicacionFactura 
+WHERE FA.fechaFactura=CURDATE() 
+AND PU.docIdentidadPublicacion = p_id
 
 Tarjeta 3
 ==================================
@@ -145,13 +145,14 @@ SELECT nombrePublicacion,stockPublicacion
 FROM tblPublicacion
 WHERE stockPublicacion<=5 and docIdentidadPublicacion=123456789
 
-SELECT COUNT(nombrePublicacion) as "Número Publicaciones" 
+SELECT COUNT(nombrePublicacion) AS "No_publicaciones" 
 FROM tblPublicacion 
-WHERE stockPublicacion <= 5 and docIdentidadPublicacion=123456789
+WHERE stockPublicacion <= 5 AND docIdentidadPublicacion = p_id
 
 Tarjeta 1
 ==================================
 7. Total de ventas de este mes y porcentaje de último mes comparado con el actual.
+
 SELECT MONTH(FA.fechaFactura)
 FROM tblFactura as FA
 INNER JOIN tblFacturaPublicacion as FP
@@ -162,7 +163,7 @@ WHERE FA.fechaFactura BETWEEN MONTH(DATE_SUB(NOW(), INTERVAL 1 MONTH))
 AND NOW()
 GROUP BY MONTH(FA.fechaFactura) 
 
-Tarjeta 4
+Tarjeta de Performance
 ==================================
 8. Número de publicaciones sin validar
 SELECT nombrePublicacion

@@ -10,16 +10,24 @@ foreach ($resultado as $publi) {
 
 /* print_r(ContadorStock(123456789));
 */
-require "compras.php";
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
 /* echo exitosas(123456789); */
 
-print_r(exitosas(123456789));
-
-
+print_r(AlertaStock(123456789));
+$stock = AlertaStock(123456789);
+echo $stock["No_publicaciones"];
+ function AlertaStock($id)
+{
+    require "../../../Models/dao/conexion.php";
+    $sql = "CALL sp_alertaStock(:id)";
+    $stmt = $pdo->prepare($sql);
+    $stmt->bindValue(":id", $id);
+    $stmt->execute();
+    return $stmt->fetch(PDO::FETCH_ASSOC);
+}
 function exitosas($id)
 {
     require "../../../Models/dao/conexion.php";

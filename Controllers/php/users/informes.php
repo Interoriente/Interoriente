@@ -65,7 +65,7 @@ class Informes
             array_push($TotalVentas, $publicacion['VlrVentas']);
             array_push($Stock, $publicacion['Stock']);
         }
-      
+
         $objReporte->Ids = $ids;
         $objReporte->Titulos = $titulos;
         $objReporte->NoVentas = $NoVentas;
@@ -101,5 +101,23 @@ class Informes
         //Al final
         $objReporte->Porcentajes = $porcentajes;
         return $objReporte;
+    }
+    public function AlertaStock($id)
+    {
+        require "../../../Models/dao/conexion.php";
+        $sql = "CALL sp_alertaStock(:id)";
+        $stmt = $pdo->prepare($sql);
+        $stmt->bindValue(":id", $id);
+        $stmt->execute();
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
+    public function VentasHoy($id)
+    {
+        require "../../../Models/dao/conexion.php";
+        $sql = "CALL sp_ventasHoy(:id)";
+        $stmt = $pdo->prepare($sql);
+        $stmt->bindValue(":id", $id);
+        $stmt->execute();
+        return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 }
