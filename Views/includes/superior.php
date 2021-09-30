@@ -79,7 +79,7 @@ session_start();
     if (!isset($_SESSION['roles'])) {
     ?>
       <div class="navegacion-a">
-        <img src="../assets/img/iconos/compras.svg" alt="">
+        <img src="../assets/img/iconos/User_Icon.svg" alt="">
         <a href="iniciarsesion.php">Iniciar sesión</a>
       </div>
     <?php } else { ?>
