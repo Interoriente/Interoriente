@@ -364,6 +364,10 @@ template {
     }
 }
 /* Logo del sidebar */
+.cambioRol{
+    margin: .5em 1.4em;
+}
+
 .sidenav-header{
     display: flex;
     align-items: center;

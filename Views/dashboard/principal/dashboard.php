@@ -16,8 +16,7 @@ if (isset($_SESSION['documentoIdentidad'])) {
   $respMasExitosas = $informe->GetPublicacionesExitosas($informe->id);
   $alertaStock = $informe->AlertaStock($informe->id);
   $ventasHoy = $informe->VentasHoy($informe->id);
-
-
+  $noValidadas = $informe->NoValidadas($informe->id);
   //Mostrar gráfica de ventas anuales
   $labelVentas = "";
   $datosVentas = "";
@@ -37,6 +36,7 @@ if (isset($_SESSION['documentoIdentidad'])) {
   $labelVentasSemana = rtrim($labelVentasSemana, ",");
   $datosVentasSemana = rtrim($datosVentasSemana, ",");
   //Fin código temporal (Se guardará en funciones o en código JS)
+
 }
 if (isset($respUserData)) {
   $rol = $_SESSION['roles'];
@@ -58,31 +58,32 @@ if (isset($respUserData)) {
 ?>
     <script>
       //Mando al JS la información, por medio de las variables declaradas
-      var labelVentas = [<?php echo $labelVentas; ?>]
-      var datosVentas = [<?php echo $datosVentas; ?>]
-      var labelVentasSemana = [<?php echo $labelVentasSemana; ?>]
-      var datosVentasSemana = [<?php echo $datosVentasSemana; ?>]
+      let labelVentas = [<?php echo $labelVentas; ?>];
+      let datosVentas = [<?php echo $datosVentas; ?>];
+      let labelVentasSemana = [<?php echo $labelVentasSemana; ?>];
+      let datosVentasSemana = [<?php echo $datosVentasSemana; ?>];
     </script>
     <!-- Header -->
     <div class="header bg-primary pb-6">
+
       <div class="container-fluid">
+
         <div class="header-body">
           <!-- Fila de botones siperiores -->
-          <?php
-          foreach ($respGetRoles as $datosRol) : ?>
-            <form action="dashboard.php" method="post">
-              <input type="hidden" name="rol" value="<?php echo $datosRol['idUsuarioRol'] ?>">
-              <br><button type="submit" class="btn btn-sm btn-neutral" name="cambioRol"><?php echo $datosRol['nombreRol']; ?></button>
-            </form>
-          <?php endforeach; ?>
-          <br>
-          <div class="row align-items-center py-4">
+          <div class="row align-items-center py-3">
 
-            <div class="col-lg-6 col-5 text-center">
+            <?php
+            foreach ($respGetRoles as $datosRol) : ?>
+              <form action="dashboard.php" method="post">
+                <input type="hidden" name="rol" value="<?php echo $datosRol['idUsuarioRol'] ?>">
+                <br><button type="submit" class="btn btn-sm btn-neutral cambioRol" name="cambioRol"><?php echo $datosRol['nombreRol']; ?></button>
+              </form>
+            <?php endforeach; ?>
+            <div class="text-center">
               <!-- FIN Lista desplegable de cambio de roles -->
               <!-- Copia de seguridad DB -->
               <?php if ($_SESSION['roles'] == '3') : ?><br>
-                <a href="../../../Models/operaciones/backupDB.php"><button type="submit" class="btn btn-sm btn-neutral">Copia de seguridad BD</button></a>
+                <a href="../../../Models/operaciones/backupDB.php"><button type="submit" class="btn btn-sm btn-neutral cambioRol">Copia de seguridad BD</button></a>
               <?php endif; ?>
               <!-- FIN Copia de seguridad DB -->
             </div>
@@ -90,101 +91,114 @@ if (isset($respUserData)) {
           <!-- Tarjetas -->
           <div class="row">
 
-
+            <!-- Contenedor Tarjeta -->
             <div class="col-xl-3 col-md-6">
-              <!-- Contenedor Tarjetas -->
               <div class="card card-stats">
                 <!-- Tarjeta -->
                 <div class="card-body">
                   <div class="row">
                     <div class="col">
-                      <h5 class="card-title text-uppercase text-muted mb-0">Alerta Stock</h5>
-                      <span class="h2 font-weight-bold mb-0"><?php echo $alertaStock['No_publicaciones'] ?></span>
+                      <h5 class="card-title text-uppercase text-muted mb-0">Stock</h5>
+                      <?php if (isset($alertaStock)) { ?>
+                        <span class="h5 font-weight-bold mb-0 text-rap text-danger">¡Hay <?php echo $alertaStock['No_publicaciones'] ?> publicaciones con poco stock! </span>
                     </div>
                     <div class="col-auto">
                       <div class="icon icon-shape bg-gradient-red text-white rounded-circle shadow">
-                        <i class="ni ni-active-40"></i>
+                        <i class="ni ni-notification-70"></i>
                       </div>
                     </div>
+                  <?php } else { ?>
+                    <span class="h5 font-weight-bold mb-0 text-success">¡No hay alertas por stock!</span>
                   </div>
-                  <!--  <p class="mt-3 mb-0 text-sm">
-                    <span class="text-success mr-2"><i class="fa fa-arrow-up"></i> 3.48%</span>
-                    <span class="text-nowrap">Since last month</span>
-                  </p> -->
+                  <div class="col-auto">
+                    <div class="icon icon-shape bg-gradient-green text-white rounded-circle shadow">
+                      <i class="ni ni-check-bold"></i>
+                    </div>
+                  </div>
+                <?php } ?>
                 </div>
+                <!-- <p class="mt-3 mb-0 text-sm">
+                    <span class="text-success mr-2"><i class="fa fa-arrow-up"></i> 3.48%</span>
+                    <span class="text-rap text-danger">¡A <?php echo $alertaStock['No_publicaciones'] ?> de tus publicaciones están próximas a terminárseles el stock! </span>
+                  </p> -->
               </div>
             </div>
-            <div class="col-xl-3 col-md-6">
-              <div class="card card-stats">
-                <!-- Tarjeta -->
-                <div class="card-body">
-                  <div class="row">
-                    <div class="col">
+          </div>
+          <!-- Fin tarjeta -->
+          <div class="col-xl-3 col-md-6">
+            <div class="card card-stats">
+              <!-- Tarjeta -->
+              <div class="card-body">
+                <div class="row">
+                  <div class="col">
 
-                      <h5 class="card-title text-uppercase text-muted mb-0">Performance</h5>
-                      <span class="h2 font-weight-bold mb-0">49,65%</span>
-                    </div>
-                    <div class="col-auto">
-                      <div class="icon icon-shape bg-gradient-info text-white rounded-circle shadow">
-                        <i class="ni ni-chart-bar-32"></i>
-                      </div>
+                    <h5 class="card-title text-uppercase text-muted mb-0">Este Mes...</h5>
+                    <span class="h2 font-weight-bold mb-0">Ventas: 49</span>
+                  </div>
+                  <div class="col-auto">
+                    <div class="icon icon-shape bg-gradient-info text-white rounded-circle shadow">
+                      <i class="ni ni-chart-bar-32"></i>
                     </div>
                   </div>
-                  <!-- <p class="mt-3 mb-0 text-sm">
-                    <span class="text-success mr-2"><i class="fa fa-arrow-up"></i> 3.48%</span>
-                    <span class="text-nowrap">Since last month</span>
-                  </p> -->
                 </div>
+                <p class="mt-3 mb-0 text-sm">
+                  <span class="text-success mr-2"><i class="fa fa-arrow-up"></i> 3.48% con relación al mes Pasado:</span>
+                  <span class="text-nowrap"></span>
+                </p>
               </div>
             </div>
-            <!-- Tarjeta para el admin -->
-            <div class="col-xl-3 col-md-6">
-              <div class="card card-stats">
-                <div class="card-body">
-                  <div class="row">
-                    <div class="col">
-                      <h5 class="card-title text-uppercase text-muted mb-0">Publicaciones Sin Validar</h5>
-                      <span class="h2 font-weight-bold mb-0"><?php echo 3 ?></span>
-                    </div>
-                    <div class="col-auto">
-                      <div class="icon icon-shape bg-gradient-orange text-white rounded-circle shadow">
-                        <i class="ni ni-chart-pie-35"></i>
-                      </div>
+          </div>
+          <!-- Fin Tarjeta -->
+          <!-- Tarjeta para el admin -->
+          <div class="col-xl-3 col-md-6">
+            <div class="card card-stats">
+              <div class="card-body">
+                <div class="row">
+                  <div class="col">
+                    <h5 class="card-title text-uppercase text-muted mb-0">Publicaciones</h5>
+                    <?php /* if (isset($publicacionesSinValidar))*/ {  ?>
+                      <span class="h5 font-weight-bold mb-0 text-warning">¡5 de tus publicaciones están sin validar!</span>
+                    <?php  } ?>
+                  </div>
+                  <div class="col-auto">
+                    <div class="icon icon-shape bg-gradient-orange text-white rounded-circle shadow">
+                      <i class="ni ni-album-2"></i>
                     </div>
                   </div>
-                  <!--   <p class="mt-3 mb-0 text-sm">
+                </div>
+                <!--   <p class="mt-3 mb-0 text-sm">
                       <span class="text-success mr-2"><i class="fa fa-arrow-up"></i> 3.48%</span>
                       <span class="text-nowrap">Since last month</span>
                     </p> -->
-                </div>
               </div>
             </div>
-            <!-- Fin tarjeta -->
-            <!-- Tarjeta -->
-            <div class="col-xl-3 col-md-6">
-              <div class="card card-stats">
-                <div class="card-body">
-                  <div class="row">
-                    <div class="col">
-                      <h5 class="card-title text-uppercase text-muted mb-0">Ventas Hoy</h5>
-                      <span class="h2 font-weight-bold mb-0 text-success mr-2">$<?php echo number_format($ventasHoy["Total"], 0, '','.'); ?></span>
-                    </div>
-                    <div class="col-auto">
-                      <div class="icon icon-shape bg-gradient-green text-white rounded-circle shadow">
-                        <i class="ni ni-money-coins"></i>
-                      </div>
+          </div>
+          <!-- Fin tarjeta -->
+          <!-- Tarjeta -->
+          <div class="col-xl-3 col-md-6">
+            <div class="card card-stats">
+              <div class="card-body">
+                <div class="row">
+                  <div class="col">
+                    <h5 class="card-title text-uppercase text-muted mb-0">Ventas Hoy</h5>
+                    <span class="h2 font-weight-bold mb-0 text-success mr-2">$<?php echo number_format($ventasHoy["Total"], 0, '', '.'); ?></span>
+                  </div>
+                  <div class="col-auto">
+                    <div class="icon icon-shape bg-gradient-green text-white rounded-circle shadow">
+                      <i class="ni ni-money-coins"></i>
                     </div>
                   </div>
-                  <p class="mt-3 mb-0 text-sm">
-                    <span class="text-nowrap">No. Ventas:</span>
-                    <span class="h2 text-success mr-2"><?php echo $ventasHoy["No_ventas"] ?></i></span>
-                  </p>
                 </div>
+                <p class="mt-3 mb-0 text-sm">
+                  <span class="text-nowrap">No. Ventas:</span>
+                  <span class="h2 text-success mr-2"><?php echo $ventasHoy["No_ventas"] ?></i></span>
+                </p>
               </div>
             </div>
           </div>
         </div>
       </div>
+    </div>
     </div>
     <div class="container-fluid mt--6">
       <div class="row">

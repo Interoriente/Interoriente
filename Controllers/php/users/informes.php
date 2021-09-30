@@ -120,4 +120,13 @@ class Informes
         $stmt->execute();
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
+    public function NoValidadas($id)
+    {
+        require "../../../Models/dao/conexion.php";
+        $sql = "CALL sp_noValidadas(:id)";
+        $stmt = $pdo->prepare($sql);
+        $stmt->bindValue(":id", $id);
+        $stmt->execute();
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
 }

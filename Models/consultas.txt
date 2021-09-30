@@ -168,7 +168,9 @@ Tarjeta de Performance
 8. Número de publicaciones sin validar
 SELECT nombrePublicacion
 FROM tblPublicacion
-WHERE validacionPublicacion=0 AND docIdentidadPublicacion='documento'
+WHERE validacionPublicacion=0 AND docIdentidadPublicacion='123456789'
 
 Tarjeta 2
 ==================================
+
+
