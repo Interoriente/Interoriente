@@ -10,8 +10,6 @@ session_start();
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="../assets/css/navegacion.css" />
   <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
-
-  <title>Navbar Superior</title>
 </head>
 
 <body>
@@ -85,10 +83,13 @@ session_start();
         <a href="iniciarsesion.php">Iniciar sesión</a>
       </div>
     <?php } else { ?>
-      <form class="cerrar-sesion" action="../../Controllers/php/users/usuarios.php" method="POST">
-        <input type="hidden" name="cerrarSesion">
-        <input class="btnCerrar" type="submit" value="Cerrar Sesión">
-      </form>
+      <div class="navegacion-a">
+        <img src="../assets/img/iconos/sign-out.svg" alt="">
+        <form class="cerrar-sesion" action="../../Controllers/php/users/usuarios.php" method="POST">
+          <input type="hidden" name="cerrarSesion">
+          <input class="btnCerrar" type="submit" value="Cerrar Sesión">
+        </form>
+      </div>
     <?php } ?>
     <!-- Poner imagen-->
   </div>

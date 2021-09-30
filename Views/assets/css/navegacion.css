@@ -282,6 +282,10 @@ a {
   flex-direction: column;
 }
 
+.cerrar-sesion{
+  margin-left: -27px;
+}
+
 .btnCerrar {
   background-color: transparent;
   cursor: pointer;
@@ -313,6 +317,7 @@ a {
   font-size: 36px;
   margin-left: 50px;
 }
+
 #btn-close {
   box-shadow: none;
   padding: 0.1px;
