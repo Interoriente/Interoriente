@@ -3,7 +3,7 @@
 class Informes
 {
     /* Atributos */
-    public int $docId;
+    public int $id;
 
     /* Constructor */
     public function __construct(int $id)
