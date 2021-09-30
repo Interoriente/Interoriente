@@ -1,38 +1,22 @@
 <div class="contenedor-nav">
     <div class="navbar">
-        <?php if (isset($_SESSION['roles']) == "3"  or isset($_SESSION['roles']) == "1") { ?>
-            <?php if ($_SESSION['roles'] == "3") { ?>
-                <!-- ROl admin -->
-               <a href="#">Mis ofertas</a>
-                <a href="catalogoProd.php">Catálogos</a>
-                <a href="#">Ayuda</a><!-- Este botón se puede utilizar para que redireccione al manual del aplicativo -->
-                <a href="../dashboard/principal/dashboard.php">Volver al panel</a>
-                <form class="cerrar-sesion" action="../../Controllers/php/users/usuarios.php" method="POST">
-                    <input type="hidden" name="cerrarSesion">
-                    <input class="btnCerrar" type="submit" value="Cerrar Sesión">
-                </form>
-            <?php } else { ?>
-                <!-- ROl comprador/Proveedor -->
-
-                <a href="#">Ofertas</a>
-                <a href="catalogoProd.php">Catálogos</a>
-                <a href="#">Mi carrito</a>
-                <a href="#">Mis compras</a>
-                <a href="#">Ayuda</a>
-                <a href="../dashboard/principal/dashboard.php">Volver al panel</a>
-                <form class="cerrar-sesion" action="../../Controllers/php/users/usuarios.php" method="POST">
-                    <input type="hidden" name="cerrarSesion">
-                    <input class="btnCerrar" type="submit" value="Cerrar Sesión">
-                </form>
-
-            <?php } ?>
-
-        <?php } else { ?>
-            <!-- Poner imagen-->
-           <img src="" alt="">  <a href="#">Ofertas</a>
-            <a href="catalogoProd.php">Catálogos</a>
-            <a href="#">Ayuda</a>
+        <a href="index.php">Inicio</a>
+        <a href="#">Ayuda</a>
+        <a href="#">Ofertas</a>
+        <a href="catalogo.php">Categorías</a>
+        <?php if (isset($_SESSION['roles']) == '1') : ?>
+            <a href="#">Mi carrito</a>
+            <a href="#">Mis compras</a>
+            <a href="../dashboard/principal/dashboard.php">Volver al panel</a>
+        <?php endif;
+        if (!isset($_SESSION['roles'])) {
+        ?>
             <a href="iniciarsesion.php">Iniciar sesión</a>
+        <?php } else { ?>
+            <img src="../assets/img/iconos/sign-out.svg" alt="">
+            <input type="hidden" name="cerrarSesion">
+            <input class="btnCerrar" type="submit" value="Cerrar Sesión">
+            </form>
         <?php } ?>
     </div>
 </div>
