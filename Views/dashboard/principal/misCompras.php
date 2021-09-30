@@ -26,6 +26,7 @@ if (isset($respUserData)) {
         <!-- Link estilos -->
         <link rel="stylesheet" href="../../assets/css/general.css">
         <link rel="stylesheet" href="../assets/css/misCompras.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
         <!-- Header -->
         <div class="header bg-primary pb-3">
             <div class="container-fluid">
@@ -38,7 +39,9 @@ if (isset($respUserData)) {
         </div>
         <!-- Productos comprados -->
         <?php if ($contadorCompras == 0) { ?>
-            <div class="alert alert-danger" role="alert" style="text-align: center;">Opps, por no ahora no has realizado compras</div>
+            <div class="alerta" role="alert" style="display: flex; flex-flow: row; flex-wrap: wrap; background: crimson; width:100%; height: 200px; text-align: center; justify-content: center; align-items: center; color: white; font-size: 25px; ">Ops, por no ahora no has realizado compras
+            <i class="fa-regular fa-face-sad-tear"></i>        
+        </div>
             <a class="btn btn-info" href="../../navegacion/index.php">Ver Productos</a>
         <?php } ?>
         <div class="padre">
