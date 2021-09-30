@@ -52,7 +52,7 @@ if (isset($respUserData)) {
                         <div class="menu-menu">
                             <div class="menu-principal">
                                 <div class="cont-menuuno">
-                                    <img class="imagen-cont" src="../../assets/img/10.jpg" alt="">
+                                    <img class="imagen-cont" src="<?php echo $misCompras['urlImagen']; ?>" alt="">
                                 </div>
                                 <div class="cont-menudos">
                                     <p><strong><?php echo $misCompras['nombrePublicacion']; ?></strong></p>

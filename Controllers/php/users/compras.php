@@ -263,7 +263,7 @@ class Compra
   public function misCompras($id)
   {
     require('../../../Models/dao/conexion.php');
-    $sqlMisCompras = "SELECT /* IM.urlImagen, */FA.numeroFactura,FA.fechaFactura,
+    $sqlMisCompras = "SELECT IM.urlImagen,FA.numeroFactura,FA.fechaFactura,
     FA.direccionFactura,FA.emailFactura,
     PU.nombrePublicacion,PU.costoPublicacion,US.telefonomovilUsuario as telefono,
     sum(FP.cantidadFacturaPublicacion) as 'cantidad',
@@ -275,10 +275,10 @@ class Compra
     ON PU.idPublicacion=FP.idPublicacionFactura
     INNER JOIN tblUsuario as US
     ON PU.docIdentidadPublicacion=US.documentoIdentidad
-    /* INNER JOIN tblImagenes as IM
-    ON IM.publicacionImagen=PU.idPublicacion */
+    INNER JOIN tblImagenes as IM
+    ON IM.publicacionImagen=PU.idPublicacion
     WHERE FA.docIdentidadFactura=?
-    GROUP BY PU.nombrePublicacion";
+    GROUP BY PU.idPublicacion";
     $consultaSql = $pdo->prepare($sqlMisCompras);
     $consultaSql->execute(array($id));
     return $consultaSql->fetchAll();
