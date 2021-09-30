@@ -57,6 +57,7 @@ class Informes
         $stmt->bindValue(":id", $id);
         $stmt->execute();
         $masExitosas = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $stmt->closeCursor();
         foreach ($masExitosas as $publicacion) {
             array_push($ids, $publicacion['Id']);
             array_push($titulos, $publicacion['Titulo']);
@@ -64,13 +65,12 @@ class Informes
             array_push($TotalVentas, $publicacion['VlrVentas']);
             array_push($Stock, $publicacion['Stock']);
         }
-        $stmt->closeCursor();
+      
         $objReporte->Ids = $ids;
         $objReporte->Titulos = $titulos;
         $objReporte->NoVentas = $NoVentas;
         $objReporte->VlrVentas = $TotalVentas;
         $objReporte->Stock = $Stock;
-
         foreach ($ids as $index) {
             $sqlPorcentaje = "SELECT SUM(FP.cantidadFacturaPublicacion * PU.costoPublicacion) AS 'Total'
             FROM tblPublicacion as PU
