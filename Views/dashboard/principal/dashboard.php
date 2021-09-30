@@ -13,7 +13,6 @@ if (isset($_SESSION['documentoIdentidad'])) {
   $respVentasAnual = $informe->MostrarVentasAnuales($informe->id);
   //Llamo la función para las ventas de los 7 días anterior
   $respVentasDia = $informe->VentasPorDias($informe->id);
-
   $respMasExitosas = $informe->GetPublicacionesExitosas($informe->id);
   //Mostrar gráfica de ventas anuales
   $labelVentas = "";
@@ -242,41 +241,46 @@ if (isset($respUserData)) {
         <div class="table-responsive">
           <!-- Projects table -->
           <table class="table align-items-center table-flush">
-            <thead class="thead-light">
-              <tr>
-                <th scope="col">Título</th>
-                <th scope="col">No. Ventas</th>
-                <th scope="col">Stock</th>
-                <th scope="col">Porcentaje</th>
-                <th scope="col">Total Ventas</th>
-
-              </tr>
-            </thead>
-            <tbody>
-              <!-- Fila -->
-              <?php for ($i = 0; $i < 5; $i++) : ?>
+            <?php if (!isset($respMasExitosas->Titulos[0]) == "") { ?>
+              <thead class="thead-light">
                 <tr>
-                  <td>
-                    <a href="#"><?php echo $respMasExitosas->Titulos[$i]; ?></a>
-                  </td>
-
-                  <td>
-                    <?php echo $respMasExitosas->NoVentas[$i]; ?>
-                  </td>
-
-                  <td>
-                    <?php echo $respMasExitosas->Stock[$i]; ?>
-                  </td>
-                  <td>
-                    <?php echo "%" . round($respMasExitosas->Porcentajes[$i], 1); ?>
-                  </td>
-                  <td>
-                    <?php echo "$" . number_format($respMasExitosas->VlrVentas[$i], 0, '', '.'); ?>
-                  </td>
+                  <th scope="col">Título</th>
+                  <th scope="col">No. Ventas</th>
+                  <th scope="col">Stock</th>
+                  <th scope="col">Porcentaje</th>
+                  <th scope="col">Total Ventas</th>
                 </tr>
-              <?php endfor ?>
+              </thead>
+              <tbody>
+                <!-- Fila -->
+                <?php for ($i = 0; $i < 5; $i++) : ?>
+                  <tr>
+                    <td>
+                      <a href="#"><?php echo $respMasExitosas->Titulos[$i]; ?></a>
+                    </td>
+
+                    <td>
+                      <?php echo $respMasExitosas->NoVentas[$i]; ?>
+                    </td>
+
+                    <td>
+                      <?php echo $respMasExitosas->Stock[$i]; ?>
+                    </td>
+                    <td>
+                      <?php echo "%" . round($respMasExitosas->Porcentajes[$i], 1); ?>
+                    </td>
+                    <td>
+                      <?php echo "$" . number_format($respMasExitosas->VlrVentas[$i], 0, '', '.'); ?>
+                    </td>
+                  </tr>
+              <?php endfor;
+              } else {
+                //Considerar mejorar el mensaje
+                echo "No hay nada que mostrar!";
+              }
+              ?>
               <!--Fin Fila -->
-            </tbody>
+              </tbody>
           </table>
         </div>
       </div>
@@ -334,9 +338,9 @@ if (isset($respUserData)) {
 
               <!-- FIN Fila -->
 
-            
+
               <!-- Final FILA -->
-             
+
             </tbody>
           </table>
           <!-- Para el admin -->
