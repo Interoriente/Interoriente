@@ -13,11 +13,10 @@ if (isset($_SESSION['documentoIdentidad'])) {
 //Validacion de roles
 if (isset($respUserData)) {
   $rol = $_SESSION['roles'];
-  if ($rol == 1) {
+  if ($rol == 1 || $rol == 3) {
 
     //Parte superior del HTML
     require "../includes/header.php";
-
     require_once '../includes/sidebarDashboard.php';
     require_once '../includes/navegacion.php';
 

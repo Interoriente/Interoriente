@@ -21,23 +21,24 @@ require "../assets/linksGoogle.php";
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="Bienvenidos a Interoriente, podrás comprar, vender y mucho más.">
-    <meta name="author" content="Inter-oriente">
+    <meta name="author" content="Interoriente">
     <title>Iniciar sesión | Interoriente</title>
     
     <!-- Favicon -->
     <link rel="icon" href="../assets/img/favicon.png" type="image/png">
-    <!-- Fonts -->
+    <!-- Fonts ACTUALIZAR-->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700">
-    <!-- Icons -->
+    <!-- Icons ACTUALIZAR-->
     <link rel="stylesheet" href="../dashboard/assets/css/iconos.css" type="text/css">
     <link rel="stylesheet" href="../dashboard/assets/css/iconosComplementos.css" type="text/css">
-    <link rel="stylesheet" href="../dashboard/assets/css/all.min.css" type="text/css">
-    <!-- Argon CSS -->
+<!--     <link rel="stylesheet" href="../dashboard/assets/css/all.min.css" type="text/css">
+ -->    <!-- Argon CSS -->
     <link rel="stylesheet" href="../dashboard/assets/css/argon.min.css?v=1.2.0" type="text/css">
     
 </head>
 
 <body class="bg-default" oncontextmenu="return false">
+    
     <!-- Main content -->
     <div class="main-content">
         <!-- Header -->
@@ -45,17 +46,12 @@ require "../assets/linksGoogle.php";
             <div class="container">
                 <div class="header-body text-center mb-7">
                     <div class="row justify-content-center">
-                        <div class="col-xl-5 col-lg-6 col-md-8 px-5">
+                        <div class="col-xl-5 col-lg-6 col-md-1 px-5">
                             <h1 class="text-white">Iniciar sesión</h1>
                             <p class="text-lead text-white">Aquí podrás iniciar sesión, Bienvenido.</p>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="separator separator-bottom separator-skew zindex-100">
-                <svg x="0" y="0" viewBox="0 0 2560 100" preserveAspectRatio="none" version="1.1" xmlns="http://www.w3.org/2000/svg">
-                    <polygon class="fill-default" points="2560 0 2560 100 0 100"></polygon>
-                </svg>
             </div>
         </div>
         <!-- Page content -->
@@ -75,17 +71,17 @@ require "../assets/linksGoogle.php";
                         </div>
                         <div class="card-body px-lg-5 py-lg-5">
                             <div class="text-center text-muted mb-4">
-                                <small>O con tus datos personales:</small>
+                                <small>O con tus credenciales de acceso:</small>
                             </div>
                             <form action="../../Controllers/php/users/acceso.php" method="POST">
                                 <input type="hidden" name="iniciarSesion">
                                 <div class="form-group">
-                                    <label for="id">Correo o documento:</label>
+                                    <label for="id">Email o documento de identidad:</label>
                                     <div class="input-group input-group-merge input-group-alternative mb-3">
                                         <div class="input-group-prepend">
                                             <span class="input-group-text"><i class="ni ni-email-83"></i></span>
                                         </div>
-                                        <input class="form-control" id="id" placeholder="example@gmail.com" type="text" name="id" onkeypress="return Sololetras(event)" required>
+                                        <input class="form-control" id="id" placeholder="tucorreo@gmail.com" type="text" name="id" onkeypress="return Sololetras(event)" required>
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -106,10 +102,10 @@ require "../assets/linksGoogle.php";
                     </div>
                     <div class="row mt-3">
                         <div class="col-6">
-                            <a href="recuContrasena.php" class="text-light"><small>Olvidó contraseña?</small></a>
+                            <a href="recuContrasena.php" class="text-light"><small>¿Olvidaste tu contraseña?</small></a>
                         </div>
                         <div class="col-6 text-right">
-                            <a href="registro.php" class="text-light"><small>No tienes cuenta?</small></a>
+                            <a href="registro.php" class="text-light"><small>O si no tienes cuenta, regístrate por acá</small></a>
                         </div>
                     </div>
                 </div>
@@ -117,6 +113,7 @@ require "../assets/linksGoogle.php";
         </div>
     </div>
     <!-- Argon JS -->
-    <script src="../dashboard/assets/js/argon.min.js?v=1.2.0"></script>
-
+   <!-- Qué función está cumpliendo este script? --> 
+<!--     <script src="../dashboard/assets/js/argon.min.js?v=1.2.0"></script>
+ -->
 </html>

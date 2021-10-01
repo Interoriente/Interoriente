@@ -3,13 +3,8 @@ session_start();
 ?>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="../assets/css/navegacion.css" />
-  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
 </head>
 
 <body>
@@ -42,7 +37,6 @@ session_start();
       <span onclick="openNav()"> <a href="javascript:void(0)" id="menuLateral">Menú</a></span>
     </div>
   </div>
-
   <!-- Sidebar -->
   <div id="mySidenav" class="sidenav">
     <a href="javascript:void(0)" id="btn-close" class="closebtn" onclick="closeNav()">&times;</a>
@@ -55,7 +49,7 @@ session_start();
       <a href="#">Ayuda</a>
     </div>
     <div class="navegacion-a">
-      <img src="../assets/img/iconos/dinero.svg" alt="">
+      <img src="../assets/img/iconos/Ofertas.svg" alt="">
       <a href="#">Ofertas</a>
     </div>
     <div class="navegacion-a">
@@ -66,6 +60,10 @@ session_start();
       <div class="navegacion-a">
         <img src="../assets/img/iconos/carrito_2.svg" alt="">
         <a href="#">Mi carrito</a>
+      </div>
+      <div class="navegacion-a">
+        <img src="../assets/img/iconos/money-bill-wave.svg" alt="">
+        <a href="../dashboard/principal/crearPublicacion.php">Vender</a>
       </div>
       <div class="navegacion-a">
         <img src="../assets/img/iconos/compras.svg" alt="">
@@ -101,7 +99,7 @@ session_start();
     <div class="cart-overlay" id="overlay">
       <div class="cart">
         <span class="close-cart">
-          <i class="fas fa-window-close"></i>
+          <img src="../assets/img/iconos/exit.svg" alt="Cerrar Carrito">
         </span>
         <h2 class="titulos">Tu carrito</h2>
         <div class="cart-content">
@@ -115,6 +113,4 @@ session_start();
       </div>
 
     </div>
-    <!-- Fin Carrito -->
-    <script src="../js/navegacion.js"></script>
-    <script src="../js/sidebar.js"></script>
+    <!-- Fin Carrito -->   
