@@ -1,0 +1,167 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap");
+
+body {
+  height: 100vh;
+  margin: 0;
+  font-family: "Poppins", aria;
+}
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+a {
+  text-decoration: none;
+}
+img {
+  width: 100%;
+}
+
+.nav-container {
+  background-color: #004E64;
+  padding: 2em;
+  a {
+    color: white;
+  }
+}
+
+header {
+
+  nav {
+    ul {
+      display: flex;
+     
+      a{
+        display: block;
+        padding: 0 4em 0 0;
+      }
+    
+    }
+  }
+}
+.social-header,
+.hero-desing {
+  display: none;
+}
+
+.hero {
+  background: #004E64;
+  color: white;
+  display: grid;
+  text-align: center;
+  padding: 4em ;
+}
+.meet {
+  display: flex;
+  margin: 0 auto;
+  width: 200px;
+ 
+  button{
+    background: #FFB930;
+    cursor: pointer;
+    padding: 1.3em 4em;
+    margin-right: 1em;
+    border: none;
+    border-radius: 10px;
+    font-weight: bold;
+    transition: .1s;
+    font-family: 'Poppins';
+
+  }
+
+  span {
+    margin-top: 1em;
+    margin-right: 0.5em;
+  }
+}
+
+@media only screen and (min-width: 1050px) {
+  .hero {
+    height: 90vh;
+  }
+  
+  .nav-container {
+    display: grid;
+    grid-template-columns: 66% auto;
+    background-color: unset;
+    padding: unset;
+    header {
+      background: #004E64;
+    }
+  }
+    a:hover{
+        text-decoration: underline solid white 3px;
+      }
+      button:hover{
+        background: #FCE61E;
+        box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.4);
+      }
+  header {
+    padding: 1.3em 2em 1.3em 4em;
+  }
+  .social-header {
+    padding: 1em 4em 2em 0;
+  }
+  .social-header {
+    display: block;
+    ul {
+      display: flex;
+      justify-content: space-between;
+      width: 7em;
+      float: right;
+      img {
+        width: 20px;
+      }
+    }
+  }
+  .hero {
+    display: grid;
+    grid-template-columns: 66% auto;
+    background: unset;
+    padding: 0;
+    .content {
+      background: #004E64;
+      padding: 1em 8em 2em 4em;
+      text-align: left;
+      h1 {
+        font-size: 3em;
+        line-height: 1.2em;
+      }
+      span{
+        color: #FFB930;
+      }
+    }
+  }
+  .meet {
+    margin: unset;
+  }
+  .hero-desing {
+    display: unset;
+    margin-left: -49%;
+    margin-top: -2%;
+    width: 100vh;
+  }
+}
+
+@media only screen and (min-width: 1250px) {
+  .social-header {
+    padding: 2em 10em 2em 0;
+  }
+  .hero .content {
+    padding: 6em, 8em 6em 10em;
+  }
+} 
+ @media only screen and (min-width: 1550px) {
+  .social-header {
+    padding: 2em 20em 2em 0;
+  }
+  .hero .content {
+    padding: 6em, 8em 6em 20em;
+  }
+  h1{
+    margin-top: 4em;
+  }
+  .hero-desing {
+    margin-top: -5%;
+  }
+}

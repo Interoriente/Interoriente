@@ -1,9 +1,5 @@
 .gitignore
-Tests/index.css
-Tests/index.html
-Tests/index2.html
-Tests/index2.css
+Tests/
 Models/php/insertMasivo.php
 Scripts/scrapers.js
-Auto/
 node_modules/
