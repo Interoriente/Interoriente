@@ -2,7 +2,7 @@
     <div class="navbar">
         <a href="index.php">Inicio</a>
         <a href="#">Ayuda</a>
-        <a href="#">Ofertas</a>
+        <a href="oferta.php">Ofertas</a>
         <a href="catalogo.php">Categorías</a>
         <?php if (isset($_SESSION['roles']) == '1') : ?>
             <a href="#">Mi carrito</a>
