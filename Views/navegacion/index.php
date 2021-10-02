@@ -26,59 +26,60 @@ $publicacion = getPublicaciones();
     <?php require '../includes/superior.php'; ?>
     <!-- ----- -->
 
-        <section class="publicaciones">
-            <!-- TODO Implementar sistema de filtrado js -->
-            <!-- Sección de los botons de filtrado -->
-            <h1 class="titulo-filtrado ">Aquí podrás encontrar el producto que deseas </h1>
-            <section class="btns-filtrado ">
-                <a href="#">
+    <section class="publicaciones">
+        <!-- TODO Implementar sistema de filtrado js -->
+        <!-- Sección de los botons de filtrado -->
+        <h1 class="titulo-filtrado ">Aquí podrás encontrar el producto que deseas </h1>
+        <section class="btns-filtrado ">
+            <a href="#">
 
-                    <div id="productos" class="btn-productos btn-filtro">
-                        Productos
-                    </div>
-                </a>
-                <a href="#">
-                    <div class="btn-productos todos btn-filtro" onclick="filterSelection('todos')">
-                        Todos
-                    </div>
-                </a>
-                <a href="#">
-                    <div class=" btn-servicios btn-filtro">
-                        Servicios
-                    </div>
-                </a>
-            </section>
-            <!-- Sección de las tarjetas -->
-
-            <!-- NOTA: títulos de máximo 100 caracteres ó 14 palabras -->
-
-            <!-- Tarjeta Final -->
-            <?php foreach ($publicacion as $x) : ?>
-                <div class="tarjeta">
-                    <a href="publicacion.php?id=<?php echo $x['idPublicacion'] ?>">
-                        <div class="img-tarjeta">
-                            <img id="img-p" src="<?php echo $x['urlImagen']; ?>" alt="Imagen tarjeta publicación">
-<!--                             <img id="img-s" src="../assets/img/publicaciones/1.jpg" alt="Imagen tarjeta publicación">
- -->                        </div>
-                        <div class="contenido-tarjeta">
-                            <!-- number_format para agregar los puntos de mil -->
-                            <h5> $<?php echo number_format($x['costoPublicacion'], 0, '', '.'); ?></h5>
-
-                            <h3><?php echo $x['nombrePublicacion'] ?></h3>
-                            <!-- substr para limitar el tamaño del estring en este caso a 140 caracteres -->
-                            <p><?php echo substr($x['descripcionPublicacion'], 0, 80) . "...   "; ?><span class="mas-info">Más Información</span></p>
-                        </div>
-                    </a>
-                    <div class="cta-btns">
-                        <a href="../navegacion/checkout.php?id=<?php echo $x['idPublicacion'] ?>"><img src="../assets/img/iconos/compras.svg" alt="Bolsa de la compra"></a>
-                        <img class="carrito-tarjeta " onclick="addCarrito(this.id)" id="<?php echo $x['idPublicacion'] ?>" src="../assets/img/iconos/carrito_2.svg" alt="Carro de la compra">
-                    </div>
+                <div id="productos" class="btn-productos btn-filtro">
+                    Productos
                 </div>
-            <?php endforeach; ?>
-            <!-- -- Fin tarjeta final--  -->
-
+            </a>
+            <a href="#">
+                <div class="btn-productos todos btn-filtro" onclick="filterSelection('todos')">
+                    Todos
+                </div>
+            </a>
+            <a href="#">
+                <div class=" btn-servicios btn-filtro">
+                    Servicios
+                </div>
+            </a>
         </section>
-        <!-- Fin sección Publicaciones -->
+        <!-- Sección de las tarjetas -->
+
+        <!-- NOTA: títulos de máximo 100 caracteres ó 14 palabras -->
+
+        <!-- Tarjeta Final -->
+        <?php foreach ($publicacion as $x) : ?>
+            <div class="tarjeta">
+                <a href="publicacion.php?id=<?php echo $x['idPublicacion'] ?>">
+                    <div class="img-tarjeta">
+                        <img id="img-p" src="<?php echo $x['urlImagen']; ?>" alt="Imagen tarjeta publicación">
+                        <!--                             <img id="img-s" src="../assets/img/publicaciones/1.jpg" alt="Imagen tarjeta publicación">
+ -->
+                    </div>
+                    <div class="contenido-tarjeta">
+                        <!-- number_format para agregar los puntos de mil -->
+                        <h5> $<?php echo number_format($x['costoPublicacion'], 0, '', '.'); ?></h5>
+
+                        <h3><?php echo $x['nombrePublicacion'] ?></h3>
+                        <!-- substr para limitar el tamaño del estring en este caso a 140 caracteres -->
+                        <p><?php echo substr($x['descripcionPublicacion'], 0, 80) . "...   "; ?><span class="mas-info">Más Información</span></p>
+                    </div>
+                </a>
+                <div class="cta-btns">
+                    <a href="../navegacion/checkout.php?id=<?php echo $x['idPublicacion'] ?>"><img src="../assets/img/iconos/compras.svg" alt="Bolsa de la compra"></a>
+                    <img class="carrito-tarjeta " onclick="addCarrito(this.id)" id="<?php echo $x['idPublicacion'] ?>" src="../assets/img/iconos/carrito_2.svg" alt="Carro de la compra">
+                </div>
+            </div>
+        <?php endforeach; ?>
+        <!-- -- Fin tarjeta final--  -->
+
+    </section>
+    <!-- Fin sección Publicaciones -->
     </div>
     <!-- navegación -->
     <?php include '../includes/navInferior.php'; ?>
