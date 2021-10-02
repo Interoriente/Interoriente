@@ -1,4 +1,7 @@
 <?php
+
+use phpseclib3\Crypt\RC2;
+
 if (isset($_POST['desactivarUsuarios'])) {
     $id = $_POST['id'];
     $administrador = new Administrador($id);
@@ -47,80 +50,102 @@ class Usuario
     /* Funciones */
     public function getUserData($docId)
     {
-        if (isset($docId)) {
-            $sesionRol = $_SESSION['roles'];
+        try {
             require '../../../Models/dao/conexion.php';
             $sqlValidacion = "SELECT *
-            FROM tblUsuario AS US
-            INNER JOIN tblUsuarioRol AS UR 
-            ON UR.docIdentidadUsuarioRol = US.documentoIdentidad
-            WHERE US.documentoIdentidad = :id AND US.estadoUsuario = '1'";
+                FROM tblUsuario AS US
+                INNER JOIN tblUsuarioRol AS UR 
+                ON UR.docIdentidadUsuarioRol = US.documentoIdentidad
+                WHERE US.documentoIdentidad = :id AND US.estadoUsuario = '1'";
             $stmt = $pdo->prepare($sqlValidacion);
             $stmt->bindParam(':id', $docId);
             $stmt->execute();
             $contadorValidacion = $stmt->rowCount();
             if ($contadorValidacion) {
-                return $objetoRol = $stmt->fetch(PDO::FETCH_OBJ);
+                return $stmt->fetch(PDO::FETCH_OBJ);
             }
-        } else {
-            return false;
+        } catch (\Throwable $th) {
+            //throw $th;
+            echo "<script>alert('Ocurrió un error');</script>";
+            echo "<script>document.location.href='../../../Views/dashboard/principal/dashboard.php';</script>";
         }
     }
     public function getDirecciones($docId)
     {
-        require '../../../Models/dao/conexion.php';
-        $sqlDireccion = "SELECT 
-          DI.idDireccion, 
-          DI.nombreDireccion,
-          DI.descripcionDireccion,
-          CI.nombreCiudad,
-          CI.idCiudad 
-          FROM tblDirecciones as DI
-          INNER JOIN tblCiudad as CI ON DI.ciudadDireccion = CI.idCiudad
-          WHERE docIdentidadDireccion = ?";
-        //Prepara sentencia
-        $consultarDireccion = $pdo->prepare($sqlDireccion);
-        //Ejecutar consulta
-        $consultarDireccion->execute(array($docId));
-        return $consultarDireccion->fetchAll();
+        try {
+            require '../../../Models/dao/conexion.php';
+            $sqlDireccion = "SELECT 
+              DI.idDireccion, 
+              DI.nombreDireccion,
+              DI.descripcionDireccion,
+              CI.nombreCiudad,
+              CI.idCiudad 
+              FROM tblDirecciones as DI
+              INNER JOIN tblCiudad as CI ON DI.ciudadDireccion = CI.idCiudad
+              WHERE docIdentidadDireccion = ?";
+            //Prepara sentencia
+            $consultarDireccion = $pdo->prepare($sqlDireccion);
+            //Ejecutar consulta
+            $consultarDireccion->execute(array($docId));
+            return $consultarDireccion->fetchAll();
+        } catch (\Throwable $th) {
+            echo "<script>alert('Ocurrió un error');</script>";
+            echo "<script>document.location.href='../../../Views/dashboard/principal/perfil.php';</script>";
+        }
     }
     public function getCiudades()
     {
-        require('../../../Models/dao/conexion.php');
-        $sql = "SELECT idCiudad,
-        nombreCiudad 
-        FROM tblCiudad ORDER BY nombreCiudad";
-        $stmt = $pdo->prepare($sql);
-        $stmt->execute();
-        $resultado = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        return $resultado;
+        try {
+            require('../../../Models/dao/conexion.php');
+            $sql = "SELECT idCiudad,
+            nombreCiudad 
+            FROM tblCiudad ORDER BY nombreCiudad";
+            $stmt = $pdo->prepare($sql);
+            $stmt->execute();
+            $resultado = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            return $resultado;
+        } catch (\Throwable $th) {
+            echo "<script>alert('Ocurrió un error');</script>";
+            echo "<script>document.location.href='../../../Views/dashboard/principal/dashboard.php';</script>";
+        }
     }
 
     public function getRoles($docId)
     {
-        require "../../../Models/dao/conexion.php";
-        $sql = "SELECT RO.nombreRol, UR.idUsuarioRol
-        FROM tblUsuarioRol AS UR
-        INNER JOIN tblRol AS RO ON RO.idRol = UR.idUsuarioRol
-        WHERE docIdentidadUsuarioRol = :id";
-        $stmt = $pdo->prepare($sql);
-        $stmt->bindParam(':id', $docId);
-        $stmt->execute();
-        return $stmt->fetchAll();
+        try {
+            require "../../../Models/dao/conexion.php";
+            $sql = "SELECT RO.nombreRol, UR.idUsuarioRol
+            FROM tblUsuarioRol AS UR
+            INNER JOIN tblRol AS RO ON RO.idRol = UR.idUsuarioRol
+            WHERE docIdentidadUsuarioRol = :id";
+            $stmt = $pdo->prepare($sql);
+            $stmt->bindParam(':id', $docId);
+            $stmt->execute();
+            return $stmt->fetchAll();
+        } catch (\Throwable $th) {
+            echo "<script>alert('Ocurrió un error');</script>";
+            echo "<script>document.location.href='../../../Views/dashboard/principal/dashboard.php';</script>";
+        }
     }
     public function getUsuarios($docId)
     {
-        require "../../../Models/dao/conexion.php";
-        //Llamar a la conexion base de datos -> Muestro el contenido de tabla usuario
-        //Mostrar todos los datos almacenados
-        $sql = "SELECT * 
-        FROM tblUsuario 
-        WHERE documentoIdentidad <> ?";
-        //Prepara sentencia
-        $stmt = $pdo->prepare($sql);
-        //Ejecutar consulta
-        $stmt->execute(array($docId));
-        return $stmt->fetchAll();
+        try {
+
+            require "../../../Models/dao/conexion.php";
+            //Llamar a la conexion base de datos -> Muestro el contenido de tabla usuario
+            //Mostrar todos los datos almacenados
+            $sql = "SELECT * 
+            FROM tblUsuario 
+            WHERE documentoIdentidad <> ?";
+            //Prepara sentencia
+            $stmt = $pdo->prepare($sql);
+            //Ejecutar consulta
+            $stmt->execute(array($docId));
+            return $stmt->fetchAll();
+        } catch (\Throwable $th) {
+            echo "<script>alert('Ocurrió un error');</script>";
+            echo "<script>document.location.href='../../../Views/dashboard/principal/perfil.php';</script>";
+        }
     }
 }
 
@@ -136,142 +161,172 @@ class Administrador
 
     public function ActivarUsuario($id)
     {
-        //Llamada a la conexion
-        require '../../../Models/dao/conexion.php';
-        $estado = '1';
-        //sentencia sql para actualizar estado
-        $sqlEditar = "UPDATE tblUsuario 
-        SET estadoUsuario = ?  
-        WHERE documentoIdentidad = ?";
-        $consultaEditar = $pdo->prepare($sqlEditar);
-        $consultaEditar->execute(array($estado, $id));
-        //alert
-        echo "<script>alert('Estado actualizado correctamente');</script>";
-        //redireccionar
-        echo "<script> document.location.href='../../../Views/dashboard/principal/usuarios.php';</script>";
+        try {
+            //Llamada a la conexion
+            require '../../../Models/dao/conexion.php';
+            $estado = '1';
+            //sentencia sql para actualizar estado
+            $sqlEditar = "UPDATE tblUsuario 
+            SET estadoUsuario = ?  
+            WHERE documentoIdentidad = ?";
+            $consultaEditar = $pdo->prepare($sqlEditar);
+            $consultaEditar->execute(array($estado, $id));
+            //alert
+            echo "<script>alert('Estado actualizado correctamente');</script>";
+            //redireccionar
+            echo "<script> document.location.href='../../../Views/dashboard/principal/usuarios.php';</script>";
+        } catch (\Throwable $th) {
+            echo "<script>alert('Ocurrió un error');</script>";
+            echo "<script>document.location.href='../../../Views/dashboard/principal/perfil.php';</script>";
+        }
     }
 
     public function DesactivarUsuario($id)
     {
-        //Llamada a la conexion
-        require '../../../Models/dao/conexion.php';
-        $estado = '0';
-        //sentencia sql para actualizar estado
-        $sqlEditar = "UPDATE tblUsuario 
-        SET estadoUsuario = ?  
-        WHERE documentoIdentidad = ?";
-        $consultaEditar = $pdo->prepare($sqlEditar);
-        $consultaEditar->execute(array($estado, $id));
-        //alert
-        echo "<script>alert('Estado actualizado correctamente');</script>";
-        //redireccionar
-        echo "<script> document.location.href='../../../Views/dashboard/principal/usuarios.php';</script>";
+        try {
+            //Llamada a la conexion
+            require '../../../Models/dao/conexion.php';
+            $estado = '0';
+            //sentencia sql para actualizar estado
+            $sqlEditar = "UPDATE tblUsuario 
+            SET estadoUsuario = ?  
+            WHERE documentoIdentidad = ?";
+            $consultaEditar = $pdo->prepare($sqlEditar);
+            $consultaEditar->execute(array($estado, $id));
+            //alert
+            echo "<script>alert('Estado actualizado correctamente');</script>";
+            //redireccionar
+            echo "<script> document.location.href='../../../Views/dashboard/principal/usuarios.php';</script>";
+        } catch (\Throwable $th) {
+            echo "<script>alert('Ocurrió un error');</script>";
+            echo "<script>document.location.href='../../../Views/dashboard/principal/perfil.php';</script>";
+        }
     }
 
     public function ActualizarCuenta($id)
     {
-        require '../../../Models/dao/conexion.php';
-        //Capturo la sesión del usuario logueado
-        $celular = $_POST['celular'];
-        $correo = $_POST['correo'];
+        try {
+            require '../../../Models/dao/conexion.php';
+            //Capturo la sesión del usuario logueado
+            $celular = $_POST['celular'];
+            $correo = $_POST['correo'];
 
-        @$img = $_FILES['file']['name'];
-        if (isset($_FILES['file']) && ($img == !NULL)) {
-            //Captura de imagen
-            $directorio = "../../../Views/dashboard/principal/imagenes/";
+            @$img = $_FILES['file']['name'];
+            if (isset($_FILES['file']) && ($img == !NULL)) {
+                //Captura de imagen
+                $directorio = "../../../Views/dashboard/principal/imagenes/";
 
-            $archivo = $directorio . basename($_FILES['file']['name']);
+                $archivo = $directorio . basename($_FILES['file']['name']);
 
-            //Ruta para almacenar en la base de datos
-            $nombreArchivo = "imagenes/" . basename($_FILES['file']['name']);
+                //Ruta para almacenar en la base de datos
+                $nombreArchivo = "imagenes/" . basename($_FILES['file']['name']);
 
-            $tipo_archivo = strtolower(pathinfo($archivo, PATHINFO_EXTENSION));
+                $tipo_archivo = strtolower(pathinfo($archivo, PATHINFO_EXTENSION));
 
-            //Validar que es imagen
-            $checarsiimagen = getimagesize($_FILES['file']['tmp_name']);
+                //Validar que es imagen
+                $checarsiimagen = getimagesize($_FILES['file']['tmp_name']);
 
-            //var_dump($size);
+                //var_dump($size);
 
-            if ($checarsiimagen != false) {
-                $size = $_FILES['file']['size'];
-                //Validando tamano del archivo
-                if ($size > 70000000) {
-                    echo "El archivo excede el limite, debe ser menor de 700kb";
-                } else {
-                    if ($tipo_archivo == 'jpg' || $tipo_archivo == 'jpeg' || $tipo_archivo == 'png') {
-                        //Se validó el archivo correctamente
-                        if (move_uploaded_file($_FILES['file']['tmp_name'], $archivo)) {
-                            //sentencia Sql
-                            $sql_insertar = "UPDATE tblUsuario SET telefonomovilUsuario=?,emailUsuario=?,imagenUsuario=? WHERE documentoIdentidad=?";
-                            //Preparar consulta
-                            $consulta_insertar = $pdo->prepare($sql_insertar);
-                            //Ejecutar la sentencia
-                            $consulta_insertar->execute(array($celular,  $correo, $nombreArchivo, $id));
-                            echo "<script>alert('Registro actualizado correctamente');</script>";
-                            echo "<script> document.location.href='../../../Views/dashboard/principal/perfil.php';</script>";
+                if ($checarsiimagen != false) {
+                    $size = $_FILES['file']['size'];
+                    //Validando tamano del archivo
+                    if ($size > 70000000) {
+                        echo "El archivo excede el limite, debe ser menor de 700kb";
+                    } else {
+                        if ($tipo_archivo == 'jpg' || $tipo_archivo == 'jpeg' || $tipo_archivo == 'png') {
+                            //Se validó el archivo correctamente
+                            if (move_uploaded_file($_FILES['file']['tmp_name'], $archivo)) {
+                                //sentencia Sql
+                                $sql_insertar = "UPDATE tblUsuario SET telefonomovilUsuario=?,emailUsuario=?,imagenUsuario=? WHERE documentoIdentidad=?";
+                                //Preparar consulta
+                                $consulta_insertar = $pdo->prepare($sql_insertar);
+                                //Ejecutar la sentencia
+                                $consulta_insertar->execute(array($celular,  $correo, $nombreArchivo, $id));
+                                echo "<script>alert('Registro actualizado correctamente');</script>";
+                                echo "<script> document.location.href='../../../Views/dashboard/principal/perfil.php';</script>";
+                            } else {
+                                echo "<script>alert('Ocurrió un error');</script>";
+                                echo "<script> document.location.href='../../../Views/dashboard/principal/perfil.php';</script>";
+                            }
                         } else {
-                            echo "<script>alert('Ocurrió un error');</script>";
+                            echo "<script>alert('Error: solo se admiten archivos jpg, png y jpeg');</script>";
                             echo "<script> document.location.href='../../../Views/dashboard/principal/perfil.php';</script>";
                         }
-                    } else {
-                        echo "<script>alert('Error: solo se admiten archivos jpg, png y jpeg');</script>";
-                        echo "<script> document.location.href='../../../Views/dashboard/principal/perfil.php';</script>";
                     }
+                } else {
+                    echo "<script>alert('Error: el archivo no es una imagen');</script>";
+                    echo "<script> document.location.href='../../../Views/dashboard/principal/perfil.php';</script>";
                 }
             } else {
-                echo "<script>alert('Error: el archivo no es una imagen');</script>";
+                //Sentencia sql
+                $sql = "UPDATE tblUsuario SET telefonomovilUsuario=?,emailUsuario=? WHERE documentoIdentidad=?";
+                //Preparar la consulta
+                $stmt = $pdo->prepare($sql);
+                //Ejecutar
+
+                //Redireccionar
+                $stmt->execute(array($celular,  $correo, $id));
+                echo "<script>alert('Datos actualizados correctamente');</script>";
                 echo "<script> document.location.href='../../../Views/dashboard/principal/perfil.php';</script>";
             }
-        } else {
-            //Sentencia sql
-            $sql = "UPDATE tblUsuario SET telefonomovilUsuario=?,emailUsuario=? WHERE documentoIdentidad=?";
-            //Preparar la consulta
-            $stmt = $pdo->prepare($sql);
-            //Ejecutar
-
-            //Redireccionar
-            $stmt->execute(array($celular,  $correo, $id));
-            echo "<script>alert('Datos actualizados correctamente');</script>";
-            echo "<script> document.location.href='../../../Views/dashboard/principal/perfil.php';</script>";
+        } catch (\Throwable $th) {
+            echo "<script>alert('Ocurrió un error');</script>";
+            echo "<script>document.location.href='../../../Views/dashboard/principal/perfil.php';</script>";
         }
     }
     public function AgregarDireccion($id)
     {
-        require '../../../Models/dao/conexion.php';
-        @$nombre = $_POST['nombre'];
-        $direccion = $_POST['direccion'];
-        $ciudad = $_POST['ciudad'];
-        $sqlAgregarDir = "INSERT INTO tblDirecciones 
+        try {
+            require '../../../Models/dao/conexion.php';
+            @$nombre = $_POST['nombre'];
+            $direccion = $_POST['direccion'];
+            $ciudad = $_POST['ciudad'];
+            $sqlAgregarDir = "INSERT INTO tblDirecciones
         (docIdentidadDireccion,nombreDireccion,descripcionDireccion,ciudadDireccion) 
         VALUES (?,?,?,?)";
-        $consultaAgregarDir = $pdo->prepare($sqlAgregarDir);
-        $consultaAgregarDir->execute(array($id, $nombre, $direccion, $ciudad));
-        echo "<script>alert('Dirección almacenada con exito!');</script>";
-        echo "<script>document.location.href='../../../Views/dashboard/principal/perfil.php';</script>";
+            $consultaAgregarDir = $pdo->prepare($sqlAgregarDir);
+            $consultaAgregarDir->execute(array($id, $nombre, $direccion, $ciudad));
+            echo "<script>alert('Dirección almacenada con exito!');</script>";
+            echo "<script>document.location.href='../../../Views/dashboard/principal/perfil.php';</script>";
+        } catch (\Throwable $th) {
+            echo "<script>alert('Ocurrió un error');</script>";
+            echo "<script>document.location.href='../../../Views/dashboard/principal/perfil.php';</script>";
+        }
     }
     public function EliminarDireccion($id)
     {
-        require '../../../Models/dao/conexion.php';
-        $sqlEliminarDir = "DELETE FROM tblDirecciones WHERE idDireccion=?";
-        $consultaEliminarDir = $pdo->prepare($sqlEliminarDir);
-        $consultaEliminarDir->execute(array($id));
-        echo "<script>alert('Dirección eliminada correctamente');</script>";
-        echo "<script>document.location.href='../../../Views/dashboard/principal/perfil.php';</script>";
+        try {
+            require '../../../Models/dao/conexion.php';
+            $sqlEliminarDir = "DELETE FROM tblDirecciones WHERE idDireccion=?";
+            $consultaEliminarDir = $pdo->prepare($sqlEliminarDir);
+            $consultaEliminarDir->execute(array($id));
+            echo "<script>alert('Dirección eliminada correctamente');</script>";
+            echo "<script>document.location.href='../../../Views/dashboard/principal/perfil.php';</script>";
+        } catch (\Throwable $th) {
+            echo "<script>alert('Ocurrió un error');</script>";
+            echo "<script>document.location.href='../../../Views/dashboard/principal/perfil.php';</script>";
+        }
     }
     public function ActualizarDireccion($id)
     {
-        $nombre = $_POST['nombre'];
-        $direccion = $_POST['direccion'];
-        $ciudad = $_POST['ciudad'];
+        try {
+            $nombre = $_POST['nombre'];
+            $direccion = $_POST['direccion'];
+            $ciudad = $_POST['ciudad'];
 
-        require '../../../Models/dao/conexion.php';
-        $sqlActualizarDir = "UPDATE tblDirecciones 
-        SET nombreDireccion = ?,descripcionDireccion = ?, 
-        ciudadDireccion = ? 
-        WHERE idDireccion=?";
-        $consultaActualizarDir = $pdo->prepare($sqlActualizarDir);
-        $consultaActualizarDir->execute(array($nombre, $direccion, $ciudad, $id));
-        echo "<script>alert('Dirección actualizada correctamente');</script>";
-        echo "<script>document.location.href='../../../Views/dashboard/principal/perfil.php';</script>";
+            require '../../../Models/dao/conexion.php';
+            $sqlActualizarDir = "UPDATE tblDirecciones 
+            SET nombreDireccion = ?,descripcionDireccion = ?, 
+            ciudadDireccion = ? 
+            WHERE idDireccion = ?";
+            $consultaActualizarDir = $pdo->prepare($sqlActualizarDir);
+            $consultaActualizarDir->execute(array($nombre, $direccion, $ciudad, $id));
+            echo "<script>alert('Dirección actualizada correctamente');</script>";
+            echo "<script>document.location.href='../../../Views/dashboard/principal/perfil.php';</script>";
+        } catch (\Throwable $th) {
+            echo "<script>alert('Ocurrió un error');</script>";
+            echo "<script>document.location.href='../../../Views/dashboard/principal/perfil.php';</script>";
+        }
     }
 }

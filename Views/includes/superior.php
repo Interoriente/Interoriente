@@ -50,7 +50,7 @@ session_start();
     </div>
     <div class="navegacion-a">
       <img src="../assets/img/iconos/Ofertas.svg" alt="">
-      <a href="#">Ofertas</a>
+      <a href="oferta.php">Ofertas</a>
     </div>
     <div class="navegacion-a">
       <img src="../assets/img/iconos/catalogo.svg" alt="">

@@ -1,6 +1,6 @@
 <!-- PHP para inicio de Sesion con Google -->
 <?php
-require "../assets/linksGoogle.php";
+require "../includes/linksGoogle.php";
 ?>
 <!DOCTYPE html>
 <html>
