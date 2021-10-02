@@ -1,17 +1,21 @@
 <?php
 session_start();
 ?>
+
 <head>
   <link rel="stylesheet" href="../assets/css/nav.css" />
-<!--   <link rel="stylesheet" href="../assets/css/navegacion.css" />
- --></head>
+  <!--   <link rel="stylesheet" href="../assets/css/navegacion.css" />
+ -->
+</head>
+
 <body>
 
 
-<div class="contenedor-navegacion">
+  <header>
+    <div class="contenedor-navegacion">
       <div class="logo">
-          <a href="./index.php">
-        <img src="../assets/img/LogoTerciario.svg" alt="Logo Interoriente">
+        <a href="./index.php">
+          <img src="../assets/img/LogoTerciario.svg" alt="Logo Interoriente">
         </a>
       </div>
       <div class="busquedas">
@@ -23,7 +27,7 @@ session_start();
         <p class="items-carrito">3</p>
       </div>
     </div>
-
+  </header>
 
   <div id="boton" class="boton">
     <span onclick="openNav()"> <a href="javascript:void(0)" id="menuLateral">Menú</a></span>

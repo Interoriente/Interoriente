@@ -5,10 +5,17 @@
 }
 
 /* Inicio Navbar */
+header{
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
 .contenedor-navegacion{
     background-color: var(--clr-primario-a);
     display: grid;
     grid-template-columns: 30% 60% 10%;
+    width: 100%;
 }
 .logo img{
     width: 17em;
@@ -65,7 +72,7 @@
   
   .cart {
     position: fixed;
-    top: 0;
+    top: 4.3rem;
     right: 0;
     width: 100%;
     height: 100%;
@@ -186,7 +193,7 @@
     width: 0; /* 0 width - Se hace el cambio con javascript */
     position: fixed; /* Stay in place */
     z-index: 1; /* Stay on top */
-    top: 5;
+    top: 4.3rem;
     left: 0;
     background-color: var(--crl-cta-b);
     overflow-x: hidden; /* se desabilita scroll en x */
@@ -196,21 +203,6 @@
   .tr-side {
     transition: 0.2s;
   }
-  
-  /* Imagen e Info cta */
-  #cta-login-img {
-    width: 12rem;
-    margin-left: -1.5em;
-    padding-bottom: 0.1em;
-  }
-  
-  #cta-p {
-    text-align: center;
-  }
-  #log-info-a {
-    box-shadow: none;
-  }
-  
   /* Links de navegación */
   
   .sidenav {
