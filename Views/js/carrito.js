@@ -8,11 +8,10 @@ const cartItems = document.querySelector(".items-carrito");
 const carritoTotal = document.querySelector(".cart-total");
 const contenidoCarrito = document.querySelector(".cart-content");
 const carritoTarjeta = document.querySelector(".carrito-tarjeta");
-const carritoBtn = document.querySelector(".carrito-busqueda");
+const carritoBtn = document.getElementById("carrito-btn");
 const cantidadCarrito = document.getElementById("cantidad-carrito");
 const overlay = document.getElementById("overlay");
 const finCompra = document.getElementById("finalizar-compra");
-
 
 /* Local storage */
 class Storage {

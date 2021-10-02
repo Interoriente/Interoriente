@@ -1,42 +1,34 @@
 <?php
 session_start();
 ?>
-<!DOCTYPE html>
-<html lang="en">
 <head>
-  <link rel="stylesheet" href="../assets/css/navegacion.css" />
-</head>
-
+  <link rel="stylesheet" href="../assets/css/nav.css" />
+<!--   <link rel="stylesheet" href="../assets/css/navegacion.css" />
+ --></head>
 <body>
-  <div class="contenedor">
-    <div class="contenedor-s">
-      <div class="logoT">
-        <a id="logo" href="index.php"> <img src="../assets/img/LogoTerciario.svg" alt="Logo interoriente" /></a>
-      </div>
-      <div class="cont-elementos">
-        <a href="Javascript:void(0)" id="comprar">
-          <div class="comprar">Comprar</div>
-        </a>
-        <a href="">
-          <div class="vender">Vender</div>
-        </a>
-      </div>
-      <div class="barra-busqueda">
-        <input type="text" placeholder="Buscar...">
-      </div>
-      <div class="carrito-busqueda">
 
 
-        <a href="javascript:void(0)">
-          <div class="carrito" id="btn-carrito"><img src="../assets/img/iconos/carrito.svg" alt="Carrito de la compra"></div>
-          <div class="items-carrito">0</div>
+<div class="contenedor-navegacion">
+      <div class="logo">
+          <a href="./index.php">
+        <img src="../assets/img/LogoTerciario.svg" alt="Logo Interoriente">
         </a>
       </div>
+      <div class="busquedas">
+        <input type="text" placeholder="¿Qué estás buscando?">
+        <img id="buscar" src="../assets/img/iconos/search.svg" alt="Buscar">
+      </div>
+      <div class="carrito" id="carrito-btn">
+        <img id="btn-carrito" src="../assets/img/iconos/carrito.svg" alt="Carrito">
+        <p class="items-carrito">3</p>
+      </div>
     </div>
-    <div id="boton" class="boton">
-      <span onclick="openNav()"> <a href="javascript:void(0)" id="menuLateral">Menú</a></span>
-    </div>
+
+
+  <div id="boton" class="boton">
+    <span onclick="openNav()"> <a href="javascript:void(0)" id="menuLateral">Menú</a></span>
   </div>
+
   <!-- Sidebar -->
   <div id="mySidenav" class="sidenav">
     <a href="javascript:void(0)" id="btn-close" class="closebtn" onclick="closeNav()">&times;</a>
@@ -113,4 +105,4 @@ session_start();
       </div>
 
     </div>
-    <!-- Fin Carrito -->   
+    <!-- Fin Carrito -->

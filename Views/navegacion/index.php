@@ -22,15 +22,13 @@ $publicacion = getPublicaciones();
 
     <!-- Navegación -->
     <?php require '../includes/superior.php'; ?>
-    <!-- ----- -->
+    <!-- Fin Navegación -->
 
         <section class="publicaciones">
-            <!-- TODO Implementar sistema de filtrado js -->
-            <!-- Sección de los botons de filtrado -->
+
             <h1 class="titulo-filtrado ">Aquí podrás encontrar el producto que deseas </h1>
             <section class="btns-filtrado ">
                 <a href="#">
-
                     <div id="productos" class="btn-productos btn-filtro">
                         Productos
                     </div>
@@ -78,18 +76,8 @@ $publicacion = getPublicaciones();
         </section>
         <!-- Fin sección Publicaciones -->
     </div>
+    <!-- Importante: No hay etiquetas de cierrie porque ya se encuentran incluidas en NavInferior -->
+
     <!-- navegación -->
     <?php include '../includes/navInferior.php'; ?>
     <!-- ------- -->
-
-    <!-- Barra de navegación para dispositivos móviles -->
-    <?php
-    include '../includes/navMovil.php';
-    ?>
-
-    <!-- Js -->
-    <script src="../js/navegacion.js"></script>
-
-</body>
-
-</html>
