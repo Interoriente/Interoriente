@@ -18,25 +18,7 @@ if (isset($_SESSION['documentoIdentidad'])) {
   $ventasHoy = $informe->VentasHoy($informe->id);
   $noValidadas = $informe->NoValidadas($informe->id);
   //Mostrar gráfica de ventas anuales
-  $labelVentas = "";
-  $datosVentas = "";
-  foreach ($respVentasAnual as $datos) {
-    $labelVentas = $labelVentas . $datos['Mes'] . ",";
-    $datosVentas = $datosVentas . $datos['Total'] . ",";
-  }
-  $labelVentas = rtrim($labelVentas, ",");
-  $datosVentas = rtrim($datosVentas, ",");
-  //Mostrar gráfica de ventas por semana
-  $labelVentasSemana = "";
-  $datosVentasSemana = "";
-  foreach ($respVentasDia as $datosSemana) {
-    $labelVentasSemana = $labelVentasSemana . $datosSemana['Dia'] . ",";
-    $datosVentasSemana = $datosVentasSemana . $datosSemana['Total'] . ",";
-  }
-  $labelVentasSemana = rtrim($labelVentasSemana, ",");
-  $datosVentasSemana = rtrim($datosVentasSemana, ",");
-  //Fin código temporal (Se guardará en funciones o en código JS)
-
+  require "../includes/graficas.php";
 }
 if (isset($respUserData)) {
   $rol = $_SESSION['roles'];
@@ -378,5 +360,4 @@ if (isset($respUserData)) {
   echo "<script>alert('No has iniciado sesión!');</script>";
   echo "<script> document.location.href='403.php';</script>";
 }
-
-  ?>
+?>
