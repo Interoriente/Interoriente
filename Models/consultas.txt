@@ -128,16 +128,26 @@ Tarjeta 3
 ==================================
 
 5. Ventas por ciudad//...\\
-SELECT CI.nombreCiudad as 'Municipio',SUM(FP.cantidadFacturaPublicacion*PU.costoPublicacion) as 'Total Ventas'
-FROM tblCiudad as CI
-INNER JOIN tblDirecciones as DI
+
+
+
+
+
+
+
+
+
+SELECT CI.nombreCiudad as 'Municipio',COUNT(FA.numeroFactura)
+AS 'Número Ventas'
+FROM tblCiudad AS CI
+INNER JOIN tblDirecciones AS DI
 ON DI.ciudadDireccion=CI.idCiudad
-INNER JOIN tblUsuario as US
+INNER JOIN tblUsuario AS US
 ON US.documentoIdentidad=DI.docIdentidadDireccion
-INNER JOIN tblFactura as FA
+INNER JOIN tblFactura AS FA
 ON FA.docIdentidadFactura=US.documentoIdentidad
 GROUP BY CI.nombreCiudad
-ORDER BY SUM(FP.cantidadFacturaPublicacion*PU.costoPublicacion) DESC
+ORDER BY SUM(FP.cantidadFacturaPublicacion * PU.costoPublicacion) DESC
 ==================================
 
 6. Alerta de stock (A cuántas publicaciones se les va a terminar el stock) LISTO
@@ -153,16 +163,39 @@ Tarjeta 1
 ==================================
 7. Total de ventas de este mes y porcentaje de último mes comparado con el actual.
 
-SELECT MONTH(FA.fechaFactura)
+SELECT SUM(FP.cantidadFacturaPublicacion * PU.costoPublicacion) 
+AS 'TotalMesActual' 
 FROM tblFactura as FA
 INNER JOIN tblFacturaPublicacion as FP
-ON FP.numFacturaPublicacion=FA.numeroFactura
+ON FP.numFacturaPublicacion = FA.numeroFactura
 INNER JOIN tblPublicacion AS PU 
 ON PU.idPublicacion = FP.idPublicacionFactura
-WHERE FA.fechaFactura BETWEEN MONTH(DATE_SUB(NOW(), INTERVAL 1 MONTH))
+WHERE MONTH(FA.fechaFactura) = MONTH(CURRENT_DATE()) AND PU.docIdentidadPublicacion = 123456789 AND YEAR(FA.fechaFactura) = YEAR(CURRENT_DATE())
+GROUP BY MONTH(FA.fechaFactura) 
+
+SELECT SUM(PU.costoPublicacion * FP.cantidadFacturaPublicacion) AS "Total" 
+FROM tblFactura AS FA 
+INNER JOIN tblFacturaPublicacion AS FP 
+ON FP.numFacturaPublicacion = FA.numeroFactura 
+INNER JOIN tblPublicacion AS PU ON PU.idPublicacion = FP.idPublicacionFactura 
+WHERE MONTH(FA.fechaFactura) = MONTH(DATE_ADD(CURDATE(),INTERVAL -1 MONTH)) AND YEAR(FA.fechaFactura) = YEAR(CURRENT_DATE) AND PU.docIdentidadPublicacion = 123456789
+
+
+
+
+
+SELECT SUM(FP.cantidadFacturaPublicacion * PU.costoPublicacion) 
+AS 'TotalMesActual' 
+FROM tblFactura as FA
+INNER JOIN tblFacturaPublicacion as FP
+ON FP.numFacturaPublicacion = FA.numeroFactura
+INNER JOIN tblPublicacion AS PU 
+ON PU.idPublicacion = FP.idPublicacionFactura
+WHERE FA.fechaFactura = MOTH(NOW()))
 AND NOW()
 GROUP BY MONTH(FA.fechaFactura) 
 
+MONTH(DATE_SUB(NOW(), INTERVAL 1 MONTH)
 Tarjeta de Performance
 ==================================
 8. Número de publicaciones sin validar

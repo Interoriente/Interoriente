@@ -16,10 +16,44 @@ error_reporting(E_ALL);
 
 /* echo exitosas(123456789); */
 
-print_r(AlertaStock(123456789));
-$stock = AlertaStock(123456789);
-echo $stock["No_publicaciones"];
- function AlertaStock($id)
+/* print_r(AlertaStock(123456789));
+$stock = AlertaStock(123456789); */
+/* echo $stock["No_publicaciones"]; */
+
+
+print_r(VentasMensual(123456789));
+function VentasMensual($id)
+{
+    require "../../../Models/dao/conexion.php";
+    $reporte = ["TotalMesActual" => null, "Porcentaje" => null];
+    $objReporte = (object) $reporte;
+    $porcentaje = 0;
+    $sql = "CALL sp_totalMensual(:id)";
+    $stmt = $pdo->prepare($sql);
+    $stmt->bindValue(":id", $id);
+    $stmt->execute();
+    $totalMesActual = $stmt->fetch(PDO::FETCH_ASSOC);
+    $sql = "CALL sp_totalMesPasado(:id)";
+    $stmt = $pdo->prepare($sql);
+    $stmt->bindValue(":id", $id);
+    $stmt->execute();
+    $totalMesPasado = $stmt->fetch(PDO::FETCH_ASSOC);
+    $calculoPorcentaje = ($totalMesActual["Total"] * 100) / $totalMesPasado["Total"];
+
+    if ($calculoPorcentaje < 100) {
+        $porcentaje = 100 - $calculoPorcentaje;
+    } else {
+        if ($calculoPorcentaje > 100) {
+            $porcentaje = $calculoPorcentaje - 100;
+        }
+    }
+
+    $objReporte->TotalMesActual = $totalMesActual["Total"];
+    $objReporte->Porcentaje = round($porcentaje, 2);
+    return $objReporte;
+}
+
+function AlertaStock($id)
 {
     require "../../../Models/dao/conexion.php";
     $sql = "CALL sp_alertaStock(:id)";
@@ -89,7 +123,7 @@ function exitosas($id)
     $stmtTotalG->execute();
     $totalGeneral = $stmtTotalG->fetchAll(PDO::FETCH_ASSOC);
     /*    $r = simplificarArreglo($totalGeneral); */
-    $totalGeneral = $totalGeneral[0]["Total"];  
+    $totalGeneral = $totalGeneral[0]["Total"];
     /*  foreach ($totsPublicaciones as $x) {
         $totalPublicacion += $x;
     } */

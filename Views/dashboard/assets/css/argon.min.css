@@ -21107,3 +21107,14 @@ input.datetimepicker[data-color=yellow]+.bootstrap-datetimepicker-widget button[
 .bootstrap-datetimepicker-widget.dropdown-black table td .btn[data-action=togglePeriod] {
     background: 0 0
 }
+.icono-dashboard{
+   display: none;
+}
+@media (min-width: 1500px) {
+    .icono-dashboard{
+        display: block;
+    }
+}
+#ms-mes{
+    font-weight: bold;
+}

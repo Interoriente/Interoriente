@@ -1,317 +1,318 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
-
+body {
+  padding-top: 5em;
+}
 /* Inicio Navbar */
-header{
+header {
   overflow: hidden;
   position: fixed;
   top: 0;
   width: 100%;
+  z-index: 410;
 }
-.contenedor-navegacion{
-    background-color: var(--clr-primario-a);
-    display: grid;
-    grid-template-columns: 30% 60% 10%;
-    width: 100%;
+.contenedor-navegacion {
+  background-color: var(--clr-primario-a);
+  display: grid;
+  grid-template-columns: 30% 60% 10%;
+  width: 100%;
 }
-.logo img{
-    width: 17em;
-    margin: -.6em;
+.logo img {
+  width: 17em;
+  margin: -0.6em;
 }
-.busquedas{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.busquedas {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.busquedas input{
-    outline: none;
+.busquedas input {
+  outline: none;
 }
-.busquedas input{
-    margin-right: 1em;
-    width: 100%;
-    border: none;
-    border-radius: 3px;
-    padding: .5em;
-    font-family: var(--poppins);
+.busquedas input {
+  margin-right: 1em;
+  width: 100%;
+  border: none;
+  border-radius: 3px;
+  padding: 0.5em;
+  font-family: var(--poppins);
 }
-#buscar{
-    cursor: pointer;
+#buscar {
+  cursor: pointer;
 }
-.carrito{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
+.carrito {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
 }
-.items-carrito{
-    background-color: orangered;
-    border-radius: 3px;
-    vertical-align: top;
-    margin: 0 0 2em .4em;
-    padding: .2em;
-    color: white; 
-    font-weight: bold;
+.items-carrito {
+  background-color: orangered;
+  border-radius: 3px;
+  vertical-align: top;
+  margin: 0 0 2em 0.4em;
+  padding: 0.2em;
+  color: white;
+  font-weight: bold;
 }
 /* Fin Navbar */
 
 /* Inicio Carrito */
 .cart-overlay {
-    position: fixed;
-    top: 0;
-    right: 0;
-    width: 100%;
-    height: 100%;
-    transition: all 0.1s ease-in-out;
-    background: rgba(0, 0, 0, 0.2);
-    z-index: 2;
-    visibility: hidden;
-  }
-  
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  transition: all 0.1s ease-in-out;
+  background: rgba(0, 0, 0, 0.2);
+  z-index: 2;
+  visibility: hidden;
+}
+
+.cart {
+  position: fixed;
+  top: 4.3rem;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  overflow: scroll;
+  background: var(--clr-neutro-a);
+  padding: 1.5rem;
+  transition: all 0.04s ease-in-out;
+  transform: translateX(100%);
+}
+
+.showCart {
+  transform: translateX(0);
+}
+
+.transparentBcg {
+  visibility: visible;
+}
+@media screen and (min-width: 768px) {
   .cart {
-    position: fixed;
-    top: 4.3rem;
-    right: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 2;
-    overflow: scroll;
-    background: var(--clr-neutro-a);
-    padding: 1.5rem;
-    transition: all 0.04s ease-in-out;
-    transform: translateX(100%);
+    width: 30vw;
+    min-width: 450px;
   }
-  
-  .showCart {
-    transform: translateX(0);
-  }
-  
-  .transparentBcg {
-    visibility: visible;
-  }
-  @media screen and (min-width: 768px) {
-    .cart {
-      width: 30vw;
-      min-width: 450px;
-    }
-  }
-  
-  .close-cart {
-    font-size: 2rem;
-    cursor: pointer;
-  }
-  
-  .cart h2 {
-    text-transform: capitalize;
-    text-align: center;
-    letter-spacing: var(--mainSpacing);
-    margin-top: -1.3em;
-    margin-bottom: 1rem;
-  }
-  /*---------- Item del carrito -------------------- */
-  
-  .cart-item {
-    display: grid;
-    align-items: center;
-    grid-template-columns: auto 1fr auto;
-    grid-column-gap: 1.5rem;
-    margin: 1.5rem 0;
-  }
-  
-  .cart-item img {
-    width: 95px;
-    height: 95px;
-    border-radius: 4%;
-  }
-  
-  .cart-item h4 {
-    font-size: 0.85rem;
-    text-transform: capitalize;
-    letter-spacing: var(--mainSpacing);
-  }
-  
-  .cart-item h5 {
-    margin: 0.5rem 0;
-    letter-spacing: var(--mainSpacing);
-  }
-  
-  .remove-item {
-    color: grey;
-    cursor: pointer;
-  }
-  
-  .titulos {
-    font-family: var(--titulos);
-  }
-  
-  /* Título de la publicación en el carrito */
-  .item-h {
-    font-weight: bold;
-  }
-  /* Cantidad item del carrito por publicación */
-  .cantidad-items {
-    width: 3em;
-  }
-  
-  /*---------- Fin item del carrito ------------------- */
-  .cart-footer {
-    margin: 1rem 0 2em 0;
-    letter-spacing: var(--mainSpacing);
-    text-align: center;
-  }
-  
-  .cart-footer h3 {
-    text-transform: capitalize;
-    margin-bottom: 5rem;
-    padding-bottom: 5em;
-  }
-  
-  .finalizar-compra {
-    padding: 0.5rem;
-    width: 100%;
-    text-transform: uppercase;
-    letter-spacing: var(--mainSpacing);
-    background: var(--clr-cta-a);
-    border: 1px solid var(--crl-cta-b);
-    transition: 0.3s;
-    cursor: pointer;
-  }
-  
-  .finalizar-compra:hover {
-    box-shadow: 0px 0px 10px -1px rgba(0, 0, 0, 0.4);
-  }
-  /* Imput cantidad */
-  
-  /* --------------- Fin Carrito ---------------- */
+}
 
-  /* Inicio Sidebar */
+.close-cart {
+  font-size: 2rem;
+  cursor: pointer;
+}
 
+.cart h2 {
+  text-transform: capitalize;
+  text-align: center;
+  letter-spacing: var(--mainSpacing);
+  margin-top: -1.3em;
+  margin-bottom: 1rem;
+}
+/*---------- Item del carrito -------------------- */
+
+.cart-item {
+  display: grid;
+  align-items: center;
+  grid-template-columns: auto 1fr auto;
+  grid-column-gap: 1.5rem;
+  margin: 1.5rem 0;
+}
+
+.cart-item img {
+  width: 95px;
+  height: 95px;
+  border-radius: 4%;
+}
+
+.cart-item h4 {
+  font-size: 0.85rem;
+  text-transform: capitalize;
+  letter-spacing: var(--mainSpacing);
+}
+
+.cart-item h5 {
+  margin: 0.5rem 0;
+  letter-spacing: var(--mainSpacing);
+}
+
+.remove-item {
+  color: grey;
+  cursor: pointer;
+}
+
+.titulos {
+  font-family: var(--titulos);
+}
+
+/* Título de la publicación en el carrito */
+.item-h {
+  font-weight: bold;
+}
+/* Cantidad item del carrito por publicación */
+.cantidad-items {
+  width: 3em;
+}
+
+/*---------- Fin item del carrito ------------------- */
+.cart-footer {
+  margin: 1rem 0 2em 0;
+  letter-spacing: var(--mainSpacing);
+  text-align: center;
+}
+
+.cart-footer h3 {
+  text-transform: capitalize;
+  margin-bottom: 5rem;
+  padding-bottom: 5em;
+}
+
+.finalizar-compra {
+  padding: 0.5rem;
+  width: 100%;
+  text-transform: uppercase;
+  letter-spacing: var(--mainSpacing);
+  background: var(--clr-cta-a);
+  border: 1px solid var(--crl-cta-b);
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.finalizar-compra:hover {
+  box-shadow: 0px 0px 10px -1px rgba(0, 0, 0, 0.4);
+}
+/* Imput cantidad */
+
+/* --------------- Fin Carrito ---------------- */
+
+/* Inicio Sidebar */
+
+.sidenav {
+  height: 100%; /* 100% Full-height */
+  width: 0; /* 0 width - Se hace el cambio con javascript */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Stay on top */
+  top: 4.3rem;
+  left: 0;
+  background-color: var(--crl-cta-b);
+  overflow-x: hidden; /* se desabilita scroll en x */
+  padding-top: 60px; /* Place content 60px from the top */ /* 0.5 second transition effect to slide in the sidenav */
+}
+
+.tr-side {
+  transition: 0.2s;
+}
+/* Links de navegación */
+
+.sidenav {
+  display: flex;
+  flex-direction: column;
+}
+
+.cerrar-sesion {
+  margin-left: -27px;
+}
+
+.btnCerrar {
+  background-color: transparent;
+  cursor: pointer;
+  border: none;
+}
+
+.sidenav a,
+.btnCerrar {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 19px;
+  font-weight: 550;
+  font-family: "Poppins", sans-serif;
+  color: var(--clr-primario-a);
+  display: block;
+  transition: 0.1s;
+}
+
+.btnCerrar:hover {
+  box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.1);
+}
+/* Posición y estilos botón de cerrar (x) */
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0em;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+#btn-close {
+  box-shadow: none;
+  padding: 0.1px;
+}
+
+/* Media query para cambiar tamaño en pantallas pequeñas, donde la altura sea menor a 450px, cambio de estilo (menos padding y fuente más pequeña) */
+@media screen and (max-height: 450px) {
   .sidenav {
-    height: 100%; /* 100% Full-height */
-    width: 0; /* 0 width - Se hace el cambio con javascript */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Stay on top */
-    top: 4.3rem;
-    left: 0;
-    background-color: var(--crl-cta-b);
-    overflow-x: hidden; /* se desabilita scroll en x */
-    padding-top: 60px; /* Place content 60px from the top */ /* 0.5 second transition effect to slide in the sidenav */
+    padding-top: 15px;
   }
-  
-  .tr-side {
-    transition: 0.2s;
+  .sidenav a {
+    font-size: 18px;
   }
-  /* Links de navegación */
-  
-  .sidenav {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .cerrar-sesion{
-    margin-left: -27px;
-  }
-  
-  .btnCerrar {
-    background-color: transparent;
-    cursor: pointer;
-    border: none;
-  }
-  
-  .sidenav a,
-  .btnCerrar {
-    padding: 8px 8px 8px 32px;
-    text-decoration: none;
-    font-size: 19px;
-    font-weight: 550;
-    font-family: "Poppins", sans-serif;
-    color: var(--clr-primario-a);
-    display: block;
-    transition: 0.1s;
-  }
-  
-  
-  .btnCerrar:hover {
-    box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.1);
-  }
-  /* Posición y estilos botón de cerrar (x) */
-  
-  .sidenav .closebtn {
-    position: absolute;
-    top: 0em;
-    right: 25px;
-    font-size: 36px;
-    margin-left: 50px;
-  }
-  
-  #btn-close {
-    box-shadow: none;
-    padding: 0.1px;
-  }
-  
-  /* Media query para cambiar tamaño en pantallas pequeñas, donde la altura sea menor a 450px, cambio de estilo (menos padding y fuente más pequeña) */
-  @media screen and (max-height: 450px) {
-    .sidenav {
-      padding-top: 15px;
-    }
-    .sidenav a {
-      font-size: 18px;
-    }
-  }
-  
-  /* Botón Sidebar */
-  #boton a {
-    margin-top: 2.7em;
-    position: fixed; /* Position them relative to the browser window */
-    left: -70px; /* Position them outside of the screen */
-    transition: 0.03s; /* Add transition on hover */
-    padding: 15px; /* 15px padding */
-    width: 100px; /* Set a specific width */
-    text-decoration: none; /* Remove underline */
-    font-size: 20px; /* Increase font size */
-    color: var(--clr-primario-a); /* Color del texto */
-    font-family: "Poppins", sans-serif;
-    border-radius: 0 5px 5px 0; /* Rounded corners on the top right and bottom right side */
-  }
-  
-  #boton a:hover {
-    left: 0; /* On mouse-over, make the elements appear as they should */
-    font-weight: bolder;
-  }
-  
-  .rem-btn {
-    display: none;
-  }
-  
-  /* Botón menú lateral para abri sidebar*/
-  #menuLateral {
-    top: 40px;
-    background-color: var(--crl-cta-b); /* Color del botón */
-    z-index: 2;
-  }
-  
+}
+
+/* Botón Sidebar */
+#boton a {
+  margin-top: 2.7em;
+  position: fixed; /* Position them relative to the browser window */
+  left: -70px; /* Position them outside of the screen */
+  transition: 0.03s; /* Add transition on hover */
+  padding: 15px; /* 15px padding */
+  width: 100px; /* Set a specific width */
+  text-decoration: none; /* Remove underline */
+  font-size: 20px; /* Increase font size */
+  color: var(--clr-primario-a); /* Color del texto */
+  font-family: "Poppins", sans-serif;
+  border-radius: 0 5px 5px 0; /* Rounded corners on the top right and bottom right side */
+}
+
+#boton a:hover {
+  left: 0; /* On mouse-over, make the elements appear as they should */
+  font-weight: bolder;
+}
+
+.rem-btn {
+  display: none;
+}
+
+/* Botón menú lateral para abri sidebar*/
+#menuLateral {
+  top: 40px;
+  background-color: var(--crl-cta-b); /* Color del botón */
+  z-index: 2;
+}
+
+.contenedor .boton {
+  display: none;
+}
+
+@media (min-width: 720px) {
   .contenedor .boton {
-    display: none;
+    display: block;
   }
-  
-  @media (min-width: 720px) {
-    .contenedor .boton {
-      display: block;
-    }
-  }
-  .navegacion-a {
-    display: flex;
-    width: 100%;
-  
-  }
-  
-  .navegacion-a img {
-    margin-left: 10px;
-  }
-  
-  .navegacion-a a {
-    margin-left: -25px;
-  }
-/* Fin Sidebar */  
+}
+.navegacion-a {
+  display: flex;
+  width: 100%;
+}
+
+.navegacion-a img {
+  margin-left: 10px;
+}
+
+.navegacion-a a {
+  margin-left: -25px;
+}
+/* Fin Sidebar */

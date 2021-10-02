@@ -151,7 +151,49 @@ class Informes
             $stmt = $pdo->prepare($sql);
             $stmt->bindValue(":id", $id);
             $stmt->execute();
-            return $stmt->fetch(PDO::FETCH_ASSOC);
+            $resultado = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            $noPublicaciones = sizeof($resultado);
+            return $noPublicaciones;
+        } catch (\Throwable $th) {
+            echo "<script>alert('Ocurrió un error!');</script>";
+        }
+    }
+    public function ReporteMensual($id)
+    {
+        try {
+            require "../../../Models/dao/conexion.php";
+            $reporte = ["TotalMesActual" => null, "Porcentaje" => null, "Subio" => 0];
+            $objReporte = (object) $reporte;
+            $porcentaje = 0;
+            $sql = "CALL sp_totalMensual(:id)";
+            $stmt = $pdo->prepare($sql);
+            $stmt->bindValue(":id", $id);
+            $stmt->execute();
+            $totalMesActual = $stmt->fetch(PDO::FETCH_ASSOC);
+            $sql = "CALL sp_totalMesPasado(:id)";
+            $stmt = $pdo->prepare($sql);
+            $stmt->bindValue(":id", $id);
+            $stmt->execute();
+            $totalMesPasado = $stmt->fetch(PDO::FETCH_ASSOC);
+            /*             $calculoPorcentaje = ($totalMesActual["Total"] * 100) / $totalMesPasado["Total"];
+ */
+            $calculoPorcentaje = ($totalMesActual["Total"] * 100) / $totalMesPasado["Total"];
+
+
+            if ($calculoPorcentaje < 100) {
+                $porcentaje = 100 - $calculoPorcentaje;
+            } else {
+                if ($calculoPorcentaje > 100) {
+                    $porcentaje = $calculoPorcentaje - 100;
+                    $objReporte->Subio = 1;
+                } else {
+                    $objReporte->Subio = 3;
+                }
+            }
+
+            $objReporte->TotalMesActual = $totalMesActual['Total'];
+            $objReporte->Porcentaje = round($porcentaje, 2);
+            return $objReporte;
         } catch (\Throwable $th) {
             echo "<script>alert('Ocurrió un error!');</script>";
         }

@@ -36,7 +36,6 @@
           <img class="thumbnail active" src="../assets/img/stock/1.jpg">
           <img class="thumbnail" src="../assets/img/stock/2.jpg">
           <img class="thumbnail" src="../assets/img/stock/3.jpg">
-
           <img class="thumbnail" src="../assets/img/stock/4.jpg">
           <img class="thumbnail" src="../assets/img/stock/5.jpg">
           <img class="thumbnail" src="../assets/img/stock/6.jpg">

@@ -17,6 +17,8 @@ if (isset($_SESSION['documentoIdentidad'])) {
   $alertaStock = $informe->AlertaStock($informe->id);
   $ventasHoy = $informe->VentasHoy($informe->id);
   $noValidadas = $informe->NoValidadas($informe->id);
+  $reporteMensual = $informe->ReporteMensual($informe->id);
+
   //Mostrar gráfica de ventas anuales
   require "../includes/graficas.php";
 }
@@ -72,7 +74,6 @@ if (isset($respUserData)) {
           </div>
           <!-- Tarjetas -->
           <div class="row">
-
             <!-- Contenedor Tarjeta -->
             <div class="col-xl-3 col-md-6">
               <div class="card card-stats">
@@ -84,7 +85,7 @@ if (isset($respUserData)) {
                       <?php if (isset($alertaStock)) { ?>
                         <span class="h5 font-weight-bold mb-0 text-rap text-danger">¡Hay <?php echo $alertaStock['No_publicaciones'] ?> publicaciones con poco stock! </span>
                     </div>
-                    <div class="col-auto">
+                    <div class="col-auto icono-dashboard">
                       <div class="icon icon-shape bg-gradient-red text-white rounded-circle shadow">
                         <i class="ni ni-notification-70"></i>
                       </div>
@@ -92,7 +93,7 @@ if (isset($respUserData)) {
                   <?php } else { ?>
                     <span class="h5 font-weight-bold mb-0 text-success">¡No hay alertas por stock!</span>
                   </div>
-                  <div class="col-auto">
+                  <div class="col-auto icono-dashboard">
                     <div class="icon icon-shape bg-gradient-green text-white rounded-circle shadow">
                       <i class="ni ni-check-bold"></i>
                     </div>
@@ -106,80 +107,104 @@ if (isset($respUserData)) {
               </div>
             </div>
           </div>
-          <!-- Fin tarjeta -->
+
+
+          <!-- Tarjeta para el admin -->
+          <!-- Contenedor Tarjeta -->
           <div class="col-xl-3 col-md-6">
             <div class="card card-stats">
               <!-- Tarjeta -->
               <div class="card-body">
                 <div class="row">
                   <div class="col">
-
-                    <h5 class="card-title text-uppercase text-muted mb-0">Este Mes...</h5>
-                    <span class="h2 font-weight-bold mb-0">Ventas: 49</span>
-                  </div>
-                  <div class="col-auto">
-                    <div class="icon icon-shape bg-gradient-info text-white rounded-circle shadow">
-                      <i class="ni ni-chart-bar-32"></i>
-                    </div>
-                  </div>
-                </div>
-                <p class="mt-3 mb-0 text-sm">
-                  <span class="text-success mr-2"><i class="fa fa-arrow-up"></i> 3.48% con relación al mes Pasado:</span>
-                  <span class="text-nowrap"></span>
-                </p>
-              </div>
-            </div>
-          </div>
-          <!-- Fin Tarjeta -->
-          <!-- Tarjeta para el admin -->
-          <div class="col-xl-3 col-md-6">
-            <div class="card card-stats">
-              <div class="card-body">
-                <div class="row">
-                  <div class="col">
                     <h5 class="card-title text-uppercase text-muted mb-0">Publicaciones</h5>
-                    <?php /* if (isset($publicacionesSinValidar))*/ {  ?>
-                      <span class="h5 font-weight-bold mb-0 text-warning">¡5 de tus publicaciones están sin validar!</span>
-                    <?php  } ?>
+                    <?php if (!isset($noValidadas)) { ?>
+                      <span class="h5 font-weight-bold mb-0 text-rap text-warning">Tienes <?php echo $noValidadas; ?> publicaciones con espera de validación</span>
                   </div>
-                  <div class="col-auto">
+                  <div class="col-auto icono-dashboard">
                     <div class="icon icon-shape bg-gradient-orange text-white rounded-circle shadow">
                       <i class="ni ni-album-2"></i>
                     </div>
                   </div>
+                <?php } else { ?>
+                  <span class="h5 font-weight-bold mb-0 text-blue">No tienen publicaciones pendientes por validar</span>
                 </div>
-                <!--   <p class="mt-3 mb-0 text-sm">
-                      <span class="text-success mr-2"><i class="fa fa-arrow-up"></i> 3.48%</span>
-                      <span class="text-nowrap">Since last month</span>
-                    </p> -->
-              </div>
-            </div>
-          </div>
-          <!-- Fin tarjeta -->
-          <!-- Tarjeta -->
-          <div class="col-xl-3 col-md-6">
-            <div class="card card-stats">
-              <div class="card-body">
-                <div class="row">
-                  <div class="col">
-                    <h5 class="card-title text-uppercase text-muted mb-0">Ventas Hoy</h5>
-                    <span class="h2 font-weight-bold mb-0 text-success mr-2">$<?php echo number_format($ventasHoy["Total"], 0, '', '.'); ?></span>
-                  </div>
-                  <div class="col-auto">
-                    <div class="icon icon-shape bg-gradient-green text-white rounded-circle shadow">
-                      <i class="ni ni-money-coins"></i>
-                    </div>
+                <div class="col-auto icono-dashboard">
+                  <div class="icon icon-shape bg-gradient-purple text-white rounded-circle shadow">
+                    <i class="ni ni-like-2"></i>
                   </div>
                 </div>
-                <p class="mt-3 mb-0 text-sm">
-                  <span class="text-nowrap">No. Ventas:</span>
-                  <span class="h2 text-success mr-2"><?php echo $ventasHoy["No_ventas"] ?></i></span>
-                </p>
+              <?php } ?>
               </div>
+              <!-- <p class="mt-3 mb-0 text-sm">
+                    <span class="text-success mr-2"><i class="fa fa-arrow-up"></i> 3.48%</span>
+                    <span class="text-rap text-danger">¡A <?php echo $alertaStock['No_publicaciones'] ?> de tus publicaciones están próximas a terminárseles el stock! </span>
+                  </p> -->
             </div>
           </div>
         </div>
+
+        <!-- Tarjeta -->
+        <div class="col-xl-3 col-md-6">
+          <div class="card card-stats">
+            <div class="card-body">
+              <div class="row">
+                <div class="col">
+                  <h5 class="card-title text-uppercase text-muted mb-0">Ventas Hoy</h5>
+                  <span class="h2 font-weight-bold mb-0 text-success mr-2">$<?php echo number_format($ventasHoy["Total"], 0, '', '.'); ?></span>
+                </div>
+                <div class="col-auto icono-dashboard">
+                  <div class="icon icon-shape bg-gradient-green text-white rounded-circle shadow">
+                    <i class="ni ni-money-coins"></i>
+                  </div>
+                </div>
+              </div>
+              <p class="mt-3 mb-0 text-sm">
+                <span class="text-nowrap">No. Ventas:</span>
+                <span class="h2 text-success mr-2"><?php echo $ventasHoy["No_ventas"] ?></i></span>
+              </p>
+            </div>
+          </div>
+        </div>
+        <!-- Fin tarjeta -->
+        <div class="col-xl-3 col-md-6">
+          <div class="card card-stats">
+            <!-- Tarjeta -->
+            <div class="card-body">
+              <div class="row">
+                <div class="col">
+                  <h5 class="card-title text-uppercase text-muted mb-0">Este Mes...</h5>
+                  <span class="h2 font-weight-bold mb-0">Total ventas: $<?php echo number_format($reporteMensual->TotalMesActual, 0, '', '.'); ?></span>
+                </div>
+                <div class="col-auto icono-dashboard">
+                  <div class="icon icon-shape bg-gradient-info text-white rounded-circle shadow">
+                    <i class="ni ni-chart-bar-32"></i>
+                  </div>
+                </div>
+              </div>
+              <?php if ($reporteMensual->Subio == 1) { ?>
+
+                <p class="mt-3 mb-0 text-sm">
+                  <span id="ms-mes" class="text-success mr-2"><i class="fa fa-arrow-up"></i> <?php echo $reporteMensual->Porcentaje ?>%
+                    <span class="text-rap">más con relación al mes anterior</span> </span>
+                </p>
+              <?php } else if ($reporteMensual->Subio == 0) { ?>
+                <p class="mt-3 mb-0 text-sm">
+                  <span id="ms-mes" class="text-warning mr-2"><i class="fa fa-arrow-down"></i> <?php echo $reporteMensual->Porcentaje ?>%
+                    <span class="text-rap">menos con relación al mes anterior</span> </span>
+                </p>
+              <?php } else { ?>
+                <p class="mt-3 mb-0 text-sm">
+                  <span id="ms-mes" class="text-info mr-2">
+                    <span class="text-rap">Tus ventas se han mantenido estables!</span> </span>
+                </p>
+              <?php } ?>
+            </div>
+          </div>
+        </div>
+        <!-- Fin Tarjeta -->
       </div>
+    </div>
     </div>
     </div>
     <div class="container-fluid mt--6">
@@ -287,7 +312,7 @@ if (isset($respUserData)) {
         </div>
       </div>
       <!-- Para el admin -->
-      <div class="card ">
+      <!-- <div class="card ">
         <div class="card-header border-0">
           <div class="row align-items-center">
             <div class="col">
@@ -299,7 +324,7 @@ if (isset($respUserData)) {
           </div>
         </div>
         <div class="table-responsive">
-          <!-- Projects table -->
+     
           <table class="table align-items-center table-flush">
             <thead class="thead-light">
               <tr>
@@ -310,7 +335,7 @@ if (isset($respUserData)) {
               </tr>
             </thead>
             <tbody>
-              <!-- Fila -->
+           
               <tr>
                 <th scope="row">
                   Prueba
@@ -320,34 +345,33 @@ if (isset($respUserData)) {
                 </td>
                 <td>
                   <div class="d-flex align-items-center">
-                    <span class="mr-2"><?php $x = 76;
-                                        echo $x ?>%</span>
+                    <span class="mr-2"><?php /* $x = 76;
+                                        echo $x */ ?>%</span>
                     <div>
                       <div class="progress">
-                        <div class="progress-bar bg-gradient-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: <?php echo $x ?>%;"></div>
+                        <div class="progress-bar bg-gradient-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: <?php /* echo $x */ ?>%;"></div>
                       </div>
                     </div>
                   </div>
                 </td>
               </tr>
-              <!-- Nombres de las clases de los colores de las barras:
+              Nombres de las clases de los colores de las barras:
             -success
             -primary
             -info
             -warning
             -danger
-            -->
 
-              <!-- FIN Fila -->
+             FIN Fila -->
 
 
-              <!-- Final FILA -->
+      <!--  Final FILA
 
             </tbody>
           </table>
-          <!-- Para el admin -->
+           Para el admin
         </div>
-      </div>
+      </div> -->
       <!-- Fin Clase columna -->
 
       <!-- Parte Inferior del HTML -->
@@ -360,4 +384,4 @@ if (isset($respUserData)) {
   echo "<script>alert('No has iniciado sesión!');</script>";
   echo "<script> document.location.href='403.php';</script>";
 }
-?>
+  ?>

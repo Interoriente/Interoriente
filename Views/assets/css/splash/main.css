@@ -20,7 +20,7 @@ img {
 }
 
 .nav-container {
-  background-color: #004E64;
+  background-color: #004e64;
   padding: 2em;
 }
 
@@ -45,7 +45,7 @@ header nav ul a {
 }
 
 .hero {
-  background: #004E64;
+  background: #408e8d;
   color: white;
   display: -ms-grid;
   display: grid;
@@ -62,16 +62,16 @@ header nav ul a {
 }
 
 .meet button {
-  background: #FFB930;
+  background: #ffb930;
   cursor: pointer;
   padding: 1.3em 4em;
   margin-right: 1em;
   border: none;
   border-radius: 10px;
   font-weight: bold;
-  -webkit-transition: .1s;
-  transition: .1s;
-  font-family: 'Poppins';
+  -webkit-transition: 0.1s;
+  transition: 0.1s;
+  font-family: "Poppins";
 }
 
 .meet span {
@@ -87,21 +87,21 @@ header nav ul a {
     display: -ms-grid;
     display: grid;
     -ms-grid-columns: 66% auto;
-        grid-template-columns: 66% auto;
+    grid-template-columns: 66% auto;
     background-color: unset;
     padding: unset;
   }
   .nav-container header {
-    background: #004E64;
+    background: #004e64;
   }
   a:hover {
     -webkit-text-decoration: underline solid white 3px;
-            text-decoration: underline solid white 3px;
+    text-decoration: underline solid white 3px;
   }
   button:hover {
-    background: #FCE61E;
+    background: #fce61e;
     -webkit-box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.4);
-            box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.4);
+    box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.4);
   }
   header {
     padding: 1.3em 2em 1.3em 4em;
@@ -117,8 +117,8 @@ header nav ul a {
     display: -ms-flexbox;
     display: flex;
     -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
     width: 7em;
     float: right;
   }
@@ -129,12 +129,12 @@ header nav ul a {
     display: -ms-grid;
     display: grid;
     -ms-grid-columns: 66% auto;
-        grid-template-columns: 66% auto;
+    grid-template-columns: 66% auto;
     background: unset;
     padding: 0;
   }
   .hero .content {
-    background: #004E64;
+    background: #004e64;
     padding: 1em 8em 2em 4em;
     text-align: left;
   }
@@ -143,7 +143,7 @@ header nav ul a {
     line-height: 1.2em;
   }
   .hero .content span {
-    color: #FFB930;
+    color: #ffb930;
   }
   .meet {
     margin: unset;
