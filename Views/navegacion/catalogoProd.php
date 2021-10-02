@@ -1,3 +1,7 @@
+<?php
+require "../../Controllers/php/users/publicaciones.php";
+$respCategorias = MostrarCategorias();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -39,19 +43,18 @@
                 <h1 class="titulo-tit">Escoge entre nuestras categorías de productos</h1>
             </div>
             <br>
-            <?php foreach ($variable as $key => $value) {
-             ?>
-            <div class="caja-categorias">
-                <a href="">
-                    <div class=" caja-categorias-subuno">
-                        <h2 class="tit-hdos1"><?php echo $nombreCategoria; ?></h2>
-                        <img src="../assets/img/catalogos1/<?php  ?>" alt="" class="img-categorias">
-                    </div>
-                </a>
-            </div>
+            <?php foreach ($respCategorias as $categorias) {
+            ?>
+                <div class="caja-categorias">
+                    <a href="">
+                        <div class=" caja-categorias-subuno">
+                            <h2 class="tit-hdos1"><?php echo $categorias['nombreCategoria']; ?></h2>
+                            <img src="../assets/img/catalogos/<?php echo $categorias['imagenCategoria'] ?>" alt="" class="img-categorias">
+                        </div>
+                    </a>
+                </div>
             <?php } ?>
         </div>
-
     </div>
 
     <?php include '../includes/navInferior.php'; ?>

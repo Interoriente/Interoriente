@@ -294,8 +294,26 @@ class Publicaciones
             echo "<script>alert('Publicación eliminada correctamente');</script>";
             echo "<script> document.location.href='../../../Views/dashboard/principal/misPublicaciones.php';</script>";
         } catch (\Throwable $th) {
-            echo "<script>alert('Publicación eliminada correctamente');</script>";
+            echo "<script>alert('Ocurrió un error!');</script>";
             echo "<script> document.location.href='../../../Views/dashboard/principal/misPublicaciones.php';</script>";
         }
     }
+    
 }
+function MostrarCategorias(){
+        try {
+            require '../../Models/dao/conexion.php';
+            /* Lista desplegable de categoría */
+            $sqlCategoria = "SELECT * 
+            FROM tblCategoria 
+            ORDER BY nombreCategoria ASC";
+            //Prepara sentencia
+            $consultarCategoria = $pdo->prepare($sqlCategoria);
+            //Ejecutar consulta
+            $consultarCategoria->execute();
+            $resultadoCategoria = $consultarCategoria->fetchAll();
+            return $resultadoCategoria;
+        } catch (\Throwable $th) {
+            echo "<script>alert('Ocurrió un error');</script>";
+        }
+    }
