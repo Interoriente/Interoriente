@@ -118,7 +118,7 @@ if (isset($respUserData)) {
                 <div class="row">
                   <div class="col">
                     <h5 class="card-title text-uppercase text-muted mb-0">Publicaciones</h5>
-                    <?php if (!isset($noValidadas)) { ?>
+                    <?php if (isset($noValidadas)) { ?>
                       <span class="h5 font-weight-bold mb-0 text-rap text-warning">Tienes <?php echo $noValidadas; ?> publicaciones con espera de validación</span>
                   </div>
                   <div class="col-auto icono-dashboard">
