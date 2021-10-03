@@ -298,22 +298,49 @@ class Publicaciones
             echo "<script> document.location.href='../../../Views/dashboard/principal/misPublicaciones.php';</script>";
         }
     }
-    
-}
-function MostrarCategorias(){
+    public function MostrarPublicacion($id)
+    {
         try {
+
             require '../../Models/dao/conexion.php';
-            /* Lista desplegable de categoría */
-            $sqlCategoria = "SELECT * 
-            FROM tblCategoria 
-            ORDER BY nombreCategoria ASC";
-            //Prepara sentencia
-            $consultarCategoria = $pdo->prepare($sqlCategoria);
-            //Ejecutar consulta
-            $consultarCategoria->execute();
-            $resultadoCategoria = $consultarCategoria->fetchAll();
-            return $resultadoCategoria;
+            $sql = "CALL sp_mostrarPublicacion(:id)";
+            $stmt = $pdo->prepare($sql);
+            $stmt->bindValue(":id", $id);
+            $stmt->execute();
+            return $stmt->fetch(PDO::FETCH_OBJ);
         } catch (\Throwable $th) {
-            echo "<script>alert('Ocurrió un error');</script>";
+            echo "<script>alert('Ocurrió un error!');</script>";
         }
     }
+    public function ImagenesPublicacion($id)
+    {
+        try {
+            require '../../Models/dao/conexion.php';
+            $sql = "CALL sp_imagenesPublicacion(:id)";
+            $stmt = $pdo->prepare($sql);
+            $stmt->bindValue(":id", $id);
+            $stmt->execute();
+            return $stmt->fetchAll();
+        } catch (\Throwable $th) {
+            echo "<script>alert('Ocurrió un error!');</script>";
+        }
+    }
+}
+function MostrarCategorias()
+{
+    try {
+        require '../../Models/dao/conexion.php';
+        /* Lista desplegable de categoría */
+        $sqlCategoria = "SELECT * 
+            FROM tblCategoria 
+            ORDER BY nombreCategoria ASC";
+        //Prepara sentencia
+        $consultarCategoria = $pdo->prepare($sqlCategoria);
+        //Ejecutar consulta
+        $consultarCategoria->execute();
+        $resultadoCategoria = $consultarCategoria->fetchAll();
+        return $resultadoCategoria;
+    } catch (\Throwable $th) {
+        echo "<script>alert('Ocurrió un error');</script>";
+    }
+}

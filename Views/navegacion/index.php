@@ -4,6 +4,7 @@ $publicacion = getPublicaciones();
 ?>
 <!DOCTYPE html>
 <html lang="esp">
+
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -53,11 +54,10 @@ $publicacion = getPublicaciones();
         <!-- Tarjeta Final -->
         <?php foreach ($publicacion as $x) : ?>
             <div class="tarjeta">
-                <a href="publicacion.php?id=<?php echo $x['idPublicacion'] ?>">
+                <!-- Le coloqué un montón de cosas que pasen por URL para no cambiar el a por un formulario, y que no quede el id tan fácil visible agregando el base64 para encriptar -->
+                <a href="publicacion.php?numero=<?php echo base64_encode($x['idPublicacion']) . "&?nombre=" . $x['nombrePublicacion'] . "&?descripcion=" . $x['descripcionPublicacion'] ?>">
                     <div class="img-tarjeta">
                         <img id="img-p" src="<?php echo $x['urlImagen']; ?>" alt="Imagen tarjeta publicación">
-                        <!--                             <img id="img-s" src="../assets/img/publicaciones/1.jpg" alt="Imagen tarjeta publicación">
- -->
                     </div>
                     <div class="contenido-tarjeta">
                         <!-- number_format para agregar los puntos de mil -->
