@@ -13,6 +13,7 @@
 <!-- PHP para inicio de Sesion con Google -->
 <?php
 require "../includes/linksGoogle.php";
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -23,7 +24,7 @@ require "../includes/linksGoogle.php";
     <meta name="description" content="Bienvenidos a Interoriente, podrás comprar, vender y mucho más.">
     <meta name="author" content="Interoriente">
     <title>Iniciar sesión | Interoriente</title>
-    
+
     <!-- Favicon -->
     <link rel="icon" href="../assets/img/favicon.png" type="image/png">
     <!-- Fonts ACTUALIZAR-->
@@ -31,14 +32,14 @@ require "../includes/linksGoogle.php";
     <!-- Icons ACTUALIZAR-->
     <link rel="stylesheet" href="../dashboard/assets/css/iconos.css" type="text/css">
     <link rel="stylesheet" href="../dashboard/assets/css/iconosComplementos.css" type="text/css">
-<!--     <link rel="stylesheet" href="../dashboard/assets/css/all.min.css" type="text/css">
- -->    <!-- Argon CSS -->
+
+    <!-- Argon CSS -->
     <link rel="stylesheet" href="../dashboard/assets/css/argon.min.css?v=1.2.0" type="text/css">
-    
+
 </head>
 
-<body class="bg-default" oncontextmenu="return false">
-    
+<body class="bg-default">
+
     <!-- Main content -->
     <div class="main-content">
         <!-- Header -->
@@ -113,7 +114,5 @@ require "../includes/linksGoogle.php";
         </div>
     </div>
     <!-- Argon JS -->
-   <!-- Qué función está cumpliendo este script? --> 
-<!--     <script src="../dashboard/assets/js/argon.min.js?v=1.2.0"></script>
- -->
-</html>
+    <!-- Qué función está cumpliendo este script? -->
+    <!--     <script src="../dashboard/assets/js/argon.min.js?v=1.2.0"></script>-->

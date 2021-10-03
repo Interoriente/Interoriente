@@ -1,5 +1,5 @@
 <?php //Desencriptar con base64_decode.
-$idPublicacion = base64_decode($_GET['numero']);
+$idPublicacion = base64_decode($_GET['id']);
 require "../../Controllers/php/users/publicaciones.php";
 $publicacion = new Publicaciones($idPublicacion);
 $respPublicacion = $publicacion->MostrarPublicacion($publicacion->id);

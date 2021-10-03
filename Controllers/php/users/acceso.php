@@ -106,8 +106,8 @@ class InicioSesion
                 }
                 /* Selecciona el rol del usuario que está intentando iniciar sesión */
                 $sqlUsuarioRol = "SELECT idUsuarioRol 
-            FROM tblUsuarioRol 
-            WHERE docIdentidadUsuarioRol = ?";
+                FROM tblUsuarioRol 
+                WHERE docIdentidadUsuarioRol = ?";
                 $stmtUsuarioRol = $pdo->prepare($sqlUsuarioRol);
                 $stmtUsuarioRol->execute(array($documento));
                 $resultadoUsuarioRol = $stmtUsuarioRol->rowCount();
@@ -200,7 +200,6 @@ class InicioSesion
                 }
             }
         } catch (\Throwable $th) {
-            echo "<script>alert('Ocurrió un error!');</script>";
         }
     }
 }
