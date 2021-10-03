@@ -41,6 +41,14 @@ overlay.addEventListener("click", (e) => {
     cerrarCarrito();
   }
 });
+
+$(document).keyup(function(e) {
+  if (e.key === "Escape") { // escape key maps to keycode `27`
+    //Optimizar esta parte en caso de que sea posible usando localstorage para detectar el estado del carrito
+  cerrarCarrito();
+ }
+});
+
 /* Abriendo y cerrando carrito desde el botón */
 carritoBtn.addEventListener("click", abrirCarrito);
 closeCartBtn.addEventListener("click", cerrarCarrito);
@@ -99,6 +107,8 @@ function renderPubli(item) {
 let inputCantidad;
 function abrirCarrito() {
   /* Agregando clases al overlay y al carrito para abrirlo */
+  $("#res-busquedas").hide();
+
   cartOverlay.classList.add("transparentBcg");
   cartDOM.classList.add("showCart");
   inputCantidad = document.querySelectorAll(".cantidad-items"); //Seleccionando todos los elementos con esa clase
