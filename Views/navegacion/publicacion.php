@@ -28,11 +28,11 @@ $respPublicacionImg = $publicacion->ImagenesPublicacion($publicacion->id);
   ?>
   <div id="contenedor-principal">
 
-    <!-- <div class="descripcion-m">
+    <div class="descripcion-m">
       <h2>Monitor Samsung Ips De 24 Full Hd Freesync Hdmi Lf24t400fh</h2>
       <hr>
       <h3>$1.400.200</h3>
-    </div> -->
+    </div>
 
     <div class="column carrusel">
       <img id=img-principal src="../assets/img/LogoCuaternario.svg">
@@ -54,7 +54,7 @@ $respPublicacionImg = $publicacion->ImagenesPublicacion($publicacion->id);
       <div class="descripcion-d">
         <h2><?php echo $respPublicacion->nombrePublicacion; ?></h2>
         <hr>
-        <h3><?php echo number_format($respPublicacion->costoPublicacion, 0, '', '.'); ?></h3>
+        <h3>$<?php echo number_format($respPublicacion->costoPublicacion, 0, '', '.'); ?></h3>
       </div>
       <!-- Nota: Número máximo de caracteres: 245 - palabras: 43 - líneas: 2 -->
       <p class="descripcion">

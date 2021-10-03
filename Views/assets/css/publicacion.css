@@ -1,6 +1,6 @@
 /* Sección imágene(s) título, precio, cantidad, color y botones  "Comprar" y "Añadir al carrito" */
 .column h2 {
-  font-family: "Poppins", sans-serif;
+  font-family: var(--poppins);
 }
 #contenedor-principal {
   display: flex;
@@ -41,7 +41,7 @@
 }
 .btn-accion {
   background-color: var(--clr-cta-a);
-  font-family: "Poppins", sans-serif;
+  font-family: var(--poppins);
   font-weight: bold;
   transition: 0.2s ease-in-out;
   box-shadow: 0px 0px 10px -3px rgba(0, 0, 0, 0.3);
@@ -60,7 +60,7 @@
   cursor: pointer;
   opacity: 0.5;
   margin: 5px;
-  border: 2px solid var(--clr-primario-a);
+  border: 1px solid var(--clr-primario-a);
 }
 
 .thumbnail:hover {
@@ -106,7 +106,7 @@
   width: 30px;
   height: 30px;
   cursor: pointer;
-  transition: 0.3s;
+  transition: 0.1s;
 }
 
 .flecha:hover {
@@ -121,7 +121,6 @@
 
 .descripcionPublicacion{
   padding: 1em 2em;
-  
 }
 
 .descripcionPublicacion h1 {
@@ -162,9 +161,7 @@
   margin-left: 2em;
 }
 .perfil-proveedor {
-  /* background-color: magenta; */
   width: 30%;
-  /* Alinear items al centro */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -218,7 +215,7 @@
   .carrusel {
     width: 17.5rem;
     padding: 1rem;
-  }Eliminar
+  }
 
   .descripcion-m{
     text-align: center;

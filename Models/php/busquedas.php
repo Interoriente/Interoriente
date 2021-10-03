@@ -1,10 +1,8 @@
 <?php
-
 if (isset($_POST['busqueda'])) {
    $res = buscarElemento($_POST['busqueda']);
    echo $res;
 }
-
 function buscarElemento($keyWord){
     require '../dao/conexion.php';
     $sql = "CALL sp_busquedas(:keyword)";

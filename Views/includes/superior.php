@@ -1,11 +1,5 @@
-<?php
-session_start();
-?>
-
 <head>
   <link rel="stylesheet" href="../assets/css/nav.css" />
-  <!--   <link rel="stylesheet" href="../assets/css/navegacion.css" />
- -->
 </head>
 <body>
   <header>
