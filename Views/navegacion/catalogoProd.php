@@ -43,17 +43,18 @@ $respCategorias = MostrarCategorias();
                 <h1 class="titulo-tit">Escoge entre nuestras categorías de productos</h1>
             </div>
             <br>
+            <br>
+            <div class="categorias">
+                <div class="caja-categorias">
             <?php foreach ($respCategorias as $categorias) {
             ?>
-                <div class="caja-categorias">
-                    <a href="">
                         <div class=" caja-categorias-subuno">
                             <h2 class="tit-hdos1"><?php echo $categorias['nombreCategoria']; ?></h2>
                             <img src="../assets/img/catalogos/<?php echo $categorias['imagenCategoria'] ?>" alt="" class="img-categorias">
                         </div>
-                    </a>
-                </div>
             <?php } ?>
+            </div>
+            </div>
         </div>
     </div>
 
@@ -63,5 +64,4 @@ $respCategorias = MostrarCategorias();
     include '../includes/navMovil.php';
     ?>
 </body>
-
 </html>
