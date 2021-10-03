@@ -18,21 +18,28 @@ session_start();
           <img src="../assets/img/LogoTerciario.svg" alt="Logo Interoriente">
         </a>
       </div>
-      <div class="busquedas">
-        <input id = "busquedas" type="text" placeholder="¿Qué estás buscando?">
-        <img id="buscar" src="../assets/img/iconos/search.svg" alt="Buscar">
-      </div>
+
+        <div class="busquedas">
+          <input id="busquedas" type="text" placeholder="¿Qué estás buscando?">
+          <img id="buscar" src="../assets/img/iconos/search.svg" alt="Buscar">
+        </div>
+
       <div class="carrito" id="carrito-btn">
         <img id="btn-carrito" src="../assets/img/iconos/carrito.svg" alt="Carrito">
         <p class="items-carrito">3</p>
       </div>
     </div>
   </header>
+  <div id= "res-busquedas" class="res-busquedas">
+    <div></div>
+    <ul id="resultado">
+    </ul>
+    <div></div>
 
+  </div>
   <div id="boton" class="boton">
     <span onclick="openNav()"> <a href="javascript:void(0)" id="menuLateral">Menú</a></span>
   </div>
-
   <!-- Sidebar -->
   <div id="mySidenav" class="sidenav">
     <a href="javascript:void(0)" id="btn-close" class="closebtn" onclick="closeNav()">&times;</a>
@@ -90,8 +97,8 @@ session_start();
     <div class="contenido">
       <!--  Contenido Principal del la página -->
     </div>
-     <!-- Js para las busquedas -->
-   <script src="../js/busquedas.js"></script>
+    <!-- Js para las busquedas -->
+    <script src="../js/busquedas.js"></script>
     <!-- Carrito -->
     <div class="cart-overlay" id="overlay">
       <div class="cart">
