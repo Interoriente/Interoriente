@@ -7,10 +7,7 @@ session_start();
   <!--   <link rel="stylesheet" href="../assets/css/navegacion.css" />
  -->
 </head>
-
 <body>
-
-
   <header>
     <div class="contenedor-navegacion">
       <div class="logo">

@@ -41,6 +41,7 @@ header {
   max-height: 50vh;
   overflow-x: hidden;
   overflow-y: auto;
+ 
 }
 .res-busquedas li{
   list-style: none;

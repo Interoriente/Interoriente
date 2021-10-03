@@ -1,3 +1,4 @@
+/* Resolver situación con la encriptación del id de la publicación en la etiqueta <a> */
 const input = document.getElementById("busquedas");
 const resBusquedas = document.getElementById("res-busquedas");
 const ulResultado = document.getElementById("resultado");
@@ -42,7 +43,7 @@ $(input)
 function renderResultados(arr) {
   let resultados = "";
   arr.map((item) => {
-    resultados += `<a href="publicacion.php?id=${item.Id}"><li>${item.Titulo}</li></a>`;
+    resultados += `<a href="publicacion.php?id=${btoa(item.Id)}"><li>${item.Titulo}</li></a>`;
   });
   ulResultado.innerHTML = resultados;
 }
