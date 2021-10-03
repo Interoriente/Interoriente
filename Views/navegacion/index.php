@@ -55,7 +55,7 @@ $publicacion = getPublicaciones();
         <?php foreach ($publicacion as $x) : ?>
             <div class="tarjeta">
                 <!-- Le coloqué un montón de cosas que pasen por URL para no cambiar el a por un formulario, y que no quede el id tan fácil visible agregando el base64 para encriptar -->
-                <a href="publicacion.php?numero=<?php echo base64_encode($x['idPublicacion']) . "&?nombre=" . $x['nombrePublicacion'] ?>">
+                <a href="publicacion.php?id=<?php echo base64_encode($x['idPublicacion']) . "&?nombre=" . $x['nombrePublicacion'] ?>">
                     <div class="img-tarjeta">
                         <img id="img-p" src="<?php echo $x['urlImagen']; ?>" alt="Imagen tarjeta publicación">
                     </div>
