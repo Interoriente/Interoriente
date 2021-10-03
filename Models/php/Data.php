@@ -2,7 +2,6 @@
 /* 
 Este Script es especificamente para Interlink (Extensión)
 */
-
 if (isset($_POST['links'])) {
     $urls = $_POST['links'];
     setLinks($urls);

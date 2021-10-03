@@ -19,7 +19,7 @@ session_start();
         </a>
       </div>
       <div class="busquedas">
-        <input type="text" placeholder="¿Qué estás buscando?">
+        <input id = "busquedas" type="text" placeholder="¿Qué estás buscando?">
         <img id="buscar" src="../assets/img/iconos/search.svg" alt="Buscar">
       </div>
       <div class="carrito" id="carrito-btn">
@@ -85,12 +85,13 @@ session_start();
         </form>
       </div>
     <?php } ?>
-    <!-- Poner imagen-->
   </div>
   <div id="main" class="main-container">
     <div class="contenido">
       <!--  Contenido Principal del la página -->
     </div>
+     <!-- Js para las busquedas -->
+   <script src="../js/busquedas.js"></script>
     <!-- Carrito -->
     <div class="cart-overlay" id="overlay">
       <div class="cart">
