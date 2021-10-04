@@ -84,3 +84,4 @@ $publicacion = getPublicaciones();
     <!-- navegación -->
     <?php include '../includes/navInferior.php'; ?>
     <!-- ------- -->
+    

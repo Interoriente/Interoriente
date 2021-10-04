@@ -116,6 +116,3 @@ $respPublicacionImg = $publicacion->ImagenesPublicacion($publicacion->id);
   <script src="../../Views/js/publicacion.js"></script>
   <!-- Footer -->
   <?php include "../includes/navInferior.php"; ?>
-</body>
-
-</html>
