@@ -55,11 +55,11 @@ if (isset($respUserData)) {
                                     <img class="imagen-cont" src="<?php echo $misCompras['urlImagen']; ?>" alt="">
                                 </div>
                                 <div class="cont-menudos">
-                                    <p><strong><?php echo $misCompras['nombrePublicacion']; ?></strong></p>
-                                    <p>$<?php echo $misCompras['costoPublicacion']; ?></p>
-                                    <p>Cantidad: <?php echo $misCompras['cantidad']; ?></p>
-                                    <p><a target="_blank" href="<?php echo "https://api.whatsapp.com/send?phone=57".$misCompras['telefono'];?>">WhatsApp</a></p>
-                                    <p><?php echo $misCompras['fecha']; ?></p>
+                                    <h2 class="titulo-nombre"><?php echo $misCompras['nombrePublicacion']; ?></h2>
+                                    <h2 class="titulo-costo">$<?php echo $misCompras['costoPublicacion']; ?></h2>
+                                    <p class="textos">Cantidad: <?php echo $misCompras['cantidad']; ?></p>
+                                    <p class="textos"><a target="_blank" href="<?php echo "https://api.whatsapp.com/send?phone=57".$misCompras['telefono'];?>">WhatsApp</a><p>
+                                    <p class="textos"><?php echo $misCompras['fecha']; ?></p>
                                 </div>
                                 <div class="cont-menutres">
                                     <button class="boton-menu">Volver a comprar</button>
