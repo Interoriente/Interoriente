@@ -17,7 +17,7 @@ $publicacion = getPublicaciones();
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous" />
     <!-- No eliminar este script -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-   <title> Inicio | Interoriente</title>
+    <title> Inicio | Interoriente</title>
 </head>
 
 <body>
@@ -57,6 +57,7 @@ $publicacion = getPublicaciones();
             <div class="tarjeta">
                 <!-- Le coloqué un montón de cosas que pasen por URL para no cambiar el a por un formulario, y que no quede el id tan fácil visible agregando el base64 para encriptar -->
                 <a href="publicacion.php?id=<?php echo base64_encode($x['idPublicacion']) . "&?nombre=" . $x['nombrePublicacion'] ?>">
+                    <!-- <img id="img-s" src="../assets/img/publicaciones/1.jpg" alt="Imagen tarjeta publicación"> -->
                     <div class="img-tarjeta">
                         <img id="img-p" src="<?php echo $x['urlImagen']; ?>" alt="Imagen tarjeta publicación">
                     </div>
@@ -85,4 +86,3 @@ $publicacion = getPublicaciones();
     <!-- navegación -->
     <?php include '../includes/navInferior.php'; ?>
     <!-- ------- -->
-    

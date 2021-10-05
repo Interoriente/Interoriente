@@ -93,9 +93,9 @@ class InicioSesion
             $contrasena = sha1(strip_tags($clave));
             $estado = '1';
             $sql = "SELECT documentoIdentidad
-        FROM tblUsuario 
-        WHERE (documentoIdentidad = ? OR emailUsuario = ?)  
-        AND contrasenaUsuario = ? AND estadoUsuario = ?";
+            FROM tblUsuario 
+            WHERE (documentoIdentidad = ? OR emailUsuario = ?)  
+            AND contrasenaUsuario = ? AND estadoUsuario = ?";
             $stmt = $pdo->prepare($sql);
             $stmt->execute(array($id, $id, $contrasena, $estado));
             $resultado = $stmt->rowCount();
@@ -127,7 +127,7 @@ class InicioSesion
                 echo "<script> document.location.href='../../../Views/navegacion/iniciarsesion.php';</script>";
             }
         } catch (\Throwable $th) {
-            echo "<script>alert('Ocurrió un error!');</script>";
+            /* echo "<script>alert('Ocurrió un error!');</script>"; */
         }
     }
     public function LoginGoogle()

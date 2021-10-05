@@ -3,7 +3,6 @@ $idPublicacion = base64_decode($_GET['id']);
 require "../../Controllers/php/users/publicaciones.php";
 $publicacion = new Publicaciones($idPublicacion);
 $respPublicacion = $publicacion->MostrarPublicacion($publicacion->id);
-$respPublicacionImg = $publicacion->ImagenesPublicacion($publicacion->id);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -18,7 +17,7 @@ $respPublicacionImg = $publicacion->ImagenesPublicacion($publicacion->id);
   <link rel="stylesheet" href="../assets/css/publicacion.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous" />
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-  <title><?php echo $respPublicacion->nombrePublicacion; ?></title>
+  <title><?php echo $respPublicacion[0]['nombrePublicacion']; ?></title>
 </head>
 
 <body>
@@ -35,13 +34,12 @@ $respPublicacionImg = $publicacion->ImagenesPublicacion($publicacion->id);
     </div>
 
     <div class="column carrusel">
-      <img id=img-principal src="../assets/img/LogoCuaternario.svg">
+      <img id=img-principal src="<?php echo $respPublicacion[0]['urlImagen'] ?>">
       <div id="slide-wrapper">
         <img id="slideLeft" class="flecha" src="../assets/img/navegacion/flechaIz.png">
         <div id="slider">
-          <?php foreach ($respPublicacionImg as $imagen) {
+          <?php foreach ($respPublicacion as $imagen) {
           ?>
-            <!-- <img class="thumbnail active" src="../assets/img/stock/1.jpg"> -->
             <img class="thumbnail" src="<?php echo $imagen['urlImagen'] ?>">
           <?php } ?>
         </div>
@@ -52,9 +50,11 @@ $respPublicacionImg = $publicacion->ImagenesPublicacion($publicacion->id);
 
     <div class="column">
       <div class="descripcion-d">
-        <h2><?php echo $respPublicacion->nombrePublicacion; ?></h2>
+        <h2><?php echo $respPublicacion[0]['nombrePublicacion'];
+            ?></h2>
         <hr>
-        <h3>$<?php echo number_format($respPublicacion->costoPublicacion, 0, '', '.'); ?></h3>
+        <h3>$<?php echo number_format($respPublicacion[0]['costoPublicacion'], 0, '', '.');
+              ?></h3>
       </div>
       <!-- Nota: Número máximo de caracteres: 245 - palabras: 43 - líneas: 2 -->
       <p class="descripcion">
@@ -83,15 +83,15 @@ $respPublicacionImg = $publicacion->ImagenesPublicacion($publicacion->id);
   <section class="descripcionPublicacion">
     <!-- TODO: Agregar condicional para mostrar "producto" o "servicio" segun tipo de publicación -->
     <h1>Descripción de la publicación</h1>
-    <p><?php echo $respPublicacion->descripcionPublicacion; ?></p>
+    <p><?php echo $respPublicacion[0]['descripcionPublicacion']; ?></p>
   </section>
 
   <!-- Sección Datos Proveedor -->
 
   <section class="info-proveedor">
     <div class="descripcion-proveedor">
-      <h2><?php echo $respPublicacion->nombresUsuario; ?></h2>
-      <p><?php echo $respPublicacion->descripcionUsuario; ?></p>
+      <h2><?php echo $respPublicacion[0]['nombresUsuario']; ?></h2>
+      <p><?php echo $respPublicacion[0]['descripcionUsuario']; ?></p>
     </div>
     <div class="informacion-complementaria">
       <p>lorem</p>
@@ -100,9 +100,9 @@ $respPublicacionImg = $publicacion->ImagenesPublicacion($publicacion->id);
     </div>
     <div class="perfil-proveedor">
       <div class="tarjeta-perfil">
-        <img src="../dashboard/principal/<?php echo $respPublicacion->imagenUsuario; ?>" alt="Imagen de perfil del proveedor">
+        <img src="../dashboard/principal/<?php echo $respPublicacion[0]['imagenUsuario']; ?>" alt="Imagen de perfil del proveedor">
         <a href="">
-          <?php echo $respPublicacion->nombresUsuario; ?> S.A.S.
+          <?php echo $respPublicacion[0]['nombresUsuario']; ?> S.A.S.
         </a>
       </div>
 

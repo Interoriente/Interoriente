@@ -312,19 +312,6 @@ class Publicaciones
             header("Location: ../../Views/navegacion/index.php");
         }
     }
-    public function ImagenesPublicacion($id)
-    {
-        try {
-            require '../../Models/dao/conexion.php';
-            $sql = "CALL sp_imagenesPublicacion(:id)";
-            $stmt = $pdo->prepare($sql);
-            $stmt->bindValue(":id", $id);
-            $stmt->execute();
-            return $stmt->fetchAll();
-        } catch (\Throwable $th) {
-            echo "<script>alert('Ocurrió un error!');</script>";
-        }
-    }
 }
 function MostrarCategorias()
 {
