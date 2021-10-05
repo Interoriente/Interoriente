@@ -51,10 +51,56 @@ if (isset($respUserData)) {
         <?php if (!isset($_POST['numero'])) {
 
             if ($contadorFactura == 0) { ?>
-                <div class="alerta" role="alert" style="display: flex; flex-flow: row; flex-wrap: wrap; background: crimson; width:100%; height: 200px; text-align: center; justify-content: center; align-items: center; color: white; font-size: 25px; ">Ops, por no ahora no has realizado compras
-                    <i class="fa-regular fa-face-sad-tear"></i>
-                </div>
-                <a class="btn btn-info" href="../../navegacion/index.php">Ver Productos</a>
+                <div class="campo-alerta">
+            <div class="alerta" role="alert">Ops, por ahora no has realizado compras
+            <a class="link-mensaje" href="../../navegacion/catalogoProd.php">Para realizar una compra empieza por aquí...</a>
+
+            <style>
+                .link-mensaje{
+                font-size: 30px;
+                }
+                .campo-alerta{
+                    display: flex;
+                    flex-flow: row;
+                    justify-content: center;
+                    align-items: center;
+                    width: 100%;
+                    height: 760px;
+                }
+                .alerta{
+                display: flex;
+                flex-flow: column;
+                justify-content: space-evenly;
+                color: black;
+                font-size: 40px;
+                width: 80%;
+                height: 80%;
+                background: #D1CED9;
+                }
+                .fa-dizzy{
+                    font-size: 500%;
+                    color: #9B99A1;
+                }
+                .campo-boton{
+                    display: flex;
+                    flex-flow: row;
+                    justify-content: center;
+                    width: 100%;
+                    height: 100px;
+                }
+                .btn-infoo {
+                width: 200px;
+                height: 50px;
+                color: #fff;
+                border-color: #11cdef;
+                background-color: #11cdef;
+                box-shadow: 0 4px 6px rgba(50, 50, 93, .11), 0 1px 3px rgba(0, 0, 0, .08)
+}
+            </style>
+            <i class="fas fa-dizzy"></i>
+        </div>
+        </div>
+
             <?php } ?>
             <div class="padre">
                 <div class="header">
