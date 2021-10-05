@@ -2,13 +2,21 @@
 const input = document.getElementById("busquedas");
 const resBusquedas = document.getElementById("res-busquedas");
 const ulResultado = document.getElementById("resultado");
+let keyword = localStorage.getItem("keyword");
 let busqueda = null;
+
+if (keyword) {
+  input.value = keyword;
+}
 $(resBusquedas).hide();
 const inputHandler = function (e) {
    busqueda = e.target.value;
   if (!busqueda) {
     ulResultado.innerHTML = "";
+    localStorage.setItem("keyword", ""); 
+
   }else{
+   localStorage.setItem("keyword", busqueda); 
   $.ajax({
     url: "../../Models/php/busquedas.php",
     type: "POST",
@@ -43,7 +51,27 @@ $(input)
 function renderResultados(arr) {
   let resultados = "";
   arr.map((item) => {
-    resultados += `<a href="publicacion.php?id=${item.Id}"><li>${item.Titulo}</li></a>`;
+    resultados += `
+    <a class="url" id="${item.Id +'-' +item.Titulo}"href="#">
+    <li id="tituloP">${item.Titulo}</li>
+    </a>
+    `;
   });
   ulResultado.innerHTML = resultados;
 }
+$(document).on("click", ".url", function() {
+    //this == Link al cuál se le da click
+    let data = $(this).attr("id");
+    let id = data.split('-', 1)[0];
+    let titulo = data.split('-', 2)[1];
+    input.value = titulo;
+    localStorage.setItem("keyword", titulo); 
+    $.ajax({
+      url: "../../Models/php/busquedas.php",
+      type: "POST",
+      data: {publicacion: id},
+      success: function(res){
+       window.location.href =`publicacion.php?id=${res}&?nombre=${titulo}`;
+      }
+    });
+});

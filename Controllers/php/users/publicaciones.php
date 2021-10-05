@@ -309,7 +309,7 @@ class Publicaciones
             $stmt->execute();
             return $stmt->fetch(PDO::FETCH_OBJ);
         } catch (\Throwable $th) {
-            echo "<script>alert('Ocurrió un error!');</script>";
+            header("Location: ../../Views/navegacion/index.php");
         }
     }
     public function ImagenesPublicacion($id)

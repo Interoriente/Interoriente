@@ -2,6 +2,11 @@
 if (isset($_POST['busqueda'])) {
    $res = buscarElemento($_POST['busqueda']);
    echo $res;
+}else if(isset($_POST['publicacion'])){
+    $id = base64_encode($_POST['publicacion']);
+    echo $id;
+
+    //Nota: incluso si se usa decode, si es un objeto enviado desde el cliente, se debe seguir usando la notación -> para acceder
 }
 function buscarElemento($keyWord){
     require '../dao/conexion.php';
