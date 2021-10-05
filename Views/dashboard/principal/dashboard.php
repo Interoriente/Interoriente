@@ -60,7 +60,10 @@ if (isset($respUserData)) {
             foreach ($respGetRoles as $datosRol) : ?>
               <form action="dashboard.php" method="post">
                 <input type="hidden" name="rol" value="<?php echo $datosRol['idUsuarioRol'] ?>">
-                <br><button type="submit" class="btn btn-sm btn-neutral cambioRol" name="cambioRol"><?php echo $datosRol['nombreRol']; ?></button>
+                <br>
+                <?php if ($_SESSION['roles'] != $datosRol['idUsuarioRol']) { ?>
+                  <button type="submit" class="btn btn-sm btn-neutral cambioRol" name="cambioRol"><?php echo $datosRol['nombreRol']; ?></button>
+                <?php } ?>
               </form>
             <?php endforeach; ?>
             <div class="text-center">
