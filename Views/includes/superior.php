@@ -1,5 +1,4 @@
 <?php session_start(); ?>
-
 <head>
   <link rel="stylesheet" href="../assets/css/nav.css" />
 </head>
@@ -13,14 +12,14 @@
         </a>
       </div>
 
-      <div class="busquedas">
-        <input id="busquedas" type="text" placeholder="¿Qué estás buscando?">
+      <div class="busquedas"> 
+          <input id="busquedas" type="text" placeholder="¿Qué estás buscando?">
         <img id="buscar" src="../assets/img/iconos/search.svg" alt="Buscar">
       </div>
 
       <div class="carrito" id="carrito-btn">
         <img id="btn-carrito" src="../assets/img/iconos/carrito.svg" alt="Carrito">
-        <p class="items-carrito">3</p>
+        <p class="items-carrito">0</p>
       </div>
     </div>
   </header>

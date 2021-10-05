@@ -1,7 +1,8 @@
+/* 
+TODO:
+Aplicar Estilos necesarios
+*/
 
-body{
-  background-color: var(--clr-neutro-a);
-}
 .hero-principal {
   display: flex;
 }

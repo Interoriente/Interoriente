@@ -2,9 +2,9 @@
 const input = document.getElementById("busquedas");
 const resBusquedas = document.getElementById("res-busquedas");
 const ulResultado = document.getElementById("resultado");
+const buscar = document.getElementById("buscar");
 let keyword = localStorage.getItem("keyword");
 let busqueda = null;
-
 if (keyword) {
   input.value = keyword;
 }
@@ -16,6 +16,7 @@ const inputHandler = function (e) {
     localStorage.setItem("keyword", ""); 
 
   }else{
+
    localStorage.setItem("keyword", busqueda); 
   $.ajax({
     url: "../../Models/php/busquedas.php",
@@ -34,6 +35,13 @@ input.addEventListener("propertychange", inputHandler);
 $(input)
   .focusin(function () {
     $(resBusquedas).show();
+    //Detectar Enter
+    $(input).on('keypress', function (e) {
+      if (e.key === 'Enter' || e.keyCode === 13) {
+        window.location.href ="resultados.php";
+      }
+    }); 
+    
   })
   .focusout(function () {
       //En caso de que se de click dentro de la lista no se cierre
@@ -46,7 +54,6 @@ $(input)
         ulResultado.innerHTML = "";
     }
   });
-
   //Función para mostrar los resultados de la consulta
 function renderResultados(arr) {
   let resultados = "";
@@ -75,3 +82,8 @@ $(document).on("click", ".url", function() {
       }
     });
 });
+
+//Enviar palabra clave para mostrar resultados
+ buscar.addEventListener("click", function(){
+  window.location.href ="resultados.php";
+}); 

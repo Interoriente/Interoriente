@@ -116,7 +116,7 @@ header {
 
 .cart {
   position: fixed;
-  top: 4.3rem;
+  top: 4.6rem;
   right: 0;
   width: 100%;
   height: 100%;
@@ -237,7 +237,7 @@ header {
   width: 0; /* 0 width - Se hace el cambio con javascript */
   position: fixed; /* Stay in place */
   z-index: 1; /* Stay on top */
-  top: 4.3rem;
+  top: 4.6rem;
   left: 0;
   background-color: var(--crl-cta-b);
   overflow-x: hidden; /* se desabilita scroll en x */
@@ -306,7 +306,7 @@ header {
 
 /* Botón Sidebar */
 #boton a {
-  margin-top: 2.7em;
+  margin-top: 3em;
   position: fixed; /* Position them relative to the browser window */
   left: -70px; /* Position them outside of the screen */
   transition: 0.03s; /* Add transition on hover */

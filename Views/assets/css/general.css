@@ -13,3 +13,10 @@
   --poppins: "Poppins", sans-serif;
   --serif: "Open Sans", sans-serif;
 }
+body{
+  padding-top: 2em;
+}
+/* TODO: Importar tamaños de fuentes necesarias
+  Llamar custom properties donde sea necesario
+
+*/
