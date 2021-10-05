@@ -89,7 +89,7 @@ function getPublicaciones()
     /* Devolviendo resultado */
     return $resultado;
   } catch (\Throwable $th) {
-    echo "<script>alert('Ocurrió un error!');</script>";
+    /*echo "<script>alert('Ocurrió un error!');</script>";*/
   }
 }
 
@@ -118,7 +118,7 @@ function addCarrito($id)
     /* Resultado a devolver */
     echo json_encode($resultado);
   } catch (\Throwable $th) {
-    echo "<script>alert('Ocurrió un error!');</script>";
+    /*echo "<script>alert('Ocurrió un error!');</script>";*/
   }
 }
 
@@ -148,7 +148,7 @@ function almacenarCarrito($carrito)
       echo "<script>alert('No existe la sesión!');</script>";
     }
   } catch (\Throwable $th) {
-    echo "<script>alert('Ocurrió un error!');</script>";
+    /*echo "<script>alert('Ocurrió un error!');</script>";*/
   }
 }
 
@@ -180,7 +180,7 @@ class Checkout
       $resultado = $stmt->fetchAll();
       return $resultado;
     } catch (\Throwable $th) {
-      echo "<script>alert('Ocurrió un error!');</script>";
+      /*echo "<script>alert('Ocurrió un error!');</script>";*/
     }
   }
 
@@ -207,7 +207,7 @@ class Checkout
         return $arr;
       }
     } catch (\Throwable $th) {
-      echo "<script>alert('Ocurrió un error!');</script>";
+      /*echo "<script>alert('Ocurrió un error!');</script>";*/
     }
   }
 
@@ -224,7 +224,7 @@ class Checkout
       $resultado = json_encode($resultado);
       return $resultado;
     } catch (\Throwable $th) {
-      echo "<script>alert('Ocurrió un error!');</script>";
+      /*echo "<script>alert('Ocurrió un error!');</script>";*/
     }
   }
   public function finalizarCompra($direccion, $email)
@@ -276,7 +276,7 @@ class Checkout
       }
       return "Proceso de Compras Finalizado!!";
     } catch (\Throwable $th) {
-      echo "<script>alert('Ocurrió un error!');</script>";
+      /*echo "<script>alert('Ocurrió un error!');</script>";*/
     }
   }
 }
@@ -312,7 +312,7 @@ class Compra
       $consultaSql->execute(array($id));
       return $consultaSql->fetchAll();
     } catch (\Throwable $th) {
-      echo "<script>alert('Ocurrió un error!');</script>";
+      /*echo "<script>alert('Ocurrió un error!');</script>";*/
     }
   }
   public function FacturasCreadas($id)
@@ -327,7 +327,7 @@ class Compra
       $consultaSql->execute(array($id));
       return $consultaSql->fetchAll();
     } catch (\Throwable $th) {
-      echo "<script>alert('Ocurrió un error!');</script>";
+      /*echo "<script>alert('Ocurrió un error!');</script>";*/
     }
   }
 }
@@ -356,7 +356,7 @@ class Factura
       $consultaSql->execute(array($numero, $id));
       return $consultaSql->fetchAll();
     } catch (\Throwable $th) {
-      echo "<script>alert('Ocurrió un error!');</script>";
+      /*echo "<script>alert('Ocurrió un error!');</script>";*/
     }
   }
   public function EncabezadoFactura($id, $numero)
@@ -375,7 +375,7 @@ class Factura
       $prepararCliente->execute(array($id, $numero));
       return $prepararCliente->fetch(PDO::FETCH_OBJ);
     } catch (\Throwable $th) {
-      echo "<script>alert('Ocurrió un error!');</script>";
+      /*echo "<script>alert('Ocurrió un error!');</script>";*/
     }
   }
 }

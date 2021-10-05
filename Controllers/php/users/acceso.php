@@ -77,7 +77,7 @@ class Registro
                 echo "<script> document.location.href='../../../Views/navegacion/registro.php';</script>";
             }
         } catch (\Throwable $th) {
-            echo "<script>alert('Ocurrió un error!');</script>";
+            /*echo "<script>alert('Ocurrió un error!');</script>";*/
         }
     }
 }
@@ -127,7 +127,7 @@ class InicioSesion
                 echo "<script> document.location.href='../../../Views/navegacion/iniciarsesion.php';</script>";
             }
         } catch (\Throwable $th) {
-            /* echo "<script>alert('Ocurrió un error!');</script>"; */
+            /*echo "<script>alert('Ocurrió un error!');</script>";*/
         }
     }
     public function LoginGoogle()
@@ -200,6 +200,7 @@ class InicioSesion
                 }
             }
         } catch (\Throwable $th) {
+            /*echo "<script>alert('Ocurrió un error!');</script>";*/
         }
     }
 }

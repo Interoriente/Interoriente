@@ -228,7 +228,7 @@ class Publicaciones
             echo "<script>alert('Estado actualizado correctamente');</script>";
             echo "<script> document.location.href='../../../Views/dashboard/principal/publicaciones.php';</script>";
         } catch (\Throwable $th) {
-            echo "<script>alert('Ocurrió un error!');</script>";
+            /*echo "<script>alert('Ocurrió un error!');</script>";*/
             echo "<script> document.location.href='../../../Views/dashboard/principal/publicaciones.php';</script>";
         }
     }
@@ -250,7 +250,7 @@ class Publicaciones
             //redireccionar
             echo "<script> document.location.href='../../../Views/dashboard/principal/publicaciones.php';</script>";
         } catch (\Throwable $th) {
-            echo "<script>alert('Ocurrió un error!');</script>";
+            /*echo "<script>alert('Ocurrió un error!');</script>";*/
             echo "<script> document.location.href='../../../Views/dashboard/principal/publicaciones.php';</script>";
         }
     }
@@ -273,7 +273,7 @@ class Publicaciones
             echo "<script>alert('Publicación actualizada correctamente');</script>";
             echo "<script> document.location.href='../../../Views/dashboard/principal/misPublicaciones.php';</script>";
         } catch (\Throwable $th) {
-            echo "<script>alert('Ocurrió un error!');</script>";
+            /*echo "<script>alert('Ocurrió un error!');</script>";*/
             echo "<script> document.location.href='../../../Views/dashboard/principal/misPublicaciones.php';</script>";
         }
     }
@@ -294,7 +294,7 @@ class Publicaciones
             echo "<script>alert('Publicación eliminada correctamente');</script>";
             echo "<script> document.location.href='../../../Views/dashboard/principal/misPublicaciones.php';</script>";
         } catch (\Throwable $th) {
-            echo "<script>alert('Ocurrió un error!');</script>";
+            /*echo "<script>alert('Ocurrió un error!');</script>";*/
             echo "<script> document.location.href='../../../Views/dashboard/principal/misPublicaciones.php';</script>";
         }
     }

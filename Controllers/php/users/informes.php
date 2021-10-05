@@ -20,7 +20,7 @@ class Informes
             $stmt->execute();
             return $stmt->fetch(PDO::FETCH_ASSOC);
         } catch (\Throwable $th) {
-            echo "<script>alert('Ocurrió un error!');</script>";
+            /*echo "<script>alert('Ocurrió un error!');</script>";*/
         }
     }
     public function MostrarVentasAnuales($id)
@@ -33,7 +33,7 @@ class Informes
             $stmt->execute();
             return $stmt->fetchAll();
         } catch (\Throwable $th) {
-            echo "<script>alert('Ocurrió un error!');</script>";
+            /*echo "<script>alert('Ocurrió un error!');</script>";*/
         }
     }
     public function VentasPorDias($id)
@@ -46,7 +46,7 @@ class Informes
             $stmt->execute();
             return $stmt->fetchAll();
         } catch (\Throwable $th) {
-            echo "<script>alert('Ocurrió un error!');</script>";
+            /*echo "<script>alert('Ocurrió un error!');</script>";*/
         }
     }
     public function GetPublicacionesExitosas($id)
@@ -114,7 +114,7 @@ class Informes
             $objReporte->Porcentajes = $porcentajes;
             return $objReporte;
         } catch (\Throwable $th) {
-            echo "<script>alert('Ocurrió un error!');</script>";
+            /*echo "<script>alert('Ocurrió un error!');</script>";*/
         }
     }
     public function AlertaStock($id)
@@ -127,7 +127,7 @@ class Informes
             $stmt->execute();
             return $stmt->fetch(PDO::FETCH_ASSOC);
         } catch (\Throwable $th) {
-            echo "<script>alert('Ocurrió un error!');</script>";
+            /*echo "<script>alert('Ocurrió un error!');</script>";*/
         }
     }
     public function VentasHoy($id)
@@ -140,7 +140,7 @@ class Informes
             $stmt->execute();
             return $stmt->fetch(PDO::FETCH_ASSOC);
         } catch (\Throwable $th) {
-            echo "<script>alert('Ocurrió un error!');</script>";
+            /*echo "<script>alert('Ocurrió un error!');</script>";*/
         }
     }
     public function NoValidadas($id)
@@ -155,7 +155,7 @@ class Informes
             $noPublicaciones = sizeof($resultado);
             return $noPublicaciones;
         } catch (\Throwable $th) {
-            echo "<script>alert('Ocurrió un error!');</script>";
+            /*echo "<script>alert('Ocurrió un error!');</script>";*/
         }
     }
     public function ReporteMensual($id)
@@ -195,7 +195,7 @@ class Informes
             $objReporte->Porcentaje = round($porcentaje, 2);
             return $objReporte;
         } catch (\Throwable $th) {
-            echo "<script>alert('Ocurrió un error!');</script>";
+            /*echo "<script>alert('Ocurrió un error!');</script>";*/
         }
     }
 }
