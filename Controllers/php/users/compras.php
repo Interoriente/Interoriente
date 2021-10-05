@@ -288,41 +288,20 @@ class Compra
   {
     $this->id = $id;
   }
-  public function misCompras($id)
-  {
-    try {
-      require('../../../Models/dao/conexion.php');
-      $sqlMisCompras = "SELECT IM.urlImagen,FA.numeroFactura,FA.fechaFactura,
-      FA.direccionFactura,FA.emailFactura,
-      PU.nombrePublicacion,PU.costoPublicacion,US.telefonomovilUsuario as telefono,
-      sum(FP.cantidadFacturaPublicacion) as 'cantidad',
-      DATE_FORMAT(FA.fechaFactura, '%d/%m/%Y') as fecha
-      FROM tblFactura as FA
-      INNER JOIN tblFacturaPublicacion as FP
-      ON FP.numFacturaPublicacion=FA.numeroFactura
-      INNER JOIN tblPublicacion as PU
-      ON PU.idPublicacion=FP.idPublicacionFactura
-      INNER JOIN tblUsuario as US
-      ON PU.docIdentidadPublicacion=US.documentoIdentidad
-      INNER JOIN tblImagenes as IM
-      ON IM.publicacionImagen=PU.idPublicacion
-      WHERE FA.docIdentidadFactura=?
-      GROUP BY PU.idPublicacion";
-      $consultaSql = $pdo->prepare($sqlMisCompras);
-      $consultaSql->execute(array($id));
-      return $consultaSql->fetchAll();
-    } catch (\Throwable $th) {
-      /*echo "<script>alert('Ocurrió un error!');</script>";*/
-    }
-  }
   public function FacturasCreadas($id)
   {
     try {
       require('../../../Models/dao/conexion.php');
       $sqlMisCompras = "SELECT FA.numeroFactura,FA.fechaFactura,
-      FA.direccionFactura,FA.emailFactura
+      FA.direccionFactura,FA.emailFactura,COUNT(FP.numFacturaPublicacion) AS 'Contador',
+      SUM(FP.cantidadFacturaPublicacion*PU.costoPublicacion) AS 'Costo'
       FROM tblFactura as FA
-      WHERE FA.docIdentidadFactura=?";
+      INNER JOIN tblFacturaPublicacion as FP
+      ON FP.numFacturaPublicacion=FA.numeroFactura
+      INNER JOIN tblPublicacion as PU
+      ON PU.idPublicacion=FP.idPublicacionFactura
+      WHERE FA.docIdentidadFactura=?
+      GROUP BY FA.numeroFactura";
       $consultaSql = $pdo->prepare($sqlMisCompras);
       $consultaSql->execute(array($id));
       return $consultaSql->fetchAll();
@@ -350,7 +329,7 @@ class Factura
       INNER JOIN tblFacturaPublicacion as FP ON FP.numFacturaPublicacion = FA.numeroFactura
       INNER JOIN tblUsuario AS US ON FA.docIdentidadFactura=US.documentoIdentidad
       INNER JOIN tblPublicacion as PU ON PU.idPublicacion=FP.idPublicacionFactura
-      WHERE FA.numeroFactura=? AND US.documentoIdentidad=? 
+      WHERE FA.numeroFactura=? AND US.documentoIdentidad=?
       ORDER BY PU.nombrePublicacion ASC";
       $consultaSql = $pdo->prepare($sqlMisCompras);
       $consultaSql->execute(array($numero, $id));

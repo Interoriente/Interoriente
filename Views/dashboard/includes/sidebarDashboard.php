@@ -46,12 +46,6 @@
                   <span class="nav-link-text">Mis compras</span>
                 </a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="listaCompra.php">
-                  <i class="ni ni-credit-card text-green"></i>
-                  <span class="nav-link-text">Lista de Compras</span>
-                </a>
-              </li>
             <?php }
           if ($_SESSION['roles'] == "3") { ?>
               <li class="nav-item">

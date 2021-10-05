@@ -11,8 +11,9 @@ if (isset($_SESSION['documentoIdentidad'])) {
     $respUserData = $usuario->getUserData($usuario->id);
     require "../../../Controllers/php/users/compras.php";
     $compra = new Compra($documento);
-    $respComprasData = $compra->misCompras($compra->id);
-    $contadorCompras = count($respComprasData);
+
+    $respFactura = $compra->FacturasCreadas($compra->id);
+    $contadorFactura = count($respFactura);
 }
 if (isset($respUserData)) {
     if ($rol == 1 or $rol == 3) {
@@ -22,56 +23,173 @@ if (isset($respUserData)) {
 
         require_once '../includes/sidebarDashboard.php';
         require_once '../includes/navegacion.php'; ?>
-    
+
         <!-- Link estilos -->
         <link rel="stylesheet" href="../../assets/css/general.css">
         <link rel="stylesheet" href="../assets/css/misCompras.css">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
         <!-- Header -->
-        <div class="header bg-primary pb-3">
+        <div class="header bg-primary pb-6">
             <div class="container-fluid">
                 <div class="header-body">
-                    <div class="row align-items-center">
-                        <h6 class="h2 text-white d-inline-block mb-0" style="text-align: center;">Productos adquiridos</h6><br>
+                    <div class="row align-items-center py-3">
+                        <div class="col-lg-6 col-7">
+                            <h6 class="h2 text-white d-inline-block mb-0">Facturas generadas</h6><br>
+                        </div>
+                        <?php if (isset($_POST['numero'])) { ?>
+                            <form action="verFactura.php" method="post" target="_blank">
+                                <input type="hidden" name="numero" value="<?php echo $_POST['numero']; ?>">
+                                <button type="submit" class="btn btn-sm btn-neutral cambioRol" name="cambioRol">Ver</button>
+                            </form>
+                            <button type="submit" class="btn btn-sm btn-neutral cambioRol" name="cambioRol">Descargar</button>
+                        <?php } ?>
                     </div>
                 </div>
             </div>
         </div>
         <!-- Productos comprados -->
-        <?php if ($contadorCompras == 0) { ?>
-            <div class="alerta" role="alert" style="display: flex; flex-flow: row; flex-wrap: wrap; background: crimson; width:100%; height: 200px; text-align: center; justify-content: center; align-items: center; color: white; font-size: 25px; ">Ops, por no ahora no has realizado compras
-            <i class="fa-regular fa-face-sad-tear"></i>        
+        <?php if (!isset($_POST['numero'])) {
+
+            if ($contadorFactura == 0) { ?>
+                <div class="campo-alerta">
+            <div class="alerta" role="alert">Ops, por ahora no has realizado compras
+            <a class="link-mensaje" href="../../navegacion/catalogoProd.php">Para realizar una compra empieza por aquí...</a>
+
+            <style>
+                .link-mensaje{
+                font-size: 30px;
+                }
+                .campo-alerta{
+                    display: flex;
+                    flex-flow: row;
+                    justify-content: center;
+                    align-items: center;
+                    width: 100%;
+                    height: 760px;
+                }
+                .alerta{
+                display: flex;
+                flex-flow: column;
+                justify-content: space-evenly;
+                color: black;
+                font-size: 40px;
+                width: 80%;
+                height: 80%;
+                background: #D1CED9;
+                }
+                .fa-dizzy{
+                    font-size: 500%;
+                    color: #9B99A1;
+                }
+                .campo-boton{
+                    display: flex;
+                    flex-flow: row;
+                    justify-content: center;
+                    width: 100%;
+                    height: 100px;
+                }
+                .btn-infoo {
+                width: 200px;
+                height: 50px;
+                color: #fff;
+                border-color: #11cdef;
+                background-color: #11cdef;
+                box-shadow: 0 4px 6px rgba(50, 50, 93, .11), 0 1px 3px rgba(0, 0, 0, .08)
+}
+            </style>
+            <i class="fas fa-dizzy"></i>
         </div>
-            <a class="btn btn-info" href="../../navegacion/index.php">Ver Productos</a>
-        <?php } ?>
-        <div class="padre">
-            <div class="header">
-                <div class="contenedores-menu">
-                    <?php foreach ($respComprasData as $misCompras) {
-                    ?>
-                        <div class="menu-menu">
-                            <div class="menu-principal">
-                                <div class="cont-menuuno">
-                                    <img class="imagen-cont" src="<?php echo $misCompras['urlImagen']; ?>" alt="">
-                                </div>
-                                <div class="cont-menudos">
-                                    <h2 class="titulo-nombre"><?php echo $misCompras['nombrePublicacion']; ?></h2>
-                                    <h2 class="titulo-costo">$<?php echo $misCompras['costoPublicacion']; ?></h2>
-                                    <p class="textos">Cantidad: <?php echo $misCompras['cantidad']; ?></p>
-                                    <p class="textos"><a target="_blank" href="<?php echo "https://api.whatsapp.com/send?phone=57".$misCompras['telefono'];?>">WhatsApp</a><p>
-                                    <p class="textos"><?php echo $misCompras['fecha']; ?></p>
-                                </div>
-                                <div class="cont-menutres">
-                                    <button class="boton-menu">Volver a comprar</button>
+        </div>
+
+            <?php } ?>
+            <div class="padre">
+                <div class="header">
+                    <div class="contenedores-menu">
+                        <?php foreach ($respFactura as $misCompras) {
+                        ?>
+                            <div class="menu-menu">
+                                <div class="menu-principal">
+                                    <div class="cont-menudos">
+                                        <h2 class="titulo-nombre">Factura #<?php echo $misCompras['numeroFactura']; ?></h2>
+                                        <p class="textos">Cantidad: <?php echo $misCompras['Contador']; ?></p>
+                                        <h2 class="titulo-costo">$<?php echo $misCompras['Costo']; ?></h2>
+                                        <h2 class="titulo-nombre"><?php echo $misCompras['fechaFactura']; ?></h2>
+                                        <!-- <p class="textos"><a target="_blank" href="<?php echo "https://api.whatsapp.com/send?phone=57" . $misCompras['telefono']; ?>">WhatsApp</a><p>
+                                    <p class="textos"><?php echo $misCompras['fecha']; ?></p> -->
+                                    </div>
+                                    <div class="cont-menutres">
+                                        <form action="misCompras.php" method="post">
+                                            <input type="hidden" name="numero" value="<?php echo $misCompras['numeroFactura'] ?>">
+                                            <input type="submit" class="boton-menu" value="Ver">
+                                        </form>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    <?php } ?>
+                        <?php } ?>
+                    </div>
                 </div>
             </div>
-        </div>
-        <!-- Footer -->
-<?php  require_once '../includes/footer.php';
+            <!-- Mostrar el contenido de la factura seleccionada -->
+        <?php }
+        if (isset($_POST['numero'])) {
+            $numero = $_POST['numero'];
+            $factura = new Factura($documento, $numero);
+            $respCuerpoFactura = $factura->CuerpoFactura($factura->id, $factura->numero)
+        ?>
+            <div class="container-fluid mt--6">
+                <div class="row">
+                    <div class="col">
+                        <div class="card">
+                            <!-- Card header -->
+                            <div class="card-header border-0">
+                                <h3 class="mb-0"> </h3>
+                            </div>
+                            <div class="table-responsive">
+                                <table id="tabla" class="table align-items-center table-flush">
+                                    <thead class="thead-light">
+                                        <tr>
+                                            <th scope="col">Nombre</th>
+                                            <th scope="col">Cantidad</th>
+                                            <th scope="col">Costo</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="list">
+                                        <?php
+                                        foreach ($respCuerpoFactura as $datosCompra) { ?>
+                                            <tr>
+                                                <th><?php echo substr($datosCompra['nombrePublicacion'], 0, 90); ?>..</th>
+                                                <th><?php echo $datosCompra['cantidadFacturaPublicacion']; ?></th>
+                                                <th><?php echo number_format($datosCompra['costoPublicacion'], 0, '', '.'); ?></th>
+                                                <!-- <th>
+                                                    <button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                        Acciones
+                                                    </button>
+                                                    <div class="dropdown-menu">
+                                                        <form action="verFactura.php" method="POST" target="_blank">
+                                                            <input type="hidden" name="numero" value="<?php echo $datosCompra['numeroFactura']; ?>">
+                                                            <button type="submit" class="btn btn-info">Ver</button>
+                                                        </form>
+                                                        <br>
+                                                        <form action="#" method="POST" target="_blank">
+                                                            <input type="hidden" name="numero" value="<?php echo $datosCompra['numeroFactura']; ?>">
+                                                            <button type="submit" class="btn btn-success">Descargar</button>
+                                                        </form>
+                                                    </div>
+                                                </th> -->
+                                            </tr>
+                                        <?php
+
+                                        }
+                                        ?>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <?php } ?>
+            <!-- Footer -->
+    <?php require_once '../includes/footer.php';
     } else {
         echo "<script>alert('No puedes acceder a esta página!');</script>";
         echo "<script> document.location.href='403.php';</script>";
@@ -81,4 +199,4 @@ if (isset($respUserData)) {
     echo "<script> document.location.href='403.php';</script>";
 }
 
-?>
+    ?>
