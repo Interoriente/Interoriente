@@ -307,7 +307,7 @@ class Publicaciones
             $stmt = $pdo->prepare($sql);
             $stmt->bindValue(":id", $id);
             $stmt->execute();
-            return $stmt->fetch(PDO::FETCH_OBJ);
+            return $stmt->fetchAll();
         } catch (\Throwable $th) {
             header("Location: ../../Views/navegacion/index.php");
         }
@@ -328,6 +328,6 @@ function MostrarCategorias()
         $resultadoCategoria = $consultarCategoria->fetchAll();
         return $resultadoCategoria;
     } catch (\Throwable $th) {
-        echo "<script>alert('Ocurrió un error');</script>";
+        /* echo "<script>alert('Ocurrió un error');</script>"; */
     }
 }

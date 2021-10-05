@@ -1,6 +1,9 @@
+<?php session_start(); ?>
+
 <head>
   <link rel="stylesheet" href="../assets/css/nav.css" />
 </head>
+
 <body>
   <header>
     <div class="contenedor-navegacion">
@@ -10,10 +13,10 @@
         </a>
       </div>
 
-        <div class="busquedas">
-          <input id="busquedas" type="text" placeholder="¿Qué estás buscando?">
-          <img id="buscar" src="../assets/img/iconos/search.svg" alt="Buscar">
-        </div>
+      <div class="busquedas">
+        <input id="busquedas" type="text" placeholder="¿Qué estás buscando?">
+        <img id="buscar" src="../assets/img/iconos/search.svg" alt="Buscar">
+      </div>
 
       <div class="carrito" id="carrito-btn">
         <img id="btn-carrito" src="../assets/img/iconos/carrito.svg" alt="Carrito">
@@ -21,7 +24,7 @@
       </div>
     </div>
   </header>
-  <div id= "res-busquedas" class="res-busquedas">
+  <div id="res-busquedas" class="res-busquedas">
     <div></div>
     <ul id="resultado">
     </ul>
