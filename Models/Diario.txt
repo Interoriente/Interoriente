@@ -33,3 +33,6 @@ Pendientes Segunda Parte:
 -Poner a trabajar publicación
 -Darle la barra de navegación en iniciar sesión
 -Verificar cambiar orden en condición con sesión iniciada  
+
+06 - 10 -21 
+85 SP para dentro de 15 días con insert, update, delete, SELECT 

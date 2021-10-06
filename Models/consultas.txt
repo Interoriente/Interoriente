@@ -54,20 +54,19 @@ LISTO!!!!!!!!!!!!!!!->
 ****
 $reporte["Titulos" => null, No. "Ventas" => null, ]
 
-SELECT PU.idPublicacion AS 'Id', PU.nombrePublicacion AS 'Titulo', 
-COUNT(PU.idPublicacion) AS 'CantidadVentas', PU.stockPublicacion AS 'Stock', 
-SUM(FP.cantidadFacturaPublicacion * PU.costoPublicacion) AS "Vlr_Ventas" 
-FROM tblPublicacion as PU INNER JOIN tblFacturaPublicacion as FP ON FP.idPublicacionFactura = PU.idPublicacion WHERE PU.docIdentidadPublicacion = 123456789 
-GROUP BY PU.idPublicacion 
-UNION 
+SELECT MONTH(FA.fechaFactura) AS 'Mes', 
+SUM(FP.cantidadFacturaPublicacion * PU.costoPublicacion) AS 'Total' 
+FROM tblFactura AS FA 
+INNER JOIN tblFacturaPublicacion AS FP ON FP.numFacturaPublicacion = FA.numeroFactura 
+INNER JOIN tblPublicacion AS PU ON PU.idPublicacion = FP.idPublicacionFactura WHERE YEAR(FA.fechaFactura) = YEAR(CURDATE()) AND docIdentidadPublicacion = p_id 
+GROUP BY MONTH(FA.fechaFactura)
+
 SELECT (SUM(FP.cantidadFacturaPublicacion * PU.costoPublicacion) / Vlr_Ventas) AS 'Total'
 FROM tblPublicacion as PU
 INNER JOIN tblFacturaPublicacion AS FP 
 ON PU.idPublicacion = FP.idPublicacionFactura
 GROUP BY FP.idPublicacionFactura
 ORDER BY Vlr_Ventas DESC LIMIT 5
-
-
 
 ****
 SELECT PU.idPublicacion AS 'Id', PU.nombrePublicacion AS 'Titulo', 
@@ -129,14 +128,6 @@ Tarjeta 3
 
 5. Ventas por ciudad//...\\
 
-
-
-
-
-
-
-
-
 SELECT CI.nombreCiudad as 'Municipio',COUNT(FA.numeroFactura)
 AS 'Número Ventas'
 FROM tblCiudad AS CI
@@ -181,9 +172,6 @@ INNER JOIN tblPublicacion AS PU ON PU.idPublicacion = FP.idPublicacionFactura
 WHERE MONTH(FA.fechaFactura) = MONTH(DATE_ADD(CURDATE(),INTERVAL -1 MONTH)) AND YEAR(FA.fechaFactura) = YEAR(CURRENT_DATE) AND PU.docIdentidadPublicacion = 123456789
 
 
-
-
-
 SELECT SUM(FP.cantidadFacturaPublicacion * PU.costoPublicacion) 
 AS 'TotalMesActual' 
 FROM tblFactura as FA
@@ -205,5 +193,11 @@ WHERE validacionPublicacion=0 AND docIdentidadPublicacion='123456789'
 
 Tarjeta 2
 ==================================
+
+
+Reporte
+
+SELECT
+
 
 

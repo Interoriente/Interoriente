@@ -25,7 +25,7 @@ if (isset($respUserData)) {
         require_once '../includes/navegacion.php'; ?>
 
         <!-- Link estilos -->
-        <link rel="stylesheet" href="../../assets/css/general.css">
+        <link rel="stylesheet" href="../../assets/css/S.css">
         <link rel="stylesheet" href="../assets/css/misCompras.css">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
         <!-- Header -->
@@ -54,49 +54,6 @@ if (isset($respUserData)) {
                 <div class="campo-alerta">
             <div class="alerta" role="alert">Ops, por ahora no has realizado compras
             <a class="link-mensaje" href="../../navegacion/catalogoProd.php">Para realizar una compra empieza por aquí...</a>
-
-            <style>
-                .link-mensaje{
-                font-size: 30px;
-                }
-                .campo-alerta{
-                    display: flex;
-                    flex-flow: row;
-                    justify-content: center;
-                    align-items: center;
-                    width: 100%;
-                    height: 760px;
-                }
-                .alerta{
-                display: flex;
-                flex-flow: column;
-                justify-content: space-evenly;
-                color: black;
-                font-size: 40px;
-                width: 80%;
-                height: 80%;
-                background: #D1CED9;
-                }
-                .fa-dizzy{
-                    font-size: 500%;
-                    color: #9B99A1;
-                }
-                .campo-boton{
-                    display: flex;
-                    flex-flow: row;
-                    justify-content: center;
-                    width: 100%;
-                    height: 100px;
-                }
-                .btn-infoo {
-                width: 200px;
-                height: 50px;
-                color: #fff;
-                border-color: #11cdef;
-                background-color: #11cdef;
-                box-shadow: 0 4px 6px rgba(50, 50, 93, .11), 0 1px 3px rgba(0, 0, 0, .08)
-}
-            </style>
             <i class="fas fa-dizzy"></i>
         </div>
         </div>

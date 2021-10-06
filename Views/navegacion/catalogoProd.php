@@ -55,16 +55,17 @@ $respCategorias = MostrarCategorias();
                         <a href="">
                             <div class=" caja-categorias-subuno">
                                 <img src="../assets/img/catalogos/<?php echo $categorias['imagenCategoria'] ?>" alt="" class="img-categorias">
-<!--                                 <div class="contenedor">
- -->                                <h2 class="tit-hdos1"><?php echo $categorias['nombreCategoria']; ?></h2>
-                                <!-- </div> -->
+                                <h2 class="tit-hdos1"><?php echo $categorias['nombreCategoria']; ?></h2>
                             </div>
 
                         </a>
                     <?php } ?>
                 </div>
+                <!-- Fin caja-categoria -->
             </div>
+            <!-- Header -->
         </div>
+        <!-- Fin contenedor principal -->
     </div>
 
     <?php include '../includes/navInferior.php';
