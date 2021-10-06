@@ -103,7 +103,7 @@ require "../includes/linksGoogle.php";
                     </div>
                     <div class="row mt-3">
                         <div class="col-6">
-                            <a href="recuContrasena.php" class="text-light"><small>¿Olvidaste tu contraseña?</small></a>
+                            <a href="recuperarContrasena.php" class="text-light"><small>¿Olvidaste tu contraseña?</small></a>
                         </div>
                         <div class="col-6 text-right">
                             <a href="registro.php" class="text-light"><small>O si no tienes cuenta, regístrate por acá</small></a>

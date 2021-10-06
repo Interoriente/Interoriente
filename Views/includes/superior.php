@@ -50,7 +50,7 @@
     </div>
     <div class="navegacion-a">
       <img src="../assets/img/iconos/catalogo.svg" alt="">
-      <a href="catalogoProd.php">Categorías</a>
+      <a href="catalogos.php">Categorías</a>
     </div>
     <?php if (isset($_SESSION['roles']) == '1') : ?>
       <div class="navegacion-a">

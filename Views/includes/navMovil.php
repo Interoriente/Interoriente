@@ -3,7 +3,7 @@
         <a href="index.php">Inicio</a>
         <a href="#">Ayuda</a>
         <a href="oferta.php">Ofertas</a>
-        <a href="catalogoProd.php">Categorías</a>
+        <a href="catalogos.php">Categorías</a>
         <?php if (isset($_SESSION['roles']) == '1') : ?>
             <a href="#">Mi carrito</a>
             <a href="#">Mis compras</a>
