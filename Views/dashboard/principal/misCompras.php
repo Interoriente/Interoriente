@@ -68,12 +68,11 @@ if (isset($respUserData)) {
                             ?>
                                 <div class="menu-principal">
                                     <div class="cont-menudos">
-                                        <h2 class="titulo-nombre">#<?php echo $misCompras['numeroFactura']; ?></h2>
-                                        <p class="textos">Cantidad: <?php echo $misCompras['Contador']; ?></p>
+                                        <h2 class="titulo-factura">#<?php echo $misCompras['numeroFactura']; ?></h2>
                                         <h2 class="titulo-costo">$<?php echo $misCompras['Costo']; ?></h2>
-                                        <h2 class="titulo-nombre"><?php echo $misCompras['fechaFactura']; ?></h2>
-                                        <!-- <p class="textos"><a target="_blank" href="<?php echo "https://api.whatsapp.com/send?phone=57" . $misCompras['telefono']; ?>">WhatsApp</a><p>
-                                    <p class="textos"><?php echo $misCompras['fecha']; ?></p> -->
+                                        <h2 class="titulo-fecha"><?php echo $misCompras['fechaFactura']; ?></h2>
+                                        <p class="textos">Productos: <?php echo $misCompras['Contador']; ?></p>
+                                        <p class="textos"><a target="_blank" href="<?php echo "https://api.whatsapp.com/send?phone=57" . $misCompras['telefono']; ?>">WhatsApp</a><p>
                                     </div>
                                     <div class="cont-menutres">
                                         <form action="misCompras.php" method="post">

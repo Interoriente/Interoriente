@@ -39,9 +39,10 @@
   flex-flow: row;
   flex-wrap: wrap;
   justify-content: center;
+  justify-content: space-evenly;
   background: var(--clr-neutro-a);
   width: 30%;
-  height: 270px;
+  height: 340px;
   border-radius: 10px;
   margin: 10px;
   box-shadow: 0px 5px 10px -1px #001014;
@@ -60,18 +61,26 @@
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-evenly;
+  justify-content: center;
   font-family: var(--poppins);
-  width: 75%;
-  height: 70%;
+  width: 65%;
+  height: 75%;
 }
-.titulo-nombre {
+.titulo-fecha {
   font-size: 25px;
+  font-family: var(--poppins);
 }
 .titulo-costo {
-  font-size: 25px;
+  font-size: 30px;
+  font-family: var(--poppins);
+}
+.titulo-factura {
+  font-size: 35px;
+  font-family: var(--poppins);
 }
 .textos {
   font-family: var(--poppins);
+  font-size: 20px;
 }
 .cont-menutres {
   display: flex;

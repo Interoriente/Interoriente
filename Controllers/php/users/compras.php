@@ -292,7 +292,7 @@ class Compra
   {
     try {
       require('../../../Models/dao/conexion.php');
-      $sqlMisCompras = "SELECT FA.numeroFactura,FA.fechaFactura,
+      $sqlMisCompras = "SELECT US.telefonoMovilUsuario as 'telefono',FA.numeroFactura,FA.fechaFactura,
       FA.direccionFactura,FA.emailFactura,COUNT(FP.numFacturaPublicacion) AS 'Contador',
       SUM(FP.cantidadFacturaPublicacion * PU.costoPublicacion) AS 'Costo'
       FROM tblFactura as FA
@@ -300,6 +300,8 @@ class Compra
       ON FP.numFacturaPublicacion=FA.numeroFactura
       INNER JOIN tblPublicacion as PU
       ON PU.idPublicacion=FP.idPublicacionFactura
+      INNER JOIN tblUsuario as US
+      ON US.documentoIdentidad=PU.docIdentidadPublicacion
       WHERE FA.docIdentidadFactura=?
       GROUP BY FA.numeroFactura
       ORDER BY FA.numeroFactura ASC";
