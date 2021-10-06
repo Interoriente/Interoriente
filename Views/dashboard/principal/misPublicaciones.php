@@ -64,7 +64,57 @@ if (isset($respUserData)) {
                                     <?php if (!$respMostrarPublicaciones) { ?>
                                         <tr>
                                             <td colspan="8">
-                                                <div class="alert alert-danger" role="alert" style="text-align: center;">Opps, por ahora no hay publicaciones</div>
+                         <div class="campo-alerta">
+                        <div class="alerta" role="alert">Ops, por ahora no has hecho publicaciones
+                        <a class="link-mensaje" href="crearPublicacion.php">Para realizar una publicación empieza da click aquí...</a>
+
+                        <style>
+                            .link-mensaje{
+                            font-size: 30px;
+                            }
+                            .campo-alerta{
+                            display: flex;
+                            flex-flow: row;
+                            justify-content: center;
+                            align-items: center;
+                            width: 100%;
+                            height: 760px;
+                            }
+                            .alerta{
+                            display: flex;
+                            flex-flow: column;
+                            justify-content: space-around;
+                            justify-content: center;
+                            align-items: center;
+                            color: black;
+                            font-size: 40px;
+                            width: 80%;
+                            height: 80%;
+                            background: #D1CED9;
+                            }
+                            .fa-sad-tear{
+                            font-size: 500%;
+                            color: #9B99A1;
+                            }
+                            .campo-boton{
+                            display: flex;
+                            flex-flow: row;
+                            justify-content: center;
+                            width: 100%;
+                            height: 100px;
+                            }
+                            .btn-infoo {
+                            width: 200px;
+                            height: 50px;
+                            color: #fff;
+                            border-color: #11cdef;
+                            background-color: #11cdef;
+                            box-shadow: 0 4px 6px rgba(50, 50, 93, .11), 0 1px 3px rgba(0, 0, 0, .08)
+                    }
+                        </style>
+                        <i class="fas fa-sad-tear"></i>
+                    </div>
+                    </div>                                                
                                             </td>
                                         </tr>
                                 </tbody>
