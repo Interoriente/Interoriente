@@ -5,6 +5,7 @@
 }
 body {
   padding-top: 5em;
+  font-family: var(--poppins);
 }
 /* Inicio Navbar */
 header {
@@ -25,7 +26,7 @@ header {
   width: 17em;
   margin: -0.6em;
 }
-
+/* Resultado de una búsqueda */
 .res-busquedas{
   width: 100%;
   margin-top: -1.3em;
@@ -41,7 +42,7 @@ header {
   max-height: 50vh;
   overflow-x: hidden;
   overflow-y: auto;
- 
+  padding-left: 1.5em;
 }
 .res-busquedas li{
   list-style: none;
@@ -237,7 +238,7 @@ header {
   width: 0; /* 0 width - Se hace el cambio con javascript */
   position: fixed; /* Stay in place */
   z-index: 1; /* Stay on top */
-  top: 4.6rem;
+  top: 4.7rem;
   left: 0;
   background-color: var(--crl-cta-b);
   overflow-x: hidden; /* se desabilita scroll en x */
@@ -247,23 +248,20 @@ header {
 .tr-side {
   transition: 0.2s;
 }
-/* Links de navegación */
 
+/* Links de navegación */
 .sidenav {
   display: flex;
   flex-direction: column;
 }
-
 .cerrar-sesion {
   margin-left: -27px;
 }
-
 .btnCerrar {
   background-color: transparent;
   cursor: pointer;
   border: none;
 }
-
 .sidenav a,
 .btnCerrar {
   padding: 8px 8px 8px 32px;
@@ -330,7 +328,7 @@ header {
 
 /* Botón menú lateral para abri sidebar*/
 #menuLateral {
-  top: 40px;
+  top: 43px;
   background-color: var(--crl-cta-b); /* Color del botón */
   z-index: 2;
 }

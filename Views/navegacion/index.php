@@ -14,8 +14,7 @@ $publicacion = getPublicaciones();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../assets/css/general.css">
     <link rel="stylesheet" href="../assets/css/index.css">
-<!--     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous" />
- -->    <!-- No eliminar este script -->
+    <!-- No eliminar este script -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <title> Inicio | Interoriente</title>
 </head>
@@ -34,17 +33,17 @@ $publicacion = getPublicaciones();
             <a href="#">
 
                 <div id="productos" class="btn-productos btn-filtro">
-                    Productos
+                    Filtro
                 </div>
             </a>
             <a href="#">
                 <div class="btn-productos todos btn-filtro" onclick="filterSelection('todos')">
-                    Todos
+                    Filtro
                 </div>
             </a>
             <a href="#">
                 <div class=" btn-servicios btn-filtro">
-                    Servicios
+                    Filtro
                 </div>
             </a>
         </section>
@@ -66,8 +65,8 @@ $publicacion = getPublicaciones();
                         <h5> $<?php echo number_format($x['costoPublicacion'], 0, '', '.'); ?></h5>
 
                         <h3><?php echo $x['nombrePublicacion'] ?></h3>
-                        <!-- substr para limitar el tamaño del estring en este caso a 140 caracteres -->
-                        <p><?php echo substr($x['descripcionPublicacion'], 0, 80) . "...   "; ?><span class="mas-info">Más Información</span></p>
+                        <!-- substr para limitar el tamaño del estring en este caso a 50 caracteres -->
+                        <p><?php echo substr($x['descripcionPublicacion'], 0, 50) . "...   "; ?><span class="mas-info">Más Información</span></p>
                     </div>
                 </a>
                 <div class="cta-btns">
