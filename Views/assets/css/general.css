@@ -13,9 +13,6 @@
   --poppins: "Poppins", sans-serif;
   --serif: 'Source Serif Pro', serif;;
 }
-body{
-  padding-top: 2em;
-}
 /* TODO: Importar tamaños de fuentes necesarias listo
   Llamar custom properties donde sea necesario 
 

@@ -294,14 +294,15 @@ class Compra
       require('../../../Models/dao/conexion.php');
       $sqlMisCompras = "SELECT FA.numeroFactura,FA.fechaFactura,
       FA.direccionFactura,FA.emailFactura,COUNT(FP.numFacturaPublicacion) AS 'Contador',
-      SUM(FP.cantidadFacturaPublicacion*PU.costoPublicacion) AS 'Costo'
+      SUM(FP.cantidadFacturaPublicacion * PU.costoPublicacion) AS 'Costo'
       FROM tblFactura as FA
       INNER JOIN tblFacturaPublicacion as FP
       ON FP.numFacturaPublicacion=FA.numeroFactura
       INNER JOIN tblPublicacion as PU
       ON PU.idPublicacion=FP.idPublicacionFactura
       WHERE FA.docIdentidadFactura=?
-      GROUP BY FA.numeroFactura";
+      GROUP BY FA.numeroFactura
+      ORDER BY FA.numeroFactura ASC";
       $consultaSql = $pdo->prepare($sqlMisCompras);
       $consultaSql->execute(array($id));
       return $consultaSql->fetchAll();

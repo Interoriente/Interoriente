@@ -312,15 +312,24 @@ class Publicaciones
             header("Location: ../../Views/navegacion/index.php");
         }
     }
+    public function FiltroPublicacion($id)
+    {
+        require '../../Models/dao/conexion.php';
+        $sql = "CALL sp_filtroPublicacion(:id)";
+        $stmt = $pdo->prepare($sql);
+        $stmt->bindValue(":id", $id);
+        $stmt->execute();
+        return $stmt->fetchAll();
+    }
 }
 function MostrarCategorias()
 {
     try {
         require '../../Models/dao/conexion.php';
         /* Lista desplegable de categoría */
-        $sqlCategoria = "SELECT * 
-            FROM tblCategoria 
-            ORDER BY nombreCategoria ASC";
+        $sqlCategoria = "SELECT *
+                        FROM tblCategoria 
+                        ORDER BY nombreCategoria ASC";
         //Prepara sentencia
         $consultarCategoria = $pdo->prepare($sqlCategoria);
         //Ejecutar consulta

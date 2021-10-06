@@ -6,7 +6,7 @@
         <a href="catalogos.php">Categorías</a>
         <?php if (isset($_SESSION['roles']) == '1') : ?>
             <a href="#">Mi carrito</a>
-            <a href="#">Mis compras</a>
+            <a href="../dashboard/principal/misCompras.php">Mis compras</a>
             <a href="../dashboard/principal/dashboard.php">Volver al panel</a>
         <?php endif;
         if (!isset($_SESSION['roles'])) {

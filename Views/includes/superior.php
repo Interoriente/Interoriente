@@ -63,7 +63,7 @@
       </div>
       <div class="navegacion-a">
         <img src="../assets/img/iconos/compras.svg" alt="">
-        <a href="#">Mis compras</a>
+        <a href="../dashboard/principal/misCompras.php">Mis compras</a>
       </div>
       <div class="navegacion-a">
         <img src="../assets/img/iconos/Estadisticas_Icon.svg" alt="">

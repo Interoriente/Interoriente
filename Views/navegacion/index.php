@@ -1,6 +1,5 @@
 <?php
-require "../../Controllers/php/users/compras.php";
-$publicacion = getPublicaciones();
+
 ?>
 <!DOCTYPE html>
 <html lang="esp">
@@ -52,7 +51,18 @@ $publicacion = getPublicaciones();
         <!-- NOTA: títulos de máximo 100 caracteres ó 14 palabras -->
 
         <!-- Tarjeta Final -->
-        <?php foreach ($publicacion as $x) : ?>
+        <?php
+        @$catalogo = base64_decode($_GET['catalogo']);
+        if ($catalogo) {
+            require "../../Controllers/php/users/publicaciones.php";
+            $publicacionResp = new Publicaciones($catalogo);
+            $publicacion = $publicacionResp->FiltroPublicacion($publicacionResp->id);
+        } else {
+            require "../../Controllers/php/users/compras.php";
+            $publicacion = getPublicaciones();
+        }
+        foreach ($publicacion as $x) :
+        ?>
             <div class="tarjeta">
                 <!-- Le coloqué un montón de cosas que pasen por URL para no cambiar el a por un formulario, y que no quede el id tan fácil visible agregando el base64 para encriptar -->
                 <a href="publicacion.php?id=<?php echo base64_encode($x['idPublicacion']) . "&?nombre=" . $x['nombrePublicacion'] ?>">
