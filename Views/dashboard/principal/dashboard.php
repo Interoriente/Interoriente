@@ -263,8 +263,27 @@ if (isset($respUserData)) {
             <div class="col">
               <h3 class="mb-0">Publicaciones Más Exitosas</h3>
             </div>
-            <div class="col text-right">
-              <a href="#!" class="btn btn-sm btn-primary">Ver más</a>
+            <div class="input-daterange datepicker row align-items-center">
+              <div class="col">
+                <div class="form-group">
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="ni ni-calendar-grid-58"></i></span>
+                    </div>
+                    <input class="form-control" placeholder="Start date" type="date" value="06/18/2020">
+                  </div>
+                </div>
+              </div>
+              <div class="col">
+                <div class="form-group">
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="ni ni-calendar-grid-58"></i></span>
+                    </div>
+                    <input class="form-control" placeholder="End date" type="date" value="06/22/2020">
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
