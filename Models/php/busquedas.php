@@ -3,7 +3,7 @@ if (isset($_POST['busqueda'])) {
     $res = buscarElemento($_POST['busqueda'], 0);
     echo $res;
 } else {
-    // No valido con else if
+    // No validó con elseif
     if (isset($_POST['publicacion'])) {
         $id = base64_encode($_POST['publicacion']);
         echo $id;
@@ -18,8 +18,10 @@ function buscarElemento($keyWord, $val)
 {
     require '../dao/conexion.php';
     if ($val == 0) {
+        //Resultados de búsqueda cuando se está escribiendo 
         $sql = "CALL sp_busquedas(:keyword)";
     }else{
+        //Resultados de búsqueda la búsqued 
         $sql = "CALL sp_busquedaPublicacion(:keyword)";
     }
     $stmt = $pdo->prepare($sql);
