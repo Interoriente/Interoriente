@@ -25,6 +25,8 @@ if (isset($respUserData)) {
         require_once '../includes/sidebarDashboard.php';
         require_once '../includes/navegacion.php';
 ?>
+        <link rel="stylesheet" href="../../assets/css/general.css">
+        <link rel="stylesheet" href="../assets/css/misPublicaciones.css">
         <!-- Header -->
         <div class="header bg-primary pb-6">
             <div class="container-fluid">
@@ -64,84 +66,40 @@ if (isset($respUserData)) {
                                     <?php if (!$respMostrarPublicaciones) { ?>
                                         <tr>
                                             <td colspan="8">
-                         <div class="campo-alerta">
-                        <div class="alerta" role="alert">Ops, por ahora no has hecho publicaciones
-                        <a class="link-mensaje" href="crearPublicacion.php">Para realizar una publicación empieza da click aquí...</a>
-
-                        <style>
-                            .link-mensaje{
-                            font-size: 30px;
-                            }
-                            .campo-alerta{
-                            display: flex;
-                            flex-flow: row;
-                            justify-content: center;
-                            align-items: center;
-                            width: 100%;
-                            height: 760px;
-                            }
-                            .alerta{
-                            display: flex;
-                            flex-flow: column;
-                            justify-content: space-around;
-                            justify-content: center;
-                            align-items: center;
-                            color: black;
-                            font-size: 40px;
-                            width: 80%;
-                            height: 80%;
-                            background: #D1CED9;
-                            }
-                            .fa-sad-tear{
-                            font-size: 500%;
-                            color: #9B99A1;
-                            }
-                            .campo-boton{
-                            display: flex;
-                            flex-flow: row;
-                            justify-content: center;
-                            width: 100%;
-                            height: 100px;
-                            }
-                            .btn-infoo {
-                            width: 200px;
-                            height: 50px;
-                            color: #fff;
-                            border-color: #11cdef;
-                            background-color: #11cdef;
-                            box-shadow: 0 4px 6px rgba(50, 50, 93, .11), 0 1px 3px rgba(0, 0, 0, .08)
-                    }
-                        </style>
-                        <i class="fas fa-sad-tear"></i>
-                    </div>
-                    </div>                                                
+                                                <div class="campo-alerta">
+                                                    <div class="alerta" role="alert">Opps, por ahora no has realizado publicaciones
+                                                        <h2 class="titulo-alerta">Para realizar una publicación presiona <a class="link-mensaje" href="../../navegacion/catalogos.php">aquí</a></h2>
+                                                        <img class="img-caja" src="../assets/img/lupa.png" alt="">
+                                                    </div>
+                                                </div>
                                             </td>
                                         </tr>
+                                    <?php } ?>
                                 </tbody>
 
                                 <tr>
-                                <?php }
+                                    <?php
                                     foreach ($respMostrarPublicaciones as $datosPubli) {
-                                ?>
-                                    <th><img src="<?php echo $datosPubli['urlImagen'];  ?>" alt=".." width="130px"></th>
-                                    <td><?php echo $datosPubli['nombrePublicacion']; ?></td>
-                                    <td><?php echo substr($datosPubli['descripcionPublicacion'], 0, 50); ?>...</td>
-                                    <td><?php echo $datosPubli['costoPublicacion']; ?></td>
-                                    <td><?php echo $datosPubli['stockPublicacion']; ?></td>
-                                    <td>
-                                        <button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            Acciones
-                                        </button>
-                                        <div class="dropdown-menu">
-                                            <a class="btn btn-info" data-toggle="modal" data-target="#actualizarPubliModal<?php echo $datosPubli['idPublicacion']; ?>">Actualizar</a>
-                                            <a class="btn btn-danger" data-toggle="modal" data-target="#eliminarPubliModal<?php echo $datosPubli['idPublicacion']; ?>">Eliminar</a>
-                                        </div>
-                                    </td>
+                                    ?>
+                                        <th><img src="<?php echo $datosPubli['urlImagen'];  ?>" alt=".." width="130px"></th>
+                                        <td><?php echo $datosPubli['nombrePublicacion']; ?></td>
+                                        <td><?php echo substr($datosPubli['descripcionPublicacion'], 0, 50); ?>...</td>
+                                        <td><?php echo $datosPubli['costoPublicacion']; ?></td>
+                                        <td><?php echo $datosPubli['stockPublicacion']; ?></td>
+                                        <td>
+                                            <button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                Acciones
+                                            </button>
+                                            <div class="dropdown-menu">
+                                                <a class="btn btn-info" data-toggle="modal" data-target="#actualizarPubliModal<?php echo $datosPubli['idPublicacion']; ?>">Actualizar</a>
+                                                <a class="btn btn-danger" data-toggle="modal" data-target="#eliminarPubliModal<?php echo $datosPubli['idPublicacion']; ?>">Eliminar</a>
+                                            </div>
+                                        </td>
 
-                                    <!--Modal Eliminar publicación -->
-                                    <?php require "../includes/modalesPublicacion.php"; ?>
+                                        <!--Modal Eliminar publicación -->
+                                        <?php require "../includes/modalesPublicacion.php"; ?>
+                                    <?php } ?>
                                 </tr>
-                            <?php } ?>
                             </table>
                         </div>
                     </div>

@@ -27,7 +27,6 @@ if (isset($respUserData)) {
         <!-- Link estilos -->
         <link rel="stylesheet" href="../../assets/css/general.css">
         <link rel="stylesheet" href="../assets/css/misCompras.css">
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
         <!-- Header -->
         <div class="header bg-primary pb-6">
             <div class="container-fluid">
@@ -53,8 +52,8 @@ if (isset($respUserData)) {
             if ($contadorFactura == 0) { ?>
                 <div class="campo-alerta">
                     <div class="alerta" role="alert">Opps, por ahora no has realizado compras
-                        <a class="link-mensaje" href="../../navegacion/catalogoProd.php">Para realizar una compra empieza por aquí...</a>
-                        <i class="fas fa-dizzy"></i>
+                        <h2 class="titulo-alerta">Para realizar una compra presiona <a class="link-mensaje" href="../../navegacion/catalogos.php">aquí</a></h2>
+                        <img class="img-caja" src="../assets/img/caja.png" alt="">
                     </div>
                 </div>
 
@@ -72,7 +71,8 @@ if (isset($respUserData)) {
                                         <h2 class="titulo-costo">$<?php echo $misCompras['Costo']; ?></h2>
                                         <h2 class="titulo-fecha"><?php echo $misCompras['fechaFactura']; ?></h2>
                                         <p class="textos">Productos: <?php echo $misCompras['Contador']; ?></p>
-                                        <p class="textos"><a target="_blank" href="<?php echo "https://api.whatsapp.com/send?phone=57" . $misCompras['telefono']; ?>">WhatsApp</a><p>
+                                        <p class="textos"><a target="_blank" href="<?php echo "https://api.whatsapp.com/send?phone=57" . $misCompras['telefono']; ?>">WhatsApp</a>
+                                        <p>
                                     </div>
                                     <div class="cont-menutres">
                                         <form action="misCompras.php" method="post">

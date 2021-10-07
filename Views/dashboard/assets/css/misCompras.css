@@ -110,12 +110,19 @@
 
 .link-mensaje {
   font-size: 30px;
+  font-family: var(--poppins);
+}
+.titulo-alerta{
+  font-size: 30px;
+  font-family: var(--poppins);
+  color: black;
 }
 .campo-alerta {
   display: flex;
   flex-flow: row;
   justify-content: center;
   align-items: center;
+  text-align: center;
   width: 100%;
   height: 760px;
 }
@@ -123,15 +130,17 @@
   display: flex;
   flex-flow: column;
   justify-content: space-evenly;
+  text-align: center;
   color: black;
   font-size: 40px;
   width: 80%;
   height: 80%;
   background: #d1ced9;
 }
-.fa-dizzy {
-  font-size: 500%;
-  color: #9b99a1;
+.img-caja {
+  margin: 0 auto;
+  width: 250px;
+  height: 260px;
 }
 .campo-boton {
   display: flex;
