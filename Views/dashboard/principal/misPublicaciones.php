@@ -65,7 +65,7 @@ if (isset($respUserData)) {
                                 <tbody>
                                     <?php if (!$respMostrarPublicaciones) { ?>
                                         <tr>
-                                            <td colspan="8">
+                                            <td colspan="7">
                                                 <div class="campo-alerta">
                                                     <div class="alerta" role="alert">Opps, por ahora no has realizado publicaciones
                                                         <h2 class="titulo-alerta">Para realizar una publicación presiona <a class="link-mensaje" href="../../navegacion/catalogos.php">aquí</a></h2>

@@ -47,6 +47,8 @@ if (isset($respUserData)) {
       let labelVentasSemana = [<?php echo $labelVentasSemana; ?>];
       let datosVentasSemana = [<?php echo $datosVentasSemana; ?>];
     </script>
+    <link rel="stylesheet" href="../../assets/css/general.css">
+    <link rel="stylesheet" href="../assets/css/misPublicaciones.css">
     <!-- Header -->
     <div class="header bg-primary pb-6">
 
@@ -175,28 +177,43 @@ if (isset($respUserData)) {
             <!-- Tarjeta -->
             <div class="card-body">
               <div class="row">
-                <div class="col">
-                  <h5 class="card-title text-uppercase text-muted mb-0">Este Mes...</h5>
-                  <span class="h2 font-weight-bold mb-0">Total ventas: $<?php echo number_format($reporteMensual->TotalMesActual, 0, '', '.'); ?></span>
-                </div>
+                <?php if (isset($reporteMensual->TotalMesActual)) { ?>
+                  <div class="col">
+                    <h5 class="card-title text-uppercase text-muted mb-0">Este Mes...</h5>
+                    <span class="h2 font-weight-bold mb-0">Total ventas: $<?php echo number_format($reporteMensual->TotalMesActual, 0, '', '.'); ?></span>
+                  </div>
+                <?php } else { ?>
+                  <div class="col">
+                    <h5 class="card-title text-uppercase text-muted mb-0">Este Mes...</h5>
+                    <span class="h2 font-weight-bold mb-0">Total ventas: $0</span>
+                  </div>
+                <?php } ?>
+
                 <div class="col-auto icono-dashboard">
                   <div class="icon icon-shape bg-gradient-info text-white rounded-circle shadow">
                     <i class="ni ni-chart-bar-32"></i>
                   </div>
                 </div>
               </div>
-              <?php if ($reporteMensual->Subio == 1) { ?>
+              <?php if (isset($reporteMensual->Subio)) {
+                if ($reporteMensual->Subio == 1) { ?>
 
-                <p class="mt-3 mb-0 text-sm">
-                  <span id="ms-mes" class="text-success mr-2"><i class="fa fa-arrow-up"></i> <?php echo $reporteMensual->Porcentaje ?>%
-                    <span class="text-rap">más con relación al mes anterior</span> </span>
-                </p>
-              <?php } else if ($reporteMensual->Subio == 0) { ?>
-                <p class="mt-3 mb-0 text-sm">
-                  <span id="ms-mes" class="text-warning mr-2"><i class="fa fa-arrow-down"></i> <?php echo $reporteMensual->Porcentaje ?>%
-                    <span class="text-rap">menos con relación al mes anterior</span> </span>
-                </p>
-              <?php } else { ?>
+                  <p class="mt-3 mb-0 text-sm">
+                    <span id="ms-mes" class="text-success mr-2"><i class="fa fa-arrow-up"></i> <?php echo $reporteMensual->Porcentaje ?>%
+                      <span class="text-rap">más con relación al mes anterior</span> </span>
+                  </p>
+                <?php } else if ($reporteMensual->Subio == 0) { ?>
+                  <p class="mt-3 mb-0 text-sm">
+                    <span id="ms-mes" class="text-warning mr-2"><i class="fa fa-arrow-down"></i> <?php echo $reporteMensual->Porcentaje ?>%
+                      <span class="text-rap">menos con relación al mes anterior</span> </span>
+                  </p>
+                <?php } else { ?>
+                  <p class="mt-3 mb-0 text-sm">
+                    <span id="ms-mes" class="text-info mr-2">
+                      <span class="text-rap">Tus ventas se han mantenido estables!</span> </span>
+                  </p>
+                <?php }
+              } else { ?>
                 <p class="mt-3 mb-0 text-sm">
                   <span id="ms-mes" class="text-info mr-2">
                     <span class="text-rap">Tus ventas se han mantenido estables!</span> </span>
@@ -322,11 +339,14 @@ if (isset($respUserData)) {
                       <?php echo "$" . number_format($respMasExitosas->VlrVentas[$i], 0, '', '.'); ?>
                     </td>
                   </tr>
-              <?php endfor;
-              } else {
-                //Considerar mejorar el mensaje
-                echo "No hay nada que mostrar!";
-              }
+                <?php endfor;
+              } else { ?>
+                <div class="campo-alerta">
+                  <div class="alerta" role="alert">Opps, por ahora no hay publicaciones exitosas
+                    <img class="img-caja" src="../assets/img/lupa.png" alt="">
+                  </div>
+                </div>
+              <?php }
               ?>
               <!--Fin Fila -->
               </tbody>

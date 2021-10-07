@@ -20,6 +20,7 @@
 
 <body>
 
+
     <!-- Navegación -->
     <?php require '../includes/superior.php'; ?>
     <!-- Fin Navegación -->
