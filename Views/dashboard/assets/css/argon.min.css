@@ -2446,7 +2446,7 @@ a.btn.disabled, fieldset:disabled a.btn {
     color: #fff;
     border-color: #11cdef;
     background-color: #11cdef;
-    box-shadow: 0 4px 6px rgba(50, 50, 93, .11), 0 1px 3px rgba(0, 0, 0, .08)
+    /* box-shadow: 0 4px 6px rgba(50, 50, 93, .11), 0 1px 3px rgba(0, 0, 0, .08) */
 }
 
 .btn-info:hover {
@@ -3238,7 +3238,7 @@ input[type=button].btn-block, input[type=reset].btn-block, input[type=submit].bt
     padding: .5rem 0;
     list-style: none;
     text-align: left;
-    color: #525f7f;
+    color: #ffffff;
     border: 0 solid rgba(0, 0, 0, .15);
     border-radius: .4375rem;
     background-color: #fff;
@@ -6709,10 +6709,6 @@ a.bg-darker:focus, a.bg-darker:hover, button.bg-darker:focus, button.bg-darker:h
 
 .border-right {
     border-right: 1px solid #e9ecef!important
-}
-
-.border-bottom {
-    border-bottom: 1px solid #e9ecef!important
 }
 
 .border-left {
@@ -21118,3 +21114,6 @@ input.datetimepicker[data-color=yellow]+.bootstrap-datetimepicker-widget button[
 #ms-mes{
     font-weight: bold;
 }
+#titulo-direccion{
+    text-align: center;
+  }

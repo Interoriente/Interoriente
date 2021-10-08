@@ -22,7 +22,7 @@ if (isset($respUserData)) {
 
     //Parte superior del HTML
     require "../includes/header.php";
-    
+
     require_once '../includes/sidebarDashboard.php';
     require_once '../includes/navegacion.php';
 ?>
@@ -202,9 +202,8 @@ if (isset($respUserData)) {
               </form>
             </div>
 
-            <center>
-              <h1>Mis Direcciones</h1>
-            </center>
+            <h1 id="titulo-direccion">Mis Direcciones</h1>
+
             <div class="table-responsive">
               <table id="tabla" class="table align-items-center table-flush">
                 <thead class="thead-light">
@@ -243,7 +242,7 @@ if (isset($respUserData)) {
     </div>
 
     <!-- Footer -->
-    <?php  require_once '../includes/footer.php';
+<?php require_once '../includes/footer.php';
   } else {
     echo "<script>alert('No puedes acceder a esta página!');</script>";
     echo "<script> document.location.href='403.php';</script>";

@@ -105,7 +105,7 @@ if (isset($respUserData)) {
   <?php require_once '../includes/footer.php';
   } else {
     echo "<script>alert('No puedes acceder a esta página!');</script>";
-    echo "<script> document.location.href='403.php';</script>";
+    echo "<script> document.location.href='dashboard.php';</script>";
   }
 } else {
   echo "<script>alert('No has iniciado sesión!');</script>";
