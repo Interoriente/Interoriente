@@ -287,7 +287,7 @@ if (isset($respUserData)) {
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="ni ni-calendar-grid-58"></i></span>
                     </div>
-                    <input class="form-control" placeholder="Start date" type="date" value="06/18/2020">
+                    <input class="form-control" placeholder="Start date" type="date" max=<?php $hoy=date("Y-m-d"); echo $hoy;?>>
                   </div>
                 </div>
               </div>
@@ -297,7 +297,7 @@ if (isset($respUserData)) {
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="ni ni-calendar-grid-58"></i></span>
                     </div>
-                    <input class="form-control" placeholder="End date" type="date" value="06/22/2020">
+                    <input class="form-control" placeholder="End date" type="date" max=<?php $hoy=date("Y-m-d"); echo $hoy;?>>
                   </div>
                 </div>
               </div>
