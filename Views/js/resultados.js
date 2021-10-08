@@ -7,12 +7,17 @@ const keywordLs = localStorage.getItem("keyword");
 3. 
 */
 
-if (keywordLs !== "") {
-  getPublicaciones(keywordLs);
-} else {
+if (keywordLs === "" || keywordLs == null ) {
   /* No hay nada que mostrar */
   resultadosDOM.innerHTML =
     "<p>Prueba digitando algo en la barra de búsqueda! <span>Ejemplo: 'Mesa'</span></p>";
+} else {
+/*   console.log(separarString(keywordLs)); */
+  getPublicaciones(keywordLs);
+  
+}
+function separarString(s) {
+  return s.split(/(\s+)/).filter( e => e.trim().length > 2);
 }
 
 function getPublicaciones(keyword) {
@@ -21,8 +26,7 @@ function getPublicaciones(keyword) {
     type: "POST",
     data: { getResultados: keyword },
     success: function (res) {
-      let resultados = JSON.parse(res);
-      if (resultados.length === 0) {
+      if (JSON.parse(res).length === 0) {
         resultadosDOM.innerHTML = `<p>No se encontraron resultados para <span>${keyword}</span>...</p>`;
       } else {
         renderPublicaciones(JSON.parse(res));
@@ -67,7 +71,9 @@ function renderPublicaciones(publicaciones) {
                     </div>
                 </a>
             `;
-                flagResultados = true;
+            if (!flagResultados) {
+              flagResultados = true;
+            }
 
     } else {
       seccionSimilares += ` 
@@ -83,7 +89,9 @@ function renderPublicaciones(publicaciones) {
                   </div>
               </a>
           `;
-              flagResSimilares = true;
+          if (!flagResSimilares) {
+            flagResSimilares = true;
+          }
     }
   });
   if (flagResultados) {
@@ -102,7 +110,6 @@ function valKeyword(word, str) {
 
   const regex = new RegExp(
     `(^.*[${allowedSeparator}]${word}$)|(^${word}[${allowedSeparator}].*)|(^${word}$)|(^.*[${allowedSeparator}]${word}[${allowedSeparator}].*$)`,
-
     // Case insensitive
     "i"
   );

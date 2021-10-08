@@ -11,14 +11,12 @@ if (keyword) {
 $(resBusquedas).hide();
 const inputHandler = function (e) {
    busqueda = e.target.value;
-  if (!busqueda) {
+  if (!busqueda || busqueda === " ") {
     ulResultado.innerHTML = "";
-    localStorage.setItem("keyword", ""); 
-
+    localStorage.removeItem('keyword');
   }else{
-
    localStorage.setItem("keyword", busqueda); 
-  $.ajax({
+    $.ajax({
     url: "../../Models/php/busquedas.php",
     type: "POST",
     data: { busqueda: busqueda },
