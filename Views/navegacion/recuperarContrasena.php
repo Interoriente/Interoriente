@@ -1,5 +1,3 @@
-<?php session_start();
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -41,12 +39,7 @@
     <!-- Sidebar -->
     <?php include '../includes/navInferior.php'; ?>
     <!-- ------- -->
-
     <!-- Barra de navegación para dispositivos móviles -->
-    <?php
-    include '../includes/navMovil.php';
-    ?>
-    <!-- Js -->
 </body>
 
 </html>

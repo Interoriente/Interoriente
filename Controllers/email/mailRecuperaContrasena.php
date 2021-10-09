@@ -74,13 +74,12 @@
 
                 if ($mail->send()) {
                     echo "<script>alert('Correo enviado correctamente');</script>";
-                    echo "<script>alert('Por favor revisa tu correo');</script>";
-                    echo "<script> document.location.href='../view/navegacion/iniciarsesion.php';</script>";
+                    echo "<script> document.location.href='../../Views/navegacion/iniciarsesion.php';</script>";
                 }
             } catch (Exception $e) {
-                echo 'Ha ocurrido un error! ', $mail->ErrorInfo;
+                echo "<script>alert('Ha ocurrido un error! $mail->ErrorInfo');</script>";
             }
         } else {
-            return;
+            return false;
         }
     } ?>

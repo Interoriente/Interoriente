@@ -19,36 +19,35 @@ require "../includes/linksGoogle.php";
     <link rel="stylesheet" href="../dashboard/assets/css/iconos.css" type="text/css">
     <link rel="stylesheet" href="../dashboard/assets/css/iconosComplementos.css" type="text/css">
     <link rel="stylesheet" href="../dashboard/assets/css/all.min.css" type="text/css">
+    <link rel="stylesheet" href="../assets/css/general.css">
+    <!-- No eliminar este script -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <!-- Argon CSS -->
     <link rel="stylesheet" href="../dashboard/assets/css/argon.min.css?v=1.2.0" type="text/css">
 </head>
 
-<body class="bg-default" oncontextmenu="return false">
-
+<body class="bg-default">
+    <!-- Navegación -->
+    <?php require '../includes/superior.php'; ?>
     <!-- Main content -->
     <div class="main-content">
         <!-- Header -->
-        <div class="header bg-gradient-primary py-7 py-lg-8 pt-lg-9">
+        <div class="header bg-gradient-primary py-7 py-lg-5 pt-lg-4">
             <div class="container">
                 <div class="header-body text-center mb-7">
                     <div class="row justify-content-center">
                         <div class="col-xl-5 col-lg-6 col-md-8 px-5">
                             <h1 class="text-white">Crear cuenta</h1>
-                            <p class="text-lead text-white">Aquí podrás crear una cuenta con tus datos personales.</p>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="separator separator-bottom separator-skew zindex-100">
-                <svg x="0" y="0" viewBox="0 0 2560 100" preserveAspectRatio="none" version="1.1" xmlns="http://www.w3.org/2000/svg">
-                    <polygon class="fill-default" points="2560 0 2560 100 0 100"></polygon>
-                </svg>
             </div>
         </div>
         <!-- Page content -->
         <div class="container mt--8 pb-5">
             <!-- Table -->
             <div class="row justify-content-center">
+                <!-- Columnas del formulario -->
                 <div class="col-lg-6 col-md-8">
                     <div class="card bg-secondary border-0">
                         <div class="card-header bg-transparent pb-5">
@@ -60,7 +59,7 @@ require "../includes/linksGoogle.php";
                                 </a>
                             </div>
                         </div>
-                        <div class="card-body px-lg-5 py-lg-5">
+                        <div class="card-body px-lg-3 py-lg-2">
                             <div class="text-center text-muted mb-4">
                                 <small>O con tus datos personales:</small>
                             </div>
@@ -73,7 +72,7 @@ require "../includes/linksGoogle.php";
                                         <div class="input-group-prepend">
                                             <span class="input-group-text"><i class="ni ni-single-02"></i></span>
                                         </div>
-                                        <input class="form-control" placeholder="Nombres" type="text" name="nombres" required autofocus>
+                                        <input class="form-control" placeholder="Nombres" type="text" name="nombres" required>
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -140,7 +139,7 @@ require "../includes/linksGoogle.php";
                     </div>
                     <div class="row mt-3">
                         <div class="col-6">
-                            <a href="index.php" class="text-light"><small>Regresar a inicio</small></a>
+                            <a href="../../index.html" class="text-light"><small>Regresar</small></a>
                         </div>
                         <div class="col-6 text-right">
                             <a href="iniciarsesion.php" class="text-light"><small>Tienes cuenta?</small></a>
@@ -150,8 +149,5 @@ require "../includes/linksGoogle.php";
             </div>
         </div>
     </div>
-    <!-- Argon JS -->
-    <script src="../dashboard/assets/js/argon.min.js?v=1.2.0"></script>
-</body>
-
-</html>
+    <!-- navegación -->
+    <?php include '../includes/navInferior.php'; ?>

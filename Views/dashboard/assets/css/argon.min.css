@@ -16899,9 +16899,9 @@ a.bg-lighter:focus, a.bg-lighter:hover, button.bg-lighter:focus, button.bg-light
     background-color: #cbd3da!important
 }
 
-.bg-gradient-primary {
+/* .bg-gradient-primary {
     background: linear-gradient(87deg, #004e64 0, #825ee4 100%)!important
-}
+} */
 
 .bg-gradient-secondary {
     background: linear-gradient(87deg, #f7fafc 0, #f7f8fc 100%)!important
@@ -17141,10 +17141,6 @@ a.section-dark:focus, a.section-dark:hover, button.section-dark:focus, button.se
 
 a.section-darker:focus, a.section-darker:hover, button.section-darker:focus, button.section-darker:hover {
     background-color: #000!important
-}
-
-.bg-gradient-primary {
-    background: linear-gradient(87deg, #004e64 0, #825ee4 100%)!important
 }
 
 .bg-gradient-secondary {

@@ -22,34 +22,37 @@ require "../includes/linksGoogle.php";
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="Bienvenidos a Interoriente, podrás comprar, vender y mucho más.">
-    <meta name="author" content="Interoriente">
-    <title>Iniciar sesión | Interoriente</title>
-
+    <meta name="author" content="Inter-oriente">
+    <title>Iniciae Sesión | Interoriente</title>
     <!-- Favicon -->
     <link rel="icon" href="../assets/img/favicon.png" type="image/png">
-    <!-- Fonts ACTUALIZAR-->
+    <!-- Fonts -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700">
-    <!-- Icons ACTUALIZAR-->
+    <!-- Icons -->
     <link rel="stylesheet" href="../dashboard/assets/css/iconos.css" type="text/css">
     <link rel="stylesheet" href="../dashboard/assets/css/iconosComplementos.css" type="text/css">
-
+    <link rel="stylesheet" href="../dashboard/assets/css/all.min.css" type="text/css">
+    <link rel="stylesheet" href="../assets/css/general.css">
+    <!-- No eliminar este script -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <!-- Argon CSS -->
     <link rel="stylesheet" href="../dashboard/assets/css/argon.min.css?v=1.2.0" type="text/css">
 
 </head>
 
 <body class="bg-default">
+    <!-- Navegación -->
+    <?php require '../includes/superior.php'; ?>
 
     <!-- Main content -->
     <div class="main-content">
         <!-- Header -->
-        <div class="header bg-gradient-primary py-7 py-lg-8 pt-lg-9">
+        <div class="header bg-gradient-primary py-7 py-lg-5 pt-lg-4">
             <div class="container">
                 <div class="header-body text-center mb-7">
                     <div class="row justify-content-center">
-                        <div class="col-xl-5 col-lg-6 col-md-1 px-5">
+                        <div class="col-xl-5 col-lg-6 col-md-8 px-5">
                             <h1 class="text-white">Iniciar sesión</h1>
-                            <p class="text-lead text-white">Aquí podrás iniciar sesión, Bienvenido.</p>
                         </div>
                     </div>
                 </div>
@@ -70,7 +73,7 @@ require "../includes/linksGoogle.php";
                                 </a>
                             </div>
                         </div>
-                        <div class="card-body px-lg-5 py-lg-5">
+                        <div class="card-body px-lg-3 py-lg-2">
                             <div class="text-center text-muted mb-4">
                                 <small>O con tus credenciales de acceso:</small>
                             </div>
@@ -82,7 +85,7 @@ require "../includes/linksGoogle.php";
                                         <div class="input-group-prepend">
                                             <span class="input-group-text"><i class="ni ni-email-83"></i></span>
                                         </div>
-                                        <input class="form-control" id="id" placeholder="tucorreo@gmail.com" type="text" name="id" onkeypress="return Sololetras(event)" required>
+                                        <input class="form-control" id="id" placeholder="tucorreo@gmail.com" type="text" name="id" require>
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -116,3 +119,6 @@ require "../includes/linksGoogle.php";
     <!-- Argon JS -->
     <!-- Qué función está cumpliendo este script? -->
     <!--     <script src="../dashboard/assets/js/argon.min.js?v=1.2.0"></script>-->
+    <!-- navegación -->
+    <?php include '../includes/navInferior.php'; ?>
+    <!-- ------- -->

@@ -34,10 +34,10 @@ body {
   left: 0;
   top: 0;
   display: inline-block;
-  width: 140px;
-  height: 140px;
+  width: 160px;
+  height: 160px;
   /* Cambiar imagen. */
-  background-image: url('../img/emoji.png');
+  background-image: url('../img/error403.png');
   background-size: cover;
 }
 
