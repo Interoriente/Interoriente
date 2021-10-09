@@ -7,6 +7,12 @@
     <meta name="description" content="Bienvenidos a Interoriente, podrás comprar, vender y mucho más.">
     <meta name="author" content="Inter-oriente">
     <title>Dashboard | Interoriente</title>
+    <!-- <link rel="stylesheet" type="text/css" href="main.css"> -->
+    <!--font awesome con CDN-->  
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">  
+    <!--datables estilo bootstrap 4 CSS-->  
+    <link rel="stylesheet" type="text/css" href="datatables/datatables.min.css"/>
+    <!-- <link rel="stylesheet" type="text/css" href="datatables/DataTables-1.10.18/css/dataTables.bootstrap4.min.css"> -->
     <!-- Favicon -->
     <link rel="icon" href="../../assets/img/favicon.png" type="image/png">
     <!-- Fonts -->
