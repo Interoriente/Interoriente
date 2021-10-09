@@ -2446,7 +2446,7 @@ a.btn.disabled, fieldset:disabled a.btn {
     color: #fff;
     border-color: #11cdef;
     background-color: #11cdef;
-    /* box-shadow: 0 4px 6px rgba(50, 50, 93, .11), 0 1px 3px rgba(0, 0, 0, .08) */
+    box-shadow: 0 4px 6px rgba(50, 50, 93, .11), 0 1px 3px rgba(0, 0, 0, .08)
 }
 
 .btn-info:hover {

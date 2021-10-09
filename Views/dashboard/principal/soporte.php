@@ -88,8 +88,9 @@ if (isset($respUserData)) {
                     </div>
                 </div>
             </div>
-            <!-- Footer -->
-    <?php  require_once '../includes/footer.php';
+        </div>
+        <!-- Footer -->
+<?php require_once '../includes/footer.php';
     } else {
         echo "<script>alert('No puedes acceder a esta página!');</script>";
         echo "<script> document.location.href='403.php';</script>";
@@ -99,4 +100,4 @@ if (isset($respUserData)) {
     echo "<script> document.location.href='403.php';</script>";
 }
 
-    ?>
+?>

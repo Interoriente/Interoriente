@@ -1,5 +1,4 @@
 <?php
-
 session_start();
 $respUserData = null;
 if (isset($_SESSION['documentoIdentidad'])) {
@@ -240,7 +239,6 @@ if (isset($respUserData)) {
         </div>
       </div>
     </div>
-
     <!-- Footer -->
 <?php require_once '../includes/footer.php';
   } else {

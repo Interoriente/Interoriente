@@ -49,36 +49,72 @@ if (isset($respUserData)) {
     </script>
     <link rel="stylesheet" href="../../assets/css/general.css">
     <link rel="stylesheet" href="../assets/css/misPublicaciones.css">
-    <!-- Header -->
-    <div class="header bg-primary pb-6">
 
-      <div class="container-fluid">
+      <!-- Header -->
+      <div class="header bg-primary pb-6">
 
-        <div class="header-body">
-          <!-- Fila de botones siperiores -->
-          <div class="row align-items-center py-3">
+        <div class="container-fluid">
 
-            <?php
-            foreach ($respGetRoles as $datosRol) : ?>
-              <form action="dashboard.php" method="post">
-                <input type="hidden" name="rol" value="<?php echo $datosRol['idUsuarioRol'] ?>">
-                <br>
-                <?php if ($_SESSION['roles'] != $datosRol['idUsuarioRol']) { ?>
-                  <button type="submit" class="btn btn-sm btn-neutral cambioRol" name="cambioRol"><?php echo $datosRol['nombreRol']; ?></button>
-                <?php } ?>
-              </form>
-            <?php endforeach; ?>
-            <div class="text-center">
-              <!-- FIN Lista desplegable de cambio de roles -->
-              <!-- Copia de seguridad DB -->
-              <?php if ($_SESSION['roles'] == '3') : ?><br>
-                <a href="../../../Models/operaciones/backupDB.php"><button type="submit" class="btn btn-sm btn-neutral cambioRol">Copia de seguridad BD</button></a>
-              <?php endif; ?>
-              <!-- FIN Copia de seguridad DB -->
+          <div class="header-body">
+            <!-- Fila de botones siperiores -->
+            <div class="row align-items-center py-3">
+
+              <?php
+              foreach ($respGetRoles as $datosRol) : ?>
+                <form action="dashboard.php" method="post">
+                  <input type="hidden" name="rol" value="<?php echo $datosRol['idUsuarioRol'] ?>">
+                  <br>
+                  <?php if ($_SESSION['roles'] != $datosRol['idUsuarioRol']) { ?>
+                    <button type="submit" class="btn btn-sm btn-neutral cambioRol" name="cambioRol"><?php echo $datosRol['nombreRol']; ?></button>
+                  <?php } ?>
+                </form>
+              <?php endforeach; ?>
+              <div class="text-center">
+                <!-- FIN Lista desplegable de cambio de roles -->
+                <!-- Copia de seguridad DB -->
+                <?php if ($_SESSION['roles'] == '3') : ?><br>
+                  <a href="../../../Models/operaciones/backupDB.php"><button type="submit" class="btn btn-sm btn-neutral cambioRol">Copia de seguridad BD</button></a>
+                <?php endif; ?>
+                <!-- FIN Copia de seguridad DB -->
+              </div>
             </div>
-          </div>
-          <!-- Tarjetas -->
-          <div class="row">
+            <!-- Tarjetas -->
+            <div class="row">
+              <!-- Contenedor Tarjeta -->
+              <div class="col-xl-3 col-md-6">
+                <div class="card card-stats">
+                  <!-- Tarjeta -->
+                  <div class="card-body">
+                    <div class="row">
+                      <div class="col">
+                        <h5 class="card-title text-uppercase text-muted mb-0">Stock</h5>
+                        <?php if (isset($alertaStock)) { ?>
+                          <span class="h5 font-weight-bold mb-0 text-rap text-danger">¡Hay <?php echo $alertaStock['No_publicaciones'] ?> publicaciones con poco stock! </span>
+                      </div>
+                      <div class="col-auto icono-dashboard">
+                        <div class="icon icon-shape bg-gradient-red text-white rounded-circle shadow">
+                          <i class="ni ni-notification-70"></i>
+                        </div>
+                      </div>
+                    <?php } else { ?>
+                      <span class="h5 font-weight-bold mb-0 text-success">¡No hay alertas por stock!</span>
+                    </div>
+                    <div class="col-auto icono-dashboard">
+                      <div class="icon icon-shape bg-gradient-green text-white rounded-circle shadow">
+                        <i class="ni ni-check-bold"></i>
+                      </div>
+                    </div>
+                  <?php } ?>
+                  </div>
+                  <!-- <p class="mt-3 mb-0 text-sm">
+                    <span class="text-success mr-2"><i class="fa fa-arrow-up"></i> 3.48%</span>
+                    <span class="text-rap text-danger">¡A <?php echo $alertaStock['No_publicaciones'] ?> de tus publicaciones están próximas a terminárseles el stock! </span>
+                  </p> -->
+                </div>
+              </div>
+            </div>
+
+            <!-- Tarjeta para el admin -->
             <!-- Contenedor Tarjeta -->
             <div class="col-xl-3 col-md-6">
               <div class="card card-stats">
@@ -86,21 +122,21 @@ if (isset($respUserData)) {
                 <div class="card-body">
                   <div class="row">
                     <div class="col">
-                      <h5 class="card-title text-uppercase text-muted mb-0">Stock</h5>
-                      <?php if (isset($alertaStock)) { ?>
-                        <span class="h5 font-weight-bold mb-0 text-rap text-danger">¡Hay <?php echo $alertaStock['No_publicaciones'] ?> publicaciones con poco stock! </span>
+                      <h5 class="card-title text-uppercase text-muted mb-0">Publicaciones</h5>
+                      <?php if (isset($noValidadas)) { ?>
+                        <span class="h5 font-weight-bold mb-0 text-rap text-warning">Tienes <?php echo $noValidadas; ?> publicaciones con espera de validación</span>
                     </div>
                     <div class="col-auto icono-dashboard">
-                      <div class="icon icon-shape bg-gradient-red text-white rounded-circle shadow">
-                        <i class="ni ni-notification-70"></i>
+                      <div class="icon icon-shape bg-gradient-orange text-white rounded-circle shadow">
+                        <i class="ni ni-album-2"></i>
                       </div>
                     </div>
                   <?php } else { ?>
-                    <span class="h5 font-weight-bold mb-0 text-success">¡No hay alertas por stock!</span>
+                    <span class="h5 font-weight-bold mb-0 text-blue">No tienen publicaciones pendientes por validar</span>
                   </div>
                   <div class="col-auto icono-dashboard">
-                    <div class="icon icon-shape bg-gradient-green text-white rounded-circle shadow">
-                      <i class="ni ni-check-bold"></i>
+                    <div class="icon icon-shape bg-gradient-purple text-white rounded-circle shadow">
+                      <i class="ni ni-like-2"></i>
                     </div>
                   </div>
                 <?php } ?>
@@ -113,309 +149,274 @@ if (isset($respUserData)) {
             </div>
           </div>
 
-
-          <!-- Tarjeta para el admin -->
-          <!-- Contenedor Tarjeta -->
+          <!-- Tarjeta -->
+          <div class="col-xl-3 col-md-6">
+            <div class="card card-stats">
+              <div class="card-body">
+                <div class="row">
+                  <div class="col">
+                    <h5 class="card-title text-uppercase text-muted mb-0">Ventas Hoy</h5>
+                    <span class="h2 font-weight-bold mb-0 text-success mr-2">$<?php echo number_format($ventasHoy["Total"], 0, '', '.'); ?></span>
+                  </div>
+                  <div class="col-auto icono-dashboard">
+                    <div class="icon icon-shape bg-gradient-green text-white rounded-circle shadow">
+                      <i class="ni ni-money-coins"></i>
+                    </div>
+                  </div>
+                </div>
+                <p class="mt-3 mb-0 text-sm">
+                  <span class="text-nowrap">No. Ventas:</span>
+                  <span class="h2 text-success mr-2"><?php echo $ventasHoy["No_ventas"] ?></i></span>
+                </p>
+              </div>
+            </div>
+          </div>
+          <!-- Fin tarjeta -->
           <div class="col-xl-3 col-md-6">
             <div class="card card-stats">
               <!-- Tarjeta -->
               <div class="card-body">
                 <div class="row">
-                  <div class="col">
-                    <h5 class="card-title text-uppercase text-muted mb-0">Publicaciones</h5>
-                    <?php if (isset($noValidadas)) { ?>
-                      <span class="h5 font-weight-bold mb-0 text-rap text-warning">Tienes <?php echo $noValidadas; ?> publicaciones con espera de validación</span>
-                  </div>
+                  <?php if (isset($reporteMensual->TotalMesActual)) { ?>
+                    <div class="col">
+                      <h5 class="card-title text-uppercase text-muted mb-0">Este Mes...</h5>
+                      <span class="h2 font-weight-bold mb-0">Total ventas: $<?php echo number_format($reporteMensual->TotalMesActual, 0, '', '.'); ?></span>
+                    </div>
+                  <?php } else { ?>
+                    <div class="col">
+                      <h5 class="card-title text-uppercase text-muted mb-0">Este Mes...</h5>
+                      <span class="h2 font-weight-bold mb-0">Total ventas: $0</span>
+                    </div>
+                  <?php } ?>
+
                   <div class="col-auto icono-dashboard">
-                    <div class="icon icon-shape bg-gradient-orange text-white rounded-circle shadow">
-                      <i class="ni ni-album-2"></i>
+                    <div class="icon icon-shape bg-gradient-info text-white rounded-circle shadow">
+                      <i class="ni ni-chart-bar-32"></i>
                     </div>
                   </div>
-                <?php } else { ?>
-                  <span class="h5 font-weight-bold mb-0 text-blue">No tienen publicaciones pendientes por validar</span>
                 </div>
-                <div class="col-auto icono-dashboard">
-                  <div class="icon icon-shape bg-gradient-purple text-white rounded-circle shadow">
-                    <i class="ni ni-like-2"></i>
-                  </div>
-                </div>
-              <?php } ?>
-              </div>
-              <!-- <p class="mt-3 mb-0 text-sm">
-                    <span class="text-success mr-2"><i class="fa fa-arrow-up"></i> 3.48%</span>
-                    <span class="text-rap text-danger">¡A <?php echo $alertaStock['No_publicaciones'] ?> de tus publicaciones están próximas a terminárseles el stock! </span>
-                  </p> -->
-            </div>
-          </div>
-        </div>
+                <?php if (isset($reporteMensual->Subio)) {
+                  if ($reporteMensual->Subio == 1) { ?>
 
-        <!-- Tarjeta -->
-        <div class="col-xl-3 col-md-6">
-          <div class="card card-stats">
-            <div class="card-body">
-              <div class="row">
-                <div class="col">
-                  <h5 class="card-title text-uppercase text-muted mb-0">Ventas Hoy</h5>
-                  <span class="h2 font-weight-bold mb-0 text-success mr-2">$<?php echo number_format($ventasHoy["Total"], 0, '', '.'); ?></span>
-                </div>
-                <div class="col-auto icono-dashboard">
-                  <div class="icon icon-shape bg-gradient-green text-white rounded-circle shadow">
-                    <i class="ni ni-money-coins"></i>
-                  </div>
-                </div>
-              </div>
-              <p class="mt-3 mb-0 text-sm">
-                <span class="text-nowrap">No. Ventas:</span>
-                <span class="h2 text-success mr-2"><?php echo $ventasHoy["No_ventas"] ?></i></span>
-              </p>
-            </div>
-          </div>
-        </div>
-        <!-- Fin tarjeta -->
-        <div class="col-xl-3 col-md-6">
-          <div class="card card-stats">
-            <!-- Tarjeta -->
-            <div class="card-body">
-              <div class="row">
-                <?php if (isset($reporteMensual->TotalMesActual)) { ?>
-                  <div class="col">
-                    <h5 class="card-title text-uppercase text-muted mb-0">Este Mes...</h5>
-                    <span class="h2 font-weight-bold mb-0">Total ventas: $<?php echo number_format($reporteMensual->TotalMesActual, 0, '', '.'); ?></span>
-                  </div>
-                <?php } else { ?>
-                  <div class="col">
-                    <h5 class="card-title text-uppercase text-muted mb-0">Este Mes...</h5>
-                    <span class="h2 font-weight-bold mb-0">Total ventas: $0</span>
-                  </div>
-                <?php } ?>
-
-                <div class="col-auto icono-dashboard">
-                  <div class="icon icon-shape bg-gradient-info text-white rounded-circle shadow">
-                    <i class="ni ni-chart-bar-32"></i>
-                  </div>
-                </div>
-              </div>
-              <?php if (isset($reporteMensual->Subio)) {
-                if ($reporteMensual->Subio == 1) { ?>
-
-                  <p class="mt-3 mb-0 text-sm">
-                    <span id="ms-mes" class="text-success mr-2"><i class="fa fa-arrow-up"></i> <?php echo $reporteMensual->Porcentaje ?>%
-                      <span class="text-rap">más con relación al mes anterior</span> </span>
-                  </p>
-                <?php } else if ($reporteMensual->Subio == 0) { ?>
-                  <p class="mt-3 mb-0 text-sm">
-                    <span id="ms-mes" class="text-warning mr-2"><i class="fa fa-arrow-down"></i> <?php echo $reporteMensual->Porcentaje ?>%
-                      <span class="text-rap">menos con relación al mes anterior</span> </span>
-                  </p>
-                <?php } else { ?>
+                    <p class="mt-3 mb-0 text-sm">
+                      <span id="ms-mes" class="text-success mr-2"><i class="fa fa-arrow-up"></i> <?php echo $reporteMensual->Porcentaje ?>%
+                        <span class="text-rap">más con relación al mes anterior</span> </span>
+                    </p>
+                  <?php } else if ($reporteMensual->Subio == 0) { ?>
+                    <p class="mt-3 mb-0 text-sm">
+                      <span id="ms-mes" class="text-warning mr-2"><i class="fa fa-arrow-down"></i> <?php echo $reporteMensual->Porcentaje ?>%
+                        <span class="text-rap">menos con relación al mes anterior</span> </span>
+                    </p>
+                  <?php } else { ?>
+                    <p class="mt-3 mb-0 text-sm">
+                      <span id="ms-mes" class="text-info mr-2">
+                        <span class="text-rap">Tus ventas se han mantenido estables!</span> </span>
+                    </p>
+                  <?php }
+                } else { ?>
                   <p class="mt-3 mb-0 text-sm">
                     <span id="ms-mes" class="text-info mr-2">
                       <span class="text-rap">Tus ventas se han mantenido estables!</span> </span>
                   </p>
-                <?php }
-              } else { ?>
-                <p class="mt-3 mb-0 text-sm">
-                  <span id="ms-mes" class="text-info mr-2">
-                    <span class="text-rap">Tus ventas se han mantenido estables!</span> </span>
-                </p>
-              <?php } ?>
+                <?php } ?>
+              </div>
             </div>
           </div>
+          <!-- Fin Tarjeta -->
         </div>
-        <!-- Fin Tarjeta -->
       </div>
-    </div>
-    <div class="container-fluid mt--6">
-      <div class="row">
-        <div class="col-xl-8">
-          <div class="card bg-default">
-            <div class="card-header bg-transparent">
-              <div class="row align-items-center">
-                <div class="col">
-                  <h6 class="text-light text-uppercase ls-1 mb-1">Reporte Anual 2021</h6>
-                  <h5 class="h3 text-white mb-0">Ventas generales</h5>
-                </div>
-                <div class="col">
-                  <ul class="nav nav-pills justify-content-end">
-                    <li class="nav-item mr-2 mr-md-0" data-toggle="chart" data-target="#chart-sales-dark" data-update='{"data":{"datasets":[{"data":[0, 20, 10, 30, 15, 40, 20, 60, 30]}]}}' data-prefix="$" data-suffix="M">
+      <!-- Mirar la forma de bajar el contenido sin br. -->
+      <br><br><br>
+      <div class="container-fluid mt--6">
+        <div class="row">
+          <div class="col-xl-8">
+            <div class="card bg-default">
+              <div class="card-header bg-transparent">
+                <div class="row align-items-center">
+                  <div class="col">
+                    <h6 class="text-light text-uppercase ls-1 mb-1">Reporte Anual 2021</h6>
+                    <h5 class="h3 text-white mb-0">Ventas generales</h5>
+                  </div>
+                  <div class="col">
+                    <ul class="nav nav-pills justify-content-end">
+                      <li class="nav-item mr-2 mr-md-0" data-toggle="chart" data-target="#chart-sales-dark" data-update='{"data":{"datasets":[{"data":[0, 20, 10, 30, 15, 40, 20, 60, 30]}]}}' data-prefix="$" data-suffix="M">
 
-                    </li>
-                  </ul>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="card-body">
+                <!-- Chart -->
+                <div class="chart">
+                  <!-- Chart wrapper -->
+                  <canvas id="chart-sales-dark" class="chart-canvas"></canvas>
                 </div>
               </div>
             </div>
-            <div class="card-body">
-              <!-- Chart -->
-              <div class="chart">
-                <!-- Chart wrapper -->
-                <canvas id="chart-sales-dark" class="chart-canvas"></canvas>
+          </div>
+          <div class="col-xl-4">
+            <div class="card">
+              <div class="card-header bg-transparent">
+                <div class="row align-items-center">
+                  <div class="col">
+                    <h6 class="text-uppercase text-muted ls-1 mb-1">Reporte Semanal </h6>
+                    <h5 class="h3 mb-0">No. de ventas en los últimos 7 días</h5>
+                  </div>
+                </div>
+              </div>
+              <div class="card-body">
+                <!-- Chart -->
+                <div class="chart">
+                  <canvas id="chart-bars" class="chart-canvas"></canvas>
+                </div>
               </div>
             </div>
           </div>
         </div>
-        <div class="col-xl-4">
-          <div class="card">
-            <div class="card-header bg-transparent">
-              <div class="row align-items-center">
+        <div class="card">
+          <div class="card-header border-0">
+            <div class="row align-items-center">
+              <div class="col">
+                <h3 class="mb-0">Publicaciones Más Exitosas</h3>
+              </div>
+              <div class="input-daterange datepicker row align-items-center">
                 <div class="col">
-                  <h6 class="text-uppercase text-muted ls-1 mb-1">Reporte Semanal </h6>
-                  <h5 class="h3 mb-0">No. de ventas en los últimos 7 días</h5>
-                </div>
-              </div>
-            </div>
-            <div class="card-body">
-              <!-- Chart -->
-              <div class="chart">
-                <canvas id="chart-bars" class="chart-canvas"></canvas>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="card">
-        <div class="card-header border-0">
-          <div class="row align-items-center">
-            <div class="col">
-              <h3 class="mb-0">Publicaciones Más Exitosas</h3>
-            </div>
-            <div class="input-daterange datepicker row align-items-center">
-              <div class="col">
-                <div class="form-group">
-                  <div class="input-group">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text"><i class="ni ni-calendar-grid-58"></i></span>
+                  <div class="form-group">
+                    <div class="input-group">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="ni ni-calendar-grid-58"></i></span>
+                      </div>
+                      <input class="form-control" placeholder="Start date" type="date" max=<?php $hoy = date("Y-m-d");
+                                                                                            echo $hoy; ?>>
                     </div>
-                    <input class="form-control" placeholder="Start date" type="date" max=<?php $hoy=date("Y-m-d"); echo $hoy;?>>
                   </div>
                 </div>
-              </div>
-              <div class="col">
-                <div class="form-group">
-                  <div class="input-group">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text"><i class="ni ni-calendar-grid-58"></i></span>
+                <div class="col">
+                  <div class="form-group">
+                    <div class="input-group">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="ni ni-calendar-grid-58"></i></span>
+                      </div>
+                      <input class="form-control" placeholder="End date" type="date" max=<?php $hoy = date("Y-m-d");
+                                                                                          echo $hoy; ?>>
                     </div>
-                    <input class="form-control" placeholder="End date" type="date" max=<?php $hoy=date("Y-m-d"); echo $hoy;?>>
                   </div>
                 </div>
               </div>
             </div>
           </div>
+          <div class="table-responsive">
+            <!-- Projects table -->
+            <table class="table align-items-center table-flush">
+              <?php if (!isset($respMasExitosas->Titulos[0]) == "") { ?>
+                <thead class="thead-light">
+                  <tr>
+                    <th scope="col">Título</th>
+                    <th scope="col">No. Ventas</th>
+                    <th scope="col">Stock</th>
+                    <th scope="col">Porcentaje</th>
+                    <th scope="col">Total Ventas</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <!-- Fila -->
+                  <?php for ($i = 0; $i < 5; $i++) : ?>
+                    <tr>
+                      <td>
+                        <a href="#"><?php echo $respMasExitosas->Titulos[$i]; ?></a>
+                      </td>
+
+                      <td>
+                        <?php echo $respMasExitosas->NoVentas[$i]; ?>
+                      </td>
+
+                      <td>
+                        <?php echo $respMasExitosas->Stock[$i]; ?>
+                      </td>
+                      <td>
+                        <?php echo "%" . round($respMasExitosas->Porcentajes[$i], 1); ?>
+                      </td>
+                      <td>
+                        <?php echo "$" . number_format($respMasExitosas->VlrVentas[$i], 0, '', '.'); ?>
+                      </td>
+                    </tr>
+                  <?php endfor;
+                } else { ?>
+                  <div class="campo-alerta">
+                    <div class="alerta" role="alert">Opps, por ahora no hay publicaciones exitosas
+                      <img class="img-caja" src="../assets/img/lupa.png" alt="">
+                    </div>
+                  </div>
+                <?php }
+                ?>
+                <!--Fin Fila -->
+                </tbody>
+            </table>
+          </div>
         </div>
-        <div class="table-responsive">
-          <!-- Projects table -->
-          <table class="table align-items-center table-flush">
-            <?php if (!isset($respMasExitosas->Titulos[0]) == "") { ?>
+        <!-- Para el admin -->
+        <!-- <div class="card ">
+          <div class="card-header border-0">
+            <div class="row align-items-center">
+              <div class="col">
+                <h3 class="mb-0">Ventas por municipio</h3>
+              </div>
+              <div class="col text-right">
+                <a href="#!" class="btn btn-sm btn-primary">Ver todo</a>
+              </div>
+            </div>
+          </div>
+          <div class="table-responsive">
+
+            <table class="table align-items-center table-flush">
               <thead class="thead-light">
                 <tr>
-                  <th scope="col">Título</th>
+                  <th scope="col">Municipio</th>
                   <th scope="col">No. Ventas</th>
-                  <th scope="col">Stock</th>
-                  <th scope="col">Porcentaje</th>
-                  <th scope="col">Total Ventas</th>
+                  <th scope="col">Porcentaje sobre ventas totales</th>
+                  <th scope="col"></th>
                 </tr>
               </thead>
               <tbody>
-                <!-- Fila -->
-                <?php for ($i = 0; $i < 5; $i++) : ?>
-                  <tr>
-                    <td>
-                      <a href="#"><?php echo $respMasExitosas->Titulos[$i]; ?></a>
-                    </td>
 
-                    <td>
-                      <?php echo $respMasExitosas->NoVentas[$i]; ?>
-                    </td>
-
-                    <td>
-                      <?php echo $respMasExitosas->Stock[$i]; ?>
-                    </td>
-                    <td>
-                      <?php echo "%" . round($respMasExitosas->Porcentajes[$i], 1); ?>
-                    </td>
-                    <td>
-                      <?php echo "$" . number_format($respMasExitosas->VlrVentas[$i], 0, '', '.'); ?>
-                    </td>
-                  </tr>
-                <?php endfor;
-              } else { ?>
-                <div class="campo-alerta">
-                  <div class="alerta" role="alert">Opps, por ahora no hay publicaciones exitosas
-                    <img class="img-caja" src="../assets/img/lupa.png" alt="">
-                  </div>
-                </div>
-              <?php }
-              ?>
-              <!--Fin Fila -->
-              </tbody>
-          </table>
-        </div>
-      </div>
-      <!-- Para el admin -->
-      <!-- <div class="card ">
-        <div class="card-header border-0">
-          <div class="row align-items-center">
-            <div class="col">
-              <h3 class="mb-0">Ventas por municipio</h3>
-            </div>
-            <div class="col text-right">
-              <a href="#!" class="btn btn-sm btn-primary">Ver todo</a>
-            </div>
-          </div>
-        </div>
-        <div class="table-responsive">
-     
-          <table class="table align-items-center table-flush">
-            <thead class="thead-light">
-              <tr>
-                <th scope="col">Municipio</th>
-                <th scope="col">No. Ventas</th>
-                <th scope="col">Porcentaje sobre ventas totales</th>
-                <th scope="col"></th>
-              </tr>
-            </thead>
-            <tbody>
-           
-              <tr>
-                <th scope="row">
-                  Prueba
-                </th>
-                <td>
-                  1,480
-                </td>
-                <td>
-                  <div class="d-flex align-items-center">
-                    <span class="mr-2"><?php /* $x = 76;
+                <tr>
+                  <th scope="row">
+                    Prueba
+                  </th>
+                  <td>
+                    1,480
+                  </td>
+                  <td>
+                    <div class="d-flex align-items-center">
+                      <span class="mr-2"><?php /* $x = 76;
                                         echo $x */ ?>%</span>
-                    <div>
-                      <div class="progress">
-                        <div class="progress-bar bg-gradient-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: <?php /* echo $x */ ?>%;"></div>
+                      <div>
+                        <div class="progress">
+                          <div class="progress-bar bg-gradient-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: <?php /* echo $x */ ?>%;"></div>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                </td>
-              </tr>
-              Nombres de las clases de los colores de las barras:
+                  </td>
+                </tr>
+                -- Nombres de las clases de los colores de las barras:
             -success
             -primary
             -info
             -warning
             -danger
 
-             FIN Fila -->
-
-
-      <!--  Final FILA
-
-            </tbody>
-          </table>
-           Para el admin
+             FIN Fila --
+              </tbody>
+            </table>
+            Para el admin
+          </div>
         </div>
-      </div> -->
-      <!-- Fin Clase columna -->
-
-      <!-- Parte Inferior del HTML -->
-  <?php require_once '../includes/footer.php';
+        -- Fin Clase columna -->
+        <!-- Cierre clase main -->
+      </div>
+    <!-- Parte Inferior del HTML -->
+<?php require_once '../includes/footer.php';
   } else {
     echo "<script>alert('No puedes acceder a esta página!');</script>";
     echo "<script> document.location.href='403.php';</script>";
@@ -424,4 +425,5 @@ if (isset($respUserData)) {
   echo "<script>alert('No has iniciado sesión!');</script>";
   echo "<script> document.location.href='403.php';</script>";
 }
-  ?>
+?>
+

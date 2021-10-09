@@ -27,7 +27,7 @@
                 </a>
               </li>
             <?php }
-          if ($_SESSION['roles'] == "1") { ?>
+              if ($_SESSION['roles'] == "1") { ?>
               <li class="nav-item">
                 <a class="nav-link" href="crearPublicacion.php">
                   <i class="ni ni-album-2" style="color: #FFB720"></i>
@@ -66,9 +66,8 @@
                   <span class="nav-link-text">Usuarios</span>
                 </a>
               </li>
-            <?php } ?>
             </ul>
-          <?php
+        <?php }
         } ?>
       </div>
     </div>

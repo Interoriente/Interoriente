@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (isset($_SESSION['documentoIdentidad'])) {
-    @$numero=$_POST['numero'];
+    @$numero = $_POST['numero'];
     if (isset($numero)) {
         $numeroFactura = $numero;
         $documento = $_SESSION['documentoIdentidad'];
@@ -113,7 +113,7 @@ if (isset($_SESSION['documentoIdentidad'])) {
                             </tr>
                         <?php
                             $precioTotal = $datos['pagar'];
-                            $subtotal+=$precioTotal;
+                            $subtotal += $precioTotal;
                             //Round()->Redondeo
                             $impuesto = round($subtotal * $iva, 2);
                             $totalPagar = round($subtotal + $impuesto, 2);

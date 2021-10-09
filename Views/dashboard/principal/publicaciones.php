@@ -1,5 +1,4 @@
 <?php
-
 // Iniciar variables de sesion, obtener DocId y Rol ACTUAL del usuario
 session_start();
 $respUserData = null;
@@ -104,7 +103,6 @@ if (isset($respUserData)) {
                         <?php } ?>
                     </tr>
                   <?php
-
                   }
                   ?>
                 </tbody>
@@ -113,8 +111,9 @@ if (isset($respUserData)) {
           </div>
         </div>
       </div>
-      <!-- Footer -->
-  <?php require_once '../includes/footer.php';
+    </div>
+    <!-- Footer -->
+<?php require_once '../includes/footer.php';
   } else {
     echo "<script>alert('No puedes acceder a esta página');</script>";
     echo "<script> document.location.href='dashboard.php';</script>";
@@ -123,4 +122,4 @@ if (isset($respUserData)) {
   echo "<script>alert('No has iniciado sesión');</script>";
   echo "<script> document.location.href='403.php';</script>";
 }
-  ?>
+?>

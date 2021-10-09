@@ -56,7 +56,6 @@ if (isset($respUserData)) {
                         <img class="img-caja" src="../assets/img/caja.png" alt="">
                     </div>
                 </div>
-
             <?php } ?>
             <div class="padre">
                 <div class="header">
@@ -144,9 +143,10 @@ if (isset($respUserData)) {
                         </div>
                     </div>
                 </div>
-            <?php } ?>
-            <!-- Footer -->
-    <?php require_once '../includes/footer.php';
+            </div>
+        <?php } ?>
+        <!-- Footer -->
+<?php require_once '../includes/footer.php';
     } else {
         echo "<script>alert('No puedes acceder a esta página!');</script>";
         echo "<script> document.location.href='403.php';</script>";
@@ -156,4 +156,4 @@ if (isset($respUserData)) {
     echo "<script> document.location.href='403.php';</script>";
 }
 
-    ?>
+?>
