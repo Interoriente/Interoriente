@@ -1,30 +1,33 @@
 const resultadosDOM = document.getElementById("resultados");
 const relacionadosDOM = document.getElementById("relacionados");
 const keywordLs = localStorage.getItem("keyword");
+let criterioBusqueda = null;
 /* TODO:
 1. Verificar si el criterio de busqueda es similar a una palabra. Ej. Celular es similar a Celulares
 2. Separar palabras compuestas y comprobar si alguna tiene coincidencias con alguna publicación
-3. 
+EN CASO DE QUE DE EL TIEMPO:
+  1. Resolver situación con carateres especiales
+  2. Resolver situacion cuando se envía un solo caracter
 */
 
-if (keywordLs === "" || keywordLs == null ) {
+if (keywordLs === "" || keywordLs == null) {
   /* No hay nada que mostrar */
   resultadosDOM.innerHTML =
     "<p>Prueba digitando algo en la barra de búsqueda! <span>Ejemplo: 'Mesa'</span></p>";
 } else {
-/*   console.log(separarString(keywordLs)); */
-  getPublicaciones(keywordLs);
-  
+
+    criterioBusqueda = separarString(keywordLs);
+    getPublicaciones(criterioBusqueda);
 }
 function separarString(s) {
-  return s.split(/(\s+)/).filter( e => e.trim().length > 2);
+    return s.split(/(\s+)/).filter((e) => e.trim().length > 2);
 }
 
-function getPublicaciones(keyword) {
+function getPublicaciones(keywords) {
   $.ajax({
     url: "../../Models/php/busquedas.php",
     type: "POST",
-    data: { getResultados: keyword },
+    data: { getResultados: keywords },
     success: function (res) {
       if (JSON.parse(res).length === 0) {
         resultadosDOM.innerHTML = `<p>No se encontraron resultados para <span>${keyword}</span>...</p>`;
@@ -53,10 +56,10 @@ function renderPublicaciones(publicaciones) {
   const sinResultados = `
       <h5 id="titulo-resultados">No se encontraron resultados para <span>${keyword}</span></h5>
       `;
-      let flagResultados = false;
-      let flagResSimilares = false;
+  let flagResultados = false;
+  let flagResSimilares = false;
   publicaciones.map((item) => {
-    let val = valKeyword(keyword, item.Titulo);
+    let val = valKeyword(criterioBusqueda[0], item.Titulo);
     if (val) {
       seccionResultados += ` 
                 <a id="${item.id}">
@@ -71,10 +74,9 @@ function renderPublicaciones(publicaciones) {
                     </div>
                 </a>
             `;
-            if (!flagResultados) {
-              flagResultados = true;
-            }
-
+      if (!flagResultados) {
+        flagResultados = true;
+      }
     } else {
       seccionSimilares += ` 
               <a id="${item.id}">
@@ -89,15 +91,15 @@ function renderPublicaciones(publicaciones) {
                   </div>
               </a>
           `;
-          if (!flagResSimilares) {
-            flagResSimilares = true;
-          }
+      if (!flagResSimilares) {
+        flagResSimilares = true;
+      }
     }
   });
   if (flagResultados) {
-      resultadosDOM.innerHTML = seccionResultados;
-    }else{
-        resultadosDOM.innerHTML = sinResultados;
+    resultadosDOM.innerHTML = seccionResultados;
+  } else {
+    resultadosDOM.innerHTML = sinResultados;
   }
   if (flagResSimilares) {
     relacionadosDOM.innerHTML = seccionSimilares;

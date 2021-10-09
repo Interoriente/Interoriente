@@ -80,7 +80,6 @@ $respPublicacion = $publicacion->MostrarPublicacion($publicacion->id);
   <!-- Sección "Descripción" Publicación-->
 
   <section class="descripcionPublicacion">
-    <!-- TODO: Agregar condicional para mostrar "producto" o "servicio" segun tipo de publicación -->
     <h1>Descripción de la publicación</h1>
     <p><?php echo $respPublicacion[0]['descripcionPublicacion']; ?></p>
   </section>
