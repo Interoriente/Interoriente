@@ -77,7 +77,6 @@ function getPublicaciones()
             WHERE validacionPublicacion='1'
             GROUP BY PU.idPublicacion
             ORDER BY rand()
-            LIMIT 30
             ";
 
     /* Envío de la consulta a través del objeto PDO */

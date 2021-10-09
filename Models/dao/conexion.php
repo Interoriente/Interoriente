@@ -10,6 +10,8 @@ try {
      //Conexion exitosa	
      $pdo = new PDO($host, $usuario, $contrasena);
      $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+     /* Establece utf8, para capturar Ñ o tildes */
+     $pdo->query("SET NAMES 'utf8'");
 } catch (PDOException $e) {
      //Error Conexion
      print "Error! " . $e->getMessage();
