@@ -37,10 +37,11 @@ function buscarElemento($keyWord, $val)
         } else {
             $strSql = $keyWord[0];
         }
+        $keyWordDescripcion = "$keyWord[0]$";
         $sql = "CALL sp_busquedaPublicacion(:keyword_T, :keyword_D)";
         $stmt = $pdo->prepare($sql);
         $stmt->bindValue(':keyword_T', $strSql);
-        $stmt->bindValue(':keyword_D', $keyWord[0]);
+        $stmt->bindValue(':keyword_D', $keyWordDescripcion);
     }
 
     $stmt->execute();

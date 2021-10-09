@@ -5,6 +5,7 @@ let criterioBusqueda = null;
 /* TODO:
 1. Verificar si el criterio de busqueda es similar a una palabra. Ej. Celular es similar a Celulares
 2. Separar palabras compuestas y comprobar si alguna tiene coincidencias con alguna publicación
+3. Cuando se de click en la publicación, que muestre su información
 EN CASO DE QUE DE EL TIEMPO:
   1. Resolver situación con carateres especiales
   2. Resolver situacion cuando se envía un solo caracter
