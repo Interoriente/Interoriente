@@ -14,7 +14,7 @@
 	<link href="https://fonts.googleapis.com/css?family=Nunito:400,700" rel="stylesheet">
 
 	<!-- Custom stlylesheet -->
-	<link type="text/css" rel="stylesheet" href="../assets/css/style.css" />
+	<link type="text/css" rel="stylesheet" href="../assets/css/estilos403.css" />
 </head>
 
 <body>

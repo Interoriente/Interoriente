@@ -1,8 +1,10 @@
 <?php
 // Iniciar variables de sesion, obtener DocId y Rol ACTUAL del usuario
 session_start();
-$respUserData = null;
-if (isset($_SESSION['documentoIdentidad'])) {
+if (!isset($_SESSION['documentoIdentidad'])) {
+    echo "<script>alert('No has iniciado sesión');</script>";
+    echo "<script> document.location.href='403.php';</script>";
+} else {
     $documento = $_SESSION["documentoIdentidad"];
     $rol = $_SESSION['roles'];
     // Pedir clases Usuarios y Publicaciones (Iniciarlas en variables PHP)
@@ -14,109 +16,108 @@ if (isset($_SESSION['documentoIdentidad'])) {
 
     $respFactura = $compra->FacturasCreadas($compra->id);
     $contadorFactura = count($respFactura);
-}
-if (isset($respUserData)) {
-    if ($rol == 1 or $rol == 3) {
+    if (isset($respUserData)) {
+        if ($rol == 1 or $rol == 3) {
 
-        //Parte superior del HTML
-        require "../includes/header.php";
+            //Parte superior del HTML
+            require "../includes/header.php";
 
-        require_once '../includes/sidebarDashboard.php';
-        require_once '../includes/navegacion.php'; ?>
+            require_once '../includes/sidebarDashboard.php';
+            require_once '../includes/navegacion.php'; ?>
 
-        <!-- Link estilos -->
-        <link rel="stylesheet" href="../../assets/css/general.css">
-        <link rel="stylesheet" href="../assets/css/misCompras.css">
-        <!-- Header -->
-        <div class="header bg-primary pb-6">
-            <div class="container-fluid">
-                <div class="header-body">
-                    <div class="row align-items-center py-3">
-                        <div class="col-lg-6 col-7">
-                            <h6 class="h2 text-white d-inline-block mb-0">Facturas generadas</h6><br>
-                        </div>
-                        <?php if (isset($_POST['numero'])) { ?>
-                            <form action="verFactura.php" method="post" target="_blank">
-                                <input type="hidden" name="numero" value="<?php echo $_POST['numero']; ?>">
-                                <button type="submit" class="btn btn-sm btn-neutral cambioRol" name="cambioRol">Ver</button>
-                            </form>
-                            <button type="submit" class="btn btn-sm btn-neutral cambioRol" name="cambioRol">Descargar</button>
-                        <?php } ?>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Productos comprados -->
-        <?php if (!isset($_POST['numero'])) {
-
-            if ($contadorFactura == 0) { ?>
-                <div class="campo-alerta">
-                    <div class="alerta" role="alert">Opps, por ahora no has realizado compras
-                        <h2 class="titulo-alerta">Para realizar una compra presiona <a class="link-mensaje" href="../../navegacion/catalogos.php">aquí</a></h2>
-                        <img class="img-caja" src="../assets/img/caja.png" alt="">
-                    </div>
-                </div>
-            <?php } ?>
-            <div class="padre">
-                <div class="header">
-                    <div class="contenedores-menu">
-
-                        <div class="menu-menu">
-                            <?php foreach ($respFactura as $misCompras) {
-                            ?>
-                                <div class="menu-principal">
-                                    <div class="cont-menudos">
-                                        <h2 class="titulo-factura">#<?php echo $misCompras['numeroFactura']; ?></h2>
-                                        <h2 class="titulo-costo">$<?php echo $misCompras['Costo']; ?></h2>
-                                        <h2 class="titulo-fecha"><?php echo $misCompras['fechaFactura']; ?></h2>
-                                        <p class="textos">Productos: <?php echo $misCompras['Contador']; ?></p>
-                                        <p class="textos"><a target="_blank" href="<?php echo "https://api.whatsapp.com/send?phone=57" . $misCompras['telefono']; ?>">WhatsApp</a>
-                                        <p>
-                                    </div>
-                                    <div class="cont-menutres">
-                                        <form action="misCompras.php" method="post">
-                                            <input type="hidden" name="numero" value="<?php echo $misCompras['numeroFactura'] ?>">
-                                            <input type="submit" class="boton-menu" value="Ver">
-                                        </form>
-                                    </div>
-                                </div>
+            <!-- Link estilos -->
+            <link rel="stylesheet" href="../../assets/css/general.css">
+            <link rel="stylesheet" href="../assets/css/misCompras.css">
+            <!-- Header -->
+            <div class="header bg-primary pb-6">
+                <div class="container-fluid">
+                    <div class="header-body">
+                        <div class="row align-items-center py-3">
+                            <div class="col-lg-6 col-7">
+                                <h6 class="h2 text-white d-inline-block mb-0">Facturas generadas</h6><br>
+                            </div>
+                            <?php if (isset($_POST['numero'])) { ?>
+                                <form action="verFactura.php" method="post" target="_blank">
+                                    <input type="hidden" name="numero" value="<?php echo $_POST['numero']; ?>">
+                                    <button type="submit" class="btn btn-sm btn-neutral cambioRol" name="cambioRol">Ver</button>
+                                </form>
+                                <button type="submit" class="btn btn-sm btn-neutral cambioRol" name="cambioRol">Descargar</button>
                             <?php } ?>
                         </div>
                     </div>
                 </div>
             </div>
-            <!-- Mostrar el contenido de la factura seleccionada -->
-        <?php }
-        if (isset($_POST['numero'])) {
-            $numero = $_POST['numero'];
-            $factura = new Factura($documento, $numero);
-            $respCuerpoFactura = $factura->CuerpoFactura($factura->id, $factura->numero)
-        ?>
-            <div class="container-fluid mt--6">
-                <div class="row">
-                    <div class="col">
-                        <div class="card">
-                            <!-- Card header -->
-                            <div class="card-header border-0">
-                                <h3 class="mb-0"> </h3>
+            <!-- Productos comprados -->
+            <?php if (!isset($_POST['numero'])) {
+
+                if ($contadorFactura == 0) { ?>
+                    <div class="campo-alerta">
+                        <div class="alerta" role="alert">Opps, por ahora no has realizado compras
+                            <h2 class="titulo-alerta">Para realizar una compra presiona <a class="link-mensaje" href="../../navegacion/catalogos.php">aquí</a></h2>
+                            <img class="img-caja" src="../assets/img/caja.png" alt="">
+                        </div>
+                    </div>
+                <?php } ?>
+                <div class="padre">
+                    <div class="header">
+                        <div class="contenedores-menu">
+
+                            <div class="menu-menu">
+                                <?php foreach ($respFactura as $misCompras) {
+                                ?>
+                                    <div class="menu-principal">
+                                        <div class="cont-menudos">
+                                            <h2 class="titulo-factura">#<?php echo $misCompras['numeroFactura']; ?></h2>
+                                            <h2 class="titulo-costo">$<?php echo $misCompras['Costo']; ?></h2>
+                                            <h2 class="titulo-fecha"><?php echo $misCompras['fechaFactura']; ?></h2>
+                                            <p class="textos">Productos: <?php echo $misCompras['Contador']; ?></p>
+                                            <p class="textos"><a target="_blank" href="<?php echo "https://api.whatsapp.com/send?phone=57" . $misCompras['telefono']; ?>">WhatsApp</a>
+                                            <p>
+                                        </div>
+                                        <div class="cont-menutres">
+                                            <form action="misCompras.php" method="post">
+                                                <input type="hidden" name="numero" value="<?php echo $misCompras['numeroFactura'] ?>">
+                                                <input type="submit" class="boton-menu" value="Ver">
+                                            </form>
+                                        </div>
+                                    </div>
+                                <?php } ?>
                             </div>
-                            <div class="table-responsive">
-                                <table id="tabla" class="table align-items-center table-flush">
-                                    <thead class="thead-light">
-                                        <tr>
-                                            <th scope="col">Nombre</th>
-                                            <th scope="col">Cantidad</th>
-                                            <th scope="col">Costo</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody class="list">
-                                        <?php
-                                        foreach ($respCuerpoFactura as $datosCompra) { ?>
+                        </div>
+                    </div>
+                </div>
+                <!-- Mostrar el contenido de la factura seleccionada -->
+            <?php }
+            if (isset($_POST['numero'])) {
+                $numero = $_POST['numero'];
+                $factura = new Factura($documento, $numero);
+                $respCuerpoFactura = $factura->CuerpoFactura($factura->id, $factura->numero)
+            ?>
+                <div class="container-fluid mt--6">
+                    <div class="row">
+                        <div class="col">
+                            <div class="card">
+                                <!-- Card header -->
+                                <div class="card-header border-0">
+                                    <h3 class="mb-0"> </h3>
+                                </div>
+                                <div class="table-responsive">
+                                    <table id="tabla" class="table align-items-center table-flush">
+                                        <thead class="thead-light">
                                             <tr>
-                                                <th><?php echo substr($datosCompra['nombrePublicacion'], 0, 90); ?>..</th>
-                                                <th><?php echo $datosCompra['cantidadFacturaPublicacion']; ?></th>
-                                                <th><?php echo number_format($datosCompra['costoPublicacion'], 0, '', '.'); ?></th>
-                                                <!-- <th>
+                                                <th scope="col">Nombre</th>
+                                                <th scope="col">Cantidad</th>
+                                                <th scope="col">Costo</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody class="list">
+                                            <?php
+                                            foreach ($respCuerpoFactura as $datosCompra) { ?>
+                                                <tr>
+                                                    <th><?php echo substr($datosCompra['nombrePublicacion'], 0, 90); ?>..</th>
+                                                    <th><?php echo $datosCompra['cantidadFacturaPublicacion']; ?></th>
+                                                    <th><?php echo number_format($datosCompra['costoPublicacion'], 0, '', '.'); ?></th>
+                                                    <!-- <th>
                                                     <button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                         Acciones
                                                     </button>
@@ -132,28 +133,25 @@ if (isset($respUserData)) {
                                                         </form>
                                                     </div>
                                                 </th> -->
-                                            </tr>
-                                        <?php
+                                                </tr>
+                                            <?php
 
-                                        }
-                                        ?>
-                                    </tbody>
-                                </table>
+                                            }
+                                            ?>
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        <?php } ?>
-        <!-- Footer -->
+            <?php } ?>
+            <!-- Footer -->
 <?php require_once '../includes/footer.php';
-    } else {
-        echo "<script>alert('No puedes acceder a esta página!');</script>";
-        echo "<script> document.location.href='403.php';</script>";
+        } else {
+            echo "<script>alert('No puedes acceder a esta página!');</script>";
+            echo "<script> document.location.href='403.php';</script>";
+        }
     }
-} else {
-    echo "<script>alert('No has iniciado sesión');</script>";
-    echo "<script> document.location.href='403.php';</script>";
 }
-
 ?>

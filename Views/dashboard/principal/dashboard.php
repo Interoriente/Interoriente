@@ -1,6 +1,9 @@
 <?php
 session_start();
-if (isset($_SESSION['documentoIdentidad'])) {
+if (!isset($_SESSION['documentoIdentidad'])) {
+  echo "<script>alert('No has iniciado sesión!');</script>";
+  echo "<script> document.location.href='403.php';</script>";
+} else {
   require "../../../Controllers/php/users/usuarios.php";
   $documento = $_SESSION["documentoIdentidad"];
   $usuario = new Usuario($documento);
@@ -21,34 +24,33 @@ if (isset($_SESSION['documentoIdentidad'])) {
 
   //Mostrar gráfica de ventas anuales
   require "../includes/graficas.php";
-}
-if (isset($respUserData)) {
-  $rol = $_SESSION['roles'];
-  //Validacion de roles
-  if ($rol == 1 or $rol == 3) {
+  if (isset($respUserData)) {
+    $rol = $_SESSION['roles'];
+    //Validacion de roles
+    if ($rol == 1 or $rol == 3) {
 
-    //Parte superior del HTML
-    require "../includes/header.php";
+      //Parte superior del HTML
+      require "../includes/header.php";
 
-    if (isset($_POST['cambioRol'])) {
-      if ($_POST['rol'] == '1') {
-        $_SESSION['roles'] = 1;
-      } else {
-        $_SESSION['roles'] = 3;
+      if (isset($_POST['cambioRol'])) {
+        if ($_POST['rol'] == '1') {
+          $_SESSION['roles'] = 1;
+        } else {
+          $_SESSION['roles'] = 3;
+        }
       }
-    }
-    require_once '../includes/sidebarDashboard.php';
-    require_once '../includes/navegacion.php';
+      require_once '../includes/sidebarDashboard.php';
+      require_once '../includes/navegacion.php';
 ?>
-    <script>
-      //Mando al JS la información, por medio de las variables declaradas
-      let labelVentas = [<?php echo $labelVentas; ?>];
-      let datosVentas = [<?php echo $datosVentas; ?>];
-      let labelVentasSemana = [<?php echo $labelVentasSemana; ?>];
-      let datosVentasSemana = [<?php echo $datosVentasSemana; ?>];
-    </script>
-    <link rel="stylesheet" href="../../assets/css/general.css">
-    <link rel="stylesheet" href="../assets/css/misPublicaciones.css">
+      <script>
+        //Mando al JS la información, por medio de las variables declaradas
+        let labelVentas = [<?php echo $labelVentas; ?>];
+        let datosVentas = [<?php echo $datosVentas; ?>];
+        let labelVentasSemana = [<?php echo $labelVentasSemana; ?>];
+        let datosVentasSemana = [<?php echo $datosVentasSemana; ?>];
+      </script>
+      <link rel="stylesheet" href="../../assets/css/general.css">
+      <link rel="stylesheet" href="../assets/css/misPublicaciones.css">
 
       <!-- Header -->
       <div class="header bg-primary pb-6">
@@ -415,15 +417,12 @@ if (isset($respUserData)) {
         -- Fin Clase columna -->
         <!-- Cierre clase main -->
       </div>
-    <!-- Parte Inferior del HTML -->
+      <!-- Parte Inferior del HTML -->
 <?php require_once '../includes/footer.php';
-  } else {
-    echo "<script>alert('No puedes acceder a esta página!');</script>";
-    echo "<script> document.location.href='403.php';</script>";
+    } else {
+      echo "<script>alert('No puedes acceder a esta página!');</script>";
+      echo "<script> document.location.href='403.php';</script>";
+    }
   }
-} else {
-  echo "<script>alert('No has iniciado sesión!');</script>";
-  echo "<script> document.location.href='403.php';</script>";
 }
 ?>
-
