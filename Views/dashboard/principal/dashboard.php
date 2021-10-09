@@ -310,7 +310,7 @@ if (!isset($_SESSION['documentoIdentidad'])) {
           </div>
           <div class="table-responsive">
             <!-- Projects table -->
-            <table class="table align-items-center table-flush">
+            <table id="example" class="table align-items-center table-flush">
               <?php if (!isset($respMasExitosas->Titulos[0]) == "") { ?>
                 <thead class="thead-light">
                   <tr>

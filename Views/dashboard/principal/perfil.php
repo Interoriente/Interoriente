@@ -205,7 +205,7 @@ if (!isset($_SESSION['documentoIdentidad'])) {
               <h1 id="titulo-direccion">Mis Direcciones</h1>
 
               <div class="table-responsive">
-                <table id="tabla" class="table align-items-center table-flush">
+                <table id="example" class="table align-items-center table-flush">
                   <thead class="thead-light">
                     <tr>
                       <th scope="col">Nombre</th>
