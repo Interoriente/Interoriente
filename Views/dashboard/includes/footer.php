@@ -22,7 +22,7 @@
 <script src="datatables/Buttons-1.5.6/js/buttons.html5.min.js"></script>
 
 <!-- código JS propìo-->
-<script type="text/javascript" src="main.js"></script>
+<script type="text/javascript" src="../assets/js/main.js"></script>
 </body>
 
 </html>
