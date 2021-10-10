@@ -42,37 +42,17 @@ class Publicaciones
     {
         $this->id = $docId;
     }
-    public function ContarPublicaciones($docId)
-    /* DESDE */
-    {
-        try {
-            require '../../../Models/dao/conexion.php';
-            $sqlSesionPubli = "SELECT * 
-            FROM tblPublicacion 
-            WHERE docIdentidadPublicacion = ?";
-            $consultaSesionPubli = $pdo->prepare($sqlSesionPubli);
-            $consultaSesionPubli->execute(array($docId));
-            return $consultaSesionPubli->rowCount();
-        } catch (\Throwable $th) {
-            echo "<script>alert('Ocurrió un error');</script>";
-        }
-    }
 
     public function MostrarPublicaciones($docId)
     {
         try {
             require '../../../Models/dao/conexion.php';
-            $sqlPubli = "SELECT *
-            FROM tblPublicacion as PU
-            INNER JOIN tblImagenes 
-            as IMG ON PU.idPublicacion = IMG.publicacionImagen
-            WHERE docIdentidadPublicacion = ?
-            GROUP BY PU.nombrePublicacion, PU.descripcionPublicacion,PU.costoPublicacion
-            ORDER BY nombrePublicacion asc";
+            $sqlPubli = "CALL sp_mostrarPublicaciones(:id)";
             //Prepara sentencia
             $consultarPubli = $pdo->prepare($sqlPubli);
+            $consultarPubli->bindValue(":id", $docId);
             //Ejecutar consulta
-            $consultarPubli->execute(array($docId));
+            $consultarPubli->execute();
             return $consultarPubli->fetchAll();
         } catch (\Throwable $th) {
             echo "<script>alert('Ocurrió un error');</script>";
@@ -84,9 +64,7 @@ class Publicaciones
         try {
             require '../../../Models/dao/conexion.php';
             /* Lista desplegable de los estados de artículos */
-            $sqlEstado = "SELECT * 
-            FROM tblEstadoArticulo 
-            ORDER BY nombreEstadoArticulo ASC";
+            $sqlEstado = "CALL sp_mostrarEstados()";
             //Prepara sentencia
             $consultarEstado = $pdo->prepare($sqlEstado);
             //Ejecutar consulta
@@ -98,14 +76,13 @@ class Publicaciones
         }
     }
 
+
     public function getCategorias()
     {
         try {
             require '../../../Models/dao/conexion.php';
             /* Lista desplegable de categoría */
-            $sqlCategoria = "SELECT * 
-            FROM tblCategoria 
-            ORDER BY nombreCategoria ASC";
+            $sqlCategoria = "CALL sp_mostrarCategorias()";
             //Prepara sentencia
             $consultarCategoria = $pdo->prepare($sqlCategoria);
             //Ejecutar consulta
@@ -116,6 +93,8 @@ class Publicaciones
             echo "<script>alert('Ocurrió un error');</script>";
         }
     }
+
+
 
     public function CrearPublicacion(
         $nombrePubli,
@@ -130,23 +109,24 @@ class Publicaciones
             require '../../../Models/dao/conexion.php';
             $verificacion = '0';
             //sentencia SQL
-            $sql = "INSERT 
-            INTO tblPublicacion 
-            (nombrePublicacion,docIdentidadPublicacion,
-            descripcionPublicacion,costoPublicacion,
-            stockPublicacion,categoriaPublicacion,validacionPublicacion)
-            VALUES (?,?,?,?,?,?,?)";
+            $sql = "CALL sp_publicacionCrear(:nombre,:descripcion,
+            :costo,:stock,:categoria,:documento,:verificacion)";
             //Preparar consulta
             $insertarPublicacion = $pdo->prepare($sql);
+            $insertarPublicacion->bindValue(":nombre", $nombrePubli);
+            $insertarPublicacion->bindValue(":descripcion", $descripcionPubli);
+            $insertarPublicacion->bindValue(":costo", $costoPubli);
+            $insertarPublicacion->bindValue(":stock", $stockPubli);
+            $insertarPublicacion->bindValue(":categoria", $categoriaPubli);
+            $insertarPublicacion->bindValue(":documento", $documentoIdentidadPubli);
+            $insertarPublicacion->bindValue(":verificacion", $verificacion);
             //Almaceno información
-            $insertarPublicacion->execute(array(
-                $nombrePubli, $documentoIdentidadPubli,
-                $descripcionPubli, $costoPubli,
-                $stockPubli, $categoriaPubli, $verificacion
-            ));
+            $insertarPublicacion->execute();
+            $insertarPublicacion->closeCursor();
 
             //Seleccionar último id en la BD
             $idPublicacion = ($pdo->lastInsertId());
+            echo $idPublicacion;
             $idPubli = "id" . $idPublicacion . "_";
 
             $cantidad = count($_FILES['imagen']['tmp_name']);
@@ -166,11 +146,11 @@ class Publicaciones
                     //Subimos la imagen al servidor
                     if (move_uploaded_file($temporal, $ruta)) {
                         //Insertando imagen en la tabla
-                        $sqlInsertarImagen = "INSERT 
-                        INTO tblImagenes (urlImagen, publicacionImagen)
-                        VALUES (?,?)";
+                        $sqlInsertarImagen = "CALL sp_imagenInsertar(:url,:publicacion)";
                         $insertarImagen = $pdo->prepare($sqlInsertarImagen);
-                        $resultado = $insertarImagen->execute(array($archivo, $idPublicacion));
+                        $insertarImagen->bindValue(":url", $archivo);
+                        $insertarImagen->bindValue(":publicacion", $idPublicacion);
+                        $resultado = $insertarImagen->execute();
 
                         /* Validar ejecución exitosa de la sentencia */
 
@@ -188,8 +168,8 @@ class Publicaciones
                 }
             }
         } catch (\Throwable $th) {
-            echo "<script>alert('Ocurrió un error');</script>";
-            echo "<script> document.location.href='../../../Views/dashboard/principal/crearPublicacion.php';</script>";
+            echo $th->getMessage();
+            /* echo "<script> document.location.href='../../../Views/dashboard/principal/crearPublicacion.php';</script>"; */
         }
     }
     public function MostrarTodasPublicaciones()
@@ -304,7 +284,7 @@ class Publicaciones
         try {
 
             require '../../Models/dao/conexion.php';
-            $sql = "CALL sp_mostrarPublicacion(:id)";
+            $sql = "CALL sp_mostrarPublicaciones(:id)";
             $stmt = $pdo->prepare($sql);
             $stmt->bindValue(":id", $id);
             $stmt->execute();

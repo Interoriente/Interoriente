@@ -10,7 +10,8 @@ if (!isset($_SESSION['documentoIdentidad'])) {
   $usuario = new Usuario($documento);
   $respUserData = $usuario->getUserData($usuario->id);
   $publicaciones = new Publicaciones($documento);
-  $respContarPublicaciones = $publicaciones->ContarPublicaciones($publicaciones->id);
+  $respMostrarPublicaciones = $publicaciones->MostrarPublicaciones($publicaciones->id);
+  $contadorPublicaciones = count($respMostrarPublicaciones);
   $respGetCiudades = $usuario->getCiudades();
   $respGetDirecciones = $usuario->getDirecciones($usuario->id);
   /* Mostrar nombre completo del usuario logeado */
@@ -65,7 +66,7 @@ if (!isset($_SESSION['documentoIdentidad'])) {
                   <div class="col">
                     <div class="card-profile-stats d-flex justify-content-center">
                       <div>
-                        <span class="heading"><?php echo $respContarPublicaciones; ?></span>
+                        <span class="heading"><?php echo $contadorPublicaciones; ?></span>
                         <span class="description">Publicaciones</span>
                       </div>
                       <div>
