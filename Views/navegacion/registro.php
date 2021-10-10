@@ -27,8 +27,6 @@ require "../includes/linksGoogle.php";
 </head>
 
 <body class="bg-default">
-    <!-- Navegación -->
-    <?php require '../includes/superior.php'; ?>
     <!-- Main content -->
     <div class="main-content">
         <!-- Header -->
@@ -149,5 +147,3 @@ require "../includes/linksGoogle.php";
             </div>
         </div>
     </div>
-    <!-- navegación -->
-    <?php include '../includes/navInferior.php'; ?>

@@ -43,6 +43,7 @@ class Publicaciones
         $this->id = $docId;
     }
     public function ContarPublicaciones($docId)
+    /* DESDE */
     {
         try {
             require '../../../Models/dao/conexion.php';
@@ -130,7 +131,7 @@ class Publicaciones
             $verificacion = '0';
             //sentencia SQL
             $sql = "INSERT 
-            INTO tblPublicacion1 
+            INTO tblPublicacion 
             (nombrePublicacion,docIdentidadPublicacion,
             descripcionPublicacion,costoPublicacion,
             stockPublicacion,categoriaPublicacion,validacionPublicacion)

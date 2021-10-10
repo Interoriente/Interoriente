@@ -18,24 +18,24 @@ if (isset($_POST['iniciarSesion']) || isset($_POST['registrarse']) || isset($_GE
         $contrasenaRepetida = strip_tags($_POST['recontrasena']);
         $perfil = strip_tags($_POST['imagen']);
         $registro = new Registro();
-        $registro->registrarUsuario($nombre, $apellido, $docIdentidad, $email, $contrasena, $contrasenaRepetida, $perfil);
+        $registro->registrarUsuario($docIdentidad, $nombre, $apellido,  $email, $contrasena, $contrasenaRepetida, $perfil);
     }
 }
 
 class Registro
 {
-    public function registrarUsuario($nombres, $apellidos, $docId, $correo, $pass, $rePass, $imagen)
+    public function registrarUsuario($docId, $nombres, $apellidos,  $correo, $pass, $rePass, $imagen)
     {
         try {
             if ($pass == $rePass) {
                 //Llamar a la conexion base de datos
                 require '../../../Models/dao/conexion.php';
                 //Verificación si el id ya existe 
-                $sqlExistente = "SELECT *
-                FROM tblUsuario 
-                WHERE emailUsuario = ? OR documentoIdentidad = ?";
+                $sqlExistente = "CALL sp_validacionCorreoDocumento(:correo,:id)";
                 $consultaExistente = $pdo->prepare($sqlExistente);
-                $consultaExistente->execute(array($correo, $docId));
+                $consultaExistente->bindValue(":correo", $correo);
+                $consultaExistente->bindValue(":id", $docId);
+                $consultaExistente->execute();
                 $resultadoExistente = $consultaExistente->rowCount();
                 if (!$resultadoExistente) {
                     //Sha1 -> Método de encriptación
@@ -45,21 +45,29 @@ class Registro
                     $rol = '1';
                     //Consulta correo ingresado no existe en BD
                     //sentencia Sql
-                    $sqlRegistro = "INSERT INTO tblUsuario 
-                    (documentoIdentidad,nombresUsuario, apellidoUsuario, 
-                    emailUsuario,contrasenaUsuario,estadoUsuario,imagenUsuario)
-                    VALUES (?,?,?,?,?,?,?)";
+                    $sqlRegistro = "CALL sp_registrarUsuario (:id,:nombre,:apellido,
+                    :correo,:contrasena,:estado,:imagen)";
                     //Preparar consulta
                     $consultaRegistro = $pdo->prepare($sqlRegistro);
+                    $consultaRegistro->bindValue(":id", $docId);
+                    $consultaRegistro->bindValue(":nombre", $nombres);
+                    $consultaRegistro->bindValue(":apellido", $apellidos);
+                    $consultaRegistro->bindValue(":correo", $correo);
+                    $consultaRegistro->bindValue(":contrasena", $contrasena);
+                    $consultaRegistro->bindValue(":estado", $estado);
+                    $consultaRegistro->bindValue(":imagen", $perfil);
+                    $consultaRegistro->closeCursor();
                     //Ejecutar la sentencia
-                    $consultaRegistro->execute(array($docId, $nombres, $apellidos, $correo, $contrasena,  $estado, $perfil));
+                    $consultaRegistro->execute();
                     //llamado a la tabla rol (intermedia) para almacenar el rol predeterminado
-                    $sqlRegistroUR = "INSERT INTO tblUsuarioRol 
-                    (idUsuarioRol,docIdentidadUsuarioRol)VALUES (?,?)";
+                    $sqlRegistroUR = "CALL sp_guardarRol (:rol,:id)";
                     //Preparar consulta
                     $consultaRegistroUR = $pdo->prepare($sqlRegistroUR);
+                    $consultaRegistroUR->bindValue(":rol", $rol);
+                    $consultaRegistroUR->bindValue(":id", $docId);
+                    $consultaRegistroUR->closeCursor();
                     //Ejecutar la sentencia
-                    $consultaRegistroUR->execute(array($rol, $docId));
+                    $consultaRegistroUR->execute();
                     /* Almacenado documento de identidad en variable de sesión
                     Creación de la sesión */
                     session_start();
@@ -92,24 +100,24 @@ class InicioSesion
             $id = strip_tags($idUsuario);
             $contrasena = sha1(strip_tags($clave));
             $estado = '1';
-            $sql = "SELECT documentoIdentidad
-            FROM tblUsuario 
-            WHERE (documentoIdentidad = ? OR emailUsuario = ?)  
-            AND contrasenaUsuario = ? AND estadoUsuario = ?";
+            $sql = "CALL sp_iniciarSesion(:id,:contrasena,:estado)";
             $stmt = $pdo->prepare($sql);
-            $stmt->execute(array($id, $id, $contrasena, $estado));
+            $stmt->bindValue(":id", $id);
+            $stmt->bindValue(":contrasena", $contrasena);
+            $stmt->bindValue(":estado", $estado);
+            $stmt->execute();
             $resultado = $stmt->rowCount();
             if ($resultado) {
                 if ($dataUsuario = $stmt->fetch(PDO::FETCH_OBJ)) {
                     //Llamado al documento independiente si ingresa correo o documento
                     $documento = $dataUsuario->documentoIdentidad;
                 }
+                $stmt->closeCursor();
                 /* Selecciona el rol del usuario que está intentando iniciar sesión */
-                $sqlUsuarioRol = "SELECT idUsuarioRol 
-                FROM tblUsuarioRol 
-                WHERE docIdentidadUsuarioRol = ?";
+                $sqlUsuarioRol = "CALL sp_rolUsuario (:id)";
                 $stmtUsuarioRol = $pdo->prepare($sqlUsuarioRol);
-                $stmtUsuarioRol->execute(array($documento));
+                $stmtUsuarioRol->bindValue(":id", $documento);
+                $stmtUsuarioRol->execute();
                 $resultadoUsuarioRol = $stmtUsuarioRol->rowCount();
                 /* En caso de que el usuario tenga rol o roles asociados */
                 if ($resultadoUsuarioRol) {
@@ -128,6 +136,7 @@ class InicioSesion
             }
         } catch (\Throwable $th) {
             /*echo "<script>alert('Ocurrió un error!');</script>";*/
+            print "Error! " . $th->getMessage();
         }
     }
     public function LoginGoogle()
