@@ -76,11 +76,11 @@ async function scraprePublicacion(url) {
 }
 
 function procesarInformacion(titulo, precio, descripcion, imgs) {
-  const sqlUsuario =
+/*   const sqlUsuario =
     "SELECT documentoIdentidad AS id FROM tblUsuario ORDER BY RAND() LIMIT 1";
   con.query(sqlUsuario, function (err, result) {
-    if (err) return err;
-    let docId = result[0].id;
+    if (err) return err; */ //cambio temporal para asignar todas las publicaciones a un mismo usuario
+    let docId = 123456789;
     let puntuacion = Math.floor(Math.random() * (5 - 1 + 1) + 1);
     let stock = Math.floor(Math.random() * (250 - 2 + 1) + 2);
     let cat = categoria;
@@ -114,5 +114,5 @@ function procesarInformacion(titulo, precio, descripcion, imgs) {
         exit();
       });
     });
-  });
+  /* }); */ //Cambio temporal
 }
