@@ -69,15 +69,7 @@ function getPublicaciones()
     require('../../Models/dao/conexion.php');
     /* Consulta */
 
-    $sql = "SELECT IMG.urlImagen,PU.idPublicacion,PU.nombrePublicacion,PU.descripcionPublicacion,
-            PU.costoPublicacion,PU.stockPublicacion,PU.validacionPublicacion
-            FROM tblPublicacion as PU
-            INNER JOIN tblImagenes as IMG 
-            ON PU.idPublicacion = IMG.publicacionImagen
-            WHERE validacionPublicacion='1'
-            GROUP BY PU.idPublicacion
-            ORDER BY rand()
-            ";
+    $sql = "CALL sp_getPublicaciones()";
 
     /* Envío de la consulta a través del objeto PDO */
     $consulta = $pdo->prepare($sql);   /* PDO statement-> Ejecutarlo */
@@ -103,11 +95,7 @@ function addCarrito($id)
       -imagen
       -precio
       */
-    $sql = "SELECT idPublicacion as 'id', 
-            nombrePublicacion as 'titulo', 
-            costoPublicacion as 'costo'
-            FROM tblPublicacion 
-            WHERE idPublicacion = (:id)";
+    $sql = "CALL sp_addCarrito(:id)";
     $consulta = $pdo->prepare($sql);
     $consulta->bindValue(":id", $id);
     $consulta->execute();
@@ -133,9 +121,7 @@ function almacenarCarrito($carrito)
       foreach ($carrito as $item) {
         $idPubli = $item->id;
         $cantidad = $item->cantidad;
-        $sql = "INSERT INTO tblCarrito 
-      (idPublicacionCarrito, docIdentidadCarrito, cantidadCarrito)
-      VALUES(:idPubli, :idUser, :cantidad)";
+        $sql = "CALL sp_almacenarCarrito";
         $stmt = $pdo->prepare($sql);
         $stmt->bindValue(':idPubli', $idPubli);
         $stmt->bindValue(':idUser', $idUsuario);
@@ -161,20 +147,9 @@ class Checkout
       require '../../Models/dao/conexion.php';
       session_start();
       $idUsuario = $_SESSION['documentoIdentidad'];
-      $sql = "SELECT PU.nombrePublicacion AS 'titulo', 
-      PU.costoPublicacion AS 'costo', 
-      SUM(CA.cantidadCarrito * PU.costoPublicacion) AS 'subtotal', 
-      (SUM(CA.cantidadCarrito * PU.costoPublicacion) * 0.19) AS 'iva', 
-      (SUM(CA.cantidadCarrito * PU.costoPublicacion) + 
-      (SUM(CA.cantidadCarrito * PU.costoPublicacion) * 0.19)) AS 'total'
-      FROM tblPublicacion AS PU 
-      INNER JOIN tblCarrito AS CA 
-      ON PU.idPublicacion = CA.idPublicacionCarrito
-      INNER JOIN tblUsuario AS US 
-      ON CA.docIdentidadCarrito = US.documentoIdentidad
-      WHERE CA.docIdentidadCarrito = $idUsuario
-      GROUP BY CA.idPublicacionCarrito";
+      $sql = "CALL sp_getCheckoutInfo()";
       $stmt = $pdo->prepare($sql);
+      $stmt->bindValue(":id", $idUsuario);
       $stmt->execute();
       $resultado = $stmt->fetchAll();
       return $resultado;
@@ -214,9 +189,7 @@ class Checkout
   {
     try {
       require '../../../Models/dao/conexion.php';
-      $sql = "SELECT idCiudad as 'id', 
-      nombreCiudad as 'nombre' 
-      FROM tblCiudad ORDER BY nombreCiudad";
+      $sql = "CALL sp_getCiudades()";
       $stmt = $pdo->prepare($sql);
       $stmt->execute();
       $resultado = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -233,8 +206,7 @@ class Checkout
       session_start();
       $idUsuario = $_SESSION['documentoIdentidad'];
       /* Almacenar información de la compra */
-      $sqlFa = "INSERT INTO `tblFactura`
-      VALUES (null,:idUser,CURRENT_TIMESTAMP,:direccion,:email)";
+      $sqlFa = "sp_insertarFactura(:idUser,:direccion,:email)";
       $stmt = $pdo->prepare($sqlFa);
       $stmt->bindValue(':idUser', $idUsuario);
       $stmt->bindValue(':direccion', $direccion);
@@ -242,35 +214,30 @@ class Checkout
       $stmt->execute();
       $idFactura = $pdo->lastInsertId(); //Regresar el id del último registro insertado
       /* Almacenar información en tabla intermedia tblfacturapublicacion */
-      $sqlCa = "SELECT idPublicacionCarrito as 'idPu',
-      cantidadCarrito as 'cantidad' 
-      FROM tblCarrito
-      WHERE docIdentidadCarrito = $idUsuario";
+      $sqlCa = "CALL sp_mostrarIdCarrito(:id)";
       $stmtCa = $pdo->prepare($sqlCa);
+      $stmtCa->bindValue(":id", $idUsuario);
       $stmtCa->execute();
       $respuesta = $stmtCa->fetchAll(PDO::FETCH_ASSOC);
       foreach ($respuesta as $fila) {
         $idPubli = $fila['idPu'];
         $cantidad = $fila['cantidad'];
-        $sqlFacPu = "INSERT INTO tblFacturaPublicacion
-        VALUES (:idFact, :idPubli, :cantidad)";
+        $sqlFacPu = "CALL sp_insertarFacturaPublicacion (:idFact, :idPubli, :cantidad)";
         $stmtFacPu = $pdo->prepare($sqlFacPu);
         $stmtFacPu->bindValue(':idFact', $idFactura);
         $stmtFacPu->bindValue(':idPubli', $idPubli);
         $stmtFacPu->bindValue(':cantidad', $cantidad);
         $stmtFacPu->execute();
         //Restar stock a la publicación
-        $sqlStock = "UPDATE tblPublicacion
-        SET stockPublicacion = (stockPublicacion-$cantidad)
-        WHERE idPublicacion =?";
+        $sqlStock = "CALL sp_actualizarExistencia(:id,:cantidad";
         $stmtStock = $pdo->prepare($sqlStock);
-        $stmtStock->execute(array($idPubli));
+        $stmtStock->execute();
 
         /* Eliminar información de la tabla carrito */
-        $sqlDeleteCart = "DELETE FROM tblCarrito 
-        WHERE idPublicacionCarrito = $idPubli 
-        AND docIdentidadCarrito = $idUsuario";
+        $sqlDeleteCart = "CALL sp_borrarCarrito(:id,:documento)";
         $stmtDeleteCart = $pdo->prepare($sqlDeleteCart);
+        $stmtDeleteCart->bindValue(":id",$idPubli);
+        $stmtDeleteCart->bindValue(":documento",$idUsuario);
         $stmtDeleteCart->execute();
       }
       return "Proceso de Compras Finalizado!!";
@@ -291,22 +258,11 @@ class Compra
   {
     try {
       require('../../../Models/dao/conexion.php');
-      $sqlMisCompras = "SELECT US.telefonoMovilUsuario as 'telefono',FA.numeroFactura,FA.fechaFactura,
-      FA.direccionFactura,FA.emailFactura,COUNT(FP.numFacturaPublicacion) AS 'Contador',
-      SUM(FP.cantidadFacturaPublicacion * PU.costoPublicacion) AS 'Costo'
-      FROM tblFactura as FA
-      INNER JOIN tblFacturaPublicacion as FP
-      ON FP.numFacturaPublicacion=FA.numeroFactura
-      INNER JOIN tblPublicacion as PU
-      ON PU.idPublicacion=FP.idPublicacionFactura
-      INNER JOIN tblUsuario as US
-      ON US.documentoIdentidad=PU.docIdentidadPublicacion
-      WHERE FA.docIdentidadFactura=?
-      GROUP BY FA.numeroFactura
-      ORDER BY FA.numeroFactura ASC";
-      $consultaSql = $pdo->prepare($sqlMisCompras);
-      $consultaSql->execute(array($id));
-      return $consultaSql->fetchAll();
+      $sql = "CALL sp_facturasCreadas(:id)";
+      $stmt = $pdo->prepare($sql);
+      $stmt->bindValue(":id", $id);
+      $stmt->execute();
+      return $stmt->fetchAll();
     } catch (\Throwable $th) {
       /*echo "<script>alert('Ocurrió un error!');</script>";*/
     }
@@ -326,16 +282,12 @@ class Factura
   {
     try {
       require('../../../Models/dao/conexion.php');
-      $sqlMisCompras = "SELECT PU.nombrePublicacion,PU.costoPublicacion,FP.cantidadFacturaPublicacion, FP.cantidadFacturaPublicacion*PU.costoPublicacion as pagar
-      FROM tblFactura as FA
-      INNER JOIN tblFacturaPublicacion as FP ON FP.numFacturaPublicacion = FA.numeroFactura
-      INNER JOIN tblUsuario AS US ON FA.docIdentidadFactura=US.documentoIdentidad
-      INNER JOIN tblPublicacion as PU ON PU.idPublicacion=FP.idPublicacionFactura
-      WHERE FA.numeroFactura=? AND US.documentoIdentidad=?
-      ORDER BY PU.nombrePublicacion ASC";
-      $consultaSql = $pdo->prepare($sqlMisCompras);
-      $consultaSql->execute(array($numero, $id));
-      return $consultaSql->fetchAll();
+      $sqlMisCompras = "CALL sp_cuerpoFactura(:id,:numero)";
+      $stmt = $pdo->prepare($sqlMisCompras);
+      $stmt->bindValue(":id", $id);
+      $stmt->bindValue(":numero", $numero);
+      $stmt->execute();
+      return $stmt->fetchAll();
     } catch (\Throwable $th) {
       /*echo "<script>alert('Ocurrió un error!');</script>";*/
     }
@@ -344,17 +296,12 @@ class Factura
   {
     try {
       require('../../../Models/dao/conexion.php');
-      $sqlCliente   = "SELECT US.descripcionUsuario,FA.direccionFactura,
-      FA.emailFactura,US.telefonoMovilUsuario,
-      FA.numeroFactura,DATE_FORMAT(FA.fechaFactura, '%d/%m/%Y') as fecha, 
-      DATE_FORMAT(FA.fechaFactura,'%H:%i:%s') as  hora,
-      US.documentoIdentidad,concat(US.nombresUsuario,' ',US.apellidoUsuario) as Cliente 
-      FROM tblUsuario AS US
-      INNER JOIN tblFactura AS FA ON FA.docIdentidadFactura=US.documentoIdentidad
-      WHERE US.documentoIdentidad=? AND FA.numeroFactura=?";
-      $prepararCliente = $pdo->prepare($sqlCliente);
-      $prepararCliente->execute(array($id, $numero));
-      return $prepararCliente->fetch(PDO::FETCH_OBJ);
+      $sql   = "CALL sp_encabezadoFactura(:id,:numero)";
+      $stmt = $pdo->prepare($sql);
+      $stmt->bindValue(":id", $id);
+      $stmt->bindValue(":numero", $numero);
+      $stmt->execute();
+      return $stmt->fetch(PDO::FETCH_OBJ);
     } catch (\Throwable $th) {
       /*echo "<script>alert('Ocurrió un error!');</script>";*/
     }

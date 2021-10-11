@@ -62,7 +62,7 @@ class Usuario
             }
         } catch (\Throwable $th) {
             //throw $th;
-            echo "<script>alert('Ocurrió un error');</script>";
+            /* echo "<script>alert('Ocurrió un error');</script>"; */
             echo "<script>document.location.href='../../../Views/dashboard/principal/dashboard.php';</script>";
         }
     }
@@ -86,7 +86,7 @@ class Usuario
     {
         try {
             require('../../../Models/dao/conexion.php');
-            $sql = "CALL sp_Ciudades()";
+            $sql = "CALL sp_getCiudades";
             $stmt = $pdo->prepare($sql);
             $stmt->execute();
             $resultado = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -101,7 +101,7 @@ class Usuario
     {
         try {
             require "../../../Models/dao/conexion.php";
-            $sql = "CALL sp_getRoles";
+            $sql = "CALL sp_getRoles(:id)";
             $stmt = $pdo->prepare($sql);
             $stmt->bindParam(':id', $docId);
             $stmt->execute();
@@ -123,7 +123,7 @@ class Usuario
             $stmt = $pdo->prepare($sql);
             $stmt->bindValue(":id", $docId);
             //Ejecutar consulta
-            $stmt->execute(array($docId));
+            $stmt->execute();
             return $stmt->fetchAll();
         } catch (\Throwable $th) {
             echo "<script>alert('Ocurrió un error');</script>";

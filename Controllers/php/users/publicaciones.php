@@ -131,7 +131,6 @@ class Publicaciones
             $ultimoId = $ultimoId->fetch(PDO::FETCH_ASSOC);
             $idPublicacion = $ultimoId['MAX(idPublicacion)'];
 
-            echo $idPublicacion;
             $idPubli = "id" . $idPublicacion . "_";
 
             $cantidad = count($_FILES['imagen']['tmp_name']);
@@ -173,8 +172,8 @@ class Publicaciones
                 }
             }
         } catch (\Throwable $th) {
-            echo $th->getMessage();
-            /* echo "<script> document.location.href='../../../Views/dashboard/principal/crearPublicacion.php';</script>"; */
+            echo "<script>alert('Ocurrió un error');</script>";
+            echo "<script> document.location.href='../../../Views/dashboard/principal/crearPublicacion.php';</script>";
         }
     }
     public function MostrarTodasPublicaciones()
