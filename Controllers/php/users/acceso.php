@@ -178,12 +178,10 @@ class InicioSesion
                 /* FIN Codigo de Google*/
                 require_once '../../../Models/dao/conexion.php';
                 // Consulta SQL para obtener TODOS los datos del Usuario, incluyendo el rol conociendo su Email (dado por google)
-                $sqlInicio = "SELECT*
-                FROM tblUsuario as US
-                INNER JOIN tblUsuarioRol as UR ON US.documentoIdentidad = UR.docIdentidadUsuarioRol
-                WHERE emailUsuario=?";
+                $sqlInicio = "CALL sp_loginGoogle(:correo)";
                 $consultaInicio = $pdo->prepare($sqlInicio);
-                $consultaInicio->execute(array($email));
+                $consultaInicio->bindValue(":correo", $email);
+                $consultaInicio->execute();
                 // RowCount para saber si realmente, EXISTE algun usuario
                 $resultadoInicio = $consultaInicio->rowCount();
                 $_SESSION['email'] = $email;

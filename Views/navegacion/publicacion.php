@@ -100,7 +100,7 @@ $respPublicacion = $publicacion->MostrarPublicacion($publicacion->id);
       <div class="tarjeta-perfil">
         <img src="../dashboard/principal/<?php echo $respPublicacion[0]['imagenUsuario']; ?>" alt="Imagen de perfil del proveedor">
         <a href="">
-          <?php echo $respPublicacion[0]['nombresUsuario']; ?> S.A.S.
+          <?php echo $respPublicacion[0]['nombresUsuario']; ?>
         </a>
       </div>
 

@@ -52,11 +52,7 @@ class Usuario
     {
         try {
             require '../../../Models/dao/conexion.php';
-            $sqlValidacion = "SELECT *
-                FROM tblUsuario AS US
-                INNER JOIN tblUsuarioRol AS UR 
-                ON UR.docIdentidadUsuarioRol = US.documentoIdentidad
-                WHERE US.documentoIdentidad = :id AND US.estadoUsuario = '1'";
+            $sqlValidacion = "CALL sp_getUserData(:id)";
             $stmt = $pdo->prepare($sqlValidacion);
             $stmt->bindParam(':id', $docId);
             $stmt->execute();
@@ -74,19 +70,12 @@ class Usuario
     {
         try {
             require '../../../Models/dao/conexion.php';
-            $sqlDireccion = "SELECT 
-              DI.idDireccion, 
-              DI.nombreDireccion,
-              DI.descripcionDireccion,
-              CI.nombreCiudad,
-              CI.idCiudad 
-              FROM tblDirecciones as DI
-              INNER JOIN tblCiudad as CI ON DI.ciudadDireccion = CI.idCiudad
-              WHERE docIdentidadDireccion = ?";
+            $sqlDireccion = "CALL sp_getDirecciones(:id)";
             //Prepara sentencia
             $consultarDireccion = $pdo->prepare($sqlDireccion);
+            $consultarDireccion->bindValue(":id", $docId);
             //Ejecutar consulta
-            $consultarDireccion->execute(array($docId));
+            $consultarDireccion->execute();
             return $consultarDireccion->fetchAll();
         } catch (\Throwable $th) {
             echo "<script>alert('Ocurrió un error');</script>";
@@ -97,9 +86,7 @@ class Usuario
     {
         try {
             require('../../../Models/dao/conexion.php');
-            $sql = "SELECT idCiudad,
-            nombreCiudad 
-            FROM tblCiudad ORDER BY nombreCiudad";
+            $sql = "CALL sp_Ciudades()";
             $stmt = $pdo->prepare($sql);
             $stmt->execute();
             $resultado = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -114,10 +101,7 @@ class Usuario
     {
         try {
             require "../../../Models/dao/conexion.php";
-            $sql = "SELECT RO.nombreRol, UR.idUsuarioRol
-            FROM tblUsuarioRol AS UR
-            INNER JOIN tblRol AS RO ON RO.idRol = UR.idUsuarioRol
-            WHERE docIdentidadUsuarioRol = :id";
+            $sql = "CALL sp_getRoles";
             $stmt = $pdo->prepare($sql);
             $stmt->bindParam(':id', $docId);
             $stmt->execute();
@@ -134,11 +118,10 @@ class Usuario
             require "../../../Models/dao/conexion.php";
             //Llamar a la conexion base de datos -> Muestro el contenido de tabla usuario
             //Mostrar todos los datos almacenados
-            $sql = "SELECT * 
-            FROM tblUsuario 
-            WHERE documentoIdentidad <> ?";
+            $sql = "CALL sp_getUsuarios(:id)";
             //Prepara sentencia
             $stmt = $pdo->prepare($sql);
+            $stmt->bindValue(":id", $docId);
             //Ejecutar consulta
             $stmt->execute(array($docId));
             return $stmt->fetchAll();
@@ -166,11 +149,12 @@ class Administrador
             require '../../../Models/dao/conexion.php';
             $estado = '1';
             //sentencia sql para actualizar estado
-            $sqlEditar = "UPDATE tblUsuario 
-            SET estadoUsuario = ?  
-            WHERE documentoIdentidad = ?";
-            $consultaEditar = $pdo->prepare($sqlEditar);
-            $consultaEditar->execute(array($estado, $id));
+            $sql = "CALL sp_activarUsuario(:id,:estado)";
+            $stmt = $pdo->prepare($sql);
+            $stmt->bindValue(":id", $id);
+            $stmt->bindValue(":estado", $estado);
+            $stmt->execute();
+
             //alert
             echo "<script>alert('Estado actualizado correctamente');</script>";
             //redireccionar
@@ -188,11 +172,11 @@ class Administrador
             require '../../../Models/dao/conexion.php';
             $estado = '0';
             //sentencia sql para actualizar estado
-            $sqlEditar = "UPDATE tblUsuario 
-            SET estadoUsuario = ?  
-            WHERE documentoIdentidad = ?";
-            $consultaEditar = $pdo->prepare($sqlEditar);
-            $consultaEditar->execute(array($estado, $id));
+            $sql = "CALL sp_desactivarUsuario(:id,:estado)";
+            $stmt = $pdo->prepare($sql);
+            $stmt->bindValue(":id", $id);
+            $stmt->bindValue(":estado", $estado);
+            $stmt->execute();
             //alert
             echo "<script>alert('Estado actualizado correctamente');</script>";
             //redireccionar
@@ -210,7 +194,6 @@ class Administrador
             //Capturo la sesión del usuario logueado
             $celular = $_POST['celular'];
             $correo = $_POST['correo'];
-
             @$img = $_FILES['file']['name'];
             if (isset($_FILES['file']) && ($img == !NULL)) {
                 //Captura de imagen
@@ -221,28 +204,32 @@ class Administrador
                 //Ruta para almacenar en la base de datos
                 $nombreArchivo = "imagenes/" . basename($_FILES['file']['name']);
 
-                $tipo_archivo = strtolower(pathinfo($archivo, PATHINFO_EXTENSION));
+                $tipoArchivo = strtolower(pathinfo($archivo, PATHINFO_EXTENSION));
 
                 //Validar que es imagen
-                $checarsiimagen = getimagesize($_FILES['file']['tmp_name']);
+                $validarImagen = getimagesize($_FILES['file']['tmp_name']);
 
                 //var_dump($size);
 
-                if ($checarsiimagen != false) {
+                if ($validarImagen != false) {
                     $size = $_FILES['file']['size'];
                     //Validando tamano del archivo
                     if ($size > 70000000) {
                         echo "El archivo excede el limite, debe ser menor de 700kb";
                     } else {
-                        if ($tipo_archivo == 'jpg' || $tipo_archivo == 'jpeg' || $tipo_archivo == 'png') {
+                        if ($tipoArchivo == 'jpg' || $tipoArchivo == 'jpeg' || $tipoArchivo == 'png') {
                             //Se validó el archivo correctamente
                             if (move_uploaded_file($_FILES['file']['tmp_name'], $archivo)) {
                                 //sentencia Sql
-                                $sql_insertar = "UPDATE tblUsuario SET telefonomovilUsuario=?,emailUsuario=?,imagenUsuario=? WHERE documentoIdentidad=?";
+                                $sql = "CALL sp_actualizarCuentaConImagen (:celular,:correo,:archivo,:id)";
                                 //Preparar consulta
-                                $consulta_insertar = $pdo->prepare($sql_insertar);
+                                $stmt = $pdo->prepare($sql);
+                                $stmt->bindValue(":celular", $celular);
+                                $stmt->bindValue(":correo", $correo);
+                                $stmt->bindValue(":archivo", $nombreArchivo);
+                                $stmt->bindValue(":id", $id);
                                 //Ejecutar la sentencia
-                                $consulta_insertar->execute(array($celular,  $correo, $nombreArchivo, $id));
+                                $stmt->execute();
                                 echo "<script>alert('Registro actualizado correctamente');</script>";
                                 echo "<script> document.location.href='../../../Views/dashboard/principal/perfil.php';</script>";
                             } else {
@@ -260,13 +247,13 @@ class Administrador
                 }
             } else {
                 //Sentencia sql
-                $sql = "UPDATE tblUsuario SET telefonomovilUsuario=?,emailUsuario=? WHERE documentoIdentidad=?";
+                $sql = "CALL sp_actualizarCuentaSinImagen(:celular,:correo,:id)";
                 //Preparar la consulta
                 $stmt = $pdo->prepare($sql);
-                //Ejecutar
-
-                //Redireccionar
-                $stmt->execute(array($celular,  $correo, $id));
+                $stmt->bindValue(":celular", $celular);
+                $stmt->bindValue(":correo", $correo);
+                $stmt->bindValue(":id", $id);
+                $stmt->execute();
                 echo "<script>alert('Datos actualizados correctamente');</script>";
                 echo "<script> document.location.href='../../../Views/dashboard/principal/perfil.php';</script>";
             }
@@ -282,12 +269,14 @@ class Administrador
             @$nombre = $_POST['nombre'];
             $direccion = $_POST['direccion'];
             $ciudad = $_POST['ciudad'];
-            $sqlAgregarDir = "INSERT INTO tblDirecciones
-        (docIdentidadDireccion,nombreDireccion,descripcionDireccion,ciudadDireccion) 
-        VALUES (?,?,?,?)";
-            $consultaAgregarDir = $pdo->prepare($sqlAgregarDir);
-            $consultaAgregarDir->execute(array($id, $nombre, $direccion, $ciudad));
-            echo "<script>alert('Dirección almacenada con exito!');</script>";
+            $sql = "CALL sp_agregarDireccion(:id,:nombre,:direccion,:ciudad)";
+            $stmt = $pdo->prepare($sql);
+            $stmt->bindValue(":id", $id);
+            $stmt->bindValue(":nombre", $nombre);
+            $stmt->bindValue(":direccion", $direccion);
+            $stmt->bindValue(":ciudad", $ciudad);
+            $stmt->execute();
+            echo "<script>alert('Dirección almacenada con éxito!');</script>";
             echo "<script>document.location.href='../../../Views/dashboard/principal/perfil.php';</script>";
         } catch (\Throwable $th) {
             echo "<script>alert('Ocurrió un error');</script>";
@@ -298,9 +287,10 @@ class Administrador
     {
         try {
             require '../../../Models/dao/conexion.php';
-            $sqlEliminarDir = "DELETE FROM tblDirecciones WHERE idDireccion=?";
-            $consultaEliminarDir = $pdo->prepare($sqlEliminarDir);
-            $consultaEliminarDir->execute(array($id));
+            $sql = "CALL sp_eliminarDireccion(:id)";
+            $stmt = $pdo->prepare($sqlEliminarDir);
+            $stmt->bindValue(":id", $id);
+            $stmt->execute();
             echo "<script>alert('Dirección eliminada correctamente');</script>";
             echo "<script>document.location.href='../../../Views/dashboard/principal/perfil.php';</script>";
         } catch (\Throwable $th) {
@@ -314,14 +304,14 @@ class Administrador
             $nombre = $_POST['nombre'];
             $direccion = $_POST['direccion'];
             $ciudad = $_POST['ciudad'];
-
             require '../../../Models/dao/conexion.php';
-            $sqlActualizarDir = "UPDATE tblDirecciones 
-            SET nombreDireccion = ?,descripcionDireccion = ?, 
-            ciudadDireccion = ? 
-            WHERE idDireccion = ?";
-            $consultaActualizarDir = $pdo->prepare($sqlActualizarDir);
-            $consultaActualizarDir->execute(array($nombre, $direccion, $ciudad, $id));
+            $sql = "CALL sp_actualizarDireccion(:nombre,:direccion,:ciudad,:id)";
+            $stmt = $pdo->prepare($sql);
+            $stmt->bindValue(":nombre", $nombre);
+            $stmt->bindValue(":direccion", $direccion);
+            $stmt->bindValue(":ciudad", $ciudad);
+            $stmt->bindValue(":id", $id);
+            $stmt->execute();
             echo "<script>alert('Dirección actualizada correctamente');</script>";
             echo "<script>document.location.href='../../../Views/dashboard/principal/perfil.php';</script>";
         } catch (\Throwable $th) {

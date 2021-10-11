@@ -47,7 +47,7 @@ class Publicaciones
     {
         try {
             require '../../../Models/dao/conexion.php';
-            $sqlPubli = "CALL sp_mostrarPublicaciones(:id)";
+            $sqlPubli = "CALL sp_mostrarPublicacionesDashboard(:id)";
             //Prepara sentencia
             $consultarPubli = $pdo->prepare($sqlPubli);
             $consultarPubli->bindValue(":id", $docId);
@@ -55,7 +55,7 @@ class Publicaciones
             $consultarPubli->execute();
             return $consultarPubli->fetchAll();
         } catch (\Throwable $th) {
-            echo "<script>alert('Ocurrió un error');</script>";
+            /* echo "<script>alert('Ocurrió un error');</script>"; */
         }
     }
 
@@ -125,7 +125,12 @@ class Publicaciones
             $insertarPublicacion->closeCursor();
 
             //Seleccionar último id en la BD
-            $idPublicacion = ($pdo->lastInsertId());
+            $sqlUltimoId = "CALL sp_ultimoIdPublicacion";
+            $ultimoId = $pdo->prepare($sqlUltimoId);
+            $ultimoId->execute();
+            $ultimoId = $ultimoId->fetch(PDO::FETCH_ASSOC);
+            $idPublicacion = $ultimoId['MAX(idPublicacion)'];
+
             echo $idPublicacion;
             $idPubli = "id" . $idPublicacion . "_";
 
@@ -176,14 +181,7 @@ class Publicaciones
     {
         try {
             require "../../../Models/dao/conexion.php";
-            $sqlMostrarPubli = "SELECT IMG.urlImagen,PU.idPublicacion,PU.nombrePublicacion,PU.descripcionPublicacion,
-            PU.costoPublicacion,PU.stockPublicacion,PU.validacionPublicacion
-            FROM tblPublicacion as PU
-            INNER JOIN tblImagenes as IMG 
-            ON PU.idPublicacion = IMG.publicacionImagen
-            GROUP BY PU.nombrePublicacion, PU.descripcionPublicacion,PU.costoPublicacion 
-            ORDER BY nombrePublicacion asc"; //Prepara sentencia
-
+            $sqlMostrarPubli = "CALL sp_mostrarTodasPublicaciones()"; //Prepara sentencia
             $consultarMostrarPubli = $pdo->prepare($sqlMostrarPubli);
             //Ejecutar consultas
             $consultarMostrarPubli->execute();
@@ -193,18 +191,18 @@ class Publicaciones
             echo "<script>alert('Ocurrió un error');</script>";
         }
     }
-    public function ActivarPublicacion($docId)
+    public function ActivarPublicacion($id)
     {
         try {
             //Llamada a la conexion
             require '../../../Models/dao/conexion.php';
             $estado = '1';
             //sentencia sql para actualizar estado
-            $sqlActivar = "UPDATE tblPublicacion 
-            SET validacionPublicacion = ? 
-            WHERE idPublicacion = ?";
+            $sqlActivar = "CALL sp_activarPublicacion(:id,:estado)";
             $activar = $pdo->prepare($sqlActivar);
-            $activar->execute(array($estado, $docId));
+            $activar->bindValue(":estado", $estado);
+            $activar->bindValue(":id", $id);
+            $activar->execute();
 
             echo "<script>alert('Estado actualizado correctamente');</script>";
             echo "<script> document.location.href='../../../Views/dashboard/principal/publicaciones.php';</script>";
@@ -221,11 +219,11 @@ class Publicaciones
             require '../../../Models/dao/conexion.php';
             $estado = '0';
             //sentencia sql para actualizar estado
-            $sqlEditar = "UPDATE tblPublicacion 
-            SET validacionPublicacion = ?  
-            WHERE idPublicacion = ?";
-            $consultaEditar = $pdo->prepare($sqlEditar);
-            $consultaEditar->execute(array($estado, $id));
+            $sqlDesactivar = "CALL sp_desactivarPublicacion(:id,:estado)";
+            $desactivar = $pdo->prepare($sqlDesactivar);
+            $desactivar->bindValue(":estado", $estado);
+            $desactivar->bindValue(":id", $id);
+            $desactivar->execute();
             //alert
             echo "<script>alert('Estado actualizado correctamente');</script>";
             //redireccionar
@@ -245,11 +243,16 @@ class Publicaciones
             $costo = $_POST['costo'];
             $stock = $_POST['stock'];
             //Sentencia sql
-            $sql = "UPDATE tblPublicacion1 SET nombrePublicacion=?,descripcionPublicacion=?,costoPublicacion=?,stockPublicacion=? WHERE idPublicacion=?";
+            $sql = "CALL sp_actualizarPublicacion (:nombre,:descripcion,:costo,:stock,:id)";
             //Preparar la consulta
             $stmt = $pdo->prepare($sql);
+            $stmt->bindValue(":nombre", $nombre);
+            $stmt->bindValue(":descripcion", $descripcion);
+            $stmt->bindValue(":costo", $costo);
+            $stmt->bindValue(":stock", $stock);
+            $stmt->bindValue(":id", $id);
             //Ejecutar
-            $stmt->execute(array($nombre, $descripcion, $costo, $stock, $id));
+            $stmt->execute();
             //Redireccionar
             echo "<script>alert('Publicación actualizada correctamente');</script>";
             echo "<script> document.location.href='../../../Views/dashboard/principal/misPublicaciones.php';</script>";
@@ -263,14 +266,16 @@ class Publicaciones
         try {
             require '../../../Models/dao/conexion.php';
             //sentencia sql para eliminar Imagen
-            $sqlEliminar = "DELETE FROM tblImagenes WHERE publicacionImagen = ?";
+            $sqlEliminar = "CALL sp_eliminarImagenPublicacion (:id)";
             $consultaEliminar = $pdo->prepare($sqlEliminar);
-            $consultaEliminar->execute(array($id));
+            $consultaEliminar->bindValue(":id", $id);
+            $consultaEliminar->execute();
 
             //sentencia sql para eliminar Publicación
-            $sql_eliminar = "DELETE FROM tblPublicacion WHERE idPublicacion = ?";
-            $consulta_eliminar = $pdo->prepare($sql_eliminar);
-            $consulta_eliminar->execute(array($id));
+            $sqlEliminar = "CALL sp_eliminarPublicacion (:id)";
+            $consultaEliminar = $pdo->prepare($sqlEliminar);
+            $consultaEliminar->bindValue(":id", $id);
+            $consultaEliminar->execute();
             //Redireccionar
             echo "<script>alert('Publicación eliminada correctamente');</script>";
             echo "<script> document.location.href='../../../Views/dashboard/principal/misPublicaciones.php';</script>";
@@ -284,7 +289,7 @@ class Publicaciones
         try {
 
             require '../../Models/dao/conexion.php';
-            $sql = "CALL sp_mostrarPublicaciones(:id)";
+            $sql = "CALL sp_mostrarPublicacionIndex(:id)";
             $stmt = $pdo->prepare($sql);
             $stmt->bindValue(":id", $id);
             $stmt->execute();
@@ -308,9 +313,7 @@ function MostrarCategorias()
     try {
         require '../../Models/dao/conexion.php';
         /* Lista desplegable de categoría */
-        $sqlCategoria = "SELECT *
-                        FROM tblCategoria 
-                        ORDER BY nombreCategoria ASC";
+        $sqlCategoria = "CALL sp_mostrarCategorias()";
         //Prepara sentencia
         $consultarCategoria = $pdo->prepare($sqlCategoria);
         //Ejecutar consulta

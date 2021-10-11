@@ -92,7 +92,7 @@ if (!isset($_SESSION['documentoIdentidad'])) {
                                 Acciones
                               </button>
                               <div class="dropdown-menu">
-                                <form action="../../../Controller/php/view/publicaciones.php" method="POST">
+                                <form action="../../../Controllers/php/users/publicaciones.php" method="POST">
                                   <input type="hidden" name="activarPublicacion">
 
                                   <input type="hidden" name="id" value="<?php echo $datosPubli['idPublicacion']; ?>">
