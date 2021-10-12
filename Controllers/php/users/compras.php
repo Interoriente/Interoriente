@@ -212,6 +212,7 @@ class Checkout
       $stmt->bindValue(':direccion', $direccion);
       $stmt->bindValue(':email', $email);
       $stmt->execute();
+      $stmt->closeCursor();
       $idFactura = $pdo->lastInsertId(); //Regresar el id del último registro insertado
       /* Almacenar información en tabla intermedia tblfacturapublicacion */
       $sqlCa = "CALL sp_mostrarIdCarrito(:id)";
@@ -228,16 +229,17 @@ class Checkout
         $stmtFacPu->bindValue(':idPubli', $idPubli);
         $stmtFacPu->bindValue(':cantidad', $cantidad);
         $stmtFacPu->execute();
+        $stmtFacPu->closeCursor();
         //Restar stock a la publicación
         $sqlStock = "CALL sp_actualizarExistencia(:id,:cantidad";
         $stmtStock = $pdo->prepare($sqlStock);
         $stmtStock->execute();
-
+        $stmtStock->closeCursor();
         /* Eliminar información de la tabla carrito */
         $sqlDeleteCart = "CALL sp_borrarCarrito(:id,:documento)";
         $stmtDeleteCart = $pdo->prepare($sqlDeleteCart);
-        $stmtDeleteCart->bindValue(":id",$idPubli);
-        $stmtDeleteCart->bindValue(":documento",$idUsuario);
+        $stmtDeleteCart->bindValue(":id", $idPubli);
+        $stmtDeleteCart->bindValue(":documento", $idUsuario);
         $stmtDeleteCart->execute();
       }
       return "Proceso de Compras Finalizado!!";
