@@ -121,7 +121,7 @@ function almacenarCarrito($carrito)
       foreach ($carrito as $item) {
         $idPubli = $item->id;
         $cantidad = $item->cantidad;
-        $sql = "CALL sp_almacenarCarrito";
+        $sql = "CALL sp_almacenarCarrito(:idPubli,:idUser,:cantidad)";
         $stmt = $pdo->prepare($sql);
         $stmt->bindValue(':idPubli', $idPubli);
         $stmt->bindValue(':idUser', $idUsuario);
@@ -147,7 +147,7 @@ class Checkout
       require '../../Models/dao/conexion.php';
       session_start();
       $idUsuario = $_SESSION['documentoIdentidad'];
-      $sql = "CALL sp_getCheckoutInfo()";
+      $sql = "CALL sp_getCheckoutInfo(:id)";
       $stmt = $pdo->prepare($sql);
       $stmt->bindValue(":id", $idUsuario);
       $stmt->execute();
@@ -166,12 +166,9 @@ class Checkout
       if (isset($idUsuario)) {
         /* TODO: TENER EN CUENTA AQUELLOS CASOS EN LOS QUE LA VARIABLE NO ESTÉ ASIGNADA*/
         require('../../../Models/dao/conexion.php');
-        $sql = "SELECT DI.idDireccion as 'id', DI.nombreDireccion as 'nombreDireccion', 
-      DI.descripcionDireccion as 'direccion', US.emailUsuario as 'correo'
-      FROM tblDirecciones as DI INNER JOIN tblUsuario as US 
-      ON US.documentoIdentidad = DI.docIdentidadDireccion
-      WHERE DI.docIdentidadDireccion =$idUsuario";
+        $sql = "CALL sp_validarDireccion(:id)";
         $stmt = $pdo->prepare($sql);
+        $stmt->bindValue(":id",$idUsuario);
         $stmt->execute();
         $resultado = $stmt->fetchAll(\PDO::FETCH_ASSOC); /* FETCH_ASSOC permite devolver solo un tipo de arreglo, en este caso, asociativo */
         $resultado = json_encode($resultado);
@@ -206,7 +203,7 @@ class Checkout
       session_start();
       $idUsuario = $_SESSION['documentoIdentidad'];
       /* Almacenar información de la compra */
-      $sqlFa = "sp_insertarFactura(:idUser,:direccion,:email)";
+      $sqlFa = "CALL sp_insertarFactura(:idUser,:direccion,:email)";
       $stmt = $pdo->prepare($sqlFa);
       $stmt->bindValue(':idUser', $idUsuario);
       $stmt->bindValue(':direccion', $direccion);
