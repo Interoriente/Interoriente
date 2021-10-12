@@ -4,3 +4,4 @@ Models/php/insertMasivo.php
 Scripts/scrapers.js
 node_modules/
 Views/navegacion/index.html
+Models/dao/
