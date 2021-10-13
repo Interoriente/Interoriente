@@ -1,24 +1,27 @@
 /* Sección imágene(s) título, precio, cantidad, color y botones  "Comprar" y "Añadir al carrito" */
-.column h2 {
-  font-family: var(--poppins);
+a{
+  text-decoration: none;
 }
 #contenedor-principal {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
   align-items: center;
+  font-family: var(--poppins);
+  margin-top: .7em;
 }
 
 .column {
-  width: 33rem;
+  width: 40%;
   padding: 2rem;
 }
 
 #img-principal {
   width: 100%;
-  height: 20rem;
+  height: 22rem;
   object-fit: cover;
   cursor: pointer;
+  border: .2px solid lightslategrey;
 }
 .descripcion {
   text-align: justify;
@@ -31,6 +34,7 @@
 .cantidad {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   margin-bottom: 1em;
 }
 .cta {
@@ -38,14 +42,17 @@
   justify-content: space-around;
   flex-wrap: wrap;
   padding: 1em 0;
+
 }
 .btn-accion {
   background-color: var(--clr-cta-a);
-  font-family: var(--poppins);
+  color: var(--clr-neutro-b);
   font-weight: bold;
-  transition: 0.2s ease-in-out;
+  transition: 0.1s ease-in-out;
   box-shadow: 0px 0px 10px -3px rgba(0, 0, 0, 0.3);
-  margin: .5em .5em;
+  padding: .5em;
+  border-radius: 5px;
+  margin-bottom: .5em;
 }
 .btn-accion:hover {
   background-color: orangered;
@@ -120,17 +127,22 @@
 /* Sección descripción */
 
 .descripcionPublicacion{
-  padding: 1em 2em;
+  padding: 1em 3em;
 }
 
 .descripcionPublicacion h1 {
   margin: 1em 0em;
+  font-size: 2rem;
   text-align: center;
+  font-family: var(--poppins);
 
 }
 .descripcionPublicacion p {
   text-align: justify;
   text-justify: inter-word;
+  font-family: var(--serif);
+  line-height: 1.5;
+  font-size: 1.2rem;
 }
 
 /* Sección Datos Proveedor */
@@ -139,28 +151,27 @@
   flex-wrap: wrap;
   justify-content: space-between;
   width: 100%;
-  background-color: #408e8d;
   margin-top: 3em;
   margin-bottom: 3em;
   padding: 0 2em;
   color: white;
+  font-family: var(--poppins);
 }
 .descripcion-proveedor {
   padding: 2em;
   background-color: orangered;
   width: 40%;
+  border-radius: 1em;
 }
-#whatsapp{
-  font-size: 20px;
-  color: white;
-  text-decoration: none;
+.whatsapp-icon{
+
+  width: 2rem;
 }
 .informacion-complementaria {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
-  background-color: yellow;
   width: 10%;
   margin-left: 2em;
   color: black;
@@ -179,6 +190,9 @@
   align-items: center;
   border-radius: 1em 1em 0 0;
   box-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 0.1);
+}
+.tarjeta-perfil a{
+  color: white;
 }
 .tarjeta-perfil img {
   width: 100%;
