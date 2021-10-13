@@ -1,5 +1,13 @@
 <?php
-
+   @$catalogo = base64_decode($_GET['catalogo']);
+   if ($catalogo) {
+       require "../../Controllers/php/users/publicaciones.php";
+       $publicacionResp = new Publicaciones($catalogo);
+       $publicacion = $publicacionResp->FiltroPublicacion($publicacionResp->id);
+   } else {
+       require "../../Controllers/php/users/compras.php";
+       $publicacion = getPublicaciones(); //Nota: Ciudado con el llamado de campos innesesarios
+   }
 ?>
 <!DOCTYPE html>
 <html lang="esp">
@@ -53,15 +61,6 @@
 
         <!-- Tarjeta Final -->
         <?php
-        @$catalogo = base64_decode($_GET['catalogo']);
-        if ($catalogo) {
-            require "../../Controllers/php/users/publicaciones.php";
-            $publicacionResp = new Publicaciones($catalogo);
-            $publicacion = $publicacionResp->FiltroPublicacion($publicacionResp->id);
-        } else {
-            require "../../Controllers/php/users/compras.php";
-            $publicacion = getPublicaciones();
-        }
         foreach ($publicacion as $x) :
         ?>
             <div class="tarjeta">
