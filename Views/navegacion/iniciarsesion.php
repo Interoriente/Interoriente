@@ -11,10 +11,7 @@
 -->
 
 <!-- PHP para inicio de Sesion con Google -->
-<?php
-require "../includes/linksGoogle.php";
-
-?>
+<?php require "../includes/linksGoogle.php"; ?>
 <!DOCTYPE html>
 <html>
 
@@ -42,12 +39,10 @@ require "../includes/linksGoogle.php";
 </head>
 
 <body class="bg-default">
-    <!-- Navegación -->
-    <?php require '../includes/superior.php'; ?>
 
-<div class="navegacion">
-    <a href="index.php"> <img id="logo" src="../assets/img/LogoCuaternario.svg" alt="Logo barra de navegación"></a>
-  </div>
+    <div class="navegacion">
+        <a href="index.php"> <img id="logo" src="../assets/img/LogoCuaternario.svg" alt="Logo barra de navegación"></a>
+    </div>
     <!-- Main content -->
     <div class="main-content">
         <!-- Header -->
@@ -122,9 +117,6 @@ require "../includes/linksGoogle.php";
             </div>
         </div>
     </div>
-    <!-- Argon JS -->
-    <!-- Qué función está cumpliendo este script? -->
-    <!--     <script src="../dashboard/assets/js/argon.min.js?v=1.2.0"></script>-->
-    <!-- navegación -->
-    <?php include '../includes/navInferior.php'; ?>
-    <!-- ------- -->
+</body>
+
+</html>
