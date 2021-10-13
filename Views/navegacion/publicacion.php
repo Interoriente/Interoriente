@@ -49,7 +49,7 @@ $respPublicacion = $publicacion->MostrarPublicacion($publicacion->id);
 
     <div class="column">
       <div class="descripcion-d">
-        <h2><?php echo $respPublicacion[0]['nombrePublicacion'];
+        <h2 class="titulo-publicacion"><?php echo $respPublicacion[0]['nombrePublicacion'];
             ?></h2>
         <hr>
         <h3>$<?php echo number_format($respPublicacion[0]['costoPublicacion'], 0, '', '.');
@@ -80,13 +80,15 @@ $respPublicacion = $publicacion->MostrarPublicacion($publicacion->id);
   <!-- Sección "Descripción" Publicación-->
 
   <section class="descripcionPublicacion">
-    <h1>Descripción de la publicación</h1>
+    <h1 class="informacion-h1 ">Descripción de la publicación</h1>
     <p><?php echo $respPublicacion[0]['descripcionPublicacion']; ?></p>
   </section>
 
   <!-- Sección Datos Proveedor -->
 
+  <h1 class="informacion-h1 info-p-h1">Sobre el provedor</h1>
   <section class="info-proveedor">
+
     <div class="descripcion-proveedor">
       <h2><?php echo $respPublicacion[0]['nombresUsuario']; ?></h2>
       <p><?php echo $respPublicacion[0]['descripcionUsuario']; ?></p>

@@ -26,6 +26,9 @@ a{
 .descripcion {
   text-align: justify;
 }
+.titulo-publicacion{
+  font-size: 2rem;
+}
 
 .seccion-cta {
   display: flex;
@@ -130,12 +133,14 @@ a{
   padding: 1em 3em;
 }
 
-.descripcionPublicacion h1 {
+.informacion-h1 {
   margin: 1em 0em;
   font-size: 2rem;
-  text-align: center;
+  text-align: left;
   font-family: var(--poppins);
-
+}
+.info-p-h1{
+  margin-left: 1.4em;
 }
 .descripcionPublicacion p {
   text-align: justify;
