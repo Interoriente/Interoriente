@@ -2,7 +2,6 @@
 <head>
   <link rel="stylesheet" href="../assets/css/nav.css" />
 </head>
-
 <body>
   <header>
     <div class="contenedor-navegacion">

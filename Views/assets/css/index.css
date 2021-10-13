@@ -2,6 +2,8 @@
 TODO:
 Aplicar Estilos necesarios
 */
+
+
 *{
   margin: 0;
   padding: 0;
@@ -11,12 +13,10 @@ a{
   text-decoration: none;
 }
 /* Sección de filtrado */
-.seccion-media{
-  padding: 0em 4em;
-}
+
 .titulo-filtrado {
   text-align: center;
-  margin: 3em 0em 1em 0em;
+  margin: 1.5em 0em 1em 0em;
   font-family: var(--poppins);
   font-size: 50px;
   color: #212529;
@@ -25,9 +25,8 @@ a{
   display: flex;
   flex-wrap: wrap;
   width: 100%;
-  height: 10em;
   justify-content: space-between;
-  padding: 0 2em;
+  padding: 2em;
 }
 
 /* Botón General Filtrado */
@@ -66,10 +65,20 @@ a{
   flex-wrap: wrap;
   margin: 0 auto;
   max-width: 90%;
-  transition: .2s;
-
+  padding-bottom: 2em;
+  margin-bottom: 2em;
 }
 
+.tarjeta {
+  margin: 1em;
+  width: 15em;
+  border-radius: 1em;
+  box-shadow: 0px 0px 10px -3px rgba(0, 0, 0, 0.3);
+  background-color: white;
+  transition: .1s;
+  position: relative;
+
+}
 .img-tarjeta img {
   width: 100%;
   height: 14rem;
@@ -78,19 +87,15 @@ a{
 #img-s{
   display: none;
 }
-.tarjeta {
-  margin: 1em 1em 1em 1em;
-  width: 15em;
-  border-radius: 1em;
-  box-shadow: 0px 0px 10px -3px rgba(0, 0, 0, 0.3);
-}
+
 .contenido-tarjeta {
-  width: 95%;
-  height: 9.3em;
+  width: 100%;
   word-wrap: break-word;
-  text-align: justify;
   text-transform: capitalize;
-  padding: .2em 0 0 .4em ;
+  padding: .2em .3em;
+  font-family: var(--poppins);
+  margin-bottom: 2em;
+  padding-left: .5em;
 }
 
 .tarjeta:hover {
@@ -99,29 +104,27 @@ a{
 }
 /* Precio */
 .contenido-tarjeta h5 {
-  margin: .5em .5em .1em .5em;
+  margin: .5em .5em .1em 0em;
   color: var(--clr-neutro-b);
   font-weight: bold;
-  font-size: 28.4px;
+  font-size: 1.5rem;
   text-align: left;
 }
 /* Título de la publicación */
-.contenido-tarjeta h3 {
-  color: var(--clr-neutro-b);
-  font-weight: 600;
-  font-size: 49.58px;
-  text-align: left;
-  text-transform: capitalize;
-  padding: .2em .7em .4em .7em;
-  line-height: 1.2;
-  margin-top: 0;
-}
 
-/* Descripción */
-.contenido-tarjeta p{
+.contenido-tarjeta h2 {
   color: var(--clr-neutro-b);
-  font-size: 18.3333px;
-  padding: .2em .7em .4em .7em;
+  font-weight: bold;
+  font-size: 1em;
+  padding: .1em 0;
+  text-transform: capitalize;
+  line-height: 1.2;
+}
+/* Descripción */
+
+.descripcion p{
+  color: var(--clr-neutro-b);
+  font-size: .8rem;
 }
 @media (max-width: 320px) {
   .publicaciones {
@@ -144,8 +147,11 @@ font-size: small;
 .cta-btns{
   display: flex;
   justify-content: space-around;
-  padding: 2em 0 1em 0;
-  margin: .2em;
+  width: 100%;
+  padding: .4em 0;
+
+  position: absolute;
+  bottom: 0px;
 }
 .cta-btns img:hover{
    margin-top: -3px;

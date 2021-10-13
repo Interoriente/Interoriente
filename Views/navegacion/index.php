@@ -74,13 +74,15 @@
                         <!-- number_format para agregar los puntos de mil -->
                         <h5> $<?php echo number_format($x['costoPublicacion'], 0, '', '.'); ?></h5>
 
-                        <h3><?php echo $x['nombrePublicacion'] ?></h3>
+                        <h2><?php echo $x['nombrePublicacion'] ?></h2>
                         <!-- substr para limitar el tamaño del estring en este caso a 50 caracteres -->
-                        <p><?php echo substr($x['descripcionPublicacion'], 0, 50) . "...   "; ?><span class="mas-info">Más Información</span></p>
+                        <div class="descripcion">
+                            <p><?php echo substr($x['descripcionPublicacion'], 0, 50) . "...   "; ?><span class="mas-info">Más Información</span></p>
+                        </div>
                     </div>
                 </a>
                 <div class="cta-btns">
-                    <a href="../navegacion/checkout.php?id=<?php echo $x['idPublicacion'] ?>"><img src="../assets/img/iconos/compras.svg" alt="Bolsa de la compra"></a>
+                     <img src="../assets/img/iconos/compras.svg" alt="Bolsa de la compra">
                     <img class="carrito-tarjeta" onclick="addCarrito(this.id)" id="<?php echo $x['idPublicacion'] ?>" src="../assets/img/iconos/carrito_2.svg" alt="Carro de la compra">
                 </div>
             </div>
