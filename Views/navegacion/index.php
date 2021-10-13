@@ -28,7 +28,7 @@
     <section class="publicaciones">
         <!-- TODO Implementar sistema de filtrado js -->
         <!-- Sección de los botons de filtrado -->
-        <h1 class="titulo-filtrado ">Aquí podrás encontrar el producto que deseas </h1>
+        <h1>Aquí podrás encontrar el producto que deseas </h1>
         <section class="btns-filtrado ">
             <a href="#">
 

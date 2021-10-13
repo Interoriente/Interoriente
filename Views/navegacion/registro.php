@@ -109,7 +109,7 @@ require "../includes/linksGoogle.php";
                                         <input class="form-control" placeholder="*********" type="password" name="contrasena" minlength="5" maxlength="20" required>
                                     </div>
                                 </div>
-                                <div class="form-group">
+                                <!-- <div class="form-group">
                                     <label for="">Repita contraseña:</label>
                                     <div class="input-group input-group-merge input-group-alternative mb-3">
                                         <div class="input-group-prepend">
@@ -128,7 +128,7 @@ require "../includes/linksGoogle.php";
                                             </label>
                                         </div>
                                     </div>
-                                </div>
+                                </div> -->
                                 <div class="text-center">
                                     <button type="submit" class="btn btn-primary mt-4">Crear cuenta</button>
                                 </div>
@@ -137,10 +137,10 @@ require "../includes/linksGoogle.php";
                     </div>
                     <div class="row mt-3">
                         <div class="col-6">
-                            <a href="../../index.html" class="text-light"><small>Regresar</small></a>
+                            <a href="index.php" class="text-light"><small>Regresar</small></a>
                         </div>
                         <div class="col-6 text-right">
-                            <a href="iniciarsesion.php" class="text-light"><small>Tienes cuenta?</small></a>
+                            <a href="iniciarsesion.php" class="text-light"><small>¿Tienes cuenta?</small></a>
                         </div>
                     </div>
                 </div>

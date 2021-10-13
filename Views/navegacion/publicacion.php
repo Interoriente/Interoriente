@@ -23,6 +23,7 @@ $respPublicacion = $publicacion->MostrarPublicacion($publicacion->id);
   <!-- Sidebar y Navbar -->
   <?php
   include "../includes/superior.php";
+  print_r($respPublicacion);
   ?>
   <div id="contenedor-principal">
 
@@ -90,6 +91,8 @@ $respPublicacion = $publicacion->MostrarPublicacion($publicacion->id);
     <div class="descripcion-proveedor">
       <h2><?php echo $respPublicacion[0]['nombresUsuario']; ?></h2>
       <p><?php echo $respPublicacion[0]['descripcionUsuario']; ?></p>
+      <br>
+      <p class="textos"><a id="whatsapp"target="_blank" href="https://api.whatsapp.com/send?phone=57<?php echo $respPublicacion[0]['telefono']; ?>">WhatsApp</a>
     </div>
     <div class="informacion-complementaria">
       <p>lorem</p>

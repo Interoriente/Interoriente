@@ -16,7 +16,6 @@ if (!isset($_SESSION['documentoIdentidad'])) {
 
       //Parte superior del HTML
       require "../includes/header.php";
-
       require_once '../includes/sidebarDashboard.php';
       require_once '../includes/navegacion.php';
 ?>

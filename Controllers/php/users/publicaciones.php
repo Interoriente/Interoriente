@@ -157,7 +157,7 @@ class Publicaciones
                         $resultado = $insertarImagen->execute();
 
                         /* Validar ejecución exitosa de la sentencia */
-
+                        echo "<script>alert('Ten en cuenta que debes esperar que se valide esta publicación');</script>";
                         echo "<script>alert('El registro se subió correctamente');</script>";
                         /* Redirigir después de almacenar la información */
                         echo "<script> document.location.href='../../../Views/dashboard/principal/crearPublicacion.php';</script>";

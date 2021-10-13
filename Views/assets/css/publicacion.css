@@ -143,13 +143,17 @@
   margin-top: 3em;
   margin-bottom: 3em;
   padding: 0 2em;
+  color: white;
 }
-
 .descripcion-proveedor {
   padding: 2em;
   background-color: orangered;
   width: 40%;
-  
+}
+#whatsapp{
+  font-size: 20px;
+  color: chartreuse;
+  text-decoration: none;
 }
 .informacion-complementaria {
   display: flex;
@@ -159,6 +163,7 @@
   background-color: yellow;
   width: 10%;
   margin-left: 2em;
+  color: black;
 }
 .perfil-proveedor {
   width: 30%;
