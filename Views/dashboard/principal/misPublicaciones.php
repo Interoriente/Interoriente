@@ -49,11 +49,9 @@ if (!isset($_SESSION['documentoIdentidad'])) {
                                 <table id="example" class="table align-items-center table-flush">
                                     <thead class="thead-light">
                                         <tr>
-                                            <th scope="col">Imagen</th>
                                             <th scope="col">Nombre</th>
-                                            <th scope="col">Descripcion</th>
                                             <th scope="col">Costo</th>
-                                            <th scope="col">Stock</th>
+                                            <th scope="col">Cant</th>
                                             <th scope="col">Acciones</th>
                                         </tr>
                                     </thead>
@@ -74,11 +72,9 @@ if (!isset($_SESSION['documentoIdentidad'])) {
                                         foreach ($respMostrarPublicaciones as $datosPubli) :
                                         ?>
                                             <tr>
-                                                <td><img src="<?php echo $datosPubli['urlImagen'];  ?>" alt=".." width="130px"></th>
                                                 <td><?php echo $datosPubli['nombrePublicacion']; ?></td>
-                                                <td><?php echo substr($datosPubli['descripcionPublicacion'], 0, 50); ?>...</td>
                                                 <td><?php echo $datosPubli['costoPublicacion']; ?></td>
-                                                <td><?php echo $datosPubli['stockPublicacion']; ?></td>
+                                                <td><?php echo $datosPubli['cantidadPublicacion']; ?></td>
                                                 <td>
                                                     <button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                         Acciones

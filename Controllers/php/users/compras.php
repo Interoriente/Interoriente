@@ -209,7 +209,11 @@ class Checkout
       $stmt->bindValue(':direccion', $direccion);
       $stmt->bindValue(':email', $email);
       $stmt->execute();
-      $idFactura = $pdo->lastInsertId(); //Regresar el id del último registro insertado
+      $sqlUltIdFact="CALL sp_ultimoNumFactura";
+      $stmtIdFact=$pdo->prepare($sqlUltIdFact);
+      $stmtIdFact->execute();
+      $resultadoIdFact=$stmtIdFact->fetch(PDO::FETCH_OBJ);
+      $idFactura = $resultadoIdFact['MAX(numeroFactura)']; //Regresar el id del último registro insertado
       /* Almacenar información en tabla intermedia tblfacturapublicacion */
       $sqlCa = "CALL sp_mostrarIdCarrito(:id)";
       $stmtCa = $pdo->prepare($sqlCa);

@@ -49,7 +49,6 @@ if (!isset($_SESSION['documentoIdentidad'])) {
                       <th scope="col">Documento</th>
                       <th scope="col">Nombres</th>
                       <th scope="col">Apellidos</th>
-                      <th scope="col">Celular</th>
                       <th scope="col">Correo</th>
                       <th scope="col">Estado</th>
                       <th scope="col">Acciones</th>
@@ -63,7 +62,6 @@ if (!isset($_SESSION['documentoIdentidad'])) {
                         <th><?php echo $datos['documentoIdentidad']; ?></th>
                         <th><?php echo $datos['nombresUsuario']; ?></th>
                         <th><?php echo $datos['apellidoUsuario']; ?></th>
-                        <th><?php echo $datos['telefonomovilUsuario']; ?></th>
                         <th><?php echo $datos['emailUsuario']; ?></th>
                         <?php /* Verificar que el estado esté activo */
                         if ($datos['estadoUsuario'] == 1) { ?>

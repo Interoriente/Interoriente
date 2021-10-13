@@ -4,7 +4,8 @@ if (isset($_POST['crearPublicacion'])) {
     $nombre = $_POST['nombre'];
     $descripcion = $_POST['descripcion'];
     $costo = $_POST['costo'];
-    $stock = $_POST['stock'];
+    $cantidad=$_POST['cantidad'];
+    $stockMin = $_POST['stockMin'];
     $categoria = $_POST['categoria'];
     $documentoIdentidad = $_POST['usuario'];
     /* Instanciar clase */
@@ -14,7 +15,8 @@ if (isset($_POST['crearPublicacion'])) {
         $nombre,
         $descripcion,
         $costo,
-        $stock,
+        $cantidad,
+        $stockMin,
         $categoria,
         $documentoIdentidad
     );
@@ -100,7 +102,8 @@ class Publicaciones
         $nombrePubli,
         $descripcionPubli,
         $costoPubli,
-        $stockPubli,
+        $cantidadPubli,
+        $stockMinPubli,
         $categoriaPubli,
         $documentoIdentidadPubli
     ) {
@@ -110,13 +113,14 @@ class Publicaciones
             $verificacion = '0';
             //sentencia SQL
             $sql = "CALL sp_publicacionCrear(:nombre,:descripcion,
-            :costo,:stock,:categoria,:documento,:verificacion)";
+            :costo,:cantidad,:stockMin,:categoria,:documento,:verificacion)";
             //Preparar consulta
             $insertarPublicacion = $pdo->prepare($sql);
             $insertarPublicacion->bindValue(":nombre", $nombrePubli);
             $insertarPublicacion->bindValue(":descripcion", $descripcionPubli);
             $insertarPublicacion->bindValue(":costo", $costoPubli);
-            $insertarPublicacion->bindValue(":stock", $stockPubli);
+            $insertarPublicacion->bindValue(":cantidad", $cantidadPubli);
+            $insertarPublicacion->bindValue(":stockMin", $stockMinPubli);
             $insertarPublicacion->bindValue(":categoria", $categoriaPubli);
             $insertarPublicacion->bindValue(":documento", $documentoIdentidadPubli);
             $insertarPublicacion->bindValue(":verificacion", $verificacion);
@@ -157,8 +161,7 @@ class Publicaciones
                         $resultado = $insertarImagen->execute();
 
                         /* Validar ejecución exitosa de la sentencia */
-                        echo "<script>alert('Ten en cuenta que debes esperar que se valide esta publicación');</script>";
-                        echo "<script>alert('El registro se subió correctamente');</script>";
+                        echo "<script>alert('El registro se subió correctamente: Ten en cuenta que debes esperar que se valide esta publicación');</script>";
                         /* Redirigir después de almacenar la información */
                         echo "<script> document.location.href='../../../Views/dashboard/principal/crearPublicacion.php';</script>";
                         //sleep(5);

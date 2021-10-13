@@ -31,7 +31,7 @@ if (!isset($_SESSION['documentoIdentidad'])) {
           <div class="header-body">
             <div class="row align-items-center py-4">
               <div class="col-lg-6 col-7">
-                <h6 class="h2 text-white d-inline-block mb-0">Tabla de publicaciones</h6><br>
+                <h6 class="h2 text-white d-inline-block mb-0">Tabla de publicaciones sin validar</h6><br>
                 <h6 class="h2 text-white d-inline-block mb-0">Total: <?php echo $contadorPublicaciones; ?></h6>
               </div>
             </div>
@@ -49,14 +49,13 @@ if (!isset($_SESSION['documentoIdentidad'])) {
               </div>
               <!-- Light table -->
               <div class="table-responsive">
-                <table id="example" class="table align-items-center table-flush">
+                <table class="table align-items-center table-flush">
                   <thead class="thead-light">
                     <tr>
                       <th scope="col">Imagen</th>
                       <th scope="col">Nombre</th>
-                      <th scope="col">Descripción</th>
                       <th scope="col">Costo</th>
-                      <th scope="col">Stock</th>
+                      <th scope="col">Cantidad</th>
                       <th scope="col">Estado</th>
                       <th scope="col">Acciones</th>
                     </tr>
@@ -67,9 +66,8 @@ if (!isset($_SESSION['documentoIdentidad'])) {
                       <tr>
                         <th><img src="<?php echo $datosPubli['urlImagen'];  ?>" alt=".." width="130px"></th>
                         <th><?php echo $datosPubli['nombrePublicacion']; ?></th>
-                        <th><?php echo substr($datosPubli['descripcionPublicacion'], 0, 30); ?>...</th>
                         <th><?php echo $datosPubli['costoPublicacion']; ?></th>
-                        <th><?php echo $datosPubli['stockPublicacion']; ?></th>
+                        <th><?php echo $datosPubli['cantidadPublicacion']; ?></th>
                         <?php if ($datosPubli['validacionPublicacion'] == '1') { ?>
                           <th>Validada</th>
                           <div class="btn-group">

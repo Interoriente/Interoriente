@@ -54,8 +54,8 @@
                         <input type="number" class="form-control" id="inputCosto" name="costo" placeholder="Ej: 345000" value="<?php echo $datosPubli['costoPublicacion'] ?>">
                     </div>
                     <div class="form-group">
-                        <label for="inputStock">Stock</label>
-                        <input type="number" class="form-control" id="inputStock" name="stock" placeholder="Ej: 3,4,2" value="<?php echo $datosPubli['stockPublicacion'] ?>">
+                        <label for="inputStock">Cant</label>
+                        <input type="number" class="form-control" id="inputStock" name="stock" placeholder="Ej: 3,4,2" value="<?php echo $datosPubli['cantidadPublicacion'] ?>">
                     </div>
                     <!-- Modal Footer -->
                     <div class="modal-footer">
