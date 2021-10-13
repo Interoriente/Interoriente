@@ -30,6 +30,7 @@
     <link rel="stylesheet" href="../dashboard/assets/css/iconosComplementos.css" type="text/css">
     <link rel="stylesheet" href="../dashboard/assets/css/all.min.css" type="text/css">
     <link rel="stylesheet" href="../assets/css/general.css">
+    <link rel="stylesheet" href="../assets/css/checkout.css" />
     <!-- No eliminar este script -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <!-- Argon CSS -->
@@ -38,6 +39,10 @@
 </head>
 
 <body class="bg-default">
+
+    <div class="navegacion">
+        <a href="index.php"> <img id="logo" src="../assets/img/LogoCuaternario.svg" alt="Logo barra de navegación"></a>
+    </div>
     <!-- Main content -->
     <div class="main-content">
         <!-- Header -->
@@ -103,15 +108,15 @@
                             <a href="recuperarContrasena.php" class="text-light"><small>¿Olvidaste tu contraseña?</small></a>
                         </div>
                         <div class="col-6 text-right">
-                            <a href="registro.php" class="text-light"><small>O si no tienes cuenta, regístrate por acá</small></a>
+                            <a href="registro.php" class="text-light"><small>¿No tienes una cuenta?</small></a>
                         </div>
+                        <br>
+                        <br>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</body>
-
 </body>
 
 </html>

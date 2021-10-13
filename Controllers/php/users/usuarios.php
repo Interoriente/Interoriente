@@ -288,7 +288,7 @@ class Administrador
         try {
             require '../../../Models/dao/conexion.php';
             $sql = "CALL sp_eliminarDireccion(:id)";
-            $stmt = $pdo->prepare($sqlEliminarDir);
+            $stmt = $pdo->prepare($sql);
             $stmt->bindValue(":id", $id);
             $stmt->execute();
             echo "<script>alert('Dirección eliminada correctamente');</script>";

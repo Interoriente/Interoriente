@@ -40,14 +40,6 @@
       <a href="index.php">Inicio</a>
     </div>
     <div class="navegacion-a">
-      <img src="../assets/img/iconos/Ayuda_Icon.svg" alt="">
-      <a href="#">Ayuda</a>
-    </div>
-    <div class="navegacion-a">
-      <img src="../assets/img/iconos/Ofertas.svg" alt="">
-      <a href="oferta.php">Ofertas</a>
-    </div>
-    <div class="navegacion-a">
       <img src="../assets/img/iconos/catalogo.svg" alt="">
       <a href="catalogos.php">Categorías</a>
     </div>
@@ -68,25 +60,29 @@
         <img src="../assets/img/iconos/Estadisticas_Icon.svg" alt="">
         <a href="../dashboard/principal/dashboard.php">Volver al panel</a>
       </div>
-    <?php endif;
+      <?php endif;
     if (!isset($_SESSION['roles'])) {
     ?>
       <div class="navegacion-a">
         <img src="../assets/img/iconos/User_Icon.svg" alt="">
         <a href="iniciarsesion.php">Iniciar sesión</a>
       </div>
-    <?php } else { ?>
-      <div class="navegacion-a">
-        <img src="../assets/img/iconos/sign-out.svg" alt="">
-        <form class="cerrar-sesion" action="../../Controllers/php/users/usuarios.php" method="POST">
+      <?php } else { ?>
+        <div class="navegacion-a">
+          <img src="../assets/img/iconos/sign-out.svg" alt="">
+          <form class="cerrar-sesion" action="../../Controllers/php/users/usuarios.php" method="POST">
           <input type="hidden" name="cerrarSesion">
           <input class="btnCerrar" type="submit" value="Cerrar Sesión">
         </form>
       </div>
-    <?php } ?>
-  </div>
-  <div id="main" class="main-container">
-    <div class="contenido">
+      <?php } ?>
+      <div class="navegacion-a">
+        <img src="../assets/img/iconos/Ayuda_Icon.svg" alt="">
+        <a href="#">Ayuda</a>
+      </div>
+    </div>
+    <div id="main" class="main-container">
+      <div class="contenido">
       <!--  Contenido Principal del la página -->
     </div>
     <!-- Js para las busquedas -->

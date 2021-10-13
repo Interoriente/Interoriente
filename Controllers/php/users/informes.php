@@ -62,7 +62,7 @@ class Informes
             $titulos = [];
             $NoVentas = [];
             $TotalVentas = [];
-            $Stock = [];
+            $Cantidad = [];
             $totsPublicaciones = [];
             $porcentajes = [];
             $sql = "CALL sp_publicacionesMasExitosas(:id)";
@@ -76,14 +76,14 @@ class Informes
                 array_push($titulos, $publicacion['Titulo']);
                 array_push($NoVentas, $publicacion['CantidadVentas']);
                 array_push($TotalVentas, $publicacion['VlrVentas']);
-                array_push($Stock, $publicacion['Stock']);
+                array_push($Cantidad, $publicacion['Cantidad']);
             }
 
             $objReporte->Ids = $ids;
             $objReporte->Titulos = $titulos;
             $objReporte->NoVentas = $NoVentas;
             $objReporte->VlrVentas = $TotalVentas;
-            $objReporte->Stock = $Stock;
+            $objReporte->Cantidad = $Cantidad;
             foreach ($ids as $index) {
                 $sqlPorcentaje = "SELECT SUM(FP.cantidadFacturaPublicacion * PU.costoPublicacion) AS 'Total'
                 FROM tblPublicacion as PU
@@ -121,7 +121,7 @@ class Informes
     {
         try {
             require "../../../Models/dao/conexion.php";
-            $sql = "CALL sp_alertaStock(:id)";
+            $sql = "CALL sp_contadorStock(:id)";
             $stmt = $pdo->prepare($sql);
             $stmt->bindValue(":id", $id);
             $stmt->execute();

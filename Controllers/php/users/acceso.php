@@ -15,73 +15,67 @@ if (isset($_POST['iniciarSesion']) || isset($_POST['registrarse']) || isset($_GE
         $docIdentidad = strip_tags($_POST['documento']);
         $email = strip_tags($_POST['correo']);
         $contrasena = strip_tags($_POST['contrasena']);
-        $contrasenaRepetida = strip_tags($_POST['recontrasena']);
         $perfil = strip_tags($_POST['imagen']);
         $registro = new Registro();
-        $registro->registrarUsuario($docIdentidad, $nombre, $apellido,  $email, $contrasena, $contrasenaRepetida, $perfil);
+        $registro->registrarUsuario($docIdentidad, $nombre, $apellido, $email, $contrasena, $perfil);
     }
 }
 
 class Registro
 {
-    public function registrarUsuario($docId, $nombres, $apellidos,  $correo, $pass, $rePass, $imagen)
+    public function registrarUsuario($docId, $nombres, $apellidos,  $correo, $pass, $imagen)
     {
         try {
-            if ($pass == $rePass) {
-                //Llamar a la conexion base de datos
-                require '../../../Models/dao/conexion.php';
-                //Verificación si el id ya existe 
-                $sqlExistente = "CALL sp_validacionCorreoDocumento(:correo,:id)";
-                $consultaExistente = $pdo->prepare($sqlExistente);
-                $consultaExistente->bindValue(":correo", $correo);
-                $consultaExistente->bindValue(":id", $docId);
-                $consultaExistente->execute();
-                $resultadoExistente = $consultaExistente->rowCount();
-                if (!$resultadoExistente) {
-                    //Sha1 -> Método de encriptación
-                    $contrasena = sha1($pass);
-                    $estado = '1';
-                    $perfil = $imagen;
-                    $rol = '1';
-                    //Consulta correo ingresado no existe en BD
-                    //sentencia Sql
-                    $sqlRegistro = "CALL sp_registrarUsuario (:id,:nombre,:apellido,
+            //Llamar a la conexion base de datos
+            require '../../../Models/dao/conexion.php';
+            //Verificación si el id ya existe 
+            $sqlExistente = "CALL sp_validacionCorreoDocumento(:correo,:id)";
+            $consultaExistente = $pdo->prepare($sqlExistente);
+            $consultaExistente->bindValue(":correo", $correo);
+            $consultaExistente->bindValue(":id", $docId);
+            $consultaExistente->execute();
+            $resultadoExistente = $consultaExistente->rowCount();
+            if (!$resultadoExistente) {
+                //Sha1 -> Método de encriptación
+                $contrasena = sha1($pass);
+                $estado = '1';
+                $perfil = $imagen;
+                $rol = '1';
+                //Consulta correo ingresado no existe en BD
+                //sentencia Sql
+                $sqlRegistro = "CALL sp_registrarUsuario (:id,:nombre,:apellido,
                     :correo,:contrasena,:estado,:imagen)";
-                    //Preparar consulta
-                    $consultaRegistro = $pdo->prepare($sqlRegistro);
-                    $consultaRegistro->bindValue(":id", $docId);
-                    $consultaRegistro->bindValue(":nombre", $nombres);
-                    $consultaRegistro->bindValue(":apellido", $apellidos);
-                    $consultaRegistro->bindValue(":correo", $correo);
-                    $consultaRegistro->bindValue(":contrasena", $contrasena);
-                    $consultaRegistro->bindValue(":estado", $estado);
-                    $consultaRegistro->bindValue(":imagen", $perfil);
-                    $consultaRegistro->closeCursor();
-                    //Ejecutar la sentencia
-                    $consultaRegistro->execute();
-                    //llamado a la tabla rol (intermedia) para almacenar el rol predeterminado
-                    $sqlRegistroUR = "CALL sp_guardarRol (:rol,:id)";
-                    //Preparar consulta
-                    $consultaRegistroUR = $pdo->prepare($sqlRegistroUR);
-                    $consultaRegistroUR->bindValue(":rol", $rol);
-                    $consultaRegistroUR->bindValue(":id", $docId);
-                    $consultaRegistroUR->closeCursor();
-                    //Ejecutar la sentencia
-                    $consultaRegistroUR->execute();
-                    /* Almacenado documento de identidad en variable de sesión
+                //Preparar consulta
+                $consultaRegistro = $pdo->prepare($sqlRegistro);
+                $consultaRegistro->bindValue(":id", $docId);
+                $consultaRegistro->bindValue(":nombre", $nombres);
+                $consultaRegistro->bindValue(":apellido", $apellidos);
+                $consultaRegistro->bindValue(":correo", $correo);
+                $consultaRegistro->bindValue(":contrasena", $contrasena);
+                $consultaRegistro->bindValue(":estado", $estado);
+                $consultaRegistro->bindValue(":imagen", $perfil);
+                $consultaRegistro->closeCursor();
+                //Ejecutar la sentencia
+                $consultaRegistro->execute();
+                //llamado a la tabla rol (intermedia) para almacenar el rol predeterminado
+                $sqlRegistroUR = "CALL sp_guardarRol (:rol,:id)";
+                //Preparar consulta
+                $consultaRegistroUR = $pdo->prepare($sqlRegistroUR);
+                $consultaRegistroUR->bindValue(":rol", $rol);
+                $consultaRegistroUR->bindValue(":id", $docId);
+                $consultaRegistroUR->closeCursor();
+                //Ejecutar la sentencia
+                $consultaRegistroUR->execute();
+                /* Almacenado documento de identidad en variable de sesión
                     Creación de la sesión */
-                    session_start();
-                    $_SESSION['roles'] = '1';
-                    $_SESSION["documentoIdentidad"] = $docId;
-                    //Comprador/Proveedor
-                    echo "<script> document.location.href='../../../Views/dashboard/principal/dashboard.php';</script>";
-                } else {
-                    //Impresión correo ingresado, ya existe en BD
-                    echo "<script>alert('¡El correo y/o número de documento ingresado ya existen! Por favor verifícalos e intenta nuevamente.');</script>";
-                    echo "<script> document.location.href='../../../Views/navegacion/registro.php';</script>";
-                }
+                session_start();
+                $_SESSION['roles'] = '1';
+                $_SESSION["documentoIdentidad"] = $docId;
+                //Comprador/Proveedor
+                echo "<script> document.location.href='../../../Views/dashboard/principal/dashboard.php';</script>";
             } else {
-                echo "<script>alert('¡Error! Las contraseñas ingresadas no coinciden, verifica e intenta nuevamente.');</script>";
+                //Impresión correo ingresado, ya existe en BD
+                echo "<script>alert('¡El correo y/o número de documento ingresado ya existen! Por favor verifícalos e intenta nuevamente.');</script>";
                 echo "<script> document.location.href='../../../Views/navegacion/registro.php';</script>";
             }
         } catch (\Throwable $th) {
