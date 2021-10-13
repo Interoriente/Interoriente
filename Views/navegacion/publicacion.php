@@ -63,8 +63,8 @@ $respPublicacion = $publicacion->MostrarPublicacion($publicacion->id);
 
       <div class="seccion-cta">
         <div class="cantidad">
-          <p>Cantidad</p>
-          <input value="1" min="1" type="number">
+          <p>Existencia</p>
+          <h3><?php echo $respPublicacion[0]['cantidadPublicacion']?></h3>
         </div>
         <div class="cta">
           <a class="btn btn-accion" href="checkout.php">Comprar Ahora</a>
@@ -92,7 +92,7 @@ $respPublicacion = $publicacion->MostrarPublicacion($publicacion->id);
       <h2><?php echo $respPublicacion[0]['nombresUsuario']; ?></h2>
       <p><?php echo $respPublicacion[0]['descripcionUsuario']; ?></p>
       <br>
-      <p class="textos"><a id="whatsapp"target="_blank" href="https://api.whatsapp.com/send?phone=57<?php echo $respPublicacion[0]['telefono']; ?>">WhatsApp</a>
+      <p class="textos"><a id="whatsapp" target="_blank" href="https://api.whatsapp.com/send?phone=57<?php echo $respPublicacion[0]['telefono']; ?>">WhatsApp</a>
     </div>
     <div class="informacion-complementaria">
       <p>lorem</p>

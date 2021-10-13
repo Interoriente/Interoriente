@@ -48,11 +48,6 @@
               </li>
             <?php }
           if ($_SESSION['roles'] == "3") { ?>
-              <li class="nav-item">
-                <a class="nav-link" href="#!">
-                  <i class="ni ni-delivery-fast text-brown"></i>
-                  <span class="nav-link-text">Proveedores</span>
-                </a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="publicaciones.php">

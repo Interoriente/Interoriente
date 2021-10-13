@@ -60,10 +60,11 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  text-align: center;
   justify-content: space-evenly;
   justify-content: center;
   font-family: var(--poppins);
-  width: 65%;
+  width: 40%;
   height: 75%;
 }
 .titulo-fecha {

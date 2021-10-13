@@ -66,7 +66,7 @@ if (!isset($_SESSION['documentoIdentidad'])) {
                     <div class="col-lg-6">
                       <div class="form-group">
                         <label class="form-control-label" for="input-username">Stock Mínimo</label>
-                        <input type="number" id="input-username" name="stock" class="form-control" placeholder="Stock (mínimo)" max="99999" value="" required>
+                        <input type="number" id="input-username" name="stock" class="form-control" placeholder="Stock Mínimo" max="99999" value="" required>
                       </div>
                     </div>
                     <div class="col-lg-6">

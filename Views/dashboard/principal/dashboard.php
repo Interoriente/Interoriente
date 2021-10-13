@@ -134,7 +134,7 @@ if (!isset($_SESSION['documentoIdentidad'])) {
                       </div>
                     </div>
                   <?php } else { ?>
-                    <span class="h5 font-weight-bold mb-0 text-blue">No tienen publicaciones pendientes por validar</span>
+                    <span class="h5 font-weight-bold mb-0 text-blue">No tienes publicaciones pendientes por validar</span>
                   </div>
                   <div class="col-auto icono-dashboard">
                     <div class="icon icon-shape bg-gradient-purple text-white rounded-circle shadow">
@@ -241,7 +241,7 @@ if (!isset($_SESSION['documentoIdentidad'])) {
                   </div>
                   <div class="col">
                     <ul class="nav nav-pills justify-content-end">
-                      <li class="nav-item mr-2 mr-md-0" data-toggle="chart" data-target="#chart-sales-dark" data-update='{"data":{"datasets":[{"data":[0, 20, 10, 30, 15, 40, 20, 60, 30]}]}}' data-prefix="$" data-suffix="M">
+                      <li class="nav-item mr-2 mr-md-0" data-toggle="chart" data-target="#chart-sales-dark" data-update='{"data":{"datasets":[{"data":[0, 20, 10, 30, 15, 40, 20, 60, 30]}]}}' data-prefix="$" data-suffix=".">
 
                       </li>
                     </ul>
@@ -310,13 +310,13 @@ if (!isset($_SESSION['documentoIdentidad'])) {
           </div>
           <div class="table-responsive">
             <!-- Projects table -->
-            <table id="example" class="table align-items-center table-flush">
+            <table class="table align-items-center table-flush">
               <?php if (!isset($respMasExitosas->Titulos[0]) == "") { ?>
                 <thead class="thead-light">
                   <tr>
                     <th scope="col">Título</th>
                     <th scope="col">No. Ventas</th>
-                    <th scope="col">Stock</th>
+                    <th scope="col">Cantidad</th>
                     <th scope="col">Porcentaje</th>
                     <th scope="col">Total Ventas</th>
                   </tr>
@@ -334,7 +334,7 @@ if (!isset($_SESSION['documentoIdentidad'])) {
                       </td>
 
                       <td>
-                        <?php echo $respMasExitosas->Stock[$i]; ?>
+                        <?php echo $respMasExitosas->Cantidad[$i]; ?>
                       </td>
                       <td>
                         <?php echo "%" . round($respMasExitosas->Porcentajes[$i], 1); ?>
