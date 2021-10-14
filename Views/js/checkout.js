@@ -216,10 +216,14 @@ function finalizarCompra() {
     url: "../../Controllers/php/users/compras.php",
     type: "POST",
     data: { checkout: checkout },
+    error: function (err) {
+      alert(err);
+    },
     success: function (respuesta) {
-      console.log(respuesta);
+      alert(respuesta)
       /* Redirigir y/o mostrar mensaje de finalización */
      window.location = "./index.php";
     },
+    
   });
 }
