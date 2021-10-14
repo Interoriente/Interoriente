@@ -27,21 +27,6 @@ $respCategorias = MostrarCategorias();
     <!-- ----- -->
     <div class="padre">
         <div class="header">
-            <!--Inicio Pestaña de resltados-->
-            <div class="pestana">
-                <div class="pestana-pest">
-                    <a href="#" class="tit-hdos">
-                        <h2>Catálogos</h2>
-                    </a>
-                    <i class="fas fa-chevron-right"></i>
-                    <a href="#" class="tit-hdos">
-                        <h2>Productos</h2>
-                    </a>
-                </div>
-            </div>
-            <!--Fin Pestaña de resultados-->
-            <br>
-            <br>
             <div class="titulo">
                 <h1 class="titulo-tit">Escoge entre nuestras categorías de productos</h1>
             </div>

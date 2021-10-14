@@ -82,7 +82,7 @@ if (!isset($_SESSION['documentoIdentidad'])) {
                 </div>
                 <div class="text-center">
                   <h5 class="h3">
-                    <?php echo $nombreUsuario; ?><span class="font-weight-light">, 27</span>
+                    <?php echo $nombreUsuario; ?>
                   </h5>
                   <div class="h5 font-weight-300">
                     <i class="ni location_pin mr-2"></i>Oriente de Antioquia
@@ -180,7 +180,7 @@ if (!isset($_SESSION['documentoIdentidad'])) {
                       <div class="col-lg-6">
                         <div class="form-group">
                           <label class="form-control-label" for="direccion">Dirección</label>
-                          <input type="text" id="direccion" name="direccion" class="form-control" placeholder="Cra ###" value="" required>
+                          <input type="text" id="direccion" name="direccion" class="form-control" placeholder="Ej: Cra 21 #12-12" value="" required>
                           <!-- Capturo el documento del usuario logueado -->
                           <input type="hidden" id="direccion" name="documento" class="form-control" value="<?php echo $respUserData->documentoIdentidad; ?>" required>
                         </div>

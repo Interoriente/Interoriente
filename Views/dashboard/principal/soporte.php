@@ -24,7 +24,7 @@ if (!isset($_SESSION['documentoIdentidad'])) {
             <!-- Formulario de soporte -->
             <div class="container-fluid mt--6">
                 <div class="row">
-                    <div class="col-xl-8 order-xl-1">
+                    <div class="col-xl-12 order-xl-1">
                         <div class="card">
                             <div class="card-header">
                                 <div class="row align-items-center">
