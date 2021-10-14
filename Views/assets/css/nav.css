@@ -126,7 +126,7 @@ header {
   height: 100%;
   z-index: 2;
   overflow: scroll;
-  background: var(--clr-neutro-a);
+  background: white;
   padding: 1.5rem;
   transition: all 0.04s ease-in-out;
   transform: translateX(100%);

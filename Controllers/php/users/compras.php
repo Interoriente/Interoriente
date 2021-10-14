@@ -151,7 +151,7 @@ class Checkout
       $stmt = $pdo->prepare($sql);
       $stmt->bindValue(":id", $idUsuario);
       $stmt->execute();
-      $resultado = $stmt->fetchAll();
+      $resultado = $stmt->fetchAll(PDO::FETCH_ASSOC);
       return $resultado;
     } catch (\Throwable $th) {
       /*echo "<script>alert('Ocurrió un error!');</script>";*/
@@ -204,44 +204,52 @@ class Checkout
       $idUsuario = $_SESSION['documentoIdentidad'];
       /* Almacenar información de la compra */
       $sqlFa = "INSERT INTO `tblFactura`
-        VALUES (null,:idUser,CURRENT_TIMESTAMP,:direccion,:email)";
-      $stmt = $pdo->prepare($sqlFa);
-      $stmt->bindValue(':idUser', $idUsuario);
-      $stmt->bindValue(':direccion', $direccion);
-      $stmt->bindValue(':email', $email);
-      $stmt->execute();
-      $idFactura = $pdo->lastInsertId(); //Regresar el id del último registro insertado
-      /* Almacenar información en tabla intermedia tblfacturapublicacion */
-      $sqlCa = "SELECT idPublicacionCarrito as 'idPu',
-        cantidadCarrito as 'cantidad' 
-        FROM tblCarrito
-        WHERE docIdentidadCarrito = $idUsuario";
-      $stmtCa = $pdo->prepare($sqlCa);
-      $stmtCa->execute();
-      $respuesta = $stmtCa->fetchAll(PDO::FETCH_ASSOC);
-      foreach ($respuesta as $fila) {
-        $idPubli = $fila['idPu'];
-        $cantidad = $fila['cantidad'];
-        $sqlFacPu = "INSERT INTO tblFacturaPublicacion
-          VALUES (:idFact, :idPubli, :cantidad)";
-        $stmtFacPu = $pdo->prepare($sqlFacPu);
-        $stmtFacPu->bindValue(':idFact', $idFactura);
-        $stmtFacPu->bindValue(':idPubli', $idPubli);
-        $stmtFacPu->bindValue(':cantidad', $cantidad);
-        $stmtFacPu->execute();
-        //Restar stock a la publicación
-        $sqlStock = "UPDATE tblPublicacion
-          SET stockPublicacion = (stockPublicacion-$cantidad)
-          WHERE idPublicacion =?";
-        $stmtStock = $pdo->prepare($sqlStock);
-        $stmtStock->execute(array($idPubli));
+      VALUES (null,:idUser,CURRENT_TIMESTAMP,:direccion,:email)";
+    $stmt = $pdo->prepare($sqlFa);
+    $stmt->bindValue(':idUser', $idUsuario);
+    $stmt->bindValue(':direccion', $direccion);
+    $stmt->bindValue(':email', $email);
+    $stmt->execute();
+    $idFactura = $pdo->lastInsertId(); //Regresar el id del último registro insertado
+    /* Almacenar información en tabla intermedia tblfacturapublicacion */
+    
+    $sqlCa = "SELECT idPublicacionCarrito as 'idPu',
+      cantidadCarrito as 'cantidad' 
+      FROM tblCarrito
+      WHERE docIdentidadCarrito = :idUsuario";
+    $stmtCa = $pdo->prepare($sqlCa);
+    $stmtCa->bindValue(':idUsuario', $idUsuario);
+    $stmtCa->execute();
+    $respuesta = $stmtCa->fetchAll(PDO::FETCH_ASSOC);
+   
+    foreach ($respuesta as $fila) {
+      
 
-        /* Eliminar información de la tabla carrito */
-        $sqlDeleteCart = "DELETE FROM tblCarrito 
-          WHERE idPublicacionCarrito = $idPubli 
-          AND docIdentidadCarrito = $idUsuario";
-        $stmtDeleteCart = $pdo->prepare($sqlDeleteCart);
-        $stmtDeleteCart->execute();
+      $idPubli = $fila['idPu'];
+      $cantidad = $fila['cantidad'];
+      $sqlFacPu = "INSERT INTO tblFacturaPublicacion
+        VALUES (:idFact, :idPubli, :cantidad)";
+      $stmtFacPu = $pdo->prepare($sqlFacPu);
+      $stmtFacPu->bindValue(':idFact', $idFactura);
+      $stmtFacPu->bindValue(':idPubli', $idPubli);
+      $stmtFacPu->bindValue(':cantidad', $cantidad);
+      $stmtFacPu->execute();
+      
+      //Restar stock a la publicación
+    /*   $sqlStock = "UPDATE tblPublicacion
+        SET stockPublicacion = (cantidadPublicacion-$cantidad)
+        WHERE idPublicacion =?";
+      $stmtStock = $pdo->prepare($sqlStock);
+      $stmtStock->execute(array($idPubli)); */
+
+      /* Eliminar información de la tabla carrito */
+      $sqlDeleteCart = "DELETE FROM tblCarrito 
+        WHERE idPublicacionCarrito = :idPubli 
+        AND docIdentidadCarrito = :idUsuario";
+      $stmtDeleteCart = $pdo->prepare($sqlDeleteCart);
+      $stmtDeleteCart->bindValue(':idPubli', $idPubli);
+      $stmtDeleteCart->bindValue(':idUsuario', $idUsuario);
+      $stmtDeleteCart->execute();
       }
     } catch (\Throwable $th) {
       //throw $th;

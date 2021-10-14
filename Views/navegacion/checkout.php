@@ -1,7 +1,4 @@
 <?php
-/* ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL); */
 include "../../Controllers/php/users/compras.php";
 $checkout = new Checkout();
 $checkoutData = $checkout->getCheckoutInfo();
@@ -319,7 +316,7 @@ $iva = 0;
           $total += $fila['total'];
         ?>
           <div class="publicacion-desktop">
-            <img id="img-publicacion-d" src="../assets/img/stock/6.jpg" alt="Imagen publicación">
+            <img id="img-publicacion-d" src="<?php echo $fila['urlImg']?>" alt="Imagen publicación">
             <div class="texto-publicacion-d">
               <p><?php echo $fila['titulo'] ?></p>
               <p>$<?php echo $fila['costo'] ?></p>

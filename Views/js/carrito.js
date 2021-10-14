@@ -32,8 +32,6 @@ if (publicacionLocalStorage) {
   carrito = publicacionLocalStorage;
   mathCarrito(carrito);
   renderPubli(carrito);
-} else {
-  console.log("No hay publicaciones en LocalStorage");
 }
 /* Seleccionar elemento padre para ejecutar una acción, en este caso, cerrar el carrito */
 overlay.addEventListener("click", (e) => {
@@ -74,7 +72,6 @@ function addCarrito(id) {
       respuesta["cantidad"] = 1; //Agregando nuevo key and value al JSON
       carrito.push(respuesta); //Almacenando datos en el carrito
       Storage.setPublicacion(carrito); // Subiendo info a Localstorage
-      /* console.log("Id de la publicación " + carrito[0].Id); */
       renderPubli(Storage.getPublicacion());
       mathCarrito(carrito);
       abrirCarrito();
@@ -89,7 +86,7 @@ function renderPubli(item) {
   item.map((item) => {
     clase += `
             <div class = "cart-item">
-                <img src="../assets/img/stock/1.jpg" alt="product" width="100%">
+                <img src="${item.img}" alt="product" width="100%">
                 <div>
                     <h4 class="titulos item-h" >${item.titulo}</h4>
                     <h5>$${item.costo}</h5>
