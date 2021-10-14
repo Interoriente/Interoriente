@@ -68,26 +68,6 @@ session_start();
                                         <input class="form-control" placeholder="*********" type="password" name="contrasena" minlength="5" maxlength="20" required>
                                     </div>
                                 </div>
-                                <div class="form-group">
-                                    <label for="">Repita contraseña:</label>
-                                    <div class="input-group input-group-merge input-group-alternative mb-3">
-                                        <div class="input-group-prepend">
-                                            <span class="input-group-text"><i class="ni ni-key-25"></i></span>
-                                        </div>
-                                        <input class="form-control" placeholder="*********" type="password" name="recontrasena" minlength="5" maxlength="20" required>
-                                    </div>
-                                </div>
-                                <div class="text-muted font-italic"><small>password strength: <span class="text-success font-weight-700">strong</span></small></div>
-                                <div class="row my-4">
-                                    <div class="col-12">
-                                        <div class="custom-control custom-control-alternative custom-checkbox">
-                                            <input class="custom-control-input" id="customCheckRegister" type="checkbox">
-                                            <label class="custom-control-label" for="customCheckRegister">
-                                                <span class="text-muted">I agree with the <a href="#!">Privacy Policy</a></span>
-                                            </label>
-                                        </div>
-                                    </div>
-                                </div>
                                 <div class="text-center">
                                     <button type="submit" class="btn btn-primary mt-4">Crear cuenta</button>
                                 </div>
