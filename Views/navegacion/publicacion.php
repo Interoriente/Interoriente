@@ -86,7 +86,7 @@ $respPublicacion = $publicacion->MostrarPublicacion($publicacion->id);
 
   <!-- Sección Datos Proveedor -->
 
-  <h1 class="informacion-h1 info-p-h1">Sobre el provedor</h1>
+  <h1 class="informacion-h1 info-p-h1">Sobre el proveedor</h1>
   <section class="info-proveedor">
 
     <div class="descripcion-proveedor">

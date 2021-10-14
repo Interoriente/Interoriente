@@ -137,7 +137,7 @@ require "../includes/linksGoogle.php";
                     </div>
                     <div class="row mt-3">
                         <div class="col-6">
-                            <a href="index.php" class="text-light"><small>Regresar</small></a>
+                            <a href="index.php" class="text-light"><small>Regresar al inicio</small></a>
                         </div>
                         <div class="col-6 text-right">
                             <a href="iniciarsesion.php" class="text-light"><small>¿Tienes cuenta?</small></a>

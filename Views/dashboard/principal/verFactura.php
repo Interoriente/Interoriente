@@ -50,7 +50,6 @@ if (isset($_SESSION['documentoIdentidad'])) {
                                 <span class="h3">Factura</span>
                                 <p>No. Factura: <strong><?php echo $respEncabezadoFactura->numeroFactura; ?></strong></p>
                                 <p>Fecha: <?php echo $respEncabezadoFactura->fecha; ?></p>
-                                <p>Hora: <?php echo $respEncabezadoFactura->hora; ?></p>
                                 <p>Factura Electrónica</p>
                             </div>
                         </td>

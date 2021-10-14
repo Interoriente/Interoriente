@@ -52,7 +52,7 @@ if (!isset($_SESSION['documentoIdentidad'])) {
                 <table class="table align-items-center table-flush">
                   <thead class="thead-light">
                     <tr>
-                      <th scope="col">Imagen</th>
+                      <!-- <th scope="col">Imagen</th> -->
                       <th scope="col">Nombre</th>
                       <th scope="col">Costo</th>
                       <th scope="col">Cantidad</th>
@@ -63,11 +63,18 @@ if (!isset($_SESSION['documentoIdentidad'])) {
                     <?php
                     foreach ($respTodasPublicaciones as $datosPubli) { ?>
                       <tr>
-                        <th><img src="<?php echo $datosPubli['urlImagen'];  ?>" alt=".." width="130px"></th>
+                        <!-- Comentado de forma temporal -->
+                        <!-- <th><img src="<?php //echo $datosPubli['urlImagen'];  
+                                            ?>" alt=".." width="130px"></th> -->
                         <th><?php echo $datosPubli['nombrePublicacion']; ?></th>
                         <th><?php echo $datosPubli['costoPublicacion']; ?></th>
                         <th><?php echo $datosPubli['cantidadPublicacion']; ?></th>
-                        <th><button type="submit" class="btn btn-info">Activar</button></th>
+                        <th>
+                          <form action="../../../Controllers/php/users/publicaciones.php" method="POST">
+                            <input type="hidden" name="activarPublicacion"><button type="submit" class="btn btn-info">Activar</button>
+                            <input type="hidden" name="id" value="<?php echo $datosPubli['idPublicacion']; ?>">
+                          </form>
+                        </th>
                         <!-- Cierre else -->
                       </tr>
                     <?php
