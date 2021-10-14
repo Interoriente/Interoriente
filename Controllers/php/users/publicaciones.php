@@ -150,7 +150,7 @@ class Publicaciones
                     $temporal = $_FILES['imagen']['tmp_name'][$i];
                     $ruta = $directorio . "" . basename($filename);
                     //Especifico el nombre que se va a guardar en la BD
-                    $archivo = "../../assets/img/publicaciones/$idPubli" . $filename;
+                    $archivo = "../assets/img/publicaciones/$idPubli" . $filename;
                     //Subimos la imagen al servidor
                     if (move_uploaded_file($temporal, $ruta)) {
                         //Insertando imagen en la tabla

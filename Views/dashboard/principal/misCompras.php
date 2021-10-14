@@ -101,7 +101,7 @@ if (!isset($_SESSION['documentoIdentidad'])) {
                                     <h3 class="mb-0"> </h3>
                                 </div>
                                 <div class="table-responsive">
-                                    <table id="example" class="table align-items-center table-flush">
+                                    <table class="table align-items-center table-flush">
                                         <thead class="thead-light">
                                             <tr>
                                                 <th scope="col">Nombre</th>
