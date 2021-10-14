@@ -58,10 +58,6 @@
                   <i class="ni ni-settings-gear-65"></i>
                   <span>Ayuda</span>
                 </a>
-                <a href="#!" class="dropdown-item">
-                  <i class="ni ni-calendar-grid-58"></i>
-                  <span>Actividad</span>
-                </a>
                 <a href="soporte.php" class="dropdown-item">
                   <i class="ni ni-support-16"></i>
                   <span>Soporte</span>

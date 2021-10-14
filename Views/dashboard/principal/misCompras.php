@@ -71,7 +71,6 @@ if (!isset($_SESSION['documentoIdentidad'])) {
                                             <h2 class="titulo-costo">$<?php echo $misCompras['Costo']; ?></h2>
                                             <h2 class="titulo-fecha"><?php echo $misCompras['fechaFactura']; ?></h2>
                                             <p class="textos">Productos: <?php echo $misCompras['Contador']; ?></p>
-                                            <p class="textos"><a target="_blank" href="<?php echo "https://api.whatsapp.com/send?phone=57" . $misCompras['telefono']; ?>">WhatsApp</a>
                                             <p>
                                         </div>
                                         <div class="cont-menutres">

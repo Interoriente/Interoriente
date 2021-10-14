@@ -56,7 +56,6 @@ if (!isset($_SESSION['documentoIdentidad'])) {
                       <th scope="col">Nombre</th>
                       <th scope="col">Costo</th>
                       <th scope="col">Cantidad</th>
-                      <th scope="col">Estado</th>
                       <th scope="col">Acciones</th>
                     </tr>
                   </thead>
@@ -68,38 +67,8 @@ if (!isset($_SESSION['documentoIdentidad'])) {
                         <th><?php echo $datosPubli['nombrePublicacion']; ?></th>
                         <th><?php echo $datosPubli['costoPublicacion']; ?></th>
                         <th><?php echo $datosPubli['cantidadPublicacion']; ?></th>
-                        <?php if ($datosPubli['validacionPublicacion'] == '1') { ?>
-                          <th>Validada</th>
-                          <div class="btn-group">
-                            <th>
-                              <button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Acciones
-                              </button>
-                              <div class="dropdown-menu">
-                                <form action="../../../Controllers/php/users/publicaciones.php" method="POST">
-                                  <input type="hidden" name="desactivarPublicacion">
-                                  <input type="hidden" name="id" value="<?php echo $datosPubli['idPublicacion']; ?>">
-                                  <button type="submit" class="btn btn-info">Desactivar</button>
-                                </form>
-                              </div>
-                            </th>
-                          <?php } else { ?>
-                            <th>En revisión</th>
-                            <th>
-                              <button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Acciones
-                              </button>
-                              <div class="dropdown-menu">
-                                <form action="../../../Controllers/php/users/publicaciones.php" method="POST">
-                                  <input type="hidden" name="activarPublicacion">
-
-                                  <input type="hidden" name="id" value="<?php echo $datosPubli['idPublicacion']; ?>">
-                                  <button type="submit" class="btn btn-info">Activar</button>
-                                </form>
-                              </div>
-                            </th>
-                            <!-- Cierre else -->
-                          <?php } ?>
+                        <th><button type="submit" class="btn btn-info">Activar</button></th>
+                        <!-- Cierre else -->
                       </tr>
                     <?php
                     }

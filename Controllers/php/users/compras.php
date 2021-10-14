@@ -168,7 +168,7 @@ class Checkout
         require('../../../Models/dao/conexion.php');
         $sql = "CALL sp_validarDireccion(:id)";
         $stmt = $pdo->prepare($sql);
-        $stmt->bindValue(":id",$idUsuario);
+        $stmt->bindValue(":id", $idUsuario);
         $stmt->execute();
         $resultado = $stmt->fetchAll(\PDO::FETCH_ASSOC); /* FETCH_ASSOC permite devolver solo un tipo de arreglo, en este caso, asociativo */
         $resultado = json_encode($resultado);
@@ -203,46 +203,48 @@ class Checkout
       session_start();
       $idUsuario = $_SESSION['documentoIdentidad'];
       /* Almacenar información de la compra */
-      $sqlFa = "CALL sp_insertarFactura(:idUser,:direccion,:email)";
+      $sqlFa = "INSERT INTO `tblFactura`
+        VALUES (null,:idUser,CURRENT_TIMESTAMP,:direccion,:email)";
       $stmt = $pdo->prepare($sqlFa);
       $stmt->bindValue(':idUser', $idUsuario);
       $stmt->bindValue(':direccion', $direccion);
       $stmt->bindValue(':email', $email);
       $stmt->execute();
-      $sqlUltIdFact="CALL sp_ultimoNumFactura";
-      $stmtIdFact=$pdo->prepare($sqlUltIdFact);
-      $stmtIdFact->execute();
-      $resultadoIdFact=$stmtIdFact->fetch(PDO::FETCH_OBJ);
-      $idFactura = $resultadoIdFact['MAX(numeroFactura)']; //Regresar el id del último registro insertado
+      $idFactura = $pdo->lastInsertId(); //Regresar el id del último registro insertado
       /* Almacenar información en tabla intermedia tblfacturapublicacion */
-      $sqlCa = "CALL sp_mostrarIdCarrito(:id)";
+      $sqlCa = "SELECT idPublicacionCarrito as 'idPu',
+        cantidadCarrito as 'cantidad' 
+        FROM tblCarrito
+        WHERE docIdentidadCarrito = $idUsuario";
       $stmtCa = $pdo->prepare($sqlCa);
-      $stmtCa->bindValue(":id", $idUsuario);
       $stmtCa->execute();
       $respuesta = $stmtCa->fetchAll(PDO::FETCH_ASSOC);
       foreach ($respuesta as $fila) {
         $idPubli = $fila['idPu'];
         $cantidad = $fila['cantidad'];
-        $sqlFacPu = "CALL sp_insertarFacturaPublicacion (:idFact, :idPubli, :cantidad)";
+        $sqlFacPu = "INSERT INTO tblFacturaPublicacion
+          VALUES (:idFact, :idPubli, :cantidad)";
         $stmtFacPu = $pdo->prepare($sqlFacPu);
         $stmtFacPu->bindValue(':idFact', $idFactura);
         $stmtFacPu->bindValue(':idPubli', $idPubli);
         $stmtFacPu->bindValue(':cantidad', $cantidad);
         $stmtFacPu->execute();
         //Restar stock a la publicación
-        $sqlStock = "CALL sp_actualizarExistencia(:id,:cantidad";
+        $sqlStock = "UPDATE tblPublicacion
+          SET stockPublicacion = (stockPublicacion-$cantidad)
+          WHERE idPublicacion =?";
         $stmtStock = $pdo->prepare($sqlStock);
-        $stmtStock->execute();
+        $stmtStock->execute(array($idPubli));
+
         /* Eliminar información de la tabla carrito */
-        $sqlDeleteCart = "CALL sp_borrarCarrito(:id,:documento)";
+        $sqlDeleteCart = "DELETE FROM tblCarrito 
+          WHERE idPublicacionCarrito = $idPubli 
+          AND docIdentidadCarrito = $idUsuario";
         $stmtDeleteCart = $pdo->prepare($sqlDeleteCart);
-        $stmtDeleteCart->bindValue(":id", $idPubli);
-        $stmtDeleteCart->bindValue(":documento", $idUsuario);
         $stmtDeleteCart->execute();
       }
-      return "Proceso de Compras Finalizado!!";
     } catch (\Throwable $th) {
-      /*echo "<script>alert('Ocurrió un error!');</script>";*/
+      //throw $th;
     }
   }
 }

@@ -55,12 +55,6 @@
                   <span class="nav-link-text">Publicaciones</span>
                 </a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="usuarios.php">
-                  <i class="ni ni-circle-08 text-default"></i>
-                  <span class="nav-link-text">Usuarios</span>
-                </a>
-              </li>
             </ul>
         <?php }
         } ?>

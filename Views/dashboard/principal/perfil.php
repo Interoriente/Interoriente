@@ -34,7 +34,7 @@ if (!isset($_SESSION['documentoIdentidad'])) {
         <!-- Header container -->
         <div class="container-fluid d-flex align-items-center">
           <div class="row">
-            <div class="col-lg-7 col-md-10">
+            <div class="col-lg-12 col-md-10">
               <h1 class="display-2 text-white">¡Hola, <?php echo $nombreUsuario; ?>!</h1>
               <p class="text-white mt-0 mb-5">Este es tu perfil. Aquí podrás visualizar tu información y actualizarla en cualquier momento.</p>
             </div>
@@ -57,9 +57,9 @@ if (!isset($_SESSION['documentoIdentidad'])) {
                 </div>
               </div>
               <div class="card-header text-center border-0 pt-8 pt-md-8 pb-5 pb-md-0">
-                <div class="d-flex justify-content-between">
+                <!-- <div class="d-flex justify-content-between">
                   <a href="#!" class="btn btn-sm btn-info  mr-4 ">Ayuda</a>
-                </div>
+                </div> -->
               </div>
               <div class="card-body pt-0">
                 <div class="row">
@@ -69,14 +69,14 @@ if (!isset($_SESSION['documentoIdentidad'])) {
                         <span class="heading"><?php echo $contadorPublicaciones; ?></span>
                         <span class="description">Publicaciones</span>
                       </div>
-                      <div>
+                      <!-- <div>
                         <span class="heading">0</span>
                         <span class="description">Fotos</span>
                       </div>
                       <div>
                         <span class="heading">89</span>
                         <span class="description">Comentarios</span>
-                      </div>
+                      </div> -->
                     </div>
                   </div>
                 </div>
