@@ -31,7 +31,6 @@ function finalizarCompra($direccion, $email)
       $stmtCa->bindValue(':idUsuario', $idUsuario);
       $stmtCa->execute();
       $respuesta = $stmtCa->fetchAll(PDO::FETCH_ASSOC);
-     
       foreach ($respuesta as $fila) {
         
 
@@ -60,7 +59,6 @@ function finalizarCompra($direccion, $email)
         $stmtDeleteCart->bindValue(':idPubli', $idPubli);
         $stmtDeleteCart->bindValue(':idUsuario', $idUsuario);
         $stmtDeleteCart->execute();
-        return 3;
         
     }
 } catch (\Throwable $th) {

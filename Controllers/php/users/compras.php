@@ -151,7 +151,7 @@ class Checkout
       $stmt = $pdo->prepare($sql);
       $stmt->bindValue(":id", $idUsuario);
       $stmt->execute();
-      $resultado = $stmt->fetchAll();
+      $resultado = $stmt->fetchAll(PDO::FETCH_ASSOC);
       return $resultado;
     } catch (\Throwable $th) {
       /*echo "<script>alert('Ocurrió un error!');</script>";*/

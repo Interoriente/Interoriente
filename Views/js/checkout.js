@@ -219,10 +219,10 @@ function finalizarCompra() {
     error: function (err) {
       alert(err);
     },
-    success: function (respuesta) {
-      alert(respuesta)
+    success: function () {
       /* Redirigir y/o mostrar mensaje de finalización */
-     window.location = "./index.php";
+      localStorage.removeItem("carrito");
+      window.location = "./index.php";
     },
     
   });
