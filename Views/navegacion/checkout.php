@@ -2,6 +2,7 @@
 include "../../Controllers/php/users/compras.php";
 $checkout = new Checkout();
 $checkoutData = $checkout->getCheckoutInfo();
+print_r($checkoutData);
 $subtotal = 0;
 $total = 0;
 $iva = 0;
@@ -316,7 +317,7 @@ $iva = 0;
           $total += $fila['total'];
         ?>
           <div class="publicacion-desktop">
-            <img id="img-publicacion-d" src="<?php echo $fila['urlImg']?>" alt="Imagen publicación">
+            <!-- <img id="img-publicacion-d" src="<?php //echo $fila['urlImg']?>" alt="Imagen publicación"> -->
             <div class="texto-publicacion-d">
               <p><?php echo $fila['titulo'] ?></p>
               <p>$<?php echo $fila['costo'] ?></p>
