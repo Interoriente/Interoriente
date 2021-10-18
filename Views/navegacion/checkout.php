@@ -3,7 +3,6 @@ include "../../Controllers/php/users/compras.php";
 $checkout = new Checkout();
 $checkoutData = $checkout->getCheckoutInfo();
 $checkoutImgData = $checkout->getImgCheckoutInfo();
-print_r($checkoutImgData);
 $subtotal = 0;
 $total = 0;
 $iva = 0;
