@@ -63,7 +63,7 @@ $respImgPublicacion = $publicacion->MostrarImgPublicacion($publicacion->id);
         </div>
         <div class="cta">
           <a class="btn btn-accion" href="checkout.php">Comprar Ahora</a>
-          <a class="btn btn-accion" href="#">Agregar al carrito</a>
+          <a class="btn btn-accion" onclick="addCarrito(this.id)" id="<?php echo $respPublicacion[0]['idPublicacion'] ?>">Agregar al carrito</a>
         </div>
 
       </div>
