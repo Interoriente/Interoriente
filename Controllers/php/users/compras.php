@@ -157,6 +157,21 @@ class Checkout
       /*echo "<script>alert('Ocurrió un error!');</script>";*/
     }
   }
+  public function getImgCheckoutInfo()
+  {
+    try {
+      require '../../Models/dao/conexion.php';
+      $idUsuario = $_SESSION['documentoIdentidad'];
+      $sql = "CALL sp_getImgCheckoutInfo(:id)";
+      $stmt = $pdo->prepare($sql);
+      $stmt->bindValue(":id", $idUsuario);
+      $stmt->execute();
+      $resultado = $stmt->fetchAll(PDO::FETCH_COLUMN);
+      return $resultado;
+    } catch (\Throwable $th) {
+      /*echo "<script>alert('Ocurrió un error!');</script>";*/
+    }
+  }
 
   public function validarDireccion()
   {

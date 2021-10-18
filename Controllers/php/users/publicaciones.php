@@ -300,6 +300,19 @@ class Publicaciones
             header("Location: ../../Views/navegacion/index.php");
         }
     }
+    public function MostrarImgPublicacion($id)
+    {
+        try {
+            require '../../Models/dao/conexion.php';
+            $sql = "CALL sp_mostrarImgPublicacion(:id)";
+            $stmt = $pdo->prepare($sql);
+            $stmt->bindValue(":id", $id);
+            $stmt->execute();
+            return $stmt->fetchAll();
+        } catch (\Throwable $th) {
+            header("Location: ../../Views/navegacion/index.php");
+        }
+    }
     public function FiltroPublicacion($id)
     {
         require '../../Models/dao/conexion.php';

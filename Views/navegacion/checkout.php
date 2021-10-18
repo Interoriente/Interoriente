@@ -2,10 +2,12 @@
 include "../../Controllers/php/users/compras.php";
 $checkout = new Checkout();
 $checkoutData = $checkout->getCheckoutInfo();
-print_r($checkoutData);
+$checkoutImgData = $checkout->getImgCheckoutInfo();
+print_r($checkoutImgData);
 $subtotal = 0;
 $total = 0;
 $iva = 0;
+$cont = 0;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -311,19 +313,23 @@ $iva = 0;
       <!-- Contenedor Publicación  -->
       <div class="contenedor-publi">
         <!-- Publicación  -->
-        <?php foreach ($checkoutData as $fila) :
+        <?php
+        foreach ($checkoutData as $fila) {
+
           $subtotal += $fila['subtotal'];
           $iva += $fila['iva'];
           $total += $fila['total'];
         ?>
           <div class="publicacion-desktop">
-            <!-- <img id="img-publicacion-d" src="<?php //echo $fila['urlImg']?>" alt="Imagen publicación"> -->
+            <img id="img-publicacion-d" src="<?php echo $checkoutImgData[$cont] ?>" alt="Imagen publicación">
+
             <div class="texto-publicacion-d">
-              <p><?php echo $fila['titulo'] ?></p>
+              <p><?php echo $fila['Titulo'] ?></p>
               <p>$<?php echo $fila['costo'] ?></p>
             </div>
           </div>
-        <?php endforeach ?>
+        <?php $cont++;
+        } ?>
         <!-- Fin Publicación  -->
       </div>
       <!-- FIN Contenedor Publicación  -->
@@ -369,7 +375,7 @@ $iva = 0;
   <script src="../js/checkout.js"></script>
   <script src='https://cdnjs.cloudflare.com/ajax/libs/imask/3.4.0/imask.min.js'></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
-   
+
 </body>
 
 </html>

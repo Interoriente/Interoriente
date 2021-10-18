@@ -3,6 +3,8 @@ $idPublicacion = base64_decode($_GET['id']);
 require "../../Controllers/php/users/publicaciones.php";
 $publicacion = new Publicaciones($idPublicacion);
 $respPublicacion = $publicacion->MostrarPublicacion($publicacion->id);
+
+$respImgPublicacion = $publicacion->MostrarImgPublicacion($publicacion->id);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -26,18 +28,12 @@ $respPublicacion = $publicacion->MostrarPublicacion($publicacion->id);
   ?>
   <div id="contenedor-principal">
 
-    <div class="descripcion-m">
-      <h2>Monitor Samsung Ips De 24 Full Hd Freesync Hdmi Lf24t400fh</h2>
-      <hr>
-      <h3>$1.400.200</h3>
-    </div>
-
     <div class="column carrusel">
-      <img id=img-principal src="<?php echo $respPublicacion[0]['urlImagen'] ?>">
+      <img id=img-principal src="<?php echo $respImgPublicacion[0]['urlImagen'] ?>">
       <div id="slide-wrapper">
         <img id="slideLeft" class="flecha" src="../assets/img/navegacion/flechaIz.png">
         <div id="slider">
-          <?php foreach ($respPublicacion as $imagen) {
+          <?php foreach ($respImgPublicacion as $imagen) {
           ?>
             <img class="thumbnail" src="<?php echo $imagen['urlImagen'] ?>">
           <?php } ?>
@@ -50,7 +46,7 @@ $respPublicacion = $publicacion->MostrarPublicacion($publicacion->id);
     <div class="column">
       <div class="descripcion-d">
         <h2 class="titulo-publicacion"><?php echo $respPublicacion[0]['nombrePublicacion'];
-            ?></h2>
+                                        ?></h2>
         <hr>
         <h3>$<?php echo number_format($respPublicacion[0]['costoPublicacion'], 0, '', '.');
               ?></h3>
@@ -63,7 +59,7 @@ $respPublicacion = $publicacion->MostrarPublicacion($publicacion->id);
       <div class="seccion-cta">
         <div class="cantidad">
           <p>Existencia</p>
-          <h4><?php echo $respPublicacion[0]['cantidadPublicacion']?></h4>
+          <h4><?php echo $respPublicacion[0]['cantidadPublicacion'] ?></h4>
         </div>
         <div class="cta">
           <a class="btn btn-accion" href="checkout.php">Comprar Ahora</a>
@@ -93,9 +89,8 @@ $respPublicacion = $publicacion->MostrarPublicacion($publicacion->id);
       <h2><?php echo $respPublicacion[0]['nombresUsuario']; ?></h2>
       <p><?php echo $respPublicacion[0]['descripcionUsuario']; ?></p>
       <br>
-      <a target="_blank"
-        href="https://api.whatsapp.com/send?phone=57<?php echo $respPublicacion[0]['telefono']; ?>">
-        <img class="whatsapp-icon"src="../assets/img/iconos/whatsapp.svg" alt="Contacto Whatsapp">
+      <a target="_blank" href="https://api.whatsapp.com/send?phone=57<?php echo $respPublicacion[0]['telefono']; ?>">
+        <img class="whatsapp-icon" src="../assets/img/iconos/whatsapp.svg" alt="Contacto Whatsapp">
       </a>
     </div>
     <div class="informacion-complementaria">
