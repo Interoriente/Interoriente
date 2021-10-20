@@ -251,11 +251,13 @@ class Checkout
       $stmtFacPu->execute();
       
       //Restar stock a la publicación
-    /*   $sqlStock = "UPDATE tblPublicacion
-        SET stockPublicacion = (cantidadPublicacion-$cantidad)
-        WHERE idPublicacion =?";
+      $sqlStock = "UPDATE tblPublicacion
+        SET cantidadPublicacion = (cantidadPublicacion-:cantidad)
+        WHERE idPublicacion =:id";
       $stmtStock = $pdo->prepare($sqlStock);
-      $stmtStock->execute(array($idPubli)); */
+      $stmtStock->bindValue(':cantidad',$cantidad);
+      $stmtStock->bindValue(':id',$idPubli);
+      $stmtStock->execute();
 
       /* Eliminar información de la tabla carrito */
       $sqlDeleteCart = "DELETE FROM tblCarrito 

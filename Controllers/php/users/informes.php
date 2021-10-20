@@ -130,6 +130,18 @@ class Informes
             /*echo "<script>alert('Ocurrió un error!');</script>";*/
         }
     }
+    public function MostrarPublicacionPocoStock($id){
+        try {
+            require "../../../Models/dao/conexion.php";
+            $sql = "CALL sp_mostrarPublicacionesConStockMinimo(:id)";
+            $stmt = $pdo->prepare($sql);
+            $stmt->bindValue(":id", $id);
+            $stmt->execute();
+            return $stmt->fetchAll();
+        } catch (\Throwable $th) {
+            /*echo "<script>alert('Ocurrió un error!');</script>";*/
+        }
+    }
     public function VentasHoy($id)
     {
         try {

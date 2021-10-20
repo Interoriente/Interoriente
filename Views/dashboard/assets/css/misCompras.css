@@ -41,21 +41,13 @@
   justify-content: center;
   justify-content: space-evenly;
   background: var(--clr-neutro-a);
-  width: 30%;
-  height: 340px;
+  width: 19%;
+  height: 300px;
   border-radius: 10px;
   margin: 10px;
   box-shadow: 0px 5px 10px -1px #001014;
 }
-.cont-menuuno {
-  display: flex;
-  flex-flow: column;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  width: 50%;
-  height: 70%;
-}
+
 .cont-menudos {
   display: flex;
   flex-direction: row;
@@ -64,19 +56,20 @@
   justify-content: space-evenly;
   justify-content: center;
   font-family: var(--poppins);
-  width: 40%;
+  width: 60%;
   height: 75%;
 }
+
 .titulo-fecha {
-  font-size: 25px;
+  font-size: 20px;
   font-family: var(--poppins);
 }
 .titulo-costo {
-  font-size: 30px;
+  font-size: 25px;
   font-family: var(--poppins);
 }
 .titulo-factura {
-  font-size: 35px;
+  font-size: 30px;
   font-family: var(--poppins);
 }
 .textos {

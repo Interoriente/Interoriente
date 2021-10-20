@@ -41,7 +41,8 @@ if (isset($_SESSION['documentoIdentidad'])) {
                             <div>
                                 <span class="h2"><?php echo strtoupper('Interoriente S.A.S'); ?></span>
                                 <p>Ventas seguras por internet</p>
-                                <p>Soporte: 3197183038</p>
+                                <p>NIT: 12345678-9</p>
+                                <p>Soporte: 3231231213</p>
                                 <p>Email: interoriente437@gmail.com</p>
                             </div>
                         </td>
@@ -50,7 +51,6 @@ if (isset($_SESSION['documentoIdentidad'])) {
                                 <span class="h3">Factura</span>
                                 <p>No. Factura: <strong><?php echo $respEncabezadoFactura->numeroFactura; ?></strong></p>
                                 <p>Fecha: <?php echo $respEncabezadoFactura->fecha; ?></p>
-                                <p>Factura Electrónica</p>
                             </div>
                         </td>
                     </tr>
@@ -125,7 +125,7 @@ if (isset($_SESSION['documentoIdentidad'])) {
                             <td class="textright"><span>$<?php echo number_format($subtotal); ?></span></td>
                         </tr>
                         <tr>
-                            <td colspan="3" class="textright"><span>IVA (<?php echo $iva; ?> %)</span></td>
+                            <td colspan="3" class="textright"><span>IVA (19%)</span></td>
                             <td class="textright"><span>$<?php echo number_format($impuesto); ?></span></td>
                         </tr>
                         <tr>

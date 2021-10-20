@@ -18,6 +18,7 @@ if (!isset($_SESSION['documentoIdentidad'])) {
   $respVentasDia = $informe->VentasPorDias($informe->id);
   $respMasExitosas = $informe->GetPublicacionesExitosas($informe->id);
   $alertaStock = $informe->AlertaStock($informe->id);
+  $mostrarPublicacionPocoStock = $informe->MostrarPublicacionPocoStock($informe->id);
   $ventasHoy = $informe->VentasHoy($informe->id);
   $noValidadas = $informe->NoValidadas($informe->id);
   $reporteMensual = $informe->ReporteMensual($informe->id);
@@ -49,8 +50,8 @@ if (!isset($_SESSION['documentoIdentidad'])) {
         let labelVentasSemana = [<?php echo $labelVentasSemana; ?>];
         let datosVentasSemana = [<?php echo $datosVentasSemana; ?>];
       </script>
-      <link rel="stylesheet" href="../../assets/css/general.css">
-      <link rel="stylesheet" href="../assets/css/misPublicaciones.css">
+      <!-- <link rel="stylesheet" href="../../assets/css/general.css">
+      <link rel="stylesheet" href="../assets/css/misPublicaciones.css"> -->
 
       <!-- Header -->
       <div class="header bg-primary pb-6">
@@ -81,40 +82,74 @@ if (!isset($_SESSION['documentoIdentidad'])) {
               </div>
             </div>
             <!-- Tarjetas -->
+
             <div class="row">
               <!-- Contenedor Tarjeta -->
               <div class="col-xl-3 col-md-6">
                 <div class="card card-stats">
                   <!-- Tarjeta -->
-                  <div class="card-body">
-                    <div class="row">
-                      <div class="col">
-                        <h5 class="card-title text-uppercase text-muted mb-0">Stock</h5>
-                        <?php if (isset($alertaStock)) { ?>
-                          <span class="h5 font-weight-bold mb-0 text-rap text-danger">¡Hay <?php echo $alertaStock['No_publicaciones'] ?> publicaciones con poco stock! </span>
+                  <a data-toggle="modal" data-target="#verPublicacionNoValidadas">
+                    <div class="card-body">
+                      <div class="row">
+                        <div class="col">
+                          <h5 class="card-title text-uppercase text-muted mb-0">Stock</h5>
+                          <?php if (isset($alertaStock)) { ?>
+                            <span class="h5 font-weight-bold mb-0 text-rap text-danger">¡Hay <?php echo $alertaStock['No_publicaciones'] ?> publicaciones con poco stock! </span>
+                        </div>
+                        <div class="col-auto icono-dashboard">
+                          <div class="icon icon-shape bg-gradient-red text-white rounded-circle shadow">
+                            <i class="ni ni-notification-70"></i>
+                          </div>
+                        </div>
+                      <?php } else { ?>
+                        <span class="h5 font-weight-bold mb-0 text-success">¡No hay alertas por stock!</span>
                       </div>
                       <div class="col-auto icono-dashboard">
-                        <div class="icon icon-shape bg-gradient-red text-white rounded-circle shadow">
-                          <i class="ni ni-notification-70"></i>
+                        <div class="icon icon-shape bg-gradient-green text-white rounded-circle shadow">
+                          <i class="ni ni-check-bold"></i>
                         </div>
                       </div>
-                    <?php } else { ?>
-                      <span class="h5 font-weight-bold mb-0 text-success">¡No hay alertas por stock!</span>
+                    <?php } ?>
                     </div>
-                    <div class="col-auto icono-dashboard">
-                      <div class="icon icon-shape bg-gradient-green text-white rounded-circle shadow">
-                        <i class="ni ni-check-bold"></i>
-                      </div>
-                    </div>
-                  <?php } ?>
-                  </div>
-                  <!-- <p class="mt-3 mb-0 text-sm">
-                    <span class="text-success mr-2"><i class="fa fa-arrow-up"></i> 3.48%</span>
-                    <span class="text-rap text-danger">¡A <?php echo $alertaStock['No_publicaciones'] ?> de tus publicaciones están próximas a terminárseles el stock! </span>
-                  </p> -->
+                  </a>
                 </div>
               </div>
             </div>
+            <!-- Pruebas -->
+            <div class="modal fade" id="verPublicacionNoValidadas" role="dialog">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <!-- Modal Header -->
+                  <div class="modal-header">
+                    <h4 class="modal-title" id="myModalLabel">Publicaciones con stock minimo</h4>
+                    <button type="button" class="close" data-dismiss="modal">
+                      <span aria-hidden="true">×</span>
+                    </button>
+                  </div>
+
+                  <!-- Modal Body -->
+                  <div class="modal-body">
+                    <p class="statusMsg"></p>
+                    <form method="POST" action="../../../Controllers/php/users/publicaciones.php">
+                      <!-- Actualiar dirección -->
+                      <input type="hidden" name="actualizarPublicacion">
+
+                      <div class="form-group">
+                        <?php foreach ($mostrarPublicacionPocoStock as $datos) {
+                        ?>
+                          <label id="texto">*<?php echo $datos['nombrePublicacion']; ?><br> Cantidad: <?php echo $datos['cantidadPublicacion']; ?><br>Stock: <?php echo $datos['stockMinPublicacion']; ?></label><br>
+                        <?php } ?>
+                      </div>
+                      <!-- Modal Footer -->
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Fin pruebas -->
 
             <!-- Tarjeta para el admin -->
             <!-- Contenedor Tarjeta -->
@@ -224,197 +259,141 @@ if (!isset($_SESSION['documentoIdentidad'])) {
               </div>
             </div>
           </div>
-          <!-- Fin Tarjeta -->
         </div>
+        <!-- Fin Tarjeta -->
       </div>
       <!-- Mirar la forma de bajar el contenido sin br. -->
       <br><br><br>
-      <div class="container-fluid mt--6">
-        <div class="row">
-          <div class="col-xl-8">
-            <div class="card bg-default">
-              <div class="card-header bg-transparent">
-                <div class="row align-items-center">
-                  <div class="col">
-                    <h6 class="text-light text-uppercase ls-1 mb-1">Reporte Anual 2021</h6>
-                    <h5 class="h3 text-white mb-0">Ventas generales</h5>
-                  </div>
-                  <div class="col">
-                    <ul class="nav nav-pills justify-content-end">
-                      <li class="nav-item mr-2 mr-md-0" data-toggle="chart" data-target="#chart-sales-dark" data-update='{"data":{"datasets":[{"data":[0, 20, 10, 30, 15, 40, 20, 60, 30]}]}}' data-prefix="$" data-suffix=".">
+      <div class="header bg-primary pb-6">
+        <div class="container-fluid mt--6">
+          <div class="row">
+            <div class="col-xl-8">
+              <div class="card bg-default">
+                <div class="card-header bg-transparent">
+                  <div class="row align-items-center">
+                    <div class="col">
+                      <h6 class="text-light text-uppercase ls-1 mb-1">Reporte Anual 2021</h6>
+                      <h5 class="h3 text-white mb-0">Ventas generales</h5>
+                    </div>
+                    <div class="col">
+                      <ul class="nav nav-pills justify-content-end">
+                        <li class="nav-item mr-2 mr-md-0" data-toggle="chart" data-target="#chart-sales-dark" data-update='{"data":{"datasets":[{"data":[0, 20, 10, 30, 15, 40, 20, 60, 30]}]}}' data-prefix="$" data-suffix=".">
 
-                      </li>
-                    </ul>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="card-body">
+                  <!-- Chart -->
+                  <div class="chart">
+                    <!-- Chart wrapper -->
+                    <canvas id="chart-sales-dark" class="chart-canvas"></canvas>
                   </div>
                 </div>
               </div>
-              <div class="card-body">
-                <!-- Chart -->
-                <div class="chart">
-                  <!-- Chart wrapper -->
-                  <canvas id="chart-sales-dark" class="chart-canvas"></canvas>
+            </div>
+            <div class="col-xl-4">
+              <div class="card">
+                <div class="card-header bg-transparent">
+                  <div class="row align-items-center">
+                    <div class="col">
+                      <h6 class="text-uppercase text-muted ls-1 mb-1">Reporte Semanal </h6>
+                      <h5 class="h3 mb-0">No. de ventas en los últimos 7 días</h5>
+                    </div>
+                  </div>
+                </div>
+                <div class="card-body">
+                  <!-- Chart -->
+                  <div class="chart">
+                    <canvas id="chart-bars" class="chart-canvas"></canvas>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-          <div class="col-xl-4">
-            <div class="card">
-              <div class="card-header bg-transparent">
-                <div class="row align-items-center">
-                  <div class="col">
-                    <h6 class="text-uppercase text-muted ls-1 mb-1">Reporte Semanal </h6>
-                    <h5 class="h3 mb-0">No. de ventas en los últimos 7 días</h5>
-                  </div>
-                </div>
-              </div>
-              <div class="card-body">
-                <!-- Chart -->
-                <div class="chart">
-                  <canvas id="chart-bars" class="chart-canvas"></canvas>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-header border-0">
-            <div class="row align-items-center">
-              <div class="col">
-                <h3 class="mb-0">Publicaciones Más Exitosas</h3>
-              </div>
-              <div class="input-daterange datepicker row align-items-center">
+          <div class="card">
+            <div class="card-header border-0">
+              <div class="row align-items-center">
                 <div class="col">
-                  <div class="form-group">
-                    <div class="input-group">
-                      <div class="input-group-prepend">
-                        <span class="input-group-text"><i class="ni ni-calendar-grid-58"></i></span>
-                      </div>
-                      <input class="form-control" placeholder="Start date" type="date" max=<?php $hoy = date("Y-m-d");
-                                                                                            echo $hoy; ?>>
-                    </div>
-                  </div>
+                  <h3 class="mb-0">Publicaciones Más Exitosas</h3>
                 </div>
-                <div class="col">
-                  <div class="form-group">
-                    <div class="input-group">
-                      <div class="input-group-prepend">
-                        <span class="input-group-text"><i class="ni ni-calendar-grid-58"></i></span>
-                      </div>
-                      <input class="form-control" placeholder="End date" type="date" max=<?php $hoy = date("Y-m-d");
-                                                                                          echo $hoy; ?>>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="table-responsive">
-            <!-- Projects table -->
-            <table class="table align-items-center table-flush">
-              <?php if (!isset($respMasExitosas->Titulos[0]) == "") { ?>
-                <thead class="thead-light">
-                  <tr>
-                    <th scope="col">Título</th>
-                    <th scope="col">No. Ventas</th>
-                    <th scope="col">Cantidad</th>
-                    <th scope="col">Porcentaje</th>
-                    <th scope="col">Total Ventas</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <!-- Fila -->
-                  <?php for ($i = 0; $i < 5; $i++) : ?>
-                    <tr>
-                      <td>
-                        <a href="#"><?php echo $respMasExitosas->Titulos[$i]; ?></a>
-                      </td>
-
-                      <td>
-                        <?php echo $respMasExitosas->NoVentas[$i]; ?>
-                      </td>
-
-                      <td>
-                        <?php echo $respMasExitosas->Cantidad[$i]; ?>
-                      </td>
-                      <td>
-                        <?php echo "%" . round($respMasExitosas->Porcentajes[$i], 1); ?>
-                      </td>
-                      <td>
-                        <?php echo "$" . number_format($respMasExitosas->VlrVentas[$i], 0, '', '.'); ?>
-                      </td>
-                    </tr>
-                  <?php endfor;
-                } else { ?>
-                  <div class="campo-alerta">
-                    <div class="alerta" role="alert">Opps, por ahora no hay publicaciones exitosas
-                      <img class="img-caja" src="../assets/img/lupa.png" alt="">
-                    </div>
-                  </div>
-                <?php }
-                ?>
-                <!--Fin Fila -->
-                </tbody>
-            </table>
-          </div>
-        </div>
-        <!-- Para el admin -->
-        <!-- <div class="card ">
-          <div class="card-header border-0">
-            <div class="row align-items-center">
-              <div class="col">
-                <h3 class="mb-0">Ventas por municipio</h3>
-              </div>
-              <div class="col text-right">
-                <a href="#!" class="btn btn-sm btn-primary">Ver todo</a>
-              </div>
-            </div>
-          </div>
-          <div class="table-responsive">
-
-            <table class="table align-items-center table-flush">
-              <thead class="thead-light">
-                <tr>
-                  <th scope="col">Municipio</th>
-                  <th scope="col">No. Ventas</th>
-                  <th scope="col">Porcentaje sobre ventas totales</th>
-                  <th scope="col"></th>
-                </tr>
-              </thead>
-              <tbody>
-
-                <tr>
-                  <th scope="row">
-                    Prueba
-                  </th>
-                  <td>
-                    1,480
-                  </td>
-                  <td>
-                    <div class="d-flex align-items-center">
-                      <span class="mr-2"><?php /* $x = 76;
-                                        echo $x */ ?>%</span>
-                      <div>
-                        <div class="progress">
-                          <div class="progress-bar bg-gradient-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: <?php /* echo $x */ ?>%;"></div>
+                <div class="input-daterange datepicker row align-items-center">
+                  <div class="col">
+                    <div class="form-group">
+                      <div class="input-group">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text"><i class="ni ni-calendar-grid-58"></i></span>
                         </div>
+                        <input class="form-control" placeholder="Start date" type="date" max=<?php $hoy = date("Y-m-d");
+                                                                                              echo $hoy; ?>>
                       </div>
                     </div>
-                  </td>
-                </tr>
-                -- Nombres de las clases de los colores de las barras:
-            -success
-            -primary
-            -info
-            -warning
-            -danger
+                  </div>
+                  <div class="col">
+                    <div class="form-group">
+                      <div class="input-group">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text"><i class="ni ni-calendar-grid-58"></i></span>
+                        </div>
+                        <input class="form-control" placeholder="End date" type="date" max=<?php $hoy = date("Y-m-d");
+                                                                                            echo $hoy; ?>>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="table-responsive">
+              <!-- Projects table -->
+              <table class="table align-items-center table-flush">
+                <?php if (!isset($respMasExitosas->Titulos[0]) == "") { ?>
+                  <thead class="thead-light">
+                    <tr>
+                      <th scope="col">Título</th>
+                      <th scope="col">No. Ventas</th>
+                      <th scope="col">Cantidad</th>
+                      <th scope="col">Porcentaje</th>
+                      <th scope="col">Total Ventas</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <!-- Fila -->
+                    <?php for ($i = 0; $i < 5; $i++) : ?>
+                      <tr>
+                        <td>
+                          <a href="#"><?php echo $respMasExitosas->Titulos[$i]; ?></a>
+                        </td>
 
-             FIN Fila --
-              </tbody>
-            </table>
-            Para el admin
+                        <td>
+                          <?php echo $respMasExitosas->NoVentas[$i]; ?>
+                        </td>
+
+                        <td>
+                          <?php echo $respMasExitosas->Cantidad[$i]; ?>
+                        </td>
+                        <td>
+                          <?php echo "%" . round($respMasExitosas->Porcentajes[$i], 1); ?>
+                        </td>
+                        <td>
+                          <?php echo "$" . number_format($respMasExitosas->VlrVentas[$i], 0, '', '.'); ?>
+                        </td>
+                      </tr>
+                    <?php endfor;
+                  } else { ?>
+                    <div class="campo-alerta">
+                      <div class="alerta" role="alert">Opps, por ahora no hay publicaciones exitosas
+                        <img class="img-caja" src="../assets/img/lupa.png" alt="">
+                      </div>
+                    </div>
+                  <?php }
+                  ?>
+                  <!--Fin Fila -->
+                  </tbody>
+              </table>
+            </div>
           </div>
         </div>
-        -- Fin Clase columna -->
         <!-- Cierre clase main -->
       </div>
       <!-- Parte Inferior del HTML -->
