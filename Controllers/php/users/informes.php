@@ -170,6 +170,20 @@ class Informes
             /*echo "<script>alert('Ocurrió un error!');</script>";*/
         }
     }
+    public function MostrarNoValidadas($id)
+    {
+        try {
+            require "../../../Models/dao/conexion.php";
+            $sql = "CALL sp_mostrarNoValidadas(:id)";
+            $stmt = $pdo->prepare($sql);
+            $stmt->bindValue(":id", $id);
+            $stmt->execute();
+            $resultado = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            return $resultado;
+        } catch (\Throwable $th) {
+            /*echo "<script>alert('Ocurrió un error!');</script>";*/
+        }
+    }
     public function ReporteMensual($id)
     {
         try {

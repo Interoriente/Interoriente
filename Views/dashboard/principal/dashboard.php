@@ -21,6 +21,7 @@ if (!isset($_SESSION['documentoIdentidad'])) {
   $mostrarPublicacionPocoStock = $informe->MostrarPublicacionPocoStock($informe->id);
   $ventasHoy = $informe->VentasHoy($informe->id);
   $noValidadas = $informe->NoValidadas($informe->id);
+  $mostrarNoValidadas = $informe->MostrarNoValidadas($informe->id);
   $reporteMensual = $informe->ReporteMensual($informe->id);
 
   //Mostrar gráfica de ventas anuales
@@ -88,7 +89,7 @@ if (!isset($_SESSION['documentoIdentidad'])) {
               <div class="col-xl-3 col-md-6">
                 <div class="card card-stats">
                   <!-- Tarjeta -->
-                  <a data-toggle="modal" data-target="#verPublicacionNoValidadas">
+                  <a data-toggle="modal" data-target="#verAlertaStock">
                     <div class="card-body">
                       <div class="row">
                         <div class="col">
@@ -115,73 +116,36 @@ if (!isset($_SESSION['documentoIdentidad'])) {
                 </div>
               </div>
             </div>
-            <!-- Pruebas -->
-            <div class="modal fade" id="verPublicacionNoValidadas" role="dialog">
-              <div class="modal-dialog">
-                <div class="modal-content">
-                  <!-- Modal Header -->
-                  <div class="modal-header">
-                    <h4 class="modal-title" id="myModalLabel">Publicaciones con stock minimo</h4>
-                    <button type="button" class="close" data-dismiss="modal">
-                      <span aria-hidden="true">×</span>
-                    </button>
-                  </div>
-
-                  <!-- Modal Body -->
-                  <div class="modal-body">
-                    <p class="statusMsg"></p>
-                    <form method="POST" action="../../../Controllers/php/users/publicaciones.php">
-                      <!-- Actualiar dirección -->
-                      <input type="hidden" name="actualizarPublicacion">
-
-                      <div class="form-group">
-                        <?php foreach ($mostrarPublicacionPocoStock as $datos) {
-                        ?>
-                          <label id="texto">*<?php echo $datos['nombrePublicacion']; ?><br> Cantidad: <?php echo $datos['cantidadPublicacion']; ?><br>Stock: <?php echo $datos['stockMinPublicacion']; ?></label><br>
-                        <?php } ?>
-                      </div>
-                      <!-- Modal Footer -->
-                      <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-                      </div>
-                    </form>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <!-- Fin pruebas -->
 
             <!-- Tarjeta para el admin -->
             <!-- Contenedor Tarjeta -->
             <div class="col-xl-3 col-md-6">
               <div class="card card-stats">
-                <!-- Tarjeta -->
-                <div class="card-body">
-                  <div class="row">
-                    <div class="col">
-                      <h5 class="card-title text-uppercase text-muted mb-0">Publicaciones</h5>
-                      <?php if (isset($noValidadas)) { ?>
-                        <span class="h5 font-weight-bold mb-0 text-rap text-warning">Tienes <?php echo $noValidadas; ?> publicaciones con espera de validación</span>
+                <a data-toggle="modal" data-target="#verNovalidadas">
+                  <!-- Tarjeta -->
+                  <div class="card-body">
+                    <div class="row">
+                      <div class="col">
+                        <h5 class="card-title text-uppercase text-muted mb-0">Publicaciones</h5>
+                        <?php if (isset($noValidadas)) { ?>
+                          <span class="h5 font-weight-bold mb-0 text-rap text-warning">Tienes <?php echo $noValidadas; ?> publicaciones con espera de validación</span>
+                      </div>
+                      <div class="col-auto icono-dashboard">
+                        <div class="icon icon-shape bg-gradient-orange text-white rounded-circle shadow">
+                          <i class="ni ni-album-2"></i>
+                        </div>
+                      </div>
+                    <?php } else { ?>
+                      <span class="h5 font-weight-bold mb-0 text-blue">No tienes publicaciones pendientes por validar</span>
                     </div>
                     <div class="col-auto icono-dashboard">
-                      <div class="icon icon-shape bg-gradient-orange text-white rounded-circle shadow">
-                        <i class="ni ni-album-2"></i>
+                      <div class="icon icon-shape bg-gradient-purple text-white rounded-circle shadow">
+                        <i class="ni ni-like-2"></i>
                       </div>
                     </div>
-                  <?php } else { ?>
-                    <span class="h5 font-weight-bold mb-0 text-blue">No tienes publicaciones pendientes por validar</span>
+                  <?php } ?>
                   </div>
-                  <div class="col-auto icono-dashboard">
-                    <div class="icon icon-shape bg-gradient-purple text-white rounded-circle shadow">
-                      <i class="ni ni-like-2"></i>
-                    </div>
-                  </div>
-                <?php } ?>
-                </div>
-                <!-- <p class="mt-3 mb-0 text-sm">
-                    <span class="text-success mr-2"><i class="fa fa-arrow-up"></i> 3.48%</span>
-                    <span class="text-rap text-danger">¡A <?php echo $alertaStock['No_publicaciones'] ?> de tus publicaciones están próximas a terminárseles el stock! </span>
-                  </p> -->
+                </a>
               </div>
             </div>
           </div>
@@ -386,18 +350,18 @@ if (!isset($_SESSION['documentoIdentidad'])) {
                         <img class="img-caja" src="../assets/img/lupa.png" alt="">
                       </div>
                     </div>
-                  <?php }
-                  ?>
-                  <!--Fin Fila -->
+                    <!--Fin Fila -->
                   </tbody>
+                <?php } ?>
               </table>
             </div>
           </div>
         </div>
-        <!-- Cierre clase main -->
       </div>
       <!-- Parte Inferior del HTML -->
-<?php require_once '../includes/footer.php';
+<?php
+      require "../includes/modalesInformacion.php";
+      require_once '../includes/footer.php';
     } else {
       echo "<script>alert('No puedes acceder a esta página!');</script>";
       echo "<script> document.location.href='403.php';</script>";
