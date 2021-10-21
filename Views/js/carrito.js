@@ -12,6 +12,8 @@ const carritoBtn = document.getElementById("carrito-btn");
 const cantidadCarrito = document.getElementById("cantidad-carrito");
 const overlay = document.getElementById("overlay");
 const finCompra = document.getElementById("finalizar-compra");
+let inputCantidad;
+/* let publicacionExiste = false; */
 
 /* Local storage */
 class Storage {
@@ -40,11 +42,12 @@ overlay.addEventListener("click", (e) => {
   }
 });
 
-$(document).keyup(function(e) {
-  if (e.key === "Escape") { // escape key maps to keycode `27`
+$(document).keyup(function (e) {
+  if (e.key === "Escape") {
+    // escape key maps to keycode `27`
     //Optimizar esta parte en caso de que sea posible usando localstorage para detectar el estado del carrito
-  cerrarCarrito();
- }
+    cerrarCarrito();
+  }
 });
 
 /* Abriendo y cerrando carrito desde el botón */
@@ -61,22 +64,43 @@ function cerrarCarrito() {
 /* Función principal del carrito AJAX-JQUERY*/
 function addCarrito(id) {
   /* Obteniendo id de la publicación para hacer consulta a la bd */
-  $.ajax({
-    /* LLamando clase PHP */
-    url: "../../Controllers/php/users/compras.php", //Ruta de la clase
-    type: "POST", //Tipo de request,
-    dataType: "JSON", //Tipo de dato a retornar
-    data: { id: id }, //Datos a recibir en el script .php a traves de $_POST
-    success: function (respuesta) {
-      /* En caso de una respuesta exitosa */
-      respuesta["cantidad"] = 1; //Agregando nuevo key and value al JSON
-      carrito.push(respuesta); //Almacenando datos en el carrito
-      Storage.setPublicacion(carrito); // Subiendo info a Localstorage
-      renderPubli(Storage.getPublicacion());
-      mathCarrito(carrito);
-      abrirCarrito();
-    },
-  });
+ /*  if (publicacionLocalStorage) {
+    publicacionLocalStorage.forEach((publicacion) => {
+      if (publicacion.id === id) {
+        inputCantidad = document.querySelectorAll(".cantidad-items"); //Seleccionando todos los elementos con esa clase
+        cambiarCantidad(id); */
+      /*   inputCantidad.forEach(element => {
+          if (element.id === id) {
+            element.value += 1;  
+          }
+        }); */
+       
+        /* abrirCarrito();
+        publicacionExiste = true;
+      }
+    });
+  }
+ */
+/*   if (!publicacionExiste) { */
+    $.ajax({
+      /* LLamando clase PHP */
+      url: "../../Controllers/php/users/compras.php", //Ruta de la clase
+      type: "POST", //Tipo de request,
+      dataType: "JSON", //Tipo de dato a retornar
+      data: { id: id }, //Datos a recibir en el script .php a traves de $_POST
+      success: function (respuesta) {
+        /* En caso de una respuesta exitosa */
+        respuesta["cantidad"] = 1; //Agregando nuevo key and value al JSON
+        carrito.push(respuesta); //Almacenando datos en el carrito
+        Storage.setPublicacion(carrito); // Subiendo info a Localstorage
+        renderPubli(carrito);
+        mathCarrito(carrito);
+        abrirCarrito();
+
+      },
+    });
+ /*  } */
+
 }
 
 /* Crear clase para mostrar elementos en el carrito */
@@ -101,11 +125,9 @@ function renderPubli(item) {
   contenidoCarrito.innerHTML = clase;
 }
 
-let inputCantidad;
 function abrirCarrito() {
   /* Agregando clases al overlay y al carrito para abrirlo */
   $("#res-busquedas").hide();
-
   cartOverlay.classList.add("transparentBcg");
   cartDOM.classList.add("showCart");
   inputCantidad = document.querySelectorAll(".cantidad-items"); //Seleccionando todos los elementos con esa clase
@@ -115,48 +137,39 @@ function abrirCarrito() {
 
 function cambiarCantidad(idItem) {
   let id = idItem,
-    inputId = 0;
+    inputId = "";
 
   /* Identificando cuál es el input que está siendo usado */
   inputCantidad.forEach((element) => {
     if (element.id === id) {
       inputId = element;
-    } else {
-      console.log("No coincide");
     }
   });
-  console.log("Resultado");
-  console.log("Id: " + id);
-  console.log("Cantidad: " + inputId.value);
-  console.log(inputId);
-
   carrito = Storage.getPublicacion();
 
   /* Recorriendo el arreglo en busca del item con el mismo id */
   carrito.map((item) => {
     if (item.id === id) {
       item.cantidad = parseInt(inputId.value);
-      console.log(carrito);
     }
   });
-
   Storage.setPublicacion(carrito);
-  mathCarrito(Storage.getPublicacion());
+  mathCarrito(carrito);
 }
 
 /* Función para eliminar items */
 function removeItem(id) {
-  let publicaciones = Storage.getPublicacion();
-  for (let i = 0; i < publicaciones.length; i++) {
-    if (publicaciones[i].id === id) {
-      publicaciones.splice([i], 1);
+  carrito = Storage.getPublicacion();
+  for (let i = 0; i < carrito.length; i++) {
+    if (carrito[i].id === id) {
+      carrito.splice([i], 1);
       break;
     }
   }
-  Storage.setPublicacion(publicaciones);
-  carrito = Storage.getPublicacion();
+  Storage.setPublicacion(carrito);
   renderPubli(carrito);
   mathCarrito(carrito);
+  inputCantidad = document.querySelectorAll(".cantidad-items");
 }
 /* Función para obtener valores del carrito */
 function mathCarrito(item) {
@@ -173,16 +186,16 @@ function mathCarrito(item) {
 }
 
 /* Finalizar Compra */
-finCompra.addEventListener("click", function(){
+finCompra.addEventListener("click", function () {
   let carrito = Storage.getPublicacion();
   /* Removiendo items para enviar solo los necesarios al la bd  */
-  carrito = carrito.map(({titulo,costo,...rest}) =>({...rest}));
+  carrito = carrito.map(({ titulo, costo, ...rest }) => ({ ...rest }));
   carrito = JSON.stringify(carrito);
   $.ajax({
     url: "../../Controllers/php/users/compras.php",
     type: "POST",
     dataType: "JSON",
-    data: {carrito: carrito},
+    data: { carrito: carrito },
     success: function (respuesta) {
       if (respuesta === 1) {
         window.location = "checkout.php";
