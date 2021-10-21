@@ -15,8 +15,7 @@
         if (isset($_POST)) {
             //mandar correo
             $correo = $_POST['correo'];
-
-
+            
             $mail = new PHPMailer(true);                              // Passing `true` enables exceptions
             try {
                 //Server settings
@@ -82,4 +81,5 @@
         } else {
             return false;
         }
-    } ?>
+    }
+    ?>

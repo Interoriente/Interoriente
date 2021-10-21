@@ -45,7 +45,7 @@
                 $mail->Port = 587;                                    // TCP port to connect to
 
                 //Recipients
-                $mail->setFrom('interoriente437@gmail.com', $nombre); //Se debe dejar el mismo del Username
+                $mail->setFrom('soporte@interoriente.com.co', $nombre); //Se debe dejar el mismo del Username
                 $mail->addAddress('interoriente437@gmail.com', 'Administrador'); //Correo que recibe 
 
                 //Envío de imágenes
