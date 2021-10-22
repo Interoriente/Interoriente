@@ -13,7 +13,7 @@ const cantidadCarrito = document.getElementById("cantidad-carrito");
 const overlay = document.getElementById("overlay");
 const finCompra = document.getElementById("finalizar-compra");
 let inputCantidad;
-/* let publicacionExiste = false; */
+let publicacionExiste = false;
 
 /* Local storage */
 class Storage {
@@ -63,44 +63,47 @@ function cerrarCarrito() {
 
 /* Función principal del carrito AJAX-JQUERY*/
 function addCarrito(id) {
+  publicacionLocalStorage = Storage.getPublicacion();
   /* Obteniendo id de la publicación para hacer consulta a la bd */
- /*  if (publicacionLocalStorage) {
-    publicacionLocalStorage.forEach((publicacion) => {
-      if (publicacion.id === id) {
-        inputCantidad = document.querySelectorAll(".cantidad-items"); //Seleccionando todos los elementos con esa clase
-        cambiarCantidad(id); */
-      /*   inputCantidad.forEach(element => {
-          if (element.id === id) {
-            element.value += 1;  
-          }
-        }); */
-       
-        /* abrirCarrito();
+  if (publicacionLocalStorage.length > 0) {
+    for (let i = 0; i < publicacionLocalStorage.length; i++) {
+      if (publicacionLocalStorage[i].id === id) {
+/*         inputCantidad = document.querySelectorAll(".cantidad-items"); //Seleccionando todos los elementos con esa clase
+ */     abrirCarrito();
         publicacionExiste = true;
+        break;
       }
-    });
+    }
+    console.log(publicacionExiste);
+    if (publicacionExiste != true) {
+      getPublicacionDb(id);
+    }
+    publicacionExiste = false;
+  }else{
+    console.log("test");
+    getPublicacionDb(id);
   }
- */
-/*   if (!publicacionExiste) { */
-    $.ajax({
-      /* LLamando clase PHP */
-      url: "../../Controllers/php/users/compras.php", //Ruta de la clase
-      type: "POST", //Tipo de request,
-      dataType: "JSON", //Tipo de dato a retornar
-      data: { id: id }, //Datos a recibir en el script .php a traves de $_POST
-      success: function (respuesta) {
-        /* En caso de una respuesta exitosa */
-        respuesta["cantidad"] = 1; //Agregando nuevo key and value al JSON
-        carrito.push(respuesta); //Almacenando datos en el carrito
-        Storage.setPublicacion(carrito); // Subiendo info a Localstorage
-        renderPubli(carrito);
-        mathCarrito(carrito);
-        abrirCarrito();
 
-      },
-    });
- /*  } */
 
+}
+function getPublicacionDb(id){
+  $.ajax({
+    /* LLamando clase PHP */
+    url: "../../Controllers/php/users/compras.php", //Ruta de la clase
+    type: "POST", //Tipo de request,
+    dataType: "JSON", //Tipo de dato a retornar
+    data: { id: id }, //Datos a recibir en el script .php a traves de $_POST
+    success: function (respuesta) {
+      console.log(respuesta);
+      /* En caso de una respuesta exitosa */
+      respuesta["cantidad"] = 1; //Agregando nuevo key and value al JSON
+      carrito.push(respuesta); //Almacenando datos en el carrito
+      Storage.setPublicacion(carrito); // Subiendo info a Localstorage
+      renderPubli(carrito);
+      mathCarrito(carrito);
+      abrirCarrito();
+    },
+  });
 }
 
 /* Crear clase para mostrar elementos en el carrito */
