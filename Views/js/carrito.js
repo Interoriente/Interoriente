@@ -74,18 +74,15 @@ function addCarrito(id) {
         break;
       }
     }
-    console.log(publicacionExiste);
     if (publicacionExiste != true) {
       getPublicacionDb(id);
     }
     publicacionExiste = false;
   }else{
-    console.log("test");
     getPublicacionDb(id);
   }
-
-
 }
+
 function getPublicacionDb(id){
   $.ajax({
     /* LLamando clase PHP */
@@ -94,7 +91,6 @@ function getPublicacionDb(id){
     dataType: "JSON", //Tipo de dato a retornar
     data: { id: id }, //Datos a recibir en el script .php a traves de $_POST
     success: function (respuesta) {
-      console.log(respuesta);
       /* En caso de una respuesta exitosa */
       respuesta["cantidad"] = 1; //Agregando nuevo key and value al JSON
       carrito.push(respuesta); //Almacenando datos en el carrito
