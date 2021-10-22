@@ -65,7 +65,7 @@ function cerrarCarrito() {
 function addCarrito(id) {
   publicacionLocalStorage = Storage.getPublicacion();
   /* Obteniendo id de la publicación para hacer consulta a la bd */
-  if (publicacionLocalStorage.length > 0) {
+  if (publicacionLocalStorage) {
     for (let i = 0; i < publicacionLocalStorage.length; i++) {
       if (publicacionLocalStorage[i].id === id) {
 /*         inputCantidad = document.querySelectorAll(".cantidad-items"); //Seleccionando todos los elementos con esa clase
@@ -78,6 +78,7 @@ function addCarrito(id) {
       getPublicacionDb(id);
     }
     publicacionExiste = false;
+  
   }else{
     getPublicacionDb(id);
   }
