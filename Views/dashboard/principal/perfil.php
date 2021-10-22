@@ -14,6 +14,12 @@ if (!isset($_SESSION['documentoIdentidad'])) {
   $contadorPublicaciones = count($respMostrarPublicaciones);
   $respGetCiudades = $usuario->getCiudades();
   $respGetDirecciones = $usuario->getDirecciones($usuario->id);
+  /* Contador de mis compras */
+  require "../../../Controllers/php/users/compras.php";
+  $compra = new Compra($documento);
+
+  $respFactura = $compra->FacturasCreadas($compra->id);
+  $contadorFactura = count($respFactura);
   /* Mostrar nombre completo del usuario logeado */
   $nombreUsuario = $respUserData->nombresUsuario . " " . $respUserData->apellidoUsuario;
   if (isset($respUserData)) {
@@ -67,7 +73,16 @@ if (!isset($_SESSION['documentoIdentidad'])) {
                       </div>
                     </div>
                   </div>
+                  <div class="col">
+                    <div class="card-profile-stats d-flex justify-content-center">
+                      <div>
+                        <span class="heading"><?php echo $contadorFactura; ?></span>
+                        <span class="description">Mis compras</span>
+                      </div>
+                    </div>
+                  </div>
                 </div>
+                
                 <div class="text-center">
                   <h5 class="h3">
                     <?php echo $nombreUsuario; ?>
