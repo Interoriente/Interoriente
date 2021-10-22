@@ -14,6 +14,8 @@ const overlay = document.getElementById("overlay");
 const finCompra = document.getElementById("finalizar-compra");
 let inputCantidad;
 let publicacionExiste = false;
+let inputExistente;
+let newVlr;
 
 /* Local storage */
 class Storage {
@@ -63,13 +65,25 @@ function cerrarCarrito() {
 
 /* Función principal del carrito AJAX-JQUERY*/
 function addCarrito(id) {
+
   publicacionLocalStorage = Storage.getPublicacion();
   /* Obteniendo id de la publicación para hacer consulta a la bd */
   if (publicacionLocalStorage) {
     for (let i = 0; i < publicacionLocalStorage.length; i++) {
       if (publicacionLocalStorage[i].id === id) {
-/*         inputCantidad = document.querySelectorAll(".cantidad-items"); //Seleccionando todos los elementos con esa clase
- */     abrirCarrito();
+        inputCantidad = document.querySelectorAll(".cantidad-items"); //Seleccionando todos los elementos con esa clase
+     
+        for (let i = 0; i < inputCantidad.length; i++) {
+          if (inputCantidad[i].id === id) {
+            inputExistente = inputCantidad[i];
+            break;
+          }
+        }
+       
+        newVlr = (parseInt(inputExistente.value) + 1);
+        inputExistente.value = newVlr;
+        cambiarCantidad(id);
+        abrirCarrito();
         publicacionExiste = true;
         break;
       }
@@ -78,13 +92,12 @@ function addCarrito(id) {
       getPublicacionDb(id);
     }
     publicacionExiste = false;
-  
-  }else{
+  } else {
     getPublicacionDb(id);
   }
 }
 
-function getPublicacionDb(id){
+function getPublicacionDb(id) {
   $.ajax({
     /* LLamando clase PHP */
     url: "../../Controllers/php/users/compras.php", //Ruta de la clase
@@ -102,6 +115,8 @@ function getPublicacionDb(id){
     },
   });
 }
+
+
 
 /* Crear clase para mostrar elementos en el carrito */
 
@@ -150,6 +165,7 @@ function cambiarCantidad(idItem) {
   /* Recorriendo el arreglo en busca del item con el mismo id */
   carrito.map((item) => {
     if (item.id === id) {
+  
       item.cantidad = parseInt(inputId.value);
     }
   });
