@@ -73,7 +73,7 @@ if (!isset($_SESSION['documentoIdentidad'])) {
                                         ?>
                                             <tr>
                                                 <td><?php echo $datosPubli['nombrePublicacion']; ?></td>
-                                                <td><?php echo $datosPubli['costoPublicacion']; ?></td>
+                                                <td><?php echo number_format($datosPubli['costoPublicacion'], 0, '', '.'); ?></td>
                                                 <td><?php echo $datosPubli['cantidadPublicacion']; ?></td>
                                                 <td>
                                                     <button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
