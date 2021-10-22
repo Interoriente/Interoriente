@@ -19,7 +19,7 @@
                 <div class="form-group">
                     <?php foreach ($mostrarPublicacionPocoStock as $datos) {
                     ?>
-                        <label id="texto">*<?php echo $datos['nombrePublicacion']; ?><br> Cantidad: <?php echo $datos['cantidadPublicacion']; ?><br>Stock: <?php echo $datos['stockMinPublicacion']; ?></label><br>
+                        <label id="texto">*<?php echo $datos['nombrePublicacion']; ?><br> Cantidad: <?php echo $datos['cantidadPublicacion']; ?><br>Stock minimo: <?php echo $datos['stockMinPublicacion']; ?></label><br>
                     <?php } ?>
                 </div>
                 <!-- Modal Footer -->

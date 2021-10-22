@@ -26,13 +26,15 @@ if (!isset($_SESSION['documentoIdentidad'])) {
     $rol = $_SESSION['roles'];
     //Validacion de roles
     if ($rol == 1 or $rol  == 3) {
-
       //Parte superior del HTML
       require "../includes/header.php";
 
       require_once '../includes/sidebarDashboard.php';
       require_once '../includes/navegacion.php';
 ?>
+      <!-- Mostrar error cuando no exista direcciones asociadas -->
+      <link rel="stylesheet" href="../../assets/css/general.css">
+      <link rel="stylesheet" href="../assets/css/misPublicaciones.css">
       <!-- Header -->
       <div class="header pb-6 d-flex align-items-center">
         <span class="mask" style="background-color: #004E64;"></span>
@@ -82,7 +84,7 @@ if (!isset($_SESSION['documentoIdentidad'])) {
                     </div>
                   </div>
                 </div>
-                
+
                 <div class="text-center">
                   <h5 class="h3">
                     <?php echo $nombreUsuario; ?>
@@ -211,14 +213,25 @@ if (!isset($_SESSION['documentoIdentidad'])) {
               <div class="table-responsive">
                 <table class="table align-items-center table-flush">
                   <thead class="thead-light">
-                    <tr>
-                      <th scope="col">Nombre</th>
-                      <th scope="col">Dirección</th>
-                      <th scope="col">Ciudad</th>
-                      <th scope="col">Acciones</th>
-                    </tr>
+                    <?php if ($respGetDirecciones != null) {?>
+                      <tr>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Dirección</th>
+                        <th scope="col">Ciudad</th>
+                        <th scope="col">Acciones</th>
+                      </tr>
                   </thead>
-                  <?php foreach ($respGetDirecciones as $direccion) : ?>
+                <?php }
+                    if ($respGetDirecciones == null) { ?>
+                  <div class="campo-alerta">
+                    <div class="alerta" role="alert">Opps, por ahora no hay direcciones agregadas
+                      <img class="img-caja" src="../assets/img/lupa.png" alt="">
+                    </div>
+                  </div>
+                <?php } ?>
+                <tbody class="list">
+                  <?php
+                  foreach ($respGetDirecciones as $direccion) : ?>
                     <tr>
                       <td><?php echo $direccion['nombreDireccion']; ?></td>
                       <td><?php echo $direccion['descripcionDireccion'] ?></td>
@@ -236,8 +249,9 @@ if (!isset($_SESSION['documentoIdentidad'])) {
                       <!--Modal Eliminar y actualizar direccion -->
                       <?php require "../includes/modalesDireccion.php"; ?>
                     </tr>
-                  <?php endforeach //Fin foreach 
+                  <?php endforeach; //Fin foreach 
                   ?>
+                </tbody>
                 </table>
               </div>
             </div>

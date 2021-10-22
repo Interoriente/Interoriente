@@ -51,8 +51,9 @@ if (!isset($_SESSION['documentoIdentidad'])) {
         let labelVentasSemana = [<?php echo $labelVentasSemana; ?>];
         let datosVentasSemana = [<?php echo $datosVentasSemana; ?>];
       </script>
-      <!-- <link rel="stylesheet" href="../../assets/css/general.css">
-      <link rel="stylesheet" href="../assets/css/misPublicaciones.css"> -->
+      <!-- Para mostrar en la sección de publicación más exitosa (cuando no exista) -->
+      <link rel="stylesheet" href="../../assets/css/general.css">
+      <link rel="stylesheet" href="../assets/css/misPublicaciones.css">
 
       <!-- Header -->
       <div class="header bg-primary pb-6">
@@ -311,7 +312,7 @@ if (!isset($_SESSION['documentoIdentidad'])) {
             <div class="table-responsive">
               <!-- Projects table -->
               <table class="table align-items-center table-flush">
-                <?php if (!isset($respMasExitosas->Titulos[0]) == "") { ?>
+                <?php if (isset($respMasExitosas->Titulos[0]) != "") { ?>
                   <thead class="thead-light">
                     <tr>
                       <th scope="col">Título</th>
@@ -337,7 +338,7 @@ if (!isset($_SESSION['documentoIdentidad'])) {
                           <?php echo $respMasExitosas->Cantidad[$i]; ?>
                         </td>
                         <td>
-                          <?php echo "%" . round($respMasExitosas->Porcentajes[$i], 1); ?>
+                          <?php echo round($respMasExitosas->Porcentajes[$i], 1) . "%"; ?>
                         </td>
                         <td>
                           <?php echo "$" . number_format($respMasExitosas->VlrVentas[$i], 0, '', '.'); ?>
