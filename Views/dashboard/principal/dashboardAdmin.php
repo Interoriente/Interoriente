@@ -29,14 +29,14 @@ if (!isset($_SESSION['documentoIdentidad'])) {
   if (isset($respUserData)) {
     $rol = $_SESSION['roles'];
     //Validacion de roles
-    if ($rol == 1 or $rol == 3) {
+    if ($rol == 3) {
 
       //Parte superior del HTML
       require "../includes/header.php";
-
       require_once '../includes/sidebarDashboard.php';
       require_once '../includes/navegacion.php';
 ?>
+      <!-- Cambiar TODO relacionando la información de administrador -->
       <script>
         //Mando al JS la información, por medio de las variables declaradas
         let labelVentas = [<?php echo $labelVentas; ?>];

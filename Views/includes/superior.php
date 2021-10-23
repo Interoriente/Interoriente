@@ -1,7 +1,9 @@
 <?php session_start(); ?>
+
 <head>
   <link rel="stylesheet" href="../assets/css/nav.css" />
 </head>
+
 <body>
   <header>
     <div class="contenedor-navegacion">
@@ -11,8 +13,8 @@
         </a>
       </div>
 
-      <div class="busquedas"> 
-          <input id="busquedas" type="text" placeholder="¿Qué estás buscando?">
+      <div class="busquedas">
+        <input id="busquedas" type="text" placeholder="¿Qué estás buscando?">
         <img id="buscar" src="../assets/img/iconos/search.svg" alt="Buscar">
       </div>
 
@@ -58,31 +60,35 @@
       </div>
       <div class="navegacion-a">
         <img src="../assets/img/iconos/Estadisticas_Icon.svg" alt="">
-        <a href="../dashboard/principal/dashboard.php">Volver al panel</a>
+        <?php if ($_SESSION['roles'] == '1') { ?>
+          <a href="../dashboard/principal/dashboard.php">Volver al panel</a>
+        <?php  } else { ?>
+          <a href="../dashboard/principal/dashboardAdmin.php">Volver al panel</a>
+        <?php } ?>
       </div>
-      <?php endif;
+    <?php endif;
     if (!isset($_SESSION['roles'])) {
     ?>
       <div class="navegacion-a">
         <img src="../assets/img/iconos/User_Icon.svg" alt="">
         <a href="iniciarsesion.php">Iniciar sesión</a>
       </div>
-      <?php } else { ?>
-        <div class="navegacion-a">
-          <img src="../assets/img/iconos/sign-out.svg" alt="">
-          <form class="cerrar-sesion" action="../../Controllers/php/users/usuarios.php" method="POST">
+    <?php } else { ?>
+      <div class="navegacion-a">
+        <img src="../assets/img/iconos/sign-out.svg" alt="">
+        <form class="cerrar-sesion" action="../../Controllers/php/users/usuarios.php" method="POST">
           <input type="hidden" name="cerrarSesion">
           <input class="btnCerrar" type="submit" value="Cerrar Sesión">
         </form>
       </div>
-      <?php } ?>
-      <div class="navegacion-a">
-        <img src="../assets/img/iconos/Ayuda_Icon.svg" alt="">
-        <a href="#">Ayuda</a>
-      </div>
+    <?php } ?>
+    <div class="navegacion-a">
+      <img src="../assets/img/iconos/Ayuda_Icon.svg" alt="">
+      <a href="#">Ayuda</a>
     </div>
-    <div id="main" class="main-container">
-      <div class="contenido">
+  </div>
+  <div id="main" class="main-container">
+    <div class="contenido">
       <!--  Contenido Principal del la página -->
     </div>
     <!-- Js para las busquedas -->

@@ -25,7 +25,7 @@ if (!isset($_SESSION['documentoIdentidad'])) {
   if (isset($respUserData)) {
     $rol = $_SESSION['roles'];
     //Validacion de roles
-    if ($rol == 1 or $rol  == 3) {
+    if ($rol == 1) {
       //Parte superior del HTML
       require "../includes/header.php";
 
@@ -50,7 +50,7 @@ if (!isset($_SESSION['documentoIdentidad'])) {
         </div>
       </div>
       <!-- Page content -->
-      <div class="container-fluid mt--6">
+      <div class="container-fluid mt--7">
         <div class="row">
           <div class="col-xl-4 order-xl-2">
             <div class="card card-profile">
@@ -213,24 +213,23 @@ if (!isset($_SESSION['documentoIdentidad'])) {
               <div class="table-responsive">
                 <table class="table align-items-center table-flush">
                   <thead class="thead-light">
-                    <?php if ($respGetDirecciones != null) {?>
+                    <?php if ($respGetDirecciones != null) { ?>
                       <tr>
                         <th scope="col">Nombre</th>
                         <th scope="col">Dirección</th>
                         <th scope="col">Ciudad</th>
                         <th scope="col">Acciones</th>
                       </tr>
+                    <?php } ?>
                   </thead>
-                <?php }
-                    if ($respGetDirecciones == null) { ?>
-                  <div class="campo-alerta">
-                    <div class="alerta" role="alert">Opps, por ahora no hay direcciones agregadas
-                      <img class="img-caja" src="../assets/img/lupa.png" alt="">
-                    </div>
-                  </div>
-                <?php } ?>
-                <tbody class="list">
                   <?php
+                  if ($respGetDirecciones == null) { ?>
+                    <div class="campo-alerta">
+                      <div class="alerta" role="alert">Opps, por ahora no hay direcciones agregadas
+                        <img class="img-caja" src="../assets/img/lupa.png" alt="">
+                      </div>
+                    </div>
+                  <?php }
                   foreach ($respGetDirecciones as $direccion) : ?>
                     <tr>
                       <td><?php echo $direccion['nombreDireccion']; ?></td>
@@ -251,7 +250,6 @@ if (!isset($_SESSION['documentoIdentidad'])) {
                     </tr>
                   <?php endforeach; //Fin foreach 
                   ?>
-                </tbody>
                 </table>
               </div>
             </div>

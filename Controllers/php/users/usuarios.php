@@ -1,7 +1,5 @@
 <?php
 
-use phpseclib3\Crypt\RC2;
-
 if (isset($_POST['desactivarUsuarios'])) {
     $id = $_POST['id'];
     $administrador = new Administrador($id);

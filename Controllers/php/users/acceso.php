@@ -1,5 +1,5 @@
 <?php
-if (isset($_POST['iniciarSesion']) || isset($_POST['registrarse']) || isset($_GET['comprobandoAcceso'])) {
+if (isset($_POST['iniciarSesion']) || isset($_POST['registrarse']) || isset($_GET['comprobandoAcceso']) || isset($_POST['registrarAdmin'])) {
     @$logiGoogle = $_GET['comprobandoAcceso'];
     if (isset($_POST['iniciarSesion'])) {
         $idUsuario = $_POST['id'];
@@ -9,7 +9,18 @@ if (isset($_POST['iniciarSesion']) || isset($_POST['registrarse']) || isset($_GE
     } else if ($logiGoogle) {
         $loginGoogle = new InicioSesion();
         $loginGoogle->LoginGoogle();
+    } elseif (isset($_POST['registrarAdmin'])) {
+        //Capturo información para registro admin
+        $nombre = strip_tags($_POST['nombres']);
+        $apellido = strip_tags($_POST['apellidos']);
+        $docIdentidad = strip_tags($_POST['documento']);
+        $email = strip_tags($_POST['correo']);
+        $contrasena = strip_tags($_POST['contrasena']);
+        $perfil = strip_tags($_POST['imagen']);
+        $registro = new Registro();
+        $registro->RegistrarAdmin($docIdentidad, $nombre, $apellido, $email, $contrasena, $perfil);
     } else {
+        //Capturo información para registro usuario
         $nombre = strip_tags($_POST['nombres']);
         $apellido = strip_tags($_POST['apellidos']);
         $docIdentidad = strip_tags($_POST['documento']);
@@ -77,6 +88,61 @@ class Registro
                 //Impresión correo ingresado, ya existe en BD
                 echo "<script>alert('¡El correo y/o número de documento ingresado ya existen! Por favor verifícalos e intenta nuevamente.');</script>";
                 echo "<script> document.location.href='../../../Views/navegacion/registro.php';</script>";
+            }
+        } catch (\Throwable $th) {
+            /*echo "<script>alert('Ocurrió un error!');</script>";*/
+        }
+    }
+    public function RegistrarAdmin($docId, $nombres, $apellidos,  $correo, $pass, $imagen)
+    {
+        try {
+            //Llamar a la conexion base de datos
+            require '../../../Models/dao/conexion.php';
+            //Verificación si el id ya existe 
+            $sqlExistente = "CALL sp_validacionCorreoDocumento(:correo,:id)";
+            $consultaExistente = $pdo->prepare($sqlExistente);
+            $consultaExistente->bindValue(":correo", $correo);
+            $consultaExistente->bindValue(":id", $docId);
+            $consultaExistente->execute();
+            $resultadoExistente = $consultaExistente->rowCount();
+            if (!$resultadoExistente) {
+                //Sha1 -> Método de encriptación
+                $contrasena = sha1($pass);
+                $estado = '1';
+                $perfil = $imagen;
+                $rol = '3';
+                //Consulta correo ingresado no existe en BD
+                //sentencia Sql
+                $sqlRegistro = "CALL sp_registrarUsuario (:id,:nombre,:apellido,
+                    :correo,:contrasena,:estado,:imagen)";
+                //Preparar consulta
+                $consultaRegistro = $pdo->prepare($sqlRegistro);
+                $consultaRegistro->bindValue(":id", $docId);
+                $consultaRegistro->bindValue(":nombre", $nombres);
+                $consultaRegistro->bindValue(":apellido", $apellidos);
+                $consultaRegistro->bindValue(":correo", $correo);
+                $consultaRegistro->bindValue(":contrasena", $contrasena);
+                $consultaRegistro->bindValue(":estado", $estado);
+                $consultaRegistro->bindValue(":imagen", $perfil);
+                $consultaRegistro->closeCursor();
+                //Ejecutar la sentencia
+                $consultaRegistro->execute();
+                //llamado a la tabla rol (intermedia) para almacenar el rol predeterminado
+                $sqlRegistroUR = "CALL sp_guardarRol (:rol,:id)";
+                //Preparar consulta
+                $consultaRegistroUR = $pdo->prepare($sqlRegistroUR);
+                $consultaRegistroUR->bindValue(":rol", $rol);
+                $consultaRegistroUR->bindValue(":id", $docId);
+                $consultaRegistroUR->closeCursor();
+                //Ejecutar la sentencia
+                $consultaRegistroUR->execute();
+                //Impresión cuenta creada correctamente
+                echo "<script>alert('¡El nuevo administrador se ha registrado con éxito!');</script>";
+                echo "<script> document.location.href='../../../Views/dashboard/principal/registrarAdmin.php';</script>";
+            } else {
+                //Impresión correo ingresado, ya existe en BD
+                echo "<script>alert('¡El correo y/o número de documento ingresado ya existen! Por favor verifícalos e intenta nuevamente.');</script>";
+                echo "<script> document.location.href='../../../Views/dashboard/principal/registrarAdmin.php';</script>";
             }
         } catch (\Throwable $th) {
             /*echo "<script>alert('Ocurrió un error!');</script>";*/

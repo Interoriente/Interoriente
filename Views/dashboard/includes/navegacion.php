@@ -37,23 +37,27 @@
               <div class="dropdown-header noti-title">
                 <h6 class="text-overflow m-0">!Bienvenid@!</h6>
               </div>
-              <a href="../principal/perfil.php" class="dropdown-item">
-                <i class="ni ni-single-02"></i>
-                <span>Mi perfil</span>
-              </a>
-              <a href="#!" class="dropdown-item">
-                <i class="ni ni-settings-gear-65"></i>
-                <span>Ayuda</span>
-              </a>
-              <a href="soporte.php" class="dropdown-item">
-                <i class="ni ni-support-16"></i>
-                <span>Soporte</span>
-              </a>
-              <div class="dropdown-divider"></div>
-              <a href="#" class="dropdown-item" data-toggle="modal" data-target="#logoutModal">
-                <i class="ni ni-user-run"></i>
-                <span>Cerrar Sesión</span>
-              </a>
+              <?php if ($_SESSION['roles'] == 1) { ?>
+                <a href="../principal/perfil.php" class="dropdown-item">
+                <?php  } else { ?>
+                  <a href="../principal/perfilAdmin.php" class="dropdown-item">
+                  <?php } ?>
+                  <i class="ni ni-single-02"></i>
+                  <span>Mi perfil</span>
+                  </a>
+                  <a href="#!" class="dropdown-item">
+                    <i class="ni ni-settings-gear-65"></i>
+                    <span>Ayuda</span>
+                  </a>
+                  <a href="soporte.php" class="dropdown-item">
+                    <i class="ni ni-support-16"></i>
+                    <span>Soporte</span>
+                  </a>
+                  <div class="dropdown-divider"></div>
+                  <a href="#" class="dropdown-item" data-toggle="modal" data-target="#logoutModal">
+                    <i class="ni ni-user-run"></i>
+                    <span>Cerrar Sesión</span>
+                  </a>
             </div>
           </li>
         </ul>
