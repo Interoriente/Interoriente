@@ -12,7 +12,7 @@
         </div>
         <div class="modal-body">Seleccione "Eliminar" para eliminar la dirección, esta acción no se podrá deshacer.</div>
         <div class="modal-footer">
-          <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
+          <button class="btn btn-secondary " type="button" data-dismiss="modal">Cancelar</button>
           <button type="submit" class="btn btn-danger">Eliminar</button>
         </div>
       </div>

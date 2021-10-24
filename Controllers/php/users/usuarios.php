@@ -156,10 +156,9 @@ class Administrador
             //alert
             echo "<script>alert('Estado actualizado correctamente');</script>";
             //redireccionar
-            echo "<script> document.location.href='../../../Views/dashboard/principal/usuarios.php';</script>";
+            echo "<script> document.location.href='../../../Views/dashboard/principal/listaAdmin.php';</script>";
         } catch (\Throwable $th) {
             echo "<script>alert('Ocurrió un error');</script>";
-            echo "<script>document.location.href='../../../Views/dashboard/principal/perfil.php';</script>";
         }
     }
 
@@ -178,15 +177,15 @@ class Administrador
             //alert
             echo "<script>alert('Estado actualizado correctamente');</script>";
             //redireccionar
-            echo "<script> document.location.href='../../../Views/dashboard/principal/usuarios.php';</script>";
+            echo "<script> document.location.href='../../../Views/dashboard/principal/listaAdmin.php';</script>";
         } catch (\Throwable $th) {
             echo "<script>alert('Ocurrió un error');</script>";
-            echo "<script>document.location.href='../../../Views/dashboard/principal/perfil.php';</script>";
         }
     }
 
     public function ActualizarCuenta($id)
     {
+        session_start();
         try {
             require '../../../Models/dao/conexion.php';
             //Capturo la sesión del usuario logueado
@@ -229,19 +228,35 @@ class Administrador
                                 //Ejecutar la sentencia
                                 $stmt->execute();
                                 echo "<script>alert('Registro actualizado correctamente');</script>";
-                                echo "<script> document.location.href='../../../Views/dashboard/principal/perfil.php';</script>";
+                                if ($_SESSION['roles'] == 1) {
+                                    echo "<script> document.location.href='../../../Views/dashboard/principal/perfil.php';</script>";
+                                } else {
+                                    echo "<script> document.location.href='../../../Views/dashboard/principal/perfilAdmin.php';</script>";
+                                }
                             } else {
                                 echo "<script>alert('Ocurrió un error');</script>";
-                                echo "<script> document.location.href='../../../Views/dashboard/principal/perfil.php';</script>";
+                                if ($_SESSION['roles'] == 1) {
+                                    echo "<script> document.location.href='../../../Views/dashboard/principal/perfil.php';</script>";
+                                } else {
+                                    echo "<script> document.location.href='../../../Views/dashboard/principal/perfilAdmin.php';</script>";
+                                }
                             }
                         } else {
                             echo "<script>alert('Error: solo se admiten archivos jpg, png y jpeg');</script>";
-                            echo "<script> document.location.href='../../../Views/dashboard/principal/perfil.php';</script>";
+                            if ($_SESSION['roles'] == 1) {
+                                echo "<script> document.location.href='../../../Views/dashboard/principal/perfil.php';</script>";
+                            } else {
+                                echo "<script> document.location.href='../../../Views/dashboard/principal/perfilAdmin.php';</script>";
+                            }
                         }
                     }
                 } else {
                     echo "<script>alert('Error: el archivo no es una imagen');</script>";
-                    echo "<script> document.location.href='../../../Views/dashboard/principal/perfil.php';</script>";
+                    if ($_SESSION['roles'] == 1) {
+                        echo "<script> document.location.href='../../../Views/dashboard/principal/perfil.php';</script>";
+                    } else {
+                        echo "<script> document.location.href='../../../Views/dashboard/principal/perfilAdmin.php';</script>";
+                    }
                 }
             } else {
                 //Sentencia sql
@@ -253,11 +268,19 @@ class Administrador
                 $stmt->bindValue(":id", $id);
                 $stmt->execute();
                 echo "<script>alert('Datos actualizados correctamente');</script>";
-                echo "<script> document.location.href='../../../Views/dashboard/principal/perfil.php';</script>";
+                if ($_SESSION['roles'] == 1) {
+                    echo "<script> document.location.href='../../../Views/dashboard/principal/perfil.php';</script>";
+                } else {
+                    echo "<script> document.location.href='../../../Views/dashboard/principal/perfilAdmin.php';</script>";
+                }
             }
         } catch (\Throwable $th) {
             echo "<script>alert('Ocurrió un error');</script>";
-            echo "<script>document.location.href='../../../Views/dashboard/principal/perfil.php';</script>";
+            if ($_SESSION['roles'] == 1) {
+                echo "<script> document.location.href='../../../Views/dashboard/principal/perfil.php';</script>";
+            } else {
+                echo "<script> document.location.href='../../../Views/dashboard/principal/perfilAdmin.php';</script>";
+            }
         }
     }
     public function AgregarDireccion($id)
@@ -316,5 +339,13 @@ class Administrador
             echo "<script>alert('Ocurrió un error');</script>";
             echo "<script>document.location.href='../../../Views/dashboard/principal/perfil.php';</script>";
         }
+    }
+    public function getAdministradores()
+    {
+        require '../../../Models/dao/conexion.php';
+        $sql = "CALL sp_mostrarAdministradores()";
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 }

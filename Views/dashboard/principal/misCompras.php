@@ -41,7 +41,7 @@ if (!isset($_SESSION['documentoIdentidad'])) {
                                     <input type="hidden" name="numero" value="<?php echo $_POST['numero']; ?>">
                                     <button type="submit" class="btn btn-sm btn-neutral cambioRol" name="cambioRol">Ver</button>
                                 </form>
-                                <button type="submit" class="btn btn-sm btn-neutral cambioRol" name="cambioRol">Descargar</button>
+                                <button type="submit" class="btn btn-sm btn-neutral cambioRol" name="cambioRol" onclick="print()">Descargar</button>
                             <?php } ?>
                         </div>
                     </div>

@@ -65,7 +65,7 @@ if (!isset($_SESSION['documentoIdentidad'])) {
                       <div class="col-lg-6">
                         <div class="form-group">
                           <label class="form-control-label" for="docu">Documento</label>
-                          <input type="text" id="docu" name="nombre" class="form-control" placeholder="Username" value="<?php echo $respUserData->documentoIdentidad; ?>" disabled required>
+                          <input type="text" id="docu" name="documento" class="form-control" placeholder="Documento" value="<?php echo $respUserData->documentoIdentidad; ?>" disabled required>
                         </div>
                       </div>
                       <div class="col-lg-6">

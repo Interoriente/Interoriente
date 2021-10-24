@@ -29,7 +29,7 @@ if (!isset($_SESSION['documentoIdentidad'])) {
   if (isset($respUserData)) {
     $rol = $_SESSION['roles'];
     //Validacion de roles
-    if ($rol == 1 or $rol == 3) {
+    if ($rol == 1) {
 
       //Parte superior del HTML
       require "../includes/header.php";

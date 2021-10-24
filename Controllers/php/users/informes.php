@@ -224,4 +224,5 @@ class Informes
             /*echo "<script>alert('Ocurrió un error!');</script>";*/
         }
     }
+    /* Mostrar productos vendidos entre x y x fecha */
 }

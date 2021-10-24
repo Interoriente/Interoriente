@@ -63,15 +63,24 @@
               <li class="nav-item">
                 <a class="nav-link" href="publicaciones.php">
                   <i class="ni ni-single-copy-04 text-purple"></i>
-                  <span class="nav-link-text">Publicaciones</span>
+                  <span class="nav-link-text">Publicaciones sin validar</span>
                 </a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="registrarAdmin.php">
-                  <i class="ni ni-building text-orange"></i>
-                  <span class="nav-link-text">Registrar Admin</span>
-                </a>
-              </li>
+              <?php if ($_SESSION['documentoIdentidad'] == '123456789') {
+              ?>
+                <li class="nav-item">
+                  <a class="nav-link" href="registrarAdmin.php">
+                    <i class="ni ni-building text-orange"></i>
+                    <span class="nav-link-text">Registrar Admin</span>
+                  </a>
+                </li>
+                <?php } ?>
+                <li class="nav-item">
+                  <a class="nav-link" href="listaAdmin.php">
+                    <i class="ni ni-atom text-blue"></i>
+                    <span class="nav-link-text">Administradores</span>
+                  </a>
+                </li>
             </ul>
         <?php }
         } ?>

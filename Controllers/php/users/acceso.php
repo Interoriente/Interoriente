@@ -188,7 +188,11 @@ class InicioSesion
                     //Siempre para iniciar se inicia como Comprador/Proveedor -> O por lo menos con el primer rol que se tenga
                     $_SESSION['roles'] = $rol;
                     //Comprador/Proveedor
-                    header("Location: ../../../Views/dashboard/principal/dashboard.php");
+                    if ($_SESSION['roles'] == 1) {
+                        echo "<script> document.location.href='../../../Views/dashboard/principal/dashboard.php';</script>";
+                    } else {
+                        echo "<script> document.location.href='../../../Views/dashboard/principal/dashboardAdmin.php';</script>";
+                    }
                 }
             } else {
                 echo "<script>alert('Correo o documento y/o contraseña incorrecto, o validación denegada');</script>";
