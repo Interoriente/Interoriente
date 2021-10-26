@@ -18,10 +18,11 @@ if (!isset($_SESSION['documentoIdentidad'])) {
   $respVentasDia = $informe->VentasPorDias($informe->id);
   $respMasExitosas = $informe->GetPublicacionesExitosas($informe->id);
   $alertaStock = $informe->AlertaStock($informe->id);
-  $mostrarPublicacionPocoStock = $informe->MostrarPublicacionPocoStock($informe->id);
+  $contadorAlertaStock=sizeof($alertaStock);
+  /* $mostrarPublicacionPocoStock = $informe->MostrarPublicacionPocoStock($informe->id); */
   $ventasHoy = $informe->VentasHoy($informe->id);
   $noValidadas = $informe->NoValidadas($informe->id);
-  $mostrarNoValidadas = $informe->MostrarNoValidadas($informe->id);
+  $contadorNoValidadas=sizeof($noValidadas);
   $reporteMensual = $informe->ReporteMensual($informe->id);
 
   //Mostrar gráfica de ventas anuales
@@ -89,7 +90,7 @@ if (!isset($_SESSION['documentoIdentidad'])) {
                         <div class="col">
                           <h5 class="card-title text-uppercase text-muted mb-0">Stock</h5>
                           <?php if (isset($alertaStock)) { ?>
-                            <span class="h5 font-weight-bold mb-0 text-rap text-danger">¡Hay <?php echo $alertaStock['No_publicaciones'] ?> publicaciones con poco stock! </span>
+                            <span class="h5 font-weight-bold mb-0 text-rap text-danger">¡Hay <?php echo $contadorAlertaStock ?> publicaciones con poco stock! </span>
                         </div>
                         <div class="col-auto icono-dashboard">
                           <div class="icon icon-shape bg-gradient-red text-white rounded-circle shadow">
@@ -122,7 +123,7 @@ if (!isset($_SESSION['documentoIdentidad'])) {
                       <div class="col">
                         <h5 class="card-title text-uppercase text-muted mb-0">Publicaciones</h5>
                         <?php if (isset($noValidadas)) { ?>
-                          <span class="h5 font-weight-bold mb-0 text-rap text-warning">Tienes <?php echo $noValidadas; ?> publicaciones con espera de validación</span>
+                          <span class="h5 font-weight-bold mb-0 text-rap text-warning">Tienes <?php echo $contadorNoValidadas; ?> publicaciones con espera de validación</span>
                       </div>
                       <div class="col-auto icono-dashboard">
                         <div class="icon icon-shape bg-gradient-orange text-white rounded-circle shadow">

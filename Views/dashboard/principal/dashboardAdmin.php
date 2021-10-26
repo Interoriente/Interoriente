@@ -12,20 +12,11 @@ if (!isset($_SESSION['documentoIdentidad'])) {
   require "../../../Controllers/php/users/informes.php";
   //Instancio la clase
   $informe = new Informes($documento);
-  //Llamo la función para las ventas anuales
-  $respVentasAnual = $informe->MostrarVentasAnuales($informe->id);
-  //Llamo la función para las ventas de los 7 días anterior
-  $respVentasDia = $informe->VentasPorDias($informe->id);
-  $respMasExitosas = $informe->GetPublicacionesExitosas($informe->id);
-  $alertaStock = $informe->AlertaStock($informe->id);
-  $mostrarPublicacionPocoStock = $informe->MostrarPublicacionPocoStock($informe->id);
-  $ventasHoy = $informe->VentasHoy($informe->id);
-  $noValidadas = $informe->NoValidadas($informe->id);
-  $mostrarNoValidadas = $informe->MostrarNoValidadas($informe->id);
-  $reporteMensual = $informe->ReporteMensual($informe->id);
+  //Llamo la función para mostrar las publicaciones sin validar
+  $respNoValidadas=$informe->NoValidadasAdmin();
+  $contadorNovalidadas=sizeof($respNoValidadas);
+  $respVentasHoy=$informe->VentasHoyAdmin();
 
-  //Mostrar gráfica de ventas anuales
-  require "../includes/graficas.php";
   if (isset($respUserData)) {
     $rol = $_SESSION['roles'];
     //Validacion de roles
@@ -36,14 +27,6 @@ if (!isset($_SESSION['documentoIdentidad'])) {
       require_once '../includes/sidebarDashboard.php';
       require_once '../includes/navegacion.php';
 ?>
-      <!-- Cambiar TODO relacionando la información de administrador -->
-      <script>
-        //Mando al JS la información, por medio de las variables declaradas
-        let labelVentas = [<?php echo $labelVentas; ?>];
-        let datosVentas = [<?php echo $datosVentas; ?>];
-        let labelVentasSemana = [<?php echo $labelVentasSemana; ?>];
-        let datosVentasSemana = [<?php echo $datosVentasSemana; ?>];
-      </script>
       <!-- Para mostrar en la sección de publicación más exitosa (cuando no exista) -->
       <link rel="stylesheet" href="../../assets/css/general.css">
       <link rel="stylesheet" href="../assets/css/misPublicaciones.css">
@@ -111,7 +94,6 @@ if (!isset($_SESSION['documentoIdentidad'])) {
               </div>
             </div>
 
-            <!-- Tarjeta para el admin -->
             <!-- Contenedor Tarjeta -->
             <div class="col-xl-3 col-md-6">
               <div class="card card-stats">
@@ -121,8 +103,8 @@ if (!isset($_SESSION['documentoIdentidad'])) {
                     <div class="row">
                       <div class="col">
                         <h5 class="card-title text-uppercase text-muted mb-0">Publicaciones</h5>
-                        <?php if (isset($noValidadas)) { ?>
-                          <span class="h5 font-weight-bold mb-0 text-rap text-warning">Tienes <?php echo $noValidadas; ?> publicaciones con espera de validación</span>
+                        <?php if (isset($respNoValidadas)) { ?>
+                          <span class="h5 font-weight-bold mb-0 text-rap text-warning">Tienes <?php echo $contadorNovalidadas; ?> publicaciones para validar.</span>
                       </div>
                       <div class="col-auto icono-dashboard">
                         <div class="icon icon-shape bg-gradient-orange text-white rounded-circle shadow">
@@ -130,7 +112,7 @@ if (!isset($_SESSION['documentoIdentidad'])) {
                         </div>
                       </div>
                     <?php } else { ?>
-                      <span class="h5 font-weight-bold mb-0 text-blue">No tienes publicaciones pendientes por validar</span>
+                      <span class="h5 font-weight-bold mb-0 text-blue">No tienes publicaciones por validar</span>
                     </div>
                     <div class="col-auto icono-dashboard">
                       <div class="icon icon-shape bg-gradient-purple text-white rounded-circle shadow">
@@ -151,7 +133,7 @@ if (!isset($_SESSION['documentoIdentidad'])) {
                 <div class="row">
                   <div class="col">
                     <h5 class="card-title text-uppercase text-muted mb-0">Ventas Hoy</h5>
-                    <span class="h2 font-weight-bold mb-0 text-success mr-2">$<?php echo number_format($ventasHoy["Total"], 0, '', '.'); ?></span>
+                    <span class="h2 font-weight-bold mb-0 text-success mr-2">$<?php echo number_format($respVentasHoy["Total"], 0, '', '.'); ?></span>
                   </div>
                   <div class="col-auto icono-dashboard">
                     <div class="icon icon-shape bg-gradient-green text-white rounded-circle shadow">
@@ -161,7 +143,7 @@ if (!isset($_SESSION['documentoIdentidad'])) {
                 </div>
                 <p class="mt-3 mb-0 text-sm">
                   <span class="text-nowrap">No. Ventas:</span>
-                  <span class="h2 text-success mr-2"><?php echo $ventasHoy["No_ventas"] ?></i></span>
+                  <span class="h2 text-success mr-2"><?php echo $respVentasHoy["No_ventas"] ?></i></span>
                 </p>
               </div>
             </div>
@@ -354,7 +336,7 @@ if (!isset($_SESSION['documentoIdentidad'])) {
       </div>
       <!-- Parte Inferior del HTML -->
 <?php
-      require "../includes/modalesInformacion.php";
+      require "../includes/modalesInformacionAdmin.php";
       require_once '../includes/footer.php';
     } else {
       echo "<script>alert('No puedes acceder a esta página!');</script>";

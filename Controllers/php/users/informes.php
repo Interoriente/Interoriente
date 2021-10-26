@@ -125,19 +125,7 @@ class Informes
             $stmt = $pdo->prepare($sql);
             $stmt->bindValue(":id", $id);
             $stmt->execute();
-            return $stmt->fetch(PDO::FETCH_ASSOC);
-        } catch (\Throwable $th) {
-            /*echo "<script>alert('Ocurrió un error!');</script>";*/
-        }
-    }
-    public function MostrarPublicacionPocoStock($id){
-        try {
-            require "../../../Models/dao/conexion.php";
-            $sql = "CALL sp_mostrarPublicacionesConStockMinimo(:id)";
-            $stmt = $pdo->prepare($sql);
-            $stmt->bindValue(":id", $id);
-            $stmt->execute();
-            return $stmt->fetchAll();
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);
         } catch (\Throwable $th) {
             /*echo "<script>alert('Ocurrió un error!');</script>";*/
         }
@@ -160,21 +148,6 @@ class Informes
         try {
             require "../../../Models/dao/conexion.php";
             $sql = "CALL sp_noValidadas(:id)";
-            $stmt = $pdo->prepare($sql);
-            $stmt->bindValue(":id", $id);
-            $stmt->execute();
-            $resultado = $stmt->fetchAll(PDO::FETCH_ASSOC);
-            $noPublicaciones = sizeof($resultado);
-            return $noPublicaciones;
-        } catch (\Throwable $th) {
-            /*echo "<script>alert('Ocurrió un error!');</script>";*/
-        }
-    }
-    public function MostrarNoValidadas($id)
-    {
-        try {
-            require "../../../Models/dao/conexion.php";
-            $sql = "CALL sp_mostrarNoValidadas(:id)";
             $stmt = $pdo->prepare($sql);
             $stmt->bindValue(":id", $id);
             $stmt->execute();
@@ -224,5 +197,35 @@ class Informes
             /*echo "<script>alert('Ocurrió un error!');</script>";*/
         }
     }
-    /* Mostrar productos vendidos entre x y x fecha */
+    /* Mostrar productos vendidos entre x y x fecha  */
+    /* Informes para el administrador. 
+    -Contador de ADMIN
+    -contador de usuarios.
+    -Contador publicaciones sin validar
+    -Cantidad de publicaciones con poco stock
+    -Usuarios inactivos
+    -Reporte de publicaciones creadas 
+    -Ventas generales hoy
+    -Número de ventas y cantidad
+    -Pu
+     */
+    /* Informes del Administrador */
+    public function NoValidadasAdmin()
+    {
+        require "../../../Models/dao/conexion.php";
+        $sql = "CALL sp_noValidadasAdmin";
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute();
+        $resultado = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        return $resultado;
+    }
+    public function VentasHoyAdmin()
+    {
+        require "../../../Models/dao/conexion.php";
+        $sql = "CALL sp_ventasHoyAdmin";
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute();
+        $resultado = $stmt->fetch(PDO::FETCH_ASSOC);
+        return $resultado;
+    }
 }
