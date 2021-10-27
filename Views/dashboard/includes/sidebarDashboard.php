@@ -63,7 +63,7 @@
               <li class="nav-item">
                 <a class="nav-link" href="publicaciones.php">
                   <i class="ni ni-single-copy-04 text-purple"></i>
-                  <span class="nav-link-text">Publicaciones sin validar</span>
+                  <span class="nav-link-text">Validar publicaciones</span>
                 </a>
               </li>
               <?php if ($_SESSION['documentoIdentidad'] == '123456789') {
