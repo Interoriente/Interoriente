@@ -17,7 +17,7 @@
                 <input type="hidden" name="actualizarPublicacion">
 
                 <div class="form-group">
-                    <?php foreach ($alertaStock as $datos) {
+                    <?php foreach ($mostrarPublicacionPocoStock as $datos) {
                     ?>
                         <label id="texto">*<?php echo $datos['nombrePublicacion']; ?><br> Cantidad: <?php echo $datos['cantidadPublicacion']; ?><br>Stock minimo: <?php echo $datos['stockMinPublicacion']; ?></label><br>
                     <?php } ?>
@@ -48,7 +48,7 @@
                 <p class="statusMsg"></p>
 
                 <div class="form-group">
-                    <?php foreach ($noValidadas as $datos) {
+                    <?php foreach ($respNoValidadas as $datos) {
                     ?>
                         <label id="texto">*<?php echo $datos['nombrePublicacion']; ?></label><br>
                     <?php } ?>
