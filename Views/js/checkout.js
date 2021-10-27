@@ -221,7 +221,7 @@ function finalizarCompra() {
     },
     success: function () {
       /* Redirigir y/o mostrar mensaje de finalización */
-      localStorage.removeItem("carrito");
+      /* localStorage.removeItem("carrito"); */
       window.location = "./index.php";
     },
     

@@ -2,6 +2,8 @@
 
 <head>
   <link rel="stylesheet" href="../assets/css/nav.css" />
+  <link rel="stylesheet" href="../assets/css/tarjetaCompra.css">
+
 </head>
 
 <body>
@@ -102,6 +104,7 @@
         <h2 class="titulos">Tu carrito</h2>
         <div class="cart-content">
           <!--Contenido del carrito controlado por JavaScript-->
+          
         </div>
         <div class="cart-footer">
           <h4>Subtotal: $ <span class="cart-total">0</span></h4>

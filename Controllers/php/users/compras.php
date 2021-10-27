@@ -1,11 +1,11 @@
 <?php
-
 if (
   isset($_POST['id']) ||
   isset($_POST['carrito']) ||
   isset($_POST['idUsuarioLogeado']) ||
   isset($_POST['ciudades']) ||
-  isset($_POST['checkout'])
+  isset($_POST['checkout']) ||
+  isset($_GET['tblCarrito'])
 ) {
 
   if (isset($_POST['id'])) {
@@ -23,13 +23,17 @@ if (
     $checkout = new Checkout();
     $ciudades = $checkout->getCiudades();
     echo $ciudades;
-  } else {
+  } else if ( isset($_GET['tblCarrito'])) {
+    session_start();
+    echo verificarCarrito($_SESSION['documentoIdentidad']);
+
+  }else {
     $userData = $_POST['checkout'];
     $direccion = $userData[0];
     $email = $userData[1];
     $checkout = new Checkout();
     $respuesta = $checkout->finalizarCompra($direccion, $email);
-    echo $respuesta;
+    echo json_encode($respuesta);
   }
 }
 /* Función para reducir el arreglo a una sola dimensión */
@@ -48,6 +52,18 @@ function simplificarArreglo($array)
   }
   return $resultado;
 }
+/* Funcion para verificar si el usuario tiene publicaciones en la tabla carrito */
+
+function verificarCarrito($docId){
+  require '../../../Models/dao/conexion.php';
+  $sql = "CALL sp_verificarCarrito(:id)";
+  $stmt = $pdo->prepare($sql);
+  $stmt->bindValue(":id", $docId);
+  $stmt->execute();
+  return $stmt->fetchColumn();
+
+}
+
 /* Función para obtener el id un usuario que tenga la sesión iniciada */
 function getIdUsuario()
 {

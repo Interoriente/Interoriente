@@ -313,7 +313,7 @@ $cont = 0;
       <div class="contenedor-publi">
         <!-- Publicación  -->
         <?php
-        foreach ($checkoutData as $fila) {
+        foreach ($checkoutData as $fila) :
 
           $subtotal += $fila['subtotal'];
           $iva += $fila['iva'];
@@ -328,7 +328,7 @@ $cont = 0;
             </div>
           </div>
         <?php $cont++;
-        } ?>
+        endforeach ?>
         <!-- Fin Publicación  -->
       </div>
       <!-- FIN Contenedor Publicación  -->

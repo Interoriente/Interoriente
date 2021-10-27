@@ -12,11 +12,37 @@ const carritoBtn = document.getElementById("carrito-btn");
 const cantidadCarrito = document.getElementById("cantidad-carrito");
 const overlay = document.getElementById("overlay");
 const finCompra = document.getElementById("finalizar-compra");
-let inputCantidad;
-let publicacionExiste = false;
-let inputExistente;
-let newVlr;
+let inputCantidad,
+  publicacionExiste = false,
+  inputExistente,
+  newVlr,
+  itemCarrito,
+  existeCompra,
+  itemCarritoBolean = false,
+  resptblCarrito;
 
+//Verificando si el usuario tiene compras por realizar
+$.ajax({
+  url: "../../Controllers/php/users/compras.php",
+  method: "GET",
+  data: { tblCarrito: true },
+  success: function (res) {
+    respTblCarrito = JSON.parse(res);
+    if (respTblCarrito !== 0) {
+      existeCompra = `
+     <div class="tarjeta-contenedor">
+       <div class="contenedor-tarjeta">
+           <p>!Tienes una compra pendiente!</p>
+           <a href="./checkout.php" id="continuar-compra" class="continuar-compra">Ir al checkout</a>
+       </div>
+      </div>
+     `;
+     contenidoCarrito.innerHTML += existeCompra;
+
+    }
+
+  },
+});
 /* Local storage */
 class Storage {
   static setPublicacion(publicacion) {
@@ -37,6 +63,8 @@ if (publicacionLocalStorage) {
   mathCarrito(carrito);
   renderPubli(carrito);
 }
+
+
 /* Seleccionar elemento padre para ejecutar una acción, en este caso, cerrar el carrito */
 overlay.addEventListener("click", (e) => {
   if (e.target == e.currentTarget) {
@@ -118,23 +146,32 @@ function getPublicacionDb(id) {
 /* Crear clase para mostrar elementos en el carrito */
 
 function renderPubli(item) {
-  let clase = "";
+  itemCarrito = ``;
+  if (existeCompra) {
+    itemCarrito += existeCompra;
+  }
   item.map((item) => {
-    clase += `
+    itemCarrito += `
             <div class = "cart-item">
                 <img src="${item.img}" alt="product" width="100%">
                 <div>
                     <h4 class="titulos item-h" >${item.titulo}</h4>
                     <h5>$${number_format(item.costo)}</h5>
-                    <span class="remove-item" onclick = "removeItem(this.id)" id = "${item.id}">Eliminar</span>
+                    <span class="remove-item" onclick = "removeItem(this.id)" id = "${
+                      item.id
+                    }">Eliminar</span>
                 </div>
                 <div>
-                <input type="number" class="cantidad-items" id="${item.id}" oninput = "cambiarCantidad(this.id)" min = "1" value="${item.cantidad}" >
+                <input type="number" class="cantidad-items" id="${
+                  item.id
+                }" oninput = "cambiarCantidad(this.id)" min = "1" value="${
+      item.cantidad
+    }" >
                 </div>
             </div>
             `;
   });
-  contenidoCarrito.innerHTML = clase;
+  contenidoCarrito.innerHTML = itemCarrito;
 }
 
 function abrirCarrito() {
@@ -193,30 +230,30 @@ function mathCarrito(item) {
     totalTmp += costo * item.cantidad;
     totalItems += item.cantidad;
   });
-  carritoTotal.textContent = number_format(parseFloat(totalTmp), 3, '', '.');
+  carritoTotal.textContent = number_format(parseFloat(totalTmp), 3, "", ".");
   cartItems.textContent = totalItems;
 }
 
-function number_format (number, decimals, dec_point, thousands_sep) {
+function number_format(number, decimals, dec_point, thousands_sep) {
   // Strip all characters but numerical ones.
-  number = (number + '').replace(/[^0-9+\-Ee.]/g, '');
+  number = (number + "").replace(/[^0-9+\-Ee.]/g, "");
   let n = !isFinite(+number) ? 0 : +number,
-      prec = !isFinite(+decimals) ? 0 : Math.abs(decimals),
-      sep = (typeof thousands_sep === 'undefined') ? '.' : thousands_sep,
-      dec = (typeof dec_point === 'undefined') ? '.' : dec_point,
-      s = '',
-      toFixedFix = function (n, prec) {
-          let k = Math.pow(10, prec);
-          return '' + Math.round(n * k) / k;
-      };
+    prec = !isFinite(+decimals) ? 0 : Math.abs(decimals),
+    sep = typeof thousands_sep === "undefined" ? "." : thousands_sep,
+    dec = typeof dec_point === "undefined" ? "." : dec_point,
+    s = "",
+    toFixedFix = function (n, prec) {
+      let k = Math.pow(10, prec);
+      return "" + Math.round(n * k) / k;
+    };
   // Fix for IE parseFloat(0.55).toFixed(0) = 0;
-  s = (prec ? toFixedFix(n, prec) : '' + Math.round(n)).split('.');
+  s = (prec ? toFixedFix(n, prec) : "" + Math.round(n)).split(".");
   if (s[0].length > 3) {
-      s[0] = s[0].replace(/\B(?=(?:\d{3})+(?!\d))/g, sep);
+    s[0] = s[0].replace(/\B(?=(?:\d{3})+(?!\d))/g, sep);
   }
-  if ((s[1] || '').length < prec) {
-      s[1] = s[1] || '';
-      s[1] += new Array(prec - s[1].length + 1).join('');
+  if ((s[1] || "").length < prec) {
+    s[1] = s[1] || "";
+    s[1] += new Array(prec - s[1].length + 1).join("");
   }
   return s.join(dec);
 }
