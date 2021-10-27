@@ -161,7 +161,7 @@ header {
 }
 /*---------- Contenido del carrito -------------------- */
 .cart-content{
-  max-height: 13em;
+  max-height: 60%;
   overflow: auto;
 }
 /*---------- Item del carrito -------------------- */
