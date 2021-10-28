@@ -20,6 +20,7 @@ if (!isset($_SESSION['documentoIdentidad'])) {
   $respVentasAnual = $informe->VentasAnualesAdmin();
   $respVentasDia = $informe->VentasPorDiasAdmin();
   $respContadorUsuario = $informe->ContadorUsuarios();
+  $respUsuariosQueMasCompran = $informe->UsuariosQueMasCompran();
   //Mostrar gráfica de ventas anuales
   require "../includes/graficas.php";
 
@@ -257,39 +258,31 @@ if (!isset($_SESSION['documentoIdentidad'])) {
               <div class="table-responsive">
                 <!-- Projects table -->
                 <table class="table align-items-center table-flush">
-                  <?php if (isset($respMasExitosas->Titulos[0]) != "") { ?>
+                  <?php if (isset($respUsuariosQueMasCompran)) { ?>
                     <thead class="thead-light">
                       <tr>
-                        <th scope="col">Título</th>
-                        <th scope="col">No. Ventas</th>
+                        <th scope="col">Cliente</th>
                         <th scope="col">Cantidad</th>
-                        <th scope="col">Porcentaje</th>
-                        <th scope="col">Total Ventas</th>
+                        <th scope="col">Total de compras</th>
                       </tr>
                     </thead>
                     <tbody>
                       <!-- Fila -->
-                      <?php for ($i = 0; $i < 5; $i++) : ?>
+                      <?php foreach ($respUsuariosQueMasCompran as $datos) : ?>
                         <tr>
                           <td>
-                            <a href="#"><?php echo $respMasExitosas->Titulos[$i]; ?></a>
+                            <?php echo $datos['Cliente']; ?>
                           </td>
 
                           <td>
-                            <?php echo $respMasExitosas->NoVentas[$i]; ?>
+                            <?php echo $datos['Cantidad']; ?>
                           </td>
 
                           <td>
-                            <?php echo $respMasExitosas->Cantidad[$i]; ?>
-                          </td>
-                          <td>
-                            <?php echo round($respMasExitosas->Porcentajes[$i], 1) . "%"; ?>
-                          </td>
-                          <td>
-                            <?php echo "$" . number_format($respMasExitosas->VlrVentas[$i], 0, '', '.'); ?>
+                            <?php echo number_format($datos['Total'], 0, '', '.'); ?>
                           </td>
                         </tr>
-                      <?php endfor;
+                      <?php endforeach;
                     } else { ?>
                       <div class="campo-alerta">
                         <div class="alerta" role="alert">Opps, por ahora no hay publicaciones exitosas

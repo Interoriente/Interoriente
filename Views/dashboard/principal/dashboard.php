@@ -18,11 +18,11 @@ if (!isset($_SESSION['documentoIdentidad'])) {
   $respVentasDia = $informe->VentasPorDias($informe->id);
   $respMasExitosas = $informe->GetPublicacionesExitosas($informe->id);
   $alertaStock = $informe->AlertaStock($informe->id);
-  $contadorAlertaStock=sizeof($alertaStock);
+  $contadorAlertaStock = sizeof($alertaStock);
   /* $mostrarPublicacionPocoStock = $informe->MostrarPublicacionPocoStock($informe->id); */
   $ventasHoy = $informe->VentasHoy($informe->id);
   $noValidadas = $informe->NoValidadas($informe->id);
-  $contadorNoValidadas=sizeof($noValidadas);
+  $contadorNoValidadas = sizeof($noValidadas);
   $reporteMensual = $informe->ReporteMensual($informe->id);
 
   //Mostrar gráfica de ventas anuales
@@ -277,30 +277,35 @@ if (!isset($_SESSION['documentoIdentidad'])) {
                 <div class="col">
                   <h3 class="mb-0">Publicaciones Más Exitosas</h3>
                 </div>
-                <div class="input-daterange datepicker row align-items-center">
-                  <div class="col">
-                    <div class="form-group">
-                      <div class="input-group">
-                        <div class="input-group-prepend">
-                          <span class="input-group-text"><i class="ni ni-calendar-grid-58"></i></span>
+                <!--  -->
+                <form action="" method="post">
+                  <div class="input-daterange datepicker row align-items-center">
+                    <div class="col">
+                      <div class="form-group">
+                        <div class="input-group">
+                          <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="ni ni-calendar-grid-58"></i></span>
+                          </div>
+                          <input class="form-control" placeholder="Start date" type="date" name="fechaIni" max=<?php $hoy = date("Y-m-d");
+                                                                                                echo $hoy; ?>>
                         </div>
-                        <input class="form-control" placeholder="Start date" type="date" max=<?php $hoy = date("Y-m-d");
-                                                                                              echo $hoy; ?>>
+                      </div>
+                    </div>
+                    <div class="col">
+                      <div class="form-group">
+                        <div class="input-group">
+                          <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="ni ni-calendar-grid-58"></i></span>
+                            <input class="form-control" placeholder="End date" type="date" name="fechaFin" max=<?php $hoy = date("Y-m-d");
+                                                                                                echo $hoy; ?>>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>
-                  <div class="col">
-                    <div class="form-group">
-                      <div class="input-group">
-                        <div class="input-group-prepend">
-                          <span class="input-group-text"><i class="ni ni-calendar-grid-58"></i></span>
-                        </div>
-                        <input class="form-control" placeholder="End date" type="date" max=<?php $hoy = date("Y-m-d");
-                                                                                            echo $hoy; ?>>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                  <button type="submit" class="btn btn-sm btn-neutral cambioRol" name="buscarPubli">Buscar</button>
+                </form>
+                <!--  -->
               </div>
             </div>
             <div class="table-responsive">

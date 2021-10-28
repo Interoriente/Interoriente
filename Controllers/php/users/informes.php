@@ -230,4 +230,12 @@ class Informes
         $stmt->execute();
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
+    public function UsuariosQueMasCompran()
+    {
+        require "../../../Models/dao/conexion.php";
+        $sql = "CALL sp_MostrarUsuarioQueMasCompran";
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
 }
