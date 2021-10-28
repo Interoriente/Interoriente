@@ -14,7 +14,7 @@ if (
   } else if (isset($_POST['carrito'])) {
     $carrito = $_POST['carrito'];
     $carrito = json_decode($carrito);
-    almacenarCarrito($carrito);
+    echo almacenarCarrito($carrito);
   } else if (isset($_POST['idUsuarioLogeado'])) {
     $checkout = new Checkout();
     $valDirecciones = $checkout->validarDireccion();
@@ -23,11 +23,10 @@ if (
     $checkout = new Checkout();
     $ciudades = $checkout->getCiudades();
     echo $ciudades;
-  } else if ( isset($_GET['tblCarrito'])) {
+  } else if (isset($_GET['tblCarrito'])) {
     session_start();
     echo verificarCarrito($_SESSION['documentoIdentidad']);
-
-  }else {
+  } else {
     $userData = $_POST['checkout'];
     $direccion = $userData[0];
     $email = $userData[1];
@@ -54,14 +53,14 @@ function simplificarArreglo($array)
 }
 /* Funcion para verificar si el usuario tiene publicaciones en la tabla carrito */
 
-function verificarCarrito($docId){
+function verificarCarrito($docId)
+{
   require '../../../Models/dao/conexion.php';
   $sql = "CALL sp_verificarCarrito(:id)";
   $stmt = $pdo->prepare($sql);
   $stmt->bindValue(":id", $docId);
   $stmt->execute();
   return $stmt->fetchColumn();
-
 }
 
 /* Función para obtener el id un usuario que tenga la sesión iniciada */
@@ -129,28 +128,64 @@ function addCarrito($id)
 function almacenarCarrito($carrito)
 {
   try {
+    /* $carrito = $carrito; */
     session_start(); // Se debe usar antes de tratar de acceder a una variable de sessión
     $idUsuario = $_SESSION['documentoIdentidad'];
-
+    $idsRepetidos = [];
+    $cantidadesRepetidos = [];
+    $contador = 0;
     if ($idUsuario) {
       require('../../../Models/dao/conexion.php');
+      //Verificar si existen entradas duplicadas
+      $carritoUsuario = getCarrito($idUsuario);
+      $tamano = sizeof($carrito);
+      foreach ($carritoUsuario as $idCarrito) {
+        for ($i=0; $i < $tamano; $i++) { 
+          if ($idCarrito["id"] == $carrito[$i]->id) {
+            $idsRepetidos[$i] = $carrito[$i]->id;
+            $cantidadesRepetidos[$i] = $idCarrito["cantidad"];
+          }
+        }
+      }    
       foreach ($carrito as $item) {
-        $idPubli = $item->id;
-        $cantidad = $item->cantidad;
-        $sql = "CALL sp_almacenarCarrito(:idPubli,:idUser,:cantidad)";
-        $stmt = $pdo->prepare($sql);
-        $stmt->bindValue(':idPubli', $idPubli);
-        $stmt->bindValue(':idUser', $idUsuario);
-        $stmt->bindValue(':cantidad', $cantidad);
-        $stmt->execute();
+        if ($item->id == $idsRepetidos[$contador]) {
+          $idPubli = $item->id;
+          $cantidad = $item->cantidad + $cantidadesRepetidos[$contador];
+          $sql = "CALL sp_actualizarCarrito(:cantidad, :idPubli,:idUser)";
+          $stmt = $pdo->prepare($sql);
+          $stmt->bindValue(':cantidad', $cantidad);
+          $stmt->bindValue(':idPubli', $idPubli);
+          $stmt->bindValue(':idUser', $idUsuario);
+          $stmt->execute();
+          $contador++;
+        }else{
+          $idPubli = $item->id;
+          $cantidad = $item->cantidad;
+          $sql = "CALL sp_almacenarCarrito(:idPubli,:idUser,:cantidad)";
+          $stmt = $pdo->prepare($sql);
+          $stmt->bindValue(':idPubli', $idPubli);
+          $stmt->bindValue(':idUser', $idUsuario);
+          $stmt->bindValue(':cantidad', $cantidad);
+          $stmt->execute();
+        }
       }
-      echo 1;
+      return 1;
     } else {
       echo "<script>alert('No existe la sesión!');</script>";
     }
   } catch (\Throwable $th) {
     /*echo "<script>alert('Ocurrió un error!');</script>";*/
   }
+}
+
+function getCarrito($id)
+{
+  require('../../../Models/dao/conexion.php');
+  $sql = "CALL sp_getCarrito(:id)";
+  $stmt = $pdo->prepare($sql);
+  $stmt->bindValue(":id", $id);
+  $stmt->execute();
+  return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
 
 /* Clase Check-out con funciones implicadas */
@@ -236,53 +271,53 @@ class Checkout
       /* Almacenar información de la compra */
       $sqlFa = "INSERT INTO `tblFactura`
       VALUES (null,:idUser,CURRENT_TIMESTAMP,:direccion,:email)";
-    $stmt = $pdo->prepare($sqlFa);
-    $stmt->bindValue(':idUser', $idUsuario);
-    $stmt->bindValue(':direccion', $direccion);
-    $stmt->bindValue(':email', $email);
-    $stmt->execute();
-    $idFactura = $pdo->lastInsertId(); //Regresar el id del último registro insertado
-    /* Almacenar información en tabla intermedia tblfacturapublicacion */
-    
-    $sqlCa = "SELECT idPublicacionCarrito as 'idPu',
+      $stmt = $pdo->prepare($sqlFa);
+      $stmt->bindValue(':idUser', $idUsuario);
+      $stmt->bindValue(':direccion', $direccion);
+      $stmt->bindValue(':email', $email);
+      $stmt->execute();
+      $idFactura = $pdo->lastInsertId(); //Regresar el id del último registro insertado
+      /* Almacenar información en tabla intermedia tblfacturapublicacion */
+
+      $sqlCa = "SELECT idPublicacionCarrito as 'idPu',
       cantidadCarrito as 'cantidad' 
       FROM tblCarrito
       WHERE docIdentidadCarrito = :idUsuario";
-    $stmtCa = $pdo->prepare($sqlCa);
-    $stmtCa->bindValue(':idUsuario', $idUsuario);
-    $stmtCa->execute();
-    $respuesta = $stmtCa->fetchAll(PDO::FETCH_ASSOC);
-   
-    foreach ($respuesta as $fila) {
-      
+      $stmtCa = $pdo->prepare($sqlCa);
+      $stmtCa->bindValue(':idUsuario', $idUsuario);
+      $stmtCa->execute();
+      $respuesta = $stmtCa->fetchAll(PDO::FETCH_ASSOC);
 
-      $idPubli = $fila['idPu'];
-      $cantidad = $fila['cantidad'];
-      $sqlFacPu = "INSERT INTO tblFacturaPublicacion
+      foreach ($respuesta as $fila) {
+
+
+        $idPubli = $fila['idPu'];
+        $cantidad = $fila['cantidad'];
+        $sqlFacPu = "INSERT INTO tblFacturaPublicacion
         VALUES (:idFact, :idPubli, :cantidad)";
-      $stmtFacPu = $pdo->prepare($sqlFacPu);
-      $stmtFacPu->bindValue(':idFact', $idFactura);
-      $stmtFacPu->bindValue(':idPubli', $idPubli);
-      $stmtFacPu->bindValue(':cantidad', $cantidad);
-      $stmtFacPu->execute();
-      
-      //Restar stock a la publicación
-      $sqlStock = "UPDATE tblPublicacion
+        $stmtFacPu = $pdo->prepare($sqlFacPu);
+        $stmtFacPu->bindValue(':idFact', $idFactura);
+        $stmtFacPu->bindValue(':idPubli', $idPubli);
+        $stmtFacPu->bindValue(':cantidad', $cantidad);
+        $stmtFacPu->execute();
+
+        //Restar stock a la publicación
+        $sqlStock = "UPDATE tblPublicacion
         SET cantidadPublicacion = (cantidadPublicacion-:cantidad)
         WHERE idPublicacion =:id";
-      $stmtStock = $pdo->prepare($sqlStock);
-      $stmtStock->bindValue(':cantidad',$cantidad);
-      $stmtStock->bindValue(':id',$idPubli);
-      $stmtStock->execute();
+        $stmtStock = $pdo->prepare($sqlStock);
+        $stmtStock->bindValue(':cantidad', $cantidad);
+        $stmtStock->bindValue(':id', $idPubli);
+        $stmtStock->execute();
 
-      /* Eliminar información de la tabla carrito */
-      $sqlDeleteCart = "DELETE FROM tblCarrito 
+        /* Eliminar información de la tabla carrito */
+        $sqlDeleteCart = "DELETE FROM tblCarrito 
         WHERE idPublicacionCarrito = :idPubli 
         AND docIdentidadCarrito = :idUsuario";
-      $stmtDeleteCart = $pdo->prepare($sqlDeleteCart);
-      $stmtDeleteCart->bindValue(':idPubli', $idPubli);
-      $stmtDeleteCart->bindValue(':idUsuario', $idUsuario);
-      $stmtDeleteCart->execute();
+        $stmtDeleteCart = $pdo->prepare($sqlDeleteCart);
+        $stmtDeleteCart->bindValue(':idPubli', $idPubli);
+        $stmtDeleteCart->bindValue(':idUsuario', $idUsuario);
+        $stmtDeleteCart->execute();
       }
     } catch (\Throwable $th) {
       //throw $th;

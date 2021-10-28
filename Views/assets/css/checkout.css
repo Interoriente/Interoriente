@@ -214,6 +214,8 @@
 
 
 
+
+
 /* Tarjeta */
 
 /* Tarjeta */
@@ -647,8 +649,16 @@ input {
     margin-bottom: 0.5em;
     justify-content: space-between;
     align-items: center;
+    position: relative;
     color: var(--clr-neutro-c);
     font-family: var(--poppins);
+  }
+  .cantidad-publi{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin-right: .4em;
+    font-size: 15px;
   }
   #img-publicacion-d {
     width: 33%;
@@ -658,9 +668,17 @@ input {
     width: 60%;
     display: flex;
     justify-content: space-between;
+    align-items: center;
     padding-right: 0.7em;
     color: var(--clr-neutro-b);
+    font-size: 18px;
   }
+ .precio{
+   font-weight: bold;
+ }
+ .cantidad{
+   font-weight: bold;
+ }
   .g p{
       font-size: 1rem;
   }

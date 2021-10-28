@@ -270,7 +270,10 @@ finCompra.addEventListener("click", function () {
     data: { carrito: carrito },
     success: function (respuesta) {
       if (respuesta === 1) {
+        localStorage.removeItem("carrito");
         window.location = "checkout.php";
+      }else{
+        console.log(respuesta);
       }
     },
   });
