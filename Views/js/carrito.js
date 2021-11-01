@@ -16,6 +16,7 @@ let inputCantidad,
   publicacionExiste = false,
   inputExistente,
   newVlr,
+  cantidadPublicacion,
   itemCarrito,
   existeCompra,
   itemCarritoBolean = false,
@@ -43,10 +44,8 @@ $.ajax({
        </div>
       </div>
      `;
-     contenidoCarrito.innerHTML += existeCompra;
-
+      contenidoCarrito.innerHTML += existeCompra;
     }
-
   },
 });
 /* Local storage */
@@ -69,7 +68,6 @@ if (publicacionLocalStorage) {
   mathCarrito(carrito);
   renderPubli(carrito);
 }
-
 
 /* Seleccionar elemento padre para ejecutar una acción, en este caso, cerrar el carrito */
 overlay.addEventListener("click", (e) => {
@@ -187,6 +185,8 @@ function abrirCarrito() {
   cartDOM.classList.add("showCart");
   inputCantidad = document.querySelectorAll(".cantidad-items"); //Seleccionando todos los elementos con esa clase
 }
+//Controlar inputs cuando estén vacíos
+
 
 /* Cambiar Cantidad */
 
@@ -200,16 +200,31 @@ function cambiarCantidad(idItem) {
       inputId = element;
     }
   });
+
+  cantidadPublicacion = inputId.value;
+  if (cantidadPublicacion === "" || /^0+$/.test(cantidadPublicacion)) {
+    if (cantidadPublicacion === "") {
+      cantidadPublicacion = "1";
+    } else {
+      cantidadPublicacion = "1";
+      inputId.value = "1";
+    }
+  }
   carrito = Storage.getPublicacion();
 
   /* Recorriendo el arreglo en busca del item con el mismo id */
   carrito.map((item) => {
     if (item.id === id) {
-      item.cantidad = parseInt(inputId.value);
+      item.cantidad = parseInt(cantidadPublicacion);
     }
   });
   Storage.setPublicacion(carrito);
   mathCarrito(carrito);
+  inputId.onblur = function() {
+    if (inputId.value === "") {
+      inputId.value = "1";
+    }
+  }
 }
 
 /* Función para eliminar items */
@@ -278,10 +293,9 @@ finCompra.addEventListener("click", function () {
       if (respuesta === 1) {
         localStorage.removeItem("carrito");
         window.location = "checkout.php";
-      }else{
+      } else {
         localStorage.setItem("ss", "true");
         window.location = "./iniciarsesion.php";
-
       }
     },
   });
