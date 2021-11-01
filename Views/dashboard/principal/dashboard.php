@@ -1,7 +1,6 @@
 <?php
 session_start();
 if (!isset($_SESSION['documentoIdentidad'])) {
-  echo "<script>alert('No has iniciado sesión!');</script>";
   echo "<script> document.location.href='403.php';</script>";
 } else {
   require "../../../Controllers/php/users/usuarios.php";

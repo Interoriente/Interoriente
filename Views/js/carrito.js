@@ -21,6 +21,12 @@ let inputCantidad,
   itemCarritoBolean = false,
   resptblCarrito;
 
+//Eliminando "Sesión no existe" de localStorage
+
+if (localStorage.getItem("ss")) {
+  localStorage.removeItem("ss");
+}
+
 //Verificando si el usuario tiene compras por realizar
 $.ajax({
   url: "../../Controllers/php/users/compras.php",
@@ -273,7 +279,9 @@ finCompra.addEventListener("click", function () {
         localStorage.removeItem("carrito");
         window.location = "checkout.php";
       }else{
-        console.log(respuesta);
+        localStorage.setItem("ss", "true");
+        window.location = "./iniciarsesion.php";
+
       }
     },
   });

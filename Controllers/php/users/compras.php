@@ -131,6 +131,9 @@ function almacenarCarrito($carrito)
     /* $carrito = $carrito; */
     session_start(); // Se debe usar antes de tratar de acceder a una variable de sessión
     $idUsuario = $_SESSION['documentoIdentidad'];
+    if (!isset($idUsuario)) {
+      return 0;
+    }
     $idsRepetidos = [];
     $cantidadesRepetidos = [];
     $contador = 0;

@@ -33,6 +33,7 @@
     <link rel="stylesheet" href="../assets/css/checkout.css" />
     <!-- No eliminar este script -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+   
     <!-- Argon CSS -->
     <link rel="stylesheet" href="../dashboard/assets/css/argon.min.css?v=1.2.0" type="text/css">
 
@@ -50,8 +51,8 @@
             <div class="container">
                 <div class="header-body text-center mb-7">
                     <div class="row justify-content-center">
-                        <div class="col-xl-5 col-lg-6 col-md-8 px-5">
-                            <h1 class="text-white">Iniciar sesión</h1>
+                        <div class="col-xl-5 ">
+                            <h1 class="text-white" id="h1IniciarSesion">Iniciar sesión</h1>
                         </div>
                     </div>
                 </div>
@@ -98,7 +99,7 @@
                                 </div>
                                 <div class="text-center">
 
-                                    <button type="submit" class="btn btn-primary mt-4">Iniciar sesión</button>
+                                    <button type="submit" class="btn btn-primary mt-4" id="btnIniciarSesion">Iniciar sesión</button>
                                 </div>
                             </form>
                         </div>
@@ -116,6 +117,7 @@
             </div>
         </div>
     </div>
+    <script src="../js/iniciarSesion.js"></script>
 </body>
 
 </html>
