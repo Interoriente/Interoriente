@@ -82,7 +82,7 @@
                     </div>
                 </a>
                 <div class="cta-btns">
-                     <img src="../assets/img/iconos/compras.svg" alt="Bolsa de la compra">
+                     <img src="../assets/img/iconos/compras.svg" onclick="comprarAhora(this.id)" id="<?php echo $x['idPublicacion'] ?>"alt="Bolsa de la compra">
                     <img class="carrito-tarjeta" onclick="addCarrito(this.id)" id="<?php echo $x['idPublicacion'] ?>" src="../assets/img/iconos/carrito_2.svg" alt="Carro de la compra">
                 </div>
             </div>

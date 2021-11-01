@@ -54,8 +54,8 @@ if (!isset($_SESSION['documentoIdentidad'])) {
         <div class="container-fluid">
 
           <div class="header-body">
-            <!-- Fila de botones siperiores -->
-            <div class="row align-items-center py-3">
+            <!-- Fila de botones superiores -->
+            <div class=" row align-items-center py-3">
 
               <?php
               foreach ($respGetRoles as $datosRol) : ?>
@@ -77,7 +77,7 @@ if (!isset($_SESSION['documentoIdentidad'])) {
               </div>
             </div>
             <!-- Tarjetas -->
-
+       
             <div class="row">
               <!-- Contenedor Tarjeta -->
               <div class="col-xl-3 col-md-6">

@@ -106,11 +106,11 @@
           <!--Contenido del carrito controlado por JavaScript-->
           
         </div>
-        <div class="cart-footer">
-          <h4>Subtotal: $ <span class="cart-total">0</span></h4>
-          <!-- Botones temporales  -->
-          <button class="finalizar-compra" id="finalizar-compra">Finalizar comprar</button>
-        </div>
+          <div class="cart-footer">
+            <h4>Subtotal: $ <span class="cart-total">0</span></h4>
+            <!-- Botones temporales  -->
+            <button class="finalizar-compra" id="finalizar-compra">Finalizar comprar</button>
+          </div>
       </div>
 
     </div>

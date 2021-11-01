@@ -64,7 +64,7 @@ function renderPublicaciones(publicaciones) {
     if (val) {
       seccionResultados += ` 
                 <a id="${item.id}">
-                    <div class="resultado" id="resultado">
+                    <div class="resultado" id="${item.Id +'-'+item.Titulo}">
                         <img src="${item.Img}" alt="${item.Titulo}">
                         <div class="info-publicacion">
         
@@ -81,7 +81,7 @@ function renderPublicaciones(publicaciones) {
     } else {
       seccionSimilares += ` 
               <a id="${item.id}">
-                  <div class="resultado" id="resultado">
+                  <div class="resultado" id="${item.Id +'-' +item.Titulo}">
                       <img src="${item.Img}" alt="${item.Titulo}">
                       <div class="info-publicacion">
       
@@ -106,7 +106,21 @@ function renderPublicaciones(publicaciones) {
     relacionadosDOM.innerHTML = seccionSimilares;
   }
 }
-
+//Cuando el usuario de click en alguno de los resultados
+$(document).on("click", ".resultado", function() {
+  //this == Link al cuál se le da click
+  let data = $(this).attr("id");
+  let id = data.split('-', 1)[0];
+  let titulo = data.split('-', 2)[1];
+  $.ajax({
+    url: "../../Models/php/busquedas.php",
+    type: "POST",
+    data: {publicacion: id},
+    success: function(res){
+     window.location.href =`publicacion.php?id=${res}&?nombre=${titulo}`;
+    }
+  });
+});
 //Verificar si la palabra a buscar existe en el titulo o no
 function valKeyword(word, str) {
   const allowedSeparator = "\\s,;\"'|()/+-";
@@ -119,3 +133,4 @@ function valKeyword(word, str) {
 
   return regex.test(str);
 }
+

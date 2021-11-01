@@ -185,7 +185,6 @@ function abrirCarrito() {
   cartDOM.classList.add("showCart");
   inputCantidad = document.querySelectorAll(".cantidad-items"); //Seleccionando todos los elementos con esa clase
 }
-//Controlar inputs cuando estén vacíos
 
 
 /* Cambiar Cantidad */
@@ -220,6 +219,9 @@ function cambiarCantidad(idItem) {
   });
   Storage.setPublicacion(carrito);
   mathCarrito(carrito);
+
+  //Controlar input cuando esté vacíos 
+  
   inputId.onblur = function() {
     if (inputId.value === "") {
       inputId.value = "1";

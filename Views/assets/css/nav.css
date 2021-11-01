@@ -161,8 +161,15 @@ header {
 }
 /*---------- Contenido del carrito -------------------- */
 .cart-content{
-  max-height: 60%;
+  max-height: 53%;
   overflow: auto;
+
+}
+
+@media (min-width: 1400px) {
+  .cart-content{
+    max-height: 71%;
+  }
 }
 /*---------- Item del carrito -------------------- */
 
@@ -210,10 +217,12 @@ header {
 }
 
 /*---------- Fin item del carrito ------------------- */
+
 .cart-footer {
   margin: 1rem 0 3em 0;
   letter-spacing: var(--mainSpacing);
   text-align: center;
+
 }
 
 .cart-footer h3 {
