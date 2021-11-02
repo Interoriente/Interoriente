@@ -34,8 +34,8 @@ $.ajax({
   method: "GET",
   data: { tblCarrito: true },
   success: function (res) {
-    respTblCarrito = JSON.parse(res);
-    if (respTblCarrito !== 0) {
+    resptblCarrito = JSON.parse(res);
+    if (resptblCarrito !== 0) {
       existeCompra = `
      <div class="tarjeta-contenedor">
        <div class="contenedor-tarjeta">
