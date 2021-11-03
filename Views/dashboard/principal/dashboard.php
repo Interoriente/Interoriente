@@ -83,7 +83,7 @@ if (!isset($_SESSION['documentoIdentidad'])) {
               <div class="col-xl-3 col-md-6">
                 <div class="card card-stats">
                   <!-- Tarjeta -->
-                  <a data-toggle="modal" data-target="#verAlertaStock">
+                  <a href="#" data-toggle="modal" data-target="#verAlertaStock">
                     <div class="card-body">
                       <div class="row">
                         <div class="col">
@@ -115,7 +115,7 @@ if (!isset($_SESSION['documentoIdentidad'])) {
             <!-- Contenedor Tarjeta -->
             <div class="col-xl-3 col-md-6">
               <div class="card card-stats">
-                <a data-toggle="modal" data-target="#verNovalidadas">
+                <a href="#" data-toggle="modal" data-target="#verNovalidadas">
                   <!-- Tarjeta -->
                   <div class="card-body">
                     <div class="row">

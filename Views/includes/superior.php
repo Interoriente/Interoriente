@@ -86,7 +86,7 @@
     <?php } ?>
     <div class="navegacion-a">
       <img src="../assets/img/iconos/Ayuda_Icon.svg" alt="">
-      <a href="#">Ayuda</a>
+      <a href="../../Docs/ManualDeUsuario_Interoriente.pdf" target="_blank">Ayuda</a>
     </div>
   </div>
   <div id="main" class="main-container">
