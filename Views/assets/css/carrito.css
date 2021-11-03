@@ -1,0 +1,73 @@
+/* Propiedades Generales --> Paleta de Colores y fuentes*/
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500&family=Source+Serif+Pro:wght@400;700&display=swap');
+:root {
+  --clr-primario-a: #004e64;
+  --clr-primario-b: #5d9bac;
+  --clr-secundario: #408e8d;
+  --clr-neutro-a: #fefdeb;
+  --clr-neutro-b: #001014;
+  --clr-neutro-c: #e5e5e5;
+  --clr-cta-a: #ffb930;
+  --crl-cta-b: #fce61e;
+  --poppins: "Poppins", sans-serif;
+  --serif: 'Source Serif Pro', serif;;
+}
+
+*{
+    font-family: var(--poppins);
+}
+/* contenedor que agrupa a todas las tarjetas */
+.contenedor-principal{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    justify-content: center;
+    padding: .5em;
+}
+/* Tarjeta */
+.publicacion{
+    margin: 1em;
+    display: flex;
+    justify-content: space-between;
+    width: 50em;
+    transition: .5s;
+    border-radius: 10px;
+    border: .2px solid rgb(194, 192, 192);
+}
+.publicacion img{
+    width: 15em;
+    border-radius: 7px 0px 0px 7px;
+
+}
+.publicacion:hover{
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    cursor: pointer;
+}
+/* Información de la publicación y cambiar cantidades */
+.info-publicacion{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 1em 3em;
+}
+.info-publicacion img {
+    width: 40px;
+    cursor: pointer;
+}
+.info-publicacion input {
+    width: 50px;
+}
+.cantidad-publicacion{
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+}
+.cantidad{
+    display: flex;
+    align-items: center;
+}
+
+span{
+    font-weight: bold;
+}
