@@ -34,7 +34,6 @@ header {
   display: grid;
   grid-template-columns: 30% 57% 12%;
   z-index: 1000;
-  
 }
 .res-busquedas ul{
   border-radius: 3px;
@@ -103,6 +102,20 @@ header {
   color: white;
   font-weight: bold;
 }
+/* Media query para ocultar el logo en dispositivos móviles */
+@media (max-width: 1177px){
+  .logo{
+    display: none;
+  }
+  .contenedor-navegacion {
+    grid-template-columns:  80% 20%;
+    padding-left: 3em;
+  }
+  .res-busquedas{
+    grid-template-columns: 7% 70% 12%;
+  }
+}
+
 /* Fin Navbar */
 
 /* Inicio Carrito */
