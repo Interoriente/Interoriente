@@ -152,7 +152,7 @@ function getPublicacionDb(id) {
 function renderPubli(item) {
   itemCarrito = ``;
   if (existeCompra) {
-    itemCarrito += existeCompra;
+    itemCarrito += existeCompra; 
   }
   item.map((item) => {
     itemCarrito += `
@@ -168,9 +168,9 @@ function renderPubli(item) {
                 <div>
                 <input type="number" class="cantidad-items" id="${
                   item.id
-                }" oninput = "cambiarCantidad(this.id)" min = "1" value="${
+                }" oninput = "cambiarCantidad(this.id)" min = "1" step="1" value="${
       item.cantidad
-    }" >
+    }" onkeypress="return event.charCode >= 48" >
                 </div>
             </div>
             `;
@@ -201,12 +201,16 @@ function cambiarCantidad(idItem) {
   });
 
   cantidadPublicacion = inputId.value;
-  if (cantidadPublicacion === "" || /^0+$/.test(cantidadPublicacion)) {
+  console.log(cantidadPublicacion);
+  if (cantidadPublicacion === "" || /^0+$/.test(cantidadPublicacion) || /^-+$/.test(cantidadPublicacion)  || Number(cantidadPublicacion) <= 0) {
     if (cantidadPublicacion === "") {
       cantidadPublicacion = "1";
-    } else {
+    } else if (cantidadPublicacion === "0") {
       cantidadPublicacion = "1";
       inputId.value = "1";
+    }else{
+      cantidadPublicacion = cantidadPublicacion.replace('-', '');
+      inputId.value = cantidadPublicacion.replace('-', '');
     }
   }
   carrito = Storage.getPublicacion();
@@ -223,10 +227,11 @@ function cambiarCantidad(idItem) {
   //Controlar input cuando esté vacíos 
   
   inputId.onblur = function() {
-    if (inputId.value === "") {
+    if (inputId.value === "" ) {
       inputId.value = "1";
     }
   }
+
 }
 
 /* Función para eliminar items */
