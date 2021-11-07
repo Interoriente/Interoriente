@@ -8,6 +8,7 @@ const contDirPrincipal = document.getElementById("contenedor-direccion-principal
 const direccion = document.getElementById("direccion");
 const modal = document.getElementById("exampleModalCenter");
 const btnFinCompra = document.getElementById("btn-fin-compra");
+const btnFinCompraD = document.getElementById("btn-fin-compra-d");
 const contListaDirecciones = document.getElementById("contenedor-lista-dir");
 const direccionesContacto = document.querySelector(".direcciones");
 let direccionFinalCont = document.getElementById("direccion-final-cont");
@@ -148,7 +149,6 @@ function guardarE() {
               </div>`;
   contactoEmail.innerHTML = nuevoContactoEmail;
 }
-
 function guardarDir() {
   let nuevaDireccion = [];
   let nuevoNombre = document.getElementById("input-nombre-direccion").value;
@@ -211,8 +211,7 @@ function guardarNuevaDireccion() {
 }
 
 
-
-btnFinCompra.addEventListener("click", function() {
+function finalizarCompra() {
   let checkout = [direccionEnvioF, correoElectronicoF];
   /* Ajax Call */
   $.ajax({
@@ -229,4 +228,11 @@ btnFinCompra.addEventListener("click", function() {
     },
     
   });
+}
+
+btnFinCompra.addEventListener("click", function () {
+  finalizarCompra();
+});
+btnFinCompraD.addEventListener("click", function () {
+  finalizarCompra();
 });
