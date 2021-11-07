@@ -71,7 +71,7 @@ if (!isset($_SESSION['documentoIdentidad'])) {
                                             <h2 class="titulo-factura">#<?php echo $misCompras['numeroFactura']; ?></h2>
                                             <h2 class="titulo-costo">$<?php echo number_format(round($misCompras['Costo']), 0, '', '.'); ?></h2>
                                             <h2 class="titulo-fecha"><?php echo $misCompras['fechaFactura']; ?></h2>
-                                            <p class="textos">Productos:<?php echo $misCompras['Contador']; ?></p>
+                                            <p class="textos">Productos: <?php echo $misCompras['Contador']; ?></p>
                                         </div>
                                         <div class="cont-menutres">
                                             <form action="misCompras.php" method="post">
