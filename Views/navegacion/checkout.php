@@ -7,6 +7,12 @@ $subtotal = 0;
 $total = 0;
 $iva = 0;
 $cont = 0;
+$contMob = 0;
+foreach ($checkoutData as $i) {
+  $subtotal += $i['subtotal'];
+  $iva += $i['iva'];
+  $total += $i['total'];
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -19,10 +25,7 @@ $cont = 0;
   <link rel="icon" href="../assets/img/favicon.png" type="image/png" />
   <!-- Bootstrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous" />
-
-  <!--Link solución protocolo: https://www.bugsnag.com/blog/jquery-is-not-defined-cause-solution-->
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <!-- Css local  -->
   <link rel="stylesheet" href="../assets/css/general.css" />
   <link rel="stylesheet" href="../assets/css/checkout.css" />
@@ -48,7 +51,7 @@ $cont = 0;
               <img id="carrito" src="../assets/img/iconos/carrito_2.svg" alt="carrito"> Mostrar resumen del pedido
             </div>
             <div class="precios">
-              $432.000
+              $<?php echo  number_format($total, 0, '', '.') ?>
             </div>
           </div>
 
@@ -60,17 +63,20 @@ $cont = 0;
 
         <!-- Publicación -->
 
-        <div class="contenedor-items">
-          <div class="img-descripcion">
-            <div class="contenedor-imagen">
-              <img src="../assets/img/stock/4.jpg" alt="imagen alusiva a la compra">
+        <?php foreach ($checkoutData as $res) : ?>
+          <div class="contenedor-items">
+            <div class="img-descripcion">
+              <div class="contenedor-imagen">
+                <img src="<?php echo $checkoutImgData[$contMob] ?>" alt="imagen alusiva a la compra">
+              </div>
+              <p id="titulo-publicacion"><?php echo $res["Titulo"] ?></p>
             </div>
-            <p id="titulo-publicacion">Monitor Samsung Ips De 24 Full Hd Freesync Hdmi Lf24t400fh </p>
+            <div class="precio">
+              <p>$<?php echo number_format($res["costo"], 0, '', '.');?></p>
+            </div>
           </div>
-          <div class="precio">
-            <p>$93.000</p>
-          </div>
-        </div>
+        <?php $contMob++;
+        endforeach ?>
         <!-- FIN Publicación -->
         <!-- Datos de compra  -->
 
@@ -85,14 +91,14 @@ $cont = 0;
             </div>
             <div class="valor">
               <!-- <p>$23.000</p> -->
-              <p>$23.0200</p>
-              <p>$23.000</p>
+              <p>$<?php echo number_format($subtotal, 0, '', '.'); ?></p>
+              <p>$<?php echo number_format($iva, 0, '', '.');?></p>
             </div>
           </div>
           <hr>
           <div class="total g">
             <p>total</p>
-            <p>$69.000</p>
+            <p>$<?php echo number_format($total, 0, '', '.') ?></p>
           </div>
         </div>
 
@@ -111,7 +117,7 @@ $cont = 0;
       <!-- Modal -->
 
       <!-- Tarjeta de contacto -->
-      <h1>Datos de contacto</h1>
+      <h1 class="h1-datos-contacto">Datos de contacto</h1>
       <div class="tarjeta-contacto">
 
         <!-- Contenedor información de contacto -->
@@ -136,7 +142,7 @@ $cont = 0;
               <h6>Dirección de envío</h6>
               <div id="contenedor-direccion-final">
                 <div class="direccion-final">
-                  <p id="direccion">Cargando...</p>
+                  <p id="direccion"></p>
                   <p id="cambiar" class="editar-direccion" onclick="cambiarDireccionEnvio()">cambiar</p>
                 </div>
               </div>
@@ -293,24 +299,16 @@ $cont = 0;
       <!-- Contenedor Publicación  -->
       <div class="contenedor-publi">
         <!-- Publicación  -->
-        <?php
-        foreach ($checkoutData as $fila) :
-
-          $subtotal += $fila['subtotal'];
-          $iva += $fila['iva'];
-          $total += $fila['total'];
-        ?>
+        <?php foreach ($checkoutData as $fila) : ?>
           <div class="publicacion-desktop">
             <img id="img-publicacion-d" src="<?php echo $checkoutImgData[$cont] ?>" alt="Imagen publicación">
-
             <div class="texto-publicacion-d">
               <p><?php echo $fila['Titulo'] ?></p>
-              <p class="precio">$<?php echo number_format($fila['costo'], 0, '', '.')?></p>
-              <p class="cantidad-publi">Cantidad: <span class="cantidad"><?php echo $fila['cantidad']?> </span></p>
+              <p class="precio">$<?php echo number_format($fila['costo'], 0, '', '.') ?></p>
+              <p class="cantidad-publi">Cantidad: <span class="cantidad"><?php echo $fila['cantidad'] ?> </span></p>
             </div>
           </div>
-        <?php $cont++;
-        endforeach ?>
+        <?php $cont++; endforeach ?>
         <!-- Fin Publicación  -->
       </div>
       <!-- FIN Contenedor Publicación  -->

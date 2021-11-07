@@ -185,7 +185,7 @@ function direccionFinal() {
 
 function cambiarDireccionEnvio() {
   let direccionActual = tituloDireccion.textContent;
-  const cambioDir = `
+  let cambioDir = `
        <div class="cambioEmail info-con">
             <p>Puedes modificar la direccion a continuación:</p>
             <input id="nueva-dir" type="text" placeholder="Ej: Carrera 23 No. 34 23" value = "${direccionActual}" >
@@ -195,6 +195,7 @@ function cambiarDireccionEnvio() {
           </div>
           `; 
   contenedorDirFin.innerHTML = cambioDir;
+
 }
 function guardarNuevaDireccion() {
 

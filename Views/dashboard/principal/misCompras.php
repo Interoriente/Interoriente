@@ -34,7 +34,7 @@ if (!isset($_SESSION['documentoIdentidad'])) {
                     <div class="header-body">
                         <div class="row align-items-center py-3">
                             <div class="col-lg-6 col-7">
-                                <h6 class="h2 text-white d-inline-block mb-0">Facturas generadas</h6><br>
+                                <h6 class="h1 text-white d-inline-block mb-0">Tus Facturas</h6><br>
                             </div>
                             <?php if (isset($_POST['numero'])) { ?>
                                 <form action="verFactura.php" method="post" target="_blank">

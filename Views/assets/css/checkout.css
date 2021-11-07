@@ -84,6 +84,9 @@
 .contenedor-datos {
   display: flex;
 }
+.h1-datos-contacto{
+  text-align: center;
+}
 .g {
   justify-content: space-between;
   padding-left: 0.4em;
