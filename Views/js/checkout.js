@@ -210,7 +210,9 @@ function guardarNuevaDireccion() {
   contenedorDirFin.innerHTML = nuevaDireccion;
 }
 
-function finalizarCompra() {
+
+
+btnFinCompra.addEventListener("click", function() {
   let checkout = [direccionEnvioF, correoElectronicoF];
   /* Ajax Call */
   $.ajax({
@@ -227,4 +229,4 @@ function finalizarCompra() {
     },
     
   });
-}
+});

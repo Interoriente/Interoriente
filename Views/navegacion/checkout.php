@@ -339,7 +339,7 @@ foreach ($checkoutData as $i) {
       </div>
       <!-- Botón "Finalizar compra" -->
       <div class="btn-fin-compra ">
-        <button onclick="finalizarCompra()">Finalizar Compra</button>
+        <button id="btn-fin-compra">Finalizar Compra</button>
       </div>
 
 
