@@ -71,7 +71,8 @@ if (!isset($_SESSION['documentoIdentidad'])) {
                         <th><?php echo $datosPubli['cantidadPublicacion']; ?></th>
                         <th>
                           <form action="../../../Controllers/php/users/publicaciones.php" method="POST">
-                            <input type="hidden" name="activarPublicacion"><button type="submit" class="btn btn-info">Activar</button>
+                            <input type="hidden" name="activarPublicacion">
+                            <button type="submit" class="btn btn-info">Activar</button>
                             <input type="hidden" name="id" value="<?php echo $datosPubli['idPublicacion']; ?>">
                           </form>
                         </th>

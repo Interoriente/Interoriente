@@ -10,12 +10,14 @@ if (!isset($_SESSION['documentoIdentidad'])) {
   $respGetRoles = $usuario->getRoles($usuario->id);
   require "../../../Controllers/php/users/informes.php";
   //Instancio la clase
-  $informe = new Informes($documento);
+  $informe = new Informes($documento, 1);
   //Llamo la función para las ventas anuales
   $respVentasAnual = $informe->MostrarVentasAnuales($informe->id);
   //Llamo la función para las ventas de los 7 días anterior
   $respVentasDia = $informe->VentasPorDias($informe->id);
-  $respMasExitosas = $informe->GetPublicacionesExitosas($informe->id);
+  /* Instanciar publicaciones más exitosas */
+  $respMasExitosas = $informe->GetPublicacionesExitosas($informe->id, $informe->val, null);
+
   $alertaStock = $informe->AlertaStock($informe->id);
   $contadorAlertaStock = sizeof($alertaStock);
   /* $mostrarPublicacionPocoStock = $informe->MostrarPublicacionPocoStock($informe->id); */
@@ -23,7 +25,9 @@ if (!isset($_SESSION['documentoIdentidad'])) {
   $noValidadas = $informe->NoValidadas($informe->id);
   $contadorNoValidadas = sizeof($noValidadas);
   $reporteMensual = $informe->ReporteMensual($informe->id);
-
+  if (isset($_POST['buscarPublicaciones'])) {
+    echo "Hola mundo";
+  }
   //Mostrar gráfica de ventas anuales
   require "../includes/graficas.php";
   if (isset($respUserData)) {
@@ -77,7 +81,7 @@ if (!isset($_SESSION['documentoIdentidad'])) {
               </div>
             </div>
             <!-- Tarjetas -->
-       
+
             <div class="row">
               <!-- Contenedor Tarjeta -->
               <div class="col-xl-3 col-md-6">
@@ -276,52 +280,55 @@ if (!isset($_SESSION['documentoIdentidad'])) {
                 <div class="col">
                   <h3 class="mb-0">Publicaciones Más Exitosas</h3>
                 </div>
-                <!--  -->
-                <form action="" method="post">
-                  <div class="input-daterange datepicker row align-items-center">
-                    <div class="col">
-                      <div class="form-group">
-                        <div class="input-group">
-                          <div class="input-group-prepend">
-                            <span class="input-group-text"><i class="ni ni-calendar-grid-58"></i></span>
-                          </div>
-                          <input class="form-control" placeholder="Start date" type="date" name="fechaIni" max=<?php $hoy = date("Y-m-d");
-                                                                                                echo $hoy; ?>>
+                <!-- Formulario para capturar las fechas, y mostrar publicaciones más exitosas -->
+
+
+                <div class="input-daterange datepicker row align-items-center">
+                  <div class="col">
+                    <div class="form-group">
+                      <div class="input-group">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text"><i class="ni ni-calendar-grid-58"></i></span>
                         </div>
+                        <!-- Fecha Inicial -->
+                        <input id="in-fecha-inicial" class="form-control" placeholder="Start date" type="date" name="fechaIni" max=<?php $hoy = date("Y-m-d");
+                                                                                                                                    echo $hoy; ?> required>
                       </div>
                     </div>
-                    <div class="col">
-                      <div class="form-group">
-                        <div class="input-group">
-                          <div class="input-group-prepend">
-                            <span class="input-group-text"><i class="ni ni-calendar-grid-58"></i></span>
-                            <input class="form-control" placeholder="End date" type="date" name="fechaFin" max=<?php $hoy = date("Y-m-d");
-                                                                                                echo $hoy; ?>>
-                          </div>
+                  </div>
+
+                  <div class="col">
+                    <div class="form-group">
+                      <div class="input-group">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text"><i class="ni ni-calendar-grid-58"></i></span>
+                          <!-- Fecha final -->
+                          <input id="in-fecha-final" class="form-control" placeholder="End date" type="date" name="fechaFin" max=<?php $hoy = date("Y-m-d");
+                                                                                                                                  echo $hoy; ?> required>
                         </div>
                       </div>
                     </div>
                   </div>
-                  <button type="submit" class="btn btn-sm btn-neutral cambioRol" name="buscarPubli">Buscar</button>
-                </form>
-                <!--  -->
+                </div>
+                <button id="buscarPublicacion" type="submit" class="btn btn-sm btn-neutral cambioRol" name="buscarPublicaciones">Buscar</button>
+                <!-- Fin formulario -->
               </div>
             </div>
             <div class="table-responsive">
-              <!-- Projects table -->
-              <table class="table align-items-center table-flush">
+              <!-- Tabla Publicaciones más exitosas -->
+              <table class="table align-items-center table-flush" id="tablaResultado">
                 <?php if (isset($respMasExitosas->Titulos[0]) != "") { ?>
                   <thead class="thead-light">
                     <tr>
                       <th scope="col">Título</th>
                       <th scope="col">No. Ventas</th>
-                      <th scope="col">Cantidad</th>
-                      <th scope="col">Porcentaje</th>
+                      <th scope="col">Existencia</th>
                       <th scope="col">Total Ventas</th>
+                      <th scope="col">Porcentaje</th>
                     </tr>
                   </thead>
-                  <tbody>
-                    <!-- Fila -->
+                  <tbody id="filasExitosas" >
+                    <!-- Renderizar Publicaciones-->
                     <?php for ($i = 0; $i < 5; $i++) : ?>
                       <tr>
                         <td>
@@ -336,10 +343,10 @@ if (!isset($_SESSION['documentoIdentidad'])) {
                           <?php echo $respMasExitosas->Cantidad[$i]; ?>
                         </td>
                         <td>
-                          <?php echo round($respMasExitosas->Porcentajes[$i], 1) . "%"; ?>
+                          <?php echo "$" . number_format($respMasExitosas->VlrVentas[$i], 0, '', '.'); ?>
                         </td>
                         <td>
-                          <?php echo "$" . number_format($respMasExitosas->VlrVentas[$i], 0, '', '.'); ?>
+                          <?php echo round($respMasExitosas->Porcentajes[$i], 1) . "%"; ?>
                         </td>
                       </tr>
                     <?php endfor;
@@ -349,8 +356,10 @@ if (!isset($_SESSION['documentoIdentidad'])) {
                         <img class="img-caja" src="../assets/img/lupa.png" alt="">
                       </div>
                     </div>
-                    <!--Fin Fila -->
+                    <!--Fin Renderizar Publicaciones -->
                   </tbody>
+
+
                 <?php } ?>
               </table>
             </div>
@@ -358,11 +367,11 @@ if (!isset($_SESSION['documentoIdentidad'])) {
         </div>
       </div>
       <!-- Parte Inferior del HTML -->
+      <script src="../../js/buscarExitosas.js"></script>
 <?php
       require "../includes/modalesInformacion.php";
       require_once '../includes/footer.php';
     } else {
-      echo "<script>alert('No puedes acceder a esta página!');</script>";
       echo "<script> document.location.href='403.php';</script>";
     }
   }

@@ -1,13 +1,13 @@
 <?php
-   @$catalogo = base64_decode($_GET['catalogo']);
-   if ($catalogo) {
-       require "../../Controllers/php/users/publicaciones.php";
-       $publicacionResp = new Publicaciones($catalogo);
-       $publicacion = $publicacionResp->FiltroPublicacion($publicacionResp->id);
-   } else {
-       require "../../Controllers/php/users/compras.php";
-       $publicacion = getPublicaciones(); //Nota: Ciudado con el llamado de campos innesesarios
-   }
+@$catalogo = base64_decode($_GET['catalogo']);
+if ($catalogo) {
+    require "../../Controllers/php/users/publicaciones.php";
+    $publicacionResp = new Publicaciones($catalogo);
+    $publicacion = $publicacionResp->FiltroPublicacion($publicacionResp->id);
+} else {
+    require "../../Controllers/php/users/compras.php";
+    $publicacion = getPublicaciones(); //Nota: Ciudado con el llamado de campos innesesarios
+}
 ?>
 <!DOCTYPE html>
 <html lang="esp">
@@ -35,7 +35,7 @@
     <section class="publicaciones">
         <!-- TODO Implementar sistema de filtrado js -->
         <!-- Sección de los botons de filtrado -->
-        
+
         <h1>Aquí podrás encontrar el producto que deseas </h1>
         <section class="btns-filtrado ">
             <a href="#">
@@ -82,7 +82,7 @@
                     </div>
                 </a>
                 <div class="cta-btns">
-                     <img src="../assets/img/iconos/compras.svg" onclick="comprarAhora(this.id)" id="<?php echo $x['idPublicacion'] ?>"alt="Bolsa de la compra">
+                    <img src="../assets/img/iconos/compras.svg" onclick="comprarAhora(this.id)" id="<?php echo $x['idPublicacion'] ?>" alt="Bolsa de la compra">
                     <img class="carrito-tarjeta" onclick="addCarrito(this.id)" id="<?php echo $x['idPublicacion'] ?>" src="../assets/img/iconos/carrito_2.svg" alt="Carro de la compra">
                 </div>
             </div>

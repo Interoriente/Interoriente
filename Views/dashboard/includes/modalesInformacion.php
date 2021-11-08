@@ -4,7 +4,9 @@
         <div class="modal-content">
             <!-- Modal Header -->
             <div class="modal-header">
-                <h4 class="modal-title" id="myModalLabel">Publicaciones con poco stock</h4>
+                <b>
+                    <h4 class="modal-title" id="myModalLabel">Publicaciones con poco stock</h4>
+                </b>
                 <button type="button" class="close" data-dismiss="modal">
                     <span aria-hidden="true">×</span>
                 </button>
@@ -13,13 +15,11 @@
             <!-- Modal Body -->
             <div class="modal-body">
                 <p class="statusMsg"></p>
-                <!-- Actualiar dirección -->
-                <input type="hidden" name="actualizarPublicacion">
-
+                <!-- Mostrar publicaciones con poco stock -->
                 <div class="form-group">
                     <?php foreach ($alertaStock as $datos) {
                     ?>
-                        <label id="texto">*<?php echo $datos['nombrePublicacion']; ?><br> Cantidad: <?php echo $datos['cantidadPublicacion']; ?><br>Stock mínimo: <?php echo $datos['stockMinPublicacion']; ?></label><br>
+                        <label id="texto"><b><?php echo $datos['nombrePublicacion']; ?></b><br> Cantidad: <?php echo $datos['cantidadPublicacion']; ?><br>Stock mínimo: <?php echo $datos['stockMinPublicacion']; ?></label><br>
                     <?php } ?>
                 </div>
                 <!-- Modal Footer -->
@@ -37,7 +37,9 @@
         <div class="modal-content">
             <!-- Modal Header -->
             <div class="modal-header">
-                <h4 class="modal-title" id="myModalLabel">Publicaciones no validadas</h4>
+                <b>
+                    <h4 class="modal-title" id="myModalLabel">Publicaciones no validadas</h4>
+                </b>
                 <button type="button" class="close" data-dismiss="modal">
                     <span aria-hidden="true">×</span>
                 </button>
@@ -46,11 +48,10 @@
             <!-- Modal Body -->
             <div class="modal-body">
                 <p class="statusMsg"></p>
-
+                <!-- Mostrar las publicaciones sin validar -->
                 <div class="form-group">
-                    <?php foreach ($noValidadas as $datos) {
-                    ?>
-                        <label id="texto">*<?php echo $datos['nombrePublicacion']; ?></label><br>
+                    <?php foreach ($noValidadas as $datos) { ?>
+                        <label id="texto"><b><?php echo $datos['nombrePublicacion']; ?></b></label><br>
                     <?php } ?>
                 </div>
                 <!-- Modal Footer -->

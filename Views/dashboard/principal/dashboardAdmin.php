@@ -11,10 +11,10 @@ if (!isset($_SESSION['documentoIdentidad'])) {
   $respGetRoles = $usuario->getRoles($usuario->id);
   require "../../../Controllers/php/users/informes.php";
   //Instancio la clase
-  $informe = new Informes($documento);
+  $informe = new Informes($documento, 1);
   //Llamo la función para mostrar las publicaciones sin validar
-  $respNoValidadas = $informe->NoValidadasAdmin();
-  $contadorNovalidadas = sizeof($respNoValidadas);
+  $noValidadas = $informe->NoValidadasAdmin();
+  $contadorNovalidadas = sizeof($noValidadas);
   $respVentasHoy = $informe->VentasHoyAdmin();
   $respTotalMensual = $informe->ReporteMensualAdmin();
   $respVentasAnual = $informe->VentasAnualesAdmin();
@@ -105,7 +105,7 @@ if (!isset($_SESSION['documentoIdentidad'])) {
                       <div class="row">
                         <div class="col">
                           <h5 class="card-title text-uppercase text-muted mb-0">Publicaciones</h5>
-                          <?php if (isset($respNoValidadas)) { ?>
+                          <?php if (isset($noValidadas)) { ?>
                             <span class="h5 font-weight-bold mb-0 text-rap text-warning">Tienes <?php echo $contadorNovalidadas; ?> publicaciones para validar.</span>
                         </div>
                         <div class="col-auto icono-dashboard">
@@ -299,7 +299,7 @@ if (!isset($_SESSION['documentoIdentidad'])) {
         </div>
         <!-- Parte Inferior del HTML -->
   <?php
-      require "../includes/modalesInformacionAdmin.php";
+      require "../includes/modalesInformacion.php";
       require_once '../includes/footer.php';
     } else {
       echo "<script>alert('No puedes acceder a esta página!');</script>";
