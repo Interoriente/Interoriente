@@ -184,6 +184,7 @@ function cambiarDireccionEnvio() {
           </div>
           `;
   contenedorDirFin.innerHTML = cambioDir;
+ 
 }
 function guardarNuevaDireccion() {
   nuevaDir = document.getElementById("nueva-dir").value;
@@ -196,6 +197,7 @@ function guardarNuevaDireccion() {
               </div>`;
   contenedorDirFin.innerHTML = nuevaDireccion;
   direccion = document.getElementById("direccion");
+  tituloDireccion = direccion;
 }
 
 function finalizarCompra() {
