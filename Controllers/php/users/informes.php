@@ -21,16 +21,13 @@ class Informes
     }
     public function ContadorStock($id)
     {
-        try {
             require "../../../Models/dao/conexion.php";
             $sql = "CALL sp_contadorStock(:id)";
             $stmt = $pdo->prepare($sql);
             $stmt->bindValue(":id", $id);
             $stmt->execute();
             return $stmt->fetch(PDO::FETCH_ASSOC);
-        } catch (\Throwable $th) {
-            /*echo "<script>alert('Ocurrió un error!');</script>";*/
-        }
+     
     }
     public function MostrarVentasAnuales($id)
     {
@@ -174,11 +171,7 @@ class Informes
             $stmt->bindValue(":id", $id);
             $stmt->execute();
             $totalMesPasado = $stmt->fetch(PDO::FETCH_ASSOC);
-            /*             $calculoPorcentaje = ($totalMesActual["Total"] * 100) / $totalMesPasado["Total"];
- */
             $calculoPorcentaje = ($totalMesActual["Total"] * 100) / $totalMesPasado["Total"];
-
-
             if ($calculoPorcentaje < 100) {
                 $porcentaje = 100 - $calculoPorcentaje;
             } else {

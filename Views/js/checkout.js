@@ -5,18 +5,19 @@ const contactoDireccion = document.getElementById("contacto-direccion");
 const guardarDireccion = document.getElementById("guardar-direccion");
 const guardarDireccionInput = document.getElementById("input-direccion");
 const contDirPrincipal = document.getElementById("contenedor-direccion-principal");
-const direccion = document.getElementById("direccion");
 const modal = document.getElementById("exampleModalCenter");
 const btnFinCompra = document.getElementById("btn-fin-compra");
 const btnFinCompraD = document.getElementById("btn-fin-compra-d");
 const contListaDirecciones = document.getElementById("contenedor-lista-dir");
 const direccionesContacto = document.querySelector(".direcciones");
+let direccion = document.getElementById("direccion");
 let direccionFinalCont = document.getElementById("direccion-final-cont");
 let contenedorDirFin = document.getElementById("contenedor-direccion-final");
 let emailContactoP = document.getElementById("email-contacto-p");
 let tituloDireccion = document.getElementById("direccion");
 let nuevoEmail;
 let direcciones = [];
+let domDireccionEnvio;
 /* Datos finales */
 let correoElectronicoF = emailContactoP.innerText;
 let direccionEnvioF = tituloDireccion.innerText;
@@ -34,10 +35,9 @@ $.ajax({
   data: { idUsuarioLogeado: true }, //Datos a recibir en el script .php a traves de $_POST
   success: function (respuesta) {
     /* En caso de una respuesta exitosa */
-    
+
     if (respuesta !== "[]") {
       /* En caso de que el usuario sí tenga una o más direcciones asociadas */
-     
       localStorage.setItem("direcciones-usuario", respuesta);
       direcciones = JSON.parse(respuesta);
       renderDireccion(direcciones);
@@ -83,45 +83,35 @@ $.ajax({
     }
   },
 });
-
-
-/* Funciones */
-
 /* Mostrar ciudades en lista desplegable */
-function renderCiudades(ciudades) {
-  ciudades.map((item) => {});
-  console.log(selectCiudades);
-}
-
-
 function renderDireccion(direcciones) {
-  
   tituloDireccion = document.getElementById("direccion");
   tituloDireccion.textContent = direcciones[0].direccion;
-  emailContactoP.textContent =  direcciones[0].correo
+  emailContactoP.textContent = direcciones[0].correo;
   direccionEnvioF = direcciones[0].direccion;
   correoElectronicoF = direcciones[0].correo;
   let listaDireccionesDOM = "";
   direcciones.map((item) => {
-  listaDireccionesDOM += `
+    listaDireccionesDOM += `
                  <div class="elemento-lista-direcciones">
                     <div class="nombre-direccion">
-                      <input class = "radio-dir" type="radio" id="${item.id}" name="direccion" value="${item.nombreDireccion}">
+                      <input class="radio-dir" type="radio" id="${item.id}" name="direccion" value="${item.direccion}">
                       <label for="${item.id}">${item.nombreDireccion} - ${item.direccion}</label>
                     </div>
                   </div>
                `;
   });
-  /* Hasta aquí llega bien */
-
   contListaDirecciones.innerHTML = listaDireccionesDOM;
+  /* Obtener valor del radio button para cambiar dirección */
+  $("input[name=direccion]").change(function () {
+    direccionEnvioF = this.value;
+    direccion.textContent = direccionEnvioF;
+  });
 }
-
-
 
 function cambiarCorreoContacto() {
   let correoUsuario = emailContactoP.textContent;
- 
+
   const cambioEmail = `
        <div class="cambioEmail info-con">
             <p>Se enviará información de esta compra al siguiente correo electrónico</p>
@@ -156,19 +146,18 @@ function guardarDir() {
   let codMunicipio = document.getElementById("ciudad-nueva-direccion").value;
   let direccion = {
     nombreDireccion: nuevoNombre,
-    direccion: nuevaDir
+    direccion: nuevaDir,
   };
   nuevaDireccion.push(direccion);
   localStorage.setItem("nueva-direccion", JSON.stringify(nuevaDireccion));
-  direccionFinal()
-  
+  direccionFinal();
 }
 
 function direccionFinal() {
   let direccionFinal = localStorage.getItem("nueva-direccion");
   if (direccionFinal) {
     direccionFinal = JSON.parse(direccionFinal);
-    direccionFinal.map(item =>{
+    direccionFinal.map((item) => {
       contDirPrincipal.innerHTML = `  <div class="direcciones contacto">
                 <div class="direccion correo-contacto cont-dir">
                   <h6>Dirección de envío</h6>
@@ -181,7 +170,7 @@ function direccionFinal() {
     });
   }
 
-  }
+}
 
 function cambiarDireccionEnvio() {
   let direccionActual = tituloDireccion.textContent;
@@ -193,12 +182,10 @@ function cambiarDireccionEnvio() {
               <button id="btn-guardar-email" onclick = "guardarNuevaDireccion()">guardar</button>
             </div>
           </div>
-          `; 
+          `;
   contenedorDirFin.innerHTML = cambioDir;
-
 }
 function guardarNuevaDireccion() {
-
   nuevaDir = document.getElementById("nueva-dir").value;
   direccionEnvioF = nuevaDir;
   tituloDireccion.textContent = nuevaDir;
@@ -208,8 +195,8 @@ function guardarNuevaDireccion() {
                 <p id="cambiar" class="editar-direccion" onclick = "cambiarDireccionEnvio()" >cambiar</p>
               </div>`;
   contenedorDirFin.innerHTML = nuevaDireccion;
+  direccion = document.getElementById("direccion");
 }
-
 
 function finalizarCompra() {
   let checkout = [direccionEnvioF, correoElectronicoF];
@@ -226,7 +213,6 @@ function finalizarCompra() {
       /* localStorage.removeItem("carrito"); */
       window.location = "./index.php";
     },
-    
   });
 }
 
