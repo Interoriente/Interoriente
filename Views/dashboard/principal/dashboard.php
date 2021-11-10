@@ -25,9 +25,9 @@ if (!isset($_SESSION['documentoIdentidad'])) {
   $noValidadas = $informe->NoValidadas($informe->id);
   $contadorNoValidadas = sizeof($noValidadas);
   $reporteMensual = $informe->ReporteMensual($informe->id);
-  if (isset($_POST['buscarPublicaciones'])) {
+ /*  if (isset($_POST['buscarPublicaciones'])) {
     echo "Hola mundo";
-  }
+  } */
   //Mostrar gráfica de ventas anuales
   require "../includes/graficas.php";
   if (isset($respUserData)) {

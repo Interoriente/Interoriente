@@ -47,7 +47,7 @@
                   </a>
                   <a href="../../../Docs/ManualDeUsuario_Interoriente.pdf" class="dropdown-item" target="_blank">
                     <i class="ni ni-settings-gear-65"></i>
-                    <span>Ayuda</span>
+                    <span>Manuales</span> <!-- Colocar aquí manual de usuario y formato IEE (Manual del sistema) -->
                   </a>
                   <a href="soporte.php" class="dropdown-item">
                     <i class="ni ni-support-16"></i>
