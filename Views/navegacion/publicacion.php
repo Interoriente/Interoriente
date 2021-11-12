@@ -94,9 +94,6 @@ $respImgPublicacion = $publicacion->MostrarImgPublicacion($publicacion->id);
       </a>
     </div>
     <div class="informacion-complementaria">
-      <p>lorem</p>
-      <p>lorem</p>
-      <p>lorem</p>
     </div>
     <div class="perfil-proveedor">
       <div class="tarjeta-perfil">
