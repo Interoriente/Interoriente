@@ -37,7 +37,7 @@ if ($catalogo) {
         <!-- Sección de los botons de filtrado -->
 
         <h1>Aquí podrás encontrar el producto que deseas </h1>
-        <section class="btns-filtrado ">
+        <!-- <section class="btns-filtrado ">
             <a href="#">
 
                 <div id="productos" class="btn-productos btn-filtro">
@@ -54,7 +54,7 @@ if ($catalogo) {
                     Filtro
                 </div>
             </a>
-        </section>
+        </section> -->
         <!-- Sección de las tarjetas -->
 
         <!-- NOTA: títulos de máximo 100 caracteres ó 14 palabras -->
