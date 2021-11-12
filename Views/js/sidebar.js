@@ -1,3 +1,4 @@
+
   const btnAbrirSidebar = document.querySelector(".boton");
   const btn = document.getElementById("menuLateral");
   const sidebar = document.querySelector(".sidenav");
@@ -14,8 +15,6 @@
             document.getElementById("mySidenav").style.width = "220px";
             document.getElementById("main").style.marginLeft = "250px";
             // Add the transition class again
-           
-          
         }
     }
 

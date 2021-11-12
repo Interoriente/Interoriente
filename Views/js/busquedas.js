@@ -1,4 +1,4 @@
-/* Resolver situación con la encriptación del id de la publicación en la etiqueta <a> */
+/* Captura de elementos */
 const input = document.getElementById("busquedas");
 const resBusquedas = document.getElementById("res-busquedas");
 const ulResultado = document.getElementById("resultado");
@@ -8,7 +8,10 @@ let busqueda = null;
 if (keyword) {
   input.value = keyword;
 }
-$(resBusquedas).hide();
+
+$(resBusquedas).hide(); //Ocultar las búsquedas en caso de que existan al momento de refrescar la página
+
+//Realizar una búsqueda
 const inputHandler = function (e) {
    busqueda = e.target.value;
   if (!busqueda || busqueda === " ") {
@@ -41,6 +44,7 @@ $(input)
     }); 
     
   })
+  /* Ocultar resultados cuando se de click fuera de la lista  */
   .focusout(function () {
       //En caso de que se de click dentro de la lista no se cierre
       resBusquedas.addEventListener("click", (e) => {
@@ -64,6 +68,7 @@ function renderResultados(arr) {
   });
   ulResultado.innerHTML = resultados;
 }
+/* Evento para redireccionar al usuario cuando le de click a algún resultado de búequeda */
 $(document).on("click", ".url", function() {
     //this == Link al cuál se le da click
     let data = $(this).attr("id");

@@ -47,7 +47,7 @@ class Publicaciones
 
     public function MostrarPublicaciones($docId)
     {
-        try {
+      
             require '../../../Models/dao/conexion.php';
             $sqlPubli = "CALL sp_mostrarPublicacionesDashboard(:id)";
             //Prepara sentencia
@@ -56,14 +56,12 @@ class Publicaciones
             //Ejecutar consulta
             $consultarPubli->execute();
             return $consultarPubli->fetchAll();
-        } catch (\Throwable $th) {
-            /* echo "<script>alert('Ocurrió un error');</script>"; */
-        }
+        
     }
 
     public function getEstados()
     {
-        try {
+      
             require '../../../Models/dao/conexion.php';
             /* Lista desplegable de los estados de artículos */
             $sqlEstado = "CALL sp_mostrarEstados()";
@@ -73,15 +71,13 @@ class Publicaciones
             $consultarEstado->execute();
             $resultadoEstado = $consultarEstado->fetchAll();
             return $resultadoEstado;
-        } catch (\Throwable $th) {
-            echo "<script>alert('Ocurrió un error');</script>";
-        }
+       
     }
 
 
     public function getCategorias()
     {
-        try {
+       
             require '../../../Models/dao/conexion.php';
             /* Lista desplegable de categoría */
             $sqlCategoria = "CALL sp_mostrarCategorias()";
@@ -91,9 +87,7 @@ class Publicaciones
             $consultarCategoria->execute();
             $resultadoCategoria = $consultarCategoria->fetchAll();
             return $resultadoCategoria;
-        } catch (\Throwable $th) {
-            echo "<script>alert('Ocurrió un error');</script>";
-        }
+     
     }
 
 
@@ -107,8 +101,7 @@ class Publicaciones
         $categoriaPubli,
         $documentoIdentidadPubli
     ) {
-        try {
-
+      
             require '../../../Models/dao/conexion.php';
             $verificacion = '0';
             //sentencia SQL
@@ -174,28 +167,21 @@ class Publicaciones
                     echo "<script> document.location.href='../../../Views/dashboard/principal/crearPublicacion.php';</script>";
                 }
             }
-        } catch (\Throwable $th) {
-            echo "<script>alert('Ocurrió un error');</script>";
-            echo "<script> document.location.href='../../../Views/dashboard/principal/crearPublicacion.php';</script>";
-        }
+      
     }
     public function MostrarTodasPublicaciones()
     {
-        try {
+      
             require "../../../Models/dao/conexion.php";
             $sqlMostrarPubli = "CALL sp_mostrarTodasPublicaciones()"; //Prepara sentencia
             $consultarMostrarPubli = $pdo->prepare($sqlMostrarPubli);
             //Ejecutar consultas
             $consultarMostrarPubli->execute();
-
             return $consultarMostrarPubli->fetchAll();
-        } catch (\Throwable $th) {
-            echo "<script>alert('Ocurrió un error');</script>";
-        }
     }
     public function ActivarPublicacion($id)
     {
-        try {
+     
             //Llamada a la conexion
             require '../../../Models/dao/conexion.php';
             $estado = '1';
@@ -208,10 +194,6 @@ class Publicaciones
 
             echo "<script>alert('Estado actualizado correctamente');</script>";
             echo "<script> document.location.href='../../../Views/dashboard/principal/publicaciones.php';</script>";
-        } catch (\Throwable $th) {
-            /*echo "<script>alert('Ocurrió un error!');</script>";*/
-            echo "<script> document.location.href='../../../Views/dashboard/principal/publicaciones.php';</script>";
-        }
     }
 
     public function DesactivarPublicacion($id)
@@ -237,7 +219,7 @@ class Publicaciones
     }
     public function ActualizarPublicacion($id)
     {
-        try {
+       
             require '../../../Models/dao/conexion.php';
             //Captura id
             $nombre = $_POST['nombre'];
@@ -258,14 +240,10 @@ class Publicaciones
             //Redireccionar
             echo "<script>alert('Publicación actualizada correctamente');</script>";
             echo "<script> document.location.href='../../../Views/dashboard/principal/misPublicaciones.php';</script>";
-        } catch (\Throwable $th) {
-            /*echo "<script>alert('Ocurrió un error!');</script>";*/
-            echo "<script> document.location.href='../../../Views/dashboard/principal/misPublicaciones.php';</script>";
-        }
+       
     }
     public function EliminarPublicacion($id)
     {
-        try {
             require '../../../Models/dao/conexion.php';
             //sentencia sql para eliminar Imagen
             $sqlEliminar = "CALL sp_eliminarImagenPublicacion (:id)";
@@ -281,37 +259,25 @@ class Publicaciones
             //Redireccionar
             echo "<script>alert('Publicación eliminada correctamente');</script>";
             echo "<script> document.location.href='../../../Views/dashboard/principal/misPublicaciones.php';</script>";
-        } catch (\Throwable $th) {
-            /*echo "<script>alert('Ocurrió un error!');</script>";*/
-            echo "<script> document.location.href='../../../Views/dashboard/principal/misPublicaciones.php';</script>";
-        }
+        
     }
     public function MostrarPublicacion($id)
     {
-        try {
-
             require '../../Models/dao/conexion.php';
             $sql = "CALL sp_mostrarPublicacionIndex(:id)";
             $stmt = $pdo->prepare($sql);
             $stmt->bindValue(":id", $id);
             $stmt->execute();
             return $stmt->fetchAll();
-        } catch (\Throwable $th) {
-            header("Location: ../../Views/navegacion/index.php");
-        }
     }
     public function MostrarImgPublicacion($id)
     {
-        try {
             require '../../Models/dao/conexion.php';
             $sql = "CALL sp_mostrarImgPublicacion(:id)";
             $stmt = $pdo->prepare($sql);
             $stmt->bindValue(":id", $id);
             $stmt->execute();
             return $stmt->fetchAll();
-        } catch (\Throwable $th) {
-            header("Location: ../../Views/navegacion/index.php");
-        }
     }
     public function FiltroPublicacion($id)
     {
@@ -325,7 +291,7 @@ class Publicaciones
 }
 function MostrarCategorias()
 {
-    try {
+   
         require '../../Models/dao/conexion.php';
         /* Lista desplegable de categoría */
         $sqlCategoria = "CALL sp_mostrarCategorias()";
@@ -335,7 +301,4 @@ function MostrarCategorias()
         $consultarCategoria->execute();
         $resultadoCategoria = $consultarCategoria->fetchAll();
         return $resultadoCategoria;
-    } catch (\Throwable $th) {
-        /* echo "<script>alert('Ocurrió un error');</script>"; */
-    }
 }

@@ -1,3 +1,4 @@
+/* Tarjeta que se muestra en el checkout */
 window.onload = function () {
 const name = document.getElementById('name');
 const cardnumber = document.getElementById('cardnumber');

@@ -1,3 +1,4 @@
+/* Este script es para redireccionar al usuario una vez inicie sesión en caso de que tenga artículos en su carrito y quiera finalizar su compra */
 const sesionExiste = localStorage.getItem("ss");
 let carrito = JSON.parse(localStorage.getItem("carrito"));
 

@@ -1,5 +1,5 @@
-/*         gsap.registerPlugin(ScrollTrigger);
- */        let tl = gsap.timeline();
+/* Control de la animación del logo */
+let tl = gsap.timeline();
  tl.from('.content', {
     y:'-30%',
     opacity: 0,

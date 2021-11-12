@@ -1,5 +1,4 @@
 .gitignore
-Tests/
 Models/php/insertMasivo.php
 Scripts/scrapers.js
 node_modules/

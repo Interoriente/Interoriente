@@ -1,3 +1,4 @@
+/* Este script es para el slider de las publicaciones */
 let thumbnails = document.getElementsByClassName('thumbnail')
     let activeImages = document.getElementsByClassName('active')
     for (let i = 0; i < thumbnails.length; i++) {

@@ -1,3 +1,4 @@
+/* Este script es para mostrar los resultados de una búsqueda realizada por un usuario */
 const resultadosDOM = document.getElementById("resultados");
 const relacionadosDOM = document.getElementById("relacionados");
 const keywordLs = localStorage.getItem("keyword");

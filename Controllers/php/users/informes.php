@@ -38,6 +38,7 @@ class Informes
         $stmt->execute();
         return $stmt->fetchAll();
     }
+    /* Función para calcular el número de ventas en los últimos 7 días */
     public function VentasPorDias($id)
     {
         require "../../../Models/dao/conexion.php";
@@ -50,7 +51,6 @@ class Informes
     public function GetPublicacionesExitosas($id, $val, $fechas)
     {
         /* Mostrar publicaciones más exitosas */
-        /* Dado el caso que se pida la  */
         require "../../../Models/dao/conexion.php";
         $reporte = [
             'Ids' => null, 'Titulos' => null, 'NoVentas' => null,
@@ -156,7 +156,7 @@ class Informes
     public function ReporteMensual($id)
     {
         //Es necesario el try, por si llegase a salir una excepción con este objeto Ej: dividir por 0
-        try {
+
             require "../../../Models/dao/conexion.php";
             $reporte = ["TotalMesActual" => null, "Porcentaje" => null, "Subio" => 0];
             $objReporte = (object) $reporte;
@@ -186,21 +186,8 @@ class Informes
             $objReporte->TotalMesActual = $totalMesActual['Total'];
             $objReporte->Porcentaje = round($porcentaje, 2);
             return $objReporte;
-        } catch (\Throwable $th) {
-        }
+       
     }
-    /* Mostrar productos vendidos entre x y x fecha  */
-    /* Informes para el administrador. 
-    -Contador de ADMIN
-    -contador de usuarios.
-    -Contador publicaciones sin validar
-    -Cantidad de publicaciones con poco stock
-    -Usuarios inactivos
-    -Reporte de publicaciones creadas 
-    -Ventas generales hoy
-    -Número de ventas y cantidad
-    -Pu
-     */
     /* Informes del Administrador */
     public function NoValidadasAdmin()
     {
@@ -258,5 +245,4 @@ class Informes
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
-    /* Tratar: Tener en cuenta mostrar todo lo que sale en el dashboard*/
 }

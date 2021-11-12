@@ -12,6 +12,7 @@ const carritoBtn = document.getElementById("carrito-btn");
 const cantidadCarrito = document.getElementById("cantidad-carrito");
 const overlay = document.getElementById("overlay");
 const finCompra = document.getElementById("finalizar-compra");
+/* Declaración de variables */
 let inputCantidad,
   publicacionExiste = false,
   inputExistente,
@@ -23,12 +24,10 @@ let inputCantidad,
   resptblCarrito;
 
 //Eliminando "Sesión no existe" de localStorage
-
 if (localStorage.getItem("ss")) {
   localStorage.removeItem("ss");
 }
-
-//Verificando si el usuario tiene compras por realizar
+//Verificando si el usuario logeado tiene compras por realizar
 $.ajax({
   url: "../../Controllers/php/users/compras.php",
   method: "GET",
@@ -48,7 +47,7 @@ $.ajax({
     }
   },
 });
-/* Local storage */
+/* Clase Local storage */
 class Storage {
   static setPublicacion(publicacion) {
     localStorage.setItem("carrito", JSON.stringify(publicacion));
@@ -59,7 +58,7 @@ class Storage {
   }
 }
 
-/* Carrito */
+/* Arreglo Carrito */
 let carrito = [];
 /* Verificando existencia de llave en localStorage  */
 let publicacionLocalStorage = Storage.getPublicacion();
@@ -75,7 +74,7 @@ overlay.addEventListener("click", (e) => {
     cerrarCarrito();
   }
 });
-
+/* Evento para cerrar el carrito cuando se presione la tecla esc */
 $(document).keyup(function (e) {
   if (e.key === "Escape") {
     // escape key maps to keycode `27`
@@ -84,7 +83,7 @@ $(document).keyup(function (e) {
   }
 });
 
-/* Abriendo y cerrando carrito desde el botón */
+/* Eventos para y cerrar el carrito desde los botones */
 carritoBtn.addEventListener("click", abrirCarrito);
 closeCartBtn.addEventListener("click", cerrarCarrito);
 /* Funciones para abrir y cerrar el carrito */
@@ -110,8 +109,7 @@ function addCarrito(id) {
             break;
           }
         }
-
-        newVlr = parseInt(inputExistente.value) + 1;
+        newVlr = parseInt(inputExistente.value) + 1; //Contador de elementos
         inputExistente.value = newVlr;
         cambiarCantidad(id);
         abrirCarrito();
@@ -128,6 +126,7 @@ function addCarrito(id) {
   }
 }
 
+/* Cuando el usuario quiera agregar una publicación al carrito */
 function getPublicacionDb(id) {
   $.ajax({
     /* LLamando clase PHP */
@@ -147,8 +146,7 @@ function getPublicacionDb(id) {
   });
 }
 
-/* Crear clase para mostrar elementos en el carrito */
-
+/* Mostrar elementos en el carrito */
 function renderPubli(item) {
   itemCarrito = ``;
   if (existeCompra) {
@@ -178,6 +176,7 @@ function renderPubli(item) {
   contenidoCarrito.innerHTML = itemCarrito;
 }
 
+/*Abrir el carrito */
 function abrirCarrito() {
   /* Agregando clases al overlay y al carrito para abrirlo */
   $("#res-busquedas").hide();
@@ -188,7 +187,6 @@ function abrirCarrito() {
 
 
 /* Cambiar Cantidad */
-
 function cambiarCantidad(idItem) {
   let id = idItem,
     inputId = "";
@@ -262,6 +260,7 @@ function mathCarrito(item) {
   cartItems.textContent = totalItems;
 }
 
+/* Función para formatear números con puntos decimales */
 function number_format(number, decimals, dec_point, thousands_sep) {
   // Strip all characters but numerical ones.
   number = (number + "").replace(/[^0-9+\-Ee.]/g, "");

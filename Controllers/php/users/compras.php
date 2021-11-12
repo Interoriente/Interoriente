@@ -1,4 +1,5 @@
 <?php
+/* Capturando solicitud */
 if (
   isset($_POST['id']) ||
   isset($_POST['carrito']) ||
@@ -7,7 +8,7 @@ if (
   isset($_POST['checkout']) ||
   isset($_GET['tblCarrito'])
 ) {
-
+ /* Verificando de dónde proviene y llamando respectiva función */
   if (isset($_POST['id'])) {
     $id = $_POST['id'];
     addCarrito($id);
@@ -78,8 +79,6 @@ function getIdUsuario()
 /* Funcion para llamar publicaciones en el index */
 function getPublicaciones()
 {
-  try {
-
     /* Llamado a la base de datos*/
     require('../../Models/dao/conexion.php');
     /* Consulta */
@@ -94,15 +93,12 @@ function getPublicaciones()
     $resultado = $consulta->fetchAll();
     /* Devolviendo resultado */
     return $resultado;
-  } catch (\Throwable $th) {
-    /*echo "<script>alert('Ocurrió un error!');</script>";*/
-  }
+
 }
 
 /* Función para agregar publicaciones al carrito */
 function addCarrito($id)
 {
-  try {
 
     require '../../../Models/dao/conexion.php';
     /* 
@@ -119,15 +115,13 @@ function addCarrito($id)
     $resultado = simplificarArreglo($resultado);
     /* Resultado a devolver */
     echo json_encode($resultado);
-  } catch (\Throwable $th) {
-    /*echo "<script>alert('Ocurrió un error!');</script>";*/
-  }
+ 
 }
 
 /* función para guardar información del carrito en tblCarrito */
 function almacenarCarrito($carrito)
 {
-  try {
+ 
     /* $carrito = $carrito; */
     session_start(); // Se debe usar antes de tratar de acceder a una variable de sessión
     $idUsuario = $_SESSION['documentoIdentidad'];
@@ -176,9 +170,6 @@ function almacenarCarrito($carrito)
     } else {
       echo "<script>alert('No existe la sesión!');</script>";
     }
-  } catch (\Throwable $th) {
-    /*echo "<script>alert('Ocurrió un error!');</script>";*/
-  }
 }
 
 function getCarrito($id)
@@ -197,7 +188,7 @@ class Checkout
 {
   public function getCheckoutInfo()
   {
-    try {
+  
       require '../../Models/dao/conexion.php';
       session_start();
       $idUsuario = $_SESSION['documentoIdentidad'];
@@ -207,13 +198,10 @@ class Checkout
       $stmt->execute();
       $resultado = $stmt->fetchAll(PDO::FETCH_ASSOC);
       return $resultado;
-    } catch (\Throwable $th) {
-      /*echo "<script>alert('Ocurrió un error!');</script>";*/
-    }
+  
   }
   public function getImgCheckoutInfo()
   {
-    try {
       require '../../Models/dao/conexion.php';
       $idUsuario = $_SESSION['documentoIdentidad'];
       $sql = "CALL sp_getImgCheckoutInfo(:id)";
@@ -222,14 +210,12 @@ class Checkout
       $stmt->execute();
       $resultado = $stmt->fetchAll(PDO::FETCH_COLUMN);
       return $resultado;
-    } catch (\Throwable $th) {
-      /*echo "<script>alert('Ocurrió un error!');</script>";*/
-    }
+
   }
 
   public function validarDireccion()
   {
-    try {
+   
       session_start();
       $idUsuario = $_SESSION['documentoIdentidad'];
       if (isset($idUsuario)) {
@@ -246,14 +232,11 @@ class Checkout
         $arr = array();
         return $arr;
       }
-    } catch (\Throwable $th) {
-      /*echo "<script>alert('Ocurrió un error!');</script>";*/
-    }
   }
 
   public function getCiudades()
   {
-    try {
+   
       require '../../../Models/dao/conexion.php';
       $sql = "CALL sp_getCiudades()";
       $stmt = $pdo->prepare($sql);
@@ -261,13 +244,12 @@ class Checkout
       $resultado = $stmt->fetchAll(PDO::FETCH_ASSOC);
       $resultado = json_encode($resultado);
       return $resultado;
-    } catch (\Throwable $th) {
-      /*echo "<script>alert('Ocurrió un error!');</script>";*/
-    }
   }
   public function finalizarCompra($direccion, $email)
   {
-    try {
+    /* 
+    Nota: Para esta función no se implemetó procedimientos almacenados debido a una incompatibilidad que de momento desconocemos.
+    */
       require('../../../Models/dao/conexion.php');
       session_start();
       $idUsuario = $_SESSION['documentoIdentidad'];
@@ -322,11 +304,9 @@ class Checkout
         $stmtDeleteCart->bindValue(':idUsuario', $idUsuario);
         $stmtDeleteCart->execute();
       }
-    } catch (\Throwable $th) {
-      //throw $th;
-    }
   }
 }
+
 class Compra
 {
   public int $id;
@@ -337,16 +317,13 @@ class Compra
   }
   public function FacturasCreadas($id)
   {
-    try {
       require('../../../Models/dao/conexion.php');
       $sql = "CALL sp_facturasCreadas(:id)";
       $stmt = $pdo->prepare($sql);
       $stmt->bindValue(":id", $id);
       $stmt->execute();
       return $stmt->fetchAll();
-    } catch (\Throwable $th) {
-      /*echo "<script>alert('Ocurrió un error!');</script>";*/
-    }
+
   }
 }
 class Factura
@@ -361,7 +338,6 @@ class Factura
   }
   public function CuerpoFactura($id, $numero)
   {
-    try {
       require('../../../Models/dao/conexion.php');
       $sqlMisCompras = "CALL sp_cuerpoFactura(:id,:numero)";
       $stmt = $pdo->prepare($sqlMisCompras);
@@ -369,13 +345,10 @@ class Factura
       $stmt->bindValue(":numero", $numero);
       $stmt->execute();
       return $stmt->fetchAll();
-    } catch (\Throwable $th) {
-      /*echo "<script>alert('Ocurrió un error!');</script>";*/
-    }
   }
   public function EncabezadoFactura($id, $numero)
   {
-    try {
+   
       require('../../../Models/dao/conexion.php');
       $sql   = "CALL sp_encabezadoFactura(:id,:numero)";
       $stmt = $pdo->prepare($sql);
@@ -383,8 +356,5 @@ class Factura
       $stmt->bindValue(":numero", $numero);
       $stmt->execute();
       return $stmt->fetch(PDO::FETCH_OBJ);
-    } catch (\Throwable $th) {
-      /*echo "<script>alert('Ocurrió un error!');</script>";*/
-    }
   }
 }
