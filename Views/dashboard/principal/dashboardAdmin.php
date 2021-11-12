@@ -253,6 +253,7 @@ if (!isset($_SESSION['documentoIdentidad'])) {
                       </div>
                     </div>
                   </div>
+                  <button id="buscarPublicacion" type="submit" class="btn btn-sm btn-neutral cambioRol" name="buscarPublicaciones">Buscar</button>
                 </div>
               </div>
               <div class="table-responsive">
