@@ -4,7 +4,9 @@ const contactoEmail = document.getElementById("contacto-email");
 const contactoDireccion = document.getElementById("contacto-direccion");
 const guardarDireccion = document.getElementById("guardar-direccion");
 const guardarDireccionInput = document.getElementById("input-direccion");
-const contDirPrincipal = document.getElementById("contenedor-direccion-principal");
+const contDirPrincipal = document.getElementById(
+  "contenedor-direccion-principal"
+);
 const modal = document.getElementById("exampleModalCenter");
 const btnFinCompra = document.getElementById("btn-fin-compra");
 const btnFinCompraD = document.getElementById("btn-fin-compra-d");
@@ -169,7 +171,6 @@ function direccionFinal() {
               </div>`;
     });
   }
-
 }
 
 function cambiarDireccionEnvio() {
@@ -184,7 +185,6 @@ function cambiarDireccionEnvio() {
           </div>
           `;
   contenedorDirFin.innerHTML = cambioDir;
- 
 }
 function guardarNuevaDireccion() {
   nuevaDir = document.getElementById("nueva-dir").value;

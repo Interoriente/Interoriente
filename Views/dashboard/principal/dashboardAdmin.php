@@ -20,7 +20,7 @@ if (!isset($_SESSION['documentoIdentidad'])) {
   $respVentasAnual = $informe->VentasAnualesAdmin();
   $respVentasDia = $informe->VentasPorDiasAdmin();
   $respContadorUsuario = $informe->ContadorUsuarios();
-  $respUsuariosQueMasCompran = $informe->UsuariosQueMasCompran();
+  $respUsuariosQueMasCompran = $informe->UsuariosQueMasCompran($informe->val, null);
   //Mostrar gráfica de ventas anuales
   require "../includes/graficas.php";
 
@@ -236,8 +236,8 @@ if (!isset($_SESSION['documentoIdentidad'])) {
                           <div class="input-group-prepend">
                             <span class="input-group-text"><i class="ni ni-calendar-grid-58"></i></span>
                           </div>
-                          <input class="form-control" placeholder="Start date" type="date" max=<?php $hoy = date("Y-m-d");
-                                                                                                echo $hoy; ?>>
+                          <input id="in-fecha-inicial" class="form-control" placeholder="Start date" type="date" max=<?php $hoy = date("Y-m-d");
+                                                                                                                      echo $hoy; ?>>
                         </div>
                       </div>
                     </div>
@@ -247,13 +247,13 @@ if (!isset($_SESSION['documentoIdentidad'])) {
                           <div class="input-group-prepend">
                             <span class="input-group-text"><i class="ni ni-calendar-grid-58"></i></span>
                           </div>
-                          <input class="form-control" placeholder="End date" type="date" max=<?php $hoy = date("Y-m-d");
-                                                                                              echo $hoy; ?>>
+                          <input id="in-fecha-final" class="form-control" placeholder="End date" type="date" max=<?php $hoy = date("Y-m-d");
+                                                                                                                  echo $hoy; ?>>
                         </div>
                       </div>
                     </div>
                   </div>
-                  <button id="buscarPublicacion" type="submit" class="btn btn-sm btn-neutral cambioRol" name="buscarPublicaciones">Buscar</button>
+                  <button id="buscarUsuarios" type="submit" class="btn btn-sm btn-neutral cambioRol" name="buscarPublicaciones">Buscar</button>
                 </div>
               </div>
               <div class="table-responsive">
@@ -262,19 +262,26 @@ if (!isset($_SESSION['documentoIdentidad'])) {
                   <?php if (isset($respUsuariosQueMasCompran)) { ?>
                     <thead class="thead-light">
                       <tr>
-                        <th scope="col">Cliente</th>
+                        <th scope="col">Documento</th>
+                        <th scope="col">Nombres</th>
+                        <th scope="col">Apellidos</th>
                         <th scope="col">Cantidad</th>
                         <th scope="col">Total de compras</th>
                       </tr>
                     </thead>
-                    <tbody>
+                    <tbody id="filasUsuarios">
                       <!-- Fila -->
                       <?php foreach ($respUsuariosQueMasCompran as $datos) : ?>
                         <tr>
                           <td>
-                            <?php echo $datos['Cliente']; ?>
+                            <?php echo $datos['documentoIdentidad']; ?>
                           </td>
-
+                          <td>
+                            <?php echo $datos['nombresUsuario']; ?>
+                          </td>
+                          <td>
+                            <?php echo $datos['apellidoUsuario']; ?>
+                          </td>
                           <td>
                             <?php echo $datos['Cantidad']; ?>
                           </td>
@@ -299,6 +306,7 @@ if (!isset($_SESSION['documentoIdentidad'])) {
           </div>
         </div>
         <!-- Parte Inferior del HTML -->
+        <script src="../../js/buscarUsuariosExitosos.js"></script>
   <?php
       require "../includes/modalesInformacion.php";
       require_once '../includes/footer.php';
