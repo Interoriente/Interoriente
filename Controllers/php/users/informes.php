@@ -197,8 +197,6 @@ class Informes
     public function ReporteMensual($id)
     {
         try {
-
-
             require "../../../Models/dao/conexion.php";
             $reporte = ["TotalMesActual" => null, "Porcentaje" => null, "Subio" => 0];
             $objReporte = (object) $reporte;

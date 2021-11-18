@@ -74,9 +74,9 @@ $.ajax({
           data: { ciudades: true }, //Datos a recibir en el script .php a traves de $_POST
           success: function (respuesta) {
             let ciudades = JSON.parse(respuesta);
-            ciudades.map((item) => {
+            ciudades.forEach((item) => {
               let opciones = "";
-              opciones = `<option value="${item.id}">${item.nombre}</option>;`;
+              opciones = `<option value="${item.idCiudad}">${item.nombreCiudad}</option>;`;
               selectCiudad.innerHTML += opciones;
             });
           },
@@ -115,13 +115,13 @@ function cambiarCorreoContacto() {
   let correoUsuario = emailContactoP.textContent;
 
   const cambioEmail = `
-       <div class="cambioEmail info-con">
-            <p>Se enviará información de esta compra al siguiente correo electrónico</p>
-            <input id="nuevo-email" type="email" placeholder="Ej: pepe@gmail.com" value = "${correoUsuario}" >
-            <div class="btn-guardar-cambios info-con">
-              <button id="btn-guardar-email" onclick = "guardarE()">guardar</button>
-            </div>
-          </div>
+    <div class="cambioEmail info-con">
+      <p>Se enviará información de esta compra al siguiente correo electrónico</p>
+      <input id="nuevo-email" type="email" placeholder="Ej: pepe@gmail.com" value = "${correoUsuario}" >
+        <div class="btn-guardar-cambios info-con">
+          <button id="btn-guardar-email" onclick = "guardarE()">guardar</button>
+        </div>
+    </div>
           `;
   contactoEmail.innerHTML = cambioEmail;
 }

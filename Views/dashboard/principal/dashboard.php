@@ -329,7 +329,7 @@ if (!isset($_SESSION['documentoIdentidad'])) {
                     <?php for ($i = 0; $i < 5; $i++) : ?>
                       <tr>
                         <td>
-                          <a href="#"><?php echo $respMasExitosas->Titulos[$i]; ?></a>
+                          <a href="../../navegacion/publicacion.php?id=<?php echo base64_encode($respMasExitosas->Ids[$i]); ?>"><?php echo $respMasExitosas->Titulos[$i]; ?></a>
                         </td>
 
                         <td>

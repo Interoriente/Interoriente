@@ -6,7 +6,7 @@ if ($catalogo) {
     $publicacion = $publicacionResp->FiltroPublicacion($publicacionResp->id);
 } else {
     require "../../Controllers/php/users/compras.php";
-    $publicacion = getPublicaciones(); //Nota: Ciudado con el llamado de campos innesesarios
+    $publicacion = getPublicaciones(); //Nota: Ciudado con el llamado de campos innecesarios
 }
 ?>
 <!DOCTYPE html>
@@ -37,27 +37,6 @@ if ($catalogo) {
         <!-- Sección de los botons de filtrado -->
 
         <h1>Aquí podrás encontrar el producto que deseas </h1>
-        <!-- <section class="btns-filtrado ">
-            <a href="#">
-
-                <div id="productos" class="btn-productos btn-filtro">
-                    Filtro
-                </div>
-            </a>
-            <a href="#">
-                <div class="btn-productos todos btn-filtro" onclick="filterSelection('todos')">
-                    Filtro
-                </div>
-            </a>
-            <a href="#">
-                <div class=" btn-servicios btn-filtro">
-                    Filtro
-                </div>
-            </a>
-        </section> -->
-        <!-- Sección de las tarjetas -->
-
-        <!-- NOTA: títulos de máximo 100 caracteres ó 14 palabras -->
 
         <!-- Tarjeta Final -->
         <?php

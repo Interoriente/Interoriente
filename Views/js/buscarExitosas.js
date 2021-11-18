@@ -50,7 +50,10 @@ function renderPublicaciones(publicaciones) {
     }
     contFilasPublicaciones += `<tr>
     <td>
-      <a href="#"> ${publicaciones.Titulos[i]}</a>
+    <!-- btoa->Encriptar a base64_encode -->
+      <a href="../../navegacion/publicacion.php?id=${btoa(
+        publicaciones.Ids[i]
+      )}"> ${publicaciones.Titulos[i]}</a>
     </td>
     <td>
       ${publicaciones.NoVentas[i]}
