@@ -30,6 +30,19 @@ btnBuscarPublicacion.addEventListener("click", function () {
 });
 function renderPublicaciones(publicaciones) {
   let contFilasPublicaciones = "";
+  if (!publicaciones.length) {
+    contFilasPublicaciones = `
+    <!-- En caso de que no existan publicaciones exitosas -->
+    <tr>
+      <td colspan="5">
+        <div class="campo-alerta">
+            <div class="alerta" role="alert">Opps, No hay publicaciones exitosas <br> para las fechas seleccionadas
+              <img class="img-caja" src="../assets/img/lupa.png" alt="">
+            </div>
+        </div>
+      </td>
+    </tr>`;
+  }
   for (let i = 0; i < 5; i++) {
     if (publicaciones.VlrVentas[i] == undefined) {
       break;

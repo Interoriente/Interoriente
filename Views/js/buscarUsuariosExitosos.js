@@ -33,29 +33,34 @@ btnBuscarUsuarios.addEventListener("click", function () {
 });
 function renderUsuarios(usuarios) {
   let contFilasUsuarios = "";
-  for (let index = 0; index < 5; index++) {
-    if (!usuarios.length) {
-      contFilasUsuarios = `<tbody style="padding: 1em 2em;">No hay usuarios exitosos para las fechas ingresadas</tbody>`;
-      break;
-    }
-    contFilasUsuarios += `<tr>
-      <td>
-        ${usuarios[index].documentoIdentidad}
-      </td>
-      <td>
-        ${usuarios[index].nombresUsuario}
-      </td>
-      <td>
-        ${usuarios[index].apellidoUsuario}
-      </td>
-      <td>
-        ${usuarios[index].Cantidad}
-      </td>
-      <td>
-        $${number_format(usuarios[index].Total, 3, "", ".")}
+  if (!usuarios.length) {
+    contFilasUsuarios = `
+    <!-- En caso de que no existan usuarios exitosos -->
+    <tr>
+      <td colspan="5">
+          <div class="alert alert-danger" role="alert" style="text-align: center;">Opps, No hay usuarios exitosos para las fechas seleccionadas.</div>
       </td>
     </tr>`;
   }
+  usuarios.forEach((index) => {
+    contFilasUsuarios += `<tr>
+      <td>
+        ${index.documentoIdentidad}
+      </td>
+      <td>
+        ${index.nombresUsuario}
+      </td>
+      <td>
+        ${index.apellidoUsuario}
+      </td>
+      <td>
+        ${index.Cantidad}
+      </td>
+      <td>
+        $${number_format(Math.round(index.Total), 3, "", ".")}
+      </td>
+    </tr>`;
+  });
   contenedorFilasUsuarios.innerHTML = contFilasUsuarios;
 }
 function number_format(number, decimals, dec_point, thousands_sep) {

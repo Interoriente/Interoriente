@@ -287,16 +287,16 @@ if (!isset($_SESSION['documentoIdentidad'])) {
                           </td>
 
                           <td>
-                            <?php echo number_format($datos['Total'], 0, '', '.'); ?>
+                            $<?php echo number_format($datos['Total'], 0, '', '.'); ?>
                           </td>
                         </tr>
                       <?php endforeach;
                     } else { ?>
-                      <div class="campo-alerta">
-                        <div class="alerta" role="alert">Opps, por ahora no hay publicaciones exitosas
-                          <img class="img-caja" src="../assets/img/lupa.png" alt="">
-                        </div>
-                      </div>
+                      <tr>
+                        <td colspan="8">
+                          <div class="alert alert-danger" role="alert" style="text-align: center;">Opps, Por ahora no hay usuarios exitosos.</div>
+                        </td>
+                      </tr>
                       <!--Fin Fila -->
                     </tbody>
                   <?php } ?>
