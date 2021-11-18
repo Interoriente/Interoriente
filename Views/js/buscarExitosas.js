@@ -30,7 +30,8 @@ btnBuscarPublicacion.addEventListener("click", function () {
 });
 function renderPublicaciones(publicaciones) {
   let contFilasPublicaciones = "";
-  if (!publicaciones.length) {
+  /* Cuando no exista publicaciones mostrar mensaje. */
+  if (publicaciones.Titulos == "") {
     contFilasPublicaciones = `
     <!-- En caso de que no existan publicaciones exitosas -->
     <tr>
