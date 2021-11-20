@@ -49,10 +49,6 @@
                     <i class="ni ni-settings-gear-65"></i>
                     <span>Manuales</span> <!-- Colocar aquí manual de usuario y formato IEE (Manual del sistema) -->
                   </a>
-                  <a href="soporte.php" class="dropdown-item">
-                    <i class="ni ni-support-16"></i>
-                    <span>Soporte</span>
-                  </a>
                   <div class="dropdown-divider"></div>
                   <a href="#" class="dropdown-item" data-toggle="modal" data-target="#logoutModal">
                     <i class="ni ni-user-run"></i>
