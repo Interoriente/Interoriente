@@ -20,7 +20,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="Bienvenidos a Interoriente, podrás comprar, vender y mucho más.">
     <meta name="author" content="Inter-oriente">
-    <title>Iniciar Sesión | Interoriente</title>
+    <title>Recuperar Contraseña | Interoriente</title>
     <!-- Favicon -->
     <link rel="icon" href="../assets/img/favicon.png" type="image/png">
     <!-- Fonts -->
@@ -52,7 +52,7 @@
                 <div class="header-body text-center mb-7">
                     <div class="row justify-content-center">
                         <div class="col-xl-5 ">
-                            <h1 class="text-white" id="h1IniciarSesion">Iniciar sesión</h1>
+                            <h1 class="text-white" id="h1IniciarSesion">Recupera tu contraseña</h1>
                         </div>
                     </div>
                 </div>
@@ -64,23 +64,14 @@
             <div class="row justify-content-center">
                 <div class="col-lg-6 col-md-7">
                     <div class="card bg-secondary border-0">
-                        <div class="card-header bg-transparent pb-5">
-                            <div class="text-muted text-center mt-2 mb-4"><small>Puedes iniciar sesión por:</small></div>
-                            <div class="text-center">
-                                <a href="<?php echo $GoogleLogin; ?>" class="btn btn-neutral btn-icon">
-                                    <span class="btn-inner--icon"><img src="../dashboard/assets/img/google.svg"></span>
-                                    <span class="btn-inner--text">Google</span>
-                                </a>
-                            </div>
-                        </div>
+
                         <div class="card-body px-lg-3 py-lg-2">
-                            <div class="text-center text-muted mb-4">
-                                <small>O con tus credenciales de acceso:</small>
-                            </div>
-                            <form action="../../Controllers/php/users/acceso.php" method="POST">
-                                <input type="hidden" name="iniciarSesion">
+
+                            <!-- <form action="../../Controllers/php/users/acceso.php" method="POST"> -->
+                            <form action="phpmailer/recuperar.php" method="POST">
+                                <input type="hidden" name="recuperarContraseña">
                                 <div class="form-group">
-                                    <label for="id">Email o documento de identidad:</label>
+                                    <label for="id">Ingresa tu Email</label>
                                     <div class="input-group input-group-merge input-group-alternative mb-3">
                                         <div class="input-group-prepend">
                                             <span class="input-group-text"><i class="ni ni-email-83"></i></span>
@@ -88,15 +79,7 @@
                                         <input class="form-control" id="id" placeholder="tucorreo@gmail.com" type="text" name="id" require>
                                     </div>
                                 </div>
-                                <div class="form-group">
-                                    <label for="contrasena">Contraseña:</label>
-                                    <div class="input-group input-group-merge input-group-alternative mb-3">
-                                        <div class="input-group-prepend">
-                                            <span class="input-group-text"><i class="ni ni-key-25"></i></span>
-                                        </div>
-                                        <input class="form-control" id="contrasena" placeholder="**********" type="password" name="contrasena" minlength="2" maxlength="20" required>
-                                    </div>
-                                </div>
+                                
                                 <div class="text-center">
 
                                     <button type="submit" class="btn btn-primary mt-4" id="btnIniciarSesion">Iniciar sesión</button>
@@ -118,6 +101,7 @@
                 </div>
             </div>
         </div>
+    </div>
     </div>
     <script src="../js/iniciarSesion.js"></script>
 </body>
