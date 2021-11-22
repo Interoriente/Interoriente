@@ -49,10 +49,6 @@
     </div>
     <?php if (isset($_SESSION['roles']) == '1') : ?>
       <div class="navegacion-a">
-        <img src="../assets/img/iconos/carrito_2.svg" alt="">
-        <a href="#">Mi carrito</a>
-      </div>
-      <div class="navegacion-a">
         <img src="../assets/img/iconos/money-bill-wave.svg" alt="">
         <a href="../dashboard/principal/crearPublicacion.php">Vender</a>
       </div>
