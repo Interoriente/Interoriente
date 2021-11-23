@@ -99,6 +99,10 @@ body {
   outline: 0 !important;
 }
 
+#item{
+  line-height: 6;
+}
+
 hr {
   overflow: visible;
   box-sizing: content-box;

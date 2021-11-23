@@ -13,3 +13,6 @@
   --poppins: "Poppins", sans-serif;
   --serif: 'Source Serif Pro', serif;;
 }
+#item{
+  line-height: 5em;
+}

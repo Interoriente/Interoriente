@@ -39,24 +39,24 @@
   <!-- Sidebar -->
   <div id="mySidenav" class="sidenav">
     <a href="javascript:void(0)" id="btn-close" class="closebtn" onclick="closeNav()">&times;</a>
-    <div class="navegacion-a">
+    <div class="navegacion-a" id="item">
       <img src="../assets/img/iconos/Tienda_Icon.svg" alt="">
       <a href="index.php">Inicio</a>
     </div>
-    <div class="navegacion-a">
+    <div class="navegacion-a" id="item">
       <img src="../assets/img/iconos/catalogo.svg" alt="">
       <a href="catalogos.php">Categorías</a>
     </div>
     <?php if (isset($_SESSION['roles']) == '1') : ?>
-      <div class="navegacion-a">
+      <div class="navegacion-a" id="item">
         <img src="../assets/img/iconos/money-bill-wave.svg" alt="">
         <a href="../dashboard/principal/crearPublicacion.php">Vender</a>
       </div>
-      <div class="navegacion-a">
+      <div class="navegacion-a" id="item">
         <img src="../assets/img/iconos/compras.svg" alt="">
         <a href="../dashboard/principal/misCompras.php">Mis compras</a>
       </div>
-      <div class="navegacion-a">
+      <div class="navegacion-a" id="item">
         <img src="../assets/img/iconos/Estadisticas_Icon.svg" alt="">
         <?php if ($_SESSION['roles'] == '1') { ?>
           <a href="../dashboard/principal/dashboard.php">Volver al panel</a>
@@ -67,12 +67,12 @@
     <?php endif;
     if (!isset($_SESSION['roles'])) {
     ?>
-      <div class="navegacion-a">
+      <div class="navegacion-a" id="item">
         <img src="../assets/img/iconos/User_Icon.svg" alt="">
         <a href="iniciarsesion.php">Iniciar sesión</a>
       </div>
     <?php } else { ?>
-      <div class="navegacion-a">
+      <div class="navegacion-a" id="item">
         <img src="../assets/img/iconos/sign-out.svg" alt="">
         <form class="cerrar-sesion" action="../../Controllers/php/users/usuarios.php" method="POST">
           <input type="hidden" name="cerrarSesion">
@@ -80,7 +80,7 @@
         </form>
       </div>
     <?php } ?>
-    <div class="navegacion-a">
+    <div class="navegacion-a" id="item">
       <img src="../assets/img/iconos/Ayuda_Icon.svg" alt="">
       <a href="../../Docs/ManualDeUsuario_Interoriente.pdf" target="_blank">Ayuda</a>
     </div>
