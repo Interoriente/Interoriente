@@ -1,13 +1,16 @@
 <?php
 $destinatario = $_POST['id'];
-echo $destinatario."<br>";
+// echo $destinatario . "<br>";
 require '../../../Models/dao/conexion.php';
-$sql = "SELECT contrasenaUsuario FROM tblUsuario WHERE emailUsuario='$destinatario'"; 
-$query = $pdo -> prepare($sql); 
-$query -> execute();
-$results = $query -> fetch(PDO::FETCH_ASSOC);
-$contraseña = $results['contrasenaUsuario'];
+// $sql = "SELECT contrasenaUsuario FROM tblUsuario WHERE emailUsuario='$destinatario'";
+// $query = $pdo->prepare($sql);
+// $query->execute();
+// $results = $query->fetch(PDO::FETCH_ASSOC);
+$contraseña = substr(md5(uniqid()), 0, 10);
 
+
+$sql = "UPDATE tblUsuario SET contrasenaUsuario=? WHERE emailUsuario=?";
+$pdo->prepare($sql)->execute([$contraseña, $destinatario]);
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
@@ -21,9 +24,9 @@ $mail = new PHPMailer(true);
 try {
     //Server settings
     // $mail->SMTPDebug = SMTP::DEBUG_SERVER;                      //Enable verbose debug output
-    
+
     $mail->SMTPDebug = 0;                      //Enable verbose debug output
-    //$mail->isSMTP();                                            //Send using SMTP
+    //$mail->   isSMTP();                                            //Send using SMTP
     $mail->Host       = 'smtp.gmail.com';                     //Set the SMTP server to send through
     $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
     $mail->Username   = 'kevinarismendy21@gmail.com';                     //SMTP username
@@ -46,12 +49,13 @@ try {
 
     //Content
     $mail->isHTML(true);                                  //Set email format to HTML
-    $mail->Subject = 'Tu contraseña es '.$contraseña;
-    $mail->Body    = 'This is the HTML message body <b>in bold!</b>';
-    $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
+    $mail->Subject = 'Recuperar contraseña | InterOriente';
+    $mail->Body    = 'Tu contraseña temporal es '. $contraseña;
+    $mail->AltBody = 'Tu contraseña temporal es '. $contraseña;
 
     $mail->send();
-    echo 'Message has been sent';
+    echo "<script>alert('Se ha enviado correctamente el correo, ¡revisalo!');</script>";
+    echo "<script> document.location.href='../iniciarsesion.php';</script>";
 } catch (Exception $e) {
     echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
 }
