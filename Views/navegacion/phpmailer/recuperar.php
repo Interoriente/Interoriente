@@ -9,8 +9,7 @@ require '../../../Models/dao/conexion.php';
 $contraseña = substr(md5(uniqid()), 0, 10);
 
 
-$sql = "UPDATE tblUsuario SET contrasenaUsuario=? WHERE emailUsuario=?";
-$pdo->prepare($sql)->execute([$contraseña, $destinatario]);
+
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
@@ -54,6 +53,10 @@ try {
     $mail->AltBody = 'Tu contraseña temporal es '. $contraseña;
 
     $mail->send();
+    $contraseñaSha = sha1(strip_tags($contraseña));
+    $sql = "UPDATE tblUsuario SET contrasenaUsuario=? WHERE emailUsuario=?";
+    $pdo->prepare($sql)->execute([$contraseñaSha, $destinatario]);
+
     echo "<script>alert('Se ha enviado correctamente el correo, ¡revisalo!');</script>";
     echo "<script> document.location.href='../iniciarsesion.php';</script>";
 } catch (Exception $e) {
