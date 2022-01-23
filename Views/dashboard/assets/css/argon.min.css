@@ -99,10 +99,6 @@ body {
   outline: 0 !important;
 }
 
-#item{
-  line-height: 6;
-}
-
 hr {
   overflow: visible;
   box-sizing: content-box;
@@ -5078,9 +5074,13 @@ input[type="submit"].btn-block {
     padding-right: 0;
     padding-left: 0;
   }
+ 
 }
 
 @media (min-width: 1200px) {
+  .nav-link {
+    margin-top: .5em; /* Agregando espacio entre links */
+  }
   .navbar-expand-xl {
     flex-flow: row nowrap;
     justify-content: flex-start;

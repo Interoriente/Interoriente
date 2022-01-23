@@ -376,6 +376,7 @@ header {
 .navegacion-a {
   display: flex;
   width: 100%;
+  padding: .2em 0; /* Agregando espaciado entre links */
 }
 
 .navegacion-a img {
