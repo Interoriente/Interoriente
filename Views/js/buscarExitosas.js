@@ -30,13 +30,30 @@ btnBuscarPublicacion.addEventListener("click", function () {
 });
 function renderPublicaciones(publicaciones) {
   let contFilasPublicaciones = "";
+  /* Cuando no exista publicaciones mostrar mensaje. */
+  if (publicaciones.Titulos == "") {
+    contFilasPublicaciones = `
+    <!-- En caso de que no existan publicaciones exitosas -->
+    <tr>
+      <td colspan="5">
+        <div class="campo-alerta">
+            <div class="alerta" role="alert">Opps, No hay publicaciones exitosas <br> para las fechas seleccionadas
+              <img class="img-caja" src="../assets/img/lupa.png" alt="">
+            </div>
+        </div>
+      </td>
+    </tr>`;
+  }
   for (let i = 0; i < 5; i++) {
     if (publicaciones.VlrVentas[i] == undefined) {
       break;
     }
     contFilasPublicaciones += `<tr>
     <td>
-      <a href="#"> ${publicaciones.Titulos[i]}</a>
+    <!-- btoa->Encriptar a base64_encode -->
+      <a href="../../navegacion/publicacion.php?id=${btoa(
+        publicaciones.Ids[i]
+      )}"> ${publicaciones.Titulos[i]}</a>
     </td>
     <td>
       ${publicaciones.NoVentas[i]}

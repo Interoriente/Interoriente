@@ -1,5 +1,4 @@
 <?php
-
 if (isset($_POST['desactivarUsuarios'])) {
     $id = $_POST['id'];
     $administrador = new Administrador($id);
@@ -27,14 +26,12 @@ if (isset($_POST['desactivarUsuarios'])) {
 } else if (isset($_POST['cerrarSesion'])) {
     CerrarSesion();
 }
-
 function CerrarSesion()
 {
     session_start(); //Se necesita para que el session_destroy funciona, de lo contrario no se destrirá la sesión.
     session_destroy();
     echo "<script> document.location.href='../../../Views/navegacion/index.php';</script>";
 }
-
 class Usuario
 {
     /* Atributos */
@@ -142,203 +139,131 @@ class Administrador
 
     public function ActivarUsuario($id)
     {
-        try {
-            //Llamada a la conexion
-            require '../../../Models/dao/conexion.php';
-            $estado = '1';
-            //sentencia sql para actualizar estado
-            $sql = "CALL sp_activarUsuario(:id,:estado)";
-            $stmt = $pdo->prepare($sql);
-            $stmt->bindValue(":id", $id);
-            $stmt->bindValue(":estado", $estado);
-            $stmt->execute();
+        //Llamada a la conexion
+        require '../../../Models/dao/conexion.php';
+        $estado = '1';
+        //sentencia sql para actualizar estado
+        $sql = "CALL sp_activarUsuario(:id,:estado)";
+        $stmt = $pdo->prepare($sql);
+        $stmt->bindValue(":id", $id);
+        $stmt->bindValue(":estado", $estado);
+        $stmt->execute();
 
-            //alert
-            echo "<script>alert('Estado actualizado correctamente');</script>";
-            //redireccionar
-            echo "<script> document.location.href='../../../Views/dashboard/principal/listaAdmin.php';</script>";
-        } catch (\Throwable $th) {
-            echo "<script>alert('Ocurrió un error');</script>";
-        }
+        //alert
+        echo "<script>alert('Estado actualizado correctamente');</script>";
+        //redireccionar
+        echo "<script> document.location.href='../../../Views/dashboard/principal/listaAdmin.php';</script>";
     }
 
     public function DesactivarUsuario($id)
     {
-        try {
-            //Llamada a la conexion
-            require '../../../Models/dao/conexion.php';
-            $estado = '0';
-            //sentencia sql para actualizar estado
-            $sql = "CALL sp_desactivarUsuario(:id,:estado)";
-            $stmt = $pdo->prepare($sql);
-            $stmt->bindValue(":id", $id);
-            $stmt->bindValue(":estado", $estado);
-            $stmt->execute();
-            //alert
-            echo "<script>alert('Estado actualizado correctamente');</script>";
-            //redireccionar
-            echo "<script> document.location.href='../../../Views/dashboard/principal/listaAdmin.php';</script>";
-        } catch (\Throwable $th) {
-            echo "<script>alert('Ocurrió un error');</script>";
-        }
+        //Llamada a la conexion
+        require '../../../Models/dao/conexion.php';
+        $estado = '0';
+        //sentencia sql para actualizar estado
+        $sql = "CALL sp_desactivarUsuario(:id,:estado)";
+        $stmt = $pdo->prepare($sql);
+        $stmt->bindValue(":id", $id);
+        $stmt->bindValue(":estado", $estado);
+        $stmt->execute();
+        //alert
+        echo "<script>alert('Estado actualizado correctamente');</script>";
+        //redireccionar
+        echo "<script> document.location.href='../../../Views/dashboard/principal/listaAdmin.php';</script>";
     }
 
     public function ActualizarCuenta($id)
     {
         session_start();
-        try {
-            require '../../../Models/dao/conexion.php';
-            //Capturo la sesión del usuario logueado
-            $celular = $_POST['celular'];
-            $correo = $_POST['correo'];
-            @$img = $_FILES['file']['name'];
-            if (isset($_FILES['file']) && ($img == !NULL)) {
-                //Captura de imagen
-                $directorio = "../../../Views/dashboard/principal/imagenes/";
-
-                $archivo = $directorio . basename($_FILES['file']['name']);
-
+        require '../../../Models/dao/conexion.php';
+        /* Captura de información */
+        $celular = $_POST['celular'];
+        $correo = $_POST['correo'];
+        $nombreArchivo = $_POST['imagenActual'];
+        /* Si se ingresó imagen */
+        if (!empty($_FILES['archivo']['name'])) {
+            /* Capturo la extensión del archivo */
+            $ruta = $_FILES['archivo']['name'];
+            //Trae la extensión del archivo ingresado
+            $tipoArchivo = strtolower(pathinfo($ruta, PATHINFO_EXTENSION));
+            /* Si el archivo es una imagen... */
+            if ($tipoArchivo == 'jpg' || $tipoArchivo == 'jpeg' || $tipoArchivo == 'png') {
+                $destino = "../../../Views/dashboard/principal/imagenes/";
+                $destino = $destino . basename($_FILES['archivo']['name']);
+                $archivoTmp = $_FILES['archivo']['tmp_name'];
+                move_uploaded_file($archivoTmp, $destino);
                 //Ruta para almacenar en la base de datos
-                $nombreArchivo = "imagenes/" . basename($_FILES['file']['name']);
-
-                $tipoArchivo = strtolower(pathinfo($archivo, PATHINFO_EXTENSION));
-
-                //Validar que es imagen
-                $validarImagen = getimagesize($_FILES['file']['tmp_name']);
-
-                //var_dump($size);
-
-                if ($validarImagen != false) {
-                    $size = $_FILES['file']['size'];
-                    //Validando tamano del archivo
-                    if ($size > 70000000) {
-                        echo "El archivo excede el limite, debe ser menor de 700kb";
-                    } else {
-                        if ($tipoArchivo == 'jpg' || $tipoArchivo == 'jpeg' || $tipoArchivo == 'png') {
-                            //Se validó el archivo correctamente
-                            if (move_uploaded_file($_FILES['file']['tmp_name'], $archivo)) {
-                                //sentencia Sql
-                                $sql = "CALL sp_actualizarCuentaConImagen (:celular,:correo,:archivo,:id)";
-                                //Preparar consulta
-                                $stmt = $pdo->prepare($sql);
-                                $stmt->bindValue(":celular", $celular);
-                                $stmt->bindValue(":correo", $correo);
-                                $stmt->bindValue(":archivo", $nombreArchivo);
-                                $stmt->bindValue(":id", $id);
-                                //Ejecutar la sentencia
-                                $stmt->execute();
-                                echo "<script>alert('Registro actualizado correctamente');</script>";
-                                if ($_SESSION['roles'] == 1) {
-                                    echo "<script> document.location.href='../../../Views/dashboard/principal/perfil.php';</script>";
-                                } else {
-                                    echo "<script> document.location.href='../../../Views/dashboard/principal/perfilAdmin.php';</script>";
-                                }
-                            } else {
-                                echo "<script>alert('Ocurrió un error');</script>";
-                                if ($_SESSION['roles'] == 1) {
-                                    echo "<script> document.location.href='../../../Views/dashboard/principal/perfil.php';</script>";
-                                } else {
-                                    echo "<script> document.location.href='../../../Views/dashboard/principal/perfilAdmin.php';</script>";
-                                }
-                            }
-                        } else {
-                            echo "<script>alert('Error: solo se admiten archivos jpg, png y jpeg');</script>";
-                            if ($_SESSION['roles'] == 1) {
-                                echo "<script> document.location.href='../../../Views/dashboard/principal/perfil.php';</script>";
-                            } else {
-                                echo "<script> document.location.href='../../../Views/dashboard/principal/perfilAdmin.php';</script>";
-                            }
-                        }
-                    }
-                } else {
-                    echo "<script>alert('Error: el archivo no es una imagen');</script>";
-                    if ($_SESSION['roles'] == 1) {
-                        echo "<script> document.location.href='../../../Views/dashboard/principal/perfil.php';</script>";
-                    } else {
-                        echo "<script> document.location.href='../../../Views/dashboard/principal/perfilAdmin.php';</script>";
-                    }
-                }
+                $nombreArchivo = "imagenes/" . basename($_FILES['archivo']['name']);
             } else {
-                //Sentencia sql
-                $sql = "CALL sp_actualizarCuentaSinImagen(:celular,:correo,:id)";
-                //Preparar la consulta
-                $stmt = $pdo->prepare($sql);
-                $stmt->bindValue(":celular", $celular);
-                $stmt->bindValue(":correo", $correo);
-                $stmt->bindValue(":id", $id);
-                $stmt->execute();
-                echo "<script>alert('Datos actualizados correctamente');</script>";
+                echo "<script>alert('Error: solo se admiten archivos jpg, png y jpeg');</script>";
+                /* Redirigir a un archivo diferente basado en la condición */
                 if ($_SESSION['roles'] == 1) {
                     echo "<script> document.location.href='../../../Views/dashboard/principal/perfil.php';</script>";
                 } else {
                     echo "<script> document.location.href='../../../Views/dashboard/principal/perfilAdmin.php';</script>";
                 }
+                /* Devuélvame cuando el tipo de archivo sea inválido */
+                return false;
             }
-        } catch (\Throwable $th) {
-            echo "<script>alert('Ocurrió un error');</script>";
-            if ($_SESSION['roles'] == 1) {
-                echo "<script> document.location.href='../../../Views/dashboard/principal/perfil.php';</script>";
-            } else {
-                echo "<script> document.location.href='../../../Views/dashboard/principal/perfilAdmin.php';</script>";
-            }
+        }
+        //Sentencia Sql
+        $sql = "CALL sp_actualizarCuenta (:celular,:correo,:archivo,:id)";
+        //Preparar consulta
+        $stmt = $pdo->prepare($sql);
+        $stmt->bindValue(":celular", $celular);
+        $stmt->bindValue(":correo", $correo);
+        $stmt->bindValue(":archivo", $nombreArchivo);
+        $stmt->bindValue(":id", $id);
+        //Ejecutar la sentencia
+        $stmt->execute();
+        echo "<script>alert('Registro actualizado correctamente');</script>";
+        if ($_SESSION['roles'] == 1) {
+            echo "<script> document.location.href='../../../Views/dashboard/principal/perfil.php';</script>";
+        } else {
+            echo "<script> document.location.href='../../../Views/dashboard/principal/perfilAdmin.php';</script>";
         }
     }
     public function AgregarDireccion($id)
     {
-        try {
-            require '../../../Models/dao/conexion.php';
-            @$nombre = $_POST['nombre'];
-            $direccion = $_POST['direccion'];
-            $ciudad = $_POST['ciudad'];
-            $sql = "CALL sp_agregarDireccion(:id,:nombre,:direccion,:ciudad)";
-            $stmt = $pdo->prepare($sql);
-            $stmt->bindValue(":id", $id);
-            $stmt->bindValue(":nombre", $nombre);
-            $stmt->bindValue(":direccion", $direccion);
-            $stmt->bindValue(":ciudad", $ciudad);
-            $stmt->execute();
-            echo "<script>alert('Dirección almacenada con éxito!');</script>";
-            echo "<script>document.location.href='../../../Views/dashboard/principal/perfil.php';</script>";
-        } catch (\Throwable $th) {
-            echo "<script>alert('Ocurrió un error');</script>";
-            echo "<script>document.location.href='../../../Views/dashboard/principal/perfil.php';</script>";
-        }
+        require '../../../Models/dao/conexion.php';
+        @$nombre = $_POST['nombre'];
+        $direccion = $_POST['direccion'];
+        $ciudad = $_POST['ciudad'];
+        $sql = "CALL sp_agregarDireccion(:id,:nombre,:direccion,:ciudad)";
+        $stmt = $pdo->prepare($sql);
+        $stmt->bindValue(":id", $id);
+        $stmt->bindValue(":nombre", $nombre);
+        $stmt->bindValue(":direccion", $direccion);
+        $stmt->bindValue(":ciudad", $ciudad);
+        $stmt->execute();
+        echo "<script>alert('Dirección almacenada con éxito!');</script>";
+        echo "<script>document.location.href='../../../Views/dashboard/principal/perfil.php';</script>";
     }
     public function EliminarDireccion($id)
     {
-        try {
-            require '../../../Models/dao/conexion.php';
-            $sql = "CALL sp_eliminarDireccion(:id)";
-            $stmt = $pdo->prepare($sql);
-            $stmt->bindValue(":id", $id);
-            $stmt->execute();
-            echo "<script>alert('Dirección eliminada correctamente');</script>";
-            echo "<script>document.location.href='../../../Views/dashboard/principal/perfil.php';</script>";
-        } catch (\Throwable $th) {
-            echo "<script>alert('Ocurrió un error');</script>";
-            echo "<script>document.location.href='../../../Views/dashboard/principal/perfil.php';</script>";
-        }
+        require '../../../Models/dao/conexion.php';
+        $sql = "CALL sp_eliminarDireccion(:id)";
+        $stmt = $pdo->prepare($sql);
+        $stmt->bindValue(":id", $id);
+        $stmt->execute();
+        echo "<script>alert('Dirección eliminada correctamente');</script>";
+        echo "<script>document.location.href='../../../Views/dashboard/principal/perfil.php';</script>";
     }
     public function ActualizarDireccion($id)
     {
-        try {
-            $nombre = $_POST['nombre'];
-            $direccion = $_POST['direccion'];
-            $ciudad = $_POST['ciudad'];
-            require '../../../Models/dao/conexion.php';
-            $sql = "CALL sp_actualizarDireccion(:nombre,:direccion,:ciudad,:id)";
-            $stmt = $pdo->prepare($sql);
-            $stmt->bindValue(":nombre", $nombre);
-            $stmt->bindValue(":direccion", $direccion);
-            $stmt->bindValue(":ciudad", $ciudad);
-            $stmt->bindValue(":id", $id);
-            $stmt->execute();
-            echo "<script>alert('Dirección actualizada correctamente');</script>";
-            echo "<script>document.location.href='../../../Views/dashboard/principal/perfil.php';</script>";
-        } catch (\Throwable $th) {
-            echo "<script>alert('Ocurrió un error');</script>";
-            echo "<script>document.location.href='../../../Views/dashboard/principal/perfil.php';</script>";
-        }
+        $nombre = $_POST['nombre'];
+        $direccion = $_POST['direccion'];
+        $ciudad = $_POST['ciudad'];
+        require '../../../Models/dao/conexion.php';
+        $sql = "CALL sp_actualizarDireccion(:nombre,:direccion,:ciudad,:id)";
+        $stmt = $pdo->prepare($sql);
+        $stmt->bindValue(":nombre", $nombre);
+        $stmt->bindValue(":direccion", $direccion);
+        $stmt->bindValue(":ciudad", $ciudad);
+        $stmt->bindValue(":id", $id);
+        $stmt->execute();
+        echo "<script>alert('Dirección actualizada correctamente');</script>";
+        echo "<script>document.location.href='../../../Views/dashboard/principal/perfil.php';</script>";
     }
     public function getAdministradores()
     {

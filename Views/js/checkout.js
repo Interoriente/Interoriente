@@ -4,7 +4,9 @@ const contactoEmail = document.getElementById("contacto-email");
 const contactoDireccion = document.getElementById("contacto-direccion");
 const guardarDireccion = document.getElementById("guardar-direccion");
 const guardarDireccionInput = document.getElementById("input-direccion");
-const contDirPrincipal = document.getElementById("contenedor-direccion-principal");
+const contDirPrincipal = document.getElementById(
+  "contenedor-direccion-principal"
+);
 const modal = document.getElementById("exampleModalCenter");
 const btnFinCompra = document.getElementById("btn-fin-compra");
 const btnFinCompraD = document.getElementById("btn-fin-compra-d");
@@ -72,9 +74,9 @@ $.ajax({
           data: { ciudades: true }, //Datos a recibir en el script .php a traves de $_POST
           success: function (respuesta) {
             let ciudades = JSON.parse(respuesta);
-            ciudades.map((item) => {
+            ciudades.forEach((item) => {
               let opciones = "";
-              opciones = `<option value="${item.id}">${item.nombre}</option>;`;
+              opciones = `<option value="${item.idCiudad}">${item.nombreCiudad}</option>;`;
               selectCiudad.innerHTML += opciones;
             });
           },
@@ -113,13 +115,13 @@ function cambiarCorreoContacto() {
   let correoUsuario = emailContactoP.textContent;
 
   const cambioEmail = `
-       <div class="cambioEmail info-con">
-            <p>Se enviará información de esta compra al siguiente correo electrónico</p>
-            <input id="nuevo-email" type="email" placeholder="Ej: pepe@gmail.com" value = "${correoUsuario}" >
-            <div class="btn-guardar-cambios info-con">
-              <button id="btn-guardar-email" onclick = "guardarE()">guardar</button>
-            </div>
-          </div>
+    <div class="cambioEmail info-con">
+      <p>Se enviará información de esta compra al siguiente correo electrónico</p>
+      <input id="nuevo-email" type="email" placeholder="Ej: pepe@gmail.com" value = "${correoUsuario}" >
+        <div class="btn-guardar-cambios info-con">
+          <button id="btn-guardar-email" onclick = "guardarE()">guardar</button>
+        </div>
+    </div>
           `;
   contactoEmail.innerHTML = cambioEmail;
 }
@@ -169,7 +171,6 @@ function direccionFinal() {
               </div>`;
     });
   }
-
 }
 
 function cambiarDireccionEnvio() {
@@ -184,7 +185,6 @@ function cambiarDireccionEnvio() {
           </div>
           `;
   contenedorDirFin.innerHTML = cambioDir;
- 
 }
 function guardarNuevaDireccion() {
   nuevaDir = document.getElementById("nueva-dir").value;
@@ -213,6 +213,7 @@ function finalizarCompra() {
     success: function () {
       /* Redirigir y/o mostrar mensaje de finalización */
       /* localStorage.removeItem("carrito"); */
+      alert("Compra procesada con éxito");
       window.location = "./index.php";
     },
   });

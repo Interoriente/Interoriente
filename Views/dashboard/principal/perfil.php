@@ -124,6 +124,8 @@ if (!isset($_SESSION['documentoIdentidad'])) {
                     <div class="row">
                       <div class="col-lg-6">
                         <div class="form-group">
+                          <!-- Imprimir imagen actual del usuario -->
+                          <input type="hidden" name="imagenActual" value="<?php echo $respUserData->imagenUsuario; ?>">
                           <label class="form-control-label" for="docu">Documento</label>
                           <input type="text" id="docu" name="documento" class="form-control" placeholder="Username" value="<?php echo $respUserData->documentoIdentidad; ?>" disabled required>
                         </div>
@@ -155,7 +157,7 @@ if (!isset($_SESSION['documentoIdentidad'])) {
                       <div class="col-lg-6">
                         <div class="form-group">
                           <label class="form-control-label" for="input-image">Foto de Perfil</label>
-                          <input type="file" id="input-image" name="file" class="form-control-file">
+                          <input type="file" id="input-image" name="archivo" class="form-control-file">
                         </div>
                         Si no quieres cambiar la foto de perfil, puedes dejar este campo en blanco
                       </div>

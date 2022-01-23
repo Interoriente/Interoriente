@@ -33,7 +33,7 @@
     <link rel="stylesheet" href="../assets/css/checkout.css" />
     <!-- No eliminar este script -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-   
+
     <!-- Argon CSS -->
     <link rel="stylesheet" href="../dashboard/assets/css/argon.min.css?v=1.2.0" type="text/css">
 
@@ -105,7 +105,7 @@
                         </div>
                     </div>
                     <div class="row mt-3">
-                        <div class="col-6">
+                        <div class="col-6 text-left">
                         </div>
                         <div class="col-6 text-right">
                             <a href="registro.php" class="text-light"><small>¿No tienes una cuenta?</small></a>

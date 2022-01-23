@@ -47,11 +47,11 @@
                   </a>
                   <a href="../../../Docs/ManualDeUsuario_Interoriente.pdf" class="dropdown-item" target="_blank">
                     <i class="ni ni-settings-gear-65"></i>
-                    <span>Manuales</span> <!-- Colocar aquí manual de usuario y formato IEE (Manual del sistema) -->
+                    <span>Manual de Usuario</span> <!-- Colocar aquí manual de usuario y formato IEE (Manual del sistema) -->
                   </a>
-                  <a href="soporte.php" class="dropdown-item">
-                    <i class="ni ni-support-16"></i>
-                    <span>Soporte</span>
+                  <a href="../../../Docs/ManualDeSistema_Interoriente.pdf" class="dropdown-item" target="_blank">
+                    <i class="ni ni-settings-gear-65"></i>
+                    <span>Manual de Sistema</span> <!-- Colocar aquí manual de usuario y formato IEE (Manual del sistema) -->
                   </a>
                   <div class="dropdown-divider"></div>
                   <a href="#" class="dropdown-item" data-toggle="modal" data-target="#logoutModal">

@@ -23,7 +23,7 @@ if (isset($_SESSION['documentoIdentidad'])) {
 
         <head>
             <meta charset="UTF-8">
-            <title>Factura</title>
+            <title>Factura | Interoriente</title>
             <link rel="stylesheet" href="../assets/css/estilosFactura.css">
             <link rel="icon" href="../../assets/img/favicon.png" type="image/png">
         </head>

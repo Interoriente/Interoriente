@@ -58,7 +58,7 @@ if (!isset($_SESSION['documentoIdentidad'])) {
                                     <?php if (!$respMostrarPublicaciones) { ?>
                                         <tr>
                                             <th colspan="7">
-                                                <div class="campo-alerta">
+                                                <div class="campo-alerta" style="padding: 2em 2em;">
                                                     <div class="alerta" role="alert">Opps, por ahora no has realizado publicaciones
                                                         <h2 class="titulo-alerta">Para realizar una publicación presiona <a class="link-mensaje" href="../../navegacion/catalogos.php">aquí</a></h2>
                                                         <img class="img-caja" src="../assets/img/lupa.png" alt="">
