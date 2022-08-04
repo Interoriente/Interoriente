@@ -67,8 +67,8 @@ if (!isset($_SESSION['documentoIdentidad'])) {
                         <!-- <th><img src="<?php //echo $datosPubli['urlImagen'];  
                                             ?>" alt=".." width="130px"></th> -->
                         <th><?= $datosPubli['nombrePublicacion']; ?></th>
-                        <th><?= $datosPubli['costoPublicacion']; ?></th>
-                        <th><?= $datosPubli['cantidadPublicacion']; ?></th>
+                        <th><?= number_format($datosPubli['costoPublicacion'], 0, '', '.'); ?></th>
+                        <th><?= number_format($datosPubli['cantidadPublicacion'], 0, '', '.'); ?></th>
                         <th>
                           <form action="../../../Controllers/php/users/publicaciones.php" method="POST">
                             <input type="hidden" name="activarPublicacion">

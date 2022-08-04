@@ -52,6 +52,7 @@ if (!isset($_SESSION['documentoIdentidad'])) {
                                             <th scope="col">Nombre</th>
                                             <th scope="col">Costo</th>
                                             <th scope="col">Cant</th>
+                                            <th scope="col">Estado</th>
                                             <th scope="col">Acciones</th>
                                         </tr>
                                     </thead>
@@ -74,7 +75,12 @@ if (!isset($_SESSION['documentoIdentidad'])) {
                                             <tr>
                                                 <td><?= $datosPubli['nombrePublicacion']; ?></td>
                                                 <td><?= number_format($datosPubli['costoPublicacion'], 0, '', '.'); ?></td>
-                                                <td><?= $datosPubli['cantidadPublicacion']; ?></td>
+                                                <td><?= number_format($datosPubli['cantidadPublicacion'], 0, '', '.'); ?></td>
+                                                <?php if ($datosPubli['validacionPublicacion'] == 1) {  ?>
+                                                    <td>Activa</td>
+                                                <?php } else { ?>
+                                                    <td>Inactiva</td>
+                                                <?php } ?>
                                                 <td>
                                                     <button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                         Acciones
