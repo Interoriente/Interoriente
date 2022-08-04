@@ -33,7 +33,7 @@ if (!isset($_SESSION['documentoIdentidad'])) {
                         <div class="row align-items-center py-4">
                             <div class="col-lg-6 col-7">
                                 <h6 class="h2 text-white d-inline-block mb-0">Mis publicaciones</h6><br>
-                                <h6 class="h2 text-white d-inline-block mb-0">Total: <?php echo $contadorPublicaciones; ?></h6>
+                                <h6 class="h2 text-white d-inline-block mb-0">Total: <?= $contadorPublicaciones; ?></h6>
                             </div>
                         </div>
                     </div>
@@ -72,16 +72,16 @@ if (!isset($_SESSION['documentoIdentidad'])) {
                                         foreach ($respMostrarPublicaciones as $datosPubli) :
                                         ?>
                                             <tr>
-                                                <td><?php echo $datosPubli['nombrePublicacion']; ?></td>
-                                                <td><?php echo number_format($datosPubli['costoPublicacion'], 0, '', '.'); ?></td>
-                                                <td><?php echo $datosPubli['cantidadPublicacion']; ?></td>
+                                                <td><?= $datosPubli['nombrePublicacion']; ?></td>
+                                                <td><?= number_format($datosPubli['costoPublicacion'], 0, '', '.'); ?></td>
+                                                <td><?= $datosPubli['cantidadPublicacion']; ?></td>
                                                 <td>
                                                     <button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                         Acciones
                                                     </button>
                                                     <div class="dropdown-menu">
-                                                        <a class="btn btn-info" data-toggle="modal" data-target="#actualizarPubliModal<?php echo $datosPubli['idPublicacion']; ?>">Actualizar</a>
-                                                        <a class="btn btn-danger" data-toggle="modal" data-target="#eliminarPubliModal<?php echo $datosPubli['idPublicacion']; ?>">Eliminar</a>
+                                                        <a class="btn btn-info" data-toggle="modal" data-target="#actualizarPubliModal<?= $datosPubli['idPublicacion']; ?>">Actualizar</a>
+                                                        <a class="btn btn-danger" data-toggle="modal" data-target="#eliminarPubliModal<?= $datosPubli['idPublicacion']; ?>">Eliminar</a>
                                                     </div>
                                                 </td>
 

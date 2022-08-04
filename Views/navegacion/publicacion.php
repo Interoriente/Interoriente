@@ -5,6 +5,8 @@ $publicacion = new Publicaciones($idPublicacion);
 $respPublicacion = $publicacion->MostrarPublicacion($publicacion->id);
 
 $respImgPublicacion = $publicacion->MostrarImgPublicacion($publicacion->id);
+
+$validarImagen = substr($respPublicacion[0]['imagenUsuario'], 0, 5);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -18,7 +20,7 @@ $respImgPublicacion = $publicacion->MostrarImgPublicacion($publicacion->id);
   <link rel="stylesheet" href="../assets/css/general.css">
   <link rel="stylesheet" href="../assets/css/publicacion.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-  <title><?php echo $respPublicacion[0]['nombrePublicacion']; ?></title>
+  <title><?= $respPublicacion[0]['nombrePublicacion']; ?></title>
 </head>
 
 <body>
@@ -29,13 +31,13 @@ $respImgPublicacion = $publicacion->MostrarImgPublicacion($publicacion->id);
   <div id="contenedor-principal">
 
     <div class="column carrusel">
-      <img id=img-principal src="<?php echo $respImgPublicacion[0]['urlImagen'] ?>">
+      <img id=img-principal src="<?= $respImgPublicacion[0]['urlImagen'] ?>">
       <div id="slide-wrapper">
         <img id="slideLeft" class="flecha" src="../assets/img/navegacion/flechaIz.png">
         <div id="slider">
           <?php foreach ($respImgPublicacion as $imagen) {
           ?>
-            <img class="thumbnail" src="<?php echo $imagen['urlImagen'] ?>">
+            <img class="thumbnail" src="<?= $imagen['urlImagen'] ?>">
           <?php } ?>
         </div>
 
@@ -45,10 +47,10 @@ $respImgPublicacion = $publicacion->MostrarImgPublicacion($publicacion->id);
 
     <div class="column">
       <div class="descripcion-d">
-        <h2 class="titulo-publicacion"><?php echo $respPublicacion[0]['nombrePublicacion'];
+        <h2 class="titulo-publicacion"><?= $respPublicacion[0]['nombrePublicacion'];
                                         ?></h2>
         <hr>
-        <h3>$<?php echo number_format($respPublicacion[0]['costoPublicacion'], 0, '', '.');
+        <h3>$<?= number_format($respPublicacion[0]['costoPublicacion'], 0, '', '.');
               ?></h3>
       </div>
       <!-- Nota: Número máximo de caracteres: 245 - palabras: 43 - líneas: 2 -->
@@ -59,11 +61,11 @@ $respImgPublicacion = $publicacion->MostrarImgPublicacion($publicacion->id);
       <div class="seccion-cta">
         <div class="cantidad">
           <p>Existencia</p>
-          <h4><?php echo $respPublicacion[0]['cantidadPublicacion'] ?></h4>
+          <h4><?= $respPublicacion[0]['cantidadPublicacion'] ?></h4>
         </div>
         <div class="cta">
           <a class="btn btn-accion" href="checkout.php">Comprar Ahora</a>
-          <a class="btn btn-accion" onclick="addCarrito(this.id)" id="<?php echo $respPublicacion[0]['idPublicacion'] ?>">Agregar al carrito</a>
+          <a class="btn btn-accion" onclick="addCarrito(this.id)" id="<?= $respPublicacion[0]['idPublicacion'] ?>">Agregar al carrito</a>
         </div>
 
       </div>
@@ -77,7 +79,7 @@ $respImgPublicacion = $publicacion->MostrarImgPublicacion($publicacion->id);
 
   <section class="descripcionPublicacion">
     <h1 class="informacion-h1 ">Descripción de la publicación</h1>
-    <p><?php echo $respPublicacion[0]['descripcionPublicacion']; ?></p>
+    <p><?= $respPublicacion[0]['descripcionPublicacion']; ?></p>
   </section>
 
   <!-- Sección Datos Proveedor -->
@@ -86,10 +88,10 @@ $respImgPublicacion = $publicacion->MostrarImgPublicacion($publicacion->id);
   <section class="info-proveedor">
 
     <div class="descripcion-proveedor">
-      <h2><?php echo $respPublicacion[0]['nombresUsuario']; ?></h2>
-      <p><?php echo $respPublicacion[0]['descripcionUsuario']; ?></p>
+      <h2><?= $respPublicacion[0]['nombresUsuario']; ?></h2>
+      <p><?= $respPublicacion[0]['descripcionUsuario']; ?></p>
       <br>
-      <a target="_blank" href="https://api.whatsapp.com/send?phone=57<?php echo $respPublicacion[0]['telefono']; ?>">
+      <a target="_blank" href="https://api.whatsapp.com/send?phone=57<?= $respPublicacion[0]['telefono']; ?>">
         <img class="whatsapp-icon" src="../assets/img/iconos/whatsapp.svg" alt="Contacto Whatsapp">
       </a>
     </div>
@@ -97,9 +99,14 @@ $respImgPublicacion = $publicacion->MostrarImgPublicacion($publicacion->id);
     </div>
     <div class="perfil-proveedor">
       <div class="tarjeta-perfil">
-        <img src="../dashboard/principal/<?php echo $respPublicacion[0]['imagenUsuario']; ?>" alt="Imagen de perfil del proveedor">
+        <?php
+        if ($validarImagen == "https") { ?>
+          <img src="<?= $respPublicacion[0]['imagenUsuario']; ?>" alt="Imagen de perfil del proveedor">
+        <?php } else { ?>
+          <img src="../dashboard/principal/<?= $respPublicacion[0]['imagenUsuario']; ?>" alt="Imagen de perfil del proveedor">
+        <?php } ?>
         <a href="">
-          <?php echo $respPublicacion[0]['nombresUsuario']; ?>
+          <?= $respPublicacion[0]['nombresUsuario']; ?>
         </a>
       </div>
 

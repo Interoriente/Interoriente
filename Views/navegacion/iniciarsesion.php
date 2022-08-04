@@ -67,7 +67,7 @@
                         <div class="card-header bg-transparent pb-5">
                             <div class="text-muted text-center mt-2 mb-4"><small>Puedes iniciar sesión por:</small></div>
                             <div class="text-center">
-                                <a href="<?php echo $GoogleLogin; ?>" class="btn btn-neutral btn-icon">
+                                <a href="<?= $GoogleLogin; ?>" class="btn btn-neutral btn-icon">
                                     <span class="btn-inner--icon"><img src="../dashboard/assets/img/google.svg"></span>
                                     <span class="btn-inner--text">Google</span>
                                 </a>

@@ -39,7 +39,7 @@ if (isset($_SESSION['documentoIdentidad'])) {
                         </td>
                         <td class="info_empresa">
                             <div>
-                                <span class="h2"><?php echo strtoupper('Interoriente S.A.S'); ?></span>
+                                <span class="h2"><?= strtoupper('Interoriente S.A.S'); ?></span>
                                 <p>Ventas seguras por internet</p>
                                 <p>NIT: 12345678-9</p>
                                 <p>Soporte: 3231231213</p>
@@ -49,8 +49,8 @@ if (isset($_SESSION['documentoIdentidad'])) {
                         <td class="info_factura">
                             <div class="round">
                                 <span class="h3">Factura</span>
-                                <p>No. Factura: <strong><?php echo $respEncabezadoFactura->numeroFactura; ?></strong></p>
-                                <p>Fecha: <?php echo $respEncabezadoFactura->fecha; ?></p>
+                                <p>No. Factura: <strong><?= $respEncabezadoFactura->numeroFactura; ?></strong></p>
+                                <p>Fecha: <?= $respEncabezadoFactura->fecha; ?></p>
                             </div>
                         </td>
                     </tr>
@@ -63,10 +63,10 @@ if (isset($_SESSION['documentoIdentidad'])) {
                                 <table class="datos_cliente">
                                     <tr>
                                         <td><label>Documento:</label>
-                                            <p><?php echo $respEncabezadoFactura->documentoIdentidad; ?></p>
+                                            <p><?= $respEncabezadoFactura->documentoIdentidad; ?></p>
                                         </td>
                                         <td><label>Teléfono:</label>
-                                            <p><?php echo $respEncabezadoFactura->telefonoMovilUsuario; ?></p>
+                                            <p><?= $respEncabezadoFactura->telefonoMovilUsuario; ?></p>
                                         </td>
                                         <td><label>Municipio:</label>
                                             <p>Marinilla Ant</p>
@@ -74,13 +74,13 @@ if (isset($_SESSION['documentoIdentidad'])) {
                                     </tr>
                                     <tr>
                                         <td><label>Nombre:</label>
-                                            <p><?php echo $respEncabezadoFactura->Cliente; ?></p>
+                                            <p><?= $respEncabezadoFactura->Cliente; ?></p>
                                         </td>
                                         <td><label>Dirección:</label>
-                                            <p><?php echo $respEncabezadoFactura->direccionFactura; ?></p>
+                                            <p><?= $respEncabezadoFactura->direccionFactura; ?></p>
                                         </td>
                                         <td><label>Correo:</label>
-                                            <p><?php echo $respEncabezadoFactura->emailFactura; ?></p>
+                                            <p><?= $respEncabezadoFactura->emailFactura; ?></p>
                                         </td>
                                     </tr>
                                 </table>
@@ -105,10 +105,10 @@ if (isset($_SESSION['documentoIdentidad'])) {
                         foreach ($respCuerpoFactura as $datos) {
                         ?>
                             <tr>
-                                <td class="textcenter"><?php echo number_format($datos['cantidadFacturaPublicacion']); ?></td>
-                                <td><?php echo $datos['nombrePublicacion']; ?></td>
-                                <td class="textright"><?php echo number_format($datos['costoPublicacion']); ?></td>
-                                <td class="textright"><?php echo number_format($datos['cantidadFacturaPublicacion'] * $datos['costoPublicacion']); ?></td>
+                                <td class="textcenter"><?= number_format($datos['cantidadFacturaPublicacion']); ?></td>
+                                <td><?= $datos['nombrePublicacion']; ?></td>
+                                <td class="textright"><?= number_format($datos['costoPublicacion']); ?></td>
+                                <td class="textright"><?= number_format($datos['cantidadFacturaPublicacion'] * $datos['costoPublicacion']); ?></td>
                             </tr>
                         <?php
                             $precioTotal = $datos['pagar'];
@@ -122,15 +122,15 @@ if (isset($_SESSION['documentoIdentidad'])) {
                     <tfoot id="detalle_totales">
                         <tr>
                             <td colspan="3" class="textright"><span>SUBTOTAL</span></td>
-                            <td class="textright"><span>$<?php echo number_format($subtotal); ?></span></td>
+                            <td class="textright"><span>$<?= number_format($subtotal); ?></span></td>
                         </tr>
                         <tr>
                             <td colspan="3" class="textright"><span>IVA (19%)</span></td>
-                            <td class="textright"><span>$<?php echo number_format($impuesto); ?></span></td>
+                            <td class="textright"><span>$<?= number_format($impuesto); ?></span></td>
                         </tr>
                         <tr>
                             <td colspan="3" class="textright"><span>TOTAL A PAGAR</span></td>
-                            <td class="textright"><span>$<?php echo number_format($totalPagar); ?></span></td>
+                            <td class="textright"><span>$<?= number_format($totalPagar); ?></span></td>
                         </tr>
                     </tfoot>
                 </table>

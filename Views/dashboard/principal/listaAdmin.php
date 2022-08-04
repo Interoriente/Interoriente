@@ -30,7 +30,7 @@ if (!isset($_SESSION['documentoIdentidad'])) {
                         <div class="row align-items-center py-4">
                             <div class="col-lg-6 col-7">
                                 <h6 class="h2 text-white d-inline-block mb-0">Tabla de administradores</h6><br>
-                                <h6 class="h2 text-white d-inline-block mb-0">Total: <?php echo $contadorAdministradores; ?></h6>
+                                <h6 class="h2 text-white d-inline-block mb-0">Total: <?= $contadorAdministradores; ?></h6>
                             </div>
                         </div>
                     </div>
@@ -63,17 +63,17 @@ if (!isset($_SESSION['documentoIdentidad'])) {
                                     <tbody class="list">
                                         <?php foreach ($respAdminData as $datos) { ?>
                                             <tr>
-                                                <th><?php echo $datos['documentoIdentidad']; ?></th>
-                                                <th><?php echo $datos['nombresUsuario']; ?></th>
-                                                <th><?php echo $datos['apellidoUsuario']; ?></th>
-                                                <th><?php echo $datos['emailUsuario']; ?></th>
-                                                <th><?php echo $datos['telefonomovilUsuario']; ?></th>
+                                                <th><?= $datos['documentoIdentidad']; ?></th>
+                                                <th><?= $datos['nombresUsuario']; ?></th>
+                                                <th><?= $datos['apellidoUsuario']; ?></th>
+                                                <th><?= $datos['emailUsuario']; ?></th>
+                                                <th><?= $datos['telefonomovilUsuario']; ?></th>
                                                 <?php if ($datos['estadoUsuario'] == 1) { ?>
                                                     <th>Activo</th>
                                                     <th>
                                                         <form action="" method="post">
                                                             <input type="hidden" name="desactivarUsuarios">
-                                                            <input type="hidden" name="id" value="<?php echo $datos['documentoIdentidad']; ?>">
+                                                            <input type="hidden" name="id" value="<?= $datos['documentoIdentidad']; ?>">
                                                             <input type="submit" class="btn btn-danger" value="Desactivar">
                                                         </form>
                                                     </th>
@@ -82,7 +82,7 @@ if (!isset($_SESSION['documentoIdentidad'])) {
                                                     <th>
                                                         <form action="" method="post">
                                                             <input type="hidden" name="activarUsuarios">
-                                                            <input type="hidden" name="id" value="<?php echo $datos['documentoIdentidad']; ?>">
+                                                            <input type="hidden" name="id" value="<?= $datos['documentoIdentidad']; ?>">
                                                             <input type="submit" class="btn btn-success" value="Activar">
                                                         </form>
                                                     </th>

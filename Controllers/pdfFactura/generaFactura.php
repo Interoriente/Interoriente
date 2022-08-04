@@ -39,7 +39,7 @@ $iva = 0.19;
 				</td>
 				<td class="info_empresa">
 					<div>
-						<span class="h2"><?php echo strtoupper("Interoriente S.A.S"); ?></span>
+						<span class="h2"><?= strtoupper("Interoriente S.A.S"); ?></span>
 						<p>Ventas seguras por internet</p>
 						<p>Soporte: 3197183038</p>
 						<p>Email: interoriente437@gmail.com</p>
@@ -48,9 +48,9 @@ $iva = 0.19;
 				<td class="info_factura">
 					<div class="round">
 						<span class="h3">Factura</span>
-						<p>No. Factura: <strong><?php echo $respEncabezadoFactura->numeroFactura; ?></strong></p>
-						<p>Fecha: <?php echo $respEncabezadoFactura->fecha; ?></p>
-						<p>Hora: <?php echo $respEncabezadoFactura->hora; ?></p>
+						<p>No. Factura: <strong><?= $respEncabezadoFactura->numeroFactura; ?></strong></p>
+						<p>Fecha: <?= $respEncabezadoFactura->fecha; ?></p>
+						<p>Hora: <?= $respEncabezadoFactura->hora; ?></p>
 						<p>Factura Electrónica</p>
 					</div>
 				</td>
@@ -64,10 +64,10 @@ $iva = 0.19;
 						<table class="datos_cliente">
 							<tr>
 								<td><label>Documento:</label>
-									<p><?php echo $respEncabezadoFactura->documentoIdentidad; ?></p>
+									<p><?= $respEncabezadoFactura->documentoIdentidad; ?></p>
 								</td>
 								<td><label>Teléfono:</label>
-									<p><?php echo $respEncabezadoFactura->telefonoMovilUsuario; ?></p>
+									<p><?= $respEncabezadoFactura->telefonoMovilUsuario; ?></p>
 								</td>
 								<td><label>Municipio:</label>
 									<p>Marinilla Ant</p>
@@ -75,13 +75,13 @@ $iva = 0.19;
 							</tr>
 							<tr>
 								<td><label>Nombre:</label>
-									<p><?php echo $respEncabezadoFactura->Cliente; ?></p>
+									<p><?= $respEncabezadoFactura->Cliente; ?></p>
 								</td>
 								<td><label>Dirección:</label>
-									<p><?php echo $respEncabezadoFactura->direccionFactura; ?></p>
+									<p><?= $respEncabezadoFactura->direccionFactura; ?></p>
 								</td>
 								<td><label>Correo:</label>
-									<p><?php echo $respEncabezadoFactura->emailFactura; ?></p>
+									<p><?= $respEncabezadoFactura->emailFactura; ?></p>
 								</td>
 							</tr>
 						</table>
@@ -106,10 +106,10 @@ $iva = 0.19;
 				foreach ($respCuerpoFactura as $datos) {
 				?>
 					<tr>
-						<td class="textcenter"><?php echo number_format($datos["cantidadFacturaPublicacion"]); ?></td>
-						<td><?php echo $datos["nombrePublicacion"]; ?></td>
-						<td class="textright"><?php echo number_format($datos["costoPublicacion"]); ?></td>
-						<td class="textright"><?php echo number_format($datos["cantidadFacturaPublicacion"] * $datos["costoPublicacion"]); ?></td>
+						<td class="textcenter"><?= number_format($datos["cantidadFacturaPublicacion"]); ?></td>
+						<td><?= $datos["nombrePublicacion"]; ?></td>
+						<td class="textright"><?= number_format($datos["costoPublicacion"]); ?></td>
+						<td class="textright"><?= number_format($datos["cantidadFacturaPublicacion"] * $datos["costoPublicacion"]); ?></td>
 					</tr>
 				<?php
 					$precioTotal = $datos["pagar"];
@@ -123,11 +123,11 @@ $iva = 0.19;
 			<tfoot id="detalle_totales">
 				<tr>
 					<td colspan="3" class="textright"><span>SUBTOTAL</span></td>
-					<td class="textright"><span>$<?php echo number_format($subtotal); ?></span></td>
+					<td class="textright"><span>$<?= number_format($subtotal); ?></span></td>
 				</tr>
 				<tr>
-					<td colspan="3" class="textright"><span>IVA (<?php echo $iva; ?> %)</span></td>
-					<td class="textright"><span>$<?php echo number_format($impuesto); ?></span></td>
+					<td colspan="3" class="textright"><span>IVA (<?= $iva; ?> %)</span></td>
+					<td class="textright"><span>$<?= number_format($impuesto); ?></span></td>
 				</tr>
 				<tr>
 					<td colspan="3" class="textright"><span>TOTAL A PAGAR</span></td>

@@ -76,7 +76,7 @@ if (!isset($_SESSION['documentoIdentidad'])) {
                           <option value="" disabled selected>Seleccione una categoria del producto</option>
                           <?php
                           foreach ($respGetCategorias as $datosCategoria) { ?>
-                            <option value="<?php echo $datosCategoria['idCategoria']; ?>"><?php echo $datosCategoria['nombreCategoria']; ?></option>
+                            <option value="<?= $datosCategoria['idCategoria']; ?>"><?= $datosCategoria['nombreCategoria']; ?></option>
                           <?php } ?>
                         </select>
                       </div>
@@ -96,7 +96,7 @@ if (!isset($_SESSION['documentoIdentidad'])) {
                     <div class="col-lg-6">
                       <div class="form-group">
                         <!-- <label class="form-control-label" for="usu">Usuario</label> -->
-                        <input type="hidden" id="usu" name="usuario" class="form-control" placeholder="Usuario" value="<?php echo $documento; ?>">
+                        <input type="hidden" id="usu" name="usuario" class="form-control" placeholder="Usuario" value="<?= $documento; ?>">
                       </div>
                     </div>
                   </div>
