@@ -1,2 +1,0 @@
-# Interoriente
-Proyecto formativo SENA
