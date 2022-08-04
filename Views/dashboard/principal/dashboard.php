@@ -334,7 +334,12 @@ if (!isset($_SESSION['documentoIdentidad'])) {
                   </thead>
                   <tbody id="filasExitosas">
                     <!-- Renderizar Publicaciones-->
-                    <?php for ($i = 0; $i < 5; $i++) : ?>
+                    <?php for ($i = 0; $i < 5; $i++) : 
+                      if (empty($respMasExitosas->VlrVentas[$i])) {
+                        break;
+                      }
+                      ?>
+                      
                       <tr>
                         <td>
                           <a href="../../navegacion/publicacion.php?id=<?= base64_encode($respMasExitosas->Ids[$i]); ?>"><?= $respMasExitosas->Titulos[$i]; ?></a>
