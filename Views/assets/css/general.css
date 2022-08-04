@@ -1,0 +1,15 @@
+/* Propiedades Generales --> Paleta de Colores y fuentes*/
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500&family=Source+Serif+Pro:wght@400;700&display=swap');
+:root {
+  --clr-primario-a: #004e64;
+  --clr-primario-b: #5d9bac;
+  --clr-secundario: #408e8d;
+  --clr-neutro-a: #fefdeb;
+  --clr-neutro-b: #001014;
+  --clr-neutro-c: #e5e5e5;
+  --clr-cta-a: #ffb930;
+  --crl-cta-b: #fce61e;
+  --poppins: "Poppins", sans-serif;
+  --serif: 'Source Serif Pro', serif;;
+}

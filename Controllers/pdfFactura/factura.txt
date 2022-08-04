@@ -1,0 +1,9 @@
+Funcional
+1. Crear factura, y visualizar productos con el total
+
+Tener en cuenta
+1. Al finalizar la compra de un producto, restar el stock de existencia
+
+Próximo a realizar
+1. Al crear pdf que se muestre la factura correctamente con sus estilos
+2. Traer el número de factura correspondiente a la compra realizada
