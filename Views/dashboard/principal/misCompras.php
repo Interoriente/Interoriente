@@ -71,6 +71,10 @@ if (!isset($_SESSION['documentoIdentidad'])) {
                                             <input type="hidden" name="numero" value="<?= $misCompras['numeroFactura'] ?>">
                                             <input type="submit" class="boton-menu" value="Ver">
                                         </form>
+                                        <form action="../../../Controllers/pdfFactura/php/generaFactura.php" method="post">
+                                            <input type="hidden" name="numero" value="<?= $misCompras['numeroFactura'] ?>">
+                                            <input type="submit" class="boton-menu" value="Descargar">
+                                        </form>
                                     </div>
                                 </div>
                             <?php } ?>

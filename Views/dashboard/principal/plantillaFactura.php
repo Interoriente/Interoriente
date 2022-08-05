@@ -161,7 +161,7 @@
 					<div>
 						<span class="h2"><?= strtoupper("Interoriente S.A.S"); ?></span>
 						<p>Ventas seguras por internet</p>
-						<p>Soporte: 3197183038</p>
+						<p>Soporte: 3231231213</p>
 						<p>Email: interoriente437@gmail.com</p>
 					</div>
 				</td>

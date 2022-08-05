@@ -125,6 +125,7 @@ if (isset($_SESSION['documentoIdentidad'])) {
                 </table>
                 <div>
                     <p class="nota">Si usted tiene preguntas sobre esta factura, <br>pongase en contacto con Interoriente, 3231231213 y interoriente437@gmail.com</p>
+                    <p><a href="misCompras.php">Regresar</a></p>
                     <h4 class="label_gracias">¡Gracias por su compra!</h4>
                 </div>
             </div>

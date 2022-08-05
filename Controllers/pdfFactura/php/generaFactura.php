@@ -4,7 +4,7 @@ use Dompdf\Dompdf;
 
 session_start();
 if (isset($_SESSION['documentoIdentidad'])) {
-	$numeroFactura = 7;
+	$numeroFactura = $_POST['numero'];
 	if (isset($numeroFactura)) {
 		require "../../../Views/dashboard/includes/variablesFactura.php";
 		if ($respEncabezadoFactura->estadoFactura == 0) {
@@ -30,7 +30,7 @@ if (isset($_SESSION['documentoIdentidad'])) {
 		 * "Attachment" => 0 -> Para vista previa
 		 * "Attachment" => 1 -> Para descargar el archivo
 		 */
-		$dompdf->stream("Factura_$numeroFactura" . "_cliente_$respEncabezadoFactura->documentoIdentidad", array("Attachment" => 0));
+		$dompdf->stream("Factura_$numeroFactura" . "_cliente_$respEncabezadoFactura->documentoIdentidad", array("Attachment" => 1));
 	} else {
 		echo "<script>alert('¡Error! No se ha seleccionado una factura.');</script>";
 		echo "<script> document.location.href='dashboard.php';</script>";
