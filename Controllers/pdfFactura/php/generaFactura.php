@@ -1,0 +1,34 @@
+<?php
+
+use Dompdf\Dompdf;
+
+session_start();
+if (isset($_SESSION['documentoIdentidad'])) {
+	$numeroFactura = 7;
+	if (isset($numeroFactura)) {
+		require "../../../Views/dashboard/includes/variablesFactura.php";
+
+		require '../dompdf/vendor/autoload.php';
+		ob_start();
+		include('../../../Views/dashboard/principal/plantillaFactura.php');
+		$html = ob_get_clean();
+		// instantiate and use the dompdf class
+		$dompdf = new Dompdf();
+
+		$options = $dompdf->getOptions();
+		$options->set(array('isRemoteEnabled' => true,));
+		$dompdf->setOptions($options);
+		$dompdf->loadHtml($html);
+		$dompdf->setPaper('letter', 'portrait');
+		$dompdf->render();
+		header("Content-type: application/pdf");
+		header("Content-Disposition: inline; filename=documento.pdf");
+		$dompdf->stream("Factura_$numeroFactura"."_cliente_$respEncabezadoFactura->documentoIdentidad", array("Attachment" => 0));
+	} else {
+		echo "<script>alert('¡Error! No se ha seleccionado una factura.');</script>";
+		echo "<script> document.location.href='dashboard.php';</script>";
+	}
+} else {
+	echo "<script>alert('No has iniciado sesión');</script>";
+	echo "<script> document.location.href='403.php';</script>";
+}

@@ -1,22 +1,9 @@
 <?php
 session_start();
 if (isset($_SESSION['documentoIdentidad'])) {
-    @$numero = $_POST['numero'];
-    if (isset($numero)) {
-        $numeroFactura = $numero;
-        $documento = $_SESSION['documentoIdentidad'];
-
-        require "../../../Controllers/php/users/compras.php";
-        $factura = new Factura($documento, $numeroFactura);
-        $respEncabezadoFactura = $factura->EncabezadoFactura($factura->id, $factura->numero);
-        $respCuerpoFactura = $factura->CuerpoFactura($factura->id, $factura->numero);
-
-        /* Inicializando variables para luego utilizarlas en la factura */
-        $subtotal = 0;
-        $impuesto = 0;
-        $totalSinIva = 0;
-        $totalPagar = 0;
-        $iva = 0.19;
+    $numeroFactura = $_POST['numero'];
+    if (isset($numeroFactura)) {
+        require "../includes/variablesFactura.php";
 ?>
         <!DOCTYPE html>
         <html lang="en">
@@ -135,7 +122,7 @@ if (isset($_SESSION['documentoIdentidad'])) {
                     </tfoot>
                 </table>
                 <div>
-                    <p class="nota">Si usted tiene preguntas sobre esta factura, <br>pongase en contacto con Interoriente, 3197183038 y interoriente437@gmail.com</p>
+                    <p class="nota">Si usted tiene preguntas sobre esta factura, <br>pongase en contacto con Interoriente, 3231231213 y interoriente437@gmail.com</p>
                     <h4 class="label_gracias">¡Gracias por su compra!</h4>
                 </div>
             </div>
