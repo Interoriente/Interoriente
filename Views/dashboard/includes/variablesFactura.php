@@ -13,3 +13,5 @@ $impuesto = 0;
 $totalSinIva = 0;
 $totalPagar = 0;
 $iva = 0.19;
+$anulado="";
+

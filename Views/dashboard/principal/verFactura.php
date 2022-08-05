@@ -38,6 +38,8 @@ if (isset($_SESSION['documentoIdentidad'])) {
                                 <span class="h3">Factura</span>
                                 <p>No. Factura: <strong><?= $respEncabezadoFactura->numeroFactura; ?></strong></p>
                                 <p>Fecha: <?= $respEncabezadoFactura->fecha; ?></p>
+                                <p>Hora: <?= $respEncabezadoFactura->hora; ?></p>
+                                <p>Factura de venta</p>
                             </div>
                         </td>
                     </tr>

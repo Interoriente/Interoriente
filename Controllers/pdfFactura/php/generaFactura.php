@@ -7,11 +7,14 @@ if (isset($_SESSION['documentoIdentidad'])) {
 	$numeroFactura = 7;
 	if (isset($numeroFactura)) {
 		require "../../../Views/dashboard/includes/variablesFactura.php";
-
+		if ($respEncabezadoFactura->estadoFactura == 0) {
+			$anulado = "<img class='anulada' src='../../../Views/assets/img/factura/anulado.png'";
+		}
 		require '../dompdf/vendor/autoload.php';
 		ob_start();
 		include('../../../Views/dashboard/principal/plantillaFactura.php');
 		$html = ob_get_clean();
+
 		// instantiate and use the dompdf class
 		$dompdf = new Dompdf();
 
@@ -23,7 +26,11 @@ if (isset($_SESSION['documentoIdentidad'])) {
 		$dompdf->render();
 		header("Content-type: application/pdf");
 		header("Content-Disposition: inline; filename=documento.pdf");
-		$dompdf->stream("Factura_$numeroFactura"."_cliente_$respEncabezadoFactura->documentoIdentidad", array("Attachment" => 0));
+		/**
+		 * "Attachment" => 0 -> Para vista previa
+		 * "Attachment" => 1 -> Para descargar el archivo
+		 */
+		$dompdf->stream("Factura_$numeroFactura" . "_cliente_$respEncabezadoFactura->documentoIdentidad", array("Attachment" => 0));
 	} else {
 		echo "<script>alert('¡Error! No se ha seleccionado una factura.');</script>";
 		echo "<script> document.location.href='dashboard.php';</script>";
