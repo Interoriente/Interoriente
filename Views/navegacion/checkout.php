@@ -25,7 +25,7 @@ foreach ($checkoutData as $i) {
   <link rel="icon" href="../assets/img/favicon.png" type="image/png" />
   <!-- Bootstrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous" />
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <!-- Css local  -->
   <link rel="stylesheet" href="../assets/css/general.css" />
   <link rel="stylesheet" href="../assets/css/checkout.css" />
