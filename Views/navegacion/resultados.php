@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="../assets/css/general.css">
     <link rel="stylesheet" href="../assets/css/resultados.css">
     <link rel="shortcut icon" href="../assets/img/favicon.png" type="image/x-icon">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
     <title>Resultados de Búsqueda </title>
 </head>
 <body>
