@@ -22,7 +22,7 @@ if ($catalogo) {
     <link rel="stylesheet" href="../assets/css/general.css">
     <link rel="stylesheet" href="../assets/css/index.css">
     <!-- No eliminar este script -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
     <title> Inicio | Interoriente</title>
 </head>
 

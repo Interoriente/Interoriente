@@ -208,7 +208,7 @@ function finalizarCompra() {
     type: "POST",
     data: { checkout: checkout },
     error: function (err) {
-      alert(err);
+      alert("Ocurrió un error" + err);
     },
     success: function () {
       /* Redirigir y/o mostrar mensaje de finalización */
