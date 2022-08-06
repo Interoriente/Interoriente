@@ -207,8 +207,8 @@ function finalizarCompra() {
     url: "../../Controllers/php/users/compras.php",
     type: "POST",
     data: { checkout: checkout },
-    error: function (err) {
-      alert(err);
+    error: function (xhr, textStatus, errorMessage) {
+      alert("Ocurrió un error" + errorMessage + textStatus + xhr);
     },
     success: function () {
       /* Redirigir y/o mostrar mensaje de finalización */
