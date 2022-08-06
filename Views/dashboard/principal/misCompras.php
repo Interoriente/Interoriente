@@ -61,19 +61,15 @@ if (!isset($_SESSION['documentoIdentidad'])) {
                                 <div class="menu-principal">
                                     <div class="cont-menudos">
                                         <br>
-                                        <h2 class="titulo-factura">#<?= $misCompras['numeroFactura']; ?></h2>
-                                        <h2 class="titulo-costo">$<?= number_format(round($misCompras['Costo']), 0, '', '.'); ?></h2>
-                                        <h2 class="titulo-fecha"><?= $misCompras['fechaFactura']; ?></h2>
-                                        <p class="textos">Productos: <?= $misCompras['Contador']; ?></p>
+                                        <h2 class="titulo-factura">#<?php echo $misCompras['numeroFactura']; ?></h2>
+                                        <h2 class="titulo-costo">$<?php echo number_format(round($misCompras['Costo']), 0, '', '.'); ?></h2>
+                                        <h2 class="titulo-fecha"><?php echo $misCompras['fechaFactura']; ?></h2>
+                                        <p class="textos">Productos: <?php echo $misCompras['Contador']; ?></p>
                                     </div>
                                     <div class="cont-menutres">
                                         <form action="verFactura.php" method="post" target="_blank">
-                                            <input type="hidden" name="numero" value="<?= $misCompras['numeroFactura'] ?>">
+                                            <input type="hidden" name="numero" value="<?php echo $misCompras['numeroFactura'] ?>">
                                             <input type="submit" class="boton-menu" value="Ver">
-                                        </form>
-                                        <form action="../../../Controllers/pdfFactura/php/generaFactura.php" method="post">
-                                            <input type="hidden" name="numero" value="<?= $misCompras['numeroFactura'] ?>">
-                                            <input type="submit" class="boton-menu" value="Descargar">
                                         </form>
                                     </div>
                                 </div>

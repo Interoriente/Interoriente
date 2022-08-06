@@ -19,7 +19,7 @@
                 <div class="form-group">
                     <?php foreach ($alertaStock as $datos) {
                     ?>
-                        <label id="texto"><b><?= $datos['nombrePublicacion']; ?></b><br> Cantidad: <?= $datos['cantidadPublicacion']; ?><br>Stock mínimo: <?= $datos['stockMinPublicacion']; ?></label><br>
+                        <label id="texto"><b><?php echo $datos['nombrePublicacion']; ?></b><br> Cantidad: <?php echo $datos['cantidadPublicacion']; ?><br>Stock mínimo: <?php echo $datos['stockMinPublicacion']; ?></label><br>
                     <?php } ?>
                 </div>
                 <!-- Modal Footer -->
@@ -51,7 +51,7 @@
                 <!-- Mostrar las publicaciones sin validar -->
                 <div class="form-group">
                     <?php foreach ($noValidadas as $datos) { ?>
-                        <label id="texto"><b><?= $datos['nombrePublicacion']; ?></b></label><br>
+                        <label id="texto"><b><?php echo $datos['nombrePublicacion']; ?></b></label><br>
                     <?php } ?>
                 </div>
                 <!-- Modal Footer -->

@@ -36,10 +36,10 @@ if (!isset($_SESSION['documentoIdentidad'])) {
 ?>
       <script>
         //Mando al JS la información, por medio de las variables declaradas
-        let labelVentas = [<?= $labelVentas; ?>];
-        let datosVentas = [<?= $datosVentas; ?>];
-        let labelVentasSemana = [<?= $labelVentasSemana; ?>];
-        let datosVentasSemana = [<?= $datosVentasSemana; ?>];
+        let labelVentas = [<?php echo $labelVentas; ?>];
+        let datosVentas = [<?php echo $datosVentas; ?>];
+        let labelVentasSemana = [<?php echo $labelVentasSemana; ?>];
+        let datosVentasSemana = [<?php echo $datosVentasSemana; ?>];
       </script>
       <!-- Para mostrar en la sección de publicación más exitosa (cuando no exista) -->
       <link rel="stylesheet" href="../../assets/css/general.css">
@@ -57,10 +57,10 @@ if (!isset($_SESSION['documentoIdentidad'])) {
               <?php
               foreach ($respGetRoles as $datosRol) : ?>
                 <form action="cambioRol.php" method="post">
-                  <input type="hidden" name="rol" value="<?= $datosRol['idUsuarioRol'] ?>">
+                  <input type="hidden" name="rol" value="<?php echo $datosRol['idUsuarioRol'] ?>">
                   <br>
                   <?php if ($_SESSION['roles'] != $datosRol['idUsuarioRol']) { ?>
-                    <button type="submit" class="btn btn-sm btn-neutral cambioRol" name="cambioRol"><?= $datosRol['nombreRol']; ?></button>
+                    <button type="submit" class="btn btn-sm btn-neutral cambioRol" name="cambioRol"><?php echo $datosRol['nombreRol']; ?></button>
                   <?php } ?>
                 </form>
               <?php endforeach; ?>
@@ -84,7 +84,7 @@ if (!isset($_SESSION['documentoIdentidad'])) {
                     <div class="row">
                       <div class="col">
                         <h5 class="card-title text-uppercase text-muted mb-0">Usuarios</h5>
-                        <span class="h5 font-weight-bold mb-0 text-rap text-danger">Hay <?= $respContadorUsuario['Contador'] ?> registrados </span>
+                        <span class="h5 font-weight-bold mb-0 text-rap text-danger">Hay <?php echo $respContadorUsuario['Contador'] ?> registrados </span>
                       </div>
                       <div class="col-auto icono-dashboard">
                         <div class="icon icon-shape bg-gradient-red text-white rounded-circle shadow">
@@ -99,35 +99,31 @@ if (!isset($_SESSION['documentoIdentidad'])) {
               <!-- Contenedor Tarjeta -->
               <div class="col-xl-3 col-md-6">
                 <div class="card card-stats">
-                  <?php if (!empty($contadorNoValidadas)) { ?>
-                    <a href="#" data-toggle="modal" data-target="#verNovalidadas">
-                    <?php } else { ?>
-                      <a>
-                      <?php } ?>
-                      <!-- Tarjeta -->
-                      <div class="card-body">
-                        <div class="row">
-                          <div class="col">
-                            <h5 class="card-title text-uppercase text-muted mb-0">Publicaciones</h5>
-                            <?php if (isset($noValidadas) && $contadorNovalidadas != 0) { ?>
-                              <span class="h5 font-weight-bold mb-0 text-rap text-warning">Tienes <?= $contadorNovalidadas; ?> publicaciones para validar.</span>
-                          </div>
-                          <div class="col-auto icono-dashboard">
-                            <div class="icon icon-shape bg-gradient-orange text-white rounded-circle shadow">
-                              <i class="ni ni-album-2"></i>
-                            </div>
-                          </div>
-                        <?php } else { ?>
-                          <span class="h5 font-weight-bold mb-0 text-blue">No tienes publicaciones por validar</span>
+                  <a data-toggle="modal" data-target="#verNovalidadas">
+                    <!-- Tarjeta -->
+                    <div class="card-body">
+                      <div class="row">
+                        <div class="col">
+                          <h5 class="card-title text-uppercase text-muted mb-0">Publicaciones</h5>
+                          <?php if (isset($noValidadas)) { ?>
+                            <span class="h5 font-weight-bold mb-0 text-rap text-warning">Tienes <?php echo $contadorNovalidadas; ?> publicaciones para validar.</span>
                         </div>
                         <div class="col-auto icono-dashboard">
-                          <div class="icon icon-shape bg-gradient-purple text-white rounded-circle shadow">
-                            <i class="ni ni-like-2"></i>
+                          <div class="icon icon-shape bg-gradient-orange text-white rounded-circle shadow">
+                            <i class="ni ni-album-2"></i>
                           </div>
                         </div>
-                      <?php } ?>
+                      <?php } else { ?>
+                        <span class="h5 font-weight-bold mb-0 text-blue">No tienes publicaciones por validar</span>
                       </div>
-                      </a>
+                      <div class="col-auto icono-dashboard">
+                        <div class="icon icon-shape bg-gradient-purple text-white rounded-circle shadow">
+                          <i class="ni ni-like-2"></i>
+                        </div>
+                      </div>
+                    <?php } ?>
+                    </div>
+                  </a>
                 </div>
               </div>
             </div>
@@ -139,7 +135,7 @@ if (!isset($_SESSION['documentoIdentidad'])) {
                   <div class="row">
                     <div class="col">
                       <h5 class="card-title text-uppercase text-muted mb-0">Este Mes...</h5>
-                      <span class="h2 font-weight-bold mb-0">Total ventas: $<?= number_format($respTotalMensual['Total'], 0, '', '.'); ?></span>
+                      <span class="h2 font-weight-bold mb-0">Total ventas: $<?php echo number_format($respTotalMensual['Total'], 0, '', '.'); ?></span>
                     </div>
 
                     <div class="col-auto icono-dashboard">
@@ -158,7 +154,7 @@ if (!isset($_SESSION['documentoIdentidad'])) {
                   <div class="row">
                     <div class="col">
                       <h5 class="card-title text-uppercase text-muted mb-0">Ventas Hoy</h5>
-                      <span class="h2 font-weight-bold mb-0 text-success mr-2">$<?= number_format($respVentasHoy["Total"], 0, '', '.'); ?></span>
+                      <span class="h2 font-weight-bold mb-0 text-success mr-2">$<?php echo number_format($respVentasHoy["Total"], 0, '', '.'); ?></span>
                     </div>
                     <div class="col-auto icono-dashboard">
                       <div class="icon icon-shape bg-gradient-green text-white rounded-circle shadow">
@@ -168,7 +164,7 @@ if (!isset($_SESSION['documentoIdentidad'])) {
                   </div>
                   <p class="mt-3 mb-0 text-sm">
                     <span class="text-nowrap">No. Ventas:</span>
-                    <span class="h2 text-success mr-2"><?= $respVentasHoy["No_ventas"] ?></i></span>
+                    <span class="h2 text-success mr-2"><?php echo $respVentasHoy["No_ventas"] ?></i></span>
                   </p>
                 </div>
               </div>
@@ -278,20 +274,20 @@ if (!isset($_SESSION['documentoIdentidad'])) {
                       <?php foreach ($respUsuariosQueMasCompran as $datos) : ?>
                         <tr>
                           <td>
-                            <?= $datos['documentoIdentidad']; ?>
+                            <?php echo $datos['documentoIdentidad']; ?>
                           </td>
                           <td>
-                            <?= $datos['nombresUsuario']; ?>
+                            <?php echo $datos['nombresUsuario']; ?>
                           </td>
                           <td>
-                            <?= $datos['apellidoUsuario']; ?>
+                            <?php echo $datos['apellidoUsuario']; ?>
                           </td>
                           <td>
-                            <?= $datos['Cantidad']; ?>
+                            <?php echo $datos['Cantidad']; ?>
                           </td>
 
                           <td>
-                            $<?= number_format($datos['Total'], 0, '', '.'); ?>
+                            $<?php echo number_format($datos['Total'], 0, '', '.'); ?>
                           </td>
                         </tr>
                       <?php endforeach;

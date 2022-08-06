@@ -21,7 +21,7 @@ require "../includes/linksGoogle.php";
     <link rel="stylesheet" href="../dashboard/assets/css/all.min.css" type="text/css">
     <link rel="stylesheet" href="../assets/css/general.css">
     <!-- No eliminar este script -->
-    <script src="../js/ajax.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <!-- Argon CSS -->
     <link rel="stylesheet" href="../dashboard/assets/css/argon.min.css?v=1.2.0" type="text/css">
 </head>
@@ -51,7 +51,7 @@ require "../includes/linksGoogle.php";
                         <div class="card-header bg-transparent pb-5">
                             <div class="text-muted text-center mt-2 mb-4"><small>Puedes registrarte por:</small></div>
                             <div class="text-center">
-                                <a href="<?= $GoogleLogin; ?>" class="btn btn-neutral btn-icon">
+                                <a href="<?php echo $GoogleLogin; ?>" class="btn btn-neutral btn-icon">
                                     <span class="btn-inner--icon"><img src="../dashboard/assets/img/google.svg"></span>
                                     <span class="btn-inner--text">Google</span>
                                 </a>

@@ -25,7 +25,7 @@ foreach ($checkoutData as $i) {
   <link rel="icon" href="../assets/img/favicon.png" type="image/png" />
   <!-- Bootstrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous" />
-  <script src="../js/ajax.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <!-- Css local  -->
   <link rel="stylesheet" href="../assets/css/general.css" />
   <link rel="stylesheet" href="../assets/css/checkout.css" />
@@ -51,7 +51,7 @@ foreach ($checkoutData as $i) {
               <img id="carrito" src="../assets/img/iconos/carrito_2.svg" alt="carrito"> Mostrar resumen del pedido
             </div>
             <div class="precios">
-              $<?=  number_format($total, 0, '', '.') ?>
+              $<?php echo  number_format($total, 0, '', '.') ?>
             </div>
           </div>
 
@@ -67,12 +67,12 @@ foreach ($checkoutData as $i) {
           <div class="contenedor-items">
             <div class="img-descripcion">
               <div class="contenedor-imagen">
-                <img src="<?= $checkoutImgData[$contMob] ?>" alt="imagen alusiva a la compra">
+                <img src="<?php echo $checkoutImgData[$contMob] ?>" alt="imagen alusiva a la compra">
               </div>
-              <p id="titulo-publicacion"><?= $res["Titulo"] ?></p>
+              <p id="titulo-publicacion"><?php echo $res["Titulo"] ?></p>
             </div>
             <div class="precio">
-              <p>$<?= number_format($res["costo"], 0, '', '.');?></p>
+              <p>$<?php echo number_format($res["costo"], 0, '', '.');?></p>
             </div>
           </div>
         <?php $contMob++;
@@ -91,14 +91,14 @@ foreach ($checkoutData as $i) {
             </div>
             <div class="valor">
               <!-- <p>$23.000</p> -->
-              <p>$<?= number_format($subtotal, 0, '', '.'); ?></p>
-              <p>$<?= number_format($iva, 0, '', '.');?></p>
+              <p>$<?php echo number_format($subtotal, 0, '', '.'); ?></p>
+              <p>$<?php echo number_format($iva, 0, '', '.');?></p>
             </div>
           </div>
           <hr>
           <div class="total g">
             <p>total</p>
-            <p>$<?= number_format($total, 0, '', '.') ?></p>
+            <p>$<?php echo number_format($total, 0, '', '.') ?></p>
           </div>
         </div>
 
@@ -301,11 +301,11 @@ foreach ($checkoutData as $i) {
         <!-- Publicación  -->
         <?php foreach ($checkoutData as $fila) : ?>
           <div class="publicacion-desktop">
-            <img id="img-publicacion-d" src="<?= $checkoutImgData[$cont] ?>" alt="Imagen publicación">
+            <img id="img-publicacion-d" src="<?php echo $checkoutImgData[$cont] ?>" alt="Imagen publicación">
             <div class="texto-publicacion-d">
-              <p><?= $fila['Titulo'] ?></p>
-              <p class="precio">$<?= number_format($fila['costo'], 0, '', '.') ?></p>
-              <p class="cantidad-publi">Cantidad: <span class="cantidad"><?= $fila['cantidad'] ?> </span></p>
+              <p><?php echo $fila['Titulo'] ?></p>
+              <p class="precio">$<?php echo number_format($fila['costo'], 0, '', '.') ?></p>
+              <p class="cantidad-publi">Cantidad: <span class="cantidad"><?php echo $fila['cantidad'] ?> </span></p>
             </div>
           </div>
         <?php $cont++; endforeach ?>
@@ -325,16 +325,16 @@ foreach ($checkoutData as $i) {
             <p>+ 19% IVA</p>
           </div>
           <div class="valor">
-            <p>$<?= number_format($subtotal, 0, '', '.'); ?></p>
+            <p>$<?php echo number_format($subtotal, 0, '', '.'); ?></p>
             <!-- <p>$23.000</p> -->
-            <p>$<?= number_format($iva, 0, '', '.'); ?></p>
+            <p>$<?php echo number_format($iva, 0, '', '.'); ?></p>
           </div>
         </div>
         <hr>
         <div class="total g">
           <p>total</p>
 
-          <p>$<?= number_format($total, 0, '', '.'); ?></p>
+          <p>$<?php echo number_format($total, 0, '', '.'); ?></p>
         </div>
       </div>
       <!-- Botón "Finalizar compra" -->

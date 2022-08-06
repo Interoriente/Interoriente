@@ -32,7 +32,7 @@ if (!isset($_SESSION['documentoIdentidad'])) {
             <div class="row align-items-center py-4">
               <div class="col-lg-6 col-7">
                 <h6 class="h2 text-white d-inline-block mb-0">Tabla de publicaciones sin validar</h6><br>
-                <h6 class="h2 text-white d-inline-block mb-0">Total: <?= $contadorPublicaciones; ?></h6>
+                <h6 class="h2 text-white d-inline-block mb-0">Total: <?php echo $contadorPublicaciones; ?></h6>
               </div>
             </div>
           </div>
@@ -66,14 +66,14 @@ if (!isset($_SESSION['documentoIdentidad'])) {
                         <!-- Comentado de forma temporal -->
                         <!-- <th><img src="<?php //echo $datosPubli['urlImagen'];  
                                             ?>" alt=".." width="130px"></th> -->
-                        <th><?= $datosPubli['nombrePublicacion']; ?></th>
-                        <th><?= number_format($datosPubli['costoPublicacion'], 0, '', '.'); ?></th>
-                        <th><?= number_format($datosPubli['cantidadPublicacion'], 0, '', '.'); ?></th>
+                        <th><?php echo $datosPubli['nombrePublicacion']; ?></th>
+                        <th><?php echo $datosPubli['costoPublicacion']; ?></th>
+                        <th><?php echo $datosPubli['cantidadPublicacion']; ?></th>
                         <th>
                           <form action="../../../Controllers/php/users/publicaciones.php" method="POST">
                             <input type="hidden" name="activarPublicacion">
                             <button type="submit" class="btn btn-info">Activar</button>
-                            <input type="hidden" name="id" value="<?= $datosPubli['idPublicacion']; ?>">
+                            <input type="hidden" name="id" value="<?php echo $datosPubli['idPublicacion']; ?>">
                           </form>
                         </th>
                         <!-- Cierre else -->

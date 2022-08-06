@@ -46,10 +46,10 @@ session_start();
                         <div class="card-body px-lg-5 py-lg-5">
                             <form action="../../Controllers/php/users/acceso.php" method="POST">
                                 <input type="hidden" name="registrarse">
-                                <input type="hidden" name="imagen" value="<?= $_SESSION['picture']; ?>">
-                                <input type="hidden" name="correo" required value="<?= $_SESSION['email']; ?>">
-                                <input class="form-control" placeholder="Nombres" type="hidden" name="nombres" value="<?= $_SESSION['name']; ?>">
-                                <input class="form-control" placeholder="Apellidos" type="hidden" name="apellidos" required value="<?= $_SESSION['familyName']; ?>">
+                                <input type="hidden" name="imagen" value="<?php echo $_SESSION['picture']; ?>">
+                                <input type="hidden" name="correo" required value="<?php echo $_SESSION['email']; ?>">
+                                <input class="form-control" placeholder="Nombres" type="hidden" name="nombres" value="<?php echo $_SESSION['name']; ?>">
+                                <input class="form-control" placeholder="Apellidos" type="hidden" name="apellidos" required value="<?php echo $_SESSION['familyName']; ?>">
                                 <div class="form-group">
                                     <label for="">Documento:</label>
                                     <div class="input-group input-group-merge input-group-alternative mb-3">

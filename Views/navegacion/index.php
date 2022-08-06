@@ -22,7 +22,7 @@ if ($catalogo) {
     <link rel="stylesheet" href="../assets/css/general.css">
     <link rel="stylesheet" href="../assets/css/index.css">
     <!-- No eliminar este script -->
-    <script src="../js/ajax.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <title> Inicio | Interoriente</title>
 </head>
 
@@ -44,25 +44,25 @@ if ($catalogo) {
         ?>
             <div class="tarjeta">
                 <!-- Le coloqué un montón de cosas que pasen por URL para no cambiar el a por un formulario, y que no quede el id tan fácil visible agregando el base64 para encriptar -->
-                <a href="publicacion.php?id=<?= base64_encode($x['idPublicacion']) . "&?nombre=" . $x['nombrePublicacion'] ?>">
+                <a href="publicacion.php?id=<?php echo base64_encode($x['idPublicacion']) . "&?nombre=" . $x['nombrePublicacion'] ?>">
                     <!-- <img id="img-s" src="../assets/img/publicaciones/1.jpg" alt="Imagen tarjeta publicación"> -->
                     <div class="img-tarjeta">
-                        <img id="img-p" src="<?= $x['urlImagen']; ?>" alt="Imagen tarjeta publicación">
+                        <img id="img-p" src="<?php echo $x['urlImagen']; ?>" alt="Imagen tarjeta publicación">
                     </div>
                     <div class="contenido-tarjeta">
                         <!-- number_format para agregar los puntos de mil -->
-                        <h5> $<?= number_format($x['costoPublicacion'], 0, '', '.'); ?></h5>
+                        <h5> $<?php echo number_format($x['costoPublicacion'], 0, '', '.'); ?></h5>
 
-                        <h2><?= $x['nombrePublicacion'] ?></h2>
+                        <h2><?php echo $x['nombrePublicacion'] ?></h2>
                         <!-- substr para limitar el tamaño del estring en este caso a 50 caracteres -->
                         <div class="descripcion">
-                            <p><?= substr($x['descripcionPublicacion'], 0, 50) . "...   "; ?><span class="mas-info">Más Información</span></p>
+                            <p><?php echo substr($x['descripcionPublicacion'], 0, 50) . "...   "; ?><span class="mas-info">Más Información</span></p>
                         </div>
                     </div>
                 </a>
                 <div class="cta-btns">
-                    <img src="../assets/img/iconos/compras.svg" onclick="comprarAhora(this.id)" id="<?= $x['idPublicacion'] ?>" alt="Bolsa de la compra">
-                    <img class="carrito-tarjeta" onclick="addCarrito(this.id)" id="<?= $x['idPublicacion'] ?>" src="../assets/img/iconos/carrito_2.svg" alt="Carro de la compra">
+                    <img src="../assets/img/iconos/compras.svg" onclick="comprarAhora(this.id)" id="<?php echo $x['idPublicacion'] ?>" alt="Bolsa de la compra">
+                    <img class="carrito-tarjeta" onclick="addCarrito(this.id)" id="<?php echo $x['idPublicacion'] ?>" src="../assets/img/iconos/carrito_2.svg" alt="Carro de la compra">
                 </div>
             </div>
         <?php endforeach; ?>
