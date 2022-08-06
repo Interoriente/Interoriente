@@ -32,7 +32,7 @@
     <link rel="stylesheet" href="../assets/css/general.css">
     <link rel="stylesheet" href="../assets/css/checkout.css" />
     <!-- No eliminar este script -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="../js/ajax.js"></script>
 
     <!-- Argon CSS -->
     <link rel="stylesheet" href="../dashboard/assets/css/argon.min.css?v=1.2.0" type="text/css">
@@ -67,7 +67,7 @@
                         <div class="card-header bg-transparent pb-5">
                             <div class="text-muted text-center mt-2 mb-4"><small>Puedes iniciar sesión por:</small></div>
                             <div class="text-center">
-                                <a href="<?php echo $GoogleLogin; ?>" class="btn btn-neutral btn-icon">
+                                <a href="<?= $GoogleLogin; ?>" class="btn btn-neutral btn-icon">
                                     <span class="btn-inner--icon"><img src="../dashboard/assets/img/google.svg"></span>
                                     <span class="btn-inner--text">Google</span>
                                 </a>

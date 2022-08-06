@@ -1,8 +1,8 @@
-<div class="modal fade" id="eliminarDirModal<?php echo $direccion['idDireccion'] ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="eliminarDirModal<?= $direccion['idDireccion'] ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <form action="../../../Controllers/php/users/usuarios.php" method="post">
       <input type="hidden" name="eliminarDireccion">
-      <input type="hidden" name="idDireccion" value="<?php echo $direccion['idDireccion'] ?>">
+      <input type="hidden" name="idDireccion" value="<?= $direccion['idDireccion'] ?>">
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title" id="exampleModalLabel">¿Seguro quieres eliminar esta dirección?</h5>
@@ -22,7 +22,7 @@
 
 
 <!-- Modal para actualizar direcciones -->
-<div class="modal fade" id="actualizarDirModal<?php echo $direccion['idDireccion'] ?>" role="dialog">
+<div class="modal fade" id="actualizarDirModal<?= $direccion['idDireccion'] ?>" role="dialog">
   <div class="modal-dialog">
     <div class="modal-content">
       <!-- Modal Header -->
@@ -42,23 +42,23 @@
 
           <div class="form-group">
             <label for="inputName">Nombre</label>
-            <input type="text" class="form-control" id="inputName" name="nombre" placeholder="Nombre" value="<?php echo $direccion['nombreDireccion'] ?>">
+            <input type="text" class="form-control" id="inputName" name="nombre" placeholder="Nombre" value="<?= $direccion['nombreDireccion'] ?>">
           </div>
           <div class="form-group">
             <label for="inputDireccion">Dirección</label>
-            <input type="text" class="form-control" id="inputDireccion" name="direccion" placeholder="Dirección" value="<?php echo $direccion['descripcionDireccion'] ?>">
+            <input type="text" class="form-control" id="inputDireccion" name="direccion" placeholder="Dirección" value="<?= $direccion['descripcionDireccion'] ?>">
           </div>
           <div class="form-group">
             <label for="inputCiudad">Ciudad</label>
             <select name="ciudad" id="ciudad" class="form-control">
-              <option value="<?php echo $direccion['idCiudad'] ?>"><?php echo $direccion['nombreCiudad'] ?></option>
+              <option value="<?= $direccion['idCiudad'] ?>"><?= $direccion['nombreCiudad'] ?></option>
               <?php foreach ($respGetCiudades as $ciudad) {
               ?>
-                <option value="<?php echo $ciudad['idCiudad'] ?>"><?php echo $ciudad['nombreCiudad'] ?></option>
+                <option value="<?= $ciudad['idCiudad'] ?>"><?= $ciudad['nombreCiudad'] ?></option>
               <?php } ?>
             </select>
             <!-- Capturo id dirección a editar -->
-            <input type="hidden" name="idDireccion" value="<?php echo $direccion['idDireccion']; ?>">
+            <input type="hidden" name="idDireccion" value="<?= $direccion['idDireccion']; ?>">
           </div>
           <!-- Modal Footer -->
           <div class="modal-footer">

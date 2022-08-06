@@ -65,31 +65,31 @@ if (!isset($_SESSION['documentoIdentidad'])) {
                       <div class="col-lg-6">
                         <div class="form-group">
                           <label class="form-control-label" for="docu">Documento</label>
-                          <input type="text" id="docu" name="documento" class="form-control" placeholder="Documento" value="<?php echo $respUserData->documentoIdentidad; ?>" disabled required>
+                          <input type="text" id="docu" name="documento" class="form-control" placeholder="Documento" value="<?= $respUserData->documentoIdentidad; ?>" disabled required>
                         </div>
                       </div>
                       <div class="col-lg-6">
                         <div class="form-group">
                           <label class="form-control-label" for="input-username">Nombre</label>
-                          <input type="text" id="input-username" name="nombre" class="form-control" placeholder="Nombre" value="<?php echo $respUserData->nombresUsuario; ?>" required disabled>
+                          <input type="text" id="input-username" name="nombre" class="form-control" placeholder="Nombre" value="<?= $respUserData->nombresUsuario; ?>" required disabled>
                         </div>
                       </div>
                       <div class="col-lg-6">
                         <div class="form-group">
                           <label class="form-control-label" for="input-username">Apellido</label>
-                          <input type="text" id="input-username" name="apellido" class="form-control" placeholder="Apellido" value="<?php echo $respUserData->apellidoUsuario; ?>" required disabled>
+                          <input type="text" id="input-username" name="apellido" class="form-control" placeholder="Apellido" value="<?= $respUserData->apellidoUsuario; ?>" required disabled>
                         </div>
                       </div>
                       <div class="col-lg-6">
                         <div class="form-group">
                           <label class="form-control-label" for="input-username">Celular</label>
-                          <input type="number" id="input-username" name="celular" class="form-control" placeholder="Celular" max="9999999999" value="<?php echo $respUserData->telefonomovilUsuario; ?>" required>
+                          <input type="number" id="input-username" name="celular" class="form-control" placeholder="Celular" max="9999999999" value="<?= $respUserData->telefonomovilUsuario; ?>" required>
                         </div>
                       </div>
                       <div class="col-lg-6">
                         <div class="form-group">
                           <label class="form-control-label" for="input-email">Correo</label>
-                          <input type="email" id="input-email" name="correo" class="form-control" value="<?php echo $respUserData->emailUsuario; ?>" required>
+                          <input type="email" id="input-email" name="correo" class="form-control" value="<?= $respUserData->emailUsuario; ?>" required>
                         </div>
                       </div>
                       <div class="col-lg-6">
@@ -100,8 +100,8 @@ if (!isset($_SESSION['documentoIdentidad'])) {
                         Si no quieres cambiar la foto de perfil, puedes dejar este campo en blanco
                       </div>
                       <div class="form-group">
-                        <input type="hidden" name="documentoUsuario" value="<?php echo $documento; ?>" required>
-                        <input type="hidden" name="actualizarCuenta" value="<?php echo $documento; ?>" required>
+                        <input type="hidden" name="documentoUsuario" value="<?= $documento; ?>" required>
+                        <input type="hidden" name="actualizarCuenta" value="<?= $documento; ?>" required>
                       </div>
                     </div>
                     <button class="btn btn-primary btn-xs" type="submit" name="subir">Editar</button>

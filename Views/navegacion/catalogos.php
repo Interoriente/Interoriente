@@ -14,7 +14,7 @@ $respCategorias = MostrarCategorias();
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <link rel="icon" href="../assets/img/favicon.png" type="image/png" />
     <!-- Es necesario para que abra el carrito y trabaje el buscar -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="../js/ajax.js"></script>
     <title>Catalógo Producto | Interoriente</title>
 </head>
 
@@ -36,10 +36,10 @@ $respCategorias = MostrarCategorias();
                 <div class="caja-categorias">
                     <?php foreach ($respCategorias as $categorias) {
                     ?>
-                        <a href="index.php?catalogo=<?php echo base64_encode($categorias['idCategoria']) ?> &nombre<?php echo $categorias['nombreCategoria']; ?>">
+                        <a href="index.php?catalogo=<?= base64_encode($categorias['idCategoria']) ?> &nombre<?= $categorias['nombreCategoria']; ?>">
                             <div class="caja-categorias-subuno">
-                                <img src="../assets/img/catalogos/<?php echo $categorias['imagenCategoria'] ?>" alt="" class="img-categorias">
-                                <h2 class="tit-hdos1"><?php echo $categorias['nombreCategoria']; ?></h2>
+                                <img src="../assets/img/catalogos/<?= $categorias['imagenCategoria'] ?>" alt="" class="img-categorias">
+                                <h2 class="tit-hdos1"><?= $categorias['nombreCategoria']; ?></h2>
                             </div>
                         </a>
                     <?php } ?>

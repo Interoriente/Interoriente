@@ -1,8 +1,8 @@
-<div class="modal fade" id="eliminarPubliModal<?php echo $datosPubli['idPublicacion'] ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="eliminarPubliModal<?= $datosPubli['idPublicacion'] ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <form action="../../../Controllers/php/users/publicaciones.php" method="post">
             <input type="hidden" name="eliminarPublicacion">
-            <input type="hidden" name="idPublicacion" value="<?php echo $datosPubli['idPublicacion']; ?>">
+            <input type="hidden" name="idPublicacion" value="<?= $datosPubli['idPublicacion']; ?>">
             <div class="modal-content">
 
                 <div class="modal-header">
@@ -22,7 +22,7 @@
 </div>
 
 <!-- Modal Actualizar Publicación -->
-<div class="modal fade" id="actualizarPubliModal<?php echo $datosPubli['idPublicacion'] ?>" role="dialog">
+<div class="modal fade" id="actualizarPubliModal<?= $datosPubli['idPublicacion'] ?>" role="dialog">
     <div class="modal-dialog">
         <div class="modal-content">
             <!-- Modal Header -->
@@ -39,23 +39,23 @@
                 <form method="POST" action="../../../Controllers/php/users/publicaciones.php">
                     <!-- Actualiar dirección -->
                     <input type="hidden" name="actualizarPublicacion">
-                    <input type="hidden" name="idPublicacion" value="<?php echo $datosPubli['idPublicacion']; ?>">
+                    <input type="hidden" name="idPublicacion" value="<?= $datosPubli['idPublicacion']; ?>">
 
                     <div class="form-group">
                         <label for="inputName">Nombre</label>
-                        <input type="text" class="form-control" id="inputName" name="nombre" placeholder="Ej: Madre, trabajo..." value="<?php echo $datosPubli['nombrePublicacion'] ?>">
+                        <input type="text" class="form-control" id="inputName" name="nombre" placeholder="Ej: Madre, trabajo..." value="<?= $datosPubli['nombrePublicacion'] ?>">
                     </div>
                     <div class="form-group">
                         <label for="inputDireccion">Descripción</label>
-                        <input type="text" class="form-control" id="inputDireccion" name="descripcion" placeholder="Ej: Cra 30" value="<?php echo $datosPubli['descripcionPublicacion'] ?>">
+                        <input type="text" class="form-control" id="inputDireccion" name="descripcion" placeholder="Ej: Cra 30" value="<?= $datosPubli['descripcionPublicacion'] ?>">
                     </div>
                     <div class="form-group">
                         <label for="inputCosto">Costo</label>
-                        <input type="number" class="form-control" id="inputCosto" name="costo" placeholder="Ej: 345000" value="<?php echo $datosPubli['costoPublicacion'] ?>">
+                        <input type="number" class="form-control" id="inputCosto" name="costo" placeholder="Ej: 345000" value="<?= $datosPubli['costoPublicacion'] ?>">
                     </div>
                     <div class="form-group">
                         <label for="inputStock">Cant</label>
-                        <input type="number" class="form-control" id="inputStock" name="stock" placeholder="Ej: 3,4,2" value="<?php echo $datosPubli['cantidadPublicacion'] ?>">
+                        <input type="number" class="form-control" id="inputStock" name="stock" placeholder="Ej: 3,4,2" value="<?= $datosPubli['cantidadPublicacion'] ?>">
                     </div>
                     <!-- Modal Footer -->
                     <div class="modal-footer">

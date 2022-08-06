@@ -24,11 +24,11 @@
               <div class="media align-items-center">
                 <span class="avatar avatar-sm rounded-circle">
                   <!--- Impresión imagen de perfil -->
-                  <img alt="Image placeholder" src="<?php echo $respUserData->imagenUsuario; ?>">
+                  <img alt="Image placeholder" src="<?= $respUserData->imagenUsuario; ?>">
                 </span>
                 <div class="media-body  ml-2  d-none d-lg-block">
 
-                  <span class="mb-0 text-sm  font-weight-bold"><?php echo $respUserData->nombresUsuario . " " . $respUserData->apellidoUsuario; ?></span>
+                  <span class="mb-0 text-sm  font-weight-bold"><?= $respUserData->nombresUsuario . " " . $respUserData->apellidoUsuario; ?></span>
 
                 </div>
               </div>
@@ -97,7 +97,7 @@
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-body">
-          <img class=" card-img-top" src="<?php echo $respUserData->imagenUsuario; ?>">
+          <img class=" card-img-top" src="<?= $respUserData->imagenUsuario; ?>">
         </div>
       </div>
     </div>

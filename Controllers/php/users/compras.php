@@ -56,7 +56,7 @@ function simplificarArreglo($array)
 
 function verificarCarrito($docId)
 {
-  require '../../../Models/dao/conexion.php';
+  require '../../../Models/dao/conexion.php'; 
   $sql = "CALL sp_verificarCarrito(:id)";
   $stmt = $pdo->prepare($sql);
   $stmt->bindValue(":id", $docId);
