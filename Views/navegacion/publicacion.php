@@ -19,7 +19,7 @@ $validarImagen = substr($respPublicacion[0]['imagenUsuario'], 0, 5);
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="../assets/css/general.css">
   <link rel="stylesheet" href="../assets/css/publicacion.css">
-  <script src="../js/ajax.js"></script>
+  <script src="//ajax.aspnetcdn.com/ajax/jquery/jquery-1.9.0.js"></script>
   <title><?= $respPublicacion[0]['nombrePublicacion']; ?></title>
 </head>
 

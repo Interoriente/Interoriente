@@ -208,13 +208,13 @@ function finalizarCompra() {
     type: "POST",
     data: { checkout: checkout },
     error: function (err) {
-      alert("Ocurrió un error" + err);
+      alert(err);
     },
     success: function () {
       /* Redirigir y/o mostrar mensaje de finalización */
       /* localStorage.removeItem("carrito"); */
       alert("Compra procesada con éxito");
-      // window.location = "./index.php";
+      window.location = "./index.php";
     },
   });
 }

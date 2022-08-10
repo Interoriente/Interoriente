@@ -14,7 +14,7 @@ $respCategorias = MostrarCategorias();
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <link rel="icon" href="../assets/img/favicon.png" type="image/png" />
     <!-- Es necesario para que abra el carrito y trabaje el buscar -->
-    <script src="../js/ajax.js"></script>
+    <script src="//ajax.aspnetcdn.com/ajax/jquery/jquery-1.9.0.js"></script>
     <title>Catalógo Producto | Interoriente</title>
 </head>
 

@@ -32,7 +32,7 @@
     <link rel="stylesheet" href="../assets/css/general.css">
     <link rel="stylesheet" href="../assets/css/checkout.css" />
     <!-- No eliminar este script -->
-    <script src="../js/ajax.js"></script>
+    <script src="//ajax.aspnetcdn.com/ajax/jquery/jquery-1.9.0.js"></script>
 
     <!-- Argon CSS -->
     <link rel="stylesheet" href="../dashboard/assets/css/argon.min.css?v=1.2.0" type="text/css">
