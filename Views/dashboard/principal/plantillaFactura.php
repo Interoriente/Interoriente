@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-	<!-- Necesario pasar los estilos quemados para que se carguen en el pdf -->
+<!-- Necesario pasar los estilos quemados para que se carguen en el pdf -->
 <style>
 	* {
 		margin: 0;
@@ -149,6 +149,10 @@
 </head>
 
 <body>
+	<?php
+	/* if ($respEncabezadoFactura->estadoFactura == 0) { ?>
+		<img class="anulada" src="../assets/img/anulado.png" />
+	<?php } */ ?>
 	<div id="page_pdf">
 		<table id="factura_head">
 			<tr>
@@ -174,7 +178,7 @@
 						<p>Factura de venta</p>
 					</div>
 				</td>
-			</tr>
+			</tr>	
 		</table>
 		<table id="factura_cliente">
 			<tr>
@@ -256,7 +260,7 @@
 			</tfoot>
 		</table>
 		<div>
-			<p class="nota">Si usted tiene preguntas sobre esta factura, <br>pongase en contacto con Interoriente, 3197183038 y interoriente437@gmail.com</p>
+			<p class="nota">Si usted tiene preguntas sobre esta factura, <br>pongase en contacto con Interoriente, 3231231213 y interoriente437@gmail.com</p>
 			<h4 class="label_gracias">¡Gracias por su compra!</h4>
 		</div>
 

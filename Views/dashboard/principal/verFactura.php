@@ -10,7 +10,7 @@ if (isset($_SESSION['documentoIdentidad'])) {
 
         <head>
             <meta charset="UTF-8">
-            <title>Factura | Interoriente</title>
+            <title>Factura #<?= $respEncabezadoFactura->numeroFactura; ?> | Interoriente</title>
             <link rel="stylesheet" href="../assets/css/estilosFactura.css">
             <link rel="icon" href="../../assets/img/favicon.png" type="image/png">
         </head>
@@ -18,6 +18,11 @@ if (isset($_SESSION['documentoIdentidad'])) {
         <body>
             <div id="page_pdf">
                 <table id="factura_head">
+                    <?php
+                    if ($respEncabezadoFactura->estadoFactura == 0) {
+                        echo "<img class='anulada' src='../assets/img/anulado.png' alt='Factura anulada'";
+                    }
+                    ?>
                     <tr>
                         <td class="logo_factura">
                             <div>
@@ -124,7 +129,7 @@ if (isset($_SESSION['documentoIdentidad'])) {
                     </tfoot>
                 </table>
                 <div>
-                    <p class="nota">Si usted tiene preguntas sobre esta factura, <br>pongase en contacto con Interoriente, 3231231213 y interoriente437@gmail.com</p>
+                    <p class="nota">Si usted tiene preguntas sobre esta factura,<br>pongase en contacto con Interoriente, 3231231213 y interoriente437@gmail.com</p>
                     <p><a href="misCompras.php">Regresar</a></p>
                     <h4 class="label_gracias">¡Gracias por su compra!</h4>
                 </div>
