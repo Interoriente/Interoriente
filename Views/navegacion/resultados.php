@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="../assets/css/general.css">
     <link rel="stylesheet" href="../assets/css/resultados.css">
     <link rel="shortcut icon" href="../assets/img/favicon.png" type="image/x-icon">
-    <script src="//ajax.aspnetcdn.com/ajax/jquery/jquery-1.9.0.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
     <title>Resultados de Búsqueda </title>
 </head>
 <body>
