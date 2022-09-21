@@ -212,7 +212,7 @@ function finalizarCompra() {
     },
     success: function () {
       /* Redirigir y/o mostrar mensaje de finalización */
-      /* localStorage.removeItem("carrito"); */
+      localStorage.removeItem("carrito");
       alert("Compra procesada con éxito");
       window.location = "./index.php";
     },

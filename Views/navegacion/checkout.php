@@ -51,7 +51,7 @@ foreach ($checkoutData as $i) {
               <img id="carrito" src="../assets/img/iconos/carrito_2.svg" alt="carrito"> Mostrar resumen del pedido
             </div>
             <div class="precios">
-              $<?=  number_format($total, 0, '', '.') ?>
+              $<?= number_format($total, 0, '', '.') ?>
             </div>
           </div>
 
@@ -72,7 +72,7 @@ foreach ($checkoutData as $i) {
               <p id="titulo-publicacion"><?= $res["Titulo"] ?></p>
             </div>
             <div class="precio">
-              <p>$<?= number_format($res["costo"], 0, '', '.');?></p>
+              <p>$<?= number_format($res["costo"], 0, '', '.'); ?></p>
             </div>
           </div>
         <?php $contMob++;
@@ -92,7 +92,7 @@ foreach ($checkoutData as $i) {
             <div class="valor">
               <!-- <p>$23.000</p> -->
               <p>$<?= number_format($subtotal, 0, '', '.'); ?></p>
-              <p>$<?= number_format($iva, 0, '', '.');?></p>
+              <p>$<?= number_format($iva, 0, '', '.'); ?></p>
             </div>
           </div>
           <hr>
@@ -308,7 +308,8 @@ foreach ($checkoutData as $i) {
               <p class="cantidad-publi">Cantidad: <span class="cantidad"><?= $fila['cantidad'] ?> </span></p>
             </div>
           </div>
-        <?php $cont++; endforeach ?>
+        <?php $cont++;
+        endforeach ?>
         <!-- Fin Publicación  -->
       </div>
       <!-- FIN Contenedor Publicación  -->
@@ -316,31 +317,34 @@ foreach ($checkoutData as $i) {
       <!-- Resumen de compra -->
       <h1 id="titulo-resumen">Resumen de compra</h1>
       <hr>
+      <form action="../../Controllers/php/users/compras.php" method="post">
 
-      <div class="main-container resumen-desktop">
-        <div class="contenedor-datos g">
-          <div class="titulo">
-            <p>Subtotal</p>
-            <!-- <p>Descuentos</p> -->
-            <p>+ 19% IVA</p>
+        <div class="main-container resumen-desktop">
+          <div class="contenedor-datos g">
+            <div class="titulo">
+              <p>Subtotal</p>
+              <!-- <p>Descuentos</p> -->
+              <p>+ 19% IVA</p>
+            </div>
+            <div class="valor">
+              <p>$<?= number_format($subtotal, 0, '', '.'); ?></p>
+              <!-- <p>$23.000</p> -->
+              <p>$<?= number_format($iva, 0, '', '.'); ?></p>
+            </div>
           </div>
-          <div class="valor">
-            <p>$<?= number_format($subtotal, 0, '', '.'); ?></p>
-            <!-- <p>$23.000</p> -->
-            <p>$<?= number_format($iva, 0, '', '.'); ?></p>
+          <hr>
+          <div class="total g">
+            <p>total</p>
+
+            <p>$<?= number_format($total, 0, '', '.'); ?></p>
           </div>
         </div>
-        <hr>
-        <div class="total g">
-          <p>total</p>
-
-          <p>$<?= number_format($total, 0, '', '.'); ?></p>
+        <!-- Botón "Finalizar compra" -->
+        <div class="btn-fin-compra ">
+          <input type="hidden" name="finalizar-compra" value="23">
+          <button type="submit" id="btn-fin-compra-d">Finalizar Compra</button>
         </div>
-      </div>
-      <!-- Botón "Finalizar compra" -->
-      <div class="btn-fin-compra ">
-        <button id="btn-fin-compra-d">Finalizar Compra</button>
-      </div>
+      </form>
 
 
       <!--FIN botón de compra -->
@@ -351,7 +355,7 @@ foreach ($checkoutData as $i) {
 
   <!-- JavaScript  -->
   <script src="../js/tarjeta.js"></script>
-  <script src="../js/checkout.js"></script>
+  <!-- <script src="../js/checkout.js"></script> -->
   <script src='https://cdnjs.cloudflare.com/ajax/libs/imask/3.4.0/imask.min.js'></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
 
