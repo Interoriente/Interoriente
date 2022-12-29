@@ -19,14 +19,24 @@ namespace Google\Service\Dataflow;
 
 class DerivedSource extends \Google\Model
 {
+  /**
+   * @var string
+   */
   public $derivationMode;
   protected $sourceType = Source::class;
   protected $sourceDataType = '';
+  public $source;
 
+  /**
+   * @param string
+   */
   public function setDerivationMode($derivationMode)
   {
     $this->derivationMode = $derivationMode;
   }
+  /**
+   * @return string
+   */
   public function getDerivationMode()
   {
     return $this->derivationMode;

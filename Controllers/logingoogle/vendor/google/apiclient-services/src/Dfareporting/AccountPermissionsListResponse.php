@@ -22,6 +22,10 @@ class AccountPermissionsListResponse extends \Google\Collection
   protected $collection_key = 'accountPermissions';
   protected $accountPermissionsType = AccountPermission::class;
   protected $accountPermissionsDataType = 'array';
+  public $accountPermissions;
+  /**
+   * @var string
+   */
   public $kind;
 
   /**
@@ -38,10 +42,16 @@ class AccountPermissionsListResponse extends \Google\Collection
   {
     return $this->accountPermissions;
   }
+  /**
+   * @param string
+   */
   public function setKind($kind)
   {
     $this->kind = $kind;
   }
+  /**
+   * @return string
+   */
   public function getKind()
   {
     return $this->kind;

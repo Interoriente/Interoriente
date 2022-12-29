@@ -21,12 +21,25 @@ class AutoscalingPolicy extends \Google\Model
 {
   protected $basicAlgorithmType = BasicAutoscalingAlgorithm::class;
   protected $basicAlgorithmDataType = '';
+  public $basicAlgorithm;
+  /**
+   * @var string
+   */
   public $id;
+  /**
+   * @var string[]
+   */
+  public $labels;
+  /**
+   * @var string
+   */
   public $name;
   protected $secondaryWorkerConfigType = InstanceGroupAutoscalingPolicyConfig::class;
   protected $secondaryWorkerConfigDataType = '';
+  public $secondaryWorkerConfig;
   protected $workerConfigType = InstanceGroupAutoscalingPolicyConfig::class;
   protected $workerConfigDataType = '';
+  public $workerConfig;
 
   /**
    * @param BasicAutoscalingAlgorithm
@@ -42,18 +55,44 @@ class AutoscalingPolicy extends \Google\Model
   {
     return $this->basicAlgorithm;
   }
+  /**
+   * @param string
+   */
   public function setId($id)
   {
     $this->id = $id;
   }
+  /**
+   * @return string
+   */
   public function getId()
   {
     return $this->id;
   }
+  /**
+   * @param string[]
+   */
+  public function setLabels($labels)
+  {
+    $this->labels = $labels;
+  }
+  /**
+   * @return string[]
+   */
+  public function getLabels()
+  {
+    return $this->labels;
+  }
+  /**
+   * @param string
+   */
   public function setName($name)
   {
     $this->name = $name;
   }
+  /**
+   * @return string
+   */
   public function getName()
   {
     return $this->name;

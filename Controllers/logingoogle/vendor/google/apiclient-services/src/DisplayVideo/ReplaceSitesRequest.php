@@ -20,15 +20,28 @@ namespace Google\Service\DisplayVideo;
 class ReplaceSitesRequest extends \Google\Collection
 {
   protected $collection_key = 'newSites';
+  /**
+   * @var string
+   */
   public $advertiserId;
   protected $newSitesType = Site::class;
   protected $newSitesDataType = 'array';
+  public $newSites;
+  /**
+   * @var string
+   */
   public $partnerId;
 
+  /**
+   * @param string
+   */
   public function setAdvertiserId($advertiserId)
   {
     $this->advertiserId = $advertiserId;
   }
+  /**
+   * @return string
+   */
   public function getAdvertiserId()
   {
     return $this->advertiserId;
@@ -47,10 +60,16 @@ class ReplaceSitesRequest extends \Google\Collection
   {
     return $this->newSites;
   }
+  /**
+   * @param string
+   */
   public function setPartnerId($partnerId)
   {
     $this->partnerId = $partnerId;
   }
+  /**
+   * @return string
+   */
   public function getPartnerId()
   {
     return $this->partnerId;

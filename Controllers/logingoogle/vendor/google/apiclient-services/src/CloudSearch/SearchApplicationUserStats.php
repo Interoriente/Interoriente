@@ -21,8 +21,18 @@ class SearchApplicationUserStats extends \Google\Model
 {
   protected $dateType = Date::class;
   protected $dateDataType = '';
+  public $date;
+  /**
+   * @var string
+   */
   public $oneDayActiveUsersCount;
+  /**
+   * @var string
+   */
   public $sevenDaysActiveUsersCount;
+  /**
+   * @var string
+   */
   public $thirtyDaysActiveUsersCount;
 
   /**
@@ -39,26 +49,44 @@ class SearchApplicationUserStats extends \Google\Model
   {
     return $this->date;
   }
+  /**
+   * @param string
+   */
   public function setOneDayActiveUsersCount($oneDayActiveUsersCount)
   {
     $this->oneDayActiveUsersCount = $oneDayActiveUsersCount;
   }
+  /**
+   * @return string
+   */
   public function getOneDayActiveUsersCount()
   {
     return $this->oneDayActiveUsersCount;
   }
+  /**
+   * @param string
+   */
   public function setSevenDaysActiveUsersCount($sevenDaysActiveUsersCount)
   {
     $this->sevenDaysActiveUsersCount = $sevenDaysActiveUsersCount;
   }
+  /**
+   * @return string
+   */
   public function getSevenDaysActiveUsersCount()
   {
     return $this->sevenDaysActiveUsersCount;
   }
+  /**
+   * @param string
+   */
   public function setThirtyDaysActiveUsersCount($thirtyDaysActiveUsersCount)
   {
     $this->thirtyDaysActiveUsersCount = $thirtyDaysActiveUsersCount;
   }
+  /**
+   * @return string
+   */
   public function getThirtyDaysActiveUsersCount()
   {
     return $this->thirtyDaysActiveUsersCount;

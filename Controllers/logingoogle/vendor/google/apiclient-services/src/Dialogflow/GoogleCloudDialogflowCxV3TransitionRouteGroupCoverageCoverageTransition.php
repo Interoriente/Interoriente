@@ -19,14 +19,24 @@ namespace Google\Service\Dialogflow;
 
 class GoogleCloudDialogflowCxV3TransitionRouteGroupCoverageCoverageTransition extends \Google\Model
 {
+  /**
+   * @var bool
+   */
   public $covered;
   protected $transitionRouteType = GoogleCloudDialogflowCxV3TransitionRoute::class;
   protected $transitionRouteDataType = '';
+  public $transitionRoute;
 
+  /**
+   * @param bool
+   */
   public function setCovered($covered)
   {
     $this->covered = $covered;
   }
+  /**
+   * @return bool
+   */
   public function getCovered()
   {
     return $this->covered;

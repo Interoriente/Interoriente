@@ -22,14 +22,27 @@ class GoogleCloudDialogflowV2WebhookResponse extends \Google\Collection
   protected $collection_key = 'sessionEntityTypes';
   protected $followupEventInputType = GoogleCloudDialogflowV2EventInput::class;
   protected $followupEventInputDataType = '';
+  public $followupEventInput;
   protected $fulfillmentMessagesType = GoogleCloudDialogflowV2IntentMessage::class;
   protected $fulfillmentMessagesDataType = 'array';
+  public $fulfillmentMessages;
+  /**
+   * @var string
+   */
   public $fulfillmentText;
   protected $outputContextsType = GoogleCloudDialogflowV2Context::class;
   protected $outputContextsDataType = 'array';
+  public $outputContexts;
+  /**
+   * @var array[]
+   */
   public $payload;
   protected $sessionEntityTypesType = GoogleCloudDialogflowV2SessionEntityType::class;
   protected $sessionEntityTypesDataType = 'array';
+  public $sessionEntityTypes;
+  /**
+   * @var string
+   */
   public $source;
 
   /**
@@ -60,10 +73,16 @@ class GoogleCloudDialogflowV2WebhookResponse extends \Google\Collection
   {
     return $this->fulfillmentMessages;
   }
+  /**
+   * @param string
+   */
   public function setFulfillmentText($fulfillmentText)
   {
     $this->fulfillmentText = $fulfillmentText;
   }
+  /**
+   * @return string
+   */
   public function getFulfillmentText()
   {
     return $this->fulfillmentText;
@@ -82,10 +101,16 @@ class GoogleCloudDialogflowV2WebhookResponse extends \Google\Collection
   {
     return $this->outputContexts;
   }
+  /**
+   * @param array[]
+   */
   public function setPayload($payload)
   {
     $this->payload = $payload;
   }
+  /**
+   * @return array[]
+   */
   public function getPayload()
   {
     return $this->payload;
@@ -104,10 +129,16 @@ class GoogleCloudDialogflowV2WebhookResponse extends \Google\Collection
   {
     return $this->sessionEntityTypes;
   }
+  /**
+   * @param string
+   */
   public function setSource($source)
   {
     $this->source = $source;
   }
+  /**
+   * @return string
+   */
   public function getSource()
   {
     return $this->source;

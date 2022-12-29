@@ -19,20 +19,33 @@ namespace Google\Service\Safebrowsing;
 
 class GoogleSecuritySafebrowsingV4ThreatEntrySet extends \Google\Model
 {
+  /**
+   * @var string
+   */
   public $compressionType;
   protected $rawHashesType = GoogleSecuritySafebrowsingV4RawHashes::class;
   protected $rawHashesDataType = '';
+  public $rawHashes;
   protected $rawIndicesType = GoogleSecuritySafebrowsingV4RawIndices::class;
   protected $rawIndicesDataType = '';
+  public $rawIndices;
   protected $riceHashesType = GoogleSecuritySafebrowsingV4RiceDeltaEncoding::class;
   protected $riceHashesDataType = '';
+  public $riceHashes;
   protected $riceIndicesType = GoogleSecuritySafebrowsingV4RiceDeltaEncoding::class;
   protected $riceIndicesDataType = '';
+  public $riceIndices;
 
+  /**
+   * @param string
+   */
   public function setCompressionType($compressionType)
   {
     $this->compressionType = $compressionType;
   }
+  /**
+   * @return string
+   */
   public function getCompressionType()
   {
     return $this->compressionType;

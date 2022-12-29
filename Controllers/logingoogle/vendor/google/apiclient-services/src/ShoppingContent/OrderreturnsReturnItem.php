@@ -21,8 +21,13 @@ class OrderreturnsReturnItem extends \Google\Model
 {
   protected $refundType = OrderreturnsRefundOperation::class;
   protected $refundDataType = '';
+  public $refund;
   protected $rejectType = OrderreturnsRejectOperation::class;
   protected $rejectDataType = '';
+  public $reject;
+  /**
+   * @var string
+   */
   public $returnItemId;
 
   /**
@@ -53,10 +58,16 @@ class OrderreturnsReturnItem extends \Google\Model
   {
     return $this->reject;
   }
+  /**
+   * @param string
+   */
   public function setReturnItemId($returnItemId)
   {
     $this->returnItemId = $returnItemId;
   }
+  /**
+   * @return string
+   */
   public function getReturnItemId()
   {
     return $this->returnItemId;

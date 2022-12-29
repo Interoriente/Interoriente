@@ -21,19 +21,34 @@ class DynamicLinkInfo extends \Google\Model
 {
   protected $analyticsInfoType = AnalyticsInfo::class;
   protected $analyticsInfoDataType = '';
+  public $analyticsInfo;
   protected $androidInfoType = AndroidInfo::class;
   protected $androidInfoDataType = '';
+  public $androidInfo;
   protected $desktopInfoType = DesktopInfo::class;
   protected $desktopInfoDataType = '';
+  public $desktopInfo;
+  /**
+   * @var string
+   */
   public $domainUriPrefix;
+  /**
+   * @var string
+   */
   public $dynamicLinkDomain;
   protected $iosInfoType = IosInfo::class;
   protected $iosInfoDataType = '';
+  public $iosInfo;
+  /**
+   * @var string
+   */
   public $link;
   protected $navigationInfoType = NavigationInfo::class;
   protected $navigationInfoDataType = '';
+  public $navigationInfo;
   protected $socialMetaTagInfoType = SocialMetaTagInfo::class;
   protected $socialMetaTagInfoDataType = '';
+  public $socialMetaTagInfo;
 
   /**
    * @param AnalyticsInfo
@@ -77,18 +92,30 @@ class DynamicLinkInfo extends \Google\Model
   {
     return $this->desktopInfo;
   }
+  /**
+   * @param string
+   */
   public function setDomainUriPrefix($domainUriPrefix)
   {
     $this->domainUriPrefix = $domainUriPrefix;
   }
+  /**
+   * @return string
+   */
   public function getDomainUriPrefix()
   {
     return $this->domainUriPrefix;
   }
+  /**
+   * @param string
+   */
   public function setDynamicLinkDomain($dynamicLinkDomain)
   {
     $this->dynamicLinkDomain = $dynamicLinkDomain;
   }
+  /**
+   * @return string
+   */
   public function getDynamicLinkDomain()
   {
     return $this->dynamicLinkDomain;
@@ -107,10 +134,16 @@ class DynamicLinkInfo extends \Google\Model
   {
     return $this->iosInfo;
   }
+  /**
+   * @param string
+   */
   public function setLink($link)
   {
     $this->link = $link;
   }
+  /**
+   * @return string
+   */
   public function getLink()
   {
     return $this->link;

@@ -19,21 +19,37 @@ namespace Google\Service\ShoppingContent;
 
 class PosCustomBatchResponseEntry extends \Google\Model
 {
+  /**
+   * @var string
+   */
   public $batchId;
   protected $errorsType = Errors::class;
   protected $errorsDataType = '';
+  public $errors;
   protected $inventoryType = PosInventory::class;
   protected $inventoryDataType = '';
+  public $inventory;
+  /**
+   * @var string
+   */
   public $kind;
   protected $saleType = PosSale::class;
   protected $saleDataType = '';
+  public $sale;
   protected $storeType = PosStore::class;
   protected $storeDataType = '';
+  public $store;
 
+  /**
+   * @param string
+   */
   public function setBatchId($batchId)
   {
     $this->batchId = $batchId;
   }
+  /**
+   * @return string
+   */
   public function getBatchId()
   {
     return $this->batchId;
@@ -66,10 +82,16 @@ class PosCustomBatchResponseEntry extends \Google\Model
   {
     return $this->inventory;
   }
+  /**
+   * @param string
+   */
   public function setKind($kind)
   {
     $this->kind = $kind;
   }
+  /**
+   * @return string
+   */
   public function getKind()
   {
     return $this->kind;

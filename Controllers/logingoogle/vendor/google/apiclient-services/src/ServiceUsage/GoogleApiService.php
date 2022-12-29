@@ -22,53 +22,93 @@ class GoogleApiService extends \Google\Collection
   protected $collection_key = 'types';
   protected $apisType = Api::class;
   protected $apisDataType = 'array';
+  public $apis;
   protected $authenticationType = Authentication::class;
   protected $authenticationDataType = '';
+  public $authentication;
   protected $backendType = Backend::class;
   protected $backendDataType = '';
+  public $backend;
   protected $billingType = Billing::class;
   protected $billingDataType = '';
+  public $billing;
+  /**
+   * @var string
+   */
   public $configVersion;
   protected $contextType = Context::class;
   protected $contextDataType = '';
+  public $context;
   protected $controlType = Control::class;
   protected $controlDataType = '';
+  public $control;
   protected $customErrorType = CustomError::class;
   protected $customErrorDataType = '';
+  public $customError;
   protected $documentationType = Documentation::class;
   protected $documentationDataType = '';
+  public $documentation;
   protected $endpointsType = Endpoint::class;
   protected $endpointsDataType = 'array';
+  public $endpoints;
   protected $enumsType = Enum::class;
   protected $enumsDataType = 'array';
+  public $enums;
   protected $httpType = Http::class;
   protected $httpDataType = '';
+  public $http;
+  /**
+   * @var string
+   */
   public $id;
   protected $loggingType = Logging::class;
   protected $loggingDataType = '';
+  public $logging;
   protected $logsType = LogDescriptor::class;
   protected $logsDataType = 'array';
+  public $logs;
   protected $metricsType = MetricDescriptor::class;
   protected $metricsDataType = 'array';
+  public $metrics;
   protected $monitoredResourcesType = MonitoredResourceDescriptor::class;
   protected $monitoredResourcesDataType = 'array';
+  public $monitoredResources;
   protected $monitoringType = Monitoring::class;
   protected $monitoringDataType = '';
+  public $monitoring;
+  /**
+   * @var string
+   */
   public $name;
+  /**
+   * @var string
+   */
   public $producerProjectId;
+  protected $publishingType = Publishing::class;
+  protected $publishingDataType = '';
+  public $publishing;
   protected $quotaType = Quota::class;
   protected $quotaDataType = '';
+  public $quota;
   protected $sourceInfoType = SourceInfo::class;
   protected $sourceInfoDataType = '';
+  public $sourceInfo;
   protected $systemParametersType = SystemParameters::class;
   protected $systemParametersDataType = '';
+  public $systemParameters;
   protected $systemTypesType = Type::class;
   protected $systemTypesDataType = 'array';
+  public $systemTypes;
+  /**
+   * @var string
+   */
   public $title;
   protected $typesType = Type::class;
   protected $typesDataType = 'array';
+  public $types;
   protected $usageType = Usage::class;
   protected $usageDataType = '';
+  public $usage;
 
   /**
    * @param Api[]
@@ -126,10 +166,16 @@ class GoogleApiService extends \Google\Collection
   {
     return $this->billing;
   }
+  /**
+   * @param string
+   */
   public function setConfigVersion($configVersion)
   {
     $this->configVersion = $configVersion;
   }
+  /**
+   * @return string
+   */
   public function getConfigVersion()
   {
     return $this->configVersion;
@@ -232,10 +278,16 @@ class GoogleApiService extends \Google\Collection
   {
     return $this->http;
   }
+  /**
+   * @param string
+   */
   public function setId($id)
   {
     $this->id = $id;
   }
+  /**
+   * @return string
+   */
   public function getId()
   {
     return $this->id;
@@ -310,21 +362,47 @@ class GoogleApiService extends \Google\Collection
   {
     return $this->monitoring;
   }
+  /**
+   * @param string
+   */
   public function setName($name)
   {
     $this->name = $name;
   }
+  /**
+   * @return string
+   */
   public function getName()
   {
     return $this->name;
   }
+  /**
+   * @param string
+   */
   public function setProducerProjectId($producerProjectId)
   {
     $this->producerProjectId = $producerProjectId;
   }
+  /**
+   * @return string
+   */
   public function getProducerProjectId()
   {
     return $this->producerProjectId;
+  }
+  /**
+   * @param Publishing
+   */
+  public function setPublishing(Publishing $publishing)
+  {
+    $this->publishing = $publishing;
+  }
+  /**
+   * @return Publishing
+   */
+  public function getPublishing()
+  {
+    return $this->publishing;
   }
   /**
    * @param Quota
@@ -382,10 +460,16 @@ class GoogleApiService extends \Google\Collection
   {
     return $this->systemTypes;
   }
+  /**
+   * @param string
+   */
   public function setTitle($title)
   {
     $this->title = $title;
   }
+  /**
+   * @return string
+   */
   public function getTitle()
   {
     return $this->title;

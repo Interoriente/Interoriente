@@ -21,10 +21,16 @@ class SuggestResult extends \Google\Model
 {
   protected $peopleSuggestionType = PeopleSuggestion::class;
   protected $peopleSuggestionDataType = '';
+  public $peopleSuggestion;
   protected $querySuggestionType = QuerySuggestion::class;
   protected $querySuggestionDataType = '';
+  public $querySuggestion;
   protected $sourceType = Source::class;
   protected $sourceDataType = '';
+  public $source;
+  /**
+   * @var string
+   */
   public $suggestedQuery;
 
   /**
@@ -69,10 +75,16 @@ class SuggestResult extends \Google\Model
   {
     return $this->source;
   }
+  /**
+   * @param string
+   */
   public function setSuggestedQuery($suggestedQuery)
   {
     $this->suggestedQuery = $suggestedQuery;
   }
+  /**
+   * @return string
+   */
   public function getSuggestedQuery()
   {
     return $this->suggestedQuery;

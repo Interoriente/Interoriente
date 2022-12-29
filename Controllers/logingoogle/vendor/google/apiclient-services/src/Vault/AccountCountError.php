@@ -21,6 +21,10 @@ class AccountCountError extends \Google\Model
 {
   protected $accountType = UserInfo::class;
   protected $accountDataType = '';
+  public $account;
+  /**
+   * @var string
+   */
   public $errorType;
 
   /**
@@ -37,10 +41,16 @@ class AccountCountError extends \Google\Model
   {
     return $this->account;
   }
+  /**
+   * @param string
+   */
   public function setErrorType($errorType)
   {
     $this->errorType = $errorType;
   }
+  /**
+   * @return string
+   */
   public function getErrorType()
   {
     return $this->errorType;

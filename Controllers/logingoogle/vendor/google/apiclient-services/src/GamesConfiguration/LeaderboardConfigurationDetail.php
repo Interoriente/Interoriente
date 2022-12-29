@@ -19,26 +19,49 @@ namespace Google\Service\GamesConfiguration;
 
 class LeaderboardConfigurationDetail extends \Google\Model
 {
+  /**
+   * @var string
+   */
   public $iconUrl;
+  /**
+   * @var string
+   */
   public $kind;
   protected $nameType = LocalizedStringBundle::class;
   protected $nameDataType = '';
+  public $name;
   protected $scoreFormatType = GamesNumberFormatConfiguration::class;
   protected $scoreFormatDataType = '';
+  public $scoreFormat;
+  /**
+   * @var int
+   */
   public $sortRank;
 
+  /**
+   * @param string
+   */
   public function setIconUrl($iconUrl)
   {
     $this->iconUrl = $iconUrl;
   }
+  /**
+   * @return string
+   */
   public function getIconUrl()
   {
     return $this->iconUrl;
   }
+  /**
+   * @param string
+   */
   public function setKind($kind)
   {
     $this->kind = $kind;
   }
+  /**
+   * @return string
+   */
   public function getKind()
   {
     return $this->kind;
@@ -71,10 +94,16 @@ class LeaderboardConfigurationDetail extends \Google\Model
   {
     return $this->scoreFormat;
   }
+  /**
+   * @param int
+   */
   public function setSortRank($sortRank)
   {
     $this->sortRank = $sortRank;
   }
+  /**
+   * @return int
+   */
   public function getSortRank()
   {
     return $this->sortRank;

@@ -22,8 +22,18 @@ class ManagedZoneDnsSecConfig extends \Google\Collection
   protected $collection_key = 'defaultKeySpecs';
   protected $defaultKeySpecsType = DnsKeySpec::class;
   protected $defaultKeySpecsDataType = 'array';
+  public $defaultKeySpecs;
+  /**
+   * @var string
+   */
   public $kind;
+  /**
+   * @var string
+   */
   public $nonExistence;
+  /**
+   * @var string
+   */
   public $state;
 
   /**
@@ -40,26 +50,44 @@ class ManagedZoneDnsSecConfig extends \Google\Collection
   {
     return $this->defaultKeySpecs;
   }
+  /**
+   * @param string
+   */
   public function setKind($kind)
   {
     $this->kind = $kind;
   }
+  /**
+   * @return string
+   */
   public function getKind()
   {
     return $this->kind;
   }
+  /**
+   * @param string
+   */
   public function setNonExistence($nonExistence)
   {
     $this->nonExistence = $nonExistence;
   }
+  /**
+   * @return string
+   */
   public function getNonExistence()
   {
     return $this->nonExistence;
   }
+  /**
+   * @param string
+   */
   public function setState($state)
   {
     $this->state = $state;
   }
+  /**
+   * @return string
+   */
   public function getState()
   {
     return $this->state;

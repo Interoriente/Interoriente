@@ -27,7 +27,7 @@ use Google\Service\DisplayVideo\TargetingOption;
  * Typical usage is:
  *  <code>
  *   $displayvideoService = new Google\Service\DisplayVideo(...);
- *   $targetingOptions = $displayvideoService->targetingOptions;
+ *   $targetingOptions = $displayvideoService->targetingTypes_targetingOptions;
  *  </code>
  */
 class TargetingTypesTargetingOptions extends \Google\Service\Resource
@@ -36,7 +36,21 @@ class TargetingTypesTargetingOptions extends \Google\Service\Resource
    * Gets a single targeting option. (targetingOptions.get)
    *
    * @param string $targetingType Required. The type of targeting option to
-   * retrieve.
+   * retrieve. Accepted values are: * `TARGETING_TYPE_APP_CATEGORY` *
+   * `TARGETING_TYPE_AGE_RANGE` * `TARGETING_TYPE_GENDER` *
+   * `TARGETING_TYPE_VIDEO_PLAYER_SIZE` * `TARGETING_TYPE_USER_REWARDED_CONTENT` *
+   * `TARGETING_TYPE_PARENTAL_STATUS` * `TARGETING_TYPE_CONTENT_INSTREAM_POSITION`
+   * * `TARGETING_TYPE_CONTENT_OUTSTREAM_POSITION` * `TARGETING_TYPE_DEVICE_TYPE`
+   * * `TARGETING_TYPE_BROWSER` * `TARGETING_TYPE_HOUSEHOLD_INCOME` *
+   * `TARGETING_TYPE_ON_SCREEN_POSITION` * `TARGETING_TYPE_CARRIER_AND_ISP` *
+   * `TARGETING_TYPE_OPERATING_SYSTEM` * `TARGETING_TYPE_DEVICE_MAKE_MODEL` *
+   * `TARGETING_TYPE_ENVIRONMENT` * `TARGETING_TYPE_CATEGORY` *
+   * `TARGETING_TYPE_VIEWABILITY` * `TARGETING_TYPE_AUTHORIZED_SELLER_STATUS` *
+   * `TARGETING_TYPE_LANGUAGE` * `TARGETING_TYPE_GEO_REGION` *
+   * `TARGETING_TYPE_DIGITAL_CONTENT_LABEL_EXCLUSION` *
+   * `TARGETING_TYPE_SENSITIVE_CATEGORY_EXCLUSION` * `TARGETING_TYPE_EXCHANGE` *
+   * `TARGETING_TYPE_SUB_EXCHANGE` * `TARGETING_TYPE_NATIVE_CONTENT_POSITION` *
+   * `TARGETING_TYPE_OMID`
    * @param string $targetingOptionId Required. The ID of the of targeting option
    * to retrieve.
    * @param array $optParams Optional parameters.
@@ -56,7 +70,21 @@ class TargetingTypesTargetingOptions extends \Google\Service\Resource
    * (targetingOptions.listTargetingTypesTargetingOptions)
    *
    * @param string $targetingType Required. The type of targeting option to be
-   * listed.
+   * listed. Accepted values are: * `TARGETING_TYPE_APP_CATEGORY` *
+   * `TARGETING_TYPE_AGE_RANGE` * `TARGETING_TYPE_GENDER` *
+   * `TARGETING_TYPE_VIDEO_PLAYER_SIZE` * `TARGETING_TYPE_USER_REWARDED_CONTENT` *
+   * `TARGETING_TYPE_PARENTAL_STATUS` * `TARGETING_TYPE_CONTENT_INSTREAM_POSITION`
+   * * `TARGETING_TYPE_CONTENT_OUTSTREAM_POSITION` * `TARGETING_TYPE_DEVICE_TYPE`
+   * * `TARGETING_TYPE_BROWSER` * `TARGETING_TYPE_HOUSEHOLD_INCOME` *
+   * `TARGETING_TYPE_ON_SCREEN_POSITION` * `TARGETING_TYPE_CARRIER_AND_ISP` *
+   * `TARGETING_TYPE_OPERATING_SYSTEM` * `TARGETING_TYPE_DEVICE_MAKE_MODEL` *
+   * `TARGETING_TYPE_ENVIRONMENT` * `TARGETING_TYPE_CATEGORY` *
+   * `TARGETING_TYPE_VIEWABILITY` * `TARGETING_TYPE_AUTHORIZED_SELLER_STATUS` *
+   * `TARGETING_TYPE_LANGUAGE` * `TARGETING_TYPE_GEO_REGION` *
+   * `TARGETING_TYPE_DIGITAL_CONTENT_LABEL_EXCLUSION` *
+   * `TARGETING_TYPE_SENSITIVE_CATEGORY_EXCLUSION` * `TARGETING_TYPE_EXCHANGE` *
+   * `TARGETING_TYPE_SUB_EXCHANGE` * `TARGETING_TYPE_NATIVE_CONTENT_POSITION` *
+   * `TARGETING_TYPE_OMID`
    * @param array $optParams Optional parameters.
    *
    * @opt_param string advertiserId Required. The Advertiser this request is being
@@ -79,7 +107,7 @@ class TargetingTypesTargetingOptions extends \Google\Service\Resource
    * are: * `targetingOptionId` (default) The default sorting order is ascending.
    * To specify descending order for a field, a suffix "desc" should be added to
    * the field name. Example: `targetingOptionId desc`.
-   * @opt_param int pageSize Requested page size. Must be between `1` and `100`.
+   * @opt_param int pageSize Requested page size. Must be between `1` and `200`.
    * If unspecified will default to `100`. Returns error code `INVALID_ARGUMENT`
    * if an invalid value is specified.
    * @opt_param string pageToken A token identifying a page of results the server

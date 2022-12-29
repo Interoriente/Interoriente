@@ -19,17 +19,31 @@ namespace Google\Service\Dialogflow;
 
 class GoogleCloudDialogflowV2beta1ConversationEvent extends \Google\Model
 {
+  /**
+   * @var string
+   */
   public $conversation;
   protected $errorStatusType = GoogleRpcStatus::class;
   protected $errorStatusDataType = '';
+  public $errorStatus;
   protected $newMessagePayloadType = GoogleCloudDialogflowV2beta1Message::class;
   protected $newMessagePayloadDataType = '';
+  public $newMessagePayload;
+  /**
+   * @var string
+   */
   public $type;
 
+  /**
+   * @param string
+   */
   public function setConversation($conversation)
   {
     $this->conversation = $conversation;
   }
+  /**
+   * @return string
+   */
   public function getConversation()
   {
     return $this->conversation;
@@ -62,10 +76,16 @@ class GoogleCloudDialogflowV2beta1ConversationEvent extends \Google\Model
   {
     return $this->newMessagePayload;
   }
+  /**
+   * @param string
+   */
   public function setType($type)
   {
     $this->type = $type;
   }
+  /**
+   * @return string
+   */
   public function getType()
   {
     return $this->type;

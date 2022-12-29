@@ -21,6 +21,10 @@ class GooglePrivacyDlpV2MetadataLocation extends \Google\Model
 {
   protected $storageLabelType = GooglePrivacyDlpV2StorageMetadataLabel::class;
   protected $storageLabelDataType = '';
+  public $storageLabel;
+  /**
+   * @var string
+   */
   public $type;
 
   /**
@@ -37,10 +41,16 @@ class GooglePrivacyDlpV2MetadataLocation extends \Google\Model
   {
     return $this->storageLabel;
   }
+  /**
+   * @param string
+   */
   public function setType($type)
   {
     $this->type = $type;
   }
+  /**
+   * @return string
+   */
   public function getType()
   {
     return $this->type;

@@ -22,6 +22,10 @@ class GoogleCloudChannelV1TransferEntitlementsToGoogleRequest extends \Google\Co
   protected $collection_key = 'entitlements';
   protected $entitlementsType = GoogleCloudChannelV1Entitlement::class;
   protected $entitlementsDataType = 'array';
+  public $entitlements;
+  /**
+   * @var string
+   */
   public $requestId;
 
   /**
@@ -38,10 +42,16 @@ class GoogleCloudChannelV1TransferEntitlementsToGoogleRequest extends \Google\Co
   {
     return $this->entitlements;
   }
+  /**
+   * @param string
+   */
   public function setRequestId($requestId)
   {
     $this->requestId = $requestId;
   }
+  /**
+   * @return string
+   */
   public function getRequestId()
   {
     return $this->requestId;

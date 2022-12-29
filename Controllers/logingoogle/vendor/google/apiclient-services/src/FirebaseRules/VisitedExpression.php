@@ -21,6 +21,10 @@ class VisitedExpression extends \Google\Model
 {
   protected $sourcePositionType = SourcePosition::class;
   protected $sourcePositionDataType = '';
+  public $sourcePosition;
+  /**
+   * @var array
+   */
   public $value;
 
   /**
@@ -37,10 +41,16 @@ class VisitedExpression extends \Google\Model
   {
     return $this->sourcePosition;
   }
+  /**
+   * @param array
+   */
   public function setValue($value)
   {
     $this->value = $value;
   }
+  /**
+   * @return array
+   */
   public function getValue()
   {
     return $this->value;

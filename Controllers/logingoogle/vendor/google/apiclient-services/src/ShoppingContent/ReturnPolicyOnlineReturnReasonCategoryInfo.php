@@ -19,23 +19,42 @@ namespace Google\Service\ShoppingContent;
 
 class ReturnPolicyOnlineReturnReasonCategoryInfo extends \Google\Model
 {
+  /**
+   * @var string
+   */
   public $returnLabelSource;
+  /**
+   * @var string
+   */
   public $returnReasonCategory;
   protected $returnShippingFeeType = ReturnPolicyOnlineReturnShippingFee::class;
   protected $returnShippingFeeDataType = '';
+  public $returnShippingFee;
 
+  /**
+   * @param string
+   */
   public function setReturnLabelSource($returnLabelSource)
   {
     $this->returnLabelSource = $returnLabelSource;
   }
+  /**
+   * @return string
+   */
   public function getReturnLabelSource()
   {
     return $this->returnLabelSource;
   }
+  /**
+   * @param string
+   */
   public function setReturnReasonCategory($returnReasonCategory)
   {
     $this->returnReasonCategory = $returnReasonCategory;
   }
+  /**
+   * @return string
+   */
   public function getReturnReasonCategory()
   {
     return $this->returnReasonCategory;

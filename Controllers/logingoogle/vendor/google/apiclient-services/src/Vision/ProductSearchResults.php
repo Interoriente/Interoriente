@@ -20,16 +20,27 @@ namespace Google\Service\Vision;
 class ProductSearchResults extends \Google\Collection
 {
   protected $collection_key = 'results';
+  /**
+   * @var string
+   */
   public $indexTime;
   protected $productGroupedResultsType = GroupedResult::class;
   protected $productGroupedResultsDataType = 'array';
+  public $productGroupedResults;
   protected $resultsType = Result::class;
   protected $resultsDataType = 'array';
+  public $results;
 
+  /**
+   * @param string
+   */
   public function setIndexTime($indexTime)
   {
     $this->indexTime = $indexTime;
   }
+  /**
+   * @return string
+   */
   public function getIndexTime()
   {
     return $this->indexTime;

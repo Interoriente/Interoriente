@@ -20,16 +20,32 @@ namespace Google\Service\OSConfig;
 class ExecStepConfig extends \Google\Collection
 {
   protected $collection_key = 'allowedSuccessCodes';
+  /**
+   * @var int[]
+   */
   public $allowedSuccessCodes;
   protected $gcsObjectType = GcsObject::class;
   protected $gcsObjectDataType = '';
+  public $gcsObject;
+  /**
+   * @var string
+   */
   public $interpreter;
+  /**
+   * @var string
+   */
   public $localPath;
 
+  /**
+   * @param int[]
+   */
   public function setAllowedSuccessCodes($allowedSuccessCodes)
   {
     $this->allowedSuccessCodes = $allowedSuccessCodes;
   }
+  /**
+   * @return int[]
+   */
   public function getAllowedSuccessCodes()
   {
     return $this->allowedSuccessCodes;
@@ -48,18 +64,30 @@ class ExecStepConfig extends \Google\Collection
   {
     return $this->gcsObject;
   }
+  /**
+   * @param string
+   */
   public function setInterpreter($interpreter)
   {
     $this->interpreter = $interpreter;
   }
+  /**
+   * @return string
+   */
   public function getInterpreter()
   {
     return $this->interpreter;
   }
+  /**
+   * @param string
+   */
   public function setLocalPath($localPath)
   {
     $this->localPath = $localPath;
   }
+  /**
+   * @return string
+   */
   public function getLocalPath()
   {
     return $this->localPath;

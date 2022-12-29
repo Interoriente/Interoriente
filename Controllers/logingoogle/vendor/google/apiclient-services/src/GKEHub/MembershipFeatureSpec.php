@@ -21,6 +21,20 @@ class MembershipFeatureSpec extends \Google\Model
 {
   protected $configmanagementType = ConfigManagementMembershipSpec::class;
   protected $configmanagementDataType = '';
+  public $configmanagement;
+  /**
+   * @var bool
+   */
+  public $fleetInherited;
+  protected $fleetobservabilityType = FleetObservabilityMembershipSpec::class;
+  protected $fleetobservabilityDataType = '';
+  public $fleetobservability;
+  protected $identityserviceType = IdentityServiceMembershipSpec::class;
+  protected $identityserviceDataType = '';
+  public $identityservice;
+  protected $meshType = ServiceMeshMembershipSpec::class;
+  protected $meshDataType = '';
+  public $mesh;
 
   /**
    * @param ConfigManagementMembershipSpec
@@ -35,6 +49,62 @@ class MembershipFeatureSpec extends \Google\Model
   public function getConfigmanagement()
   {
     return $this->configmanagement;
+  }
+  /**
+   * @param bool
+   */
+  public function setFleetInherited($fleetInherited)
+  {
+    $this->fleetInherited = $fleetInherited;
+  }
+  /**
+   * @return bool
+   */
+  public function getFleetInherited()
+  {
+    return $this->fleetInherited;
+  }
+  /**
+   * @param FleetObservabilityMembershipSpec
+   */
+  public function setFleetobservability(FleetObservabilityMembershipSpec $fleetobservability)
+  {
+    $this->fleetobservability = $fleetobservability;
+  }
+  /**
+   * @return FleetObservabilityMembershipSpec
+   */
+  public function getFleetobservability()
+  {
+    return $this->fleetobservability;
+  }
+  /**
+   * @param IdentityServiceMembershipSpec
+   */
+  public function setIdentityservice(IdentityServiceMembershipSpec $identityservice)
+  {
+    $this->identityservice = $identityservice;
+  }
+  /**
+   * @return IdentityServiceMembershipSpec
+   */
+  public function getIdentityservice()
+  {
+    return $this->identityservice;
+  }
+  /**
+   * @param ServiceMeshMembershipSpec
+   */
+  public function setMesh(ServiceMeshMembershipSpec $mesh)
+  {
+    $this->mesh = $mesh;
+  }
+  /**
+   * @return ServiceMeshMembershipSpec
+   */
+  public function getMesh()
+  {
+    return $this->mesh;
   }
 }
 

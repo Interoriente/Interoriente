@@ -22,19 +22,34 @@ class TestCase extends \Google\Collection
   protected $collection_key = 'toolOutputs';
   protected $elapsedTimeType = Duration::class;
   protected $elapsedTimeDataType = '';
+  public $elapsedTime;
   protected $endTimeType = Timestamp::class;
   protected $endTimeDataType = '';
+  public $endTime;
+  /**
+   * @var string
+   */
   public $skippedMessage;
   protected $stackTracesType = StackTrace::class;
   protected $stackTracesDataType = 'array';
+  public $stackTraces;
   protected $startTimeType = Timestamp::class;
   protected $startTimeDataType = '';
+  public $startTime;
+  /**
+   * @var string
+   */
   public $status;
+  /**
+   * @var string
+   */
   public $testCaseId;
   protected $testCaseReferenceType = TestCaseReference::class;
   protected $testCaseReferenceDataType = '';
+  public $testCaseReference;
   protected $toolOutputsType = ToolOutputReference::class;
   protected $toolOutputsDataType = 'array';
+  public $toolOutputs;
 
   /**
    * @param Duration
@@ -64,10 +79,16 @@ class TestCase extends \Google\Collection
   {
     return $this->endTime;
   }
+  /**
+   * @param string
+   */
   public function setSkippedMessage($skippedMessage)
   {
     $this->skippedMessage = $skippedMessage;
   }
+  /**
+   * @return string
+   */
   public function getSkippedMessage()
   {
     return $this->skippedMessage;
@@ -100,18 +121,30 @@ class TestCase extends \Google\Collection
   {
     return $this->startTime;
   }
+  /**
+   * @param string
+   */
   public function setStatus($status)
   {
     $this->status = $status;
   }
+  /**
+   * @return string
+   */
   public function getStatus()
   {
     return $this->status;
   }
+  /**
+   * @param string
+   */
   public function setTestCaseId($testCaseId)
   {
     $this->testCaseId = $testCaseId;
   }
+  /**
+   * @return string
+   */
   public function getTestCaseId()
   {
     return $this->testCaseId;

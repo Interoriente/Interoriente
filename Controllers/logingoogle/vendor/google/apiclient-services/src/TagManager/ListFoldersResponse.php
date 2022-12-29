@@ -22,6 +22,10 @@ class ListFoldersResponse extends \Google\Collection
   protected $collection_key = 'folder';
   protected $folderType = Folder::class;
   protected $folderDataType = 'array';
+  public $folder;
+  /**
+   * @var string
+   */
   public $nextPageToken;
 
   /**
@@ -38,10 +42,16 @@ class ListFoldersResponse extends \Google\Collection
   {
     return $this->folder;
   }
+  /**
+   * @param string
+   */
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
   }
+  /**
+   * @return string
+   */
   public function getNextPageToken()
   {
     return $this->nextPageToken;

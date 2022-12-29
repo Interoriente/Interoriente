@@ -22,6 +22,10 @@ class GoogleCloudDialogflowV2beta1IntentMessageTableCardRow extends \Google\Coll
   protected $collection_key = 'cells';
   protected $cellsType = GoogleCloudDialogflowV2beta1IntentMessageTableCardCell::class;
   protected $cellsDataType = 'array';
+  public $cells;
+  /**
+   * @var bool
+   */
   public $dividerAfter;
 
   /**
@@ -38,10 +42,16 @@ class GoogleCloudDialogflowV2beta1IntentMessageTableCardRow extends \Google\Coll
   {
     return $this->cells;
   }
+  /**
+   * @param bool
+   */
   public function setDividerAfter($dividerAfter)
   {
     $this->dividerAfter = $dividerAfter;
   }
+  /**
+   * @return bool
+   */
   public function getDividerAfter()
   {
     return $this->dividerAfter;

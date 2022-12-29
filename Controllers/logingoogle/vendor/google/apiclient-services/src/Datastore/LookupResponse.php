@@ -22,10 +22,17 @@ class LookupResponse extends \Google\Collection
   protected $collection_key = 'missing';
   protected $deferredType = Key::class;
   protected $deferredDataType = 'array';
+  public $deferred;
   protected $foundType = EntityResult::class;
   protected $foundDataType = 'array';
+  public $found;
   protected $missingType = EntityResult::class;
   protected $missingDataType = 'array';
+  public $missing;
+  /**
+   * @var string
+   */
+  public $readTime;
 
   /**
    * @param Key[]
@@ -68,6 +75,20 @@ class LookupResponse extends \Google\Collection
   public function getMissing()
   {
     return $this->missing;
+  }
+  /**
+   * @param string
+   */
+  public function setReadTime($readTime)
+  {
+    $this->readTime = $readTime;
+  }
+  /**
+   * @return string
+   */
+  public function getReadTime()
+  {
+    return $this->readTime;
   }
 }
 

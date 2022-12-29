@@ -19,14 +19,24 @@ namespace Google\Service\Books;
 
 class FamilyInfo extends \Google\Model
 {
+  /**
+   * @var string
+   */
   public $kind;
   protected $membershipType = FamilyInfoMembership::class;
   protected $membershipDataType = '';
+  public $membership;
 
+  /**
+   * @param string
+   */
   public function setKind($kind)
   {
     $this->kind = $kind;
   }
+  /**
+   * @return string
+   */
   public function getKind()
   {
     return $this->kind;

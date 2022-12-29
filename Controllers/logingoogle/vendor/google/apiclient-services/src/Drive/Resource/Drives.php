@@ -31,7 +31,7 @@ use Google\Service\Drive\DriveList;
 class Drives extends \Google\Service\Resource
 {
   /**
-   * Creates a new shared drive. (drives.create)
+   * Creates a shared drive. (drives.create)
    *
    * @param string $requestId An ID, such as a random UUID, which uniquely
    * identifies this user's request for idempotent creation of a shared drive. A
@@ -54,6 +54,13 @@ class Drives extends \Google\Service\Resource
    *
    * @param string $driveId The ID of the shared drive.
    * @param array $optParams Optional parameters.
+   *
+   * @opt_param bool allowItemDeletion Whether any items inside the shared drive
+   * should also be deleted. This option is only supported when
+   * useDomainAdminAccess is also set to true.
+   * @opt_param bool useDomainAdminAccess Issue the request as a domain
+   * administrator; if set to true, then the requester will be granted access if
+   * they are an administrator of the domain to which the shared drive belongs.
    */
   public function delete($driveId, $optParams = [])
   {

@@ -21,20 +21,36 @@ class TestSpecification extends \Google\Model
 {
   protected $androidInstrumentationTestType = AndroidInstrumentationTest::class;
   protected $androidInstrumentationTestDataType = '';
+  public $androidInstrumentationTest;
   protected $androidRoboTestType = AndroidRoboTest::class;
   protected $androidRoboTestDataType = '';
+  public $androidRoboTest;
   protected $androidTestLoopType = AndroidTestLoop::class;
   protected $androidTestLoopDataType = '';
+  public $androidTestLoop;
+  /**
+   * @var bool
+   */
   public $disablePerformanceMetrics;
+  /**
+   * @var bool
+   */
   public $disableVideoRecording;
   protected $iosTestLoopType = IosTestLoop::class;
   protected $iosTestLoopDataType = '';
+  public $iosTestLoop;
   protected $iosTestSetupType = IosTestSetup::class;
   protected $iosTestSetupDataType = '';
+  public $iosTestSetup;
   protected $iosXcTestType = IosXcTest::class;
   protected $iosXcTestDataType = '';
+  public $iosXcTest;
   protected $testSetupType = TestSetup::class;
   protected $testSetupDataType = '';
+  public $testSetup;
+  /**
+   * @var string
+   */
   public $testTimeout;
 
   /**
@@ -79,18 +95,30 @@ class TestSpecification extends \Google\Model
   {
     return $this->androidTestLoop;
   }
+  /**
+   * @param bool
+   */
   public function setDisablePerformanceMetrics($disablePerformanceMetrics)
   {
     $this->disablePerformanceMetrics = $disablePerformanceMetrics;
   }
+  /**
+   * @return bool
+   */
   public function getDisablePerformanceMetrics()
   {
     return $this->disablePerformanceMetrics;
   }
+  /**
+   * @param bool
+   */
   public function setDisableVideoRecording($disableVideoRecording)
   {
     $this->disableVideoRecording = $disableVideoRecording;
   }
+  /**
+   * @return bool
+   */
   public function getDisableVideoRecording()
   {
     return $this->disableVideoRecording;
@@ -151,10 +179,16 @@ class TestSpecification extends \Google\Model
   {
     return $this->testSetup;
   }
+  /**
+   * @param string
+   */
   public function setTestTimeout($testTimeout)
   {
     $this->testTimeout = $testTimeout;
   }
+  /**
+   * @return string
+   */
   public function getTestTimeout()
   {
     return $this->testTimeout;

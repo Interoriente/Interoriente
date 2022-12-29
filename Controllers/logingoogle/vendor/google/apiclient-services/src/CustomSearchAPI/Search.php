@@ -20,25 +20,43 @@ namespace Google\Service\CustomSearchAPI;
 class Search extends \Google\Collection
 {
   protected $collection_key = 'promotions';
+  /**
+   * @var array[]
+   */
   public $context;
   protected $itemsType = Result::class;
   protected $itemsDataType = 'array';
+  public $items;
+  /**
+   * @var string
+   */
   public $kind;
   protected $promotionsType = Promotion::class;
   protected $promotionsDataType = 'array';
+  public $promotions;
   protected $queriesType = SearchQueries::class;
   protected $queriesDataType = '';
+  public $queries;
   protected $searchInformationType = SearchSearchInformation::class;
   protected $searchInformationDataType = '';
+  public $searchInformation;
   protected $spellingType = SearchSpelling::class;
   protected $spellingDataType = '';
+  public $spelling;
   protected $urlType = SearchUrl::class;
   protected $urlDataType = '';
+  public $url;
 
+  /**
+   * @param array[]
+   */
   public function setContext($context)
   {
     $this->context = $context;
   }
+  /**
+   * @return array[]
+   */
   public function getContext()
   {
     return $this->context;
@@ -57,10 +75,16 @@ class Search extends \Google\Collection
   {
     return $this->items;
   }
+  /**
+   * @param string
+   */
   public function setKind($kind)
   {
     $this->kind = $kind;
   }
+  /**
+   * @return string
+   */
   public function getKind()
   {
     return $this->kind;

@@ -21,9 +21,17 @@ class GoogleCloudRecommendationengineV1beta1ImportCatalogItemsRequest extends \G
 {
   protected $errorsConfigType = GoogleCloudRecommendationengineV1beta1ImportErrorsConfig::class;
   protected $errorsConfigDataType = '';
+  public $errorsConfig;
   protected $inputConfigType = GoogleCloudRecommendationengineV1beta1InputConfig::class;
   protected $inputConfigDataType = '';
+  public $inputConfig;
+  /**
+   * @var string
+   */
   public $requestId;
+  /**
+   * @var string
+   */
   public $updateMask;
 
   /**
@@ -54,18 +62,30 @@ class GoogleCloudRecommendationengineV1beta1ImportCatalogItemsRequest extends \G
   {
     return $this->inputConfig;
   }
+  /**
+   * @param string
+   */
   public function setRequestId($requestId)
   {
     $this->requestId = $requestId;
   }
+  /**
+   * @return string
+   */
   public function getRequestId()
   {
     return $this->requestId;
   }
+  /**
+   * @param string
+   */
   public function setUpdateMask($updateMask)
   {
     $this->updateMask = $updateMask;
   }
+  /**
+   * @return string
+   */
   public function getUpdateMask()
   {
     return $this->updateMask;

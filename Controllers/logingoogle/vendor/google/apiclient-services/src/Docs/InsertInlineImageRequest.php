@@ -21,10 +21,16 @@ class InsertInlineImageRequest extends \Google\Model
 {
   protected $endOfSegmentLocationType = EndOfSegmentLocation::class;
   protected $endOfSegmentLocationDataType = '';
+  public $endOfSegmentLocation;
   protected $locationType = Location::class;
   protected $locationDataType = '';
+  public $location;
   protected $objectSizeType = Size::class;
   protected $objectSizeDataType = '';
+  public $objectSize;
+  /**
+   * @var string
+   */
   public $uri;
 
   /**
@@ -69,10 +75,16 @@ class InsertInlineImageRequest extends \Google\Model
   {
     return $this->objectSize;
   }
+  /**
+   * @param string
+   */
   public function setUri($uri)
   {
     $this->uri = $uri;
   }
+  /**
+   * @return string
+   */
   public function getUri()
   {
     return $this->uri;

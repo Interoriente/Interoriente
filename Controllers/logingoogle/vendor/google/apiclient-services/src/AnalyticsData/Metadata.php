@@ -22,8 +22,13 @@ class Metadata extends \Google\Collection
   protected $collection_key = 'metrics';
   protected $dimensionsType = DimensionMetadata::class;
   protected $dimensionsDataType = 'array';
+  public $dimensions;
   protected $metricsType = MetricMetadata::class;
   protected $metricsDataType = 'array';
+  public $metrics;
+  /**
+   * @var string
+   */
   public $name;
 
   /**
@@ -54,10 +59,16 @@ class Metadata extends \Google\Collection
   {
     return $this->metrics;
   }
+  /**
+   * @param string
+   */
   public function setName($name)
   {
     $this->name = $name;
   }
+  /**
+   * @return string
+   */
   public function getName()
   {
     return $this->name;

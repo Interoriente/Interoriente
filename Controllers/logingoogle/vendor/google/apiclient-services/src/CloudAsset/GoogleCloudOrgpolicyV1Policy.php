@@ -21,13 +21,28 @@ class GoogleCloudOrgpolicyV1Policy extends \Google\Model
 {
   protected $booleanPolicyType = GoogleCloudOrgpolicyV1BooleanPolicy::class;
   protected $booleanPolicyDataType = '';
+  public $booleanPolicy;
+  /**
+   * @var string
+   */
   public $constraint;
+  /**
+   * @var string
+   */
   public $etag;
   protected $listPolicyType = GoogleCloudOrgpolicyV1ListPolicy::class;
   protected $listPolicyDataType = '';
+  public $listPolicy;
   protected $restoreDefaultType = GoogleCloudOrgpolicyV1RestoreDefault::class;
   protected $restoreDefaultDataType = '';
+  public $restoreDefault;
+  /**
+   * @var string
+   */
   public $updateTime;
+  /**
+   * @var int
+   */
   public $version;
 
   /**
@@ -44,18 +59,30 @@ class GoogleCloudOrgpolicyV1Policy extends \Google\Model
   {
     return $this->booleanPolicy;
   }
+  /**
+   * @param string
+   */
   public function setConstraint($constraint)
   {
     $this->constraint = $constraint;
   }
+  /**
+   * @return string
+   */
   public function getConstraint()
   {
     return $this->constraint;
   }
+  /**
+   * @param string
+   */
   public function setEtag($etag)
   {
     $this->etag = $etag;
   }
+  /**
+   * @return string
+   */
   public function getEtag()
   {
     return $this->etag;
@@ -88,18 +115,30 @@ class GoogleCloudOrgpolicyV1Policy extends \Google\Model
   {
     return $this->restoreDefault;
   }
+  /**
+   * @param string
+   */
   public function setUpdateTime($updateTime)
   {
     $this->updateTime = $updateTime;
   }
+  /**
+   * @return string
+   */
   public function getUpdateTime()
   {
     return $this->updateTime;
   }
+  /**
+   * @param int
+   */
   public function setVersion($version)
   {
     $this->version = $version;
   }
+  /**
+   * @return int
+   */
   public function getVersion()
   {
     return $this->version;

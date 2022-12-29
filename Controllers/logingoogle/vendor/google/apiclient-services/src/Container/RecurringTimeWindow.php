@@ -19,14 +19,24 @@ namespace Google\Service\Container;
 
 class RecurringTimeWindow extends \Google\Model
 {
+  /**
+   * @var string
+   */
   public $recurrence;
   protected $windowType = TimeWindow::class;
   protected $windowDataType = '';
+  public $window;
 
+  /**
+   * @param string
+   */
   public function setRecurrence($recurrence)
   {
     $this->recurrence = $recurrence;
   }
+  /**
+   * @return string
+   */
   public function getRecurrence()
   {
     return $this->recurrence;

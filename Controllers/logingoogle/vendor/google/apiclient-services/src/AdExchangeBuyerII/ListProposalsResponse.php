@@ -20,14 +20,24 @@ namespace Google\Service\AdExchangeBuyerII;
 class ListProposalsResponse extends \Google\Collection
 {
   protected $collection_key = 'proposals';
+  /**
+   * @var string
+   */
   public $nextPageToken;
   protected $proposalsType = Proposal::class;
   protected $proposalsDataType = 'array';
+  public $proposals;
 
+  /**
+   * @param string
+   */
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
   }
+  /**
+   * @return string
+   */
   public function getNextPageToken()
   {
     return $this->nextPageToken;

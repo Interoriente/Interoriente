@@ -23,24 +23,54 @@ class GoogleCloudApigeeV1Result extends \Google\Collection
   protected $internal_gapi_mappings = [
         "actionResult" => "ActionResult",
   ];
+  /**
+   * @var string
+   */
   public $actionResult;
   protected $accessListType = GoogleCloudApigeeV1Access::class;
   protected $accessListDataType = 'array';
+  public $accessList;
+  /**
+   * @var string
+   */
   public $content;
   protected $headersType = GoogleCloudApigeeV1Property::class;
   protected $headersDataType = 'array';
+  public $headers;
   protected $propertiesType = GoogleCloudApigeeV1Properties::class;
   protected $propertiesDataType = '';
+  public $properties;
+  /**
+   * @var string
+   */
   public $reasonPhrase;
+  /**
+   * @var string
+   */
   public $statusCode;
+  /**
+   * @var string
+   */
   public $timestamp;
+  /**
+   * @var string
+   */
   public $uRI;
+  /**
+   * @var string
+   */
   public $verb;
 
+  /**
+   * @param string
+   */
   public function setActionResult($actionResult)
   {
     $this->actionResult = $actionResult;
   }
+  /**
+   * @return string
+   */
   public function getActionResult()
   {
     return $this->actionResult;
@@ -59,10 +89,16 @@ class GoogleCloudApigeeV1Result extends \Google\Collection
   {
     return $this->accessList;
   }
+  /**
+   * @param string
+   */
   public function setContent($content)
   {
     $this->content = $content;
   }
+  /**
+   * @return string
+   */
   public function getContent()
   {
     return $this->content;
@@ -95,42 +131,72 @@ class GoogleCloudApigeeV1Result extends \Google\Collection
   {
     return $this->properties;
   }
+  /**
+   * @param string
+   */
   public function setReasonPhrase($reasonPhrase)
   {
     $this->reasonPhrase = $reasonPhrase;
   }
+  /**
+   * @return string
+   */
   public function getReasonPhrase()
   {
     return $this->reasonPhrase;
   }
+  /**
+   * @param string
+   */
   public function setStatusCode($statusCode)
   {
     $this->statusCode = $statusCode;
   }
+  /**
+   * @return string
+   */
   public function getStatusCode()
   {
     return $this->statusCode;
   }
+  /**
+   * @param string
+   */
   public function setTimestamp($timestamp)
   {
     $this->timestamp = $timestamp;
   }
+  /**
+   * @return string
+   */
   public function getTimestamp()
   {
     return $this->timestamp;
   }
+  /**
+   * @param string
+   */
   public function setURI($uRI)
   {
     $this->uRI = $uRI;
   }
+  /**
+   * @return string
+   */
   public function getURI()
   {
     return $this->uRI;
   }
+  /**
+   * @param string
+   */
   public function setVerb($verb)
   {
     $this->verb = $verb;
   }
+  /**
+   * @return string
+   */
   public function getVerb()
   {
     return $this->verb;

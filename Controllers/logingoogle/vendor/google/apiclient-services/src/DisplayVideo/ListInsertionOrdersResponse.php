@@ -22,6 +22,10 @@ class ListInsertionOrdersResponse extends \Google\Collection
   protected $collection_key = 'insertionOrders';
   protected $insertionOrdersType = InsertionOrder::class;
   protected $insertionOrdersDataType = 'array';
+  public $insertionOrders;
+  /**
+   * @var string
+   */
   public $nextPageToken;
 
   /**
@@ -38,10 +42,16 @@ class ListInsertionOrdersResponse extends \Google\Collection
   {
     return $this->insertionOrders;
   }
+  /**
+   * @param string
+   */
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
   }
+  /**
+   * @return string
+   */
   public function getNextPageToken()
   {
     return $this->nextPageToken;

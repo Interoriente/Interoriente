@@ -20,14 +20,24 @@ namespace Google\Service\Vision;
 class ListProductsInProductSetResponse extends \Google\Collection
 {
   protected $collection_key = 'products';
+  /**
+   * @var string
+   */
   public $nextPageToken;
   protected $productsType = Product::class;
   protected $productsDataType = 'array';
+  public $products;
 
+  /**
+   * @param string
+   */
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
   }
+  /**
+   * @return string
+   */
   public function getNextPageToken()
   {
     return $this->nextPageToken;

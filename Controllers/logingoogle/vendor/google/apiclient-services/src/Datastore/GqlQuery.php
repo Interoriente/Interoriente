@@ -20,17 +20,31 @@ namespace Google\Service\Datastore;
 class GqlQuery extends \Google\Collection
 {
   protected $collection_key = 'positionalBindings';
+  /**
+   * @var bool
+   */
   public $allowLiterals;
   protected $namedBindingsType = GqlQueryParameter::class;
   protected $namedBindingsDataType = 'map';
+  public $namedBindings;
   protected $positionalBindingsType = GqlQueryParameter::class;
   protected $positionalBindingsDataType = 'array';
+  public $positionalBindings;
+  /**
+   * @var string
+   */
   public $queryString;
 
+  /**
+   * @param bool
+   */
   public function setAllowLiterals($allowLiterals)
   {
     $this->allowLiterals = $allowLiterals;
   }
+  /**
+   * @return bool
+   */
   public function getAllowLiterals()
   {
     return $this->allowLiterals;
@@ -63,10 +77,16 @@ class GqlQuery extends \Google\Collection
   {
     return $this->positionalBindings;
   }
+  /**
+   * @param string
+   */
   public function setQueryString($queryString)
   {
     $this->queryString = $queryString;
   }
+  /**
+   * @return string
+   */
   public function getQueryString()
   {
     return $this->queryString;

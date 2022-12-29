@@ -22,10 +22,16 @@ class GoogleCloudVideointelligenceV1beta2TimestampedObject extends \Google\Colle
   protected $collection_key = 'landmarks';
   protected $attributesType = GoogleCloudVideointelligenceV1beta2DetectedAttribute::class;
   protected $attributesDataType = 'array';
+  public $attributes;
   protected $landmarksType = GoogleCloudVideointelligenceV1beta2DetectedLandmark::class;
   protected $landmarksDataType = 'array';
+  public $landmarks;
   protected $normalizedBoundingBoxType = GoogleCloudVideointelligenceV1beta2NormalizedBoundingBox::class;
   protected $normalizedBoundingBoxDataType = '';
+  public $normalizedBoundingBox;
+  /**
+   * @var string
+   */
   public $timeOffset;
 
   /**
@@ -70,10 +76,16 @@ class GoogleCloudVideointelligenceV1beta2TimestampedObject extends \Google\Colle
   {
     return $this->normalizedBoundingBox;
   }
+  /**
+   * @param string
+   */
   public function setTimeOffset($timeOffset)
   {
     $this->timeOffset = $timeOffset;
   }
+  /**
+   * @return string
+   */
   public function getTimeOffset()
   {
     return $this->timeOffset;

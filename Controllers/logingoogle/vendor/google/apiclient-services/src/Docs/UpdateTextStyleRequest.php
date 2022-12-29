@@ -19,16 +19,27 @@ namespace Google\Service\Docs;
 
 class UpdateTextStyleRequest extends \Google\Model
 {
+  /**
+   * @var string
+   */
   public $fields;
   protected $rangeType = Range::class;
   protected $rangeDataType = '';
+  public $range;
   protected $textStyleType = TextStyle::class;
   protected $textStyleDataType = '';
+  public $textStyle;
 
+  /**
+   * @param string
+   */
   public function setFields($fields)
   {
     $this->fields = $fields;
   }
+  /**
+   * @return string
+   */
   public function getFields()
   {
     return $this->fields;

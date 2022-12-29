@@ -22,8 +22,13 @@ class GoogleCloudVideointelligenceV1FaceAnnotation extends \Google\Collection
   protected $collection_key = 'segments';
   protected $framesType = GoogleCloudVideointelligenceV1FaceFrame::class;
   protected $framesDataType = 'array';
+  public $frames;
   protected $segmentsType = GoogleCloudVideointelligenceV1FaceSegment::class;
   protected $segmentsDataType = 'array';
+  public $segments;
+  /**
+   * @var string
+   */
   public $thumbnail;
 
   /**
@@ -54,10 +59,16 @@ class GoogleCloudVideointelligenceV1FaceAnnotation extends \Google\Collection
   {
     return $this->segments;
   }
+  /**
+   * @param string
+   */
   public function setThumbnail($thumbnail)
   {
     $this->thumbnail = $thumbnail;
   }
+  /**
+   * @return string
+   */
   public function getThumbnail()
   {
     return $this->thumbnail;

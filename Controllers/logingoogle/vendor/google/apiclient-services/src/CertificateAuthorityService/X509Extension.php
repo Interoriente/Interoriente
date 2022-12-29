@@ -19,15 +19,28 @@ namespace Google\Service\CertificateAuthorityService;
 
 class X509Extension extends \Google\Model
 {
+  /**
+   * @var bool
+   */
   public $critical;
   protected $objectIdType = ObjectId::class;
   protected $objectIdDataType = '';
+  public $objectId;
+  /**
+   * @var string
+   */
   public $value;
 
+  /**
+   * @param bool
+   */
   public function setCritical($critical)
   {
     $this->critical = $critical;
   }
+  /**
+   * @return bool
+   */
   public function getCritical()
   {
     return $this->critical;
@@ -46,10 +59,16 @@ class X509Extension extends \Google\Model
   {
     return $this->objectId;
   }
+  /**
+   * @param string
+   */
   public function setValue($value)
   {
     $this->value = $value;
   }
+  /**
+   * @return string
+   */
   public function getValue()
   {
     return $this->value;

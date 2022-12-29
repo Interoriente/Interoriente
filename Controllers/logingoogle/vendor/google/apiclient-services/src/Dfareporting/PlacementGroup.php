@@ -20,54 +20,140 @@ namespace Google\Service\Dfareporting;
 class PlacementGroup extends \Google\Collection
 {
   protected $collection_key = 'childPlacementIds';
+  /**
+   * @var string
+   */
   public $accountId;
+  /**
+   * @var string
+   */
+  public $activeStatus;
+  /**
+   * @var string
+   */
   public $advertiserId;
   protected $advertiserIdDimensionValueType = DimensionValue::class;
   protected $advertiserIdDimensionValueDataType = '';
-  public $archived;
+  public $advertiserIdDimensionValue;
+  /**
+   * @var string
+   */
   public $campaignId;
   protected $campaignIdDimensionValueType = DimensionValue::class;
   protected $campaignIdDimensionValueDataType = '';
+  public $campaignIdDimensionValue;
+  /**
+   * @var string[]
+   */
   public $childPlacementIds;
+  /**
+   * @var string
+   */
   public $comment;
+  /**
+   * @var string
+   */
   public $contentCategoryId;
   protected $createInfoType = LastModifiedInfo::class;
   protected $createInfoDataType = '';
+  public $createInfo;
+  /**
+   * @var string
+   */
   public $directorySiteId;
   protected $directorySiteIdDimensionValueType = DimensionValue::class;
   protected $directorySiteIdDimensionValueDataType = '';
+  public $directorySiteIdDimensionValue;
+  /**
+   * @var string
+   */
   public $externalId;
+  /**
+   * @var string
+   */
   public $id;
   protected $idDimensionValueType = DimensionValue::class;
   protected $idDimensionValueDataType = '';
+  public $idDimensionValue;
+  /**
+   * @var string
+   */
   public $kind;
   protected $lastModifiedInfoType = LastModifiedInfo::class;
   protected $lastModifiedInfoDataType = '';
+  public $lastModifiedInfo;
+  /**
+   * @var string
+   */
   public $name;
+  /**
+   * @var string
+   */
   public $placementGroupType;
+  /**
+   * @var string
+   */
   public $placementStrategyId;
   protected $pricingScheduleType = PricingSchedule::class;
   protected $pricingScheduleDataType = '';
+  public $pricingSchedule;
+  /**
+   * @var string
+   */
   public $primaryPlacementId;
   protected $primaryPlacementIdDimensionValueType = DimensionValue::class;
   protected $primaryPlacementIdDimensionValueDataType = '';
+  public $primaryPlacementIdDimensionValue;
+  /**
+   * @var string
+   */
   public $siteId;
   protected $siteIdDimensionValueType = DimensionValue::class;
   protected $siteIdDimensionValueDataType = '';
+  public $siteIdDimensionValue;
+  /**
+   * @var string
+   */
   public $subaccountId;
 
+  /**
+   * @param string
+   */
   public function setAccountId($accountId)
   {
     $this->accountId = $accountId;
   }
+  /**
+   * @return string
+   */
   public function getAccountId()
   {
     return $this->accountId;
   }
+  /**
+   * @param string
+   */
+  public function setActiveStatus($activeStatus)
+  {
+    $this->activeStatus = $activeStatus;
+  }
+  /**
+   * @return string
+   */
+  public function getActiveStatus()
+  {
+    return $this->activeStatus;
+  }
+  /**
+   * @param string
+   */
   public function setAdvertiserId($advertiserId)
   {
     $this->advertiserId = $advertiserId;
   }
+  /**
+   * @return string
+   */
   public function getAdvertiserId()
   {
     return $this->advertiserId;
@@ -86,18 +172,16 @@ class PlacementGroup extends \Google\Collection
   {
     return $this->advertiserIdDimensionValue;
   }
-  public function setArchived($archived)
-  {
-    $this->archived = $archived;
-  }
-  public function getArchived()
-  {
-    return $this->archived;
-  }
+  /**
+   * @param string
+   */
   public function setCampaignId($campaignId)
   {
     $this->campaignId = $campaignId;
   }
+  /**
+   * @return string
+   */
   public function getCampaignId()
   {
     return $this->campaignId;
@@ -116,26 +200,44 @@ class PlacementGroup extends \Google\Collection
   {
     return $this->campaignIdDimensionValue;
   }
+  /**
+   * @param string[]
+   */
   public function setChildPlacementIds($childPlacementIds)
   {
     $this->childPlacementIds = $childPlacementIds;
   }
+  /**
+   * @return string[]
+   */
   public function getChildPlacementIds()
   {
     return $this->childPlacementIds;
   }
+  /**
+   * @param string
+   */
   public function setComment($comment)
   {
     $this->comment = $comment;
   }
+  /**
+   * @return string
+   */
   public function getComment()
   {
     return $this->comment;
   }
+  /**
+   * @param string
+   */
   public function setContentCategoryId($contentCategoryId)
   {
     $this->contentCategoryId = $contentCategoryId;
   }
+  /**
+   * @return string
+   */
   public function getContentCategoryId()
   {
     return $this->contentCategoryId;
@@ -154,10 +256,16 @@ class PlacementGroup extends \Google\Collection
   {
     return $this->createInfo;
   }
+  /**
+   * @param string
+   */
   public function setDirectorySiteId($directorySiteId)
   {
     $this->directorySiteId = $directorySiteId;
   }
+  /**
+   * @return string
+   */
   public function getDirectorySiteId()
   {
     return $this->directorySiteId;
@@ -176,18 +284,30 @@ class PlacementGroup extends \Google\Collection
   {
     return $this->directorySiteIdDimensionValue;
   }
+  /**
+   * @param string
+   */
   public function setExternalId($externalId)
   {
     $this->externalId = $externalId;
   }
+  /**
+   * @return string
+   */
   public function getExternalId()
   {
     return $this->externalId;
   }
+  /**
+   * @param string
+   */
   public function setId($id)
   {
     $this->id = $id;
   }
+  /**
+   * @return string
+   */
   public function getId()
   {
     return $this->id;
@@ -206,10 +326,16 @@ class PlacementGroup extends \Google\Collection
   {
     return $this->idDimensionValue;
   }
+  /**
+   * @param string
+   */
   public function setKind($kind)
   {
     $this->kind = $kind;
   }
+  /**
+   * @return string
+   */
   public function getKind()
   {
     return $this->kind;
@@ -228,26 +354,44 @@ class PlacementGroup extends \Google\Collection
   {
     return $this->lastModifiedInfo;
   }
+  /**
+   * @param string
+   */
   public function setName($name)
   {
     $this->name = $name;
   }
+  /**
+   * @return string
+   */
   public function getName()
   {
     return $this->name;
   }
+  /**
+   * @param string
+   */
   public function setPlacementGroupType($placementGroupType)
   {
     $this->placementGroupType = $placementGroupType;
   }
+  /**
+   * @return string
+   */
   public function getPlacementGroupType()
   {
     return $this->placementGroupType;
   }
+  /**
+   * @param string
+   */
   public function setPlacementStrategyId($placementStrategyId)
   {
     $this->placementStrategyId = $placementStrategyId;
   }
+  /**
+   * @return string
+   */
   public function getPlacementStrategyId()
   {
     return $this->placementStrategyId;
@@ -266,10 +410,16 @@ class PlacementGroup extends \Google\Collection
   {
     return $this->pricingSchedule;
   }
+  /**
+   * @param string
+   */
   public function setPrimaryPlacementId($primaryPlacementId)
   {
     $this->primaryPlacementId = $primaryPlacementId;
   }
+  /**
+   * @return string
+   */
   public function getPrimaryPlacementId()
   {
     return $this->primaryPlacementId;
@@ -288,10 +438,16 @@ class PlacementGroup extends \Google\Collection
   {
     return $this->primaryPlacementIdDimensionValue;
   }
+  /**
+   * @param string
+   */
   public function setSiteId($siteId)
   {
     $this->siteId = $siteId;
   }
+  /**
+   * @return string
+   */
   public function getSiteId()
   {
     return $this->siteId;
@@ -310,10 +466,16 @@ class PlacementGroup extends \Google\Collection
   {
     return $this->siteIdDimensionValue;
   }
+  /**
+   * @param string
+   */
   public function setSubaccountId($subaccountId)
   {
     $this->subaccountId = $subaccountId;
   }
+  /**
+   * @return string
+   */
   public function getSubaccountId()
   {
     return $this->subaccountId;

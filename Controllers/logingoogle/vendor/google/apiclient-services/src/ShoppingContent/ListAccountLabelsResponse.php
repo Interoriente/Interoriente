@@ -22,6 +22,10 @@ class ListAccountLabelsResponse extends \Google\Collection
   protected $collection_key = 'accountLabels';
   protected $accountLabelsType = AccountLabel::class;
   protected $accountLabelsDataType = 'array';
+  public $accountLabels;
+  /**
+   * @var string
+   */
   public $nextPageToken;
 
   /**
@@ -38,10 +42,16 @@ class ListAccountLabelsResponse extends \Google\Collection
   {
     return $this->accountLabels;
   }
+  /**
+   * @param string
+   */
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
   }
+  /**
+   * @return string
+   */
   public function getNextPageToken()
   {
     return $this->nextPageToken;

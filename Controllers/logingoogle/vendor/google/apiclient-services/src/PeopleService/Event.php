@@ -21,9 +21,17 @@ class Event extends \Google\Model
 {
   protected $dateType = Date::class;
   protected $dateDataType = '';
+  public $date;
+  /**
+   * @var string
+   */
   public $formattedType;
   protected $metadataType = FieldMetadata::class;
   protected $metadataDataType = '';
+  public $metadata;
+  /**
+   * @var string
+   */
   public $type;
 
   /**
@@ -40,10 +48,16 @@ class Event extends \Google\Model
   {
     return $this->date;
   }
+  /**
+   * @param string
+   */
   public function setFormattedType($formattedType)
   {
     $this->formattedType = $formattedType;
   }
+  /**
+   * @return string
+   */
   public function getFormattedType()
   {
     return $this->formattedType;
@@ -62,10 +76,16 @@ class Event extends \Google\Model
   {
     return $this->metadata;
   }
+  /**
+   * @param string
+   */
   public function setType($type)
   {
     $this->type = $type;
   }
+  /**
+   * @return string
+   */
   public function getType()
   {
     return $this->type;

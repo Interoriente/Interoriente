@@ -22,11 +22,17 @@ class GoogleCloudVideointelligenceV1beta2Track extends \Google\Collection
   protected $collection_key = 'timestampedObjects';
   protected $attributesType = GoogleCloudVideointelligenceV1beta2DetectedAttribute::class;
   protected $attributesDataType = 'array';
+  public $attributes;
+  /**
+   * @var float
+   */
   public $confidence;
   protected $segmentType = GoogleCloudVideointelligenceV1beta2VideoSegment::class;
   protected $segmentDataType = '';
+  public $segment;
   protected $timestampedObjectsType = GoogleCloudVideointelligenceV1beta2TimestampedObject::class;
   protected $timestampedObjectsDataType = 'array';
+  public $timestampedObjects;
 
   /**
    * @param GoogleCloudVideointelligenceV1beta2DetectedAttribute[]
@@ -42,10 +48,16 @@ class GoogleCloudVideointelligenceV1beta2Track extends \Google\Collection
   {
     return $this->attributes;
   }
+  /**
+   * @param float
+   */
   public function setConfidence($confidence)
   {
     $this->confidence = $confidence;
   }
+  /**
+   * @return float
+   */
   public function getConfidence()
   {
     return $this->confidence;

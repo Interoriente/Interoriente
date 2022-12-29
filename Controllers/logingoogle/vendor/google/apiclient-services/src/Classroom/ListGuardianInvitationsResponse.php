@@ -22,6 +22,10 @@ class ListGuardianInvitationsResponse extends \Google\Collection
   protected $collection_key = 'guardianInvitations';
   protected $guardianInvitationsType = GuardianInvitation::class;
   protected $guardianInvitationsDataType = 'array';
+  public $guardianInvitations;
+  /**
+   * @var string
+   */
   public $nextPageToken;
 
   /**
@@ -38,10 +42,16 @@ class ListGuardianInvitationsResponse extends \Google\Collection
   {
     return $this->guardianInvitations;
   }
+  /**
+   * @param string
+   */
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
   }
+  /**
+   * @return string
+   */
   public function getNextPageToken()
   {
     return $this->nextPageToken;

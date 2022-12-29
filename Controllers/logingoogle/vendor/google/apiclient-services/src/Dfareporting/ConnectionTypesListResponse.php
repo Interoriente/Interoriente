@@ -22,6 +22,10 @@ class ConnectionTypesListResponse extends \Google\Collection
   protected $collection_key = 'connectionTypes';
   protected $connectionTypesType = ConnectionType::class;
   protected $connectionTypesDataType = 'array';
+  public $connectionTypes;
+  /**
+   * @var string
+   */
   public $kind;
 
   /**
@@ -38,10 +42,16 @@ class ConnectionTypesListResponse extends \Google\Collection
   {
     return $this->connectionTypes;
   }
+  /**
+   * @param string
+   */
   public function setKind($kind)
   {
     $this->kind = $kind;
   }
+  /**
+   * @return string
+   */
   public function getKind()
   {
     return $this->kind;

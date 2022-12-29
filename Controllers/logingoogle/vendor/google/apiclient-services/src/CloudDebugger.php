@@ -35,15 +35,15 @@ use Google\Client;
  */
 class CloudDebugger extends \Google\Service
 {
-  /** See, edit, configure, and delete your Google Cloud Platform data. */
+  /** See, edit, configure, and delete your Google Cloud data and see the email address for your Google Account.. */
   const CLOUD_PLATFORM =
       "https://www.googleapis.com/auth/cloud-platform";
   /** Use Stackdriver Debugger. */
   const CLOUD_DEBUGGER =
       "https://www.googleapis.com/auth/cloud_debugger";
 
-  public $Controller_debuggees;
-  public $Controller_debuggees_breakpoints;
+  public $controller_debuggees;
+  public $controller_debuggees_breakpoints;
   public $debugger_debuggees;
   public $debugger_debuggees_breakpoints;
 
@@ -63,28 +63,28 @@ class CloudDebugger extends \Google\Service
     $this->version = 'v2';
     $this->serviceName = 'clouddebugger';
 
-    $this->Controller_debuggees = new CloudDebugger\Resource\ControllerDebuggees(
+    $this->controller_debuggees = new CloudDebugger\Resource\ControllerDebuggees(
         $this,
         $this->serviceName,
         'debuggees',
         [
           'methods' => [
             'register' => [
-              'path' => 'v2/Controller/debuggees/register',
+              'path' => 'v2/controller/debuggees/register',
               'httpMethod' => 'POST',
               'parameters' => [],
             ],
           ]
         ]
     );
-    $this->Controller_debuggees_breakpoints = new CloudDebugger\Resource\ControllerDebuggeesBreakpoints(
+    $this->controller_debuggees_breakpoints = new CloudDebugger\Resource\ControllerDebuggeesBreakpoints(
         $this,
         $this->serviceName,
         'breakpoints',
         [
           'methods' => [
             'list' => [
-              'path' => 'v2/Controller/debuggees/{debuggeeId}/breakpoints',
+              'path' => 'v2/controller/debuggees/{debuggeeId}/breakpoints',
               'httpMethod' => 'GET',
               'parameters' => [
                 'debuggeeId' => [
@@ -106,7 +106,7 @@ class CloudDebugger extends \Google\Service
                 ],
               ],
             ],'update' => [
-              'path' => 'v2/Controller/debuggees/{debuggeeId}/breakpoints/{id}',
+              'path' => 'v2/controller/debuggees/{debuggeeId}/breakpoints/{id}',
               'httpMethod' => 'PUT',
               'parameters' => [
                 'debuggeeId' => [

@@ -22,12 +22,24 @@ class GoogleCloudChannelV1ParameterDefinition extends \Google\Collection
   protected $collection_key = 'allowedValues';
   protected $allowedValuesType = GoogleCloudChannelV1Value::class;
   protected $allowedValuesDataType = 'array';
+  public $allowedValues;
   protected $maxValueType = GoogleCloudChannelV1Value::class;
   protected $maxValueDataType = '';
+  public $maxValue;
   protected $minValueType = GoogleCloudChannelV1Value::class;
   protected $minValueDataType = '';
+  public $minValue;
+  /**
+   * @var string
+   */
   public $name;
+  /**
+   * @var bool
+   */
   public $optional;
+  /**
+   * @var string
+   */
   public $parameterType;
 
   /**
@@ -72,26 +84,44 @@ class GoogleCloudChannelV1ParameterDefinition extends \Google\Collection
   {
     return $this->minValue;
   }
+  /**
+   * @param string
+   */
   public function setName($name)
   {
     $this->name = $name;
   }
+  /**
+   * @return string
+   */
   public function getName()
   {
     return $this->name;
   }
+  /**
+   * @param bool
+   */
   public function setOptional($optional)
   {
     $this->optional = $optional;
   }
+  /**
+   * @return bool
+   */
   public function getOptional()
   {
     return $this->optional;
   }
+  /**
+   * @param string
+   */
   public function setParameterType($parameterType)
   {
     $this->parameterType = $parameterType;
   }
+  /**
+   * @return string
+   */
   public function getParameterType()
   {
     return $this->parameterType;

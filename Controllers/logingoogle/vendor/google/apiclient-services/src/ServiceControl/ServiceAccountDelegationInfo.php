@@ -21,9 +21,14 @@ class ServiceAccountDelegationInfo extends \Google\Model
 {
   protected $firstPartyPrincipalType = FirstPartyPrincipal::class;
   protected $firstPartyPrincipalDataType = '';
+  public $firstPartyPrincipal;
+  /**
+   * @var string
+   */
   public $principalSubject;
   protected $thirdPartyPrincipalType = ThirdPartyPrincipal::class;
   protected $thirdPartyPrincipalDataType = '';
+  public $thirdPartyPrincipal;
 
   /**
    * @param FirstPartyPrincipal
@@ -39,10 +44,16 @@ class ServiceAccountDelegationInfo extends \Google\Model
   {
     return $this->firstPartyPrincipal;
   }
+  /**
+   * @param string
+   */
   public function setPrincipalSubject($principalSubject)
   {
     $this->principalSubject = $principalSubject;
   }
+  /**
+   * @return string
+   */
   public function getPrincipalSubject()
   {
     return $this->principalSubject;

@@ -19,14 +19,24 @@ namespace Google\Service\SQLAdmin;
 
 class DemoteMasterConfiguration extends \Google\Model
 {
+  /**
+   * @var string
+   */
   public $kind;
   protected $mysqlReplicaConfigurationType = DemoteMasterMySqlReplicaConfiguration::class;
   protected $mysqlReplicaConfigurationDataType = '';
+  public $mysqlReplicaConfiguration;
 
+  /**
+   * @param string
+   */
   public function setKind($kind)
   {
     $this->kind = $kind;
   }
+  /**
+   * @return string
+   */
   public function getKind()
   {
     return $this->kind;

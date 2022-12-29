@@ -21,13 +21,23 @@ class GoogleCloudPolicysimulatorV1ReplayResult extends \Google\Model
 {
   protected $accessTupleType = GoogleCloudPolicysimulatorV1AccessTuple::class;
   protected $accessTupleDataType = '';
+  public $accessTuple;
   protected $diffType = GoogleCloudPolicysimulatorV1ReplayDiff::class;
   protected $diffDataType = '';
+  public $diff;
   protected $errorType = GoogleRpcStatus::class;
   protected $errorDataType = '';
+  public $error;
   protected $lastSeenDateType = GoogleTypeDate::class;
   protected $lastSeenDateDataType = '';
+  public $lastSeenDate;
+  /**
+   * @var string
+   */
   public $name;
+  /**
+   * @var string
+   */
   public $parent;
 
   /**
@@ -86,18 +96,30 @@ class GoogleCloudPolicysimulatorV1ReplayResult extends \Google\Model
   {
     return $this->lastSeenDate;
   }
+  /**
+   * @param string
+   */
   public function setName($name)
   {
     $this->name = $name;
   }
+  /**
+   * @return string
+   */
   public function getName()
   {
     return $this->name;
   }
+  /**
+   * @param string
+   */
   public function setParent($parent)
   {
     $this->parent = $parent;
   }
+  /**
+   * @return string
+   */
   public function getParent()
   {
     return $this->parent;

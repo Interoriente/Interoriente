@@ -21,6 +21,10 @@ class GoogleCloudAssetV1Resource extends \Google\Model
 {
   protected $analysisStateType = IamPolicyAnalysisState::class;
   protected $analysisStateDataType = '';
+  public $analysisState;
+  /**
+   * @var string
+   */
   public $fullResourceName;
 
   /**
@@ -37,10 +41,16 @@ class GoogleCloudAssetV1Resource extends \Google\Model
   {
     return $this->analysisState;
   }
+  /**
+   * @param string
+   */
   public function setFullResourceName($fullResourceName)
   {
     $this->fullResourceName = $fullResourceName;
   }
+  /**
+   * @return string
+   */
   public function getFullResourceName()
   {
     return $this->fullResourceName;

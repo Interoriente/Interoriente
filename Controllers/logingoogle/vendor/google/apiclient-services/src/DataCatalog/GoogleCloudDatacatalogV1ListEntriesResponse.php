@@ -22,6 +22,10 @@ class GoogleCloudDatacatalogV1ListEntriesResponse extends \Google\Collection
   protected $collection_key = 'entries';
   protected $entriesType = GoogleCloudDatacatalogV1Entry::class;
   protected $entriesDataType = 'array';
+  public $entries;
+  /**
+   * @var string
+   */
   public $nextPageToken;
 
   /**
@@ -38,10 +42,16 @@ class GoogleCloudDatacatalogV1ListEntriesResponse extends \Google\Collection
   {
     return $this->entries;
   }
+  /**
+   * @param string
+   */
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
   }
+  /**
+   * @return string
+   */
   public function getNextPageToken()
   {
     return $this->nextPageToken;

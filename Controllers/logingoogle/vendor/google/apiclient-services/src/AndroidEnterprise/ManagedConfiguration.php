@@ -22,9 +22,17 @@ class ManagedConfiguration extends \Google\Collection
   protected $collection_key = 'managedProperty';
   protected $configurationVariablesType = ConfigurationVariables::class;
   protected $configurationVariablesDataType = '';
+  public $configurationVariables;
+  /**
+   * @var string
+   */
   public $kind;
   protected $managedPropertyType = ManagedProperty::class;
   protected $managedPropertyDataType = 'array';
+  public $managedProperty;
+  /**
+   * @var string
+   */
   public $productId;
 
   /**
@@ -41,10 +49,16 @@ class ManagedConfiguration extends \Google\Collection
   {
     return $this->configurationVariables;
   }
+  /**
+   * @param string
+   */
   public function setKind($kind)
   {
     $this->kind = $kind;
   }
+  /**
+   * @return string
+   */
   public function getKind()
   {
     return $this->kind;
@@ -63,10 +77,16 @@ class ManagedConfiguration extends \Google\Collection
   {
     return $this->managedProperty;
   }
+  /**
+   * @param string
+   */
   public function setProductId($productId)
   {
     $this->productId = $productId;
   }
+  /**
+   * @return string
+   */
   public function getProductId()
   {
     return $this->productId;

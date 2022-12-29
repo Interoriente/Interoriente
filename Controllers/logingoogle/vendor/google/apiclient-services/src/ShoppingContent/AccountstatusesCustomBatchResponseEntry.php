@@ -21,9 +21,14 @@ class AccountstatusesCustomBatchResponseEntry extends \Google\Model
 {
   protected $accountStatusType = AccountStatus::class;
   protected $accountStatusDataType = '';
+  public $accountStatus;
+  /**
+   * @var string
+   */
   public $batchId;
   protected $errorsType = Errors::class;
   protected $errorsDataType = '';
+  public $errors;
 
   /**
    * @param AccountStatus
@@ -39,10 +44,16 @@ class AccountstatusesCustomBatchResponseEntry extends \Google\Model
   {
     return $this->accountStatus;
   }
+  /**
+   * @param string
+   */
   public function setBatchId($batchId)
   {
     $this->batchId = $batchId;
   }
+  /**
+   * @return string
+   */
   public function getBatchId()
   {
     return $this->batchId;

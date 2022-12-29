@@ -22,6 +22,10 @@ class CustomDns extends \Google\Collection
   protected $collection_key = 'nameServers';
   protected $dsRecordsType = DsRecord::class;
   protected $dsRecordsDataType = 'array';
+  public $dsRecords;
+  /**
+   * @var string[]
+   */
   public $nameServers;
 
   /**
@@ -38,10 +42,16 @@ class CustomDns extends \Google\Collection
   {
     return $this->dsRecords;
   }
+  /**
+   * @param string[]
+   */
   public function setNameServers($nameServers)
   {
     $this->nameServers = $nameServers;
   }
+  /**
+   * @return string[]
+   */
   public function getNameServers()
   {
     return $this->nameServers;

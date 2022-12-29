@@ -19,53 +19,114 @@ namespace Google\Service\Dfareporting;
 
 class Campaign extends \Google\Collection
 {
-  protected $collection_key = 'traffickerEmails';
+  protected $collection_key = 'eventTagOverrides';
+  /**
+   * @var string
+   */
   public $accountId;
   protected $adBlockingConfigurationType = AdBlockingConfiguration::class;
   protected $adBlockingConfigurationDataType = '';
+  public $adBlockingConfiguration;
   protected $additionalCreativeOptimizationConfigurationsType = CreativeOptimizationConfiguration::class;
   protected $additionalCreativeOptimizationConfigurationsDataType = 'array';
+  public $additionalCreativeOptimizationConfigurations;
+  /**
+   * @var string
+   */
   public $advertiserGroupId;
+  /**
+   * @var string
+   */
   public $advertiserId;
   protected $advertiserIdDimensionValueType = DimensionValue::class;
   protected $advertiserIdDimensionValueDataType = '';
+  public $advertiserIdDimensionValue;
+  /**
+   * @var bool
+   */
   public $archived;
   protected $audienceSegmentGroupsType = AudienceSegmentGroup::class;
   protected $audienceSegmentGroupsDataType = 'array';
+  public $audienceSegmentGroups;
+  /**
+   * @var string
+   */
   public $billingInvoiceCode;
   protected $clickThroughUrlSuffixPropertiesType = ClickThroughUrlSuffixProperties::class;
   protected $clickThroughUrlSuffixPropertiesDataType = '';
+  public $clickThroughUrlSuffixProperties;
+  /**
+   * @var string
+   */
   public $comment;
   protected $createInfoType = LastModifiedInfo::class;
   protected $createInfoDataType = '';
+  public $createInfo;
+  /**
+   * @var string[]
+   */
   public $creativeGroupIds;
   protected $creativeOptimizationConfigurationType = CreativeOptimizationConfiguration::class;
   protected $creativeOptimizationConfigurationDataType = '';
+  public $creativeOptimizationConfiguration;
   protected $defaultClickThroughEventTagPropertiesType = DefaultClickThroughEventTagProperties::class;
   protected $defaultClickThroughEventTagPropertiesDataType = '';
+  public $defaultClickThroughEventTagProperties;
+  /**
+   * @var string
+   */
   public $defaultLandingPageId;
+  /**
+   * @var string
+   */
   public $endDate;
   protected $eventTagOverridesType = EventTagOverride::class;
   protected $eventTagOverridesDataType = 'array';
+  public $eventTagOverrides;
+  /**
+   * @var string
+   */
   public $externalId;
+  /**
+   * @var string
+   */
   public $id;
   protected $idDimensionValueType = DimensionValue::class;
   protected $idDimensionValueDataType = '';
+  public $idDimensionValue;
+  /**
+   * @var string
+   */
   public $kind;
   protected $lastModifiedInfoType = LastModifiedInfo::class;
   protected $lastModifiedInfoDataType = '';
+  public $lastModifiedInfo;
   protected $measurementPartnerLinkType = MeasurementPartnerCampaignLink::class;
   protected $measurementPartnerLinkDataType = '';
+  public $measurementPartnerLink;
+  /**
+   * @var string
+   */
   public $name;
-  public $nielsenOcrEnabled;
+  /**
+   * @var string
+   */
   public $startDate;
+  /**
+   * @var string
+   */
   public $subaccountId;
-  public $traffickerEmails;
 
+  /**
+   * @param string
+   */
   public function setAccountId($accountId)
   {
     $this->accountId = $accountId;
   }
+  /**
+   * @return string
+   */
   public function getAccountId()
   {
     return $this->accountId;
@@ -98,18 +159,30 @@ class Campaign extends \Google\Collection
   {
     return $this->additionalCreativeOptimizationConfigurations;
   }
+  /**
+   * @param string
+   */
   public function setAdvertiserGroupId($advertiserGroupId)
   {
     $this->advertiserGroupId = $advertiserGroupId;
   }
+  /**
+   * @return string
+   */
   public function getAdvertiserGroupId()
   {
     return $this->advertiserGroupId;
   }
+  /**
+   * @param string
+   */
   public function setAdvertiserId($advertiserId)
   {
     $this->advertiserId = $advertiserId;
   }
+  /**
+   * @return string
+   */
   public function getAdvertiserId()
   {
     return $this->advertiserId;
@@ -128,10 +201,16 @@ class Campaign extends \Google\Collection
   {
     return $this->advertiserIdDimensionValue;
   }
+  /**
+   * @param bool
+   */
   public function setArchived($archived)
   {
     $this->archived = $archived;
   }
+  /**
+   * @return bool
+   */
   public function getArchived()
   {
     return $this->archived;
@@ -150,10 +229,16 @@ class Campaign extends \Google\Collection
   {
     return $this->audienceSegmentGroups;
   }
+  /**
+   * @param string
+   */
   public function setBillingInvoiceCode($billingInvoiceCode)
   {
     $this->billingInvoiceCode = $billingInvoiceCode;
   }
+  /**
+   * @return string
+   */
   public function getBillingInvoiceCode()
   {
     return $this->billingInvoiceCode;
@@ -172,10 +257,16 @@ class Campaign extends \Google\Collection
   {
     return $this->clickThroughUrlSuffixProperties;
   }
+  /**
+   * @param string
+   */
   public function setComment($comment)
   {
     $this->comment = $comment;
   }
+  /**
+   * @return string
+   */
   public function getComment()
   {
     return $this->comment;
@@ -194,10 +285,16 @@ class Campaign extends \Google\Collection
   {
     return $this->createInfo;
   }
+  /**
+   * @param string[]
+   */
   public function setCreativeGroupIds($creativeGroupIds)
   {
     $this->creativeGroupIds = $creativeGroupIds;
   }
+  /**
+   * @return string[]
+   */
   public function getCreativeGroupIds()
   {
     return $this->creativeGroupIds;
@@ -230,18 +327,30 @@ class Campaign extends \Google\Collection
   {
     return $this->defaultClickThroughEventTagProperties;
   }
+  /**
+   * @param string
+   */
   public function setDefaultLandingPageId($defaultLandingPageId)
   {
     $this->defaultLandingPageId = $defaultLandingPageId;
   }
+  /**
+   * @return string
+   */
   public function getDefaultLandingPageId()
   {
     return $this->defaultLandingPageId;
   }
+  /**
+   * @param string
+   */
   public function setEndDate($endDate)
   {
     $this->endDate = $endDate;
   }
+  /**
+   * @return string
+   */
   public function getEndDate()
   {
     return $this->endDate;
@@ -260,18 +369,30 @@ class Campaign extends \Google\Collection
   {
     return $this->eventTagOverrides;
   }
+  /**
+   * @param string
+   */
   public function setExternalId($externalId)
   {
     $this->externalId = $externalId;
   }
+  /**
+   * @return string
+   */
   public function getExternalId()
   {
     return $this->externalId;
   }
+  /**
+   * @param string
+   */
   public function setId($id)
   {
     $this->id = $id;
   }
+  /**
+   * @return string
+   */
   public function getId()
   {
     return $this->id;
@@ -290,10 +411,16 @@ class Campaign extends \Google\Collection
   {
     return $this->idDimensionValue;
   }
+  /**
+   * @param string
+   */
   public function setKind($kind)
   {
     $this->kind = $kind;
   }
+  /**
+   * @return string
+   */
   public function getKind()
   {
     return $this->kind;
@@ -326,45 +453,47 @@ class Campaign extends \Google\Collection
   {
     return $this->measurementPartnerLink;
   }
+  /**
+   * @param string
+   */
   public function setName($name)
   {
     $this->name = $name;
   }
+  /**
+   * @return string
+   */
   public function getName()
   {
     return $this->name;
   }
-  public function setNielsenOcrEnabled($nielsenOcrEnabled)
-  {
-    $this->nielsenOcrEnabled = $nielsenOcrEnabled;
-  }
-  public function getNielsenOcrEnabled()
-  {
-    return $this->nielsenOcrEnabled;
-  }
+  /**
+   * @param string
+   */
   public function setStartDate($startDate)
   {
     $this->startDate = $startDate;
   }
+  /**
+   * @return string
+   */
   public function getStartDate()
   {
     return $this->startDate;
   }
+  /**
+   * @param string
+   */
   public function setSubaccountId($subaccountId)
   {
     $this->subaccountId = $subaccountId;
   }
+  /**
+   * @return string
+   */
   public function getSubaccountId()
   {
     return $this->subaccountId;
-  }
-  public function setTraffickerEmails($traffickerEmails)
-  {
-    $this->traffickerEmails = $traffickerEmails;
-  }
-  public function getTraffickerEmails()
-  {
-    return $this->traffickerEmails;
   }
 }
 

@@ -20,16 +20,27 @@ namespace Google\Service\Games;
 class EventPeriodUpdate extends \Google\Collection
 {
   protected $collection_key = 'updates';
+  /**
+   * @var string
+   */
   public $kind;
   protected $timePeriodType = EventPeriodRange::class;
   protected $timePeriodDataType = '';
+  public $timePeriod;
   protected $updatesType = EventUpdateRequest::class;
   protected $updatesDataType = 'array';
+  public $updates;
 
+  /**
+   * @param string
+   */
   public function setKind($kind)
   {
     $this->kind = $kind;
   }
+  /**
+   * @return string
+   */
   public function getKind()
   {
     return $this->kind;

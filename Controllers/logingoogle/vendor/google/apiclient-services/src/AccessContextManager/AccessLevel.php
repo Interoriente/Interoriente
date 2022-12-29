@@ -21,10 +21,21 @@ class AccessLevel extends \Google\Model
 {
   protected $basicType = BasicLevel::class;
   protected $basicDataType = '';
+  public $basic;
   protected $customType = CustomLevel::class;
   protected $customDataType = '';
+  public $custom;
+  /**
+   * @var string
+   */
   public $description;
+  /**
+   * @var string
+   */
   public $name;
+  /**
+   * @var string
+   */
   public $title;
 
   /**
@@ -55,26 +66,44 @@ class AccessLevel extends \Google\Model
   {
     return $this->custom;
   }
+  /**
+   * @param string
+   */
   public function setDescription($description)
   {
     $this->description = $description;
   }
+  /**
+   * @return string
+   */
   public function getDescription()
   {
     return $this->description;
   }
+  /**
+   * @param string
+   */
   public function setName($name)
   {
     $this->name = $name;
   }
+  /**
+   * @return string
+   */
   public function getName()
   {
     return $this->name;
   }
+  /**
+   * @param string
+   */
   public function setTitle($title)
   {
     $this->title = $title;
   }
+  /**
+   * @return string
+   */
   public function getTitle()
   {
     return $this->title;

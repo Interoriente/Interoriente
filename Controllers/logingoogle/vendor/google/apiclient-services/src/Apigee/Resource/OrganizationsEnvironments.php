@@ -17,6 +17,7 @@
 
 namespace Google\Service\Apigee\Resource;
 
+use Google\Service\Apigee\GoogleCloudApigeeV1ApiSecurityRuntimeConfig;
 use Google\Service\Apigee\GoogleCloudApigeeV1DebugMask;
 use Google\Service\Apigee\GoogleCloudApigeeV1Environment;
 use Google\Service\Apigee\GoogleCloudApigeeV1EnvironmentConfig;
@@ -34,7 +35,7 @@ use Google\Service\Apigee\GoogleProtobufEmpty;
  * Typical usage is:
  *  <code>
  *   $apigeeService = new Google\Service\Apigee(...);
- *   $environments = $apigeeService->environments;
+ *   $environments = $apigeeService->organizations_environments;
  *  </code>
  */
 class OrganizationsEnvironments extends \Google\Service\Resource
@@ -59,7 +60,11 @@ class OrganizationsEnvironments extends \Google\Service\Resource
     return $this->call('create', [$params], GoogleLongrunningOperation::class);
   }
   /**
-   * Deletes an environment from an organization. (environments.delete)
+   * Deletes an environment from an organization. **Warning: You must delete all
+   * key value maps and key value entries before you delete an environment.**
+   * Otherwise, if you re-create the environment the key value map entry
+   * operations will encounter encryption/decryption discrepancies.
+   * (environments.delete)
    *
    * @param string $name Required. Name of the environment. Use the following
    * structure in your request: `organizations/{org}/environments/{env}`
@@ -85,6 +90,23 @@ class OrganizationsEnvironments extends \Google\Service\Resource
     $params = ['name' => $name];
     $params = array_merge($params, $optParams);
     return $this->call('get', [$params], GoogleCloudApigeeV1Environment::class);
+  }
+  /**
+   * Gets the API Security runtime configuration for an environment. This named
+   * ApiSecurityRuntimeConfig to prevent conflicts with ApiSecurityConfig from
+   * addon config. (environments.getApiSecurityRuntimeConfig)
+   *
+   * @param string $name Required. Name of the environment API Security Runtime
+   * configuration resource. Use the following structure in your request:
+   * `organizations/{org}/environments/{env}/apiSecurityRuntimeConfig`
+   * @param array $optParams Optional parameters.
+   * @return GoogleCloudApigeeV1ApiSecurityRuntimeConfig
+   */
+  public function getApiSecurityRuntimeConfig($name, $optParams = [])
+  {
+    $params = ['name' => $name];
+    $params = array_merge($params, $optParams);
+    return $this->call('getApiSecurityRuntimeConfig', [$params], GoogleCloudApigeeV1ApiSecurityRuntimeConfig::class);
   }
   /**
    * Gets the debug mask singleton resource for an environment.
@@ -126,16 +148,21 @@ class OrganizationsEnvironments extends \Google\Service\Resource
    * permission to call this API. (environments.getIamPolicy)
    *
    * @param string $resource REQUIRED: The resource for which the policy is being
-   * requested. See the operation documentation for the appropriate value for this
-   * field.
+   * requested. See [Resource
+   * names](https://cloud.google.com/apis/design/resource_names) for the
+   * appropriate value for this field.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param int options.requestedPolicyVersion Optional. The policy format
-   * version to be returned. Valid values are 0, 1, and 3. Requests specifying an
-   * invalid value will be rejected. Requests for policies with any conditional
-   * bindings must specify version 3. Policies without any conditional bindings
-   * may specify any valid value or leave the field unset. To learn which
-   * resources support conditions in their IAM policies, see the [IAM
+   * @opt_param int options.requestedPolicyVersion Optional. The maximum policy
+   * version that will be used to format the policy. Valid values are 0, 1, and 3.
+   * Requests specifying an invalid value will be rejected. Requests for policies
+   * with any conditional role bindings must specify version 3. Policies with no
+   * conditional role bindings may specify any valid value or leave the field
+   * unset. The policy in the response might use the policy version that you
+   * specified, or it might use a lower policy version. For example, if you
+   * specify version 3, but the policy has no conditional role bindings, the
+   * response uses version 1. To learn which resources support conditions in their
+   * IAM policies, see the [IAM
    * documentation](https://cloud.google.com/iam/help/conditions/resource-
    * policies).
    * @return GoogleIamV1Policy
@@ -163,6 +190,26 @@ class OrganizationsEnvironments extends \Google\Service\Resource
     return $this->call('getTraceConfig', [$params], GoogleCloudApigeeV1TraceConfig::class);
   }
   /**
+   * Updates properties for an Apigee environment with patch semantics using a
+   * field mask. **Note:** Not supported for Apigee hybrid.
+   * (environments.modifyEnvironment)
+   *
+   * @param string $name Required. Name of the environment. Use the following
+   * structure in your request: `organizations/{org}/environments/{environment}`.
+   * @param GoogleCloudApigeeV1Environment $postBody
+   * @param array $optParams Optional parameters.
+   *
+   * @opt_param string updateMask List of fields to be updated. Fields that can be
+   * updated: node_config.
+   * @return GoogleLongrunningOperation
+   */
+  public function modifyEnvironment($name, GoogleCloudApigeeV1Environment $postBody, $optParams = [])
+  {
+    $params = ['name' => $name, 'postBody' => $postBody];
+    $params = array_merge($params, $optParams);
+    return $this->call('modifyEnvironment', [$params], GoogleLongrunningOperation::class);
+  }
+  /**
    * Sets the IAM policy on an environment, if the policy already exists it will
    * be replaced. For more information, see [Manage users, roles, and permissions
    * using the API](https://cloud.google.com/apigee/docs/api-platform/system-
@@ -171,8 +218,9 @@ class OrganizationsEnvironments extends \Google\Service\Resource
    * (environments.setIamPolicy)
    *
    * @param string $resource REQUIRED: The resource for which the policy is being
-   * specified. See the operation documentation for the appropriate value for this
-   * field.
+   * specified. See [Resource
+   * names](https://cloud.google.com/apis/design/resource_names) for the
+   * appropriate value for this field.
    * @param GoogleIamV1SetIamPolicyRequest $postBody
    * @param array $optParams Optional parameters.
    * @return GoogleIamV1Policy
@@ -206,8 +254,9 @@ class OrganizationsEnvironments extends \Google\Service\Resource
    * returned). (environments.testIamPermissions)
    *
    * @param string $resource REQUIRED: The resource for which the policy detail is
-   * being requested. See the operation documentation for the appropriate value
-   * for this field.
+   * being requested. See [Resource
+   * names](https://cloud.google.com/apis/design/resource_names) for the
+   * appropriate value for this field.
    * @param GoogleIamV1TestIamPermissionsRequest $postBody
    * @param array $optParams Optional parameters.
    * @return GoogleIamV1TestIamPermissionsResponse
@@ -239,7 +288,8 @@ class OrganizationsEnvironments extends \Google\Service\Resource
    * existing properties to the API, even if they are not being changed. If you
    * omit properties from the payload, the properties are removed. To get the
    * current list of properties for the environment, use the [Get Environment
-   * API](get). (environments.update)
+   * API](get). **Note**: Both `PUT` and `POST` methods are supported for updating
+   * an existing environment. (environments.update)
    *
    * @param string $name Required. Name of the environment. Use the following
    * structure in your request: `organizations/{org}/environments/{env}`
@@ -279,7 +329,8 @@ class OrganizationsEnvironments extends \Google\Service\Resource
    * existing properties to the API, even if they are not being changed. If you
    * omit properties from the payload, the properties are removed. To get the
    * current list of properties for the environment, use the [Get Environment
-   * API](get). (environments.updateEnvironment)
+   * API](get). **Note**: Both `PUT` and `POST` methods are supported for updating
+   * an existing environment. (environments.updateEnvironment)
    *
    * @param string $name Required. Name of the environment. Use the following
    * structure in your request: `organizations/{org}/environments/{env}`

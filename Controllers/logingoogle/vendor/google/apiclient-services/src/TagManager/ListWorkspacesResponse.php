@@ -20,14 +20,24 @@ namespace Google\Service\TagManager;
 class ListWorkspacesResponse extends \Google\Collection
 {
   protected $collection_key = 'workspace';
+  /**
+   * @var string
+   */
   public $nextPageToken;
   protected $workspaceType = Workspace::class;
   protected $workspaceDataType = 'array';
+  public $workspace;
 
+  /**
+   * @param string
+   */
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
   }
+  /**
+   * @return string
+   */
   public function getNextPageToken()
   {
     return $this->nextPageToken;

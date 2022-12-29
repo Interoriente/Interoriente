@@ -21,6 +21,10 @@ class Delete extends \Google\Model
 {
   protected $keySetType = KeySet::class;
   protected $keySetDataType = '';
+  public $keySet;
+  /**
+   * @var string
+   */
   public $table;
 
   /**
@@ -37,10 +41,16 @@ class Delete extends \Google\Model
   {
     return $this->keySet;
   }
+  /**
+   * @param string
+   */
   public function setTable($table)
   {
     $this->table = $table;
   }
+  /**
+   * @return string
+   */
   public function getTable()
   {
     return $this->table;

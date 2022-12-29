@@ -20,14 +20,24 @@ namespace Google\Service\Adsense;
 class ListSavedReportsResponse extends \Google\Collection
 {
   protected $collection_key = 'savedReports';
+  /**
+   * @var string
+   */
   public $nextPageToken;
   protected $savedReportsType = SavedReport::class;
   protected $savedReportsDataType = 'array';
+  public $savedReports;
 
+  /**
+   * @param string
+   */
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
   }
+  /**
+   * @return string
+   */
   public function getNextPageToken()
   {
     return $this->nextPageToken;

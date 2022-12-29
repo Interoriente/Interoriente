@@ -20,14 +20,24 @@ namespace Google\Service\Apigee;
 class GoogleCloudApigeeV1ListTraceConfigOverridesResponse extends \Google\Collection
 {
   protected $collection_key = 'traceConfigOverrides';
+  /**
+   * @var string
+   */
   public $nextPageToken;
   protected $traceConfigOverridesType = GoogleCloudApigeeV1TraceConfigOverride::class;
   protected $traceConfigOverridesDataType = 'array';
+  public $traceConfigOverrides;
 
+  /**
+   * @param string
+   */
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
   }
+  /**
+   * @return string
+   */
   public function getNextPageToken()
   {
     return $this->nextPageToken;

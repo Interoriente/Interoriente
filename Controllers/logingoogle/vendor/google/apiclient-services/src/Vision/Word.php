@@ -22,11 +22,17 @@ class Word extends \Google\Collection
   protected $collection_key = 'symbols';
   protected $boundingBoxType = BoundingPoly::class;
   protected $boundingBoxDataType = '';
+  public $boundingBox;
+  /**
+   * @var float
+   */
   public $confidence;
   protected $propertyType = TextProperty::class;
   protected $propertyDataType = '';
+  public $property;
   protected $symbolsType = Symbol::class;
   protected $symbolsDataType = 'array';
+  public $symbols;
 
   /**
    * @param BoundingPoly
@@ -42,10 +48,16 @@ class Word extends \Google\Collection
   {
     return $this->boundingBox;
   }
+  /**
+   * @param float
+   */
   public function setConfidence($confidence)
   {
     $this->confidence = $confidence;
   }
+  /**
+   * @return float
+   */
   public function getConfidence()
   {
     return $this->confidence;

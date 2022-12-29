@@ -19,65 +19,162 @@ namespace Google\Service\Storagetransfer;
 
 class TransferJob extends \Google\Model
 {
+  /**
+   * @var string
+   */
   public $creationTime;
+  /**
+   * @var string
+   */
   public $deletionTime;
+  /**
+   * @var string
+   */
   public $description;
+  protected $eventStreamType = EventStream::class;
+  protected $eventStreamDataType = '';
+  public $eventStream;
+  /**
+   * @var string
+   */
   public $lastModificationTime;
+  /**
+   * @var string
+   */
   public $latestOperationName;
+  protected $loggingConfigType = LoggingConfig::class;
+  protected $loggingConfigDataType = '';
+  public $loggingConfig;
+  /**
+   * @var string
+   */
   public $name;
   protected $notificationConfigType = NotificationConfig::class;
   protected $notificationConfigDataType = '';
+  public $notificationConfig;
+  /**
+   * @var string
+   */
   public $projectId;
   protected $scheduleType = Schedule::class;
   protected $scheduleDataType = '';
+  public $schedule;
+  /**
+   * @var string
+   */
   public $status;
   protected $transferSpecType = TransferSpec::class;
   protected $transferSpecDataType = '';
+  public $transferSpec;
 
+  /**
+   * @param string
+   */
   public function setCreationTime($creationTime)
   {
     $this->creationTime = $creationTime;
   }
+  /**
+   * @return string
+   */
   public function getCreationTime()
   {
     return $this->creationTime;
   }
+  /**
+   * @param string
+   */
   public function setDeletionTime($deletionTime)
   {
     $this->deletionTime = $deletionTime;
   }
+  /**
+   * @return string
+   */
   public function getDeletionTime()
   {
     return $this->deletionTime;
   }
+  /**
+   * @param string
+   */
   public function setDescription($description)
   {
     $this->description = $description;
   }
+  /**
+   * @return string
+   */
   public function getDescription()
   {
     return $this->description;
   }
+  /**
+   * @param EventStream
+   */
+  public function setEventStream(EventStream $eventStream)
+  {
+    $this->eventStream = $eventStream;
+  }
+  /**
+   * @return EventStream
+   */
+  public function getEventStream()
+  {
+    return $this->eventStream;
+  }
+  /**
+   * @param string
+   */
   public function setLastModificationTime($lastModificationTime)
   {
     $this->lastModificationTime = $lastModificationTime;
   }
+  /**
+   * @return string
+   */
   public function getLastModificationTime()
   {
     return $this->lastModificationTime;
   }
+  /**
+   * @param string
+   */
   public function setLatestOperationName($latestOperationName)
   {
     $this->latestOperationName = $latestOperationName;
   }
+  /**
+   * @return string
+   */
   public function getLatestOperationName()
   {
     return $this->latestOperationName;
   }
+  /**
+   * @param LoggingConfig
+   */
+  public function setLoggingConfig(LoggingConfig $loggingConfig)
+  {
+    $this->loggingConfig = $loggingConfig;
+  }
+  /**
+   * @return LoggingConfig
+   */
+  public function getLoggingConfig()
+  {
+    return $this->loggingConfig;
+  }
+  /**
+   * @param string
+   */
   public function setName($name)
   {
     $this->name = $name;
   }
+  /**
+   * @return string
+   */
   public function getName()
   {
     return $this->name;
@@ -96,10 +193,16 @@ class TransferJob extends \Google\Model
   {
     return $this->notificationConfig;
   }
+  /**
+   * @param string
+   */
   public function setProjectId($projectId)
   {
     $this->projectId = $projectId;
   }
+  /**
+   * @return string
+   */
   public function getProjectId()
   {
     return $this->projectId;
@@ -118,10 +221,16 @@ class TransferJob extends \Google\Model
   {
     return $this->schedule;
   }
+  /**
+   * @param string
+   */
   public function setStatus($status)
   {
     $this->status = $status;
   }
+  /**
+   * @return string
+   */
   public function getStatus()
   {
     return $this->status;

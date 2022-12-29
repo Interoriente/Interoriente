@@ -22,11 +22,25 @@ class Variable extends \Google\Collection
   protected $collection_key = 'members';
   protected $membersType = Variable::class;
   protected $membersDataType = 'array';
+  public $members;
+  /**
+   * @var string
+   */
   public $name;
   protected $statusType = StatusMessage::class;
   protected $statusDataType = '';
+  public $status;
+  /**
+   * @var string
+   */
   public $type;
+  /**
+   * @var string
+   */
   public $value;
+  /**
+   * @var int
+   */
   public $varTableIndex;
 
   /**
@@ -43,10 +57,16 @@ class Variable extends \Google\Collection
   {
     return $this->members;
   }
+  /**
+   * @param string
+   */
   public function setName($name)
   {
     $this->name = $name;
   }
+  /**
+   * @return string
+   */
   public function getName()
   {
     return $this->name;
@@ -65,26 +85,44 @@ class Variable extends \Google\Collection
   {
     return $this->status;
   }
+  /**
+   * @param string
+   */
   public function setType($type)
   {
     $this->type = $type;
   }
+  /**
+   * @return string
+   */
   public function getType()
   {
     return $this->type;
   }
+  /**
+   * @param string
+   */
   public function setValue($value)
   {
     $this->value = $value;
   }
+  /**
+   * @return string
+   */
   public function getValue()
   {
     return $this->value;
   }
+  /**
+   * @param int
+   */
   public function setVarTableIndex($varTableIndex)
   {
     $this->varTableIndex = $varTableIndex;
   }
+  /**
+   * @return int
+   */
   public function getVarTableIndex()
   {
     return $this->varTableIndex;

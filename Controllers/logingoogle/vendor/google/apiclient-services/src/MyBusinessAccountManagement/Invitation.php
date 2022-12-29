@@ -19,26 +19,49 @@ namespace Google\Service\MyBusinessAccountManagement;
 
 class Invitation extends \Google\Model
 {
+  /**
+   * @var string
+   */
   public $name;
+  /**
+   * @var string
+   */
   public $role;
   protected $targetAccountType = Account::class;
   protected $targetAccountDataType = '';
+  public $targetAccount;
   protected $targetLocationType = TargetLocation::class;
   protected $targetLocationDataType = '';
+  public $targetLocation;
+  /**
+   * @var string
+   */
   public $targetType;
 
+  /**
+   * @param string
+   */
   public function setName($name)
   {
     $this->name = $name;
   }
+  /**
+   * @return string
+   */
   public function getName()
   {
     return $this->name;
   }
+  /**
+   * @param string
+   */
   public function setRole($role)
   {
     $this->role = $role;
   }
+  /**
+   * @return string
+   */
   public function getRole()
   {
     return $this->role;
@@ -71,10 +94,16 @@ class Invitation extends \Google\Model
   {
     return $this->targetLocation;
   }
+  /**
+   * @param string
+   */
   public function setTargetType($targetType)
   {
     $this->targetType = $targetType;
   }
+  /**
+   * @return string
+   */
   public function getTargetType()
   {
     return $this->targetType;

@@ -21,6 +21,10 @@ class UpdateTopicRequest extends \Google\Model
 {
   protected $topicType = Topic::class;
   protected $topicDataType = '';
+  public $topic;
+  /**
+   * @var string
+   */
   public $updateMask;
 
   /**
@@ -37,10 +41,16 @@ class UpdateTopicRequest extends \Google\Model
   {
     return $this->topic;
   }
+  /**
+   * @param string
+   */
   public function setUpdateMask($updateMask)
   {
     $this->updateMask = $updateMask;
   }
+  /**
+   * @return string
+   */
   public function getUpdateMask()
   {
     return $this->updateMask;

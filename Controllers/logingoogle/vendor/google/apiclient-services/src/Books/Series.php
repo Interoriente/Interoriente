@@ -20,14 +20,24 @@ namespace Google\Service\Books;
 class Series extends \Google\Collection
 {
   protected $collection_key = 'series';
+  /**
+   * @var string
+   */
   public $kind;
   protected $seriesType = SeriesSeries::class;
   protected $seriesDataType = 'array';
+  public $series;
 
+  /**
+   * @param string
+   */
   public function setKind($kind)
   {
     $this->kind = $kind;
   }
+  /**
+   * @return string
+   */
   public function getKind()
   {
     return $this->kind;

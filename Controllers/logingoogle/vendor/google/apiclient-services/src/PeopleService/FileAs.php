@@ -21,6 +21,10 @@ class FileAs extends \Google\Model
 {
   protected $metadataType = FieldMetadata::class;
   protected $metadataDataType = '';
+  public $metadata;
+  /**
+   * @var string
+   */
   public $value;
 
   /**
@@ -37,10 +41,16 @@ class FileAs extends \Google\Model
   {
     return $this->metadata;
   }
+  /**
+   * @param string
+   */
   public function setValue($value)
   {
     $this->value = $value;
   }
+  /**
+   * @return string
+   */
   public function getValue()
   {
     return $this->value;

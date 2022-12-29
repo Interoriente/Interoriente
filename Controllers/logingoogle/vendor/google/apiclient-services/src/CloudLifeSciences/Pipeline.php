@@ -22,11 +22,20 @@ class Pipeline extends \Google\Collection
   protected $collection_key = 'actions';
   protected $actionsType = Action::class;
   protected $actionsDataType = 'array';
+  public $actions;
   protected $encryptedEnvironmentType = Secret::class;
   protected $encryptedEnvironmentDataType = '';
+  public $encryptedEnvironment;
+  /**
+   * @var string[]
+   */
   public $environment;
   protected $resourcesType = Resources::class;
   protected $resourcesDataType = '';
+  public $resources;
+  /**
+   * @var string
+   */
   public $timeout;
 
   /**
@@ -57,10 +66,16 @@ class Pipeline extends \Google\Collection
   {
     return $this->encryptedEnvironment;
   }
+  /**
+   * @param string[]
+   */
   public function setEnvironment($environment)
   {
     $this->environment = $environment;
   }
+  /**
+   * @return string[]
+   */
   public function getEnvironment()
   {
     return $this->environment;
@@ -79,10 +94,16 @@ class Pipeline extends \Google\Collection
   {
     return $this->resources;
   }
+  /**
+   * @param string
+   */
   public function setTimeout($timeout)
   {
     $this->timeout = $timeout;
   }
+  /**
+   * @return string
+   */
   public function getTimeout()
   {
     return $this->timeout;

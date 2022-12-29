@@ -22,6 +22,10 @@ class ListDatasetsResponse extends \Google\Collection
   protected $collection_key = 'datasets';
   protected $datasetsType = Dataset::class;
   protected $datasetsDataType = 'array';
+  public $datasets;
+  /**
+   * @var string
+   */
   public $nextPageToken;
 
   /**
@@ -38,10 +42,16 @@ class ListDatasetsResponse extends \Google\Collection
   {
     return $this->datasets;
   }
+  /**
+   * @param string
+   */
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
   }
+  /**
+   * @return string
+   */
   public function getNextPageToken()
   {
     return $this->nextPageToken;

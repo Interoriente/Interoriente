@@ -22,10 +22,21 @@ class GroupsCountResult extends \Google\Collection
   protected $collection_key = 'nonQueryableAccounts';
   protected $accountCountErrorsType = AccountCountError::class;
   protected $accountCountErrorsDataType = 'array';
+  public $accountCountErrors;
   protected $accountCountsType = AccountCount::class;
   protected $accountCountsDataType = 'array';
+  public $accountCounts;
+  /**
+   * @var string
+   */
   public $matchingAccountsCount;
+  /**
+   * @var string[]
+   */
   public $nonQueryableAccounts;
+  /**
+   * @var string
+   */
   public $queriedAccountsCount;
 
   /**
@@ -56,26 +67,44 @@ class GroupsCountResult extends \Google\Collection
   {
     return $this->accountCounts;
   }
+  /**
+   * @param string
+   */
   public function setMatchingAccountsCount($matchingAccountsCount)
   {
     $this->matchingAccountsCount = $matchingAccountsCount;
   }
+  /**
+   * @return string
+   */
   public function getMatchingAccountsCount()
   {
     return $this->matchingAccountsCount;
   }
+  /**
+   * @param string[]
+   */
   public function setNonQueryableAccounts($nonQueryableAccounts)
   {
     $this->nonQueryableAccounts = $nonQueryableAccounts;
   }
+  /**
+   * @return string[]
+   */
   public function getNonQueryableAccounts()
   {
     return $this->nonQueryableAccounts;
   }
+  /**
+   * @param string
+   */
   public function setQueriedAccountsCount($queriedAccountsCount)
   {
     $this->queriedAccountsCount = $queriedAccountsCount;
   }
+  /**
+   * @return string
+   */
   public function getQueriedAccountsCount()
   {
     return $this->queriedAccountsCount;

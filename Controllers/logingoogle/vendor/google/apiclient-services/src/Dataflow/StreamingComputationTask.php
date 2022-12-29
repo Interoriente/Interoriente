@@ -22,8 +22,13 @@ class StreamingComputationTask extends \Google\Collection
   protected $collection_key = 'dataDisks';
   protected $computationRangesType = StreamingComputationRanges::class;
   protected $computationRangesDataType = 'array';
+  public $computationRanges;
   protected $dataDisksType = MountedDataDisk::class;
   protected $dataDisksDataType = 'array';
+  public $dataDisks;
+  /**
+   * @var string
+   */
   public $taskType;
 
   /**
@@ -54,10 +59,16 @@ class StreamingComputationTask extends \Google\Collection
   {
     return $this->dataDisks;
   }
+  /**
+   * @param string
+   */
   public function setTaskType($taskType)
   {
     $this->taskType = $taskType;
   }
+  /**
+   * @return string
+   */
   public function getTaskType()
   {
     return $this->taskType;

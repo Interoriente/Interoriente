@@ -19,11 +19,56 @@ namespace Google\Service\GKEHub;
 
 class MembershipEndpoint extends \Google\Model
 {
+  protected $applianceClusterType = ApplianceCluster::class;
+  protected $applianceClusterDataType = '';
+  public $applianceCluster;
+  protected $edgeClusterType = EdgeCluster::class;
+  protected $edgeClusterDataType = '';
+  public $edgeCluster;
   protected $gkeClusterType = GkeCluster::class;
   protected $gkeClusterDataType = '';
+  public $gkeCluster;
   protected $kubernetesMetadataType = KubernetesMetadata::class;
   protected $kubernetesMetadataDataType = '';
+  public $kubernetesMetadata;
+  protected $kubernetesResourceType = KubernetesResource::class;
+  protected $kubernetesResourceDataType = '';
+  public $kubernetesResource;
+  protected $multiCloudClusterType = MultiCloudCluster::class;
+  protected $multiCloudClusterDataType = '';
+  public $multiCloudCluster;
+  protected $onPremClusterType = OnPremCluster::class;
+  protected $onPremClusterDataType = '';
+  public $onPremCluster;
 
+  /**
+   * @param ApplianceCluster
+   */
+  public function setApplianceCluster(ApplianceCluster $applianceCluster)
+  {
+    $this->applianceCluster = $applianceCluster;
+  }
+  /**
+   * @return ApplianceCluster
+   */
+  public function getApplianceCluster()
+  {
+    return $this->applianceCluster;
+  }
+  /**
+   * @param EdgeCluster
+   */
+  public function setEdgeCluster(EdgeCluster $edgeCluster)
+  {
+    $this->edgeCluster = $edgeCluster;
+  }
+  /**
+   * @return EdgeCluster
+   */
+  public function getEdgeCluster()
+  {
+    return $this->edgeCluster;
+  }
   /**
    * @param GkeCluster
    */
@@ -51,6 +96,48 @@ class MembershipEndpoint extends \Google\Model
   public function getKubernetesMetadata()
   {
     return $this->kubernetesMetadata;
+  }
+  /**
+   * @param KubernetesResource
+   */
+  public function setKubernetesResource(KubernetesResource $kubernetesResource)
+  {
+    $this->kubernetesResource = $kubernetesResource;
+  }
+  /**
+   * @return KubernetesResource
+   */
+  public function getKubernetesResource()
+  {
+    return $this->kubernetesResource;
+  }
+  /**
+   * @param MultiCloudCluster
+   */
+  public function setMultiCloudCluster(MultiCloudCluster $multiCloudCluster)
+  {
+    $this->multiCloudCluster = $multiCloudCluster;
+  }
+  /**
+   * @return MultiCloudCluster
+   */
+  public function getMultiCloudCluster()
+  {
+    return $this->multiCloudCluster;
+  }
+  /**
+   * @param OnPremCluster
+   */
+  public function setOnPremCluster(OnPremCluster $onPremCluster)
+  {
+    $this->onPremCluster = $onPremCluster;
+  }
+  /**
+   * @return OnPremCluster
+   */
+  public function getOnPremCluster()
+  {
+    return $this->onPremCluster;
   }
 }
 

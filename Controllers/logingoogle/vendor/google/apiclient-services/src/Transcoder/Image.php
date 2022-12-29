@@ -22,6 +22,10 @@ class Image extends \Google\Model
   public $alpha;
   protected $resolutionType = NormalizedCoordinate::class;
   protected $resolutionDataType = '';
+  public $resolution;
+  /**
+   * @var string
+   */
   public $uri;
 
   public function setAlpha($alpha)
@@ -46,10 +50,16 @@ class Image extends \Google\Model
   {
     return $this->resolution;
   }
+  /**
+   * @param string
+   */
   public function setUri($uri)
   {
     $this->uri = $uri;
   }
+  /**
+   * @return string
+   */
   public function getUri()
   {
     return $this->uri;

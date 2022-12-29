@@ -22,14 +22,28 @@ class InterconnectDiagnosticsLinkStatus extends \Google\Collection
   protected $collection_key = 'arpCaches';
   protected $arpCachesType = InterconnectDiagnosticsARPEntry::class;
   protected $arpCachesDataType = 'array';
+  public $arpCaches;
+  /**
+   * @var string
+   */
   public $circuitId;
+  /**
+   * @var string
+   */
   public $googleDemarc;
   protected $lacpStatusType = InterconnectDiagnosticsLinkLACPStatus::class;
   protected $lacpStatusDataType = '';
+  public $lacpStatus;
+  /**
+   * @var string
+   */
+  public $operationalStatus;
   protected $receivingOpticalPowerType = InterconnectDiagnosticsLinkOpticalPower::class;
   protected $receivingOpticalPowerDataType = '';
+  public $receivingOpticalPower;
   protected $transmittingOpticalPowerType = InterconnectDiagnosticsLinkOpticalPower::class;
   protected $transmittingOpticalPowerDataType = '';
+  public $transmittingOpticalPower;
 
   /**
    * @param InterconnectDiagnosticsARPEntry[]
@@ -45,18 +59,30 @@ class InterconnectDiagnosticsLinkStatus extends \Google\Collection
   {
     return $this->arpCaches;
   }
+  /**
+   * @param string
+   */
   public function setCircuitId($circuitId)
   {
     $this->circuitId = $circuitId;
   }
+  /**
+   * @return string
+   */
   public function getCircuitId()
   {
     return $this->circuitId;
   }
+  /**
+   * @param string
+   */
   public function setGoogleDemarc($googleDemarc)
   {
     $this->googleDemarc = $googleDemarc;
   }
+  /**
+   * @return string
+   */
   public function getGoogleDemarc()
   {
     return $this->googleDemarc;
@@ -74,6 +100,20 @@ class InterconnectDiagnosticsLinkStatus extends \Google\Collection
   public function getLacpStatus()
   {
     return $this->lacpStatus;
+  }
+  /**
+   * @param string
+   */
+  public function setOperationalStatus($operationalStatus)
+  {
+    $this->operationalStatus = $operationalStatus;
+  }
+  /**
+   * @return string
+   */
+  public function getOperationalStatus()
+  {
+    return $this->operationalStatus;
   }
   /**
    * @param InterconnectDiagnosticsLinkOpticalPower

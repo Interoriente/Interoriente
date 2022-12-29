@@ -21,8 +21,13 @@ class IapSettings extends \Google\Model
 {
   protected $accessSettingsType = AccessSettings::class;
   protected $accessSettingsDataType = '';
+  public $accessSettings;
   protected $applicationSettingsType = ApplicationSettings::class;
   protected $applicationSettingsDataType = '';
+  public $applicationSettings;
+  /**
+   * @var string
+   */
   public $name;
 
   /**
@@ -53,10 +58,16 @@ class IapSettings extends \Google\Model
   {
     return $this->applicationSettings;
   }
+  /**
+   * @param string
+   */
   public function setName($name)
   {
     $this->name = $name;
   }
+  /**
+   * @return string
+   */
   public function getName()
   {
     return $this->name;

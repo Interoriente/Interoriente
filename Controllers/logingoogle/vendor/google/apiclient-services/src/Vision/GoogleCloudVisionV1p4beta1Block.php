@@ -20,19 +20,34 @@ namespace Google\Service\Vision;
 class GoogleCloudVisionV1p4beta1Block extends \Google\Collection
 {
   protected $collection_key = 'paragraphs';
+  /**
+   * @var string
+   */
   public $blockType;
   protected $boundingBoxType = GoogleCloudVisionV1p4beta1BoundingPoly::class;
   protected $boundingBoxDataType = '';
+  public $boundingBox;
+  /**
+   * @var float
+   */
   public $confidence;
   protected $paragraphsType = GoogleCloudVisionV1p4beta1Paragraph::class;
   protected $paragraphsDataType = 'array';
+  public $paragraphs;
   protected $propertyType = GoogleCloudVisionV1p4beta1TextAnnotationTextProperty::class;
   protected $propertyDataType = '';
+  public $property;
 
+  /**
+   * @param string
+   */
   public function setBlockType($blockType)
   {
     $this->blockType = $blockType;
   }
+  /**
+   * @return string
+   */
   public function getBlockType()
   {
     return $this->blockType;
@@ -51,10 +66,16 @@ class GoogleCloudVisionV1p4beta1Block extends \Google\Collection
   {
     return $this->boundingBox;
   }
+  /**
+   * @param float
+   */
   public function setConfidence($confidence)
   {
     $this->confidence = $confidence;
   }
+  /**
+   * @return float
+   */
   public function getConfidence()
   {
     return $this->confidence;

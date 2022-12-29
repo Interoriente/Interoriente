@@ -22,11 +22,17 @@ class Source extends \Google\Collection
   protected $collection_key = 'additionalContexts';
   protected $additionalContextsType = SourceContext::class;
   protected $additionalContextsDataType = 'array';
+  public $additionalContexts;
+  /**
+   * @var string
+   */
   public $artifactStorageSourceUri;
   protected $contextType = SourceContext::class;
   protected $contextDataType = '';
+  public $context;
   protected $fileHashesType = FileHashes::class;
   protected $fileHashesDataType = 'map';
+  public $fileHashes;
 
   /**
    * @param SourceContext[]
@@ -42,10 +48,16 @@ class Source extends \Google\Collection
   {
     return $this->additionalContexts;
   }
+  /**
+   * @param string
+   */
   public function setArtifactStorageSourceUri($artifactStorageSourceUri)
   {
     $this->artifactStorageSourceUri = $artifactStorageSourceUri;
   }
+  /**
+   * @return string
+   */
   public function getArtifactStorageSourceUri()
   {
     return $this->artifactStorageSourceUri;

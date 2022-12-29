@@ -20,34 +20,76 @@ namespace Google\Service\HomeGraphService;
 class Device extends \Google\Collection
 {
   protected $collection_key = 'traits';
+  /**
+   * @var array[]
+   */
   public $attributes;
+  /**
+   * @var array[]
+   */
   public $customData;
   protected $deviceInfoType = DeviceInfo::class;
   protected $deviceInfoDataType = '';
+  public $deviceInfo;
+  /**
+   * @var string
+   */
   public $id;
   protected $nameType = DeviceNames::class;
   protected $nameDataType = '';
+  public $name;
+  /**
+   * @var bool
+   */
   public $notificationSupportedByAgent;
   protected $otherDeviceIdsType = AgentOtherDeviceId::class;
   protected $otherDeviceIdsDataType = 'array';
+  public $otherDeviceIds;
+  /**
+   * @var string
+   */
   public $roomHint;
+  /**
+   * @var string
+   */
   public $structureHint;
+  /**
+   * @var string[]
+   */
   public $traits;
+  /**
+   * @var string
+   */
   public $type;
+  /**
+   * @var bool
+   */
   public $willReportState;
 
+  /**
+   * @param array[]
+   */
   public function setAttributes($attributes)
   {
     $this->attributes = $attributes;
   }
+  /**
+   * @return array[]
+   */
   public function getAttributes()
   {
     return $this->attributes;
   }
+  /**
+   * @param array[]
+   */
   public function setCustomData($customData)
   {
     $this->customData = $customData;
   }
+  /**
+   * @return array[]
+   */
   public function getCustomData()
   {
     return $this->customData;
@@ -66,10 +108,16 @@ class Device extends \Google\Collection
   {
     return $this->deviceInfo;
   }
+  /**
+   * @param string
+   */
   public function setId($id)
   {
     $this->id = $id;
   }
+  /**
+   * @return string
+   */
   public function getId()
   {
     return $this->id;
@@ -88,10 +136,16 @@ class Device extends \Google\Collection
   {
     return $this->name;
   }
+  /**
+   * @param bool
+   */
   public function setNotificationSupportedByAgent($notificationSupportedByAgent)
   {
     $this->notificationSupportedByAgent = $notificationSupportedByAgent;
   }
+  /**
+   * @return bool
+   */
   public function getNotificationSupportedByAgent()
   {
     return $this->notificationSupportedByAgent;
@@ -110,42 +164,72 @@ class Device extends \Google\Collection
   {
     return $this->otherDeviceIds;
   }
+  /**
+   * @param string
+   */
   public function setRoomHint($roomHint)
   {
     $this->roomHint = $roomHint;
   }
+  /**
+   * @return string
+   */
   public function getRoomHint()
   {
     return $this->roomHint;
   }
+  /**
+   * @param string
+   */
   public function setStructureHint($structureHint)
   {
     $this->structureHint = $structureHint;
   }
+  /**
+   * @return string
+   */
   public function getStructureHint()
   {
     return $this->structureHint;
   }
+  /**
+   * @param string[]
+   */
   public function setTraits($traits)
   {
     $this->traits = $traits;
   }
+  /**
+   * @return string[]
+   */
   public function getTraits()
   {
     return $this->traits;
   }
+  /**
+   * @param string
+   */
   public function setType($type)
   {
     $this->type = $type;
   }
+  /**
+   * @return string
+   */
   public function getType()
   {
     return $this->type;
   }
+  /**
+   * @param bool
+   */
   public function setWillReportState($willReportState)
   {
     $this->willReportState = $willReportState;
   }
+  /**
+   * @return bool
+   */
   public function getWillReportState()
   {
     return $this->willReportState;

@@ -20,14 +20,24 @@ namespace Google\Service\ToolResults;
 class ListStepThumbnailsResponse extends \Google\Collection
 {
   protected $collection_key = 'thumbnails';
+  /**
+   * @var string
+   */
   public $nextPageToken;
   protected $thumbnailsType = Image::class;
   protected $thumbnailsDataType = 'array';
+  public $thumbnails;
 
+  /**
+   * @param string
+   */
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
   }
+  /**
+   * @return string
+   */
   public function getNextPageToken()
   {
     return $this->nextPageToken;

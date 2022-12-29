@@ -21,22 +21,41 @@ class Volume extends \Google\Model
 {
   protected $accessInfoType = VolumeAccessInfo::class;
   protected $accessInfoDataType = '';
+  public $accessInfo;
+  /**
+   * @var string
+   */
   public $etag;
+  /**
+   * @var string
+   */
   public $id;
+  /**
+   * @var string
+   */
   public $kind;
   protected $layerInfoType = VolumeLayerInfo::class;
   protected $layerInfoDataType = '';
+  public $layerInfo;
   protected $recommendedInfoType = VolumeRecommendedInfo::class;
   protected $recommendedInfoDataType = '';
+  public $recommendedInfo;
   protected $saleInfoType = VolumeSaleInfo::class;
   protected $saleInfoDataType = '';
+  public $saleInfo;
   protected $searchInfoType = VolumeSearchInfo::class;
   protected $searchInfoDataType = '';
+  public $searchInfo;
+  /**
+   * @var string
+   */
   public $selfLink;
   protected $userInfoType = VolumeUserInfo::class;
   protected $userInfoDataType = '';
+  public $userInfo;
   protected $volumeInfoType = VolumeVolumeInfo::class;
   protected $volumeInfoDataType = '';
+  public $volumeInfo;
 
   /**
    * @param VolumeAccessInfo
@@ -52,26 +71,44 @@ class Volume extends \Google\Model
   {
     return $this->accessInfo;
   }
+  /**
+   * @param string
+   */
   public function setEtag($etag)
   {
     $this->etag = $etag;
   }
+  /**
+   * @return string
+   */
   public function getEtag()
   {
     return $this->etag;
   }
+  /**
+   * @param string
+   */
   public function setId($id)
   {
     $this->id = $id;
   }
+  /**
+   * @return string
+   */
   public function getId()
   {
     return $this->id;
   }
+  /**
+   * @param string
+   */
   public function setKind($kind)
   {
     $this->kind = $kind;
   }
+  /**
+   * @return string
+   */
   public function getKind()
   {
     return $this->kind;
@@ -132,10 +169,16 @@ class Volume extends \Google\Model
   {
     return $this->searchInfo;
   }
+  /**
+   * @param string
+   */
   public function setSelfLink($selfLink)
   {
     $this->selfLink = $selfLink;
   }
+  /**
+   * @return string
+   */
   public function getSelfLink()
   {
     return $this->selfLink;

@@ -21,6 +21,10 @@ class GoogleCloudRetailV2ProductDetail extends \Google\Model
 {
   protected $productType = GoogleCloudRetailV2Product::class;
   protected $productDataType = '';
+  public $product;
+  /**
+   * @var int
+   */
   public $quantity;
 
   /**
@@ -37,10 +41,16 @@ class GoogleCloudRetailV2ProductDetail extends \Google\Model
   {
     return $this->product;
   }
+  /**
+   * @param int
+   */
   public function setQuantity($quantity)
   {
     $this->quantity = $quantity;
   }
+  /**
+   * @return int
+   */
   public function getQuantity()
   {
     return $this->quantity;

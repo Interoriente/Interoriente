@@ -20,14 +20,24 @@ namespace Google\Service\Bigquery;
 class Row extends \Google\Collection
 {
   protected $collection_key = 'entries';
+  /**
+   * @var string
+   */
   public $actualLabel;
   protected $entriesType = Entry::class;
   protected $entriesDataType = 'array';
+  public $entries;
 
+  /**
+   * @param string
+   */
   public function setActualLabel($actualLabel)
   {
     $this->actualLabel = $actualLabel;
   }
+  /**
+   * @return string
+   */
   public function getActualLabel()
   {
     return $this->actualLabel;

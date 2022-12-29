@@ -24,13 +24,13 @@ use Google\Service\AndroidProvisioningPartner\CustomerListDpcsResponse;
  * Typical usage is:
  *  <code>
  *   $androiddeviceprovisioningService = new Google\Service\AndroidProvisioningPartner(...);
- *   $dpcs = $androiddeviceprovisioningService->dpcs;
+ *   $dpcs = $androiddeviceprovisioningService->customers_dpcs;
  *  </code>
  */
 class CustomersDpcs extends \Google\Service\Resource
 {
   /**
-   * Lists the DPCs (device policy Controllers) that support zero-touch
+   * Lists the DPCs (device policy controllers) that support zero-touch
    * enrollment. (dpcs.listCustomersDpcs)
    *
    * @param string $parent Required. The customer that can use the DPCs in

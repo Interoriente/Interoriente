@@ -20,14 +20,24 @@ namespace Google\Service\AccessContextManager;
 class ReplaceServicePerimetersRequest extends \Google\Collection
 {
   protected $collection_key = 'servicePerimeters';
+  /**
+   * @var string
+   */
   public $etag;
   protected $servicePerimetersType = ServicePerimeter::class;
   protected $servicePerimetersDataType = 'array';
+  public $servicePerimeters;
 
+  /**
+   * @param string
+   */
   public function setEtag($etag)
   {
     $this->etag = $etag;
   }
+  /**
+   * @return string
+   */
   public function getEtag()
   {
     return $this->etag;

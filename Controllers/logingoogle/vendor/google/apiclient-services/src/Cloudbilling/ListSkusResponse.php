@@ -20,14 +20,24 @@ namespace Google\Service\Cloudbilling;
 class ListSkusResponse extends \Google\Collection
 {
   protected $collection_key = 'skus';
+  /**
+   * @var string
+   */
   public $nextPageToken;
   protected $skusType = Sku::class;
   protected $skusDataType = 'array';
+  public $skus;
 
+  /**
+   * @param string
+   */
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
   }
+  /**
+   * @return string
+   */
   public function getNextPageToken()
   {
     return $this->nextPageToken;

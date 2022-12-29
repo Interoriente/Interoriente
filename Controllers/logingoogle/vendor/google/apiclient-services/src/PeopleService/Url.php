@@ -19,16 +19,32 @@ namespace Google\Service\PeopleService;
 
 class Url extends \Google\Model
 {
+  /**
+   * @var string
+   */
   public $formattedType;
   protected $metadataType = FieldMetadata::class;
   protected $metadataDataType = '';
+  public $metadata;
+  /**
+   * @var string
+   */
   public $type;
+  /**
+   * @var string
+   */
   public $value;
 
+  /**
+   * @param string
+   */
   public function setFormattedType($formattedType)
   {
     $this->formattedType = $formattedType;
   }
+  /**
+   * @return string
+   */
   public function getFormattedType()
   {
     return $this->formattedType;
@@ -47,18 +63,30 @@ class Url extends \Google\Model
   {
     return $this->metadata;
   }
+  /**
+   * @param string
+   */
   public function setType($type)
   {
     $this->type = $type;
   }
+  /**
+   * @return string
+   */
   public function getType()
   {
     return $this->type;
   }
+  /**
+   * @param string
+   */
   public function setValue($value)
   {
     $this->value = $value;
   }
+  /**
+   * @return string
+   */
   public function getValue()
   {
     return $this->value;

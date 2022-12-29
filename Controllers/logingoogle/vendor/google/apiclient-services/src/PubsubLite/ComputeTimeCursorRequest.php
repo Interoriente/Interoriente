@@ -19,14 +19,24 @@ namespace Google\Service\PubsubLite;
 
 class ComputeTimeCursorRequest extends \Google\Model
 {
+  /**
+   * @var string
+   */
   public $partition;
   protected $targetType = TimeTarget::class;
   protected $targetDataType = '';
+  public $target;
 
+  /**
+   * @param string
+   */
   public function setPartition($partition)
   {
     $this->partition = $partition;
   }
+  /**
+   * @return string
+   */
   public function getPartition()
   {
     return $this->partition;

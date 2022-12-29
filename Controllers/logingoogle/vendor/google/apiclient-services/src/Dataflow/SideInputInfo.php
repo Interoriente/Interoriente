@@ -20,15 +20,28 @@ namespace Google\Service\Dataflow;
 class SideInputInfo extends \Google\Collection
 {
   protected $collection_key = 'sources';
+  /**
+   * @var array[]
+   */
   public $kind;
   protected $sourcesType = Source::class;
   protected $sourcesDataType = 'array';
+  public $sources;
+  /**
+   * @var string
+   */
   public $tag;
 
+  /**
+   * @param array[]
+   */
   public function setKind($kind)
   {
     $this->kind = $kind;
   }
+  /**
+   * @return array[]
+   */
   public function getKind()
   {
     return $this->kind;
@@ -47,10 +60,16 @@ class SideInputInfo extends \Google\Collection
   {
     return $this->sources;
   }
+  /**
+   * @param string
+   */
   public function setTag($tag)
   {
     $this->tag = $tag;
   }
+  /**
+   * @return string
+   */
   public function getTag()
   {
     return $this->tag;

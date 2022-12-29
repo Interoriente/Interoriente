@@ -21,6 +21,10 @@ class RepoId extends \Google\Model
 {
   protected $projectRepoIdType = ProjectRepoId::class;
   protected $projectRepoIdDataType = '';
+  public $projectRepoId;
+  /**
+   * @var string
+   */
   public $uid;
 
   /**
@@ -37,10 +41,16 @@ class RepoId extends \Google\Model
   {
     return $this->projectRepoId;
   }
+  /**
+   * @param string
+   */
   public function setUid($uid)
   {
     $this->uid = $uid;
   }
+  /**
+   * @return string
+   */
   public function getUid()
   {
     return $this->uid;

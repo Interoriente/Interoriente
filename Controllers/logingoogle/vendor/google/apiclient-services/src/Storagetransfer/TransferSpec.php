@@ -19,21 +19,65 @@ namespace Google\Service\Storagetransfer;
 
 class TransferSpec extends \Google\Model
 {
+  protected $awsS3CompatibleDataSourceType = AwsS3CompatibleData::class;
+  protected $awsS3CompatibleDataSourceDataType = '';
+  public $awsS3CompatibleDataSource;
   protected $awsS3DataSourceType = AwsS3Data::class;
   protected $awsS3DataSourceDataType = '';
+  public $awsS3DataSource;
   protected $azureBlobStorageDataSourceType = AzureBlobStorageData::class;
   protected $azureBlobStorageDataSourceDataType = '';
+  public $azureBlobStorageDataSource;
   protected $gcsDataSinkType = GcsData::class;
   protected $gcsDataSinkDataType = '';
+  public $gcsDataSink;
   protected $gcsDataSourceType = GcsData::class;
   protected $gcsDataSourceDataType = '';
+  public $gcsDataSource;
+  protected $gcsIntermediateDataLocationType = GcsData::class;
+  protected $gcsIntermediateDataLocationDataType = '';
+  public $gcsIntermediateDataLocation;
   protected $httpDataSourceType = HttpData::class;
   protected $httpDataSourceDataType = '';
+  public $httpDataSource;
   protected $objectConditionsType = ObjectConditions::class;
   protected $objectConditionsDataType = '';
+  public $objectConditions;
+  protected $posixDataSinkType = PosixFilesystem::class;
+  protected $posixDataSinkDataType = '';
+  public $posixDataSink;
+  protected $posixDataSourceType = PosixFilesystem::class;
+  protected $posixDataSourceDataType = '';
+  public $posixDataSource;
+  /**
+   * @var string
+   */
+  public $sinkAgentPoolName;
+  /**
+   * @var string
+   */
+  public $sourceAgentPoolName;
+  protected $transferManifestType = TransferManifest::class;
+  protected $transferManifestDataType = '';
+  public $transferManifest;
   protected $transferOptionsType = TransferOptions::class;
   protected $transferOptionsDataType = '';
+  public $transferOptions;
 
+  /**
+   * @param AwsS3CompatibleData
+   */
+  public function setAwsS3CompatibleDataSource(AwsS3CompatibleData $awsS3CompatibleDataSource)
+  {
+    $this->awsS3CompatibleDataSource = $awsS3CompatibleDataSource;
+  }
+  /**
+   * @return AwsS3CompatibleData
+   */
+  public function getAwsS3CompatibleDataSource()
+  {
+    return $this->awsS3CompatibleDataSource;
+  }
   /**
    * @param AwsS3Data
    */
@@ -91,6 +135,20 @@ class TransferSpec extends \Google\Model
     return $this->gcsDataSource;
   }
   /**
+   * @param GcsData
+   */
+  public function setGcsIntermediateDataLocation(GcsData $gcsIntermediateDataLocation)
+  {
+    $this->gcsIntermediateDataLocation = $gcsIntermediateDataLocation;
+  }
+  /**
+   * @return GcsData
+   */
+  public function getGcsIntermediateDataLocation()
+  {
+    return $this->gcsIntermediateDataLocation;
+  }
+  /**
    * @param HttpData
    */
   public function setHttpDataSource(HttpData $httpDataSource)
@@ -117,6 +175,76 @@ class TransferSpec extends \Google\Model
   public function getObjectConditions()
   {
     return $this->objectConditions;
+  }
+  /**
+   * @param PosixFilesystem
+   */
+  public function setPosixDataSink(PosixFilesystem $posixDataSink)
+  {
+    $this->posixDataSink = $posixDataSink;
+  }
+  /**
+   * @return PosixFilesystem
+   */
+  public function getPosixDataSink()
+  {
+    return $this->posixDataSink;
+  }
+  /**
+   * @param PosixFilesystem
+   */
+  public function setPosixDataSource(PosixFilesystem $posixDataSource)
+  {
+    $this->posixDataSource = $posixDataSource;
+  }
+  /**
+   * @return PosixFilesystem
+   */
+  public function getPosixDataSource()
+  {
+    return $this->posixDataSource;
+  }
+  /**
+   * @param string
+   */
+  public function setSinkAgentPoolName($sinkAgentPoolName)
+  {
+    $this->sinkAgentPoolName = $sinkAgentPoolName;
+  }
+  /**
+   * @return string
+   */
+  public function getSinkAgentPoolName()
+  {
+    return $this->sinkAgentPoolName;
+  }
+  /**
+   * @param string
+   */
+  public function setSourceAgentPoolName($sourceAgentPoolName)
+  {
+    $this->sourceAgentPoolName = $sourceAgentPoolName;
+  }
+  /**
+   * @return string
+   */
+  public function getSourceAgentPoolName()
+  {
+    return $this->sourceAgentPoolName;
+  }
+  /**
+   * @param TransferManifest
+   */
+  public function setTransferManifest(TransferManifest $transferManifest)
+  {
+    $this->transferManifest = $transferManifest;
+  }
+  /**
+   * @return TransferManifest
+   */
+  public function getTransferManifest()
+  {
+    return $this->transferManifest;
   }
   /**
    * @param TransferOptions

@@ -20,14 +20,24 @@ namespace Google\Service\Monitoring;
 class ListUptimeCheckIpsResponse extends \Google\Collection
 {
   protected $collection_key = 'uptimeCheckIps';
+  /**
+   * @var string
+   */
   public $nextPageToken;
   protected $uptimeCheckIpsType = UptimeCheckIp::class;
   protected $uptimeCheckIpsDataType = 'array';
+  public $uptimeCheckIps;
 
+  /**
+   * @param string
+   */
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
   }
+  /**
+   * @return string
+   */
   public function getNextPageToken()
   {
     return $this->nextPageToken;

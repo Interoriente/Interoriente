@@ -21,6 +21,10 @@ class SnapshotDefinition extends \Google\Model
 {
   protected $baseTableReferenceType = TableReference::class;
   protected $baseTableReferenceDataType = '';
+  public $baseTableReference;
+  /**
+   * @var string
+   */
   public $snapshotTime;
 
   /**
@@ -37,10 +41,16 @@ class SnapshotDefinition extends \Google\Model
   {
     return $this->baseTableReference;
   }
+  /**
+   * @param string
+   */
   public function setSnapshotTime($snapshotTime)
   {
     $this->snapshotTime = $snapshotTime;
   }
+  /**
+   * @return string
+   */
   public function getSnapshotTime()
   {
     return $this->snapshotTime;

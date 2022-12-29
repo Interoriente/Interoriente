@@ -22,19 +22,42 @@ class MerchantOrderReturnItem extends \Google\Collection
   protected $collection_key = 'returnShipmentIds';
   protected $customerReturnReasonType = CustomerReturnReason::class;
   protected $customerReturnReasonDataType = '';
+  public $customerReturnReason;
+  /**
+   * @var string
+   */
   public $itemId;
   protected $merchantRejectionReasonType = MerchantRejectionReason::class;
   protected $merchantRejectionReasonDataType = '';
+  public $merchantRejectionReason;
   protected $merchantReturnReasonType = RefundReason::class;
   protected $merchantReturnReasonDataType = '';
+  public $merchantReturnReason;
   protected $productType = OrderLineItemProduct::class;
   protected $productDataType = '';
+  public $product;
   protected $refundableAmountType = MonetaryAmount::class;
   protected $refundableAmountDataType = '';
+  public $refundableAmount;
+  /**
+   * @var string
+   */
   public $returnItemId;
+  /**
+   * @var string[]
+   */
   public $returnShipmentIds;
+  /**
+   * @var string
+   */
   public $shipmentGroupId;
+  /**
+   * @var string
+   */
   public $shipmentUnitId;
+  /**
+   * @var string
+   */
   public $state;
 
   /**
@@ -51,10 +74,16 @@ class MerchantOrderReturnItem extends \Google\Collection
   {
     return $this->customerReturnReason;
   }
+  /**
+   * @param string
+   */
   public function setItemId($itemId)
   {
     $this->itemId = $itemId;
   }
+  /**
+   * @return string
+   */
   public function getItemId()
   {
     return $this->itemId;
@@ -115,42 +144,72 @@ class MerchantOrderReturnItem extends \Google\Collection
   {
     return $this->refundableAmount;
   }
+  /**
+   * @param string
+   */
   public function setReturnItemId($returnItemId)
   {
     $this->returnItemId = $returnItemId;
   }
+  /**
+   * @return string
+   */
   public function getReturnItemId()
   {
     return $this->returnItemId;
   }
+  /**
+   * @param string[]
+   */
   public function setReturnShipmentIds($returnShipmentIds)
   {
     $this->returnShipmentIds = $returnShipmentIds;
   }
+  /**
+   * @return string[]
+   */
   public function getReturnShipmentIds()
   {
     return $this->returnShipmentIds;
   }
+  /**
+   * @param string
+   */
   public function setShipmentGroupId($shipmentGroupId)
   {
     $this->shipmentGroupId = $shipmentGroupId;
   }
+  /**
+   * @return string
+   */
   public function getShipmentGroupId()
   {
     return $this->shipmentGroupId;
   }
+  /**
+   * @param string
+   */
   public function setShipmentUnitId($shipmentUnitId)
   {
     $this->shipmentUnitId = $shipmentUnitId;
   }
+  /**
+   * @return string
+   */
   public function getShipmentUnitId()
   {
     return $this->shipmentUnitId;
   }
+  /**
+   * @param string
+   */
   public function setState($state)
   {
     $this->state = $state;
   }
+  /**
+   * @return string
+   */
   public function getState()
   {
     return $this->state;

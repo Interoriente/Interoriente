@@ -22,6 +22,11 @@ class GetSearchApplicationQueryStatsResponse extends \Google\Collection
   protected $collection_key = 'stats';
   protected $statsType = SearchApplicationQueryStats::class;
   protected $statsDataType = 'array';
+  public $stats;
+  /**
+   * @var string
+   */
+  public $totalQueryCount;
 
   /**
    * @param SearchApplicationQueryStats[]
@@ -36,6 +41,20 @@ class GetSearchApplicationQueryStatsResponse extends \Google\Collection
   public function getStats()
   {
     return $this->stats;
+  }
+  /**
+   * @param string
+   */
+  public function setTotalQueryCount($totalQueryCount)
+  {
+    $this->totalQueryCount = $totalQueryCount;
+  }
+  /**
+   * @return string
+   */
+  public function getTotalQueryCount()
+  {
+    return $this->totalQueryCount;
   }
 }
 

@@ -22,16 +22,32 @@ class DictlayerdataDictWordsSenses extends \Google\Collection
   protected $collection_key = 'synonyms';
   protected $conjugationsType = DictlayerdataDictWordsSensesConjugations::class;
   protected $conjugationsDataType = 'array';
+  public $conjugations;
   protected $definitionsType = DictlayerdataDictWordsSensesDefinitions::class;
   protected $definitionsDataType = 'array';
+  public $definitions;
+  /**
+   * @var string
+   */
   public $partOfSpeech;
+  /**
+   * @var string
+   */
   public $pronunciation;
+  /**
+   * @var string
+   */
   public $pronunciationUrl;
   protected $sourceType = DictlayerdataDictWordsSensesSource::class;
   protected $sourceDataType = '';
+  public $source;
+  /**
+   * @var string
+   */
   public $syllabification;
   protected $synonymsType = DictlayerdataDictWordsSensesSynonyms::class;
   protected $synonymsDataType = 'array';
+  public $synonyms;
 
   /**
    * @param DictlayerdataDictWordsSensesConjugations[]
@@ -61,26 +77,44 @@ class DictlayerdataDictWordsSenses extends \Google\Collection
   {
     return $this->definitions;
   }
+  /**
+   * @param string
+   */
   public function setPartOfSpeech($partOfSpeech)
   {
     $this->partOfSpeech = $partOfSpeech;
   }
+  /**
+   * @return string
+   */
   public function getPartOfSpeech()
   {
     return $this->partOfSpeech;
   }
+  /**
+   * @param string
+   */
   public function setPronunciation($pronunciation)
   {
     $this->pronunciation = $pronunciation;
   }
+  /**
+   * @return string
+   */
   public function getPronunciation()
   {
     return $this->pronunciation;
   }
+  /**
+   * @param string
+   */
   public function setPronunciationUrl($pronunciationUrl)
   {
     $this->pronunciationUrl = $pronunciationUrl;
   }
+  /**
+   * @return string
+   */
   public function getPronunciationUrl()
   {
     return $this->pronunciationUrl;
@@ -99,10 +133,16 @@ class DictlayerdataDictWordsSenses extends \Google\Collection
   {
     return $this->source;
   }
+  /**
+   * @param string
+   */
   public function setSyllabification($syllabification)
   {
     $this->syllabification = $syllabification;
   }
+  /**
+   * @return string
+   */
   public function getSyllabification()
   {
     return $this->syllabification;

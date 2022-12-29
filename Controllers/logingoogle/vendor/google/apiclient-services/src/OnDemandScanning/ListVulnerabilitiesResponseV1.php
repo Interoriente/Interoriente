@@ -20,14 +20,24 @@ namespace Google\Service\OnDemandScanning;
 class ListVulnerabilitiesResponseV1 extends \Google\Collection
 {
   protected $collection_key = 'occurrences';
+  /**
+   * @var string
+   */
   public $nextPageToken;
   protected $occurrencesType = Occurrence::class;
   protected $occurrencesDataType = 'array';
+  public $occurrences;
 
+  /**
+   * @param string
+   */
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
   }
+  /**
+   * @return string
+   */
   public function getNextPageToken()
   {
     return $this->nextPageToken;

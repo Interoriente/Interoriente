@@ -22,6 +22,10 @@ class Content extends \Google\Collection
   protected $collection_key = 'files';
   protected $filesType = ScriptFile::class;
   protected $filesDataType = 'array';
+  public $files;
+  /**
+   * @var string
+   */
   public $scriptId;
 
   /**
@@ -38,10 +42,16 @@ class Content extends \Google\Collection
   {
     return $this->files;
   }
+  /**
+   * @param string
+   */
   public function setScriptId($scriptId)
   {
     $this->scriptId = $scriptId;
   }
+  /**
+   * @return string
+   */
   public function getScriptId()
   {
     return $this->scriptId;

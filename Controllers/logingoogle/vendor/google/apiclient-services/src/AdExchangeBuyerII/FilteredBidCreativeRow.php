@@ -21,9 +21,14 @@ class FilteredBidCreativeRow extends \Google\Model
 {
   protected $bidCountType = MetricValue::class;
   protected $bidCountDataType = '';
+  public $bidCount;
+  /**
+   * @var string
+   */
   public $creativeId;
   protected $rowDimensionsType = RowDimensions::class;
   protected $rowDimensionsDataType = '';
+  public $rowDimensions;
 
   /**
    * @param MetricValue
@@ -39,10 +44,16 @@ class FilteredBidCreativeRow extends \Google\Model
   {
     return $this->bidCount;
   }
+  /**
+   * @param string
+   */
   public function setCreativeId($creativeId)
   {
     $this->creativeId = $creativeId;
   }
+  /**
+   * @return string
+   */
   public function getCreativeId()
   {
     return $this->creativeId;

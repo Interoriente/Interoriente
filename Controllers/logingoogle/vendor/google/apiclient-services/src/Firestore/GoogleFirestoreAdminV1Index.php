@@ -20,12 +20,40 @@ namespace Google\Service\Firestore;
 class GoogleFirestoreAdminV1Index extends \Google\Collection
 {
   protected $collection_key = 'fields';
+  /**
+   * @var string
+   */
+  public $apiScope;
   protected $fieldsType = GoogleFirestoreAdminV1IndexField::class;
   protected $fieldsDataType = 'array';
+  public $fields;
+  /**
+   * @var string
+   */
   public $name;
+  /**
+   * @var string
+   */
   public $queryScope;
+  /**
+   * @var string
+   */
   public $state;
 
+  /**
+   * @param string
+   */
+  public function setApiScope($apiScope)
+  {
+    $this->apiScope = $apiScope;
+  }
+  /**
+   * @return string
+   */
+  public function getApiScope()
+  {
+    return $this->apiScope;
+  }
   /**
    * @param GoogleFirestoreAdminV1IndexField[]
    */
@@ -40,26 +68,44 @@ class GoogleFirestoreAdminV1Index extends \Google\Collection
   {
     return $this->fields;
   }
+  /**
+   * @param string
+   */
   public function setName($name)
   {
     $this->name = $name;
   }
+  /**
+   * @return string
+   */
   public function getName()
   {
     return $this->name;
   }
+  /**
+   * @param string
+   */
   public function setQueryScope($queryScope)
   {
     $this->queryScope = $queryScope;
   }
+  /**
+   * @return string
+   */
   public function getQueryScope()
   {
     return $this->queryScope;
   }
+  /**
+   * @param string
+   */
   public function setState($state)
   {
     $this->state = $state;
   }
+  /**
+   * @return string
+   */
   public function getState()
   {
     return $this->state;

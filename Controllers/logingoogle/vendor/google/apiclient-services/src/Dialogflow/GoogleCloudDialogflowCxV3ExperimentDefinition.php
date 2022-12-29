@@ -19,14 +19,24 @@ namespace Google\Service\Dialogflow;
 
 class GoogleCloudDialogflowCxV3ExperimentDefinition extends \Google\Model
 {
+  /**
+   * @var string
+   */
   public $condition;
   protected $versionVariantsType = GoogleCloudDialogflowCxV3VersionVariants::class;
   protected $versionVariantsDataType = '';
+  public $versionVariants;
 
+  /**
+   * @param string
+   */
   public function setCondition($condition)
   {
     $this->condition = $condition;
   }
+  /**
+   * @return string
+   */
   public function getCondition()
   {
     return $this->condition;

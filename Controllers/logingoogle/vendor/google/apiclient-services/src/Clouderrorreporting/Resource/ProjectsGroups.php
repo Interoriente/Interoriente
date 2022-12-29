@@ -24,7 +24,7 @@ use Google\Service\Clouderrorreporting\ErrorGroup;
  * Typical usage is:
  *  <code>
  *   $clouderrorreportingService = new Google\Service\Clouderrorreporting(...);
- *   $groups = $clouderrorreportingService->groups;
+ *   $groups = $clouderrorreportingService->projects_groups;
  *  </code>
  */
 class ProjectsGroups extends \Google\Service\Resource
@@ -33,11 +33,9 @@ class ProjectsGroups extends \Google\Service\Resource
    * Get the specified group. (groups.get)
    *
    * @param string $groupName Required. The group resource name. Written as
-   * `projects/{projectID}/groups/{group_name}`. Call
-   * [`groupStats.list`](https://cloud.google.com/error-
-   * reporting/reference/rest/v1beta1/projects.groupStats/list) to return a list
-   * of groups belonging to this project. Example: `projects/my-project-123/groups
-   * /my-group`
+   * `projects/{projectID}/groups/{group_name}`. Call groupStats.list to return a
+   * list of groups belonging to this project. Example: `projects/my-
+   * project-123/groups/my-group`
    * @param array $optParams Optional parameters.
    * @return ErrorGroup
    */

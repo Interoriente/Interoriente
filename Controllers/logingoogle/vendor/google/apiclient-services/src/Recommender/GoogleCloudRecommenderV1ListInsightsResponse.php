@@ -22,6 +22,10 @@ class GoogleCloudRecommenderV1ListInsightsResponse extends \Google\Collection
   protected $collection_key = 'insights';
   protected $insightsType = GoogleCloudRecommenderV1Insight::class;
   protected $insightsDataType = 'array';
+  public $insights;
+  /**
+   * @var string
+   */
   public $nextPageToken;
 
   /**
@@ -38,10 +42,16 @@ class GoogleCloudRecommenderV1ListInsightsResponse extends \Google\Collection
   {
     return $this->insights;
   }
+  /**
+   * @param string
+   */
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
   }
+  /**
+   * @return string
+   */
   public function getNextPageToken()
   {
     return $this->nextPageToken;

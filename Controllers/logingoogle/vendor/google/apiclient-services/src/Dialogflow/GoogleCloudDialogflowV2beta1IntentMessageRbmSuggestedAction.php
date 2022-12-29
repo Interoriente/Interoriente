@@ -21,11 +21,20 @@ class GoogleCloudDialogflowV2beta1IntentMessageRbmSuggestedAction extends \Googl
 {
   protected $dialType = GoogleCloudDialogflowV2beta1IntentMessageRbmSuggestedActionRbmSuggestedActionDial::class;
   protected $dialDataType = '';
+  public $dial;
   protected $openUrlType = GoogleCloudDialogflowV2beta1IntentMessageRbmSuggestedActionRbmSuggestedActionOpenUri::class;
   protected $openUrlDataType = '';
+  public $openUrl;
+  /**
+   * @var string
+   */
   public $postbackData;
   protected $shareLocationType = GoogleCloudDialogflowV2beta1IntentMessageRbmSuggestedActionRbmSuggestedActionShareLocation::class;
   protected $shareLocationDataType = '';
+  public $shareLocation;
+  /**
+   * @var string
+   */
   public $text;
 
   /**
@@ -56,10 +65,16 @@ class GoogleCloudDialogflowV2beta1IntentMessageRbmSuggestedAction extends \Googl
   {
     return $this->openUrl;
   }
+  /**
+   * @param string
+   */
   public function setPostbackData($postbackData)
   {
     $this->postbackData = $postbackData;
   }
+  /**
+   * @return string
+   */
   public function getPostbackData()
   {
     return $this->postbackData;
@@ -78,10 +93,16 @@ class GoogleCloudDialogflowV2beta1IntentMessageRbmSuggestedAction extends \Googl
   {
     return $this->shareLocation;
   }
+  /**
+   * @param string
+   */
   public function setText($text)
   {
     $this->text = $text;
   }
+  /**
+   * @return string
+   */
   public function getText()
   {
     return $this->text;

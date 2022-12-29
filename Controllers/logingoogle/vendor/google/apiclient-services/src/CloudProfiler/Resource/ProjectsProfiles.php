@@ -25,7 +25,7 @@ use Google\Service\CloudProfiler\Profile;
  * Typical usage is:
  *  <code>
  *   $cloudprofilerService = new Google\Service\CloudProfiler(...);
- *   $profiles = $cloudprofilerService->profiles;
+ *   $profiles = $cloudprofilerService->projects_profiles;
  *  </code>
  */
 class ProjectsProfiles extends \Google\Service\Resource
@@ -40,7 +40,7 @@ class ProjectsProfiles extends \Google\Service\Resource
    * backoff duration is returned in google.rpc.RetryInfo extension on the
    * response status. To a gRPC client, the extension will be return as a binary-
    * serialized proto in the trailing metadata item named "google.rpc.retryinfo-
-   * bin". (profiles.create)
+   * bin".  (profiles.create)
    *
    * @param string $parent Parent project to create the profile in.
    * @param CreateProfileRequest $postBody

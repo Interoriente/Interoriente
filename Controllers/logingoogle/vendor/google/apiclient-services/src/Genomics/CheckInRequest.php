@@ -22,14 +22,24 @@ class CheckInRequest extends \Google\Collection
   protected $collection_key = 'events';
   protected $deadlineExpiredType = GenomicsEmpty::class;
   protected $deadlineExpiredDataType = '';
+  public $deadlineExpired;
+  /**
+   * @var array[]
+   */
   public $event;
   protected $eventsType = TimestampedEvent::class;
   protected $eventsDataType = 'array';
+  public $events;
   protected $resultType = Status::class;
   protected $resultDataType = '';
+  public $result;
+  /**
+   * @var string
+   */
   public $sosReport;
   protected $workerStatusType = WorkerStatus::class;
   protected $workerStatusDataType = '';
+  public $workerStatus;
 
   /**
    * @param GenomicsEmpty
@@ -45,10 +55,16 @@ class CheckInRequest extends \Google\Collection
   {
     return $this->deadlineExpired;
   }
+  /**
+   * @param array[]
+   */
   public function setEvent($event)
   {
     $this->event = $event;
   }
+  /**
+   * @return array[]
+   */
   public function getEvent()
   {
     return $this->event;
@@ -81,10 +97,16 @@ class CheckInRequest extends \Google\Collection
   {
     return $this->result;
   }
+  /**
+   * @param string
+   */
   public function setSosReport($sosReport)
   {
     $this->sosReport = $sosReport;
   }
+  /**
+   * @return string
+   */
   public function getSosReport()
   {
     return $this->sosReport;

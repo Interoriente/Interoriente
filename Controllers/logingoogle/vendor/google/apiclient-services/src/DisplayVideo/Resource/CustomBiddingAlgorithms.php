@@ -18,6 +18,7 @@
 namespace Google\Service\DisplayVideo\Resource;
 
 use Google\Service\DisplayVideo\CustomBiddingAlgorithm;
+use Google\Service\DisplayVideo\CustomBiddingScriptRef;
 use Google\Service\DisplayVideo\ListCustomBiddingAlgorithmsResponse;
 
 /**
@@ -30,6 +31,20 @@ use Google\Service\DisplayVideo\ListCustomBiddingAlgorithmsResponse;
  */
 class CustomBiddingAlgorithms extends \Google\Service\Resource
 {
+  /**
+   * Creates a new custom bidding algorithm. Returns the newly created custom
+   * bidding algorithm if successful. (customBiddingAlgorithms.create)
+   *
+   * @param CustomBiddingAlgorithm $postBody
+   * @param array $optParams Optional parameters.
+   * @return CustomBiddingAlgorithm
+   */
+  public function create(CustomBiddingAlgorithm $postBody, $optParams = [])
+  {
+    $params = ['postBody' => $postBody];
+    $params = array_merge($params, $optParams);
+    return $this->call('create', [$params], CustomBiddingAlgorithm::class);
+  }
   /**
    * Gets a custom bidding algorithm. (customBiddingAlgorithms.get)
    *
@@ -77,7 +92,7 @@ class CustomBiddingAlgorithms extends \Google\Service\Resource
    * are: * `displayName` (default) The default sorting order is ascending. To
    * specify descending order for a field, a suffix "desc" should be added to the
    * field name. Example: `displayName desc`.
-   * @opt_param int pageSize Requested page size. Must be between `1` and `100`.
+   * @opt_param int pageSize Requested page size. Must be between `1` and `200`.
    * If unspecified will default to `100`. Returns error code `INVALID_ARGUMENT`
    * if an invalid value is specified.
    * @opt_param string pageToken A token identifying a page of results the server
@@ -93,6 +108,48 @@ class CustomBiddingAlgorithms extends \Google\Service\Resource
     $params = [];
     $params = array_merge($params, $optParams);
     return $this->call('list', [$params], ListCustomBiddingAlgorithmsResponse::class);
+  }
+  /**
+   * Updates an existing custom bidding algorithm. Returns the updated custom
+   * bidding algorithm if successful. (customBiddingAlgorithms.patch)
+   *
+   * @param string $customBiddingAlgorithmId Output only. The unique ID of the
+   * custom bidding algorithm. Assigned by the system.
+   * @param CustomBiddingAlgorithm $postBody
+   * @param array $optParams Optional parameters.
+   *
+   * @opt_param string updateMask Required. The mask to control which fields to
+   * update.
+   * @return CustomBiddingAlgorithm
+   */
+  public function patch($customBiddingAlgorithmId, CustomBiddingAlgorithm $postBody, $optParams = [])
+  {
+    $params = ['customBiddingAlgorithmId' => $customBiddingAlgorithmId, 'postBody' => $postBody];
+    $params = array_merge($params, $optParams);
+    return $this->call('patch', [$params], CustomBiddingAlgorithm::class);
+  }
+  /**
+   * Creates a custom bidding script reference object for a script file. The
+   * resulting reference object provides a resource path to which the script file
+   * should be uploaded. This reference object should be included in when creating
+   * a new custom bidding script object. (customBiddingAlgorithms.uploadScript)
+   *
+   * @param string $customBiddingAlgorithmId Required. The ID of the custom
+   * bidding algorithm owns the script.
+   * @param array $optParams Optional parameters.
+   *
+   * @opt_param string advertiserId The ID of the advertiser that owns the parent
+   * custom bidding algorithm.
+   * @opt_param string partnerId The ID of the partner that owns the parent custom
+   * bidding algorithm. Only this partner will have write access to this custom
+   * bidding script.
+   * @return CustomBiddingScriptRef
+   */
+  public function uploadScript($customBiddingAlgorithmId, $optParams = [])
+  {
+    $params = ['customBiddingAlgorithmId' => $customBiddingAlgorithmId];
+    $params = array_merge($params, $optParams);
+    return $this->call('uploadScript', [$params], CustomBiddingScriptRef::class);
   }
 }
 

@@ -22,6 +22,10 @@ class GoogleCloudDatalabelingV1beta1SearchExampleComparisonsResponse extends \Go
   protected $collection_key = 'exampleComparisons';
   protected $exampleComparisonsType = GoogleCloudDatalabelingV1beta1ExampleComparison::class;
   protected $exampleComparisonsDataType = 'array';
+  public $exampleComparisons;
+  /**
+   * @var string
+   */
   public $nextPageToken;
 
   /**
@@ -38,10 +42,16 @@ class GoogleCloudDatalabelingV1beta1SearchExampleComparisonsResponse extends \Go
   {
     return $this->exampleComparisons;
   }
+  /**
+   * @param string
+   */
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
   }
+  /**
+   * @return string
+   */
   public function getNextPageToken()
   {
     return $this->nextPageToken;

@@ -22,6 +22,10 @@ class ProductPermissions extends \Google\Collection
   protected $collection_key = 'permission';
   protected $permissionType = ProductPermission::class;
   protected $permissionDataType = 'array';
+  public $permission;
+  /**
+   * @var string
+   */
   public $productId;
 
   /**
@@ -38,10 +42,16 @@ class ProductPermissions extends \Google\Collection
   {
     return $this->permission;
   }
+  /**
+   * @param string
+   */
   public function setProductId($productId)
   {
     $this->productId = $productId;
   }
+  /**
+   * @return string
+   */
   public function getProductId()
   {
     return $this->productId;

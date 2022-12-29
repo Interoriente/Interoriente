@@ -22,6 +22,10 @@ class BundlesListResponse extends \Google\Collection
   protected $collection_key = 'bundles';
   protected $bundlesType = Bundle::class;
   protected $bundlesDataType = 'array';
+  public $bundles;
+  /**
+   * @var string
+   */
   public $kind;
 
   /**
@@ -38,10 +42,16 @@ class BundlesListResponse extends \Google\Collection
   {
     return $this->bundles;
   }
+  /**
+   * @param string
+   */
   public function setKind($kind)
   {
     $this->kind = $kind;
   }
+  /**
+   * @return string
+   */
   public function getKind()
   {
     return $this->kind;

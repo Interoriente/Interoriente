@@ -20,33 +20,99 @@ namespace Google\Service\Apigee;
 class GoogleCloudApigeeV1EnvironmentGroupConfig extends \Google\Collection
 {
   protected $collection_key = 'routingRules';
+  protected $endpointChainingRulesType = GoogleCloudApigeeV1EndpointChainingRule::class;
+  protected $endpointChainingRulesDataType = 'array';
+  public $endpointChainingRules;
+  /**
+   * @var string[]
+   */
   public $hostnames;
+  /**
+   * @var string
+   */
+  public $location;
+  /**
+   * @var string
+   */
   public $name;
+  /**
+   * @var string
+   */
   public $revisionId;
   protected $routingRulesType = GoogleCloudApigeeV1RoutingRule::class;
   protected $routingRulesDataType = 'array';
+  public $routingRules;
+  /**
+   * @var string
+   */
   public $uid;
 
+  /**
+   * @param GoogleCloudApigeeV1EndpointChainingRule[]
+   */
+  public function setEndpointChainingRules($endpointChainingRules)
+  {
+    $this->endpointChainingRules = $endpointChainingRules;
+  }
+  /**
+   * @return GoogleCloudApigeeV1EndpointChainingRule[]
+   */
+  public function getEndpointChainingRules()
+  {
+    return $this->endpointChainingRules;
+  }
+  /**
+   * @param string[]
+   */
   public function setHostnames($hostnames)
   {
     $this->hostnames = $hostnames;
   }
+  /**
+   * @return string[]
+   */
   public function getHostnames()
   {
     return $this->hostnames;
   }
+  /**
+   * @param string
+   */
+  public function setLocation($location)
+  {
+    $this->location = $location;
+  }
+  /**
+   * @return string
+   */
+  public function getLocation()
+  {
+    return $this->location;
+  }
+  /**
+   * @param string
+   */
   public function setName($name)
   {
     $this->name = $name;
   }
+  /**
+   * @return string
+   */
   public function getName()
   {
     return $this->name;
   }
+  /**
+   * @param string
+   */
   public function setRevisionId($revisionId)
   {
     $this->revisionId = $revisionId;
   }
+  /**
+   * @return string
+   */
   public function getRevisionId()
   {
     return $this->revisionId;
@@ -65,10 +131,16 @@ class GoogleCloudApigeeV1EnvironmentGroupConfig extends \Google\Collection
   {
     return $this->routingRules;
   }
+  /**
+   * @param string
+   */
   public function setUid($uid)
   {
     $this->uid = $uid;
   }
+  /**
+   * @return string
+   */
   public function getUid()
   {
     return $this->uid;

@@ -19,14 +19,24 @@ namespace Google\Service\Monitoring;
 
 class Error extends \Google\Model
 {
+  /**
+   * @var int
+   */
   public $pointCount;
   protected $statusType = Status::class;
   protected $statusDataType = '';
+  public $status;
 
+  /**
+   * @param int
+   */
   public function setPointCount($pointCount)
   {
     $this->pointCount = $pointCount;
   }
+  /**
+   * @return int
+   */
   public function getPointCount()
   {
     return $this->pointCount;

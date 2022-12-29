@@ -20,25 +20,62 @@ namespace Google\Service\PaymentsResellerSubscription;
 class GoogleCloudPaymentsResellerSubscriptionV1Product extends \Google\Collection
 {
   protected $collection_key = 'titles';
+  /**
+   * @var string
+   */
   public $name;
+  protected $priceConfigsType = GoogleCloudPaymentsResellerSubscriptionV1ProductPriceConfig::class;
+  protected $priceConfigsDataType = 'array';
+  public $priceConfigs;
+  /**
+   * @var string[]
+   */
   public $regionCodes;
   protected $subscriptionBillingCycleDurationType = GoogleCloudPaymentsResellerSubscriptionV1Duration::class;
   protected $subscriptionBillingCycleDurationDataType = '';
+  public $subscriptionBillingCycleDuration;
   protected $titlesType = GoogleTypeLocalizedText::class;
   protected $titlesDataType = 'array';
+  public $titles;
 
+  /**
+   * @param string
+   */
   public function setName($name)
   {
     $this->name = $name;
   }
+  /**
+   * @return string
+   */
   public function getName()
   {
     return $this->name;
   }
+  /**
+   * @param GoogleCloudPaymentsResellerSubscriptionV1ProductPriceConfig[]
+   */
+  public function setPriceConfigs($priceConfigs)
+  {
+    $this->priceConfigs = $priceConfigs;
+  }
+  /**
+   * @return GoogleCloudPaymentsResellerSubscriptionV1ProductPriceConfig[]
+   */
+  public function getPriceConfigs()
+  {
+    return $this->priceConfigs;
+  }
+  /**
+   * @param string[]
+   */
   public function setRegionCodes($regionCodes)
   {
     $this->regionCodes = $regionCodes;
   }
+  /**
+   * @return string[]
+   */
   public function getRegionCodes()
   {
     return $this->regionCodes;

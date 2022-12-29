@@ -20,14 +20,24 @@ namespace Google\Service\AdExchangeBuyerII;
 class NonGuaranteedAuctionTerms extends \Google\Collection
 {
   protected $collection_key = 'reservePricesPerBuyer';
+  /**
+   * @var bool
+   */
   public $autoOptimizePrivateAuction;
   protected $reservePricesPerBuyerType = PricePerBuyer::class;
   protected $reservePricesPerBuyerDataType = 'array';
+  public $reservePricesPerBuyer;
 
+  /**
+   * @param bool
+   */
   public function setAutoOptimizePrivateAuction($autoOptimizePrivateAuction)
   {
     $this->autoOptimizePrivateAuction = $autoOptimizePrivateAuction;
   }
+  /**
+   * @return bool
+   */
   public function getAutoOptimizePrivateAuction()
   {
     return $this->autoOptimizePrivateAuction;

@@ -22,17 +22,26 @@ class ReportPathCriteria extends \Google\Collection
   protected $collection_key = 'pathFilters';
   protected $activityFiltersType = DimensionValue::class;
   protected $activityFiltersDataType = 'array';
+  public $activityFilters;
   protected $customChannelGroupingType = ChannelGrouping::class;
   protected $customChannelGroupingDataType = '';
+  public $customChannelGrouping;
   protected $dateRangeType = DateRange::class;
   protected $dateRangeDataType = '';
+  public $dateRange;
   protected $dimensionsType = SortedDimension::class;
   protected $dimensionsDataType = 'array';
+  public $dimensions;
   protected $floodlightConfigIdType = DimensionValue::class;
   protected $floodlightConfigIdDataType = '';
+  public $floodlightConfigId;
+  /**
+   * @var string[]
+   */
   public $metricNames;
   protected $pathFiltersType = PathFilter::class;
   protected $pathFiltersDataType = 'array';
+  public $pathFilters;
 
   /**
    * @param DimensionValue[]
@@ -104,10 +113,16 @@ class ReportPathCriteria extends \Google\Collection
   {
     return $this->floodlightConfigId;
   }
+  /**
+   * @param string[]
+   */
   public function setMetricNames($metricNames)
   {
     $this->metricNames = $metricNames;
   }
+  /**
+   * @return string[]
+   */
   public function getMetricNames()
   {
     return $this->metricNames;

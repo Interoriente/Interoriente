@@ -20,57 +20,100 @@ namespace Google\Service\DataLabeling;
 class GoogleCloudDatalabelingV1beta1LabelOperationMetadata extends \Google\Collection
 {
   protected $collection_key = 'partialFailures';
+  /**
+   * @var string
+   */
   public $annotatedDataset;
+  /**
+   * @var string
+   */
   public $createTime;
+  /**
+   * @var string
+   */
   public $dataset;
   protected $imageBoundingBoxDetailsType = GoogleCloudDatalabelingV1beta1LabelImageBoundingBoxOperationMetadata::class;
   protected $imageBoundingBoxDetailsDataType = '';
+  public $imageBoundingBoxDetails;
   protected $imageBoundingPolyDetailsType = GoogleCloudDatalabelingV1beta1LabelImageBoundingPolyOperationMetadata::class;
   protected $imageBoundingPolyDetailsDataType = '';
+  public $imageBoundingPolyDetails;
   protected $imageClassificationDetailsType = GoogleCloudDatalabelingV1beta1LabelImageClassificationOperationMetadata::class;
   protected $imageClassificationDetailsDataType = '';
+  public $imageClassificationDetails;
   protected $imageOrientedBoundingBoxDetailsType = GoogleCloudDatalabelingV1beta1LabelImageOrientedBoundingBoxOperationMetadata::class;
   protected $imageOrientedBoundingBoxDetailsDataType = '';
+  public $imageOrientedBoundingBoxDetails;
   protected $imagePolylineDetailsType = GoogleCloudDatalabelingV1beta1LabelImagePolylineOperationMetadata::class;
   protected $imagePolylineDetailsDataType = '';
+  public $imagePolylineDetails;
   protected $imageSegmentationDetailsType = GoogleCloudDatalabelingV1beta1LabelImageSegmentationOperationMetadata::class;
   protected $imageSegmentationDetailsDataType = '';
+  public $imageSegmentationDetails;
   protected $partialFailuresType = GoogleRpcStatus::class;
   protected $partialFailuresDataType = 'array';
+  public $partialFailures;
+  /**
+   * @var int
+   */
   public $progressPercent;
   protected $textClassificationDetailsType = GoogleCloudDatalabelingV1beta1LabelTextClassificationOperationMetadata::class;
   protected $textClassificationDetailsDataType = '';
+  public $textClassificationDetails;
   protected $textEntityExtractionDetailsType = GoogleCloudDatalabelingV1beta1LabelTextEntityExtractionOperationMetadata::class;
   protected $textEntityExtractionDetailsDataType = '';
+  public $textEntityExtractionDetails;
   protected $videoClassificationDetailsType = GoogleCloudDatalabelingV1beta1LabelVideoClassificationOperationMetadata::class;
   protected $videoClassificationDetailsDataType = '';
+  public $videoClassificationDetails;
   protected $videoEventDetailsType = GoogleCloudDatalabelingV1beta1LabelVideoEventOperationMetadata::class;
   protected $videoEventDetailsDataType = '';
+  public $videoEventDetails;
   protected $videoObjectDetectionDetailsType = GoogleCloudDatalabelingV1beta1LabelVideoObjectDetectionOperationMetadata::class;
   protected $videoObjectDetectionDetailsDataType = '';
+  public $videoObjectDetectionDetails;
   protected $videoObjectTrackingDetailsType = GoogleCloudDatalabelingV1beta1LabelVideoObjectTrackingOperationMetadata::class;
   protected $videoObjectTrackingDetailsDataType = '';
+  public $videoObjectTrackingDetails;
 
+  /**
+   * @param string
+   */
   public function setAnnotatedDataset($annotatedDataset)
   {
     $this->annotatedDataset = $annotatedDataset;
   }
+  /**
+   * @return string
+   */
   public function getAnnotatedDataset()
   {
     return $this->annotatedDataset;
   }
+  /**
+   * @param string
+   */
   public function setCreateTime($createTime)
   {
     $this->createTime = $createTime;
   }
+  /**
+   * @return string
+   */
   public function getCreateTime()
   {
     return $this->createTime;
   }
+  /**
+   * @param string
+   */
   public function setDataset($dataset)
   {
     $this->dataset = $dataset;
   }
+  /**
+   * @return string
+   */
   public function getDataset()
   {
     return $this->dataset;
@@ -173,10 +216,16 @@ class GoogleCloudDatalabelingV1beta1LabelOperationMetadata extends \Google\Colle
   {
     return $this->partialFailures;
   }
+  /**
+   * @param int
+   */
   public function setProgressPercent($progressPercent)
   {
     $this->progressPercent = $progressPercent;
   }
+  /**
+   * @return int
+   */
   public function getProgressPercent()
   {
     return $this->progressPercent;

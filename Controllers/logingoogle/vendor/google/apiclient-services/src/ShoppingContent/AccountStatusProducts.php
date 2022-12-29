@@ -20,34 +20,63 @@ namespace Google\Service\ShoppingContent;
 class AccountStatusProducts extends \Google\Collection
 {
   protected $collection_key = 'itemLevelIssues';
+  /**
+   * @var string
+   */
   public $channel;
+  /**
+   * @var string
+   */
   public $country;
+  /**
+   * @var string
+   */
   public $destination;
   protected $itemLevelIssuesType = AccountStatusItemLevelIssue::class;
   protected $itemLevelIssuesDataType = 'array';
+  public $itemLevelIssues;
   protected $statisticsType = AccountStatusStatistics::class;
   protected $statisticsDataType = '';
+  public $statistics;
 
+  /**
+   * @param string
+   */
   public function setChannel($channel)
   {
     $this->channel = $channel;
   }
+  /**
+   * @return string
+   */
   public function getChannel()
   {
     return $this->channel;
   }
+  /**
+   * @param string
+   */
   public function setCountry($country)
   {
     $this->country = $country;
   }
+  /**
+   * @return string
+   */
   public function getCountry()
   {
     return $this->country;
   }
+  /**
+   * @param string
+   */
   public function setDestination($destination)
   {
     $this->destination = $destination;
   }
+  /**
+   * @return string
+   */
   public function getDestination()
   {
     return $this->destination;

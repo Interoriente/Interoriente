@@ -21,7 +21,14 @@ class ApnsConfig extends \Google\Model
 {
   protected $fcmOptionsType = ApnsFcmOptions::class;
   protected $fcmOptionsDataType = '';
+  public $fcmOptions;
+  /**
+   * @var string[]
+   */
   public $headers;
+  /**
+   * @var array[]
+   */
   public $payload;
 
   /**
@@ -38,18 +45,30 @@ class ApnsConfig extends \Google\Model
   {
     return $this->fcmOptions;
   }
+  /**
+   * @param string[]
+   */
   public function setHeaders($headers)
   {
     $this->headers = $headers;
   }
+  /**
+   * @return string[]
+   */
   public function getHeaders()
   {
     return $this->headers;
   }
+  /**
+   * @param array[]
+   */
   public function setPayload($payload)
   {
     $this->payload = $payload;
   }
+  /**
+   * @return array[]
+   */
   public function getPayload()
   {
     return $this->payload;

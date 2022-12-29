@@ -19,27 +19,63 @@ namespace Google\Service\AdExchangeBuyerII;
 
 class NativeContent extends \Google\Model
 {
+  /**
+   * @var string
+   */
   public $advertiserName;
   protected $appIconType = Image::class;
   protected $appIconDataType = '';
+  public $appIcon;
+  /**
+   * @var string
+   */
   public $body;
+  /**
+   * @var string
+   */
   public $callToAction;
+  /**
+   * @var string
+   */
   public $clickLinkUrl;
+  /**
+   * @var string
+   */
   public $clickTrackingUrl;
+  /**
+   * @var string
+   */
   public $headline;
   protected $imageType = Image::class;
   protected $imageDataType = '';
+  public $image;
   protected $logoType = Image::class;
   protected $logoDataType = '';
+  public $logo;
+  /**
+   * @var string
+   */
   public $priceDisplayText;
   public $starRating;
+  /**
+   * @var string
+   */
   public $storeUrl;
+  /**
+   * @var string
+   */
   public $videoUrl;
 
+  /**
+   * @param string
+   */
   public function setAdvertiserName($advertiserName)
   {
     $this->advertiserName = $advertiserName;
   }
+  /**
+   * @return string
+   */
   public function getAdvertiserName()
   {
     return $this->advertiserName;
@@ -58,42 +94,72 @@ class NativeContent extends \Google\Model
   {
     return $this->appIcon;
   }
+  /**
+   * @param string
+   */
   public function setBody($body)
   {
     $this->body = $body;
   }
+  /**
+   * @return string
+   */
   public function getBody()
   {
     return $this->body;
   }
+  /**
+   * @param string
+   */
   public function setCallToAction($callToAction)
   {
     $this->callToAction = $callToAction;
   }
+  /**
+   * @return string
+   */
   public function getCallToAction()
   {
     return $this->callToAction;
   }
+  /**
+   * @param string
+   */
   public function setClickLinkUrl($clickLinkUrl)
   {
     $this->clickLinkUrl = $clickLinkUrl;
   }
+  /**
+   * @return string
+   */
   public function getClickLinkUrl()
   {
     return $this->clickLinkUrl;
   }
+  /**
+   * @param string
+   */
   public function setClickTrackingUrl($clickTrackingUrl)
   {
     $this->clickTrackingUrl = $clickTrackingUrl;
   }
+  /**
+   * @return string
+   */
   public function getClickTrackingUrl()
   {
     return $this->clickTrackingUrl;
   }
+  /**
+   * @param string
+   */
   public function setHeadline($headline)
   {
     $this->headline = $headline;
   }
+  /**
+   * @return string
+   */
   public function getHeadline()
   {
     return $this->headline;
@@ -126,10 +192,16 @@ class NativeContent extends \Google\Model
   {
     return $this->logo;
   }
+  /**
+   * @param string
+   */
   public function setPriceDisplayText($priceDisplayText)
   {
     $this->priceDisplayText = $priceDisplayText;
   }
+  /**
+   * @return string
+   */
   public function getPriceDisplayText()
   {
     return $this->priceDisplayText;
@@ -142,18 +214,30 @@ class NativeContent extends \Google\Model
   {
     return $this->starRating;
   }
+  /**
+   * @param string
+   */
   public function setStoreUrl($storeUrl)
   {
     $this->storeUrl = $storeUrl;
   }
+  /**
+   * @return string
+   */
   public function getStoreUrl()
   {
     return $this->storeUrl;
   }
+  /**
+   * @param string
+   */
   public function setVideoUrl($videoUrl)
   {
     $this->videoUrl = $videoUrl;
   }
+  /**
+   * @return string
+   */
   public function getVideoUrl()
   {
     return $this->videoUrl;

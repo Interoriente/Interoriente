@@ -27,14 +27,15 @@ use Google\Service\CloudSearch\SearchItemsByViewUrlResponse;
  * Typical usage is:
  *  <code>
  *   $cloudsearchService = new Google\Service\CloudSearch(...);
- *   $items = $cloudsearchService->items;
+ *   $items = $cloudsearchService->debug_datasources_items;
  *  </code>
  */
 class DebugDatasourcesItems extends \Google\Service\Resource
 {
   /**
-   * Checks whether an item is accessible by specified principal. **Note:** This
-   * API requires an admin account to execute. (items.checkAccess)
+   * Checks whether an item is accessible by specified principal. Principal must
+   * be a user; groups and domain values aren't supported. **Note:** This API
+   * requires an admin account to execute. (items.checkAccess)
    *
    * @param string $name Item name, format:
    * datasources/{source_id}/items/{item_id}

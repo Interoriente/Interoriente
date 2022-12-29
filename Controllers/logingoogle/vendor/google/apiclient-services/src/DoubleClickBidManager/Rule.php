@@ -22,6 +22,10 @@ class Rule extends \Google\Collection
   protected $collection_key = 'disjunctiveMatchStatements';
   protected $disjunctiveMatchStatementsType = DisjunctiveMatchStatement::class;
   protected $disjunctiveMatchStatementsDataType = 'array';
+  public $disjunctiveMatchStatements;
+  /**
+   * @var string
+   */
   public $name;
 
   /**
@@ -38,10 +42,16 @@ class Rule extends \Google\Collection
   {
     return $this->disjunctiveMatchStatements;
   }
+  /**
+   * @param string
+   */
   public function setName($name)
   {
     $this->name = $name;
   }
+  /**
+   * @return string
+   */
   public function getName()
   {
     return $this->name;

@@ -20,14 +20,24 @@ namespace Google\Service\BigQueryReservation;
 class ListReservationsResponse extends \Google\Collection
 {
   protected $collection_key = 'reservations';
+  /**
+   * @var string
+   */
   public $nextPageToken;
   protected $reservationsType = Reservation::class;
   protected $reservationsDataType = 'array';
+  public $reservations;
 
+  /**
+   * @param string
+   */
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
   }
+  /**
+   * @return string
+   */
   public function getNextPageToken()
   {
     return $this->nextPageToken;

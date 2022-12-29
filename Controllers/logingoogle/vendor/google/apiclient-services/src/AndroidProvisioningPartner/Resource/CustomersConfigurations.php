@@ -26,7 +26,7 @@ use Google\Service\AndroidProvisioningPartner\CustomerListConfigurationsResponse
  * Typical usage is:
  *  <code>
  *   $androiddeviceprovisioningService = new Google\Service\AndroidProvisioningPartner(...);
- *   $configurations = $androiddeviceprovisioningService->configurations;
+ *   $configurations = $androiddeviceprovisioningService->customers_configurations;
  *  </code>
  */
 class CustomersConfigurations extends \Google\Service\Resource
@@ -36,7 +36,8 @@ class CustomersConfigurations extends \Google\Service\Resource
    * configuration to devices. (configurations.create)
    *
    * @param string $parent Required. The customer that manages the configuration.
-   * An API resource name in the format `customers/[CUSTOMER_ID]`.
+   * An API resource name in the format `customers/[CUSTOMER_ID]`. This field has
+   * custom validation in CreateConfigurationRequestValidator
    * @param Configuration $postBody
    * @param array $optParams Optional parameters.
    * @return Configuration

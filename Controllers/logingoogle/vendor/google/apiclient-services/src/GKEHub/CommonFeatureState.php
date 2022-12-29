@@ -19,9 +19,44 @@ namespace Google\Service\GKEHub;
 
 class CommonFeatureState extends \Google\Model
 {
+  protected $appdevexperienceType = AppDevExperienceFeatureState::class;
+  protected $appdevexperienceDataType = '';
+  public $appdevexperience;
+  protected $fleetobservabilityType = FleetObservabilityFeatureState::class;
+  protected $fleetobservabilityDataType = '';
+  public $fleetobservability;
   protected $stateType = FeatureState::class;
   protected $stateDataType = '';
+  public $state;
 
+  /**
+   * @param AppDevExperienceFeatureState
+   */
+  public function setAppdevexperience(AppDevExperienceFeatureState $appdevexperience)
+  {
+    $this->appdevexperience = $appdevexperience;
+  }
+  /**
+   * @return AppDevExperienceFeatureState
+   */
+  public function getAppdevexperience()
+  {
+    return $this->appdevexperience;
+  }
+  /**
+   * @param FleetObservabilityFeatureState
+   */
+  public function setFleetobservability(FleetObservabilityFeatureState $fleetobservability)
+  {
+    $this->fleetobservability = $fleetobservability;
+  }
+  /**
+   * @return FleetObservabilityFeatureState
+   */
+  public function getFleetobservability()
+  {
+    return $this->fleetobservability;
+  }
   /**
    * @param FeatureState
    */

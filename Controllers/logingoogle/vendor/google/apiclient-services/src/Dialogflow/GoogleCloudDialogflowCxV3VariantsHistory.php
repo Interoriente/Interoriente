@@ -19,14 +19,24 @@ namespace Google\Service\Dialogflow;
 
 class GoogleCloudDialogflowCxV3VariantsHistory extends \Google\Model
 {
+  /**
+   * @var string
+   */
   public $updateTime;
   protected $versionVariantsType = GoogleCloudDialogflowCxV3VersionVariants::class;
   protected $versionVariantsDataType = '';
+  public $versionVariants;
 
+  /**
+   * @param string
+   */
   public function setUpdateTime($updateTime)
   {
     $this->updateTime = $updateTime;
   }
+  /**
+   * @return string
+   */
   public function getUpdateTime()
   {
     return $this->updateTime;

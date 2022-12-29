@@ -21,11 +21,17 @@ class ResultStorage extends \Google\Model
 {
   protected $googleCloudStorageType = GoogleCloudStorage::class;
   protected $googleCloudStorageDataType = '';
+  public $googleCloudStorage;
+  /**
+   * @var string
+   */
   public $resultsUrl;
   protected $toolResultsExecutionType = ToolResultsExecution::class;
   protected $toolResultsExecutionDataType = '';
+  public $toolResultsExecution;
   protected $toolResultsHistoryType = ToolResultsHistory::class;
   protected $toolResultsHistoryDataType = '';
+  public $toolResultsHistory;
 
   /**
    * @param GoogleCloudStorage
@@ -41,10 +47,16 @@ class ResultStorage extends \Google\Model
   {
     return $this->googleCloudStorage;
   }
+  /**
+   * @param string
+   */
   public function setResultsUrl($resultsUrl)
   {
     $this->resultsUrl = $resultsUrl;
   }
+  /**
+   * @return string
+   */
   public function getResultsUrl()
   {
     return $this->resultsUrl;

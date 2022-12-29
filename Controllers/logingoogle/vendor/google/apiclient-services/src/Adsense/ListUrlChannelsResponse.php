@@ -20,14 +20,24 @@ namespace Google\Service\Adsense;
 class ListUrlChannelsResponse extends \Google\Collection
 {
   protected $collection_key = 'urlChannels';
+  /**
+   * @var string
+   */
   public $nextPageToken;
   protected $urlChannelsType = UrlChannel::class;
   protected $urlChannelsDataType = 'array';
+  public $urlChannels;
 
+  /**
+   * @param string
+   */
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
   }
+  /**
+   * @return string
+   */
   public function getNextPageToken()
   {
     return $this->nextPageToken;

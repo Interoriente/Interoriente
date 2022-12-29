@@ -19,15 +19,28 @@ namespace Google\Service\Storagetransfer;
 
 class UpdateTransferJobRequest extends \Google\Model
 {
+  /**
+   * @var string
+   */
   public $projectId;
   protected $transferJobType = TransferJob::class;
   protected $transferJobDataType = '';
+  public $transferJob;
+  /**
+   * @var string
+   */
   public $updateTransferJobFieldMask;
 
+  /**
+   * @param string
+   */
   public function setProjectId($projectId)
   {
     $this->projectId = $projectId;
   }
+  /**
+   * @return string
+   */
   public function getProjectId()
   {
     return $this->projectId;
@@ -46,10 +59,16 @@ class UpdateTransferJobRequest extends \Google\Model
   {
     return $this->transferJob;
   }
+  /**
+   * @param string
+   */
   public function setUpdateTransferJobFieldMask($updateTransferJobFieldMask)
   {
     $this->updateTransferJobFieldMask = $updateTransferJobFieldMask;
   }
+  /**
+   * @return string
+   */
   public function getUpdateTransferJobFieldMask()
   {
     return $this->updateTransferJobFieldMask;

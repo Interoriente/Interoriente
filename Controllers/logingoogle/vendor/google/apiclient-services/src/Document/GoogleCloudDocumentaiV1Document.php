@@ -20,31 +20,57 @@ namespace Google\Service\Document;
 class GoogleCloudDocumentaiV1Document extends \Google\Collection
 {
   protected $collection_key = 'textStyles';
+  /**
+   * @var string
+   */
   public $content;
   protected $entitiesType = GoogleCloudDocumentaiV1DocumentEntity::class;
   protected $entitiesDataType = 'array';
+  public $entities;
   protected $entityRelationsType = GoogleCloudDocumentaiV1DocumentEntityRelation::class;
   protected $entityRelationsDataType = 'array';
+  public $entityRelations;
   protected $errorType = GoogleRpcStatus::class;
   protected $errorDataType = '';
+  public $error;
+  /**
+   * @var string
+   */
   public $mimeType;
   protected $pagesType = GoogleCloudDocumentaiV1DocumentPage::class;
   protected $pagesDataType = 'array';
+  public $pages;
   protected $revisionsType = GoogleCloudDocumentaiV1DocumentRevision::class;
   protected $revisionsDataType = 'array';
+  public $revisions;
   protected $shardInfoType = GoogleCloudDocumentaiV1DocumentShardInfo::class;
   protected $shardInfoDataType = '';
+  public $shardInfo;
+  /**
+   * @var string
+   */
   public $text;
   protected $textChangesType = GoogleCloudDocumentaiV1DocumentTextChange::class;
   protected $textChangesDataType = 'array';
+  public $textChanges;
   protected $textStylesType = GoogleCloudDocumentaiV1DocumentStyle::class;
   protected $textStylesDataType = 'array';
+  public $textStyles;
+  /**
+   * @var string
+   */
   public $uri;
 
+  /**
+   * @param string
+   */
   public function setContent($content)
   {
     $this->content = $content;
   }
+  /**
+   * @return string
+   */
   public function getContent()
   {
     return $this->content;
@@ -91,10 +117,16 @@ class GoogleCloudDocumentaiV1Document extends \Google\Collection
   {
     return $this->error;
   }
+  /**
+   * @param string
+   */
   public function setMimeType($mimeType)
   {
     $this->mimeType = $mimeType;
   }
+  /**
+   * @return string
+   */
   public function getMimeType()
   {
     return $this->mimeType;
@@ -141,10 +173,16 @@ class GoogleCloudDocumentaiV1Document extends \Google\Collection
   {
     return $this->shardInfo;
   }
+  /**
+   * @param string
+   */
   public function setText($text)
   {
     $this->text = $text;
   }
+  /**
+   * @return string
+   */
   public function getText()
   {
     return $this->text;
@@ -177,10 +215,16 @@ class GoogleCloudDocumentaiV1Document extends \Google\Collection
   {
     return $this->textStyles;
   }
+  /**
+   * @param string
+   */
   public function setUri($uri)
   {
     $this->uri = $uri;
   }
+  /**
+   * @return string
+   */
   public function getUri()
   {
     return $this->uri;

@@ -19,14 +19,24 @@ namespace Google\Service\ServiceControl;
 
 class CheckResponse extends \Google\Model
 {
+  /**
+   * @var string[]
+   */
   public $headers;
   protected $statusType = Status::class;
   protected $statusDataType = '';
+  public $status;
 
+  /**
+   * @param string[]
+   */
   public function setHeaders($headers)
   {
     $this->headers = $headers;
   }
+  /**
+   * @return string[]
+   */
   public function getHeaders()
   {
     return $this->headers;

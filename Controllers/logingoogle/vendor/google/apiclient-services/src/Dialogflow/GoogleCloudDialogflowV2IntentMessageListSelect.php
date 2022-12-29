@@ -22,7 +22,14 @@ class GoogleCloudDialogflowV2IntentMessageListSelect extends \Google\Collection
   protected $collection_key = 'items';
   protected $itemsType = GoogleCloudDialogflowV2IntentMessageListSelectItem::class;
   protected $itemsDataType = 'array';
+  public $items;
+  /**
+   * @var string
+   */
   public $subtitle;
+  /**
+   * @var string
+   */
   public $title;
 
   /**
@@ -39,18 +46,30 @@ class GoogleCloudDialogflowV2IntentMessageListSelect extends \Google\Collection
   {
     return $this->items;
   }
+  /**
+   * @param string
+   */
   public function setSubtitle($subtitle)
   {
     $this->subtitle = $subtitle;
   }
+  /**
+   * @return string
+   */
   public function getSubtitle()
   {
     return $this->subtitle;
   }
+  /**
+   * @param string
+   */
   public function setTitle($title)
   {
     $this->title = $title;
   }
+  /**
+   * @return string
+   */
   public function getTitle()
   {
     return $this->title;

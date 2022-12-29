@@ -27,7 +27,7 @@ use Google\Service\SecurityCommandCenter\SecurityMarks;
  * Typical usage is:
  *  <code>
  *   $securitycenterService = new Google\Service\SecurityCommandCenter(...);
- *   $assets = $securitycenterService->assets;
+ *   $assets = $securitycenterService->folders_assets;
  *  </code>
  */
 class FoldersAssets extends \Google\Service\Resource
@@ -36,9 +36,9 @@ class FoldersAssets extends \Google\Service\Resource
    * Filters an organization's assets and groups them by their specified
    * properties. (assets.group)
    *
-   * @param string $parent Required. Name of the organization to groupBy. Its
-   * format is "organizations/[organization_id], folders/[folder_id], or
-   * projects/[project_id]".
+   * @param string $parent Required. The name of the parent to group the assets
+   * by. Its format is "organizations/[organization_id]", "folders/[folder_id]",
+   * or "projects/[project_id]".
    * @param GroupAssetsRequest $postBody
    * @param array $optParams Optional parameters.
    * @return GroupAssetsResponse
@@ -52,9 +52,9 @@ class FoldersAssets extends \Google\Service\Resource
   /**
    * Lists an organization's assets. (assets.listFoldersAssets)
    *
-   * @param string $parent Required. Name of the organization assets should belong
-   * to. Its format is "organizations/[organization_id], folders/[folder_id], or
-   * projects/[project_id]".
+   * @param string $parent Required. The name of the parent that the listed assets
+   * belong to. Its format is "organizations/[organization_id],
+   * "folders/[folder_id]", or "projects/[project_id]".
    * @param array $optParams Optional parameters.
    *
    * @opt_param string compareDuration When compare_duration is set, the
@@ -156,7 +156,8 @@ class FoldersAssets extends \Google\Service\Resource
    *
    * @opt_param string startTime The time at which the updated SecurityMarks take
    * effect. If not set uses current server time. Updates will be applied to the
-   * SecurityMarks that are active immediately preceding this time.
+   * SecurityMarks that are active immediately preceding this time. Must be
+   * earlier or equal to the server time.
    * @opt_param string updateMask The FieldMask to use when updating the security
    * marks resource. The field mask must not contain duplicate fields. If empty or
    * set to "marks", all marks will be replaced. Individual marks can be updated

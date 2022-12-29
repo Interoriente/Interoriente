@@ -22,7 +22,14 @@ class CampaignsListResponse extends \Google\Collection
   protected $collection_key = 'campaigns';
   protected $campaignsType = Campaign::class;
   protected $campaignsDataType = 'array';
+  public $campaigns;
+  /**
+   * @var string
+   */
   public $kind;
+  /**
+   * @var string
+   */
   public $nextPageToken;
 
   /**
@@ -39,18 +46,30 @@ class CampaignsListResponse extends \Google\Collection
   {
     return $this->campaigns;
   }
+  /**
+   * @param string
+   */
   public function setKind($kind)
   {
     $this->kind = $kind;
   }
+  /**
+   * @return string
+   */
   public function getKind()
   {
     return $this->kind;
   }
+  /**
+   * @param string
+   */
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
   }
+  /**
+   * @return string
+   */
   public function getNextPageToken()
   {
     return $this->nextPageToken;

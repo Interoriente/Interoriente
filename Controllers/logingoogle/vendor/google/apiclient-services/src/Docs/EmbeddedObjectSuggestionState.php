@@ -19,27 +19,56 @@ namespace Google\Service\Docs;
 
 class EmbeddedObjectSuggestionState extends \Google\Model
 {
+  /**
+   * @var bool
+   */
   public $descriptionSuggested;
   protected $embeddedDrawingPropertiesSuggestionStateType = EmbeddedDrawingPropertiesSuggestionState::class;
   protected $embeddedDrawingPropertiesSuggestionStateDataType = '';
+  public $embeddedDrawingPropertiesSuggestionState;
   protected $embeddedObjectBorderSuggestionStateType = EmbeddedObjectBorderSuggestionState::class;
   protected $embeddedObjectBorderSuggestionStateDataType = '';
+  public $embeddedObjectBorderSuggestionState;
   protected $imagePropertiesSuggestionStateType = ImagePropertiesSuggestionState::class;
   protected $imagePropertiesSuggestionStateDataType = '';
+  public $imagePropertiesSuggestionState;
   protected $linkedContentReferenceSuggestionStateType = LinkedContentReferenceSuggestionState::class;
   protected $linkedContentReferenceSuggestionStateDataType = '';
+  public $linkedContentReferenceSuggestionState;
+  /**
+   * @var bool
+   */
   public $marginBottomSuggested;
+  /**
+   * @var bool
+   */
   public $marginLeftSuggested;
+  /**
+   * @var bool
+   */
   public $marginRightSuggested;
+  /**
+   * @var bool
+   */
   public $marginTopSuggested;
   protected $sizeSuggestionStateType = SizeSuggestionState::class;
   protected $sizeSuggestionStateDataType = '';
+  public $sizeSuggestionState;
+  /**
+   * @var bool
+   */
   public $titleSuggested;
 
+  /**
+   * @param bool
+   */
   public function setDescriptionSuggested($descriptionSuggested)
   {
     $this->descriptionSuggested = $descriptionSuggested;
   }
+  /**
+   * @return bool
+   */
   public function getDescriptionSuggested()
   {
     return $this->descriptionSuggested;
@@ -100,34 +129,58 @@ class EmbeddedObjectSuggestionState extends \Google\Model
   {
     return $this->linkedContentReferenceSuggestionState;
   }
+  /**
+   * @param bool
+   */
   public function setMarginBottomSuggested($marginBottomSuggested)
   {
     $this->marginBottomSuggested = $marginBottomSuggested;
   }
+  /**
+   * @return bool
+   */
   public function getMarginBottomSuggested()
   {
     return $this->marginBottomSuggested;
   }
+  /**
+   * @param bool
+   */
   public function setMarginLeftSuggested($marginLeftSuggested)
   {
     $this->marginLeftSuggested = $marginLeftSuggested;
   }
+  /**
+   * @return bool
+   */
   public function getMarginLeftSuggested()
   {
     return $this->marginLeftSuggested;
   }
+  /**
+   * @param bool
+   */
   public function setMarginRightSuggested($marginRightSuggested)
   {
     $this->marginRightSuggested = $marginRightSuggested;
   }
+  /**
+   * @return bool
+   */
   public function getMarginRightSuggested()
   {
     return $this->marginRightSuggested;
   }
+  /**
+   * @param bool
+   */
   public function setMarginTopSuggested($marginTopSuggested)
   {
     $this->marginTopSuggested = $marginTopSuggested;
   }
+  /**
+   * @return bool
+   */
   public function getMarginTopSuggested()
   {
     return $this->marginTopSuggested;
@@ -146,10 +199,16 @@ class EmbeddedObjectSuggestionState extends \Google\Model
   {
     return $this->sizeSuggestionState;
   }
+  /**
+   * @param bool
+   */
   public function setTitleSuggested($titleSuggested)
   {
     $this->titleSuggested = $titleSuggested;
   }
+  /**
+   * @return bool
+   */
   public function getTitleSuggested()
   {
     return $this->titleSuggested;

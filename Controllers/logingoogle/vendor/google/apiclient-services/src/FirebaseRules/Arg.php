@@ -21,6 +21,10 @@ class Arg extends \Google\Model
 {
   protected $anyValueType = FirebaserulesEmpty::class;
   protected $anyValueDataType = '';
+  public $anyValue;
+  /**
+   * @var array
+   */
   public $exactValue;
 
   /**
@@ -37,10 +41,16 @@ class Arg extends \Google\Model
   {
     return $this->anyValue;
   }
+  /**
+   * @param array
+   */
   public function setExactValue($exactValue)
   {
     $this->exactValue = $exactValue;
   }
+  /**
+   * @return array
+   */
   public function getExactValue()
   {
     return $this->exactValue;

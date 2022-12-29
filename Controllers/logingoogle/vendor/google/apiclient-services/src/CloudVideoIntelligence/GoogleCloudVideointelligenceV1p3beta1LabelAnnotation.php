@@ -22,12 +22,19 @@ class GoogleCloudVideointelligenceV1p3beta1LabelAnnotation extends \Google\Colle
   protected $collection_key = 'segments';
   protected $categoryEntitiesType = GoogleCloudVideointelligenceV1p3beta1Entity::class;
   protected $categoryEntitiesDataType = 'array';
+  public $categoryEntities;
   protected $entityType = GoogleCloudVideointelligenceV1p3beta1Entity::class;
   protected $entityDataType = '';
+  public $entity;
   protected $framesType = GoogleCloudVideointelligenceV1p3beta1LabelFrame::class;
   protected $framesDataType = 'array';
+  public $frames;
   protected $segmentsType = GoogleCloudVideointelligenceV1p3beta1LabelSegment::class;
   protected $segmentsDataType = 'array';
+  public $segments;
+  /**
+   * @var string
+   */
   public $version;
 
   /**
@@ -86,10 +93,16 @@ class GoogleCloudVideointelligenceV1p3beta1LabelAnnotation extends \Google\Colle
   {
     return $this->segments;
   }
+  /**
+   * @param string
+   */
   public function setVersion($version)
   {
     $this->version = $version;
   }
+  /**
+   * @return string
+   */
   public function getVersion()
   {
     return $this->version;

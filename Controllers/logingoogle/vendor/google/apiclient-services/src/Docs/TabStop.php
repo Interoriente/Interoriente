@@ -19,14 +19,24 @@ namespace Google\Service\Docs;
 
 class TabStop extends \Google\Model
 {
+  /**
+   * @var string
+   */
   public $alignment;
   protected $offsetType = Dimension::class;
   protected $offsetDataType = '';
+  public $offset;
 
+  /**
+   * @param string
+   */
   public function setAlignment($alignment)
   {
     $this->alignment = $alignment;
   }
+  /**
+   * @return string
+   */
   public function getAlignment()
   {
     return $this->alignment;

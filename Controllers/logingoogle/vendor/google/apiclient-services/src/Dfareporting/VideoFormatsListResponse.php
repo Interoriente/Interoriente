@@ -20,14 +20,24 @@ namespace Google\Service\Dfareporting;
 class VideoFormatsListResponse extends \Google\Collection
 {
   protected $collection_key = 'videoFormats';
+  /**
+   * @var string
+   */
   public $kind;
   protected $videoFormatsType = VideoFormat::class;
   protected $videoFormatsDataType = 'array';
+  public $videoFormats;
 
+  /**
+   * @param string
+   */
   public function setKind($kind)
   {
     $this->kind = $kind;
   }
+  /**
+   * @return string
+   */
   public function getKind()
   {
     return $this->kind;

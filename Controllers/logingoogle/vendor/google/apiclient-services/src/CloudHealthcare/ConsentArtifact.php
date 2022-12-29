@@ -22,16 +22,32 @@ class ConsentArtifact extends \Google\Collection
   protected $collection_key = 'consentContentScreenshots';
   protected $consentContentScreenshotsType = Image::class;
   protected $consentContentScreenshotsDataType = 'array';
+  public $consentContentScreenshots;
+  /**
+   * @var string
+   */
   public $consentContentVersion;
   protected $guardianSignatureType = Signature::class;
   protected $guardianSignatureDataType = '';
+  public $guardianSignature;
+  /**
+   * @var string[]
+   */
   public $metadata;
+  /**
+   * @var string
+   */
   public $name;
+  /**
+   * @var string
+   */
   public $userId;
   protected $userSignatureType = Signature::class;
   protected $userSignatureDataType = '';
+  public $userSignature;
   protected $witnessSignatureType = Signature::class;
   protected $witnessSignatureDataType = '';
+  public $witnessSignature;
 
   /**
    * @param Image[]
@@ -47,10 +63,16 @@ class ConsentArtifact extends \Google\Collection
   {
     return $this->consentContentScreenshots;
   }
+  /**
+   * @param string
+   */
   public function setConsentContentVersion($consentContentVersion)
   {
     $this->consentContentVersion = $consentContentVersion;
   }
+  /**
+   * @return string
+   */
   public function getConsentContentVersion()
   {
     return $this->consentContentVersion;
@@ -69,26 +91,44 @@ class ConsentArtifact extends \Google\Collection
   {
     return $this->guardianSignature;
   }
+  /**
+   * @param string[]
+   */
   public function setMetadata($metadata)
   {
     $this->metadata = $metadata;
   }
+  /**
+   * @return string[]
+   */
   public function getMetadata()
   {
     return $this->metadata;
   }
+  /**
+   * @param string
+   */
   public function setName($name)
   {
     $this->name = $name;
   }
+  /**
+   * @return string
+   */
   public function getName()
   {
     return $this->name;
   }
+  /**
+   * @param string
+   */
   public function setUserId($userId)
   {
     $this->userId = $userId;
   }
+  /**
+   * @return string
+   */
   public function getUserId()
   {
     return $this->userId;

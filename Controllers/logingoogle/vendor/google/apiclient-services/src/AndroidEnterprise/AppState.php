@@ -22,6 +22,10 @@ class AppState extends \Google\Collection
   protected $collection_key = 'keyedAppState';
   protected $keyedAppStateType = KeyedAppState::class;
   protected $keyedAppStateDataType = 'array';
+  public $keyedAppState;
+  /**
+   * @var string
+   */
   public $packageName;
 
   /**
@@ -38,10 +42,16 @@ class AppState extends \Google\Collection
   {
     return $this->keyedAppState;
   }
+  /**
+   * @param string
+   */
   public function setPackageName($packageName)
   {
     $this->packageName = $packageName;
   }
+  /**
+   * @return string
+   */
   public function getPackageName()
   {
     return $this->packageName;

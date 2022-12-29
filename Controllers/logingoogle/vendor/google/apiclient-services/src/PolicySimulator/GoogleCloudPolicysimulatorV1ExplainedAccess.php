@@ -20,16 +20,27 @@ namespace Google\Service\PolicySimulator;
 class GoogleCloudPolicysimulatorV1ExplainedAccess extends \Google\Collection
 {
   protected $collection_key = 'policies';
+  /**
+   * @var string
+   */
   public $accessState;
   protected $errorsType = GoogleRpcStatus::class;
   protected $errorsDataType = 'array';
+  public $errors;
   protected $policiesType = GoogleCloudPolicysimulatorV1ExplainedPolicy::class;
   protected $policiesDataType = 'array';
+  public $policies;
 
+  /**
+   * @param string
+   */
   public function setAccessState($accessState)
   {
     $this->accessState = $accessState;
   }
+  /**
+   * @return string
+   */
   public function getAccessState()
   {
     return $this->accessState;

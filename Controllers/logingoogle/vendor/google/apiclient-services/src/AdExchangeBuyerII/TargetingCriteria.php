@@ -22,8 +22,13 @@ class TargetingCriteria extends \Google\Collection
   protected $collection_key = 'inclusions';
   protected $exclusionsType = TargetingValue::class;
   protected $exclusionsDataType = 'array';
+  public $exclusions;
   protected $inclusionsType = TargetingValue::class;
   protected $inclusionsDataType = 'array';
+  public $inclusions;
+  /**
+   * @var string
+   */
   public $key;
 
   /**
@@ -54,10 +59,16 @@ class TargetingCriteria extends \Google\Collection
   {
     return $this->inclusions;
   }
+  /**
+   * @param string
+   */
   public function setKey($key)
   {
     $this->key = $key;
   }
+  /**
+   * @return string
+   */
   public function getKey()
   {
     return $this->key;

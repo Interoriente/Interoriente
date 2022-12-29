@@ -20,23 +20,49 @@ namespace Google\Service\CloudSearch;
 class Metadata extends \Google\Collection
 {
   protected $collection_key = 'fields';
+  /**
+   * @var string
+   */
   public $createTime;
   protected $displayOptionsType = ResultDisplayMetadata::class;
   protected $displayOptionsDataType = '';
+  public $displayOptions;
   protected $fieldsType = NamedProperty::class;
   protected $fieldsDataType = 'array';
+  public $fields;
+  /**
+   * @var string
+   */
   public $mimeType;
+  /**
+   * @var string
+   */
   public $objectType;
   protected $ownerType = Person::class;
   protected $ownerDataType = '';
+  public $owner;
   protected $sourceType = Source::class;
   protected $sourceDataType = '';
+  public $source;
+  /**
+   * @var string
+   */
+  public $thumbnailUrl;
+  /**
+   * @var string
+   */
   public $updateTime;
 
+  /**
+   * @param string
+   */
   public function setCreateTime($createTime)
   {
     $this->createTime = $createTime;
   }
+  /**
+   * @return string
+   */
   public function getCreateTime()
   {
     return $this->createTime;
@@ -69,18 +95,30 @@ class Metadata extends \Google\Collection
   {
     return $this->fields;
   }
+  /**
+   * @param string
+   */
   public function setMimeType($mimeType)
   {
     $this->mimeType = $mimeType;
   }
+  /**
+   * @return string
+   */
   public function getMimeType()
   {
     return $this->mimeType;
   }
+  /**
+   * @param string
+   */
   public function setObjectType($objectType)
   {
     $this->objectType = $objectType;
   }
+  /**
+   * @return string
+   */
   public function getObjectType()
   {
     return $this->objectType;
@@ -113,10 +151,30 @@ class Metadata extends \Google\Collection
   {
     return $this->source;
   }
+  /**
+   * @param string
+   */
+  public function setThumbnailUrl($thumbnailUrl)
+  {
+    $this->thumbnailUrl = $thumbnailUrl;
+  }
+  /**
+   * @return string
+   */
+  public function getThumbnailUrl()
+  {
+    return $this->thumbnailUrl;
+  }
+  /**
+   * @param string
+   */
   public function setUpdateTime($updateTime)
   {
     $this->updateTime = $updateTime;
   }
+  /**
+   * @return string
+   */
   public function getUpdateTime()
   {
     return $this->updateTime;

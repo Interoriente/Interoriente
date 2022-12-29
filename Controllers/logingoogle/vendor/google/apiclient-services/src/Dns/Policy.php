@@ -22,14 +22,34 @@ class Policy extends \Google\Collection
   protected $collection_key = 'networks';
   protected $alternativeNameServerConfigType = PolicyAlternativeNameServerConfig::class;
   protected $alternativeNameServerConfigDataType = '';
+  public $alternativeNameServerConfig;
+  /**
+   * @var string
+   */
   public $description;
+  /**
+   * @var bool
+   */
   public $enableInboundForwarding;
+  /**
+   * @var bool
+   */
   public $enableLogging;
+  /**
+   * @var string
+   */
   public $id;
+  /**
+   * @var string
+   */
   public $kind;
+  /**
+   * @var string
+   */
   public $name;
   protected $networksType = PolicyNetwork::class;
   protected $networksDataType = 'array';
+  public $networks;
 
   /**
    * @param PolicyAlternativeNameServerConfig
@@ -45,50 +65,86 @@ class Policy extends \Google\Collection
   {
     return $this->alternativeNameServerConfig;
   }
+  /**
+   * @param string
+   */
   public function setDescription($description)
   {
     $this->description = $description;
   }
+  /**
+   * @return string
+   */
   public function getDescription()
   {
     return $this->description;
   }
+  /**
+   * @param bool
+   */
   public function setEnableInboundForwarding($enableInboundForwarding)
   {
     $this->enableInboundForwarding = $enableInboundForwarding;
   }
+  /**
+   * @return bool
+   */
   public function getEnableInboundForwarding()
   {
     return $this->enableInboundForwarding;
   }
+  /**
+   * @param bool
+   */
   public function setEnableLogging($enableLogging)
   {
     $this->enableLogging = $enableLogging;
   }
+  /**
+   * @return bool
+   */
   public function getEnableLogging()
   {
     return $this->enableLogging;
   }
+  /**
+   * @param string
+   */
   public function setId($id)
   {
     $this->id = $id;
   }
+  /**
+   * @return string
+   */
   public function getId()
   {
     return $this->id;
   }
+  /**
+   * @param string
+   */
   public function setKind($kind)
   {
     $this->kind = $kind;
   }
+  /**
+   * @return string
+   */
   public function getKind()
   {
     return $this->kind;
   }
+  /**
+   * @param string
+   */
   public function setName($name)
   {
     $this->name = $name;
   }
+  /**
+   * @return string
+   */
   public function getName()
   {
     return $this->name;

@@ -22,6 +22,10 @@ class ListConsentArtifactsResponse extends \Google\Collection
   protected $collection_key = 'consentArtifacts';
   protected $consentArtifactsType = ConsentArtifact::class;
   protected $consentArtifactsDataType = 'array';
+  public $consentArtifacts;
+  /**
+   * @var string
+   */
   public $nextPageToken;
 
   /**
@@ -38,10 +42,16 @@ class ListConsentArtifactsResponse extends \Google\Collection
   {
     return $this->consentArtifacts;
   }
+  /**
+   * @param string
+   */
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
   }
+  /**
+   * @return string
+   */
   public function getNextPageToken()
   {
     return $this->nextPageToken;

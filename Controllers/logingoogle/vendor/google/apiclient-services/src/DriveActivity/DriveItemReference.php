@@ -21,13 +21,23 @@ class DriveItemReference extends \Google\Model
 {
   protected $driveFileType = DriveFile::class;
   protected $driveFileDataType = '';
+  public $driveFile;
   protected $driveFolderType = DriveFolder::class;
   protected $driveFolderDataType = '';
+  public $driveFolder;
   protected $fileType = DriveactivityFile::class;
   protected $fileDataType = '';
+  public $file;
   protected $folderType = Folder::class;
   protected $folderDataType = '';
+  public $folder;
+  /**
+   * @var string
+   */
   public $name;
+  /**
+   * @var string
+   */
   public $title;
 
   /**
@@ -86,18 +96,30 @@ class DriveItemReference extends \Google\Model
   {
     return $this->folder;
   }
+  /**
+   * @param string
+   */
   public function setName($name)
   {
     $this->name = $name;
   }
+  /**
+   * @return string
+   */
   public function getName()
   {
     return $this->name;
   }
+  /**
+   * @param string
+   */
   public function setTitle($title)
   {
     $this->title = $title;
   }
+  /**
+   * @return string
+   */
   public function getTitle()
   {
     return $this->title;

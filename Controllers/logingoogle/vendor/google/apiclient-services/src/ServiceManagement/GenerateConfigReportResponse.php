@@ -22,9 +22,17 @@ class GenerateConfigReportResponse extends \Google\Collection
   protected $collection_key = 'diagnostics';
   protected $changeReportsType = ChangeReport::class;
   protected $changeReportsDataType = 'array';
+  public $changeReports;
   protected $diagnosticsType = Diagnostic::class;
   protected $diagnosticsDataType = 'array';
+  public $diagnostics;
+  /**
+   * @var string
+   */
   public $id;
+  /**
+   * @var string
+   */
   public $serviceName;
 
   /**
@@ -55,18 +63,30 @@ class GenerateConfigReportResponse extends \Google\Collection
   {
     return $this->diagnostics;
   }
+  /**
+   * @param string
+   */
   public function setId($id)
   {
     $this->id = $id;
   }
+  /**
+   * @return string
+   */
   public function getId()
   {
     return $this->id;
   }
+  /**
+   * @param string
+   */
   public function setServiceName($serviceName)
   {
     $this->serviceName = $serviceName;
   }
+  /**
+   * @return string
+   */
   public function getServiceName()
   {
     return $this->serviceName;

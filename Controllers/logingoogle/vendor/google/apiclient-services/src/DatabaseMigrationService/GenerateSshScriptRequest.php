@@ -19,17 +19,31 @@ namespace Google\Service\DatabaseMigrationService;
 
 class GenerateSshScriptRequest extends \Google\Model
 {
+  /**
+   * @var string
+   */
   public $vm;
   protected $vmCreationConfigType = VmCreationConfig::class;
   protected $vmCreationConfigDataType = '';
+  public $vmCreationConfig;
+  /**
+   * @var int
+   */
   public $vmPort;
   protected $vmSelectionConfigType = VmSelectionConfig::class;
   protected $vmSelectionConfigDataType = '';
+  public $vmSelectionConfig;
 
+  /**
+   * @param string
+   */
   public function setVm($vm)
   {
     $this->vm = $vm;
   }
+  /**
+   * @return string
+   */
   public function getVm()
   {
     return $this->vm;
@@ -48,10 +62,16 @@ class GenerateSshScriptRequest extends \Google\Model
   {
     return $this->vmCreationConfig;
   }
+  /**
+   * @param int
+   */
   public function setVmPort($vmPort)
   {
     $this->vmPort = $vmPort;
   }
+  /**
+   * @return int
+   */
   public function getVmPort()
   {
     return $this->vmPort;

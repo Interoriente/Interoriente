@@ -22,8 +22,13 @@ class GooglePrivacyDlpV2RecordKey extends \Google\Collection
   protected $collection_key = 'idValues';
   protected $bigQueryKeyType = GooglePrivacyDlpV2BigQueryKey::class;
   protected $bigQueryKeyDataType = '';
+  public $bigQueryKey;
   protected $datastoreKeyType = GooglePrivacyDlpV2DatastoreKey::class;
   protected $datastoreKeyDataType = '';
+  public $datastoreKey;
+  /**
+   * @var string[]
+   */
   public $idValues;
 
   /**
@@ -54,10 +59,16 @@ class GooglePrivacyDlpV2RecordKey extends \Google\Collection
   {
     return $this->datastoreKey;
   }
+  /**
+   * @param string[]
+   */
   public function setIdValues($idValues)
   {
     $this->idValues = $idValues;
   }
+  /**
+   * @return string[]
+   */
   public function getIdValues()
   {
     return $this->idValues;

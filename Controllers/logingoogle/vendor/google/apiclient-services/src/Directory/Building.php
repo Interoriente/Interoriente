@@ -22,13 +22,33 @@ class Building extends \Google\Collection
   protected $collection_key = 'floorNames';
   protected $addressType = BuildingAddress::class;
   protected $addressDataType = '';
+  public $address;
+  /**
+   * @var string
+   */
   public $buildingId;
+  /**
+   * @var string
+   */
   public $buildingName;
   protected $coordinatesType = BuildingCoordinates::class;
   protected $coordinatesDataType = '';
+  public $coordinates;
+  /**
+   * @var string
+   */
   public $description;
+  /**
+   * @var string
+   */
   public $etags;
+  /**
+   * @var string[]
+   */
   public $floorNames;
+  /**
+   * @var string
+   */
   public $kind;
 
   /**
@@ -45,18 +65,30 @@ class Building extends \Google\Collection
   {
     return $this->address;
   }
+  /**
+   * @param string
+   */
   public function setBuildingId($buildingId)
   {
     $this->buildingId = $buildingId;
   }
+  /**
+   * @return string
+   */
   public function getBuildingId()
   {
     return $this->buildingId;
   }
+  /**
+   * @param string
+   */
   public function setBuildingName($buildingName)
   {
     $this->buildingName = $buildingName;
   }
+  /**
+   * @return string
+   */
   public function getBuildingName()
   {
     return $this->buildingName;
@@ -75,34 +107,58 @@ class Building extends \Google\Collection
   {
     return $this->coordinates;
   }
+  /**
+   * @param string
+   */
   public function setDescription($description)
   {
     $this->description = $description;
   }
+  /**
+   * @return string
+   */
   public function getDescription()
   {
     return $this->description;
   }
+  /**
+   * @param string
+   */
   public function setEtags($etags)
   {
     $this->etags = $etags;
   }
+  /**
+   * @return string
+   */
   public function getEtags()
   {
     return $this->etags;
   }
+  /**
+   * @param string[]
+   */
   public function setFloorNames($floorNames)
   {
     $this->floorNames = $floorNames;
   }
+  /**
+   * @return string[]
+   */
   public function getFloorNames()
   {
     return $this->floorNames;
   }
+  /**
+   * @param string
+   */
   public function setKind($kind)
   {
     $this->kind = $kind;
   }
+  /**
+   * @return string
+   */
   public function getKind()
   {
     return $this->kind;

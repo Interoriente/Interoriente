@@ -22,6 +22,10 @@ class ListCapacityCommitmentsResponse extends \Google\Collection
   protected $collection_key = 'capacityCommitments';
   protected $capacityCommitmentsType = CapacityCommitment::class;
   protected $capacityCommitmentsDataType = 'array';
+  public $capacityCommitments;
+  /**
+   * @var string
+   */
   public $nextPageToken;
 
   /**
@@ -38,10 +42,16 @@ class ListCapacityCommitmentsResponse extends \Google\Collection
   {
     return $this->capacityCommitments;
   }
+  /**
+   * @param string
+   */
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
   }
+  /**
+   * @return string
+   */
   public function getNextPageToken()
   {
     return $this->nextPageToken;

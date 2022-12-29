@@ -19,37 +19,39 @@ namespace Google\Service\SQLAdmin;
 
 class DatabaseInstanceFailoverReplica extends \Google\Model
 {
+  /**
+   * @var bool
+   */
   public $available;
-  protected $failoverInstanceType = InstanceReference::class;
-  protected $failoverInstanceDataType = '';
+  /**
+   * @var string
+   */
   public $name;
 
+  /**
+   * @param bool
+   */
   public function setAvailable($available)
   {
     $this->available = $available;
   }
+  /**
+   * @return bool
+   */
   public function getAvailable()
   {
     return $this->available;
   }
   /**
-   * @param InstanceReference
+   * @param string
    */
-  public function setFailoverInstance(InstanceReference $failoverInstance)
-  {
-    $this->failoverInstance = $failoverInstance;
-  }
-  /**
-   * @return InstanceReference
-   */
-  public function getFailoverInstance()
-  {
-    return $this->failoverInstance;
-  }
   public function setName($name)
   {
     $this->name = $name;
   }
+  /**
+   * @return string
+   */
   public function getName()
   {
     return $this->name;

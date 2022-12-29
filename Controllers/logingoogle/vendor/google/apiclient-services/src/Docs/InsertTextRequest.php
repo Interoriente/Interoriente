@@ -21,8 +21,13 @@ class InsertTextRequest extends \Google\Model
 {
   protected $endOfSegmentLocationType = EndOfSegmentLocation::class;
   protected $endOfSegmentLocationDataType = '';
+  public $endOfSegmentLocation;
   protected $locationType = Location::class;
   protected $locationDataType = '';
+  public $location;
+  /**
+   * @var string
+   */
   public $text;
 
   /**
@@ -53,10 +58,16 @@ class InsertTextRequest extends \Google\Model
   {
     return $this->location;
   }
+  /**
+   * @param string
+   */
   public function setText($text)
   {
     $this->text = $text;
   }
+  /**
+   * @return string
+   */
   public function getText()
   {
     return $this->text;

@@ -28,7 +28,7 @@ use Google\Service\Apigee\GoogleLongrunningOperation;
  * Typical usage is:
  *  <code>
  *   $apigeeService = new Google\Service\Apigee(...);
- *   $instances = $apigeeService->instances;
+ *   $instances = $apigeeService->organizations_instances;
  *  </code>
  */
 class OrganizationsInstances extends \Google\Service\Resource
@@ -100,6 +100,25 @@ class OrganizationsInstances extends \Google\Service\Resource
     $params = ['parent' => $parent];
     $params = array_merge($params, $optParams);
     return $this->call('list', [$params], GoogleCloudApigeeV1ListInstancesResponse::class);
+  }
+  /**
+   * Updates an Apigee runtime instance. You can update the fields described in
+   * NodeConfig. No other fields will be updated. **Note:** Not supported for
+   * Apigee hybrid. (instances.patch)
+   *
+   * @param string $name Required. Name of the instance. Use the following
+   * structure in your request: `organizations/{org}/instances/{instance}`.
+   * @param GoogleCloudApigeeV1Instance $postBody
+   * @param array $optParams Optional parameters.
+   *
+   * @opt_param string updateMask List of fields to be updated.
+   * @return GoogleLongrunningOperation
+   */
+  public function patch($name, GoogleCloudApigeeV1Instance $postBody, $optParams = [])
+  {
+    $params = ['name' => $name, 'postBody' => $postBody];
+    $params = array_merge($params, $optParams);
+    return $this->call('patch', [$params], GoogleLongrunningOperation::class);
   }
   /**
    * Reports the latest status for a runtime instance. (instances.reportStatus)

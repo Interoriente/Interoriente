@@ -22,7 +22,14 @@ class ListCryptoKeysResponse extends \Google\Collection
   protected $collection_key = 'cryptoKeys';
   protected $cryptoKeysType = CryptoKey::class;
   protected $cryptoKeysDataType = 'array';
+  public $cryptoKeys;
+  /**
+   * @var string
+   */
   public $nextPageToken;
+  /**
+   * @var int
+   */
   public $totalSize;
 
   /**
@@ -39,18 +46,30 @@ class ListCryptoKeysResponse extends \Google\Collection
   {
     return $this->cryptoKeys;
   }
+  /**
+   * @param string
+   */
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
   }
+  /**
+   * @return string
+   */
   public function getNextPageToken()
   {
     return $this->nextPageToken;
   }
+  /**
+   * @param int
+   */
   public function setTotalSize($totalSize)
   {
     $this->totalSize = $totalSize;
   }
+  /**
+   * @return int
+   */
   public function getTotalSize()
   {
     return $this->totalSize;

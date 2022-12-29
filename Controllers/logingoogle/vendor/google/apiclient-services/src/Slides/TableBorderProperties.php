@@ -19,16 +19,27 @@ namespace Google\Service\Slides;
 
 class TableBorderProperties extends \Google\Model
 {
+  /**
+   * @var string
+   */
   public $dashStyle;
   protected $tableBorderFillType = TableBorderFill::class;
   protected $tableBorderFillDataType = '';
+  public $tableBorderFill;
   protected $weightType = Dimension::class;
   protected $weightDataType = '';
+  public $weight;
 
+  /**
+   * @param string
+   */
   public function setDashStyle($dashStyle)
   {
     $this->dashStyle = $dashStyle;
   }
+  /**
+   * @return string
+   */
   public function getDashStyle()
   {
     return $this->dashStyle;

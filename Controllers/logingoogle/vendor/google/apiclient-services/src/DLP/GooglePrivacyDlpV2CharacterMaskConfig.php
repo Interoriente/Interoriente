@@ -22,8 +22,18 @@ class GooglePrivacyDlpV2CharacterMaskConfig extends \Google\Collection
   protected $collection_key = 'charactersToIgnore';
   protected $charactersToIgnoreType = GooglePrivacyDlpV2CharsToIgnore::class;
   protected $charactersToIgnoreDataType = 'array';
+  public $charactersToIgnore;
+  /**
+   * @var string
+   */
   public $maskingCharacter;
+  /**
+   * @var int
+   */
   public $numberToMask;
+  /**
+   * @var bool
+   */
   public $reverseOrder;
 
   /**
@@ -40,26 +50,44 @@ class GooglePrivacyDlpV2CharacterMaskConfig extends \Google\Collection
   {
     return $this->charactersToIgnore;
   }
+  /**
+   * @param string
+   */
   public function setMaskingCharacter($maskingCharacter)
   {
     $this->maskingCharacter = $maskingCharacter;
   }
+  /**
+   * @return string
+   */
   public function getMaskingCharacter()
   {
     return $this->maskingCharacter;
   }
+  /**
+   * @param int
+   */
   public function setNumberToMask($numberToMask)
   {
     $this->numberToMask = $numberToMask;
   }
+  /**
+   * @return int
+   */
   public function getNumberToMask()
   {
     return $this->numberToMask;
   }
+  /**
+   * @param bool
+   */
   public function setReverseOrder($reverseOrder)
   {
     $this->reverseOrder = $reverseOrder;
   }
+  /**
+   * @return bool
+   */
   public function getReverseOrder()
   {
     return $this->reverseOrder;

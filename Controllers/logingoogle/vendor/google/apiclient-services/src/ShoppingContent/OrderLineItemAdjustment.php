@@ -21,8 +21,13 @@ class OrderLineItemAdjustment extends \Google\Model
 {
   protected $priceAdjustmentType = Price::class;
   protected $priceAdjustmentDataType = '';
+  public $priceAdjustment;
   protected $taxAdjustmentType = Price::class;
   protected $taxAdjustmentDataType = '';
+  public $taxAdjustment;
+  /**
+   * @var string
+   */
   public $type;
 
   /**
@@ -53,10 +58,16 @@ class OrderLineItemAdjustment extends \Google\Model
   {
     return $this->taxAdjustment;
   }
+  /**
+   * @param string
+   */
   public function setType($type)
   {
     $this->type = $type;
   }
+  /**
+   * @return string
+   */
   public function getType()
   {
     return $this->type;

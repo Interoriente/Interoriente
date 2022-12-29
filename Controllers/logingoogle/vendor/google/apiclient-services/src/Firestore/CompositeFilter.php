@@ -22,6 +22,10 @@ class CompositeFilter extends \Google\Collection
   protected $collection_key = 'filters';
   protected $filtersType = Filter::class;
   protected $filtersDataType = 'array';
+  public $filters;
+  /**
+   * @var string
+   */
   public $op;
 
   /**
@@ -38,10 +42,16 @@ class CompositeFilter extends \Google\Collection
   {
     return $this->filters;
   }
+  /**
+   * @param string
+   */
   public function setOp($op)
   {
     $this->op = $op;
   }
+  /**
+   * @return string
+   */
   public function getOp()
   {
     return $this->op;

@@ -19,25 +19,45 @@ namespace Google\Service\CloudIAP;
 
 class PolicyDelegationSettings extends \Google\Model
 {
+  /**
+   * @var string
+   */
   public $iamPermission;
+  /**
+   * @var string
+   */
   public $iamServiceName;
   protected $policyNameType = PolicyName::class;
   protected $policyNameDataType = '';
+  public $policyName;
   protected $resourceType = IapResource::class;
   protected $resourceDataType = '';
+  public $resource;
 
+  /**
+   * @param string
+   */
   public function setIamPermission($iamPermission)
   {
     $this->iamPermission = $iamPermission;
   }
+  /**
+   * @return string
+   */
   public function getIamPermission()
   {
     return $this->iamPermission;
   }
+  /**
+   * @param string
+   */
   public function setIamServiceName($iamServiceName)
   {
     $this->iamServiceName = $iamServiceName;
   }
+  /**
+   * @return string
+   */
   public function getIamServiceName()
   {
     return $this->iamServiceName;

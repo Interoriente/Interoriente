@@ -20,46 +20,92 @@ namespace Google\Service\ShoppingContent;
 class Order extends \Google\Collection
 {
   protected $collection_key = 'shipments';
+  /**
+   * @var bool
+   */
   public $acknowledged;
   protected $annotationsType = OrderOrderAnnotation::class;
   protected $annotationsDataType = 'array';
+  public $annotations;
   protected $billingAddressType = OrderAddress::class;
   protected $billingAddressDataType = '';
+  public $billingAddress;
   protected $customerType = OrderCustomer::class;
   protected $customerDataType = '';
+  public $customer;
   protected $deliveryDetailsType = OrderDeliveryDetails::class;
   protected $deliveryDetailsDataType = '';
+  public $deliveryDetails;
+  /**
+   * @var string
+   */
   public $id;
+  /**
+   * @var string
+   */
   public $kind;
   protected $lineItemsType = OrderLineItem::class;
   protected $lineItemsDataType = 'array';
+  public $lineItems;
+  /**
+   * @var string
+   */
   public $merchantId;
+  /**
+   * @var string
+   */
   public $merchantOrderId;
   protected $netPriceAmountType = Price::class;
   protected $netPriceAmountDataType = '';
+  public $netPriceAmount;
   protected $netTaxAmountType = Price::class;
   protected $netTaxAmountDataType = '';
+  public $netTaxAmount;
+  /**
+   * @var string
+   */
   public $paymentStatus;
   protected $pickupDetailsType = OrderPickupDetails::class;
   protected $pickupDetailsDataType = '';
+  public $pickupDetails;
+  /**
+   * @var string
+   */
   public $placedDate;
   protected $promotionsType = OrderPromotion::class;
   protected $promotionsDataType = 'array';
+  public $promotions;
   protected $refundsType = OrderRefund::class;
   protected $refundsDataType = 'array';
+  public $refunds;
   protected $shipmentsType = OrderShipment::class;
   protected $shipmentsDataType = 'array';
+  public $shipments;
   protected $shippingCostType = Price::class;
   protected $shippingCostDataType = '';
+  public $shippingCost;
   protected $shippingCostTaxType = Price::class;
   protected $shippingCostTaxDataType = '';
+  public $shippingCostTax;
+  /**
+   * @var string
+   */
   public $status;
+  /**
+   * @var string
+   */
   public $taxCollector;
 
+  /**
+   * @param bool
+   */
   public function setAcknowledged($acknowledged)
   {
     $this->acknowledged = $acknowledged;
   }
+  /**
+   * @return bool
+   */
   public function getAcknowledged()
   {
     return $this->acknowledged;
@@ -120,18 +166,30 @@ class Order extends \Google\Collection
   {
     return $this->deliveryDetails;
   }
+  /**
+   * @param string
+   */
   public function setId($id)
   {
     $this->id = $id;
   }
+  /**
+   * @return string
+   */
   public function getId()
   {
     return $this->id;
   }
+  /**
+   * @param string
+   */
   public function setKind($kind)
   {
     $this->kind = $kind;
   }
+  /**
+   * @return string
+   */
   public function getKind()
   {
     return $this->kind;
@@ -150,18 +208,30 @@ class Order extends \Google\Collection
   {
     return $this->lineItems;
   }
+  /**
+   * @param string
+   */
   public function setMerchantId($merchantId)
   {
     $this->merchantId = $merchantId;
   }
+  /**
+   * @return string
+   */
   public function getMerchantId()
   {
     return $this->merchantId;
   }
+  /**
+   * @param string
+   */
   public function setMerchantOrderId($merchantOrderId)
   {
     $this->merchantOrderId = $merchantOrderId;
   }
+  /**
+   * @return string
+   */
   public function getMerchantOrderId()
   {
     return $this->merchantOrderId;
@@ -194,10 +264,16 @@ class Order extends \Google\Collection
   {
     return $this->netTaxAmount;
   }
+  /**
+   * @param string
+   */
   public function setPaymentStatus($paymentStatus)
   {
     $this->paymentStatus = $paymentStatus;
   }
+  /**
+   * @return string
+   */
   public function getPaymentStatus()
   {
     return $this->paymentStatus;
@@ -216,10 +292,16 @@ class Order extends \Google\Collection
   {
     return $this->pickupDetails;
   }
+  /**
+   * @param string
+   */
   public function setPlacedDate($placedDate)
   {
     $this->placedDate = $placedDate;
   }
+  /**
+   * @return string
+   */
   public function getPlacedDate()
   {
     return $this->placedDate;
@@ -294,18 +376,30 @@ class Order extends \Google\Collection
   {
     return $this->shippingCostTax;
   }
+  /**
+   * @param string
+   */
   public function setStatus($status)
   {
     $this->status = $status;
   }
+  /**
+   * @return string
+   */
   public function getStatus()
   {
     return $this->status;
   }
+  /**
+   * @param string
+   */
   public function setTaxCollector($taxCollector)
   {
     $this->taxCollector = $taxCollector;
   }
+  /**
+   * @return string
+   */
   public function getTaxCollector()
   {
     return $this->taxCollector;

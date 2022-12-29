@@ -19,15 +19,28 @@ namespace Google\Service\Dataproc;
 
 class ManagedCluster extends \Google\Model
 {
+  /**
+   * @var string
+   */
   public $clusterName;
   protected $configType = ClusterConfig::class;
   protected $configDataType = '';
+  public $config;
+  /**
+   * @var string[]
+   */
   public $labels;
 
+  /**
+   * @param string
+   */
   public function setClusterName($clusterName)
   {
     $this->clusterName = $clusterName;
   }
+  /**
+   * @return string
+   */
   public function getClusterName()
   {
     return $this->clusterName;
@@ -46,10 +59,16 @@ class ManagedCluster extends \Google\Model
   {
     return $this->config;
   }
+  /**
+   * @param string[]
+   */
   public function setLabels($labels)
   {
     $this->labels = $labels;
   }
+  /**
+   * @return string[]
+   */
   public function getLabels()
   {
     return $this->labels;

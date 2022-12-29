@@ -19,16 +19,27 @@ namespace Google\Service\TagManager;
 
 class QuickPreviewResponse extends \Google\Model
 {
+  /**
+   * @var bool
+   */
   public $compilerError;
   protected $containerVersionType = ContainerVersion::class;
   protected $containerVersionDataType = '';
+  public $containerVersion;
   protected $syncStatusType = SyncStatus::class;
   protected $syncStatusDataType = '';
+  public $syncStatus;
 
+  /**
+   * @param bool
+   */
   public function setCompilerError($compilerError)
   {
     $this->compilerError = $compilerError;
   }
+  /**
+   * @return bool
+   */
   public function getCompilerError()
   {
     return $this->compilerError;

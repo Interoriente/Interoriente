@@ -22,23 +22,43 @@ class VoterInfoResponse extends \Google\Collection
   protected $collection_key = 'state';
   protected $contestsType = Contest::class;
   protected $contestsDataType = 'array';
+  public $contests;
   protected $dropOffLocationsType = PollingLocation::class;
   protected $dropOffLocationsDataType = 'array';
+  public $dropOffLocations;
   protected $earlyVoteSitesType = PollingLocation::class;
   protected $earlyVoteSitesDataType = 'array';
+  public $earlyVoteSites;
   protected $electionType = Election::class;
   protected $electionDataType = '';
+  public $election;
+  /**
+   * @var string
+   */
   public $kind;
+  /**
+   * @var bool
+   */
   public $mailOnly;
   protected $normalizedInputType = SimpleAddressType::class;
   protected $normalizedInputDataType = '';
+  public $normalizedInput;
   protected $otherElectionsType = Election::class;
   protected $otherElectionsDataType = 'array';
+  public $otherElections;
   protected $pollingLocationsType = PollingLocation::class;
   protected $pollingLocationsDataType = 'array';
+  public $pollingLocations;
+  /**
+   * @var string
+   */
   public $precinctId;
+  protected $precinctsType = Precinct::class;
+  protected $precinctsDataType = 'array';
+  public $precincts;
   protected $stateType = AdministrationRegion::class;
   protected $stateDataType = 'array';
+  public $state;
 
   /**
    * @param Contest[]
@@ -96,18 +116,30 @@ class VoterInfoResponse extends \Google\Collection
   {
     return $this->election;
   }
+  /**
+   * @param string
+   */
   public function setKind($kind)
   {
     $this->kind = $kind;
   }
+  /**
+   * @return string
+   */
   public function getKind()
   {
     return $this->kind;
   }
+  /**
+   * @param bool
+   */
   public function setMailOnly($mailOnly)
   {
     $this->mailOnly = $mailOnly;
   }
+  /**
+   * @return bool
+   */
   public function getMailOnly()
   {
     return $this->mailOnly;
@@ -154,13 +186,33 @@ class VoterInfoResponse extends \Google\Collection
   {
     return $this->pollingLocations;
   }
+  /**
+   * @param string
+   */
   public function setPrecinctId($precinctId)
   {
     $this->precinctId = $precinctId;
   }
+  /**
+   * @return string
+   */
   public function getPrecinctId()
   {
     return $this->precinctId;
+  }
+  /**
+   * @param Precinct[]
+   */
+  public function setPrecincts($precincts)
+  {
+    $this->precincts = $precincts;
+  }
+  /**
+   * @return Precinct[]
+   */
+  public function getPrecincts()
+  {
+    return $this->precincts;
   }
   /**
    * @param AdministrationRegion[]

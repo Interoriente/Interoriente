@@ -21,10 +21,18 @@ class EmbeddedObjectBorder extends \Google\Model
 {
   protected $colorType = OptionalColor::class;
   protected $colorDataType = '';
+  public $color;
+  /**
+   * @var string
+   */
   public $dashStyle;
+  /**
+   * @var string
+   */
   public $propertyState;
   protected $widthType = Dimension::class;
   protected $widthDataType = '';
+  public $width;
 
   /**
    * @param OptionalColor
@@ -40,18 +48,30 @@ class EmbeddedObjectBorder extends \Google\Model
   {
     return $this->color;
   }
+  /**
+   * @param string
+   */
   public function setDashStyle($dashStyle)
   {
     $this->dashStyle = $dashStyle;
   }
+  /**
+   * @return string
+   */
   public function getDashStyle()
   {
     return $this->dashStyle;
   }
+  /**
+   * @param string
+   */
   public function setPropertyState($propertyState)
   {
     $this->propertyState = $propertyState;
   }
+  /**
+   * @return string
+   */
   public function getPropertyState()
   {
     return $this->propertyState;

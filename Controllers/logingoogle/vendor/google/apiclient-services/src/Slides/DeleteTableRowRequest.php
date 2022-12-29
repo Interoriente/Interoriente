@@ -21,6 +21,10 @@ class DeleteTableRowRequest extends \Google\Model
 {
   protected $cellLocationType = TableCellLocation::class;
   protected $cellLocationDataType = '';
+  public $cellLocation;
+  /**
+   * @var string
+   */
   public $tableObjectId;
 
   /**
@@ -37,10 +41,16 @@ class DeleteTableRowRequest extends \Google\Model
   {
     return $this->cellLocation;
   }
+  /**
+   * @param string
+   */
   public function setTableObjectId($tableObjectId)
   {
     $this->tableObjectId = $tableObjectId;
   }
+  /**
+   * @return string
+   */
   public function getTableObjectId()
   {
     return $this->tableObjectId;

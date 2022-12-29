@@ -20,20 +20,43 @@ namespace Google\Service\GameServices;
 class Rule extends \Google\Collection
 {
   protected $collection_key = 'permissions';
+  /**
+   * @var string
+   */
   public $action;
   protected $conditionsType = Condition::class;
   protected $conditionsDataType = 'array';
+  public $conditions;
+  /**
+   * @var string
+   */
   public $description;
+  /**
+   * @var string[]
+   */
   public $in;
   protected $logConfigType = LogConfig::class;
   protected $logConfigDataType = 'array';
+  public $logConfig;
+  /**
+   * @var string[]
+   */
   public $notIn;
+  /**
+   * @var string[]
+   */
   public $permissions;
 
+  /**
+   * @param string
+   */
   public function setAction($action)
   {
     $this->action = $action;
   }
+  /**
+   * @return string
+   */
   public function getAction()
   {
     return $this->action;
@@ -52,18 +75,30 @@ class Rule extends \Google\Collection
   {
     return $this->conditions;
   }
+  /**
+   * @param string
+   */
   public function setDescription($description)
   {
     $this->description = $description;
   }
+  /**
+   * @return string
+   */
   public function getDescription()
   {
     return $this->description;
   }
+  /**
+   * @param string[]
+   */
   public function setIn($in)
   {
     $this->in = $in;
   }
+  /**
+   * @return string[]
+   */
   public function getIn()
   {
     return $this->in;
@@ -82,18 +117,30 @@ class Rule extends \Google\Collection
   {
     return $this->logConfig;
   }
+  /**
+   * @param string[]
+   */
   public function setNotIn($notIn)
   {
     $this->notIn = $notIn;
   }
+  /**
+   * @return string[]
+   */
   public function getNotIn()
   {
     return $this->notIn;
   }
+  /**
+   * @param string[]
+   */
   public function setPermissions($permissions)
   {
     $this->permissions = $permissions;
   }
+  /**
+   * @return string[]
+   */
   public function getPermissions()
   {
     return $this->permissions;

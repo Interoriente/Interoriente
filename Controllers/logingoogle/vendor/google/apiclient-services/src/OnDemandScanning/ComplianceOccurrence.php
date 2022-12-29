@@ -20,14 +20,24 @@ namespace Google\Service\OnDemandScanning;
 class ComplianceOccurrence extends \Google\Collection
 {
   protected $collection_key = 'nonCompliantFiles';
+  /**
+   * @var string
+   */
   public $nonComplianceReason;
   protected $nonCompliantFilesType = NonCompliantFile::class;
   protected $nonCompliantFilesDataType = 'array';
+  public $nonCompliantFiles;
 
+  /**
+   * @param string
+   */
   public function setNonComplianceReason($nonComplianceReason)
   {
     $this->nonComplianceReason = $nonComplianceReason;
   }
+  /**
+   * @return string
+   */
   public function getNonComplianceReason()
   {
     return $this->nonComplianceReason;

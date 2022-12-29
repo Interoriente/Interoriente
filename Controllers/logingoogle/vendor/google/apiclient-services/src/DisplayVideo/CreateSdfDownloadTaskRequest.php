@@ -19,20 +19,38 @@ namespace Google\Service\DisplayVideo;
 
 class CreateSdfDownloadTaskRequest extends \Google\Model
 {
+  /**
+   * @var string
+   */
   public $advertiserId;
   protected $idFilterType = IdFilter::class;
   protected $idFilterDataType = '';
+  public $idFilter;
   protected $inventorySourceFilterType = InventorySourceFilter::class;
   protected $inventorySourceFilterDataType = '';
+  public $inventorySourceFilter;
   protected $parentEntityFilterType = ParentEntityFilter::class;
   protected $parentEntityFilterDataType = '';
+  public $parentEntityFilter;
+  /**
+   * @var string
+   */
   public $partnerId;
+  /**
+   * @var string
+   */
   public $version;
 
+  /**
+   * @param string
+   */
   public function setAdvertiserId($advertiserId)
   {
     $this->advertiserId = $advertiserId;
   }
+  /**
+   * @return string
+   */
   public function getAdvertiserId()
   {
     return $this->advertiserId;
@@ -79,18 +97,30 @@ class CreateSdfDownloadTaskRequest extends \Google\Model
   {
     return $this->parentEntityFilter;
   }
+  /**
+   * @param string
+   */
   public function setPartnerId($partnerId)
   {
     $this->partnerId = $partnerId;
   }
+  /**
+   * @return string
+   */
   public function getPartnerId()
   {
     return $this->partnerId;
   }
+  /**
+   * @param string
+   */
   public function setVersion($version)
   {
     $this->version = $version;
   }
+  /**
+   * @return string
+   */
   public function getVersion()
   {
     return $this->version;

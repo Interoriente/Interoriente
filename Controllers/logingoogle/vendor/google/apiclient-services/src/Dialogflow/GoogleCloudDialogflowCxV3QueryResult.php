@@ -22,25 +22,61 @@ class GoogleCloudDialogflowCxV3QueryResult extends \Google\Collection
   protected $collection_key = 'webhookStatuses';
   protected $currentPageType = GoogleCloudDialogflowCxV3Page::class;
   protected $currentPageDataType = '';
+  public $currentPage;
+  /**
+   * @var array[]
+   */
   public $diagnosticInfo;
+  protected $dtmfType = GoogleCloudDialogflowCxV3DtmfInput::class;
+  protected $dtmfDataType = '';
+  public $dtmf;
   protected $intentType = GoogleCloudDialogflowCxV3Intent::class;
   protected $intentDataType = '';
+  public $intent;
+  /**
+   * @var float
+   */
   public $intentDetectionConfidence;
+  /**
+   * @var string
+   */
   public $languageCode;
   protected $matchType = GoogleCloudDialogflowCxV3Match::class;
   protected $matchDataType = '';
+  public $match;
+  /**
+   * @var array[]
+   */
   public $parameters;
   protected $responseMessagesType = GoogleCloudDialogflowCxV3ResponseMessage::class;
   protected $responseMessagesDataType = 'array';
+  public $responseMessages;
   protected $sentimentAnalysisResultType = GoogleCloudDialogflowCxV3SentimentAnalysisResult::class;
   protected $sentimentAnalysisResultDataType = '';
+  public $sentimentAnalysisResult;
+  /**
+   * @var string
+   */
   public $text;
+  /**
+   * @var string
+   */
   public $transcript;
+  /**
+   * @var string
+   */
   public $triggerEvent;
+  /**
+   * @var string
+   */
   public $triggerIntent;
+  /**
+   * @var array[]
+   */
   public $webhookPayloads;
   protected $webhookStatusesType = GoogleRpcStatus::class;
   protected $webhookStatusesDataType = 'array';
+  public $webhookStatuses;
 
   /**
    * @param GoogleCloudDialogflowCxV3Page
@@ -56,13 +92,33 @@ class GoogleCloudDialogflowCxV3QueryResult extends \Google\Collection
   {
     return $this->currentPage;
   }
+  /**
+   * @param array[]
+   */
   public function setDiagnosticInfo($diagnosticInfo)
   {
     $this->diagnosticInfo = $diagnosticInfo;
   }
+  /**
+   * @return array[]
+   */
   public function getDiagnosticInfo()
   {
     return $this->diagnosticInfo;
+  }
+  /**
+   * @param GoogleCloudDialogflowCxV3DtmfInput
+   */
+  public function setDtmf(GoogleCloudDialogflowCxV3DtmfInput $dtmf)
+  {
+    $this->dtmf = $dtmf;
+  }
+  /**
+   * @return GoogleCloudDialogflowCxV3DtmfInput
+   */
+  public function getDtmf()
+  {
+    return $this->dtmf;
   }
   /**
    * @param GoogleCloudDialogflowCxV3Intent
@@ -78,18 +134,30 @@ class GoogleCloudDialogflowCxV3QueryResult extends \Google\Collection
   {
     return $this->intent;
   }
+  /**
+   * @param float
+   */
   public function setIntentDetectionConfidence($intentDetectionConfidence)
   {
     $this->intentDetectionConfidence = $intentDetectionConfidence;
   }
+  /**
+   * @return float
+   */
   public function getIntentDetectionConfidence()
   {
     return $this->intentDetectionConfidence;
   }
+  /**
+   * @param string
+   */
   public function setLanguageCode($languageCode)
   {
     $this->languageCode = $languageCode;
   }
+  /**
+   * @return string
+   */
   public function getLanguageCode()
   {
     return $this->languageCode;
@@ -108,10 +176,16 @@ class GoogleCloudDialogflowCxV3QueryResult extends \Google\Collection
   {
     return $this->match;
   }
+  /**
+   * @param array[]
+   */
   public function setParameters($parameters)
   {
     $this->parameters = $parameters;
   }
+  /**
+   * @return array[]
+   */
   public function getParameters()
   {
     return $this->parameters;
@@ -144,42 +218,72 @@ class GoogleCloudDialogflowCxV3QueryResult extends \Google\Collection
   {
     return $this->sentimentAnalysisResult;
   }
+  /**
+   * @param string
+   */
   public function setText($text)
   {
     $this->text = $text;
   }
+  /**
+   * @return string
+   */
   public function getText()
   {
     return $this->text;
   }
+  /**
+   * @param string
+   */
   public function setTranscript($transcript)
   {
     $this->transcript = $transcript;
   }
+  /**
+   * @return string
+   */
   public function getTranscript()
   {
     return $this->transcript;
   }
+  /**
+   * @param string
+   */
   public function setTriggerEvent($triggerEvent)
   {
     $this->triggerEvent = $triggerEvent;
   }
+  /**
+   * @return string
+   */
   public function getTriggerEvent()
   {
     return $this->triggerEvent;
   }
+  /**
+   * @param string
+   */
   public function setTriggerIntent($triggerIntent)
   {
     $this->triggerIntent = $triggerIntent;
   }
+  /**
+   * @return string
+   */
   public function getTriggerIntent()
   {
     return $this->triggerIntent;
   }
+  /**
+   * @param array[]
+   */
   public function setWebhookPayloads($webhookPayloads)
   {
     $this->webhookPayloads = $webhookPayloads;
   }
+  /**
+   * @return array[]
+   */
   public function getWebhookPayloads()
   {
     return $this->webhookPayloads;

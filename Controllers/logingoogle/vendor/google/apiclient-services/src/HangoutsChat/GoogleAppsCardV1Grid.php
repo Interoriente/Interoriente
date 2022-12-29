@@ -22,11 +22,20 @@ class GoogleAppsCardV1Grid extends \Google\Collection
   protected $collection_key = 'items';
   protected $borderStyleType = GoogleAppsCardV1BorderStyle::class;
   protected $borderStyleDataType = '';
+  public $borderStyle;
+  /**
+   * @var int
+   */
   public $columnCount;
   protected $itemsType = GoogleAppsCardV1GridItem::class;
   protected $itemsDataType = 'array';
+  public $items;
   protected $onClickType = GoogleAppsCardV1OnClick::class;
   protected $onClickDataType = '';
+  public $onClick;
+  /**
+   * @var string
+   */
   public $title;
 
   /**
@@ -43,10 +52,16 @@ class GoogleAppsCardV1Grid extends \Google\Collection
   {
     return $this->borderStyle;
   }
+  /**
+   * @param int
+   */
   public function setColumnCount($columnCount)
   {
     $this->columnCount = $columnCount;
   }
+  /**
+   * @return int
+   */
   public function getColumnCount()
   {
     return $this->columnCount;
@@ -79,10 +94,16 @@ class GoogleAppsCardV1Grid extends \Google\Collection
   {
     return $this->onClick;
   }
+  /**
+   * @param string
+   */
   public function setTitle($title)
   {
     $this->title = $title;
   }
+  /**
+   * @return string
+   */
   public function getTitle()
   {
     return $this->title;

@@ -21,20 +21,31 @@ class SoftwarePackage extends \Google\Model
 {
   protected $aptPackageType = VersionedPackage::class;
   protected $aptPackageDataType = '';
+  public $aptPackage;
   protected $cosPackageType = VersionedPackage::class;
   protected $cosPackageDataType = '';
+  public $cosPackage;
   protected $googetPackageType = VersionedPackage::class;
   protected $googetPackageDataType = '';
+  public $googetPackage;
   protected $qfePackageType = WindowsQuickFixEngineeringPackage::class;
   protected $qfePackageDataType = '';
+  public $qfePackage;
+  protected $windowsApplicationType = WindowsApplication::class;
+  protected $windowsApplicationDataType = '';
+  public $windowsApplication;
   protected $wuaPackageType = WindowsUpdatePackage::class;
   protected $wuaPackageDataType = '';
+  public $wuaPackage;
   protected $yumPackageType = VersionedPackage::class;
   protected $yumPackageDataType = '';
+  public $yumPackage;
   protected $zypperPackageType = VersionedPackage::class;
   protected $zypperPackageDataType = '';
+  public $zypperPackage;
   protected $zypperPatchType = ZypperPatch::class;
   protected $zypperPatchDataType = '';
+  public $zypperPatch;
 
   /**
    * @param VersionedPackage
@@ -91,6 +102,20 @@ class SoftwarePackage extends \Google\Model
   public function getQfePackage()
   {
     return $this->qfePackage;
+  }
+  /**
+   * @param WindowsApplication
+   */
+  public function setWindowsApplication(WindowsApplication $windowsApplication)
+  {
+    $this->windowsApplication = $windowsApplication;
+  }
+  /**
+   * @return WindowsApplication
+   */
+  public function getWindowsApplication()
+  {
+    return $this->windowsApplication;
   }
   /**
    * @param WindowsUpdatePackage

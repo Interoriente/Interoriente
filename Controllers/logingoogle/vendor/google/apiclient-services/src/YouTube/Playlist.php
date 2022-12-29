@@ -21,17 +21,31 @@ class Playlist extends \Google\Model
 {
   protected $contentDetailsType = PlaylistContentDetails::class;
   protected $contentDetailsDataType = '';
+  public $contentDetails;
+  /**
+   * @var string
+   */
   public $etag;
+  /**
+   * @var string
+   */
   public $id;
+  /**
+   * @var string
+   */
   public $kind;
   protected $localizationsType = PlaylistLocalization::class;
   protected $localizationsDataType = 'map';
+  public $localizations;
   protected $playerType = PlaylistPlayer::class;
   protected $playerDataType = '';
+  public $player;
   protected $snippetType = PlaylistSnippet::class;
   protected $snippetDataType = '';
+  public $snippet;
   protected $statusType = PlaylistStatus::class;
   protected $statusDataType = '';
+  public $status;
 
   /**
    * @param PlaylistContentDetails
@@ -47,26 +61,44 @@ class Playlist extends \Google\Model
   {
     return $this->contentDetails;
   }
+  /**
+   * @param string
+   */
   public function setEtag($etag)
   {
     $this->etag = $etag;
   }
+  /**
+   * @return string
+   */
   public function getEtag()
   {
     return $this->etag;
   }
+  /**
+   * @param string
+   */
   public function setId($id)
   {
     $this->id = $id;
   }
+  /**
+   * @return string
+   */
   public function getId()
   {
     return $this->id;
   }
+  /**
+   * @param string
+   */
   public function setKind($kind)
   {
     $this->kind = $kind;
   }
+  /**
+   * @return string
+   */
   public function getKind()
   {
     return $this->kind;

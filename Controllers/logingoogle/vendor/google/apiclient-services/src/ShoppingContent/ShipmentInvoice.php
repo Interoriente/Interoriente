@@ -22,8 +22,13 @@ class ShipmentInvoice extends \Google\Collection
   protected $collection_key = 'lineItemInvoices';
   protected $invoiceSummaryType = InvoiceSummary::class;
   protected $invoiceSummaryDataType = '';
+  public $invoiceSummary;
   protected $lineItemInvoicesType = ShipmentInvoiceLineItemInvoice::class;
   protected $lineItemInvoicesDataType = 'array';
+  public $lineItemInvoices;
+  /**
+   * @var string
+   */
   public $shipmentGroupId;
 
   /**
@@ -54,10 +59,16 @@ class ShipmentInvoice extends \Google\Collection
   {
     return $this->lineItemInvoices;
   }
+  /**
+   * @param string
+   */
   public function setShipmentGroupId($shipmentGroupId)
   {
     $this->shipmentGroupId = $shipmentGroupId;
   }
+  /**
+   * @return string
+   */
   public function getShipmentGroupId()
   {
     return $this->shipmentGroupId;

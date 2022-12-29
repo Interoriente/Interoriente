@@ -19,26 +19,20 @@ namespace Google\Service\DoubleClickBidManager;
 
 class Query extends \Google\Model
 {
-  public $kind;
   protected $metadataType = QueryMetadata::class;
   protected $metadataDataType = '';
+  public $metadata;
   protected $paramsType = Parameters::class;
   protected $paramsDataType = '';
+  public $params;
+  /**
+   * @var string
+   */
   public $queryId;
-  public $reportDataEndTimeMs;
-  public $reportDataStartTimeMs;
   protected $scheduleType = QuerySchedule::class;
   protected $scheduleDataType = '';
-  public $timezoneCode;
+  public $schedule;
 
-  public function setKind($kind)
-  {
-    $this->kind = $kind;
-  }
-  public function getKind()
-  {
-    return $this->kind;
-  }
   /**
    * @param QueryMetadata
    */
@@ -67,29 +61,19 @@ class Query extends \Google\Model
   {
     return $this->params;
   }
+  /**
+   * @param string
+   */
   public function setQueryId($queryId)
   {
     $this->queryId = $queryId;
   }
+  /**
+   * @return string
+   */
   public function getQueryId()
   {
     return $this->queryId;
-  }
-  public function setReportDataEndTimeMs($reportDataEndTimeMs)
-  {
-    $this->reportDataEndTimeMs = $reportDataEndTimeMs;
-  }
-  public function getReportDataEndTimeMs()
-  {
-    return $this->reportDataEndTimeMs;
-  }
-  public function setReportDataStartTimeMs($reportDataStartTimeMs)
-  {
-    $this->reportDataStartTimeMs = $reportDataStartTimeMs;
-  }
-  public function getReportDataStartTimeMs()
-  {
-    return $this->reportDataStartTimeMs;
   }
   /**
    * @param QuerySchedule
@@ -104,14 +88,6 @@ class Query extends \Google\Model
   public function getSchedule()
   {
     return $this->schedule;
-  }
-  public function setTimezoneCode($timezoneCode)
-  {
-    $this->timezoneCode = $timezoneCode;
-  }
-  public function getTimezoneCode()
-  {
-    return $this->timezoneCode;
   }
 }
 

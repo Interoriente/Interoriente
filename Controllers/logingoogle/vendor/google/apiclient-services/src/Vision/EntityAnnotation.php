@@ -22,15 +22,36 @@ class EntityAnnotation extends \Google\Collection
   protected $collection_key = 'properties';
   protected $boundingPolyType = BoundingPoly::class;
   protected $boundingPolyDataType = '';
+  public $boundingPoly;
+  /**
+   * @var float
+   */
   public $confidence;
+  /**
+   * @var string
+   */
   public $description;
+  /**
+   * @var string
+   */
   public $locale;
   protected $locationsType = LocationInfo::class;
   protected $locationsDataType = 'array';
+  public $locations;
+  /**
+   * @var string
+   */
   public $mid;
   protected $propertiesType = Property::class;
   protected $propertiesDataType = 'array';
+  public $properties;
+  /**
+   * @var float
+   */
   public $score;
+  /**
+   * @var float
+   */
   public $topicality;
 
   /**
@@ -47,26 +68,44 @@ class EntityAnnotation extends \Google\Collection
   {
     return $this->boundingPoly;
   }
+  /**
+   * @param float
+   */
   public function setConfidence($confidence)
   {
     $this->confidence = $confidence;
   }
+  /**
+   * @return float
+   */
   public function getConfidence()
   {
     return $this->confidence;
   }
+  /**
+   * @param string
+   */
   public function setDescription($description)
   {
     $this->description = $description;
   }
+  /**
+   * @return string
+   */
   public function getDescription()
   {
     return $this->description;
   }
+  /**
+   * @param string
+   */
   public function setLocale($locale)
   {
     $this->locale = $locale;
   }
+  /**
+   * @return string
+   */
   public function getLocale()
   {
     return $this->locale;
@@ -85,10 +124,16 @@ class EntityAnnotation extends \Google\Collection
   {
     return $this->locations;
   }
+  /**
+   * @param string
+   */
   public function setMid($mid)
   {
     $this->mid = $mid;
   }
+  /**
+   * @return string
+   */
   public function getMid()
   {
     return $this->mid;
@@ -107,18 +152,30 @@ class EntityAnnotation extends \Google\Collection
   {
     return $this->properties;
   }
+  /**
+   * @param float
+   */
   public function setScore($score)
   {
     $this->score = $score;
   }
+  /**
+   * @return float
+   */
   public function getScore()
   {
     return $this->score;
   }
+  /**
+   * @param float
+   */
   public function setTopicality($topicality)
   {
     $this->topicality = $topicality;
   }
+  /**
+   * @return float
+   */
   public function getTopicality()
   {
     return $this->topicality;

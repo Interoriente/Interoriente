@@ -19,23 +19,42 @@ namespace Google\Service\DataLabeling;
 
 class GoogleCloudDatalabelingV1beta1TextClassificationConfig extends \Google\Model
 {
+  /**
+   * @var bool
+   */
   public $allowMultiLabel;
+  /**
+   * @var string
+   */
   public $annotationSpecSet;
   protected $sentimentConfigType = GoogleCloudDatalabelingV1beta1SentimentConfig::class;
   protected $sentimentConfigDataType = '';
+  public $sentimentConfig;
 
+  /**
+   * @param bool
+   */
   public function setAllowMultiLabel($allowMultiLabel)
   {
     $this->allowMultiLabel = $allowMultiLabel;
   }
+  /**
+   * @return bool
+   */
   public function getAllowMultiLabel()
   {
     return $this->allowMultiLabel;
   }
+  /**
+   * @param string
+   */
   public function setAnnotationSpecSet($annotationSpecSet)
   {
     $this->annotationSpecSet = $annotationSpecSet;
   }
+  /**
+   * @return string
+   */
   public function getAnnotationSpecSet()
   {
     return $this->annotationSpecSet;

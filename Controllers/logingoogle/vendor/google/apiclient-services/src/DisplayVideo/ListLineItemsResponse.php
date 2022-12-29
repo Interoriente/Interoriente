@@ -22,6 +22,10 @@ class ListLineItemsResponse extends \Google\Collection
   protected $collection_key = 'lineItems';
   protected $lineItemsType = LineItem::class;
   protected $lineItemsDataType = 'array';
+  public $lineItems;
+  /**
+   * @var string
+   */
   public $nextPageToken;
 
   /**
@@ -38,10 +42,16 @@ class ListLineItemsResponse extends \Google\Collection
   {
     return $this->lineItems;
   }
+  /**
+   * @param string
+   */
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
   }
+  /**
+   * @return string
+   */
   public function getNextPageToken()
   {
     return $this->nextPageToken;

@@ -21,6 +21,10 @@ class AddTenantProjectRequest extends \Google\Model
 {
   protected $projectConfigType = TenantProjectConfig::class;
   protected $projectConfigDataType = '';
+  public $projectConfig;
+  /**
+   * @var string
+   */
   public $tag;
 
   /**
@@ -37,10 +41,16 @@ class AddTenantProjectRequest extends \Google\Model
   {
     return $this->projectConfig;
   }
+  /**
+   * @param string
+   */
   public function setTag($tag)
   {
     $this->tag = $tag;
   }
+  /**
+   * @return string
+   */
   public function getTag()
   {
     return $this->tag;

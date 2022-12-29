@@ -22,13 +22,20 @@ class RepresentativeInfoResponse extends \Google\Collection
   protected $collection_key = 'officials';
   protected $divisionsType = GeographicDivision::class;
   protected $divisionsDataType = 'map';
+  public $divisions;
+  /**
+   * @var string
+   */
   public $kind;
   protected $normalizedInputType = SimpleAddressType::class;
   protected $normalizedInputDataType = '';
+  public $normalizedInput;
   protected $officesType = Office::class;
   protected $officesDataType = 'array';
+  public $offices;
   protected $officialsType = Official::class;
   protected $officialsDataType = 'array';
+  public $officials;
 
   /**
    * @param GeographicDivision[]
@@ -44,10 +51,16 @@ class RepresentativeInfoResponse extends \Google\Collection
   {
     return $this->divisions;
   }
+  /**
+   * @param string
+   */
   public function setKind($kind)
   {
     $this->kind = $kind;
   }
+  /**
+   * @return string
+   */
   public function getKind()
   {
     return $this->kind;

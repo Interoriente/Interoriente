@@ -22,8 +22,13 @@ class GoogleCloudRetailV2betaExportProductsResponse extends \Google\Collection
   protected $collection_key = 'errorSamples';
   protected $errorSamplesType = GoogleRpcStatus::class;
   protected $errorSamplesDataType = 'array';
+  public $errorSamples;
   protected $errorsConfigType = GoogleCloudRetailV2betaExportErrorsConfig::class;
   protected $errorsConfigDataType = '';
+  public $errorsConfig;
+  protected $outputResultType = GoogleCloudRetailV2betaOutputResult::class;
+  protected $outputResultDataType = '';
+  public $outputResult;
 
   /**
    * @param GoogleRpcStatus[]
@@ -52,6 +57,20 @@ class GoogleCloudRetailV2betaExportProductsResponse extends \Google\Collection
   public function getErrorsConfig()
   {
     return $this->errorsConfig;
+  }
+  /**
+   * @param GoogleCloudRetailV2betaOutputResult
+   */
+  public function setOutputResult(GoogleCloudRetailV2betaOutputResult $outputResult)
+  {
+    $this->outputResult = $outputResult;
+  }
+  /**
+   * @return GoogleCloudRetailV2betaOutputResult
+   */
+  public function getOutputResult()
+  {
+    return $this->outputResult;
   }
 }
 

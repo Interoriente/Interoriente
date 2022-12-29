@@ -21,7 +21,14 @@ class GoogleCloudVisionV1p2beta1ColorInfo extends \Google\Model
 {
   protected $colorType = Color::class;
   protected $colorDataType = '';
+  public $color;
+  /**
+   * @var float
+   */
   public $pixelFraction;
+  /**
+   * @var float
+   */
   public $score;
 
   /**
@@ -38,18 +45,30 @@ class GoogleCloudVisionV1p2beta1ColorInfo extends \Google\Model
   {
     return $this->color;
   }
+  /**
+   * @param float
+   */
   public function setPixelFraction($pixelFraction)
   {
     $this->pixelFraction = $pixelFraction;
   }
+  /**
+   * @return float
+   */
   public function getPixelFraction()
   {
     return $this->pixelFraction;
   }
+  /**
+   * @param float
+   */
   public function setScore($score)
   {
     $this->score = $score;
   }
+  /**
+   * @return float
+   */
   public function getScore()
   {
     return $this->score;

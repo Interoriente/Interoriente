@@ -22,9 +22,14 @@ class SqlInstancesVerifyExternalSyncSettingsResponse extends \Google\Collection
   protected $collection_key = 'warnings';
   protected $errorsType = SqlExternalSyncSettingError::class;
   protected $errorsDataType = 'array';
+  public $errors;
+  /**
+   * @var string
+   */
   public $kind;
   protected $warningsType = SqlExternalSyncSettingError::class;
   protected $warningsDataType = 'array';
+  public $warnings;
 
   /**
    * @param SqlExternalSyncSettingError[]
@@ -40,10 +45,16 @@ class SqlInstancesVerifyExternalSyncSettingsResponse extends \Google\Collection
   {
     return $this->errors;
   }
+  /**
+   * @param string
+   */
   public function setKind($kind)
   {
     $this->kind = $kind;
   }
+  /**
+   * @return string
+   */
   public function getKind()
   {
     return $this->kind;

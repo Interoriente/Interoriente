@@ -19,22 +19,36 @@ namespace Google\Service\TagManager;
 
 class Entity extends \Google\Model
 {
+  /**
+   * @var string
+   */
   public $changeStatus;
   protected $clientType = Client::class;
   protected $clientDataType = '';
+  public $client;
   protected $folderType = Folder::class;
   protected $folderDataType = '';
+  public $folder;
   protected $tagType = Tag::class;
   protected $tagDataType = '';
+  public $tag;
   protected $triggerType = Trigger::class;
   protected $triggerDataType = '';
+  public $trigger;
   protected $variableType = Variable::class;
   protected $variableDataType = '';
+  public $variable;
 
+  /**
+   * @param string
+   */
   public function setChangeStatus($changeStatus)
   {
     $this->changeStatus = $changeStatus;
   }
+  /**
+   * @return string
+   */
   public function getChangeStatus()
   {
     return $this->changeStatus;

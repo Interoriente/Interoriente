@@ -22,8 +22,18 @@ class GoogleCloudDatacatalogV1SerializedPolicyTag extends \Google\Collection
   protected $collection_key = 'childPolicyTags';
   protected $childPolicyTagsType = GoogleCloudDatacatalogV1SerializedPolicyTag::class;
   protected $childPolicyTagsDataType = 'array';
+  public $childPolicyTags;
+  /**
+   * @var string
+   */
   public $description;
+  /**
+   * @var string
+   */
   public $displayName;
+  /**
+   * @var string
+   */
   public $policyTag;
 
   /**
@@ -40,26 +50,44 @@ class GoogleCloudDatacatalogV1SerializedPolicyTag extends \Google\Collection
   {
     return $this->childPolicyTags;
   }
+  /**
+   * @param string
+   */
   public function setDescription($description)
   {
     $this->description = $description;
   }
+  /**
+   * @return string
+   */
   public function getDescription()
   {
     return $this->description;
   }
+  /**
+   * @param string
+   */
   public function setDisplayName($displayName)
   {
     $this->displayName = $displayName;
   }
+  /**
+   * @return string
+   */
   public function getDisplayName()
   {
     return $this->displayName;
   }
+  /**
+   * @param string
+   */
   public function setPolicyTag($policyTag)
   {
     $this->policyTag = $policyTag;
   }
+  /**
+   * @return string
+   */
   public function getPolicyTag()
   {
     return $this->policyTag;

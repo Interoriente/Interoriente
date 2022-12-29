@@ -22,9 +22,14 @@ class AttestationOccurrence extends \Google\Collection
   protected $collection_key = 'signatures';
   protected $jwtsType = Jwt::class;
   protected $jwtsDataType = 'array';
+  public $jwts;
+  /**
+   * @var string
+   */
   public $serializedPayload;
   protected $signaturesType = Signature::class;
   protected $signaturesDataType = 'array';
+  public $signatures;
 
   /**
    * @param Jwt[]
@@ -40,10 +45,16 @@ class AttestationOccurrence extends \Google\Collection
   {
     return $this->jwts;
   }
+  /**
+   * @param string
+   */
   public function setSerializedPayload($serializedPayload)
   {
     $this->serializedPayload = $serializedPayload;
   }
+  /**
+   * @return string
+   */
   public function getSerializedPayload()
   {
     return $this->serializedPayload;

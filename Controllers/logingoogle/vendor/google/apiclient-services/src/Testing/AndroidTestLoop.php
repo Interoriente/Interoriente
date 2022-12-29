@@ -22,10 +22,21 @@ class AndroidTestLoop extends \Google\Collection
   protected $collection_key = 'scenarios';
   protected $appApkType = FileReference::class;
   protected $appApkDataType = '';
+  public $appApk;
   protected $appBundleType = AppBundle::class;
   protected $appBundleDataType = '';
+  public $appBundle;
+  /**
+   * @var string
+   */
   public $appPackageId;
+  /**
+   * @var string[]
+   */
   public $scenarioLabels;
+  /**
+   * @var int[]
+   */
   public $scenarios;
 
   /**
@@ -56,26 +67,44 @@ class AndroidTestLoop extends \Google\Collection
   {
     return $this->appBundle;
   }
+  /**
+   * @param string
+   */
   public function setAppPackageId($appPackageId)
   {
     $this->appPackageId = $appPackageId;
   }
+  /**
+   * @return string
+   */
   public function getAppPackageId()
   {
     return $this->appPackageId;
   }
+  /**
+   * @param string[]
+   */
   public function setScenarioLabels($scenarioLabels)
   {
     $this->scenarioLabels = $scenarioLabels;
   }
+  /**
+   * @return string[]
+   */
   public function getScenarioLabels()
   {
     return $this->scenarioLabels;
   }
+  /**
+   * @param int[]
+   */
   public function setScenarios($scenarios)
   {
     $this->scenarios = $scenarios;
   }
+  /**
+   * @return int[]
+   */
   public function getScenarios()
   {
     return $this->scenarios;

@@ -35,6 +35,8 @@ use Google\Service\Firestore\ListenResponse;
 use Google\Service\Firestore\PartitionQueryRequest;
 use Google\Service\Firestore\PartitionQueryResponse;
 use Google\Service\Firestore\RollbackRequest;
+use Google\Service\Firestore\RunAggregationQueryRequest;
+use Google\Service\Firestore\RunAggregationQueryResponse;
 use Google\Service\Firestore\RunQueryRequest;
 use Google\Service\Firestore\RunQueryResponse;
 use Google\Service\Firestore\WriteRequest;
@@ -45,7 +47,7 @@ use Google\Service\Firestore\WriteResponse;
  * Typical usage is:
  *  <code>
  *   $firestoreService = new Google\Service\Firestore(...);
- *   $documents = $firestoreService->documents;
+ *   $documents = $firestoreService->projects_databases_documents;
  *  </code>
  */
 class ProjectsDatabasesDocuments extends \Google\Service\Resource
@@ -152,7 +154,8 @@ class ProjectsDatabasesDocuments extends \Google\Service\Resource
    * @opt_param bool currentDocument.exists When set to `true`, the target
    * document must exist. When set to `false`, the target document must not exist.
    * @opt_param string currentDocument.updateTime When set, the target document
-   * must exist and have been last updated at that time.
+   * must exist and have been last updated at that time. Timestamp must be
+   * microsecond aligned.
    * @return FirestoreEmpty
    */
   public function delete($name, $optParams = [])
@@ -190,25 +193,33 @@ class ProjectsDatabasesDocuments extends \Google\Service\Resource
    * `projects/{project_id}/databases/{database_id}/documents/{document_path}`.
    * For example: `projects/my-project/databases/my-database/documents` or
    * `projects/my-project/databases/my-database/documents/chatrooms/my-chatroom`
-   * @param string $collectionId Required. The collection ID, relative to
-   * `parent`, to list. For example: `chatrooms` or `messages`.
+   * @param string $collectionId Optional. The collection ID, relative to
+   * `parent`, to list. For example: `chatrooms` or `messages`. This is optional,
+   * and when not provided, Firestore will list documents from all collections
+   * under the provided `parent`.
    * @param array $optParams Optional parameters.
    *
    * @opt_param string mask.fieldPaths The list of field paths in the mask. See
    * Document.fields for a field path syntax reference.
-   * @opt_param string orderBy The order to sort results by. For example:
-   * `priority desc, name`.
-   * @opt_param int pageSize The maximum number of documents to return.
-   * @opt_param string pageToken The `next_page_token` value returned from a
-   * previous List request, if any.
-   * @opt_param string readTime Reads documents as they were at the given time.
-   * This may not be older than 270 seconds.
+   * @opt_param string orderBy Optional. The optional ordering of the documents to
+   * return. For example: `priority desc, __name__ desc`. This mirrors the `ORDER
+   * BY` used in Firestore queries but in a string representation. When absent,
+   * documents are ordered based on `__name__ ASC`.
+   * @opt_param int pageSize Optional. The maximum number of documents to return
+   * in a single response. Firestore may return fewer than this value.
+   * @opt_param string pageToken Optional. A page token, received from a previous
+   * `ListDocuments` response. Provide this to retrieve the subsequent page. When
+   * paginating, all other parameters (with the exception of `page_size`) must
+   * match the values set in the request that generated the page token.
+   * @opt_param string readTime Perform the read at the provided time. This may
+   * not be older than 270 seconds.
    * @opt_param bool showMissing If the list should show missing documents. A
-   * missing document is a document that does not exist but has sub-documents.
-   * These documents will be returned with a key but will not have fields,
-   * Document.create_time, or Document.update_time set. Requests with
+   * document is missing if it does not exist, but there are sub-documents nested
+   * underneath it. When true, such missing documents will be returned with a key
+   * but will not have fields, `create_time`, or `update_time` set. Requests with
    * `show_missing` may not specify `where` or `order_by`.
-   * @opt_param string transaction Reads documents in a transaction.
+   * @opt_param string transaction Perform the read as part of an already active
+   * transaction.
    * @return ListDocumentsResponse
    */
   public function listProjectsDatabasesDocuments($parent, $collectionId, $optParams = [])
@@ -234,6 +245,49 @@ class ProjectsDatabasesDocuments extends \Google\Service\Resource
     $params = ['parent' => $parent, 'postBody' => $postBody];
     $params = array_merge($params, $optParams);
     return $this->call('listCollectionIds', [$params], ListCollectionIdsResponse::class);
+  }
+  /**
+   * Lists documents. (documents.listDocuments)
+   *
+   * @param string $parent Required. The parent resource name. In the format:
+   * `projects/{project_id}/databases/{database_id}/documents` or
+   * `projects/{project_id}/databases/{database_id}/documents/{document_path}`.
+   * For example: `projects/my-project/databases/my-database/documents` or
+   * `projects/my-project/databases/my-database/documents/chatrooms/my-chatroom`
+   * @param string $collectionId Optional. The collection ID, relative to
+   * `parent`, to list. For example: `chatrooms` or `messages`. This is optional,
+   * and when not provided, Firestore will list documents from all collections
+   * under the provided `parent`.
+   * @param array $optParams Optional parameters.
+   *
+   * @opt_param string mask.fieldPaths The list of field paths in the mask. See
+   * Document.fields for a field path syntax reference.
+   * @opt_param string orderBy Optional. The optional ordering of the documents to
+   * return. For example: `priority desc, __name__ desc`. This mirrors the `ORDER
+   * BY` used in Firestore queries but in a string representation. When absent,
+   * documents are ordered based on `__name__ ASC`.
+   * @opt_param int pageSize Optional. The maximum number of documents to return
+   * in a single response. Firestore may return fewer than this value.
+   * @opt_param string pageToken Optional. A page token, received from a previous
+   * `ListDocuments` response. Provide this to retrieve the subsequent page. When
+   * paginating, all other parameters (with the exception of `page_size`) must
+   * match the values set in the request that generated the page token.
+   * @opt_param string readTime Perform the read at the provided time. This may
+   * not be older than 270 seconds.
+   * @opt_param bool showMissing If the list should show missing documents. A
+   * document is missing if it does not exist, but there are sub-documents nested
+   * underneath it. When true, such missing documents will be returned with a key
+   * but will not have fields, `create_time`, or `update_time` set. Requests with
+   * `show_missing` may not specify `where` or `order_by`.
+   * @opt_param string transaction Perform the read as part of an already active
+   * transaction.
+   * @return ListDocumentsResponse
+   */
+  public function listDocuments($parent, $collectionId, $optParams = [])
+  {
+    $params = ['parent' => $parent, 'collectionId' => $collectionId];
+    $params = array_merge($params, $optParams);
+    return $this->call('listDocuments', [$params], ListDocumentsResponse::class);
   }
   /**
    * Listens to changes. (documents.listen)
@@ -280,7 +334,8 @@ class ProjectsDatabasesDocuments extends \Google\Service\Resource
    * @opt_param bool currentDocument.exists When set to `true`, the target
    * document must exist. When set to `false`, the target document must not exist.
    * @opt_param string currentDocument.updateTime When set, the target document
-   * must exist and have been last updated at that time.
+   * must exist and have been last updated at that time. Timestamp must be
+   * microsecond aligned.
    * @opt_param string mask.fieldPaths The list of field paths in the mask. See
    * Document.fields for a field path syntax reference.
    * @opt_param string updateMask.fieldPaths The list of field paths in the mask.
@@ -307,6 +362,28 @@ class ProjectsDatabasesDocuments extends \Google\Service\Resource
     $params = ['database' => $database, 'postBody' => $postBody];
     $params = array_merge($params, $optParams);
     return $this->call('rollback', [$params], FirestoreEmpty::class);
+  }
+  /**
+   * Runs an aggregation query. Rather than producing Document results like
+   * Firestore.RunQuery, this API allows running an aggregation to produce a
+   * series of AggregationResult server-side. High-Level Example: ``` -- Return
+   * the number of documents in table given a filter. SELECT COUNT(*) FROM (
+   * SELECT * FROM k where a = true ); ``` (documents.runAggregationQuery)
+   *
+   * @param string $parent Required. The parent resource name. In the format:
+   * `projects/{project_id}/databases/{database_id}/documents` or
+   * `projects/{project_id}/databases/{database_id}/documents/{document_path}`.
+   * For example: `projects/my-project/databases/my-database/documents` or
+   * `projects/my-project/databases/my-database/documents/chatrooms/my-chatroom`
+   * @param RunAggregationQueryRequest $postBody
+   * @param array $optParams Optional parameters.
+   * @return RunAggregationQueryResponse
+   */
+  public function runAggregationQuery($parent, RunAggregationQueryRequest $postBody, $optParams = [])
+  {
+    $params = ['parent' => $parent, 'postBody' => $postBody];
+    $params = array_merge($params, $optParams);
+    return $this->call('runAggregationQuery', [$params], RunAggregationQueryResponse::class);
   }
   /**
    * Runs a query. (documents.runQuery)

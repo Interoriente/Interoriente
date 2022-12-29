@@ -21,10 +21,18 @@ class FilteredBidDetailRow extends \Google\Model
 {
   protected $bidCountType = MetricValue::class;
   protected $bidCountDataType = '';
+  public $bidCount;
+  /**
+   * @var string
+   */
   public $detail;
+  /**
+   * @var int
+   */
   public $detailId;
   protected $rowDimensionsType = RowDimensions::class;
   protected $rowDimensionsDataType = '';
+  public $rowDimensions;
 
   /**
    * @param MetricValue
@@ -40,18 +48,30 @@ class FilteredBidDetailRow extends \Google\Model
   {
     return $this->bidCount;
   }
+  /**
+   * @param string
+   */
   public function setDetail($detail)
   {
     $this->detail = $detail;
   }
+  /**
+   * @return string
+   */
   public function getDetail()
   {
     return $this->detail;
   }
+  /**
+   * @param int
+   */
   public function setDetailId($detailId)
   {
     $this->detailId = $detailId;
   }
+  /**
+   * @return int
+   */
   public function getDetailId()
   {
     return $this->detailId;

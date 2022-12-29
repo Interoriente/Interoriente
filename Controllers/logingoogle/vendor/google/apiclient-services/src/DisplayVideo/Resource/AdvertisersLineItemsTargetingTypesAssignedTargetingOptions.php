@@ -26,14 +26,17 @@ use Google\Service\DisplayVideo\ListLineItemAssignedTargetingOptionsResponse;
  * Typical usage is:
  *  <code>
  *   $displayvideoService = new Google\Service\DisplayVideo(...);
- *   $assignedTargetingOptions = $displayvideoService->assignedTargetingOptions;
+ *   $assignedTargetingOptions = $displayvideoService->advertisers_lineItems_targetingTypes_assignedTargetingOptions;
  *  </code>
  */
 class AdvertisersLineItemsTargetingTypesAssignedTargetingOptions extends \Google\Service\Resource
 {
   /**
    * Assigns a targeting option to a line item. Returns the assigned targeting
-   * option if successful. (assignedTargetingOptions.create)
+   * option if successful. Requests to this endpoint cannot be made concurrently
+   * with the following requests updating the same line item: *
+   * BulkEditAssignedTargetingOptions * BulkUpdate * UpdateLineItem *
+   * DeleteLineItemAssignedTargetingOption (assignedTargetingOptions.create)
    *
    * @param string $advertiserId Required. The ID of the advertiser the line item
    * belongs to.
@@ -52,7 +55,10 @@ class AdvertisersLineItemsTargetingTypesAssignedTargetingOptions extends \Google
     return $this->call('create', [$params], AssignedTargetingOption::class);
   }
   /**
-   * Deletes an assigned targeting option from a line item.
+   * Deletes an assigned targeting option from a line item. Requests to this
+   * endpoint cannot be made concurrently with the following requests updating the
+   * same line item: * BulkEditAssignedTargetingOptions * BulkUpdate *
+   * UpdateLineItem * CreateLineItemAssignedTargetingOption
    * (assignedTargetingOptions.delete)
    *
    * @param string $advertiserId Required. The ID of the advertiser the line item

@@ -21,10 +21,18 @@ class GoogleCloudDocumentaiV1beta1DocumentPageLayout extends \Google\Model
 {
   protected $boundingPolyType = GoogleCloudDocumentaiV1beta1BoundingPoly::class;
   protected $boundingPolyDataType = '';
+  public $boundingPoly;
+  /**
+   * @var float
+   */
   public $confidence;
+  /**
+   * @var string
+   */
   public $orientation;
   protected $textAnchorType = GoogleCloudDocumentaiV1beta1DocumentTextAnchor::class;
   protected $textAnchorDataType = '';
+  public $textAnchor;
 
   /**
    * @param GoogleCloudDocumentaiV1beta1BoundingPoly
@@ -40,18 +48,30 @@ class GoogleCloudDocumentaiV1beta1DocumentPageLayout extends \Google\Model
   {
     return $this->boundingPoly;
   }
+  /**
+   * @param float
+   */
   public function setConfidence($confidence)
   {
     $this->confidence = $confidence;
   }
+  /**
+   * @return float
+   */
   public function getConfidence()
   {
     return $this->confidence;
   }
+  /**
+   * @param string
+   */
   public function setOrientation($orientation)
   {
     $this->orientation = $orientation;
   }
+  /**
+   * @return string
+   */
   public function getOrientation()
   {
     return $this->orientation;

@@ -19,23 +19,42 @@ namespace Google\Service\Docs;
 
 class BulletSuggestionState extends \Google\Model
 {
+  /**
+   * @var bool
+   */
   public $listIdSuggested;
+  /**
+   * @var bool
+   */
   public $nestingLevelSuggested;
   protected $textStyleSuggestionStateType = TextStyleSuggestionState::class;
   protected $textStyleSuggestionStateDataType = '';
+  public $textStyleSuggestionState;
 
+  /**
+   * @param bool
+   */
   public function setListIdSuggested($listIdSuggested)
   {
     $this->listIdSuggested = $listIdSuggested;
   }
+  /**
+   * @return bool
+   */
   public function getListIdSuggested()
   {
     return $this->listIdSuggested;
   }
+  /**
+   * @param bool
+   */
   public function setNestingLevelSuggested($nestingLevelSuggested)
   {
     $this->nestingLevelSuggested = $nestingLevelSuggested;
   }
+  /**
+   * @return bool
+   */
   public function getNestingLevelSuggested()
   {
     return $this->nestingLevelSuggested;

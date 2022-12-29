@@ -22,6 +22,10 @@ class GooglePrivacyDlpV2TransformationOverview extends \Google\Collection
   protected $collection_key = 'transformationSummaries';
   protected $transformationSummariesType = GooglePrivacyDlpV2TransformationSummary::class;
   protected $transformationSummariesDataType = 'array';
+  public $transformationSummaries;
+  /**
+   * @var string
+   */
   public $transformedBytes;
 
   /**
@@ -38,10 +42,16 @@ class GooglePrivacyDlpV2TransformationOverview extends \Google\Collection
   {
     return $this->transformationSummaries;
   }
+  /**
+   * @param string
+   */
   public function setTransformedBytes($transformedBytes)
   {
     $this->transformedBytes = $transformedBytes;
   }
+  /**
+   * @return string
+   */
   public function getTransformedBytes()
   {
     return $this->transformedBytes;

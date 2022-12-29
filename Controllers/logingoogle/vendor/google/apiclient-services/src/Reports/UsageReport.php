@@ -20,18 +20,35 @@ namespace Google\Service\Reports;
 class UsageReport extends \Google\Collection
 {
   protected $collection_key = 'parameters';
+  /**
+   * @var string
+   */
   public $date;
   protected $entityType = UsageReportEntity::class;
   protected $entityDataType = '';
+  public $entity;
+  /**
+   * @var string
+   */
   public $etag;
+  /**
+   * @var string
+   */
   public $kind;
   protected $parametersType = UsageReportParameters::class;
   protected $parametersDataType = 'array';
+  public $parameters;
 
+  /**
+   * @param string
+   */
   public function setDate($date)
   {
     $this->date = $date;
   }
+  /**
+   * @return string
+   */
   public function getDate()
   {
     return $this->date;
@@ -50,18 +67,30 @@ class UsageReport extends \Google\Collection
   {
     return $this->entity;
   }
+  /**
+   * @param string
+   */
   public function setEtag($etag)
   {
     $this->etag = $etag;
   }
+  /**
+   * @return string
+   */
   public function getEtag()
   {
     return $this->etag;
   }
+  /**
+   * @param string
+   */
   public function setKind($kind)
   {
     $this->kind = $kind;
   }
+  /**
+   * @return string
+   */
   public function getKind()
   {
     return $this->kind;

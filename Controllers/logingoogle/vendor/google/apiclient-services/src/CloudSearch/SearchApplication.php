@@ -22,20 +22,42 @@ class SearchApplication extends \Google\Collection
   protected $collection_key = 'sourceConfig';
   protected $dataSourceRestrictionsType = DataSourceRestriction::class;
   protected $dataSourceRestrictionsDataType = 'array';
+  public $dataSourceRestrictions;
   protected $defaultFacetOptionsType = FacetOptions::class;
   protected $defaultFacetOptionsDataType = 'array';
+  public $defaultFacetOptions;
   protected $defaultSortOptionsType = SortOptions::class;
   protected $defaultSortOptionsDataType = '';
+  public $defaultSortOptions;
+  /**
+   * @var string
+   */
   public $displayName;
+  /**
+   * @var bool
+   */
   public $enableAuditLog;
+  /**
+   * @var string
+   */
   public $name;
+  /**
+   * @var string[]
+   */
   public $operationIds;
   protected $queryInterpretationConfigType = QueryInterpretationConfig::class;
   protected $queryInterpretationConfigDataType = '';
+  public $queryInterpretationConfig;
+  /**
+   * @var bool
+   */
+  public $returnResultThumbnailUrls;
   protected $scoringConfigType = ScoringConfig::class;
   protected $scoringConfigDataType = '';
+  public $scoringConfig;
   protected $sourceConfigType = SourceConfig::class;
   protected $sourceConfigDataType = 'array';
+  public $sourceConfig;
 
   /**
    * @param DataSourceRestriction[]
@@ -79,34 +101,58 @@ class SearchApplication extends \Google\Collection
   {
     return $this->defaultSortOptions;
   }
+  /**
+   * @param string
+   */
   public function setDisplayName($displayName)
   {
     $this->displayName = $displayName;
   }
+  /**
+   * @return string
+   */
   public function getDisplayName()
   {
     return $this->displayName;
   }
+  /**
+   * @param bool
+   */
   public function setEnableAuditLog($enableAuditLog)
   {
     $this->enableAuditLog = $enableAuditLog;
   }
+  /**
+   * @return bool
+   */
   public function getEnableAuditLog()
   {
     return $this->enableAuditLog;
   }
+  /**
+   * @param string
+   */
   public function setName($name)
   {
     $this->name = $name;
   }
+  /**
+   * @return string
+   */
   public function getName()
   {
     return $this->name;
   }
+  /**
+   * @param string[]
+   */
   public function setOperationIds($operationIds)
   {
     $this->operationIds = $operationIds;
   }
+  /**
+   * @return string[]
+   */
   public function getOperationIds()
   {
     return $this->operationIds;
@@ -124,6 +170,20 @@ class SearchApplication extends \Google\Collection
   public function getQueryInterpretationConfig()
   {
     return $this->queryInterpretationConfig;
+  }
+  /**
+   * @param bool
+   */
+  public function setReturnResultThumbnailUrls($returnResultThumbnailUrls)
+  {
+    $this->returnResultThumbnailUrls = $returnResultThumbnailUrls;
+  }
+  /**
+   * @return bool
+   */
+  public function getReturnResultThumbnailUrls()
+  {
+    return $this->returnResultThumbnailUrls;
   }
   /**
    * @param ScoringConfig

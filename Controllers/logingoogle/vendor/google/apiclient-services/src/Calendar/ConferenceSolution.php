@@ -19,15 +19,28 @@ namespace Google\Service\Calendar;
 
 class ConferenceSolution extends \Google\Model
 {
+  /**
+   * @var string
+   */
   public $iconUri;
   protected $keyType = ConferenceSolutionKey::class;
   protected $keyDataType = '';
+  public $key;
+  /**
+   * @var string
+   */
   public $name;
 
+  /**
+   * @param string
+   */
   public function setIconUri($iconUri)
   {
     $this->iconUri = $iconUri;
   }
+  /**
+   * @return string
+   */
   public function getIconUri()
   {
     return $this->iconUri;
@@ -46,10 +59,16 @@ class ConferenceSolution extends \Google\Model
   {
     return $this->key;
   }
+  /**
+   * @param string
+   */
   public function setName($name)
   {
     $this->name = $name;
   }
+  /**
+   * @return string
+   */
   public function getName()
   {
     return $this->name;

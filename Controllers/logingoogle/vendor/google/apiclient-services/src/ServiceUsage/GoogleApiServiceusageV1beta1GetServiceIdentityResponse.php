@@ -21,6 +21,10 @@ class GoogleApiServiceusageV1beta1GetServiceIdentityResponse extends \Google\Mod
 {
   protected $identityType = GoogleApiServiceusageV1beta1ServiceIdentity::class;
   protected $identityDataType = '';
+  public $identity;
+  /**
+   * @var string
+   */
   public $state;
 
   /**
@@ -37,10 +41,16 @@ class GoogleApiServiceusageV1beta1GetServiceIdentityResponse extends \Google\Mod
   {
     return $this->identity;
   }
+  /**
+   * @param string
+   */
   public function setState($state)
   {
     $this->state = $state;
   }
+  /**
+   * @return string
+   */
   public function getState()
   {
     return $this->state;

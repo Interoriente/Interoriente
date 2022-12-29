@@ -21,6 +21,10 @@ class OrderDeliveryDetails extends \Google\Model
 {
   protected $addressType = OrderAddress::class;
   protected $addressDataType = '';
+  public $address;
+  /**
+   * @var string
+   */
   public $phoneNumber;
 
   /**
@@ -37,10 +41,16 @@ class OrderDeliveryDetails extends \Google\Model
   {
     return $this->address;
   }
+  /**
+   * @param string
+   */
   public function setPhoneNumber($phoneNumber)
   {
     $this->phoneNumber = $phoneNumber;
   }
+  /**
+   * @return string
+   */
   public function getPhoneNumber()
   {
     return $this->phoneNumber;

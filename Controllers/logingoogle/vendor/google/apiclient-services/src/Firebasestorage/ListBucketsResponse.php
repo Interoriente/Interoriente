@@ -22,6 +22,10 @@ class ListBucketsResponse extends \Google\Collection
   protected $collection_key = 'buckets';
   protected $bucketsType = Bucket::class;
   protected $bucketsDataType = 'array';
+  public $buckets;
+  /**
+   * @var string
+   */
   public $nextPageToken;
 
   /**
@@ -38,10 +42,16 @@ class ListBucketsResponse extends \Google\Collection
   {
     return $this->buckets;
   }
+  /**
+   * @param string
+   */
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
   }
+  /**
+   * @return string
+   */
   public function getNextPageToken()
   {
     return $this->nextPageToken;

@@ -20,18 +20,30 @@ namespace Google\Service\Monitoring;
 class QueryTimeSeriesResponse extends \Google\Collection
 {
   protected $collection_key = 'timeSeriesData';
+  /**
+   * @var string
+   */
   public $nextPageToken;
   protected $partialErrorsType = Status::class;
   protected $partialErrorsDataType = 'array';
+  public $partialErrors;
   protected $timeSeriesDataType = TimeSeriesData::class;
   protected $timeSeriesDataDataType = 'array';
+  public $timeSeriesData;
   protected $timeSeriesDescriptorType = TimeSeriesDescriptor::class;
   protected $timeSeriesDescriptorDataType = '';
+  public $timeSeriesDescriptor;
 
+  /**
+   * @param string
+   */
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
   }
+  /**
+   * @return string
+   */
   public function getNextPageToken()
   {
     return $this->nextPageToken;

@@ -21,30 +21,66 @@ class Query extends \Google\Model
 {
   protected $accountInfoType = AccountInfo::class;
   protected $accountInfoDataType = '';
+  public $accountInfo;
+  /**
+   * @var string
+   */
   public $corpus;
+  /**
+   * @var string
+   */
   public $dataScope;
   protected $driveOptionsType = DriveOptions::class;
   protected $driveOptionsDataType = '';
+  public $driveOptions;
+  /**
+   * @var string
+   */
   public $endTime;
   protected $hangoutsChatInfoType = HangoutsChatInfo::class;
   protected $hangoutsChatInfoDataType = '';
+  public $hangoutsChatInfo;
   protected $hangoutsChatOptionsType = HangoutsChatOptions::class;
   protected $hangoutsChatOptionsDataType = '';
+  public $hangoutsChatOptions;
   protected $mailOptionsType = MailOptions::class;
   protected $mailOptionsDataType = '';
+  public $mailOptions;
+  /**
+   * @var string
+   */
   public $method;
   protected $orgUnitInfoType = OrgUnitInfo::class;
   protected $orgUnitInfoDataType = '';
+  public $orgUnitInfo;
+  /**
+   * @var string
+   */
   public $searchMethod;
   protected $sharedDriveInfoType = SharedDriveInfo::class;
   protected $sharedDriveInfoDataType = '';
+  public $sharedDriveInfo;
+  protected $sitesUrlInfoType = SitesUrlInfo::class;
+  protected $sitesUrlInfoDataType = '';
+  public $sitesUrlInfo;
+  /**
+   * @var string
+   */
   public $startTime;
   protected $teamDriveInfoType = TeamDriveInfo::class;
   protected $teamDriveInfoDataType = '';
+  public $teamDriveInfo;
+  /**
+   * @var string
+   */
   public $terms;
+  /**
+   * @var string
+   */
   public $timeZone;
   protected $voiceOptionsType = VoiceOptions::class;
   protected $voiceOptionsDataType = '';
+  public $voiceOptions;
 
   /**
    * @param AccountInfo
@@ -60,18 +96,30 @@ class Query extends \Google\Model
   {
     return $this->accountInfo;
   }
+  /**
+   * @param string
+   */
   public function setCorpus($corpus)
   {
     $this->corpus = $corpus;
   }
+  /**
+   * @return string
+   */
   public function getCorpus()
   {
     return $this->corpus;
   }
+  /**
+   * @param string
+   */
   public function setDataScope($dataScope)
   {
     $this->dataScope = $dataScope;
   }
+  /**
+   * @return string
+   */
   public function getDataScope()
   {
     return $this->dataScope;
@@ -90,10 +138,16 @@ class Query extends \Google\Model
   {
     return $this->driveOptions;
   }
+  /**
+   * @param string
+   */
   public function setEndTime($endTime)
   {
     $this->endTime = $endTime;
   }
+  /**
+   * @return string
+   */
   public function getEndTime()
   {
     return $this->endTime;
@@ -140,10 +194,16 @@ class Query extends \Google\Model
   {
     return $this->mailOptions;
   }
+  /**
+   * @param string
+   */
   public function setMethod($method)
   {
     $this->method = $method;
   }
+  /**
+   * @return string
+   */
   public function getMethod()
   {
     return $this->method;
@@ -162,10 +222,16 @@ class Query extends \Google\Model
   {
     return $this->orgUnitInfo;
   }
+  /**
+   * @param string
+   */
   public function setSearchMethod($searchMethod)
   {
     $this->searchMethod = $searchMethod;
   }
+  /**
+   * @return string
+   */
   public function getSearchMethod()
   {
     return $this->searchMethod;
@@ -184,10 +250,30 @@ class Query extends \Google\Model
   {
     return $this->sharedDriveInfo;
   }
+  /**
+   * @param SitesUrlInfo
+   */
+  public function setSitesUrlInfo(SitesUrlInfo $sitesUrlInfo)
+  {
+    $this->sitesUrlInfo = $sitesUrlInfo;
+  }
+  /**
+   * @return SitesUrlInfo
+   */
+  public function getSitesUrlInfo()
+  {
+    return $this->sitesUrlInfo;
+  }
+  /**
+   * @param string
+   */
   public function setStartTime($startTime)
   {
     $this->startTime = $startTime;
   }
+  /**
+   * @return string
+   */
   public function getStartTime()
   {
     return $this->startTime;
@@ -206,18 +292,30 @@ class Query extends \Google\Model
   {
     return $this->teamDriveInfo;
   }
+  /**
+   * @param string
+   */
   public function setTerms($terms)
   {
     $this->terms = $terms;
   }
+  /**
+   * @return string
+   */
   public function getTerms()
   {
     return $this->terms;
   }
+  /**
+   * @param string
+   */
   public function setTimeZone($timeZone)
   {
     $this->timeZone = $timeZone;
   }
+  /**
+   * @return string
+   */
   public function getTimeZone()
   {
     return $this->timeZone;

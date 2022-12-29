@@ -22,8 +22,13 @@ class PacketMirroringMirroredResourceInfo extends \Google\Collection
   protected $collection_key = 'tags';
   protected $instancesType = PacketMirroringMirroredResourceInfoInstanceInfo::class;
   protected $instancesDataType = 'array';
+  public $instances;
   protected $subnetworksType = PacketMirroringMirroredResourceInfoSubnetInfo::class;
   protected $subnetworksDataType = 'array';
+  public $subnetworks;
+  /**
+   * @var string[]
+   */
   public $tags;
 
   /**
@@ -54,10 +59,16 @@ class PacketMirroringMirroredResourceInfo extends \Google\Collection
   {
     return $this->subnetworks;
   }
+  /**
+   * @param string[]
+   */
   public function setTags($tags)
   {
     $this->tags = $tags;
   }
+  /**
+   * @return string[]
+   */
   public function getTags()
   {
     return $this->tags;

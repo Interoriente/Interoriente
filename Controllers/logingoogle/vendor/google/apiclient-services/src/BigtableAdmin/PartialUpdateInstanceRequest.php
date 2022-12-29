@@ -21,6 +21,10 @@ class PartialUpdateInstanceRequest extends \Google\Model
 {
   protected $instanceType = Instance::class;
   protected $instanceDataType = '';
+  public $instance;
+  /**
+   * @var string
+   */
   public $updateMask;
 
   /**
@@ -37,10 +41,16 @@ class PartialUpdateInstanceRequest extends \Google\Model
   {
     return $this->instance;
   }
+  /**
+   * @param string
+   */
   public function setUpdateMask($updateMask)
   {
     $this->updateMask = $updateMask;
   }
+  /**
+   * @return string
+   */
   public function getUpdateMask()
   {
     return $this->updateMask;

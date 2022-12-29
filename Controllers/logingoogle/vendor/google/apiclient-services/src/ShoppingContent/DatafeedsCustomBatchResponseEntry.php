@@ -19,16 +19,27 @@ namespace Google\Service\ShoppingContent;
 
 class DatafeedsCustomBatchResponseEntry extends \Google\Model
 {
+  /**
+   * @var string
+   */
   public $batchId;
   protected $datafeedType = Datafeed::class;
   protected $datafeedDataType = '';
+  public $datafeed;
   protected $errorsType = Errors::class;
   protected $errorsDataType = '';
+  public $errors;
 
+  /**
+   * @param string
+   */
   public function setBatchId($batchId)
   {
     $this->batchId = $batchId;
   }
+  /**
+   * @return string
+   */
   public function getBatchId()
   {
     return $this->batchId;

@@ -21,7 +21,14 @@ class Cohort extends \Google\Model
 {
   protected $dateRangeType = DateRange::class;
   protected $dateRangeDataType = '';
+  public $dateRange;
+  /**
+   * @var string
+   */
   public $dimension;
+  /**
+   * @var string
+   */
   public $name;
 
   /**
@@ -38,18 +45,30 @@ class Cohort extends \Google\Model
   {
     return $this->dateRange;
   }
+  /**
+   * @param string
+   */
   public function setDimension($dimension)
   {
     $this->dimension = $dimension;
   }
+  /**
+   * @return string
+   */
   public function getDimension()
   {
     return $this->dimension;
   }
+  /**
+   * @param string
+   */
   public function setName($name)
   {
     $this->name = $name;
   }
+  /**
+   * @return string
+   */
   public function getName()
   {
     return $this->name;

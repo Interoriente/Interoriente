@@ -20,14 +20,24 @@ namespace Google\Service\StreetViewPublish;
 class ListPhotosResponse extends \Google\Collection
 {
   protected $collection_key = 'photos';
+  /**
+   * @var string
+   */
   public $nextPageToken;
   protected $photosType = Photo::class;
   protected $photosDataType = 'array';
+  public $photos;
 
+  /**
+   * @param string
+   */
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
   }
+  /**
+   * @return string
+   */
   public function getNextPageToken()
   {
     return $this->nextPageToken;

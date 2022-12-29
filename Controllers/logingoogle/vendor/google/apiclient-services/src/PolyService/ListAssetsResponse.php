@@ -22,7 +22,14 @@ class ListAssetsResponse extends \Google\Collection
   protected $collection_key = 'assets';
   protected $assetsType = Asset::class;
   protected $assetsDataType = 'array';
+  public $assets;
+  /**
+   * @var string
+   */
   public $nextPageToken;
+  /**
+   * @var int
+   */
   public $totalSize;
 
   /**
@@ -39,18 +46,30 @@ class ListAssetsResponse extends \Google\Collection
   {
     return $this->assets;
   }
+  /**
+   * @param string
+   */
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
   }
+  /**
+   * @return string
+   */
   public function getNextPageToken()
   {
     return $this->nextPageToken;
   }
+  /**
+   * @param int
+   */
   public function setTotalSize($totalSize)
   {
     $this->totalSize = $totalSize;
   }
+  /**
+   * @return int
+   */
   public function getTotalSize()
   {
     return $this->totalSize;

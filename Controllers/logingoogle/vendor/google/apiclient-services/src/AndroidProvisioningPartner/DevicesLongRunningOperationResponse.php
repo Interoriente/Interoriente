@@ -22,6 +22,10 @@ class DevicesLongRunningOperationResponse extends \Google\Collection
   protected $collection_key = 'perDeviceStatus';
   protected $perDeviceStatusType = OperationPerDevice::class;
   protected $perDeviceStatusDataType = 'array';
+  public $perDeviceStatus;
+  /**
+   * @var int
+   */
   public $successCount;
 
   /**
@@ -38,10 +42,16 @@ class DevicesLongRunningOperationResponse extends \Google\Collection
   {
     return $this->perDeviceStatus;
   }
+  /**
+   * @param int
+   */
   public function setSuccessCount($successCount)
   {
     $this->successCount = $successCount;
   }
+  /**
+   * @return int
+   */
   public function getSuccessCount()
   {
     return $this->successCount;

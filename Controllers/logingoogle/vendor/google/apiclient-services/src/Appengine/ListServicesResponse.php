@@ -20,14 +20,24 @@ namespace Google\Service\Appengine;
 class ListServicesResponse extends \Google\Collection
 {
   protected $collection_key = 'services';
+  /**
+   * @var string
+   */
   public $nextPageToken;
   protected $servicesType = Service::class;
   protected $servicesDataType = 'array';
+  public $services;
 
+  /**
+   * @param string
+   */
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
   }
+  /**
+   * @return string
+   */
   public function getNextPageToken()
   {
     return $this->nextPageToken;

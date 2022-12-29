@@ -22,16 +22,25 @@ class TrafficStats extends \Google\Collection
   protected $collection_key = 'spammyFeedbackLoops';
   protected $deliveryErrorsType = DeliveryError::class;
   protected $deliveryErrorsDataType = 'array';
+  public $deliveryErrors;
   public $dkimSuccessRatio;
   public $dmarcSuccessRatio;
+  /**
+   * @var string
+   */
   public $domainReputation;
   public $inboundEncryptionRatio;
   protected $ipReputationsType = IpReputation::class;
   protected $ipReputationsDataType = 'array';
+  public $ipReputations;
+  /**
+   * @var string
+   */
   public $name;
   public $outboundEncryptionRatio;
   protected $spammyFeedbackLoopsType = FeedbackLoop::class;
   protected $spammyFeedbackLoopsDataType = 'array';
+  public $spammyFeedbackLoops;
   public $spfSuccessRatio;
   public $userReportedSpamRatio;
 
@@ -65,10 +74,16 @@ class TrafficStats extends \Google\Collection
   {
     return $this->dmarcSuccessRatio;
   }
+  /**
+   * @param string
+   */
   public function setDomainReputation($domainReputation)
   {
     $this->domainReputation = $domainReputation;
   }
+  /**
+   * @return string
+   */
   public function getDomainReputation()
   {
     return $this->domainReputation;
@@ -95,10 +110,16 @@ class TrafficStats extends \Google\Collection
   {
     return $this->ipReputations;
   }
+  /**
+   * @param string
+   */
   public function setName($name)
   {
     $this->name = $name;
   }
+  /**
+   * @return string
+   */
   public function getName()
   {
     return $this->name;

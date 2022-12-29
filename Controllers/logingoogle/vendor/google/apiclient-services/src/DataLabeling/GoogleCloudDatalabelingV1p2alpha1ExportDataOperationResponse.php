@@ -19,35 +19,67 @@ namespace Google\Service\DataLabeling;
 
 class GoogleCloudDatalabelingV1p2alpha1ExportDataOperationResponse extends \Google\Model
 {
+  /**
+   * @var string
+   */
   public $annotatedDataset;
+  /**
+   * @var string
+   */
   public $dataset;
+  /**
+   * @var int
+   */
   public $exportCount;
   protected $labelStatsType = GoogleCloudDatalabelingV1p2alpha1LabelStats::class;
   protected $labelStatsDataType = '';
+  public $labelStats;
   protected $outputConfigType = GoogleCloudDatalabelingV1p2alpha1OutputConfig::class;
   protected $outputConfigDataType = '';
+  public $outputConfig;
+  /**
+   * @var int
+   */
   public $totalCount;
 
+  /**
+   * @param string
+   */
   public function setAnnotatedDataset($annotatedDataset)
   {
     $this->annotatedDataset = $annotatedDataset;
   }
+  /**
+   * @return string
+   */
   public function getAnnotatedDataset()
   {
     return $this->annotatedDataset;
   }
+  /**
+   * @param string
+   */
   public function setDataset($dataset)
   {
     $this->dataset = $dataset;
   }
+  /**
+   * @return string
+   */
   public function getDataset()
   {
     return $this->dataset;
   }
+  /**
+   * @param int
+   */
   public function setExportCount($exportCount)
   {
     $this->exportCount = $exportCount;
   }
+  /**
+   * @return int
+   */
   public function getExportCount()
   {
     return $this->exportCount;
@@ -80,10 +112,16 @@ class GoogleCloudDatalabelingV1p2alpha1ExportDataOperationResponse extends \Goog
   {
     return $this->outputConfig;
   }
+  /**
+   * @param int
+   */
   public function setTotalCount($totalCount)
   {
     $this->totalCount = $totalCount;
   }
+  /**
+   * @return int
+   */
   public function getTotalCount()
   {
     return $this->totalCount;

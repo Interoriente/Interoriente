@@ -20,63 +20,130 @@ namespace Google\Service\Dataproc;
 class Job extends \Google\Collection
 {
   protected $collection_key = 'yarnApplications';
+  /**
+   * @var bool
+   */
   public $done;
+  /**
+   * @var string
+   */
   public $driverControlFilesUri;
+  /**
+   * @var string
+   */
   public $driverOutputResourceUri;
+  protected $driverSchedulingConfigType = DriverSchedulingConfig::class;
+  protected $driverSchedulingConfigDataType = '';
+  public $driverSchedulingConfig;
   protected $hadoopJobType = HadoopJob::class;
   protected $hadoopJobDataType = '';
+  public $hadoopJob;
   protected $hiveJobType = HiveJob::class;
   protected $hiveJobDataType = '';
+  public $hiveJob;
+  /**
+   * @var string
+   */
   public $jobUuid;
+  /**
+   * @var string[]
+   */
   public $labels;
   protected $pigJobType = PigJob::class;
   protected $pigJobDataType = '';
+  public $pigJob;
   protected $placementType = JobPlacement::class;
   protected $placementDataType = '';
+  public $placement;
   protected $prestoJobType = PrestoJob::class;
   protected $prestoJobDataType = '';
+  public $prestoJob;
   protected $pysparkJobType = PySparkJob::class;
   protected $pysparkJobDataType = '';
+  public $pysparkJob;
   protected $referenceType = JobReference::class;
   protected $referenceDataType = '';
+  public $reference;
   protected $schedulingType = JobScheduling::class;
   protected $schedulingDataType = '';
+  public $scheduling;
   protected $sparkJobType = SparkJob::class;
   protected $sparkJobDataType = '';
+  public $sparkJob;
   protected $sparkRJobType = SparkRJob::class;
   protected $sparkRJobDataType = '';
+  public $sparkRJob;
   protected $sparkSqlJobType = SparkSqlJob::class;
   protected $sparkSqlJobDataType = '';
+  public $sparkSqlJob;
   protected $statusType = JobStatus::class;
   protected $statusDataType = '';
+  public $status;
   protected $statusHistoryType = JobStatus::class;
   protected $statusHistoryDataType = 'array';
+  public $statusHistory;
+  protected $trinoJobType = TrinoJob::class;
+  protected $trinoJobDataType = '';
+  public $trinoJob;
   protected $yarnApplicationsType = YarnApplication::class;
   protected $yarnApplicationsDataType = 'array';
+  public $yarnApplications;
 
+  /**
+   * @param bool
+   */
   public function setDone($done)
   {
     $this->done = $done;
   }
+  /**
+   * @return bool
+   */
   public function getDone()
   {
     return $this->done;
   }
+  /**
+   * @param string
+   */
   public function setDriverControlFilesUri($driverControlFilesUri)
   {
     $this->driverControlFilesUri = $driverControlFilesUri;
   }
+  /**
+   * @return string
+   */
   public function getDriverControlFilesUri()
   {
     return $this->driverControlFilesUri;
   }
+  /**
+   * @param string
+   */
   public function setDriverOutputResourceUri($driverOutputResourceUri)
   {
     $this->driverOutputResourceUri = $driverOutputResourceUri;
   }
+  /**
+   * @return string
+   */
   public function getDriverOutputResourceUri()
   {
     return $this->driverOutputResourceUri;
+  }
+  /**
+   * @param DriverSchedulingConfig
+   */
+  public function setDriverSchedulingConfig(DriverSchedulingConfig $driverSchedulingConfig)
+  {
+    $this->driverSchedulingConfig = $driverSchedulingConfig;
+  }
+  /**
+   * @return DriverSchedulingConfig
+   */
+  public function getDriverSchedulingConfig()
+  {
+    return $this->driverSchedulingConfig;
   }
   /**
    * @param HadoopJob
@@ -106,18 +173,30 @@ class Job extends \Google\Collection
   {
     return $this->hiveJob;
   }
+  /**
+   * @param string
+   */
   public function setJobUuid($jobUuid)
   {
     $this->jobUuid = $jobUuid;
   }
+  /**
+   * @return string
+   */
   public function getJobUuid()
   {
     return $this->jobUuid;
   }
+  /**
+   * @param string[]
+   */
   public function setLabels($labels)
   {
     $this->labels = $labels;
   }
+  /**
+   * @return string[]
+   */
   public function getLabels()
   {
     return $this->labels;
@@ -275,6 +354,20 @@ class Job extends \Google\Collection
   public function getStatusHistory()
   {
     return $this->statusHistory;
+  }
+  /**
+   * @param TrinoJob
+   */
+  public function setTrinoJob(TrinoJob $trinoJob)
+  {
+    $this->trinoJob = $trinoJob;
+  }
+  /**
+   * @return TrinoJob
+   */
+  public function getTrinoJob()
+  {
+    return $this->trinoJob;
   }
   /**
    * @param YarnApplication[]

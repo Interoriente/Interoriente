@@ -20,14 +20,24 @@ namespace Google\Service\AnalyticsData;
 class BatchRunReportsResponse extends \Google\Collection
 {
   protected $collection_key = 'reports';
+  /**
+   * @var string
+   */
   public $kind;
   protected $reportsType = RunReportResponse::class;
   protected $reportsDataType = 'array';
+  public $reports;
 
+  /**
+   * @param string
+   */
   public function setKind($kind)
   {
     $this->kind = $kind;
   }
+  /**
+   * @return string
+   */
   public function getKind()
   {
     return $this->kind;

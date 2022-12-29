@@ -22,7 +22,14 @@ class ListHistoryResponse extends \Google\Collection
   protected $collection_key = 'history';
   protected $historyType = History::class;
   protected $historyDataType = 'array';
+  public $history;
+  /**
+   * @var string
+   */
   public $historyId;
+  /**
+   * @var string
+   */
   public $nextPageToken;
 
   /**
@@ -39,18 +46,30 @@ class ListHistoryResponse extends \Google\Collection
   {
     return $this->history;
   }
+  /**
+   * @param string
+   */
   public function setHistoryId($historyId)
   {
     $this->historyId = $historyId;
   }
+  /**
+   * @return string
+   */
   public function getHistoryId()
   {
     return $this->historyId;
   }
+  /**
+   * @param string
+   */
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
   }
+  /**
+   * @return string
+   */
   public function getNextPageToken()
   {
     return $this->nextPageToken;

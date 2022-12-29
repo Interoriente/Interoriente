@@ -19,33 +19,62 @@ namespace Google\Service\Slides;
 
 class ParagraphStyle extends \Google\Model
 {
+  /**
+   * @var string
+   */
   public $alignment;
+  /**
+   * @var string
+   */
   public $direction;
   protected $indentEndType = Dimension::class;
   protected $indentEndDataType = '';
+  public $indentEnd;
   protected $indentFirstLineType = Dimension::class;
   protected $indentFirstLineDataType = '';
+  public $indentFirstLine;
   protected $indentStartType = Dimension::class;
   protected $indentStartDataType = '';
+  public $indentStart;
+  /**
+   * @var float
+   */
   public $lineSpacing;
   protected $spaceAboveType = Dimension::class;
   protected $spaceAboveDataType = '';
+  public $spaceAbove;
   protected $spaceBelowType = Dimension::class;
   protected $spaceBelowDataType = '';
+  public $spaceBelow;
+  /**
+   * @var string
+   */
   public $spacingMode;
 
+  /**
+   * @param string
+   */
   public function setAlignment($alignment)
   {
     $this->alignment = $alignment;
   }
+  /**
+   * @return string
+   */
   public function getAlignment()
   {
     return $this->alignment;
   }
+  /**
+   * @param string
+   */
   public function setDirection($direction)
   {
     $this->direction = $direction;
   }
+  /**
+   * @return string
+   */
   public function getDirection()
   {
     return $this->direction;
@@ -92,10 +121,16 @@ class ParagraphStyle extends \Google\Model
   {
     return $this->indentStart;
   }
+  /**
+   * @param float
+   */
   public function setLineSpacing($lineSpacing)
   {
     $this->lineSpacing = $lineSpacing;
   }
+  /**
+   * @return float
+   */
   public function getLineSpacing()
   {
     return $this->lineSpacing;
@@ -128,10 +163,16 @@ class ParagraphStyle extends \Google\Model
   {
     return $this->spaceBelow;
   }
+  /**
+   * @param string
+   */
   public function setSpacingMode($spacingMode)
   {
     $this->spacingMode = $spacingMode;
   }
+  /**
+   * @return string
+   */
   public function getSpacingMode()
   {
     return $this->spacingMode;

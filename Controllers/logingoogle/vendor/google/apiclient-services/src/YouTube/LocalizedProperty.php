@@ -20,16 +20,27 @@ namespace Google\Service\YouTube;
 class LocalizedProperty extends \Google\Collection
 {
   protected $collection_key = 'localized';
+  /**
+   * @var string
+   */
   public $default;
   protected $defaultLanguageType = LanguageTag::class;
   protected $defaultLanguageDataType = '';
+  public $defaultLanguage;
   protected $localizedType = LocalizedString::class;
   protected $localizedDataType = 'array';
+  public $localized;
 
+  /**
+   * @param string
+   */
   public function setDefault($default)
   {
     $this->default = $default;
   }
+  /**
+   * @return string
+   */
   public function getDefault()
   {
     return $this->default;

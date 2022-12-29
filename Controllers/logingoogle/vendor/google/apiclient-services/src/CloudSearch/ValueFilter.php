@@ -19,14 +19,24 @@ namespace Google\Service\CloudSearch;
 
 class ValueFilter extends \Google\Model
 {
+  /**
+   * @var string
+   */
   public $operatorName;
   protected $valueType = Value::class;
   protected $valueDataType = '';
+  public $value;
 
+  /**
+   * @param string
+   */
   public function setOperatorName($operatorName)
   {
     $this->operatorName = $operatorName;
   }
+  /**
+   * @return string
+   */
   public function getOperatorName()
   {
     return $this->operatorName;

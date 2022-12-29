@@ -22,9 +22,17 @@ class CheckRequest extends \Google\Collection
   protected $collection_key = 'resources';
   protected $attributesType = AttributeContext::class;
   protected $attributesDataType = '';
+  public $attributes;
+  /**
+   * @var string
+   */
   public $flags;
   protected $resourcesType = ResourceInfo::class;
   protected $resourcesDataType = 'array';
+  public $resources;
+  /**
+   * @var string
+   */
   public $serviceConfigId;
 
   /**
@@ -41,10 +49,16 @@ class CheckRequest extends \Google\Collection
   {
     return $this->attributes;
   }
+  /**
+   * @param string
+   */
   public function setFlags($flags)
   {
     $this->flags = $flags;
   }
+  /**
+   * @return string
+   */
   public function getFlags()
   {
     return $this->flags;
@@ -63,10 +77,16 @@ class CheckRequest extends \Google\Collection
   {
     return $this->resources;
   }
+  /**
+   * @param string
+   */
   public function setServiceConfigId($serviceConfigId)
   {
     $this->serviceConfigId = $serviceConfigId;
   }
+  /**
+   * @return string
+   */
   public function getServiceConfigId()
   {
     return $this->serviceConfigId;

@@ -20,34 +20,61 @@ namespace Google\Service\Dataflow;
 class WorkItemStatus extends \Google\Collection
 {
   protected $collection_key = 'metricUpdates';
+  /**
+   * @var bool
+   */
   public $completed;
   protected $counterUpdatesType = CounterUpdate::class;
   protected $counterUpdatesDataType = 'array';
+  public $counterUpdates;
   protected $dynamicSourceSplitType = DynamicSourceSplit::class;
   protected $dynamicSourceSplitDataType = '';
+  public $dynamicSourceSplit;
   protected $errorsType = Status::class;
   protected $errorsDataType = 'array';
+  public $errors;
   protected $metricUpdatesType = MetricUpdate::class;
   protected $metricUpdatesDataType = 'array';
+  public $metricUpdates;
   protected $progressType = ApproximateProgress::class;
   protected $progressDataType = '';
+  public $progress;
+  /**
+   * @var string
+   */
   public $reportIndex;
   protected $reportedProgressType = ApproximateReportedProgress::class;
   protected $reportedProgressDataType = '';
+  public $reportedProgress;
+  /**
+   * @var string
+   */
   public $requestedLeaseDuration;
   protected $sourceForkType = SourceFork::class;
   protected $sourceForkDataType = '';
+  public $sourceFork;
   protected $sourceOperationResponseType = SourceOperationResponse::class;
   protected $sourceOperationResponseDataType = '';
+  public $sourceOperationResponse;
   protected $stopPositionType = Position::class;
   protected $stopPositionDataType = '';
+  public $stopPosition;
   public $totalThrottlerWaitTimeSeconds;
+  /**
+   * @var string
+   */
   public $workItemId;
 
+  /**
+   * @param bool
+   */
   public function setCompleted($completed)
   {
     $this->completed = $completed;
   }
+  /**
+   * @return bool
+   */
   public function getCompleted()
   {
     return $this->completed;
@@ -122,10 +149,16 @@ class WorkItemStatus extends \Google\Collection
   {
     return $this->progress;
   }
+  /**
+   * @param string
+   */
   public function setReportIndex($reportIndex)
   {
     $this->reportIndex = $reportIndex;
   }
+  /**
+   * @return string
+   */
   public function getReportIndex()
   {
     return $this->reportIndex;
@@ -144,10 +177,16 @@ class WorkItemStatus extends \Google\Collection
   {
     return $this->reportedProgress;
   }
+  /**
+   * @param string
+   */
   public function setRequestedLeaseDuration($requestedLeaseDuration)
   {
     $this->requestedLeaseDuration = $requestedLeaseDuration;
   }
+  /**
+   * @return string
+   */
   public function getRequestedLeaseDuration()
   {
     return $this->requestedLeaseDuration;
@@ -202,10 +241,16 @@ class WorkItemStatus extends \Google\Collection
   {
     return $this->totalThrottlerWaitTimeSeconds;
   }
+  /**
+   * @param string
+   */
   public function setWorkItemId($workItemId)
   {
     $this->workItemId = $workItemId;
   }
+  /**
+   * @return string
+   */
   public function getWorkItemId()
   {
     return $this->workItemId;

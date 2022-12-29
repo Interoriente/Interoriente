@@ -20,27 +20,53 @@ namespace Google\Service\Classroom;
 class UserProfile extends \Google\Collection
 {
   protected $collection_key = 'permissions';
+  /**
+   * @var string
+   */
   public $emailAddress;
+  /**
+   * @var string
+   */
   public $id;
   protected $nameType = Name::class;
   protected $nameDataType = '';
+  public $name;
   protected $permissionsType = GlobalPermission::class;
   protected $permissionsDataType = 'array';
+  public $permissions;
+  /**
+   * @var string
+   */
   public $photoUrl;
+  /**
+   * @var bool
+   */
   public $verifiedTeacher;
 
+  /**
+   * @param string
+   */
   public function setEmailAddress($emailAddress)
   {
     $this->emailAddress = $emailAddress;
   }
+  /**
+   * @return string
+   */
   public function getEmailAddress()
   {
     return $this->emailAddress;
   }
+  /**
+   * @param string
+   */
   public function setId($id)
   {
     $this->id = $id;
   }
+  /**
+   * @return string
+   */
   public function getId()
   {
     return $this->id;
@@ -73,18 +99,30 @@ class UserProfile extends \Google\Collection
   {
     return $this->permissions;
   }
+  /**
+   * @param string
+   */
   public function setPhotoUrl($photoUrl)
   {
     $this->photoUrl = $photoUrl;
   }
+  /**
+   * @return string
+   */
   public function getPhotoUrl()
   {
     return $this->photoUrl;
   }
+  /**
+   * @param bool
+   */
   public function setVerifiedTeacher($verifiedTeacher)
   {
     $this->verifiedTeacher = $verifiedTeacher;
   }
+  /**
+   * @return bool
+   */
   public function getVerifiedTeacher()
   {
     return $this->verifiedTeacher;

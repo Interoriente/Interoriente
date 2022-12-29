@@ -22,6 +22,10 @@ class RegionPostalCodeArea extends \Google\Collection
   protected $collection_key = 'postalCodes';
   protected $postalCodesType = RegionPostalCodeAreaPostalCodeRange::class;
   protected $postalCodesDataType = 'array';
+  public $postalCodes;
+  /**
+   * @var string
+   */
   public $regionCode;
 
   /**
@@ -38,10 +42,16 @@ class RegionPostalCodeArea extends \Google\Collection
   {
     return $this->postalCodes;
   }
+  /**
+   * @param string
+   */
   public function setRegionCode($regionCode)
   {
     $this->regionCode = $regionCode;
   }
+  /**
+   * @return string
+   */
   public function getRegionCode()
   {
     return $this->regionCode;

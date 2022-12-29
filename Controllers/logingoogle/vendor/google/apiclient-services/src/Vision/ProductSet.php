@@ -19,16 +19,32 @@ namespace Google\Service\Vision;
 
 class ProductSet extends \Google\Model
 {
+  /**
+   * @var string
+   */
   public $displayName;
   protected $indexErrorType = Status::class;
   protected $indexErrorDataType = '';
+  public $indexError;
+  /**
+   * @var string
+   */
   public $indexTime;
+  /**
+   * @var string
+   */
   public $name;
 
+  /**
+   * @param string
+   */
   public function setDisplayName($displayName)
   {
     $this->displayName = $displayName;
   }
+  /**
+   * @return string
+   */
   public function getDisplayName()
   {
     return $this->displayName;
@@ -47,18 +63,30 @@ class ProductSet extends \Google\Model
   {
     return $this->indexError;
   }
+  /**
+   * @param string
+   */
   public function setIndexTime($indexTime)
   {
     $this->indexTime = $indexTime;
   }
+  /**
+   * @return string
+   */
   public function getIndexTime()
   {
     return $this->indexTime;
   }
+  /**
+   * @param string
+   */
   public function setName($name)
   {
     $this->name = $name;
   }
+  /**
+   * @return string
+   */
   public function getName()
   {
     return $this->name;

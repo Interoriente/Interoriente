@@ -21,6 +21,10 @@ class GoogleCloudRecommenderV1CostProjection extends \Google\Model
 {
   protected $costType = GoogleTypeMoney::class;
   protected $costDataType = '';
+  public $cost;
+  /**
+   * @var string
+   */
   public $duration;
 
   /**
@@ -37,10 +41,16 @@ class GoogleCloudRecommenderV1CostProjection extends \Google\Model
   {
     return $this->cost;
   }
+  /**
+   * @param string
+   */
   public function setDuration($duration)
   {
     $this->duration = $duration;
   }
+  /**
+   * @return string
+   */
   public function getDuration()
   {
     return $this->duration;

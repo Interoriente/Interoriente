@@ -21,11 +21,25 @@ class RestoreDatabaseMetadata extends \Google\Model
 {
   protected $backupInfoType = BackupInfo::class;
   protected $backupInfoDataType = '';
+  public $backupInfo;
+  /**
+   * @var string
+   */
   public $cancelTime;
+  /**
+   * @var string
+   */
   public $name;
+  /**
+   * @var string
+   */
   public $optimizeDatabaseOperationName;
   protected $progressType = OperationProgress::class;
   protected $progressDataType = '';
+  public $progress;
+  /**
+   * @var string
+   */
   public $sourceType;
 
   /**
@@ -42,26 +56,44 @@ class RestoreDatabaseMetadata extends \Google\Model
   {
     return $this->backupInfo;
   }
+  /**
+   * @param string
+   */
   public function setCancelTime($cancelTime)
   {
     $this->cancelTime = $cancelTime;
   }
+  /**
+   * @return string
+   */
   public function getCancelTime()
   {
     return $this->cancelTime;
   }
+  /**
+   * @param string
+   */
   public function setName($name)
   {
     $this->name = $name;
   }
+  /**
+   * @return string
+   */
   public function getName()
   {
     return $this->name;
   }
+  /**
+   * @param string
+   */
   public function setOptimizeDatabaseOperationName($optimizeDatabaseOperationName)
   {
     $this->optimizeDatabaseOperationName = $optimizeDatabaseOperationName;
   }
+  /**
+   * @return string
+   */
   public function getOptimizeDatabaseOperationName()
   {
     return $this->optimizeDatabaseOperationName;
@@ -80,10 +112,16 @@ class RestoreDatabaseMetadata extends \Google\Model
   {
     return $this->progress;
   }
+  /**
+   * @param string
+   */
   public function setSourceType($sourceType)
   {
     $this->sourceType = $sourceType;
   }
+  /**
+   * @return string
+   */
   public function getSourceType()
   {
     return $this->sourceType;

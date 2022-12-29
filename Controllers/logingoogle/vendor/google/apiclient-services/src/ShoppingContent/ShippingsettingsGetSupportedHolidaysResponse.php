@@ -22,6 +22,10 @@ class ShippingsettingsGetSupportedHolidaysResponse extends \Google\Collection
   protected $collection_key = 'holidays';
   protected $holidaysType = HolidaysHoliday::class;
   protected $holidaysDataType = 'array';
+  public $holidays;
+  /**
+   * @var string
+   */
   public $kind;
 
   /**
@@ -38,10 +42,16 @@ class ShippingsettingsGetSupportedHolidaysResponse extends \Google\Collection
   {
     return $this->holidays;
   }
+  /**
+   * @param string
+   */
   public function setKind($kind)
   {
     $this->kind = $kind;
   }
+  /**
+   * @return string
+   */
   public function getKind()
   {
     return $this->kind;

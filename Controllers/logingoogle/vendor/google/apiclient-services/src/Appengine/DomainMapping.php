@@ -20,25 +20,45 @@ namespace Google\Service\Appengine;
 class DomainMapping extends \Google\Collection
 {
   protected $collection_key = 'resourceRecords';
+  /**
+   * @var string
+   */
   public $id;
+  /**
+   * @var string
+   */
   public $name;
   protected $resourceRecordsType = ResourceRecord::class;
   protected $resourceRecordsDataType = 'array';
+  public $resourceRecords;
   protected $sslSettingsType = SslSettings::class;
   protected $sslSettingsDataType = '';
+  public $sslSettings;
 
+  /**
+   * @param string
+   */
   public function setId($id)
   {
     $this->id = $id;
   }
+  /**
+   * @return string
+   */
   public function getId()
   {
     return $this->id;
   }
+  /**
+   * @param string
+   */
   public function setName($name)
   {
     $this->name = $name;
   }
+  /**
+   * @return string
+   */
   public function getName()
   {
     return $this->name;

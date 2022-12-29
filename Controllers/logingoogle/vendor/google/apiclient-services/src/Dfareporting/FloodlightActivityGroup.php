@@ -19,34 +19,76 @@ namespace Google\Service\Dfareporting;
 
 class FloodlightActivityGroup extends \Google\Model
 {
+  /**
+   * @var string
+   */
   public $accountId;
+  /**
+   * @var string
+   */
   public $advertiserId;
   protected $advertiserIdDimensionValueType = DimensionValue::class;
   protected $advertiserIdDimensionValueDataType = '';
+  public $advertiserIdDimensionValue;
+  /**
+   * @var string
+   */
   public $floodlightConfigurationId;
   protected $floodlightConfigurationIdDimensionValueType = DimensionValue::class;
   protected $floodlightConfigurationIdDimensionValueDataType = '';
+  public $floodlightConfigurationIdDimensionValue;
+  /**
+   * @var string
+   */
   public $id;
   protected $idDimensionValueType = DimensionValue::class;
   protected $idDimensionValueDataType = '';
+  public $idDimensionValue;
+  /**
+   * @var string
+   */
   public $kind;
+  /**
+   * @var string
+   */
   public $name;
+  /**
+   * @var string
+   */
   public $subaccountId;
+  /**
+   * @var string
+   */
   public $tagString;
+  /**
+   * @var string
+   */
   public $type;
 
+  /**
+   * @param string
+   */
   public function setAccountId($accountId)
   {
     $this->accountId = $accountId;
   }
+  /**
+   * @return string
+   */
   public function getAccountId()
   {
     return $this->accountId;
   }
+  /**
+   * @param string
+   */
   public function setAdvertiserId($advertiserId)
   {
     $this->advertiserId = $advertiserId;
   }
+  /**
+   * @return string
+   */
   public function getAdvertiserId()
   {
     return $this->advertiserId;
@@ -65,10 +107,16 @@ class FloodlightActivityGroup extends \Google\Model
   {
     return $this->advertiserIdDimensionValue;
   }
+  /**
+   * @param string
+   */
   public function setFloodlightConfigurationId($floodlightConfigurationId)
   {
     $this->floodlightConfigurationId = $floodlightConfigurationId;
   }
+  /**
+   * @return string
+   */
   public function getFloodlightConfigurationId()
   {
     return $this->floodlightConfigurationId;
@@ -87,10 +135,16 @@ class FloodlightActivityGroup extends \Google\Model
   {
     return $this->floodlightConfigurationIdDimensionValue;
   }
+  /**
+   * @param string
+   */
   public function setId($id)
   {
     $this->id = $id;
   }
+  /**
+   * @return string
+   */
   public function getId()
   {
     return $this->id;
@@ -109,42 +163,72 @@ class FloodlightActivityGroup extends \Google\Model
   {
     return $this->idDimensionValue;
   }
+  /**
+   * @param string
+   */
   public function setKind($kind)
   {
     $this->kind = $kind;
   }
+  /**
+   * @return string
+   */
   public function getKind()
   {
     return $this->kind;
   }
+  /**
+   * @param string
+   */
   public function setName($name)
   {
     $this->name = $name;
   }
+  /**
+   * @return string
+   */
   public function getName()
   {
     return $this->name;
   }
+  /**
+   * @param string
+   */
   public function setSubaccountId($subaccountId)
   {
     $this->subaccountId = $subaccountId;
   }
+  /**
+   * @return string
+   */
   public function getSubaccountId()
   {
     return $this->subaccountId;
   }
+  /**
+   * @param string
+   */
   public function setTagString($tagString)
   {
     $this->tagString = $tagString;
   }
+  /**
+   * @return string
+   */
   public function getTagString()
   {
     return $this->tagString;
   }
+  /**
+   * @param string
+   */
   public function setType($type)
   {
     $this->type = $type;
   }
+  /**
+   * @return string
+   */
   public function getType()
   {
     return $this->type;

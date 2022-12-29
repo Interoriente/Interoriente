@@ -20,14 +20,24 @@ namespace Google\Service\DatabaseMigrationService;
 class ListOperationsResponse extends \Google\Collection
 {
   protected $collection_key = 'operations';
+  /**
+   * @var string
+   */
   public $nextPageToken;
   protected $operationsType = Operation::class;
   protected $operationsDataType = 'array';
+  public $operations;
 
+  /**
+   * @param string
+   */
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
   }
+  /**
+   * @return string
+   */
   public function getNextPageToken()
   {
     return $this->nextPageToken;

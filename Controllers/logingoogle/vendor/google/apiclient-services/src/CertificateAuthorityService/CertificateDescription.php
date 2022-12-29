@@ -20,25 +20,43 @@ namespace Google\Service\CertificateAuthorityService;
 class CertificateDescription extends \Google\Collection
 {
   protected $collection_key = 'crlDistributionPoints';
+  /**
+   * @var string[]
+   */
   public $aiaIssuingCertificateUrls;
   protected $authorityKeyIdType = KeyId::class;
   protected $authorityKeyIdDataType = '';
+  public $authorityKeyId;
   protected $certFingerprintType = CertificateFingerprint::class;
   protected $certFingerprintDataType = '';
+  public $certFingerprint;
+  /**
+   * @var string[]
+   */
   public $crlDistributionPoints;
   protected $publicKeyType = PublicKey::class;
   protected $publicKeyDataType = '';
+  public $publicKey;
   protected $subjectDescriptionType = SubjectDescription::class;
   protected $subjectDescriptionDataType = '';
+  public $subjectDescription;
   protected $subjectKeyIdType = KeyId::class;
   protected $subjectKeyIdDataType = '';
+  public $subjectKeyId;
   protected $x509DescriptionType = X509Parameters::class;
   protected $x509DescriptionDataType = '';
+  public $x509Description;
 
+  /**
+   * @param string[]
+   */
   public function setAiaIssuingCertificateUrls($aiaIssuingCertificateUrls)
   {
     $this->aiaIssuingCertificateUrls = $aiaIssuingCertificateUrls;
   }
+  /**
+   * @return string[]
+   */
   public function getAiaIssuingCertificateUrls()
   {
     return $this->aiaIssuingCertificateUrls;
@@ -71,10 +89,16 @@ class CertificateDescription extends \Google\Collection
   {
     return $this->certFingerprint;
   }
+  /**
+   * @param string[]
+   */
   public function setCrlDistributionPoints($crlDistributionPoints)
   {
     $this->crlDistributionPoints = $crlDistributionPoints;
   }
+  /**
+   * @return string[]
+   */
   public function getCrlDistributionPoints()
   {
     return $this->crlDistributionPoints;

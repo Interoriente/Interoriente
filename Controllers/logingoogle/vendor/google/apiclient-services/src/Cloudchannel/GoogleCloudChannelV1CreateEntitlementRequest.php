@@ -21,6 +21,10 @@ class GoogleCloudChannelV1CreateEntitlementRequest extends \Google\Model
 {
   protected $entitlementType = GoogleCloudChannelV1Entitlement::class;
   protected $entitlementDataType = '';
+  public $entitlement;
+  /**
+   * @var string
+   */
   public $requestId;
 
   /**
@@ -37,10 +41,16 @@ class GoogleCloudChannelV1CreateEntitlementRequest extends \Google\Model
   {
     return $this->entitlement;
   }
+  /**
+   * @param string
+   */
   public function setRequestId($requestId)
   {
     $this->requestId = $requestId;
   }
+  /**
+   * @return string
+   */
   public function getRequestId()
   {
     return $this->requestId;

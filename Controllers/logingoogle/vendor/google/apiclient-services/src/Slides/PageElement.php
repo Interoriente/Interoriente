@@ -19,34 +19,59 @@ namespace Google\Service\Slides;
 
 class PageElement extends \Google\Model
 {
+  /**
+   * @var string
+   */
   public $description;
   protected $elementGroupType = Group::class;
   protected $elementGroupDataType = '';
+  public $elementGroup;
   protected $imageType = Image::class;
   protected $imageDataType = '';
+  public $image;
   protected $lineType = Line::class;
   protected $lineDataType = '';
+  public $line;
+  /**
+   * @var string
+   */
   public $objectId;
   protected $shapeType = Shape::class;
   protected $shapeDataType = '';
+  public $shape;
   protected $sheetsChartType = SheetsChart::class;
   protected $sheetsChartDataType = '';
+  public $sheetsChart;
   protected $sizeType = Size::class;
   protected $sizeDataType = '';
+  public $size;
   protected $tableType = Table::class;
   protected $tableDataType = '';
+  public $table;
+  /**
+   * @var string
+   */
   public $title;
   protected $transformType = AffineTransform::class;
   protected $transformDataType = '';
+  public $transform;
   protected $videoType = Video::class;
   protected $videoDataType = '';
+  public $video;
   protected $wordArtType = WordArt::class;
   protected $wordArtDataType = '';
+  public $wordArt;
 
+  /**
+   * @param string
+   */
   public function setDescription($description)
   {
     $this->description = $description;
   }
+  /**
+   * @return string
+   */
   public function getDescription()
   {
     return $this->description;
@@ -93,10 +118,16 @@ class PageElement extends \Google\Model
   {
     return $this->line;
   }
+  /**
+   * @param string
+   */
   public function setObjectId($objectId)
   {
     $this->objectId = $objectId;
   }
+  /**
+   * @return string
+   */
   public function getObjectId()
   {
     return $this->objectId;
@@ -157,10 +188,16 @@ class PageElement extends \Google\Model
   {
     return $this->table;
   }
+  /**
+   * @param string
+   */
   public function setTitle($title)
   {
     $this->title = $title;
   }
+  /**
+   * @return string
+   */
   public function getTitle()
   {
     return $this->title;

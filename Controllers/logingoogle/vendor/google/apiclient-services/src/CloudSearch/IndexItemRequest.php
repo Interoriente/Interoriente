@@ -19,19 +19,34 @@ namespace Google\Service\CloudSearch;
 
 class IndexItemRequest extends \Google\Model
 {
+  /**
+   * @var string
+   */
   public $connectorName;
   protected $debugOptionsType = DebugOptions::class;
   protected $debugOptionsDataType = '';
+  public $debugOptions;
   protected $indexItemOptionsType = IndexItemOptions::class;
   protected $indexItemOptionsDataType = '';
+  public $indexItemOptions;
   protected $itemType = Item::class;
   protected $itemDataType = '';
+  public $item;
+  /**
+   * @var string
+   */
   public $mode;
 
+  /**
+   * @param string
+   */
   public function setConnectorName($connectorName)
   {
     $this->connectorName = $connectorName;
   }
+  /**
+   * @return string
+   */
   public function getConnectorName()
   {
     return $this->connectorName;
@@ -78,10 +93,16 @@ class IndexItemRequest extends \Google\Model
   {
     return $this->item;
   }
+  /**
+   * @param string
+   */
   public function setMode($mode)
   {
     $this->mode = $mode;
   }
+  /**
+   * @return string
+   */
   public function getMode()
   {
     return $this->mode;

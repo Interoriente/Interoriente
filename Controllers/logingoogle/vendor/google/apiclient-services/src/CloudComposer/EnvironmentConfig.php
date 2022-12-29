@@ -19,37 +19,84 @@ namespace Google\Service\CloudComposer;
 
 class EnvironmentConfig extends \Google\Model
 {
+  /**
+   * @var string
+   */
   public $airflowUri;
+  /**
+   * @var string
+   */
   public $dagGcsPrefix;
   protected $databaseConfigType = DatabaseConfig::class;
   protected $databaseConfigDataType = '';
+  public $databaseConfig;
   protected $encryptionConfigType = EncryptionConfig::class;
   protected $encryptionConfigDataType = '';
+  public $encryptionConfig;
+  /**
+   * @var string
+   */
+  public $environmentSize;
+  /**
+   * @var string
+   */
   public $gkeCluster;
+  protected $maintenanceWindowType = MaintenanceWindow::class;
+  protected $maintenanceWindowDataType = '';
+  public $maintenanceWindow;
+  protected $masterAuthorizedNetworksConfigType = MasterAuthorizedNetworksConfig::class;
+  protected $masterAuthorizedNetworksConfigDataType = '';
+  public $masterAuthorizedNetworksConfig;
   protected $nodeConfigType = NodeConfig::class;
   protected $nodeConfigDataType = '';
+  public $nodeConfig;
+  /**
+   * @var int
+   */
   public $nodeCount;
   protected $privateEnvironmentConfigType = PrivateEnvironmentConfig::class;
   protected $privateEnvironmentConfigDataType = '';
+  public $privateEnvironmentConfig;
+  protected $recoveryConfigType = RecoveryConfig::class;
+  protected $recoveryConfigDataType = '';
+  public $recoveryConfig;
   protected $softwareConfigType = SoftwareConfig::class;
   protected $softwareConfigDataType = '';
+  public $softwareConfig;
   protected $webServerConfigType = WebServerConfig::class;
   protected $webServerConfigDataType = '';
+  public $webServerConfig;
   protected $webServerNetworkAccessControlType = WebServerNetworkAccessControl::class;
   protected $webServerNetworkAccessControlDataType = '';
+  public $webServerNetworkAccessControl;
+  protected $workloadsConfigType = WorkloadsConfig::class;
+  protected $workloadsConfigDataType = '';
+  public $workloadsConfig;
 
+  /**
+   * @param string
+   */
   public function setAirflowUri($airflowUri)
   {
     $this->airflowUri = $airflowUri;
   }
+  /**
+   * @return string
+   */
   public function getAirflowUri()
   {
     return $this->airflowUri;
   }
+  /**
+   * @param string
+   */
   public function setDagGcsPrefix($dagGcsPrefix)
   {
     $this->dagGcsPrefix = $dagGcsPrefix;
   }
+  /**
+   * @return string
+   */
   public function getDagGcsPrefix()
   {
     return $this->dagGcsPrefix;
@@ -82,13 +129,61 @@ class EnvironmentConfig extends \Google\Model
   {
     return $this->encryptionConfig;
   }
+  /**
+   * @param string
+   */
+  public function setEnvironmentSize($environmentSize)
+  {
+    $this->environmentSize = $environmentSize;
+  }
+  /**
+   * @return string
+   */
+  public function getEnvironmentSize()
+  {
+    return $this->environmentSize;
+  }
+  /**
+   * @param string
+   */
   public function setGkeCluster($gkeCluster)
   {
     $this->gkeCluster = $gkeCluster;
   }
+  /**
+   * @return string
+   */
   public function getGkeCluster()
   {
     return $this->gkeCluster;
+  }
+  /**
+   * @param MaintenanceWindow
+   */
+  public function setMaintenanceWindow(MaintenanceWindow $maintenanceWindow)
+  {
+    $this->maintenanceWindow = $maintenanceWindow;
+  }
+  /**
+   * @return MaintenanceWindow
+   */
+  public function getMaintenanceWindow()
+  {
+    return $this->maintenanceWindow;
+  }
+  /**
+   * @param MasterAuthorizedNetworksConfig
+   */
+  public function setMasterAuthorizedNetworksConfig(MasterAuthorizedNetworksConfig $masterAuthorizedNetworksConfig)
+  {
+    $this->masterAuthorizedNetworksConfig = $masterAuthorizedNetworksConfig;
+  }
+  /**
+   * @return MasterAuthorizedNetworksConfig
+   */
+  public function getMasterAuthorizedNetworksConfig()
+  {
+    return $this->masterAuthorizedNetworksConfig;
   }
   /**
    * @param NodeConfig
@@ -104,10 +199,16 @@ class EnvironmentConfig extends \Google\Model
   {
     return $this->nodeConfig;
   }
+  /**
+   * @param int
+   */
   public function setNodeCount($nodeCount)
   {
     $this->nodeCount = $nodeCount;
   }
+  /**
+   * @return int
+   */
   public function getNodeCount()
   {
     return $this->nodeCount;
@@ -125,6 +226,20 @@ class EnvironmentConfig extends \Google\Model
   public function getPrivateEnvironmentConfig()
   {
     return $this->privateEnvironmentConfig;
+  }
+  /**
+   * @param RecoveryConfig
+   */
+  public function setRecoveryConfig(RecoveryConfig $recoveryConfig)
+  {
+    $this->recoveryConfig = $recoveryConfig;
+  }
+  /**
+   * @return RecoveryConfig
+   */
+  public function getRecoveryConfig()
+  {
+    return $this->recoveryConfig;
   }
   /**
    * @param SoftwareConfig
@@ -167,6 +282,20 @@ class EnvironmentConfig extends \Google\Model
   public function getWebServerNetworkAccessControl()
   {
     return $this->webServerNetworkAccessControl;
+  }
+  /**
+   * @param WorkloadsConfig
+   */
+  public function setWorkloadsConfig(WorkloadsConfig $workloadsConfig)
+  {
+    $this->workloadsConfig = $workloadsConfig;
+  }
+  /**
+   * @return WorkloadsConfig
+   */
+  public function getWorkloadsConfig()
+  {
+    return $this->workloadsConfig;
   }
 }
 

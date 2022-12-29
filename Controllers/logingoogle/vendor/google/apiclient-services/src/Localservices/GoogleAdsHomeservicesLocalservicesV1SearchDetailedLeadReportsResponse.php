@@ -22,6 +22,10 @@ class GoogleAdsHomeservicesLocalservicesV1SearchDetailedLeadReportsResponse exte
   protected $collection_key = 'detailedLeadReports';
   protected $detailedLeadReportsType = GoogleAdsHomeservicesLocalservicesV1DetailedLeadReport::class;
   protected $detailedLeadReportsDataType = 'array';
+  public $detailedLeadReports;
+  /**
+   * @var string
+   */
   public $nextPageToken;
 
   /**
@@ -38,10 +42,16 @@ class GoogleAdsHomeservicesLocalservicesV1SearchDetailedLeadReportsResponse exte
   {
     return $this->detailedLeadReports;
   }
+  /**
+   * @param string
+   */
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
   }
+  /**
+   * @return string
+   */
   public function getNextPageToken()
   {
     return $this->nextPageToken;

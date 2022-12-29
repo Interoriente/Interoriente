@@ -20,14 +20,24 @@ namespace Google\Service\Spanner;
 class ListScansResponse extends \Google\Collection
 {
   protected $collection_key = 'scans';
+  /**
+   * @var string
+   */
   public $nextPageToken;
   protected $scansType = Scan::class;
   protected $scansDataType = 'array';
+  public $scans;
 
+  /**
+   * @param string
+   */
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
   }
+  /**
+   * @return string
+   */
   public function getNextPageToken()
   {
     return $this->nextPageToken;

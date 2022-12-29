@@ -20,21 +20,37 @@ namespace Google\Service\ShoppingContent;
 class LiasettingsCustomBatchResponseEntry extends \Google\Collection
 {
   protected $collection_key = 'posDataProviders';
+  /**
+   * @var string
+   */
   public $batchId;
   protected $errorsType = Errors::class;
   protected $errorsDataType = '';
+  public $errors;
   protected $gmbAccountsType = GmbAccounts::class;
   protected $gmbAccountsDataType = '';
+  public $gmbAccounts;
+  /**
+   * @var string
+   */
   public $kind;
   protected $liaSettingsType = LiaSettings::class;
   protected $liaSettingsDataType = '';
+  public $liaSettings;
   protected $posDataProvidersType = PosDataProviders::class;
   protected $posDataProvidersDataType = 'array';
+  public $posDataProviders;
 
+  /**
+   * @param string
+   */
   public function setBatchId($batchId)
   {
     $this->batchId = $batchId;
   }
+  /**
+   * @return string
+   */
   public function getBatchId()
   {
     return $this->batchId;
@@ -67,10 +83,16 @@ class LiasettingsCustomBatchResponseEntry extends \Google\Collection
   {
     return $this->gmbAccounts;
   }
+  /**
+   * @param string
+   */
   public function setKind($kind)
   {
     $this->kind = $kind;
   }
+  /**
+   * @return string
+   */
   public function getKind()
   {
     return $this->kind;

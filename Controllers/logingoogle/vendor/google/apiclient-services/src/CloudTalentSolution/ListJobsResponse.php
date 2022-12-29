@@ -22,8 +22,13 @@ class ListJobsResponse extends \Google\Collection
   protected $collection_key = 'jobs';
   protected $jobsType = Job::class;
   protected $jobsDataType = 'array';
+  public $jobs;
   protected $metadataType = ResponseMetadata::class;
   protected $metadataDataType = '';
+  public $metadata;
+  /**
+   * @var string
+   */
   public $nextPageToken;
 
   /**
@@ -54,10 +59,16 @@ class ListJobsResponse extends \Google\Collection
   {
     return $this->metadata;
   }
+  /**
+   * @param string
+   */
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
   }
+  /**
+   * @return string
+   */
   public function getNextPageToken()
   {
     return $this->nextPageToken;

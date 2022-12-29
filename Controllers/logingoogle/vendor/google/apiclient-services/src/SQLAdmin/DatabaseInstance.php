@@ -20,84 +20,235 @@ namespace Google\Service\SQLAdmin;
 class DatabaseInstance extends \Google\Collection
 {
   protected $collection_key = 'suspensionReason';
+  /**
+   * @var string[]
+   */
+  public $availableMaintenanceVersions;
+  /**
+   * @var string
+   */
   public $backendType;
+  /**
+   * @var string
+   */
   public $connectionName;
+  /**
+   * @var string
+   */
+  public $createTime;
+  /**
+   * @var string
+   */
   public $currentDiskSize;
+  /**
+   * @var string
+   */
+  public $databaseInstalledVersion;
+  /**
+   * @var string
+   */
   public $databaseVersion;
   protected $diskEncryptionConfigurationType = DiskEncryptionConfiguration::class;
   protected $diskEncryptionConfigurationDataType = '';
+  public $diskEncryptionConfiguration;
   protected $diskEncryptionStatusType = DiskEncryptionStatus::class;
   protected $diskEncryptionStatusDataType = '';
-  public $encryptedRootPassword;
+  public $diskEncryptionStatus;
+  /**
+   * @var string
+   */
   public $etag;
   protected $failoverReplicaType = DatabaseInstanceFailoverReplica::class;
   protected $failoverReplicaDataType = '';
+  public $failoverReplica;
+  /**
+   * @var string
+   */
   public $gceZone;
-  public $installedVersion;
+  /**
+   * @var string
+   */
   public $instanceType;
-  public $instanceUid;
   protected $ipAddressesType = IpMapping::class;
   protected $ipAddressesDataType = 'array';
+  public $ipAddresses;
+  /**
+   * @var string
+   */
   public $ipv6Address;
+  /**
+   * @var string
+   */
   public $kind;
-  protected $masterInstanceType = InstanceReference::class;
-  protected $masterInstanceDataType = '';
+  /**
+   * @var string
+   */
+  public $maintenanceVersion;
+  /**
+   * @var string
+   */
   public $masterInstanceName;
+  /**
+   * @var string
+   */
   public $maxDiskSize;
+  /**
+   * @var string
+   */
   public $name;
   protected $onPremisesConfigurationType = OnPremisesConfiguration::class;
   protected $onPremisesConfigurationDataType = '';
+  public $onPremisesConfiguration;
   protected $outOfDiskReportType = SqlOutOfDiskReport::class;
   protected $outOfDiskReportDataType = '';
+  public $outOfDiskReport;
+  /**
+   * @var string
+   */
   public $project;
+  /**
+   * @var string
+   */
   public $region;
   protected $replicaConfigurationType = ReplicaConfiguration::class;
   protected $replicaConfigurationDataType = '';
-  protected $replicaInstancesType = InstanceReference::class;
-  protected $replicaInstancesDataType = 'array';
+  public $replicaConfiguration;
+  /**
+   * @var string[]
+   */
   public $replicaNames;
+  /**
+   * @var string
+   */
   public $rootPassword;
+  /**
+   * @var bool
+   */
   public $satisfiesPzs;
   protected $scheduledMaintenanceType = SqlScheduledMaintenance::class;
   protected $scheduledMaintenanceDataType = '';
+  public $scheduledMaintenance;
+  /**
+   * @var string
+   */
   public $secondaryGceZone;
+  /**
+   * @var string
+   */
   public $selfLink;
   protected $serverCaCertType = SslCert::class;
   protected $serverCaCertDataType = '';
+  public $serverCaCert;
+  /**
+   * @var string
+   */
   public $serviceAccountEmailAddress;
   protected $settingsType = Settings::class;
   protected $settingsDataType = '';
+  public $settings;
+  /**
+   * @var string
+   */
   public $state;
+  /**
+   * @var string[]
+   */
   public $suspensionReason;
 
+  /**
+   * @param string[]
+   */
+  public function setAvailableMaintenanceVersions($availableMaintenanceVersions)
+  {
+    $this->availableMaintenanceVersions = $availableMaintenanceVersions;
+  }
+  /**
+   * @return string[]
+   */
+  public function getAvailableMaintenanceVersions()
+  {
+    return $this->availableMaintenanceVersions;
+  }
+  /**
+   * @param string
+   */
   public function setBackendType($backendType)
   {
     $this->backendType = $backendType;
   }
+  /**
+   * @return string
+   */
   public function getBackendType()
   {
     return $this->backendType;
   }
+  /**
+   * @param string
+   */
   public function setConnectionName($connectionName)
   {
     $this->connectionName = $connectionName;
   }
+  /**
+   * @return string
+   */
   public function getConnectionName()
   {
     return $this->connectionName;
   }
+  /**
+   * @param string
+   */
+  public function setCreateTime($createTime)
+  {
+    $this->createTime = $createTime;
+  }
+  /**
+   * @return string
+   */
+  public function getCreateTime()
+  {
+    return $this->createTime;
+  }
+  /**
+   * @param string
+   */
   public function setCurrentDiskSize($currentDiskSize)
   {
     $this->currentDiskSize = $currentDiskSize;
   }
+  /**
+   * @return string
+   */
   public function getCurrentDiskSize()
   {
     return $this->currentDiskSize;
   }
+  /**
+   * @param string
+   */
+  public function setDatabaseInstalledVersion($databaseInstalledVersion)
+  {
+    $this->databaseInstalledVersion = $databaseInstalledVersion;
+  }
+  /**
+   * @return string
+   */
+  public function getDatabaseInstalledVersion()
+  {
+    return $this->databaseInstalledVersion;
+  }
+  /**
+   * @param string
+   */
   public function setDatabaseVersion($databaseVersion)
   {
     $this->databaseVersion = $databaseVersion;
   }
+  /**
+   * @return string
+   */
   public function getDatabaseVersion()
   {
     return $this->databaseVersion;
@@ -130,18 +281,16 @@ class DatabaseInstance extends \Google\Collection
   {
     return $this->diskEncryptionStatus;
   }
-  public function setEncryptedRootPassword($encryptedRootPassword)
-  {
-    $this->encryptedRootPassword = $encryptedRootPassword;
-  }
-  public function getEncryptedRootPassword()
-  {
-    return $this->encryptedRootPassword;
-  }
+  /**
+   * @param string
+   */
   public function setEtag($etag)
   {
     $this->etag = $etag;
   }
+  /**
+   * @return string
+   */
   public function getEtag()
   {
     return $this->etag;
@@ -160,37 +309,33 @@ class DatabaseInstance extends \Google\Collection
   {
     return $this->failoverReplica;
   }
+  /**
+   * @param string
+   */
   public function setGceZone($gceZone)
   {
     $this->gceZone = $gceZone;
   }
+  /**
+   * @return string
+   */
   public function getGceZone()
   {
     return $this->gceZone;
   }
-  public function setInstalledVersion($installedVersion)
-  {
-    $this->installedVersion = $installedVersion;
-  }
-  public function getInstalledVersion()
-  {
-    return $this->installedVersion;
-  }
+  /**
+   * @param string
+   */
   public function setInstanceType($instanceType)
   {
     $this->instanceType = $instanceType;
   }
+  /**
+   * @return string
+   */
   public function getInstanceType()
   {
     return $this->instanceType;
-  }
-  public function setInstanceUid($instanceUid)
-  {
-    $this->instanceUid = $instanceUid;
-  }
-  public function getInstanceUid()
-  {
-    return $this->instanceUid;
   }
   /**
    * @param IpMapping[]
@@ -206,56 +351,86 @@ class DatabaseInstance extends \Google\Collection
   {
     return $this->ipAddresses;
   }
+  /**
+   * @param string
+   */
   public function setIpv6Address($ipv6Address)
   {
     $this->ipv6Address = $ipv6Address;
   }
+  /**
+   * @return string
+   */
   public function getIpv6Address()
   {
     return $this->ipv6Address;
   }
+  /**
+   * @param string
+   */
   public function setKind($kind)
   {
     $this->kind = $kind;
   }
+  /**
+   * @return string
+   */
   public function getKind()
   {
     return $this->kind;
   }
   /**
-   * @param InstanceReference
+   * @param string
    */
-  public function setMasterInstance(InstanceReference $masterInstance)
+  public function setMaintenanceVersion($maintenanceVersion)
   {
-    $this->masterInstance = $masterInstance;
+    $this->maintenanceVersion = $maintenanceVersion;
   }
   /**
-   * @return InstanceReference
+   * @return string
    */
-  public function getMasterInstance()
+  public function getMaintenanceVersion()
   {
-    return $this->masterInstance;
+    return $this->maintenanceVersion;
   }
+  /**
+   * @param string
+   */
   public function setMasterInstanceName($masterInstanceName)
   {
     $this->masterInstanceName = $masterInstanceName;
   }
+  /**
+   * @return string
+   */
   public function getMasterInstanceName()
   {
     return $this->masterInstanceName;
   }
+  /**
+   * @param string
+   */
   public function setMaxDiskSize($maxDiskSize)
   {
     $this->maxDiskSize = $maxDiskSize;
   }
+  /**
+   * @return string
+   */
   public function getMaxDiskSize()
   {
     return $this->maxDiskSize;
   }
+  /**
+   * @param string
+   */
   public function setName($name)
   {
     $this->name = $name;
   }
+  /**
+   * @return string
+   */
   public function getName()
   {
     return $this->name;
@@ -288,18 +463,30 @@ class DatabaseInstance extends \Google\Collection
   {
     return $this->outOfDiskReport;
   }
+  /**
+   * @param string
+   */
   public function setProject($project)
   {
     $this->project = $project;
   }
+  /**
+   * @return string
+   */
   public function getProject()
   {
     return $this->project;
   }
+  /**
+   * @param string
+   */
   public function setRegion($region)
   {
     $this->region = $region;
   }
+  /**
+   * @return string
+   */
   public function getRegion()
   {
     return $this->region;
@@ -319,39 +506,43 @@ class DatabaseInstance extends \Google\Collection
     return $this->replicaConfiguration;
   }
   /**
-   * @param InstanceReference[]
+   * @param string[]
    */
-  public function setReplicaInstances($replicaInstances)
-  {
-    $this->replicaInstances = $replicaInstances;
-  }
-  /**
-   * @return InstanceReference[]
-   */
-  public function getReplicaInstances()
-  {
-    return $this->replicaInstances;
-  }
   public function setReplicaNames($replicaNames)
   {
     $this->replicaNames = $replicaNames;
   }
+  /**
+   * @return string[]
+   */
   public function getReplicaNames()
   {
     return $this->replicaNames;
   }
+  /**
+   * @param string
+   */
   public function setRootPassword($rootPassword)
   {
     $this->rootPassword = $rootPassword;
   }
+  /**
+   * @return string
+   */
   public function getRootPassword()
   {
     return $this->rootPassword;
   }
+  /**
+   * @param bool
+   */
   public function setSatisfiesPzs($satisfiesPzs)
   {
     $this->satisfiesPzs = $satisfiesPzs;
   }
+  /**
+   * @return bool
+   */
   public function getSatisfiesPzs()
   {
     return $this->satisfiesPzs;
@@ -370,18 +561,30 @@ class DatabaseInstance extends \Google\Collection
   {
     return $this->scheduledMaintenance;
   }
+  /**
+   * @param string
+   */
   public function setSecondaryGceZone($secondaryGceZone)
   {
     $this->secondaryGceZone = $secondaryGceZone;
   }
+  /**
+   * @return string
+   */
   public function getSecondaryGceZone()
   {
     return $this->secondaryGceZone;
   }
+  /**
+   * @param string
+   */
   public function setSelfLink($selfLink)
   {
     $this->selfLink = $selfLink;
   }
+  /**
+   * @return string
+   */
   public function getSelfLink()
   {
     return $this->selfLink;
@@ -400,10 +603,16 @@ class DatabaseInstance extends \Google\Collection
   {
     return $this->serverCaCert;
   }
+  /**
+   * @param string
+   */
   public function setServiceAccountEmailAddress($serviceAccountEmailAddress)
   {
     $this->serviceAccountEmailAddress = $serviceAccountEmailAddress;
   }
+  /**
+   * @return string
+   */
   public function getServiceAccountEmailAddress()
   {
     return $this->serviceAccountEmailAddress;
@@ -422,18 +631,30 @@ class DatabaseInstance extends \Google\Collection
   {
     return $this->settings;
   }
+  /**
+   * @param string
+   */
   public function setState($state)
   {
     $this->state = $state;
   }
+  /**
+   * @return string
+   */
   public function getState()
   {
     return $this->state;
   }
+  /**
+   * @param string[]
+   */
   public function setSuspensionReason($suspensionReason)
   {
     $this->suspensionReason = $suspensionReason;
   }
+  /**
+   * @return string[]
+   */
   public function getSuspensionReason()
   {
     return $this->suspensionReason;

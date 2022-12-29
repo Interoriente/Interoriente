@@ -19,16 +19,27 @@ namespace Google\Service\AdExchangeBuyerII;
 
 class DayPart extends \Google\Model
 {
+  /**
+   * @var string
+   */
   public $dayOfWeek;
   protected $endTimeType = TimeOfDay::class;
   protected $endTimeDataType = '';
+  public $endTime;
   protected $startTimeType = TimeOfDay::class;
   protected $startTimeDataType = '';
+  public $startTime;
 
+  /**
+   * @param string
+   */
   public function setDayOfWeek($dayOfWeek)
   {
     $this->dayOfWeek = $dayOfWeek;
   }
+  /**
+   * @return string
+   */
   public function getDayOfWeek()
   {
     return $this->dayOfWeek;

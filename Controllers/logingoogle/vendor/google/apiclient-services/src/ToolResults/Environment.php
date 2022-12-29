@@ -22,21 +22,42 @@ class Environment extends \Google\Collection
   protected $collection_key = 'shardSummaries';
   protected $completionTimeType = Timestamp::class;
   protected $completionTimeDataType = '';
+  public $completionTime;
   protected $creationTimeType = Timestamp::class;
   protected $creationTimeDataType = '';
+  public $creationTime;
   protected $dimensionValueType = EnvironmentDimensionValueEntry::class;
   protected $dimensionValueDataType = 'array';
+  public $dimensionValue;
+  /**
+   * @var string
+   */
   public $displayName;
+  /**
+   * @var string
+   */
   public $environmentId;
   protected $environmentResultType = MergedResult::class;
   protected $environmentResultDataType = '';
+  public $environmentResult;
+  /**
+   * @var string
+   */
   public $executionId;
+  /**
+   * @var string
+   */
   public $historyId;
+  /**
+   * @var string
+   */
   public $projectId;
   protected $resultsStorageType = ResultsStorage::class;
   protected $resultsStorageDataType = '';
+  public $resultsStorage;
   protected $shardSummariesType = ShardSummary::class;
   protected $shardSummariesDataType = 'array';
+  public $shardSummaries;
 
   /**
    * @param Timestamp
@@ -80,18 +101,30 @@ class Environment extends \Google\Collection
   {
     return $this->dimensionValue;
   }
+  /**
+   * @param string
+   */
   public function setDisplayName($displayName)
   {
     $this->displayName = $displayName;
   }
+  /**
+   * @return string
+   */
   public function getDisplayName()
   {
     return $this->displayName;
   }
+  /**
+   * @param string
+   */
   public function setEnvironmentId($environmentId)
   {
     $this->environmentId = $environmentId;
   }
+  /**
+   * @return string
+   */
   public function getEnvironmentId()
   {
     return $this->environmentId;
@@ -110,26 +143,44 @@ class Environment extends \Google\Collection
   {
     return $this->environmentResult;
   }
+  /**
+   * @param string
+   */
   public function setExecutionId($executionId)
   {
     $this->executionId = $executionId;
   }
+  /**
+   * @return string
+   */
   public function getExecutionId()
   {
     return $this->executionId;
   }
+  /**
+   * @param string
+   */
   public function setHistoryId($historyId)
   {
     $this->historyId = $historyId;
   }
+  /**
+   * @return string
+   */
   public function getHistoryId()
   {
     return $this->historyId;
   }
+  /**
+   * @param string
+   */
   public function setProjectId($projectId)
   {
     $this->projectId = $projectId;
   }
+  /**
+   * @return string
+   */
   public function getProjectId()
   {
     return $this->projectId;

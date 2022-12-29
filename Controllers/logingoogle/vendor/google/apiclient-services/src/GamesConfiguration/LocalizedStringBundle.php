@@ -20,14 +20,24 @@ namespace Google\Service\GamesConfiguration;
 class LocalizedStringBundle extends \Google\Collection
 {
   protected $collection_key = 'translations';
+  /**
+   * @var string
+   */
   public $kind;
   protected $translationsType = LocalizedString::class;
   protected $translationsDataType = 'array';
+  public $translations;
 
+  /**
+   * @param string
+   */
   public function setKind($kind)
   {
     $this->kind = $kind;
   }
+  /**
+   * @return string
+   */
   public function getKind()
   {
     return $this->kind;

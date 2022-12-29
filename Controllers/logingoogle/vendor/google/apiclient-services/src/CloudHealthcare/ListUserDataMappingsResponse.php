@@ -20,14 +20,24 @@ namespace Google\Service\CloudHealthcare;
 class ListUserDataMappingsResponse extends \Google\Collection
 {
   protected $collection_key = 'userDataMappings';
+  /**
+   * @var string
+   */
   public $nextPageToken;
   protected $userDataMappingsType = UserDataMapping::class;
   protected $userDataMappingsDataType = 'array';
+  public $userDataMappings;
 
+  /**
+   * @param string
+   */
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
   }
+  /**
+   * @return string
+   */
   public function getNextPageToken()
   {
     return $this->nextPageToken;

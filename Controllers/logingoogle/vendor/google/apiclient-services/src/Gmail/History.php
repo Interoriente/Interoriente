@@ -20,22 +20,36 @@ namespace Google\Service\Gmail;
 class History extends \Google\Collection
 {
   protected $collection_key = 'messagesDeleted';
+  /**
+   * @var string
+   */
   public $id;
   protected $labelsAddedType = HistoryLabelAdded::class;
   protected $labelsAddedDataType = 'array';
+  public $labelsAdded;
   protected $labelsRemovedType = HistoryLabelRemoved::class;
   protected $labelsRemovedDataType = 'array';
+  public $labelsRemoved;
   protected $messagesType = Message::class;
   protected $messagesDataType = 'array';
+  public $messages;
   protected $messagesAddedType = HistoryMessageAdded::class;
   protected $messagesAddedDataType = 'array';
+  public $messagesAdded;
   protected $messagesDeletedType = HistoryMessageDeleted::class;
   protected $messagesDeletedDataType = 'array';
+  public $messagesDeleted;
 
+  /**
+   * @param string
+   */
   public function setId($id)
   {
     $this->id = $id;
   }
+  /**
+   * @return string
+   */
   public function getId()
   {
     return $this->id;

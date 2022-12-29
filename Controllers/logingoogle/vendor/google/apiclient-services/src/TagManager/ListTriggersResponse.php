@@ -20,14 +20,24 @@ namespace Google\Service\TagManager;
 class ListTriggersResponse extends \Google\Collection
 {
   protected $collection_key = 'trigger';
+  /**
+   * @var string
+   */
   public $nextPageToken;
   protected $triggerType = Trigger::class;
   protected $triggerDataType = 'array';
+  public $trigger;
 
+  /**
+   * @param string
+   */
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
   }
+  /**
+   * @return string
+   */
   public function getNextPageToken()
   {
     return $this->nextPageToken;

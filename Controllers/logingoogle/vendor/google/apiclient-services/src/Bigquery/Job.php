@@ -24,16 +24,35 @@ class Job extends \Google\Model
   ];
   protected $configurationType = JobConfiguration::class;
   protected $configurationDataType = '';
+  public $configuration;
+  /**
+   * @var string
+   */
   public $etag;
+  /**
+   * @var string
+   */
   public $id;
   protected $jobReferenceType = JobReference::class;
   protected $jobReferenceDataType = '';
+  public $jobReference;
+  /**
+   * @var string
+   */
   public $kind;
+  /**
+   * @var string
+   */
   public $selfLink;
   protected $statisticsType = JobStatistics::class;
   protected $statisticsDataType = '';
+  public $statistics;
   protected $statusType = JobStatus::class;
   protected $statusDataType = '';
+  public $status;
+  /**
+   * @var string
+   */
   public $userEmail;
 
   /**
@@ -50,18 +69,30 @@ class Job extends \Google\Model
   {
     return $this->configuration;
   }
+  /**
+   * @param string
+   */
   public function setEtag($etag)
   {
     $this->etag = $etag;
   }
+  /**
+   * @return string
+   */
   public function getEtag()
   {
     return $this->etag;
   }
+  /**
+   * @param string
+   */
   public function setId($id)
   {
     $this->id = $id;
   }
+  /**
+   * @return string
+   */
   public function getId()
   {
     return $this->id;
@@ -80,18 +111,30 @@ class Job extends \Google\Model
   {
     return $this->jobReference;
   }
+  /**
+   * @param string
+   */
   public function setKind($kind)
   {
     $this->kind = $kind;
   }
+  /**
+   * @return string
+   */
   public function getKind()
   {
     return $this->kind;
   }
+  /**
+   * @param string
+   */
   public function setSelfLink($selfLink)
   {
     $this->selfLink = $selfLink;
   }
+  /**
+   * @return string
+   */
   public function getSelfLink()
   {
     return $this->selfLink;
@@ -124,10 +167,16 @@ class Job extends \Google\Model
   {
     return $this->status;
   }
+  /**
+   * @param string
+   */
   public function setUserEmail($userEmail)
   {
     $this->userEmail = $userEmail;
   }
+  /**
+   * @return string
+   */
   public function getUserEmail()
   {
     return $this->userEmail;

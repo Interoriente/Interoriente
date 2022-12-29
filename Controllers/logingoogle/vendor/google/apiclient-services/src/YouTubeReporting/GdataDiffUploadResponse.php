@@ -19,14 +19,24 @@ namespace Google\Service\YouTubeReporting;
 
 class GdataDiffUploadResponse extends \Google\Model
 {
+  /**
+   * @var string
+   */
   public $objectVersion;
   protected $originalObjectType = GdataCompositeMedia::class;
   protected $originalObjectDataType = '';
+  public $originalObject;
 
+  /**
+   * @param string
+   */
   public function setObjectVersion($objectVersion)
   {
     $this->objectVersion = $objectVersion;
   }
+  /**
+   * @return string
+   */
   public function getObjectVersion()
   {
     return $this->objectVersion;

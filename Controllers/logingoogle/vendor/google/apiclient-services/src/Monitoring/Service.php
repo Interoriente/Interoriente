@@ -21,20 +21,51 @@ class Service extends \Google\Model
 {
   protected $appEngineType = AppEngine::class;
   protected $appEngineDataType = '';
+  public $appEngine;
+  protected $basicServiceType = BasicService::class;
+  protected $basicServiceDataType = '';
+  public $basicService;
   protected $cloudEndpointsType = CloudEndpoints::class;
   protected $cloudEndpointsDataType = '';
+  public $cloudEndpoints;
+  protected $cloudRunType = CloudRun::class;
+  protected $cloudRunDataType = '';
+  public $cloudRun;
   protected $clusterIstioType = ClusterIstio::class;
   protected $clusterIstioDataType = '';
+  public $clusterIstio;
   protected $customType = Custom::class;
   protected $customDataType = '';
+  public $custom;
+  /**
+   * @var string
+   */
   public $displayName;
+  protected $gkeNamespaceType = GkeNamespace::class;
+  protected $gkeNamespaceDataType = '';
+  public $gkeNamespace;
+  protected $gkeServiceType = GkeService::class;
+  protected $gkeServiceDataType = '';
+  public $gkeService;
+  protected $gkeWorkloadType = GkeWorkload::class;
+  protected $gkeWorkloadDataType = '';
+  public $gkeWorkload;
   protected $istioCanonicalServiceType = IstioCanonicalService::class;
   protected $istioCanonicalServiceDataType = '';
+  public $istioCanonicalService;
   protected $meshIstioType = MeshIstio::class;
   protected $meshIstioDataType = '';
+  public $meshIstio;
+  /**
+   * @var string
+   */
   public $name;
   protected $telemetryType = Telemetry::class;
   protected $telemetryDataType = '';
+  public $telemetry;
+  /**
+   * @var string[]
+   */
   public $userLabels;
 
   /**
@@ -52,6 +83,20 @@ class Service extends \Google\Model
     return $this->appEngine;
   }
   /**
+   * @param BasicService
+   */
+  public function setBasicService(BasicService $basicService)
+  {
+    $this->basicService = $basicService;
+  }
+  /**
+   * @return BasicService
+   */
+  public function getBasicService()
+  {
+    return $this->basicService;
+  }
+  /**
    * @param CloudEndpoints
    */
   public function setCloudEndpoints(CloudEndpoints $cloudEndpoints)
@@ -64,6 +109,20 @@ class Service extends \Google\Model
   public function getCloudEndpoints()
   {
     return $this->cloudEndpoints;
+  }
+  /**
+   * @param CloudRun
+   */
+  public function setCloudRun(CloudRun $cloudRun)
+  {
+    $this->cloudRun = $cloudRun;
+  }
+  /**
+   * @return CloudRun
+   */
+  public function getCloudRun()
+  {
+    return $this->cloudRun;
   }
   /**
    * @param ClusterIstio
@@ -93,13 +152,61 @@ class Service extends \Google\Model
   {
     return $this->custom;
   }
+  /**
+   * @param string
+   */
   public function setDisplayName($displayName)
   {
     $this->displayName = $displayName;
   }
+  /**
+   * @return string
+   */
   public function getDisplayName()
   {
     return $this->displayName;
+  }
+  /**
+   * @param GkeNamespace
+   */
+  public function setGkeNamespace(GkeNamespace $gkeNamespace)
+  {
+    $this->gkeNamespace = $gkeNamespace;
+  }
+  /**
+   * @return GkeNamespace
+   */
+  public function getGkeNamespace()
+  {
+    return $this->gkeNamespace;
+  }
+  /**
+   * @param GkeService
+   */
+  public function setGkeService(GkeService $gkeService)
+  {
+    $this->gkeService = $gkeService;
+  }
+  /**
+   * @return GkeService
+   */
+  public function getGkeService()
+  {
+    return $this->gkeService;
+  }
+  /**
+   * @param GkeWorkload
+   */
+  public function setGkeWorkload(GkeWorkload $gkeWorkload)
+  {
+    $this->gkeWorkload = $gkeWorkload;
+  }
+  /**
+   * @return GkeWorkload
+   */
+  public function getGkeWorkload()
+  {
+    return $this->gkeWorkload;
   }
   /**
    * @param IstioCanonicalService
@@ -129,10 +236,16 @@ class Service extends \Google\Model
   {
     return $this->meshIstio;
   }
+  /**
+   * @param string
+   */
   public function setName($name)
   {
     $this->name = $name;
   }
+  /**
+   * @return string
+   */
   public function getName()
   {
     return $this->name;
@@ -151,10 +264,16 @@ class Service extends \Google\Model
   {
     return $this->telemetry;
   }
+  /**
+   * @param string[]
+   */
   public function setUserLabels($userLabels)
   {
     $this->userLabels = $userLabels;
   }
+  /**
+   * @return string[]
+   */
   public function getUserLabels()
   {
     return $this->userLabels;

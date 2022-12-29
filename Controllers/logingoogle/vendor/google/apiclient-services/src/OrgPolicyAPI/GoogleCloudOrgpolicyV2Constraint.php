@@ -21,11 +21,25 @@ class GoogleCloudOrgpolicyV2Constraint extends \Google\Model
 {
   protected $booleanConstraintType = GoogleCloudOrgpolicyV2ConstraintBooleanConstraint::class;
   protected $booleanConstraintDataType = '';
+  public $booleanConstraint;
+  /**
+   * @var string
+   */
   public $constraintDefault;
+  /**
+   * @var string
+   */
   public $description;
+  /**
+   * @var string
+   */
   public $displayName;
   protected $listConstraintType = GoogleCloudOrgpolicyV2ConstraintListConstraint::class;
   protected $listConstraintDataType = '';
+  public $listConstraint;
+  /**
+   * @var string
+   */
   public $name;
 
   /**
@@ -42,26 +56,44 @@ class GoogleCloudOrgpolicyV2Constraint extends \Google\Model
   {
     return $this->booleanConstraint;
   }
+  /**
+   * @param string
+   */
   public function setConstraintDefault($constraintDefault)
   {
     $this->constraintDefault = $constraintDefault;
   }
+  /**
+   * @return string
+   */
   public function getConstraintDefault()
   {
     return $this->constraintDefault;
   }
+  /**
+   * @param string
+   */
   public function setDescription($description)
   {
     $this->description = $description;
   }
+  /**
+   * @return string
+   */
   public function getDescription()
   {
     return $this->description;
   }
+  /**
+   * @param string
+   */
   public function setDisplayName($displayName)
   {
     $this->displayName = $displayName;
   }
+  /**
+   * @return string
+   */
   public function getDisplayName()
   {
     return $this->displayName;
@@ -80,10 +112,16 @@ class GoogleCloudOrgpolicyV2Constraint extends \Google\Model
   {
     return $this->listConstraint;
   }
+  /**
+   * @param string
+   */
   public function setName($name)
   {
     $this->name = $name;
   }
+  /**
+   * @return string
+   */
   public function getName()
   {
     return $this->name;

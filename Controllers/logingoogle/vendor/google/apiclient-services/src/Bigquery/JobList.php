@@ -20,16 +20,32 @@ namespace Google\Service\Bigquery;
 class JobList extends \Google\Collection
 {
   protected $collection_key = 'jobs';
+  /**
+   * @var string
+   */
   public $etag;
   protected $jobsType = JobListJobs::class;
   protected $jobsDataType = 'array';
+  public $jobs;
+  /**
+   * @var string
+   */
   public $kind;
+  /**
+   * @var string
+   */
   public $nextPageToken;
 
+  /**
+   * @param string
+   */
   public function setEtag($etag)
   {
     $this->etag = $etag;
   }
+  /**
+   * @return string
+   */
   public function getEtag()
   {
     return $this->etag;
@@ -48,18 +64,30 @@ class JobList extends \Google\Collection
   {
     return $this->jobs;
   }
+  /**
+   * @param string
+   */
   public function setKind($kind)
   {
     $this->kind = $kind;
   }
+  /**
+   * @return string
+   */
   public function getKind()
   {
     return $this->kind;
   }
+  /**
+   * @param string
+   */
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
   }
+  /**
+   * @return string
+   */
   public function getNextPageToken()
   {
     return $this->nextPageToken;

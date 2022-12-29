@@ -20,14 +20,24 @@ namespace Google\Service\Assuredworkloads;
 class GoogleCloudAssuredworkloadsV1ListWorkloadsResponse extends \Google\Collection
 {
   protected $collection_key = 'workloads';
+  /**
+   * @var string
+   */
   public $nextPageToken;
   protected $workloadsType = GoogleCloudAssuredworkloadsV1Workload::class;
   protected $workloadsDataType = 'array';
+  public $workloads;
 
+  /**
+   * @param string
+   */
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
   }
+  /**
+   * @return string
+   */
   public function getNextPageToken()
   {
     return $this->nextPageToken;

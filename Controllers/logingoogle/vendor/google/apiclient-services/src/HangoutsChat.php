@@ -23,9 +23,8 @@ use Google\Client;
  * Service definition for HangoutsChat (v1).
  *
  * <p>
- * Enables bots to fetch information and perform actions in Google Chat.
- * Authentication using a service account is a prerequisite for using the Google
- * Chat REST API.</p>
+ * Enables apps to fetch information and perform actions in Google Chat.
+ * Authentication is a prerequisite for using the Google Chat REST API.</p>
  *
  * <p>
  * For more information about this service, see the API
@@ -36,7 +35,27 @@ use Google\Client;
  */
 class HangoutsChat extends \Google\Service
 {
-
+  /** View, add, and remove members from conversations in Google Chat. */
+  const CHAT_MEMBERSHIPS =
+      "https://www.googleapis.com/auth/chat.memberships";
+  /** View members in Google Chat conversations.. */
+  const CHAT_MEMBERSHIPS_READONLY =
+      "https://www.googleapis.com/auth/chat.memberships.readonly";
+  /** View, compose, send, update, and delete messages, and add, view, and delete reactions to messages.. */
+  const CHAT_MESSAGES =
+      "https://www.googleapis.com/auth/chat.messages";
+  /** Compose and send messages in Google Chat. */
+  const CHAT_MESSAGES_CREATE =
+      "https://www.googleapis.com/auth/chat.messages.create";
+  /** View messages and reactions in Google Chat. */
+  const CHAT_MESSAGES_READONLY =
+      "https://www.googleapis.com/auth/chat.messages.readonly";
+  /** Create conversations and spaces and view or update metadata (including history settings) in Google Chat. */
+  const CHAT_SPACES =
+      "https://www.googleapis.com/auth/chat.spaces";
+  /** View chat and spaces in Google Chat. */
+  const CHAT_SPACES_READONLY =
+      "https://www.googleapis.com/auth/chat.spaces.readonly";
 
   public $dms;
   public $dms_conversations;
@@ -79,6 +98,18 @@ class HangoutsChat extends \Google\Service
                   'type' => 'string',
                   'required' => true,
                 ],
+                'messageId' => [
+                  'location' => 'query',
+                  'type' => 'string',
+                ],
+                'messageReplyOption' => [
+                  'location' => 'query',
+                  'type' => 'string',
+                ],
+                'requestId' => [
+                  'location' => 'query',
+                  'type' => 'string',
+                ],
                 'threadKey' => [
                   'location' => 'query',
                   'type' => 'string',
@@ -92,6 +123,18 @@ class HangoutsChat extends \Google\Service
                   'location' => 'path',
                   'type' => 'string',
                   'required' => true,
+                ],
+                'messageId' => [
+                  'location' => 'query',
+                  'type' => 'string',
+                ],
+                'messageReplyOption' => [
+                  'location' => 'query',
+                  'type' => 'string',
+                ],
+                'requestId' => [
+                  'location' => 'query',
+                  'type' => 'string',
                 ],
                 'threadKey' => [
                   'location' => 'query',
@@ -116,6 +159,18 @@ class HangoutsChat extends \Google\Service
                   'location' => 'path',
                   'type' => 'string',
                   'required' => true,
+                ],
+                'messageId' => [
+                  'location' => 'query',
+                  'type' => 'string',
+                ],
+                'messageReplyOption' => [
+                  'location' => 'query',
+                  'type' => 'string',
+                ],
+                'requestId' => [
+                  'location' => 'query',
+                  'type' => 'string',
                 ],
                 'threadKey' => [
                   'location' => 'query',
@@ -161,6 +216,18 @@ class HangoutsChat extends \Google\Service
                   'type' => 'string',
                   'required' => true,
                 ],
+                'messageId' => [
+                  'location' => 'query',
+                  'type' => 'string',
+                ],
+                'messageReplyOption' => [
+                  'location' => 'query',
+                  'type' => 'string',
+                ],
+                'requestId' => [
+                  'location' => 'query',
+                  'type' => 'string',
+                ],
                 'threadKey' => [
                   'location' => 'query',
                   'type' => 'string',
@@ -174,6 +241,18 @@ class HangoutsChat extends \Google\Service
                   'location' => 'path',
                   'type' => 'string',
                   'required' => true,
+                ],
+                'messageId' => [
+                  'location' => 'query',
+                  'type' => 'string',
+                ],
+                'messageReplyOption' => [
+                  'location' => 'query',
+                  'type' => 'string',
+                ],
+                'requestId' => [
+                  'location' => 'query',
+                  'type' => 'string',
                 ],
                 'threadKey' => [
                   'location' => 'query',
@@ -198,6 +277,18 @@ class HangoutsChat extends \Google\Service
                   'location' => 'path',
                   'type' => 'string',
                   'required' => true,
+                ],
+                'messageId' => [
+                  'location' => 'query',
+                  'type' => 'string',
+                ],
+                'messageReplyOption' => [
+                  'location' => 'query',
+                  'type' => 'string',
+                ],
+                'requestId' => [
+                  'location' => 'query',
+                  'type' => 'string',
                 ],
                 'threadKey' => [
                   'location' => 'query',
@@ -245,6 +336,18 @@ class HangoutsChat extends \Google\Service
                   'location' => 'path',
                   'type' => 'string',
                   'required' => true,
+                ],
+                'messageId' => [
+                  'location' => 'query',
+                  'type' => 'string',
+                ],
+                'messageReplyOption' => [
+                  'location' => 'query',
+                  'type' => 'string',
+                ],
+                'requestId' => [
+                  'location' => 'query',
+                  'type' => 'string',
                 ],
                 'threadKey' => [
                   'location' => 'query',
@@ -308,6 +411,18 @@ class HangoutsChat extends \Google\Service
                   'type' => 'string',
                   'required' => true,
                 ],
+                'messageId' => [
+                  'location' => 'query',
+                  'type' => 'string',
+                ],
+                'messageReplyOption' => [
+                  'location' => 'query',
+                  'type' => 'string',
+                ],
+                'requestId' => [
+                  'location' => 'query',
+                  'type' => 'string',
+                ],
                 'threadKey' => [
                   'location' => 'query',
                   'type' => 'string',
@@ -333,6 +448,24 @@ class HangoutsChat extends \Google\Service
                   'required' => true,
                 ],
               ],
+            ],'patch' => [
+              'path' => 'v1/{+name}',
+              'httpMethod' => 'PATCH',
+              'parameters' => [
+                'name' => [
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ],
+                'allowMissing' => [
+                  'location' => 'query',
+                  'type' => 'boolean',
+                ],
+                'updateMask' => [
+                  'location' => 'query',
+                  'type' => 'string',
+                ],
+              ],
             ],'update' => [
               'path' => 'v1/{+name}',
               'httpMethod' => 'PUT',
@@ -341,6 +474,10 @@ class HangoutsChat extends \Google\Service
                   'location' => 'path',
                   'type' => 'string',
                   'required' => true,
+                ],
+                'allowMissing' => [
+                  'location' => 'query',
+                  'type' => 'boolean',
                 ],
                 'updateMask' => [
                   'location' => 'query',

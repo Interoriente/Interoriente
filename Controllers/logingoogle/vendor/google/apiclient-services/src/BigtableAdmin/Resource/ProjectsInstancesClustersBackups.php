@@ -19,6 +19,7 @@ namespace Google\Service\BigtableAdmin\Resource;
 
 use Google\Service\BigtableAdmin\Backup;
 use Google\Service\BigtableAdmin\BigtableadminEmpty;
+use Google\Service\BigtableAdmin\CopyBackupRequest;
 use Google\Service\BigtableAdmin\GetIamPolicyRequest;
 use Google\Service\BigtableAdmin\ListBackupsResponse;
 use Google\Service\BigtableAdmin\Operation;
@@ -32,11 +33,28 @@ use Google\Service\BigtableAdmin\TestIamPermissionsResponse;
  * Typical usage is:
  *  <code>
  *   $bigtableadminService = new Google\Service\BigtableAdmin(...);
- *   $backups = $bigtableadminService->backups;
+ *   $backups = $bigtableadminService->projects_instances_clusters_backups;
  *  </code>
  */
 class ProjectsInstancesClustersBackups extends \Google\Service\Resource
 {
+  /**
+   * Copy a Cloud Bigtable backup to a new backup in the destination cluster
+   * located in the destination instance and project. (backups.copy)
+   *
+   * @param string $parent Required. The name of the destination cluster that will
+   * contain the backup copy. The cluster must already exists. Values are of the
+   * form: `projects/{project}/instances/{instance}/clusters/{cluster}`.
+   * @param CopyBackupRequest $postBody
+   * @param array $optParams Optional parameters.
+   * @return Operation
+   */
+  public function copy($parent, CopyBackupRequest $postBody, $optParams = [])
+  {
+    $params = ['parent' => $parent, 'postBody' => $postBody];
+    $params = array_merge($params, $optParams);
+    return $this->call('copy', [$params], Operation::class);
+  }
   /**
    * Starts creating a new Cloud Bigtable Backup. The returned backup long-running
    * operation can be used to track creation of the backup. The metadata field
@@ -99,8 +117,9 @@ class ProjectsInstancesClustersBackups extends \Google\Service\Resource
    * if the resource exists but does not have a policy set. (backups.getIamPolicy)
    *
    * @param string $resource REQUIRED: The resource for which the policy is being
-   * requested. See the operation documentation for the appropriate value for this
-   * field.
+   * requested. See [Resource
+   * names](https://cloud.google.com/apis/design/resource_names) for the
+   * appropriate value for this field.
    * @param GetIamPolicyRequest $postBody
    * @param array $optParams Optional parameters.
    * @return Policy
@@ -196,8 +215,9 @@ class ProjectsInstancesClustersBackups extends \Google\Service\Resource
    * policy. (backups.setIamPolicy)
    *
    * @param string $resource REQUIRED: The resource for which the policy is being
-   * specified. See the operation documentation for the appropriate value for this
-   * field.
+   * specified. See [Resource
+   * names](https://cloud.google.com/apis/design/resource_names) for the
+   * appropriate value for this field.
    * @param SetIamPolicyRequest $postBody
    * @param array $optParams Optional parameters.
    * @return Policy
@@ -213,8 +233,9 @@ class ProjectsInstancesClustersBackups extends \Google\Service\Resource
    * (backups.testIamPermissions)
    *
    * @param string $resource REQUIRED: The resource for which the policy detail is
-   * being requested. See the operation documentation for the appropriate value
-   * for this field.
+   * being requested. See [Resource
+   * names](https://cloud.google.com/apis/design/resource_names) for the
+   * appropriate value for this field.
    * @param TestIamPermissionsRequest $postBody
    * @param array $optParams Optional parameters.
    * @return TestIamPermissionsResponse

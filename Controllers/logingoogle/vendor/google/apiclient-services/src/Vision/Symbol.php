@@ -21,9 +21,17 @@ class Symbol extends \Google\Model
 {
   protected $boundingBoxType = BoundingPoly::class;
   protected $boundingBoxDataType = '';
+  public $boundingBox;
+  /**
+   * @var float
+   */
   public $confidence;
   protected $propertyType = TextProperty::class;
   protected $propertyDataType = '';
+  public $property;
+  /**
+   * @var string
+   */
   public $text;
 
   /**
@@ -40,10 +48,16 @@ class Symbol extends \Google\Model
   {
     return $this->boundingBox;
   }
+  /**
+   * @param float
+   */
   public function setConfidence($confidence)
   {
     $this->confidence = $confidence;
   }
+  /**
+   * @return float
+   */
   public function getConfidence()
   {
     return $this->confidence;
@@ -62,10 +76,16 @@ class Symbol extends \Google\Model
   {
     return $this->property;
   }
+  /**
+   * @param string
+   */
   public function setText($text)
   {
     $this->text = $text;
   }
+  /**
+   * @return string
+   */
   public function getText()
   {
     return $this->text;

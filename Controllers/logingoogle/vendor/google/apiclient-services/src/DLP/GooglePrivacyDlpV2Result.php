@@ -22,9 +22,17 @@ class GooglePrivacyDlpV2Result extends \Google\Collection
   protected $collection_key = 'infoTypeStats';
   protected $hybridStatsType = GooglePrivacyDlpV2HybridInspectStatistics::class;
   protected $hybridStatsDataType = '';
+  public $hybridStats;
   protected $infoTypeStatsType = GooglePrivacyDlpV2InfoTypeStats::class;
   protected $infoTypeStatsDataType = 'array';
+  public $infoTypeStats;
+  /**
+   * @var string
+   */
   public $processedBytes;
+  /**
+   * @var string
+   */
   public $totalEstimatedBytes;
 
   /**
@@ -55,18 +63,30 @@ class GooglePrivacyDlpV2Result extends \Google\Collection
   {
     return $this->infoTypeStats;
   }
+  /**
+   * @param string
+   */
   public function setProcessedBytes($processedBytes)
   {
     $this->processedBytes = $processedBytes;
   }
+  /**
+   * @return string
+   */
   public function getProcessedBytes()
   {
     return $this->processedBytes;
   }
+  /**
+   * @param string
+   */
   public function setTotalEstimatedBytes($totalEstimatedBytes)
   {
     $this->totalEstimatedBytes = $totalEstimatedBytes;
   }
+  /**
+   * @return string
+   */
   public function getTotalEstimatedBytes()
   {
     return $this->totalEstimatedBytes;

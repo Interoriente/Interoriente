@@ -22,33 +22,76 @@ class InstanceProperties extends \Google\Collection
   protected $collection_key = 'serviceAccounts';
   protected $advancedMachineFeaturesType = AdvancedMachineFeatures::class;
   protected $advancedMachineFeaturesDataType = '';
+  public $advancedMachineFeatures;
+  /**
+   * @var bool
+   */
   public $canIpForward;
   protected $confidentialInstanceConfigType = ConfidentialInstanceConfig::class;
   protected $confidentialInstanceConfigDataType = '';
+  public $confidentialInstanceConfig;
+  /**
+   * @var string
+   */
   public $description;
   protected $disksType = AttachedDisk::class;
   protected $disksDataType = 'array';
+  public $disks;
   protected $guestAcceleratorsType = AcceleratorConfig::class;
   protected $guestAcceleratorsDataType = 'array';
+  public $guestAccelerators;
+  /**
+   * @var string
+   */
+  public $keyRevocationActionType;
+  /**
+   * @var string[]
+   */
   public $labels;
+  /**
+   * @var string
+   */
   public $machineType;
   protected $metadataType = Metadata::class;
   protected $metadataDataType = '';
+  public $metadata;
+  /**
+   * @var string
+   */
   public $minCpuPlatform;
   protected $networkInterfacesType = NetworkInterface::class;
   protected $networkInterfacesDataType = 'array';
+  public $networkInterfaces;
+  protected $networkPerformanceConfigType = NetworkPerformanceConfig::class;
+  protected $networkPerformanceConfigDataType = '';
+  public $networkPerformanceConfig;
+  /**
+   * @var string
+   */
   public $privateIpv6GoogleAccess;
   protected $reservationAffinityType = ReservationAffinity::class;
   protected $reservationAffinityDataType = '';
+  public $reservationAffinity;
+  /**
+   * @var string[]
+   */
+  public $resourceManagerTags;
+  /**
+   * @var string[]
+   */
   public $resourcePolicies;
   protected $schedulingType = Scheduling::class;
   protected $schedulingDataType = '';
+  public $scheduling;
   protected $serviceAccountsType = ServiceAccount::class;
   protected $serviceAccountsDataType = 'array';
+  public $serviceAccounts;
   protected $shieldedInstanceConfigType = ShieldedInstanceConfig::class;
   protected $shieldedInstanceConfigDataType = '';
+  public $shieldedInstanceConfig;
   protected $tagsType = Tags::class;
   protected $tagsDataType = '';
+  public $tags;
 
   /**
    * @param AdvancedMachineFeatures
@@ -64,10 +107,16 @@ class InstanceProperties extends \Google\Collection
   {
     return $this->advancedMachineFeatures;
   }
+  /**
+   * @param bool
+   */
   public function setCanIpForward($canIpForward)
   {
     $this->canIpForward = $canIpForward;
   }
+  /**
+   * @return bool
+   */
   public function getCanIpForward()
   {
     return $this->canIpForward;
@@ -86,10 +135,16 @@ class InstanceProperties extends \Google\Collection
   {
     return $this->confidentialInstanceConfig;
   }
+  /**
+   * @param string
+   */
   public function setDescription($description)
   {
     $this->description = $description;
   }
+  /**
+   * @return string
+   */
   public function getDescription()
   {
     return $this->description;
@@ -122,18 +177,44 @@ class InstanceProperties extends \Google\Collection
   {
     return $this->guestAccelerators;
   }
+  /**
+   * @param string
+   */
+  public function setKeyRevocationActionType($keyRevocationActionType)
+  {
+    $this->keyRevocationActionType = $keyRevocationActionType;
+  }
+  /**
+   * @return string
+   */
+  public function getKeyRevocationActionType()
+  {
+    return $this->keyRevocationActionType;
+  }
+  /**
+   * @param string[]
+   */
   public function setLabels($labels)
   {
     $this->labels = $labels;
   }
+  /**
+   * @return string[]
+   */
   public function getLabels()
   {
     return $this->labels;
   }
+  /**
+   * @param string
+   */
   public function setMachineType($machineType)
   {
     $this->machineType = $machineType;
   }
+  /**
+   * @return string
+   */
   public function getMachineType()
   {
     return $this->machineType;
@@ -152,10 +233,16 @@ class InstanceProperties extends \Google\Collection
   {
     return $this->metadata;
   }
+  /**
+   * @param string
+   */
   public function setMinCpuPlatform($minCpuPlatform)
   {
     $this->minCpuPlatform = $minCpuPlatform;
   }
+  /**
+   * @return string
+   */
   public function getMinCpuPlatform()
   {
     return $this->minCpuPlatform;
@@ -174,10 +261,30 @@ class InstanceProperties extends \Google\Collection
   {
     return $this->networkInterfaces;
   }
+  /**
+   * @param NetworkPerformanceConfig
+   */
+  public function setNetworkPerformanceConfig(NetworkPerformanceConfig $networkPerformanceConfig)
+  {
+    $this->networkPerformanceConfig = $networkPerformanceConfig;
+  }
+  /**
+   * @return NetworkPerformanceConfig
+   */
+  public function getNetworkPerformanceConfig()
+  {
+    return $this->networkPerformanceConfig;
+  }
+  /**
+   * @param string
+   */
   public function setPrivateIpv6GoogleAccess($privateIpv6GoogleAccess)
   {
     $this->privateIpv6GoogleAccess = $privateIpv6GoogleAccess;
   }
+  /**
+   * @return string
+   */
   public function getPrivateIpv6GoogleAccess()
   {
     return $this->privateIpv6GoogleAccess;
@@ -196,10 +303,30 @@ class InstanceProperties extends \Google\Collection
   {
     return $this->reservationAffinity;
   }
+  /**
+   * @param string[]
+   */
+  public function setResourceManagerTags($resourceManagerTags)
+  {
+    $this->resourceManagerTags = $resourceManagerTags;
+  }
+  /**
+   * @return string[]
+   */
+  public function getResourceManagerTags()
+  {
+    return $this->resourceManagerTags;
+  }
+  /**
+   * @param string[]
+   */
   public function setResourcePolicies($resourcePolicies)
   {
     $this->resourcePolicies = $resourcePolicies;
   }
+  /**
+   * @return string[]
+   */
   public function getResourcePolicies()
   {
     return $this->resourcePolicies;

@@ -19,26 +19,49 @@ namespace Google\Service\Apigee;
 
 class GoogleCloudApigeeV1DeploymentChangeReportRoutingChange extends \Google\Model
 {
+  /**
+   * @var string
+   */
   public $description;
+  /**
+   * @var string
+   */
   public $environmentGroup;
   protected $fromDeploymentType = GoogleCloudApigeeV1DeploymentChangeReportRoutingDeployment::class;
   protected $fromDeploymentDataType = '';
+  public $fromDeployment;
+  /**
+   * @var bool
+   */
   public $shouldSequenceRollout;
   protected $toDeploymentType = GoogleCloudApigeeV1DeploymentChangeReportRoutingDeployment::class;
   protected $toDeploymentDataType = '';
+  public $toDeployment;
 
+  /**
+   * @param string
+   */
   public function setDescription($description)
   {
     $this->description = $description;
   }
+  /**
+   * @return string
+   */
   public function getDescription()
   {
     return $this->description;
   }
+  /**
+   * @param string
+   */
   public function setEnvironmentGroup($environmentGroup)
   {
     $this->environmentGroup = $environmentGroup;
   }
+  /**
+   * @return string
+   */
   public function getEnvironmentGroup()
   {
     return $this->environmentGroup;
@@ -57,10 +80,16 @@ class GoogleCloudApigeeV1DeploymentChangeReportRoutingChange extends \Google\Mod
   {
     return $this->fromDeployment;
   }
+  /**
+   * @param bool
+   */
   public function setShouldSequenceRollout($shouldSequenceRollout)
   {
     $this->shouldSequenceRollout = $shouldSequenceRollout;
   }
+  /**
+   * @return bool
+   */
   public function getShouldSequenceRollout()
   {
     return $this->shouldSequenceRollout;

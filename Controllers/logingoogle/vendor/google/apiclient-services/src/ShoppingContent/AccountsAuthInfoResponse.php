@@ -22,6 +22,10 @@ class AccountsAuthInfoResponse extends \Google\Collection
   protected $collection_key = 'accountIdentifiers';
   protected $accountIdentifiersType = AccountIdentifier::class;
   protected $accountIdentifiersDataType = 'array';
+  public $accountIdentifiers;
+  /**
+   * @var string
+   */
   public $kind;
 
   /**
@@ -38,10 +42,16 @@ class AccountsAuthInfoResponse extends \Google\Collection
   {
     return $this->accountIdentifiers;
   }
+  /**
+   * @param string
+   */
   public function setKind($kind)
   {
     $this->kind = $kind;
   }
+  /**
+   * @return string
+   */
   public function getKind()
   {
     return $this->kind;

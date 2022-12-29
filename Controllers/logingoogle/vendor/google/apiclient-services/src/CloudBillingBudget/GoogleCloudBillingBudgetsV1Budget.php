@@ -22,15 +22,28 @@ class GoogleCloudBillingBudgetsV1Budget extends \Google\Collection
   protected $collection_key = 'thresholdRules';
   protected $amountType = GoogleCloudBillingBudgetsV1BudgetAmount::class;
   protected $amountDataType = '';
+  public $amount;
   protected $budgetFilterType = GoogleCloudBillingBudgetsV1Filter::class;
   protected $budgetFilterDataType = '';
+  public $budgetFilter;
+  /**
+   * @var string
+   */
   public $displayName;
+  /**
+   * @var string
+   */
   public $etag;
+  /**
+   * @var string
+   */
   public $name;
   protected $notificationsRuleType = GoogleCloudBillingBudgetsV1NotificationsRule::class;
   protected $notificationsRuleDataType = '';
+  public $notificationsRule;
   protected $thresholdRulesType = GoogleCloudBillingBudgetsV1ThresholdRule::class;
   protected $thresholdRulesDataType = 'array';
+  public $thresholdRules;
 
   /**
    * @param GoogleCloudBillingBudgetsV1BudgetAmount
@@ -60,26 +73,44 @@ class GoogleCloudBillingBudgetsV1Budget extends \Google\Collection
   {
     return $this->budgetFilter;
   }
+  /**
+   * @param string
+   */
   public function setDisplayName($displayName)
   {
     $this->displayName = $displayName;
   }
+  /**
+   * @return string
+   */
   public function getDisplayName()
   {
     return $this->displayName;
   }
+  /**
+   * @param string
+   */
   public function setEtag($etag)
   {
     $this->etag = $etag;
   }
+  /**
+   * @return string
+   */
   public function getEtag()
   {
     return $this->etag;
   }
+  /**
+   * @param string
+   */
   public function setName($name)
   {
     $this->name = $name;
   }
+  /**
+   * @return string
+   */
   public function getName()
   {
     return $this->name;

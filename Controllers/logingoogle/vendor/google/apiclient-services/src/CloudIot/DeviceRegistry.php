@@ -22,17 +22,31 @@ class DeviceRegistry extends \Google\Collection
   protected $collection_key = 'eventNotificationConfigs';
   protected $credentialsType = RegistryCredential::class;
   protected $credentialsDataType = 'array';
+  public $credentials;
   protected $eventNotificationConfigsType = EventNotificationConfig::class;
   protected $eventNotificationConfigsDataType = 'array';
+  public $eventNotificationConfigs;
   protected $httpConfigType = HttpConfig::class;
   protected $httpConfigDataType = '';
+  public $httpConfig;
+  /**
+   * @var string
+   */
   public $id;
+  /**
+   * @var string
+   */
   public $logLevel;
   protected $mqttConfigType = MqttConfig::class;
   protected $mqttConfigDataType = '';
+  public $mqttConfig;
+  /**
+   * @var string
+   */
   public $name;
   protected $stateNotificationConfigType = StateNotificationConfig::class;
   protected $stateNotificationConfigDataType = '';
+  public $stateNotificationConfig;
 
   /**
    * @param RegistryCredential[]
@@ -76,18 +90,30 @@ class DeviceRegistry extends \Google\Collection
   {
     return $this->httpConfig;
   }
+  /**
+   * @param string
+   */
   public function setId($id)
   {
     $this->id = $id;
   }
+  /**
+   * @return string
+   */
   public function getId()
   {
     return $this->id;
   }
+  /**
+   * @param string
+   */
   public function setLogLevel($logLevel)
   {
     $this->logLevel = $logLevel;
   }
+  /**
+   * @return string
+   */
   public function getLogLevel()
   {
     return $this->logLevel;
@@ -106,10 +132,16 @@ class DeviceRegistry extends \Google\Collection
   {
     return $this->mqttConfig;
   }
+  /**
+   * @param string
+   */
   public function setName($name)
   {
     $this->name = $name;
   }
+  /**
+   * @return string
+   */
   public function getName()
   {
     return $this->name;

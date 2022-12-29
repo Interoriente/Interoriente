@@ -22,6 +22,10 @@ class NotificationSet extends \Google\Collection
   protected $collection_key = 'notification';
   protected $notificationType = Notification::class;
   protected $notificationDataType = 'array';
+  public $notification;
+  /**
+   * @var string
+   */
   public $notificationSetId;
 
   /**
@@ -38,10 +42,16 @@ class NotificationSet extends \Google\Collection
   {
     return $this->notification;
   }
+  /**
+   * @param string
+   */
   public function setNotificationSetId($notificationSetId)
   {
     $this->notificationSetId = $notificationSetId;
   }
+  /**
+   * @return string
+   */
   public function getNotificationSetId()
   {
     return $this->notificationSetId;

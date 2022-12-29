@@ -22,6 +22,10 @@ class GoogleCloudDialogflowCxV3ListFlowsResponse extends \Google\Collection
   protected $collection_key = 'flows';
   protected $flowsType = GoogleCloudDialogflowCxV3Flow::class;
   protected $flowsDataType = 'array';
+  public $flows;
+  /**
+   * @var string
+   */
   public $nextPageToken;
 
   /**
@@ -38,10 +42,16 @@ class GoogleCloudDialogflowCxV3ListFlowsResponse extends \Google\Collection
   {
     return $this->flows;
   }
+  /**
+   * @param string
+   */
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
   }
+  /**
+   * @return string
+   */
   public function getNextPageToken()
   {
     return $this->nextPageToken;

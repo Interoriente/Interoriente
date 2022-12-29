@@ -17,8 +17,10 @@
 
 namespace Google\Service\Firestore\Resource;
 
+use Google\Service\Firestore\GoogleFirestoreAdminV1Database;
 use Google\Service\Firestore\GoogleFirestoreAdminV1ExportDocumentsRequest;
 use Google\Service\Firestore\GoogleFirestoreAdminV1ImportDocumentsRequest;
+use Google\Service\Firestore\GoogleFirestoreAdminV1ListDatabasesResponse;
 use Google\Service\Firestore\GoogleLongrunningOperation;
 
 /**
@@ -26,11 +28,55 @@ use Google\Service\Firestore\GoogleLongrunningOperation;
  * Typical usage is:
  *  <code>
  *   $firestoreService = new Google\Service\Firestore(...);
- *   $databases = $firestoreService->databases;
+ *   $databases = $firestoreService->projects_databases;
  *  </code>
  */
 class ProjectsDatabases extends \Google\Service\Resource
 {
+  /**
+   * Create a database. (databases.create)
+   *
+   * @param string $parent Required. A parent name of the form
+   * `projects/{project_id}`
+   * @param GoogleFirestoreAdminV1Database $postBody
+   * @param array $optParams Optional parameters.
+   *
+   * @opt_param string databaseId Required. The ID to use for the database, which
+   * will become the final component of the database's resource name. This value
+   * should be 4-63 characters. Valid characters are /a-z-/ with first character a
+   * letter and the last a letter or a number. Must not be UUID-like
+   * /[0-9a-f]{8}(-[0-9a-f]{4}){3}-[0-9a-f]{12}/. "(default)" database id is also
+   * valid.
+   * @return GoogleLongrunningOperation
+   */
+  public function create($parent, GoogleFirestoreAdminV1Database $postBody, $optParams = [])
+  {
+    $params = ['parent' => $parent, 'postBody' => $postBody];
+    $params = array_merge($params, $optParams);
+    return $this->call('create', [$params], GoogleLongrunningOperation::class);
+  }
+  /**
+   * Deletes a database. (databases.delete)
+   *
+   * @param string $name Required. A name of the form
+   * `projects/{project_id}/databases/{database_id}`
+   * @param array $optParams Optional parameters.
+   *
+   * @opt_param bool allowMissing If set to true and the Database is not found,
+   * the request will succeed but no action will be taken.
+   * @opt_param string etag The current etag of the Database. If an etag is
+   * provided and does not match the current etag of the database, deletion will
+   * be blocked and a FAILED_PRECONDITION error will be returned.
+   * @opt_param bool validateOnly If set, validate the request and preview the
+   * response, but do not actually delete the database.
+   * @return GoogleLongrunningOperation
+   */
+  public function delete($name, $optParams = [])
+  {
+    $params = ['name' => $name];
+    $params = array_merge($params, $optParams);
+    return $this->call('delete', [$params], GoogleLongrunningOperation::class);
+  }
   /**
    * Exports a copy of all or a subset of documents from Google Cloud Firestore to
    * another storage system, such as Google Cloud Storage. Recent updates to
@@ -56,6 +102,20 @@ class ProjectsDatabases extends \Google\Service\Resource
     return $this->call('exportDocuments', [$params], GoogleLongrunningOperation::class);
   }
   /**
+   * Gets information about a database. (databases.get)
+   *
+   * @param string $name Required. A name of the form
+   * `projects/{project_id}/databases/{database_id}`
+   * @param array $optParams Optional parameters.
+   * @return GoogleFirestoreAdminV1Database
+   */
+  public function get($name, $optParams = [])
+  {
+    $params = ['name' => $name];
+    $params = array_merge($params, $optParams);
+    return $this->call('get', [$params], GoogleFirestoreAdminV1Database::class);
+  }
+  /**
    * Imports documents into Google Cloud Firestore. Existing documents with the
    * same name are overwritten. The import occurs in the background and its
    * progress can be monitored and managed via the Operation resource that is
@@ -74,6 +134,37 @@ class ProjectsDatabases extends \Google\Service\Resource
     $params = ['name' => $name, 'postBody' => $postBody];
     $params = array_merge($params, $optParams);
     return $this->call('importDocuments', [$params], GoogleLongrunningOperation::class);
+  }
+  /**
+   * List all the databases in the project. (databases.listProjectsDatabases)
+   *
+   * @param string $parent Required. A parent name of the form
+   * `projects/{project_id}`
+   * @param array $optParams Optional parameters.
+   * @return GoogleFirestoreAdminV1ListDatabasesResponse
+   */
+  public function listProjectsDatabases($parent, $optParams = [])
+  {
+    $params = ['parent' => $parent];
+    $params = array_merge($params, $optParams);
+    return $this->call('list', [$params], GoogleFirestoreAdminV1ListDatabasesResponse::class);
+  }
+  /**
+   * Updates a database. (databases.patch)
+   *
+   * @param string $name The resource name of the Database. Format:
+   * `projects/{project}/databases/{database}`
+   * @param GoogleFirestoreAdminV1Database $postBody
+   * @param array $optParams Optional parameters.
+   *
+   * @opt_param string updateMask The list of fields to be updated.
+   * @return GoogleLongrunningOperation
+   */
+  public function patch($name, GoogleFirestoreAdminV1Database $postBody, $optParams = [])
+  {
+    $params = ['name' => $name, 'postBody' => $postBody];
+    $params = array_merge($params, $optParams);
+    return $this->call('patch', [$params], GoogleLongrunningOperation::class);
   }
 }
 

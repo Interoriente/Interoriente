@@ -22,15 +22,36 @@ class Note extends \Google\Collection
   protected $collection_key = 'permissions';
   protected $attachmentsType = Attachment::class;
   protected $attachmentsDataType = 'array';
+  public $attachments;
   protected $bodyType = Section::class;
   protected $bodyDataType = '';
+  public $body;
+  /**
+   * @var string
+   */
   public $createTime;
+  /**
+   * @var string
+   */
   public $name;
   protected $permissionsType = Permission::class;
   protected $permissionsDataType = 'array';
+  public $permissions;
+  /**
+   * @var string
+   */
   public $title;
+  /**
+   * @var string
+   */
   public $trashTime;
+  /**
+   * @var bool
+   */
   public $trashed;
+  /**
+   * @var string
+   */
   public $updateTime;
 
   /**
@@ -61,18 +82,30 @@ class Note extends \Google\Collection
   {
     return $this->body;
   }
+  /**
+   * @param string
+   */
   public function setCreateTime($createTime)
   {
     $this->createTime = $createTime;
   }
+  /**
+   * @return string
+   */
   public function getCreateTime()
   {
     return $this->createTime;
   }
+  /**
+   * @param string
+   */
   public function setName($name)
   {
     $this->name = $name;
   }
+  /**
+   * @return string
+   */
   public function getName()
   {
     return $this->name;
@@ -91,34 +124,58 @@ class Note extends \Google\Collection
   {
     return $this->permissions;
   }
+  /**
+   * @param string
+   */
   public function setTitle($title)
   {
     $this->title = $title;
   }
+  /**
+   * @return string
+   */
   public function getTitle()
   {
     return $this->title;
   }
+  /**
+   * @param string
+   */
   public function setTrashTime($trashTime)
   {
     $this->trashTime = $trashTime;
   }
+  /**
+   * @return string
+   */
   public function getTrashTime()
   {
     return $this->trashTime;
   }
+  /**
+   * @param bool
+   */
   public function setTrashed($trashed)
   {
     $this->trashed = $trashed;
   }
+  /**
+   * @return bool
+   */
   public function getTrashed()
   {
     return $this->trashed;
   }
+  /**
+   * @param string
+   */
   public function setUpdateTime($updateTime)
   {
     $this->updateTime = $updateTime;
   }
+  /**
+   * @return string
+   */
   public function getUpdateTime()
   {
     return $this->updateTime;

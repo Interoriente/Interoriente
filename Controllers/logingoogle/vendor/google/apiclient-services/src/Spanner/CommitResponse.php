@@ -21,6 +21,10 @@ class CommitResponse extends \Google\Model
 {
   protected $commitStatsType = CommitStats::class;
   protected $commitStatsDataType = '';
+  public $commitStats;
+  /**
+   * @var string
+   */
   public $commitTimestamp;
 
   /**
@@ -37,10 +41,16 @@ class CommitResponse extends \Google\Model
   {
     return $this->commitStats;
   }
+  /**
+   * @param string
+   */
   public function setCommitTimestamp($commitTimestamp)
   {
     $this->commitTimestamp = $commitTimestamp;
   }
+  /**
+   * @return string
+   */
   public function getCommitTimestamp()
   {
     return $this->commitTimestamp;

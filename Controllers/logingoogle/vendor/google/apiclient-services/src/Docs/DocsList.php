@@ -22,10 +22,18 @@ class DocsList extends \Google\Collection
   protected $collection_key = 'suggestedDeletionIds';
   protected $listPropertiesType = ListProperties::class;
   protected $listPropertiesDataType = '';
+  public $listProperties;
+  /**
+   * @var string[]
+   */
   public $suggestedDeletionIds;
+  /**
+   * @var string
+   */
   public $suggestedInsertionId;
   protected $suggestedListPropertiesChangesType = SuggestedListProperties::class;
   protected $suggestedListPropertiesChangesDataType = 'map';
+  public $suggestedListPropertiesChanges;
 
   /**
    * @param ListProperties
@@ -41,18 +49,30 @@ class DocsList extends \Google\Collection
   {
     return $this->listProperties;
   }
+  /**
+   * @param string[]
+   */
   public function setSuggestedDeletionIds($suggestedDeletionIds)
   {
     $this->suggestedDeletionIds = $suggestedDeletionIds;
   }
+  /**
+   * @return string[]
+   */
   public function getSuggestedDeletionIds()
   {
     return $this->suggestedDeletionIds;
   }
+  /**
+   * @param string
+   */
   public function setSuggestedInsertionId($suggestedInsertionId)
   {
     $this->suggestedInsertionId = $suggestedInsertionId;
   }
+  /**
+   * @return string
+   */
   public function getSuggestedInsertionId()
   {
     return $this->suggestedInsertionId;

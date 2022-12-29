@@ -22,6 +22,10 @@ class AccountsCustomBatchResponse extends \Google\Collection
   protected $collection_key = 'entries';
   protected $entriesType = AccountsCustomBatchResponseEntry::class;
   protected $entriesDataType = 'array';
+  public $entries;
+  /**
+   * @var string
+   */
   public $kind;
 
   /**
@@ -38,10 +42,16 @@ class AccountsCustomBatchResponse extends \Google\Collection
   {
     return $this->entries;
   }
+  /**
+   * @param string
+   */
   public function setKind($kind)
   {
     $this->kind = $kind;
   }
+  /**
+   * @return string
+   */
   public function getKind()
   {
     return $this->kind;

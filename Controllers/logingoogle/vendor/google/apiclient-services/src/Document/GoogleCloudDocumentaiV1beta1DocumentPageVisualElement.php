@@ -22,8 +22,13 @@ class GoogleCloudDocumentaiV1beta1DocumentPageVisualElement extends \Google\Coll
   protected $collection_key = 'detectedLanguages';
   protected $detectedLanguagesType = GoogleCloudDocumentaiV1beta1DocumentPageDetectedLanguage::class;
   protected $detectedLanguagesDataType = 'array';
+  public $detectedLanguages;
   protected $layoutType = GoogleCloudDocumentaiV1beta1DocumentPageLayout::class;
   protected $layoutDataType = '';
+  public $layout;
+  /**
+   * @var string
+   */
   public $type;
 
   /**
@@ -54,10 +59,16 @@ class GoogleCloudDocumentaiV1beta1DocumentPageVisualElement extends \Google\Coll
   {
     return $this->layout;
   }
+  /**
+   * @param string
+   */
   public function setType($type)
   {
     $this->type = $type;
   }
+  /**
+   * @return string
+   */
   public function getType()
   {
     return $this->type;

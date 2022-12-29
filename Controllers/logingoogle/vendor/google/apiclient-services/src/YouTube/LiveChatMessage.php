@@ -21,11 +21,22 @@ class LiveChatMessage extends \Google\Model
 {
   protected $authorDetailsType = LiveChatMessageAuthorDetails::class;
   protected $authorDetailsDataType = '';
+  public $authorDetails;
+  /**
+   * @var string
+   */
   public $etag;
+  /**
+   * @var string
+   */
   public $id;
+  /**
+   * @var string
+   */
   public $kind;
   protected $snippetType = LiveChatMessageSnippet::class;
   protected $snippetDataType = '';
+  public $snippet;
 
   /**
    * @param LiveChatMessageAuthorDetails
@@ -41,26 +52,44 @@ class LiveChatMessage extends \Google\Model
   {
     return $this->authorDetails;
   }
+  /**
+   * @param string
+   */
   public function setEtag($etag)
   {
     $this->etag = $etag;
   }
+  /**
+   * @return string
+   */
   public function getEtag()
   {
     return $this->etag;
   }
+  /**
+   * @param string
+   */
   public function setId($id)
   {
     $this->id = $id;
   }
+  /**
+   * @return string
+   */
   public function getId()
   {
     return $this->id;
   }
+  /**
+   * @param string
+   */
   public function setKind($kind)
   {
     $this->kind = $kind;
   }
+  /**
+   * @return string
+   */
   public function getKind()
   {
     return $this->kind;

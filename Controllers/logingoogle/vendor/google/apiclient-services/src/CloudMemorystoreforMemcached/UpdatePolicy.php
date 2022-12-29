@@ -20,16 +20,27 @@ namespace Google\Service\CloudMemorystoreforMemcached;
 class UpdatePolicy extends \Google\Collection
 {
   protected $collection_key = 'denyMaintenancePeriods';
+  /**
+   * @var string
+   */
   public $channel;
   protected $denyMaintenancePeriodsType = DenyMaintenancePeriod::class;
   protected $denyMaintenancePeriodsDataType = 'array';
+  public $denyMaintenancePeriods;
   protected $windowType = MaintenanceWindow::class;
   protected $windowDataType = '';
+  public $window;
 
+  /**
+   * @param string
+   */
   public function setChannel($channel)
   {
     $this->channel = $channel;
   }
+  /**
+   * @return string
+   */
   public function getChannel()
   {
     return $this->channel;

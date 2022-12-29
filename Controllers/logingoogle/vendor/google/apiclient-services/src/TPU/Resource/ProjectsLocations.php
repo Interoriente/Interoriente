@@ -17,6 +17,8 @@
 
 namespace Google\Service\TPU\Resource;
 
+use Google\Service\TPU\GenerateServiceIdentityRequest;
+use Google\Service\TPU\GenerateServiceIdentityResponse;
 use Google\Service\TPU\ListLocationsResponse;
 use Google\Service\TPU\Location;
 
@@ -25,11 +27,26 @@ use Google\Service\TPU\Location;
  * Typical usage is:
  *  <code>
  *   $tpuService = new Google\Service\TPU(...);
- *   $locations = $tpuService->locations;
+ *   $locations = $tpuService->projects_locations;
  *  </code>
  */
 class ProjectsLocations extends \Google\Service\Resource
 {
+  /**
+   * Generates the Cloud TPU service identity for the project.
+   * (locations.generateServiceIdentity)
+   *
+   * @param string $parent Required. The parent resource name.
+   * @param GenerateServiceIdentityRequest $postBody
+   * @param array $optParams Optional parameters.
+   * @return GenerateServiceIdentityResponse
+   */
+  public function generateServiceIdentity($parent, GenerateServiceIdentityRequest $postBody, $optParams = [])
+  {
+    $params = ['parent' => $parent, 'postBody' => $postBody];
+    $params = array_merge($params, $optParams);
+    return $this->call('generateServiceIdentity', [$params], GenerateServiceIdentityResponse::class);
+  }
   /**
    * Gets information about a location. (locations.get)
    *
@@ -52,8 +69,8 @@ class ProjectsLocations extends \Google\Service\Resource
    * @param array $optParams Optional parameters.
    *
    * @opt_param string filter A filter to narrow down results to a preferred
-   * subset. The filtering language accepts strings like "displayName=tokyo", and
-   * is documented in more detail in [AIP-160](https://google.aip.dev/160).
+   * subset. The filtering language accepts strings like `"displayName=tokyo"`,
+   * and is documented in more detail in [AIP-160](https://google.aip.dev/160).
    * @opt_param int pageSize The maximum number of results to return. If not set,
    * the service selects a default.
    * @opt_param string pageToken A page token received from the `next_page_token`

@@ -20,17 +20,36 @@ namespace Google\Service\Dialogflow;
 class GoogleCloudDialogflowCxV3ValidationMessage extends \Google\Collection
 {
   protected $collection_key = 'resources';
+  /**
+   * @var string
+   */
   public $detail;
   protected $resourceNamesType = GoogleCloudDialogflowCxV3ResourceName::class;
   protected $resourceNamesDataType = 'array';
+  public $resourceNames;
+  /**
+   * @var string
+   */
   public $resourceType;
+  /**
+   * @var string[]
+   */
   public $resources;
+  /**
+   * @var string
+   */
   public $severity;
 
+  /**
+   * @param string
+   */
   public function setDetail($detail)
   {
     $this->detail = $detail;
   }
+  /**
+   * @return string
+   */
   public function getDetail()
   {
     return $this->detail;
@@ -49,26 +68,44 @@ class GoogleCloudDialogflowCxV3ValidationMessage extends \Google\Collection
   {
     return $this->resourceNames;
   }
+  /**
+   * @param string
+   */
   public function setResourceType($resourceType)
   {
     $this->resourceType = $resourceType;
   }
+  /**
+   * @return string
+   */
   public function getResourceType()
   {
     return $this->resourceType;
   }
+  /**
+   * @param string[]
+   */
   public function setResources($resources)
   {
     $this->resources = $resources;
   }
+  /**
+   * @return string[]
+   */
   public function getResources()
   {
     return $this->resources;
   }
+  /**
+   * @param string
+   */
   public function setSeverity($severity)
   {
     $this->severity = $severity;
   }
+  /**
+   * @return string
+   */
   public function getSeverity()
   {
     return $this->severity;

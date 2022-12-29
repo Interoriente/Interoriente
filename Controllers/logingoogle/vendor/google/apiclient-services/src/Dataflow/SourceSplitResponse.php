@@ -22,9 +22,14 @@ class SourceSplitResponse extends \Google\Collection
   protected $collection_key = 'shards';
   protected $bundlesType = DerivedSource::class;
   protected $bundlesDataType = 'array';
+  public $bundles;
+  /**
+   * @var string
+   */
   public $outcome;
   protected $shardsType = SourceSplitShard::class;
   protected $shardsDataType = 'array';
+  public $shards;
 
   /**
    * @param DerivedSource[]
@@ -40,10 +45,16 @@ class SourceSplitResponse extends \Google\Collection
   {
     return $this->bundles;
   }
+  /**
+   * @param string
+   */
   public function setOutcome($outcome)
   {
     $this->outcome = $outcome;
   }
+  /**
+   * @return string
+   */
   public function getOutcome()
   {
     return $this->outcome;

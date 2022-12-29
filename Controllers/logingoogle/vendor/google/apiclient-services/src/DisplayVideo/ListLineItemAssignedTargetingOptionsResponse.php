@@ -22,6 +22,10 @@ class ListLineItemAssignedTargetingOptionsResponse extends \Google\Collection
   protected $collection_key = 'assignedTargetingOptions';
   protected $assignedTargetingOptionsType = AssignedTargetingOption::class;
   protected $assignedTargetingOptionsDataType = 'array';
+  public $assignedTargetingOptions;
+  /**
+   * @var string
+   */
   public $nextPageToken;
 
   /**
@@ -38,10 +42,16 @@ class ListLineItemAssignedTargetingOptionsResponse extends \Google\Collection
   {
     return $this->assignedTargetingOptions;
   }
+  /**
+   * @param string
+   */
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
   }
+  /**
+   * @return string
+   */
   public function getNextPageToken()
   {
     return $this->nextPageToken;

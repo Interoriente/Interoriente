@@ -22,20 +22,41 @@ class SasPortalDevice extends \Google\Collection
   protected $collection_key = 'grants';
   protected $activeConfigType = SasPortalDeviceConfig::class;
   protected $activeConfigDataType = '';
+  public $activeConfig;
   protected $currentChannelsType = SasPortalChannelWithScore::class;
   protected $currentChannelsDataType = 'array';
+  public $currentChannels;
   protected $deviceMetadataType = SasPortalDeviceMetadata::class;
   protected $deviceMetadataDataType = '';
+  public $deviceMetadata;
+  /**
+   * @var string
+   */
   public $displayName;
+  /**
+   * @var string
+   */
   public $fccId;
   protected $grantRangeAllowlistsType = SasPortalFrequencyRange::class;
   protected $grantRangeAllowlistsDataType = 'array';
+  public $grantRangeAllowlists;
   protected $grantsType = SasPortalDeviceGrant::class;
   protected $grantsDataType = 'array';
+  public $grants;
+  /**
+   * @var string
+   */
   public $name;
   protected $preloadedConfigType = SasPortalDeviceConfig::class;
   protected $preloadedConfigDataType = '';
+  public $preloadedConfig;
+  /**
+   * @var string
+   */
   public $serialNumber;
+  /**
+   * @var string
+   */
   public $state;
 
   /**
@@ -80,18 +101,30 @@ class SasPortalDevice extends \Google\Collection
   {
     return $this->deviceMetadata;
   }
+  /**
+   * @param string
+   */
   public function setDisplayName($displayName)
   {
     $this->displayName = $displayName;
   }
+  /**
+   * @return string
+   */
   public function getDisplayName()
   {
     return $this->displayName;
   }
+  /**
+   * @param string
+   */
   public function setFccId($fccId)
   {
     $this->fccId = $fccId;
   }
+  /**
+   * @return string
+   */
   public function getFccId()
   {
     return $this->fccId;
@@ -124,10 +157,16 @@ class SasPortalDevice extends \Google\Collection
   {
     return $this->grants;
   }
+  /**
+   * @param string
+   */
   public function setName($name)
   {
     $this->name = $name;
   }
+  /**
+   * @return string
+   */
   public function getName()
   {
     return $this->name;
@@ -146,18 +185,30 @@ class SasPortalDevice extends \Google\Collection
   {
     return $this->preloadedConfig;
   }
+  /**
+   * @param string
+   */
   public function setSerialNumber($serialNumber)
   {
     $this->serialNumber = $serialNumber;
   }
+  /**
+   * @return string
+   */
   public function getSerialNumber()
   {
     return $this->serialNumber;
   }
+  /**
+   * @param string
+   */
   public function setState($state)
   {
     $this->state = $state;
   }
+  /**
+   * @return string
+   */
   public function getState()
   {
     return $this->state;

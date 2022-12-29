@@ -19,20 +19,38 @@ namespace Google\Service\DLP;
 
 class GooglePrivacyDlpV2CryptoReplaceFfxFpeConfig extends \Google\Model
 {
+  /**
+   * @var string
+   */
   public $commonAlphabet;
   protected $contextType = GooglePrivacyDlpV2FieldId::class;
   protected $contextDataType = '';
+  public $context;
   protected $cryptoKeyType = GooglePrivacyDlpV2CryptoKey::class;
   protected $cryptoKeyDataType = '';
+  public $cryptoKey;
+  /**
+   * @var string
+   */
   public $customAlphabet;
+  /**
+   * @var int
+   */
   public $radix;
   protected $surrogateInfoTypeType = GooglePrivacyDlpV2InfoType::class;
   protected $surrogateInfoTypeDataType = '';
+  public $surrogateInfoType;
 
+  /**
+   * @param string
+   */
   public function setCommonAlphabet($commonAlphabet)
   {
     $this->commonAlphabet = $commonAlphabet;
   }
+  /**
+   * @return string
+   */
   public function getCommonAlphabet()
   {
     return $this->commonAlphabet;
@@ -65,18 +83,30 @@ class GooglePrivacyDlpV2CryptoReplaceFfxFpeConfig extends \Google\Model
   {
     return $this->cryptoKey;
   }
+  /**
+   * @param string
+   */
   public function setCustomAlphabet($customAlphabet)
   {
     $this->customAlphabet = $customAlphabet;
   }
+  /**
+   * @return string
+   */
   public function getCustomAlphabet()
   {
     return $this->customAlphabet;
   }
+  /**
+   * @param int
+   */
   public function setRadix($radix)
   {
     $this->radix = $radix;
   }
+  /**
+   * @return int
+   */
   public function getRadix()
   {
     return $this->radix;

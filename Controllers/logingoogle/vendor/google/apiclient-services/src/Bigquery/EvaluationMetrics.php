@@ -21,16 +21,25 @@ class EvaluationMetrics extends \Google\Model
 {
   protected $arimaForecastingMetricsType = ArimaForecastingMetrics::class;
   protected $arimaForecastingMetricsDataType = '';
+  public $arimaForecastingMetrics;
   protected $binaryClassificationMetricsType = BinaryClassificationMetrics::class;
   protected $binaryClassificationMetricsDataType = '';
+  public $binaryClassificationMetrics;
   protected $clusteringMetricsType = ClusteringMetrics::class;
   protected $clusteringMetricsDataType = '';
+  public $clusteringMetrics;
+  protected $dimensionalityReductionMetricsType = DimensionalityReductionMetrics::class;
+  protected $dimensionalityReductionMetricsDataType = '';
+  public $dimensionalityReductionMetrics;
   protected $multiClassClassificationMetricsType = MultiClassClassificationMetrics::class;
   protected $multiClassClassificationMetricsDataType = '';
+  public $multiClassClassificationMetrics;
   protected $rankingMetricsType = RankingMetrics::class;
   protected $rankingMetricsDataType = '';
+  public $rankingMetrics;
   protected $regressionMetricsType = RegressionMetrics::class;
   protected $regressionMetricsDataType = '';
+  public $regressionMetrics;
 
   /**
    * @param ArimaForecastingMetrics
@@ -73,6 +82,20 @@ class EvaluationMetrics extends \Google\Model
   public function getClusteringMetrics()
   {
     return $this->clusteringMetrics;
+  }
+  /**
+   * @param DimensionalityReductionMetrics
+   */
+  public function setDimensionalityReductionMetrics(DimensionalityReductionMetrics $dimensionalityReductionMetrics)
+  {
+    $this->dimensionalityReductionMetrics = $dimensionalityReductionMetrics;
+  }
+  /**
+   * @return DimensionalityReductionMetrics
+   */
+  public function getDimensionalityReductionMetrics()
+  {
+    return $this->dimensionalityReductionMetrics;
   }
   /**
    * @param MultiClassClassificationMetrics

@@ -19,23 +19,42 @@ namespace Google\Service\Monitoring;
 
 class CollectdValue extends \Google\Model
 {
+  /**
+   * @var string
+   */
   public $dataSourceName;
+  /**
+   * @var string
+   */
   public $dataSourceType;
   protected $valueType = TypedValue::class;
   protected $valueDataType = '';
+  public $value;
 
+  /**
+   * @param string
+   */
   public function setDataSourceName($dataSourceName)
   {
     $this->dataSourceName = $dataSourceName;
   }
+  /**
+   * @return string
+   */
   public function getDataSourceName()
   {
     return $this->dataSourceName;
   }
+  /**
+   * @param string
+   */
   public function setDataSourceType($dataSourceType)
   {
     $this->dataSourceType = $dataSourceType;
   }
+  /**
+   * @return string
+   */
   public function getDataSourceType()
   {
     return $this->dataSourceType;

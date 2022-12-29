@@ -20,14 +20,24 @@ namespace Google\Service\Container;
 class ListUsableSubnetworksResponse extends \Google\Collection
 {
   protected $collection_key = 'subnetworks';
+  /**
+   * @var string
+   */
   public $nextPageToken;
   protected $subnetworksType = UsableSubnetwork::class;
   protected $subnetworksDataType = 'array';
+  public $subnetworks;
 
+  /**
+   * @param string
+   */
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
   }
+  /**
+   * @return string
+   */
   public function getNextPageToken()
   {
     return $this->nextPageToken;

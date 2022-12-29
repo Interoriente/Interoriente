@@ -19,38 +19,69 @@ namespace Google\Service\DLP;
 
 class GooglePrivacyDlpV2ContentLocation extends \Google\Model
 {
+  /**
+   * @var string
+   */
   public $containerName;
+  /**
+   * @var string
+   */
   public $containerTimestamp;
+  /**
+   * @var string
+   */
   public $containerVersion;
   protected $documentLocationType = GooglePrivacyDlpV2DocumentLocation::class;
   protected $documentLocationDataType = '';
+  public $documentLocation;
   protected $imageLocationType = GooglePrivacyDlpV2ImageLocation::class;
   protected $imageLocationDataType = '';
+  public $imageLocation;
   protected $metadataLocationType = GooglePrivacyDlpV2MetadataLocation::class;
   protected $metadataLocationDataType = '';
+  public $metadataLocation;
   protected $recordLocationType = GooglePrivacyDlpV2RecordLocation::class;
   protected $recordLocationDataType = '';
+  public $recordLocation;
 
+  /**
+   * @param string
+   */
   public function setContainerName($containerName)
   {
     $this->containerName = $containerName;
   }
+  /**
+   * @return string
+   */
   public function getContainerName()
   {
     return $this->containerName;
   }
+  /**
+   * @param string
+   */
   public function setContainerTimestamp($containerTimestamp)
   {
     $this->containerTimestamp = $containerTimestamp;
   }
+  /**
+   * @return string
+   */
   public function getContainerTimestamp()
   {
     return $this->containerTimestamp;
   }
+  /**
+   * @param string
+   */
   public function setContainerVersion($containerVersion)
   {
     $this->containerVersion = $containerVersion;
   }
+  /**
+   * @return string
+   */
   public function getContainerVersion()
   {
     return $this->containerVersion;

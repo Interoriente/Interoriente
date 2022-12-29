@@ -22,7 +22,14 @@ class PostReplies extends \Google\Collection
   protected $collection_key = 'items';
   protected $itemsType = Comment::class;
   protected $itemsDataType = 'array';
+  public $items;
+  /**
+   * @var string
+   */
   public $selfLink;
+  /**
+   * @var string
+   */
   public $totalItems;
 
   /**
@@ -39,18 +46,30 @@ class PostReplies extends \Google\Collection
   {
     return $this->items;
   }
+  /**
+   * @param string
+   */
   public function setSelfLink($selfLink)
   {
     $this->selfLink = $selfLink;
   }
+  /**
+   * @return string
+   */
   public function getSelfLink()
   {
     return $this->selfLink;
   }
+  /**
+   * @param string
+   */
   public function setTotalItems($totalItems)
   {
     $this->totalItems = $totalItems;
   }
+  /**
+   * @return string
+   */
   public function getTotalItems()
   {
     return $this->totalItems;

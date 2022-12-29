@@ -21,8 +21,13 @@ class TimeEvent extends \Google\Model
 {
   protected $annotationType = Annotation::class;
   protected $annotationDataType = '';
+  public $annotation;
   protected $messageEventType = MessageEvent::class;
   protected $messageEventDataType = '';
+  public $messageEvent;
+  /**
+   * @var string
+   */
   public $time;
 
   /**
@@ -53,10 +58,16 @@ class TimeEvent extends \Google\Model
   {
     return $this->messageEvent;
   }
+  /**
+   * @param string
+   */
   public function setTime($time)
   {
     $this->time = $time;
   }
+  /**
+   * @return string
+   */
   public function getTime()
   {
     return $this->time;

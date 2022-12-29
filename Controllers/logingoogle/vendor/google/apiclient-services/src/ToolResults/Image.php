@@ -21,11 +21,17 @@ class Image extends \Google\Model
 {
   protected $errorType = Status::class;
   protected $errorDataType = '';
+  public $error;
   protected $sourceImageType = ToolOutputReference::class;
   protected $sourceImageDataType = '';
+  public $sourceImage;
+  /**
+   * @var string
+   */
   public $stepId;
   protected $thumbnailType = Thumbnail::class;
   protected $thumbnailDataType = '';
+  public $thumbnail;
 
   /**
    * @param Status
@@ -55,10 +61,16 @@ class Image extends \Google\Model
   {
     return $this->sourceImage;
   }
+  /**
+   * @param string
+   */
   public function setStepId($stepId)
   {
     $this->stepId = $stepId;
   }
+  /**
+   * @return string
+   */
   public function getStepId()
   {
     return $this->stepId;

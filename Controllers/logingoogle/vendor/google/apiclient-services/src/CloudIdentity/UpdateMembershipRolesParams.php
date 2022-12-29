@@ -19,14 +19,24 @@ namespace Google\Service\CloudIdentity;
 
 class UpdateMembershipRolesParams extends \Google\Model
 {
+  /**
+   * @var string
+   */
   public $fieldMask;
   protected $membershipRoleType = MembershipRole::class;
   protected $membershipRoleDataType = '';
+  public $membershipRole;
 
+  /**
+   * @param string
+   */
   public function setFieldMask($fieldMask)
   {
     $this->fieldMask = $fieldMask;
   }
+  /**
+   * @return string
+   */
   public function getFieldMask()
   {
     return $this->fieldMask;

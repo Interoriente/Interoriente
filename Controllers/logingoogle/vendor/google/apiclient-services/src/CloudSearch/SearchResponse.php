@@ -22,23 +22,40 @@ class SearchResponse extends \Google\Collection
   protected $collection_key = 'structuredResults';
   protected $debugInfoType = ResponseDebugInfo::class;
   protected $debugInfoDataType = '';
+  public $debugInfo;
   protected $errorInfoType = ErrorInfo::class;
   protected $errorInfoDataType = '';
+  public $errorInfo;
   protected $facetResultsType = FacetResult::class;
   protected $facetResultsDataType = 'array';
+  public $facetResults;
+  /**
+   * @var bool
+   */
   public $hasMoreResults;
   protected $queryInterpretationType = QueryInterpretation::class;
   protected $queryInterpretationDataType = '';
+  public $queryInterpretation;
+  /**
+   * @var string
+   */
   public $resultCountEstimate;
+  /**
+   * @var string
+   */
   public $resultCountExact;
   protected $resultCountsType = ResultCounts::class;
   protected $resultCountsDataType = '';
+  public $resultCounts;
   protected $resultsType = SearchResult::class;
   protected $resultsDataType = 'array';
+  public $results;
   protected $spellResultsType = SpellResult::class;
   protected $spellResultsDataType = 'array';
+  public $spellResults;
   protected $structuredResultsType = StructuredResult::class;
   protected $structuredResultsDataType = 'array';
+  public $structuredResults;
 
   /**
    * @param ResponseDebugInfo
@@ -82,10 +99,16 @@ class SearchResponse extends \Google\Collection
   {
     return $this->facetResults;
   }
+  /**
+   * @param bool
+   */
   public function setHasMoreResults($hasMoreResults)
   {
     $this->hasMoreResults = $hasMoreResults;
   }
+  /**
+   * @return bool
+   */
   public function getHasMoreResults()
   {
     return $this->hasMoreResults;
@@ -104,18 +127,30 @@ class SearchResponse extends \Google\Collection
   {
     return $this->queryInterpretation;
   }
+  /**
+   * @param string
+   */
   public function setResultCountEstimate($resultCountEstimate)
   {
     $this->resultCountEstimate = $resultCountEstimate;
   }
+  /**
+   * @return string
+   */
   public function getResultCountEstimate()
   {
     return $this->resultCountEstimate;
   }
+  /**
+   * @param string
+   */
   public function setResultCountExact($resultCountExact)
   {
     $this->resultCountExact = $resultCountExact;
   }
+  /**
+   * @return string
+   */
   public function getResultCountExact()
   {
     return $this->resultCountExact;

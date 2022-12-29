@@ -21,12 +21,19 @@ class Outcome extends \Google\Model
 {
   protected $failureDetailType = FailureDetail::class;
   protected $failureDetailDataType = '';
+  public $failureDetail;
   protected $inconclusiveDetailType = InconclusiveDetail::class;
   protected $inconclusiveDetailDataType = '';
+  public $inconclusiveDetail;
   protected $skippedDetailType = SkippedDetail::class;
   protected $skippedDetailDataType = '';
+  public $skippedDetail;
   protected $successDetailType = SuccessDetail::class;
   protected $successDetailDataType = '';
+  public $successDetail;
+  /**
+   * @var string
+   */
   public $summary;
 
   /**
@@ -85,10 +92,16 @@ class Outcome extends \Google\Model
   {
     return $this->successDetail;
   }
+  /**
+   * @param string
+   */
   public function setSummary($summary)
   {
     $this->summary = $summary;
   }
+  /**
+   * @return string
+   */
   public function getSummary()
   {
     return $this->summary;

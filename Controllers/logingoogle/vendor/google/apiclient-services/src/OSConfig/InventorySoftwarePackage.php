@@ -21,20 +21,31 @@ class InventorySoftwarePackage extends \Google\Model
 {
   protected $aptPackageType = InventoryVersionedPackage::class;
   protected $aptPackageDataType = '';
+  public $aptPackage;
   protected $cosPackageType = InventoryVersionedPackage::class;
   protected $cosPackageDataType = '';
+  public $cosPackage;
   protected $googetPackageType = InventoryVersionedPackage::class;
   protected $googetPackageDataType = '';
+  public $googetPackage;
   protected $qfePackageType = InventoryWindowsQuickFixEngineeringPackage::class;
   protected $qfePackageDataType = '';
+  public $qfePackage;
+  protected $windowsApplicationType = InventoryWindowsApplication::class;
+  protected $windowsApplicationDataType = '';
+  public $windowsApplication;
   protected $wuaPackageType = InventoryWindowsUpdatePackage::class;
   protected $wuaPackageDataType = '';
+  public $wuaPackage;
   protected $yumPackageType = InventoryVersionedPackage::class;
   protected $yumPackageDataType = '';
+  public $yumPackage;
   protected $zypperPackageType = InventoryVersionedPackage::class;
   protected $zypperPackageDataType = '';
+  public $zypperPackage;
   protected $zypperPatchType = InventoryZypperPatch::class;
   protected $zypperPatchDataType = '';
+  public $zypperPatch;
 
   /**
    * @param InventoryVersionedPackage
@@ -91,6 +102,20 @@ class InventorySoftwarePackage extends \Google\Model
   public function getQfePackage()
   {
     return $this->qfePackage;
+  }
+  /**
+   * @param InventoryWindowsApplication
+   */
+  public function setWindowsApplication(InventoryWindowsApplication $windowsApplication)
+  {
+    $this->windowsApplication = $windowsApplication;
+  }
+  /**
+   * @return InventoryWindowsApplication
+   */
+  public function getWindowsApplication()
+  {
+    return $this->windowsApplication;
   }
   /**
    * @param InventoryWindowsUpdatePackage

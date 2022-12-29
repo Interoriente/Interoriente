@@ -21,18 +21,43 @@ class Comment extends \Google\Model
 {
   protected $authorType = CommentAuthor::class;
   protected $authorDataType = '';
+  public $author;
   protected $blogType = CommentBlog::class;
   protected $blogDataType = '';
+  public $blog;
+  /**
+   * @var string
+   */
   public $content;
+  /**
+   * @var string
+   */
   public $id;
   protected $inReplyToType = CommentInReplyTo::class;
   protected $inReplyToDataType = '';
+  public $inReplyTo;
+  /**
+   * @var string
+   */
   public $kind;
   protected $postType = CommentPost::class;
   protected $postDataType = '';
+  public $post;
+  /**
+   * @var string
+   */
   public $published;
+  /**
+   * @var string
+   */
   public $selfLink;
+  /**
+   * @var string
+   */
   public $status;
+  /**
+   * @var string
+   */
   public $updated;
 
   /**
@@ -63,18 +88,30 @@ class Comment extends \Google\Model
   {
     return $this->blog;
   }
+  /**
+   * @param string
+   */
   public function setContent($content)
   {
     $this->content = $content;
   }
+  /**
+   * @return string
+   */
   public function getContent()
   {
     return $this->content;
   }
+  /**
+   * @param string
+   */
   public function setId($id)
   {
     $this->id = $id;
   }
+  /**
+   * @return string
+   */
   public function getId()
   {
     return $this->id;
@@ -93,10 +130,16 @@ class Comment extends \Google\Model
   {
     return $this->inReplyTo;
   }
+  /**
+   * @param string
+   */
   public function setKind($kind)
   {
     $this->kind = $kind;
   }
+  /**
+   * @return string
+   */
   public function getKind()
   {
     return $this->kind;
@@ -115,34 +158,58 @@ class Comment extends \Google\Model
   {
     return $this->post;
   }
+  /**
+   * @param string
+   */
   public function setPublished($published)
   {
     $this->published = $published;
   }
+  /**
+   * @return string
+   */
   public function getPublished()
   {
     return $this->published;
   }
+  /**
+   * @param string
+   */
   public function setSelfLink($selfLink)
   {
     $this->selfLink = $selfLink;
   }
+  /**
+   * @return string
+   */
   public function getSelfLink()
   {
     return $this->selfLink;
   }
+  /**
+   * @param string
+   */
   public function setStatus($status)
   {
     $this->status = $status;
   }
+  /**
+   * @return string
+   */
   public function getStatus()
   {
     return $this->status;
   }
+  /**
+   * @param string
+   */
   public function setUpdated($updated)
   {
     $this->updated = $updated;
   }
+  /**
+   * @return string
+   */
   public function getUpdated()
   {
     return $this->updated;

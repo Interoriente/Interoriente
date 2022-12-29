@@ -22,6 +22,10 @@ class ListCreativeStatusBreakdownByCreativeResponse extends \Google\Collection
   protected $collection_key = 'filteredBidCreativeRows';
   protected $filteredBidCreativeRowsType = FilteredBidCreativeRow::class;
   protected $filteredBidCreativeRowsDataType = 'array';
+  public $filteredBidCreativeRows;
+  /**
+   * @var string
+   */
   public $nextPageToken;
 
   /**
@@ -38,10 +42,16 @@ class ListCreativeStatusBreakdownByCreativeResponse extends \Google\Collection
   {
     return $this->filteredBidCreativeRows;
   }
+  /**
+   * @param string
+   */
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
   }
+  /**
+   * @return string
+   */
   public function getNextPageToken()
   {
     return $this->nextPageToken;

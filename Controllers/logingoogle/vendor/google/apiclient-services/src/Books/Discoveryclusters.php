@@ -22,7 +22,14 @@ class Discoveryclusters extends \Google\Collection
   protected $collection_key = 'clusters';
   protected $clustersType = DiscoveryclustersClusters::class;
   protected $clustersDataType = 'array';
+  public $clusters;
+  /**
+   * @var string
+   */
   public $kind;
+  /**
+   * @var int
+   */
   public $totalClusters;
 
   /**
@@ -39,18 +46,30 @@ class Discoveryclusters extends \Google\Collection
   {
     return $this->clusters;
   }
+  /**
+   * @param string
+   */
   public function setKind($kind)
   {
     $this->kind = $kind;
   }
+  /**
+   * @return string
+   */
   public function getKind()
   {
     return $this->kind;
   }
+  /**
+   * @param int
+   */
   public function setTotalClusters($totalClusters)
   {
     $this->totalClusters = $totalClusters;
   }
+  /**
+   * @return int
+   */
   public function getTotalClusters()
   {
     return $this->totalClusters;

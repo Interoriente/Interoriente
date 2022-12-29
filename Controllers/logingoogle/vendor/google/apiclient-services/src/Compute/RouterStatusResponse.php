@@ -19,14 +19,24 @@ namespace Google\Service\Compute;
 
 class RouterStatusResponse extends \Google\Model
 {
+  /**
+   * @var string
+   */
   public $kind;
   protected $resultType = RouterStatus::class;
   protected $resultDataType = '';
+  public $result;
 
+  /**
+   * @param string
+   */
   public function setKind($kind)
   {
     $this->kind = $kind;
   }
+  /**
+   * @return string
+   */
   public function getKind()
   {
     return $this->kind;

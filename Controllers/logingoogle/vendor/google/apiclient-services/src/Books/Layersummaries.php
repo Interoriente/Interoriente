@@ -22,7 +22,14 @@ class Layersummaries extends \Google\Collection
   protected $collection_key = 'items';
   protected $itemsType = Layersummary::class;
   protected $itemsDataType = 'array';
+  public $items;
+  /**
+   * @var string
+   */
   public $kind;
+  /**
+   * @var int
+   */
   public $totalItems;
 
   /**
@@ -39,18 +46,30 @@ class Layersummaries extends \Google\Collection
   {
     return $this->items;
   }
+  /**
+   * @param string
+   */
   public function setKind($kind)
   {
     $this->kind = $kind;
   }
+  /**
+   * @return string
+   */
   public function getKind()
   {
     return $this->kind;
   }
+  /**
+   * @param int
+   */
   public function setTotalItems($totalItems)
   {
     $this->totalItems = $totalItems;
   }
+  /**
+   * @return int
+   */
   public function getTotalItems()
   {
     return $this->totalItems;

@@ -22,11 +22,25 @@ class GoogleFactcheckingFactchecktoolsV1alpha1ClaimReviewMarkupPage extends \Goo
   protected $collection_key = 'claimReviewMarkups';
   protected $claimReviewAuthorType = GoogleFactcheckingFactchecktoolsV1alpha1ClaimReviewAuthor::class;
   protected $claimReviewAuthorDataType = '';
+  public $claimReviewAuthor;
   protected $claimReviewMarkupsType = GoogleFactcheckingFactchecktoolsV1alpha1ClaimReviewMarkup::class;
   protected $claimReviewMarkupsDataType = 'array';
+  public $claimReviewMarkups;
+  /**
+   * @var string
+   */
   public $name;
+  /**
+   * @var string
+   */
   public $pageUrl;
+  /**
+   * @var string
+   */
   public $publishDate;
+  /**
+   * @var string
+   */
   public $versionId;
 
   /**
@@ -57,34 +71,58 @@ class GoogleFactcheckingFactchecktoolsV1alpha1ClaimReviewMarkupPage extends \Goo
   {
     return $this->claimReviewMarkups;
   }
+  /**
+   * @param string
+   */
   public function setName($name)
   {
     $this->name = $name;
   }
+  /**
+   * @return string
+   */
   public function getName()
   {
     return $this->name;
   }
+  /**
+   * @param string
+   */
   public function setPageUrl($pageUrl)
   {
     $this->pageUrl = $pageUrl;
   }
+  /**
+   * @return string
+   */
   public function getPageUrl()
   {
     return $this->pageUrl;
   }
+  /**
+   * @param string
+   */
   public function setPublishDate($publishDate)
   {
     $this->publishDate = $publishDate;
   }
+  /**
+   * @return string
+   */
   public function getPublishDate()
   {
     return $this->publishDate;
   }
+  /**
+   * @param string
+   */
   public function setVersionId($versionId)
   {
     $this->versionId = $versionId;
   }
+  /**
+   * @return string
+   */
   public function getVersionId()
   {
     return $this->versionId;

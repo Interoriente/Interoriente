@@ -20,17 +20,31 @@ namespace Google\Service\Document;
 class GoogleCloudDocumentaiUiv1beta3TrainProcessorVersionMetadataDatasetValidation extends \Google\Collection
 {
   protected $collection_key = 'documentErrors';
+  /**
+   * @var int
+   */
   public $datasetErrorCount;
   protected $datasetErrorsType = GoogleRpcStatus::class;
   protected $datasetErrorsDataType = 'array';
+  public $datasetErrors;
+  /**
+   * @var int
+   */
   public $documentErrorCount;
   protected $documentErrorsType = GoogleRpcStatus::class;
   protected $documentErrorsDataType = 'array';
+  public $documentErrors;
 
+  /**
+   * @param int
+   */
   public function setDatasetErrorCount($datasetErrorCount)
   {
     $this->datasetErrorCount = $datasetErrorCount;
   }
+  /**
+   * @return int
+   */
   public function getDatasetErrorCount()
   {
     return $this->datasetErrorCount;
@@ -49,10 +63,16 @@ class GoogleCloudDocumentaiUiv1beta3TrainProcessorVersionMetadataDatasetValidati
   {
     return $this->datasetErrors;
   }
+  /**
+   * @param int
+   */
   public function setDocumentErrorCount($documentErrorCount)
   {
     $this->documentErrorCount = $documentErrorCount;
   }
+  /**
+   * @return int
+   */
   public function getDocumentErrorCount()
   {
     return $this->documentErrorCount;

@@ -19,15 +19,28 @@ namespace Google\Service\PeopleService;
 
 class Residence extends \Google\Model
 {
+  /**
+   * @var bool
+   */
   public $current;
   protected $metadataType = FieldMetadata::class;
   protected $metadataDataType = '';
+  public $metadata;
+  /**
+   * @var string
+   */
   public $value;
 
+  /**
+   * @param bool
+   */
   public function setCurrent($current)
   {
     $this->current = $current;
   }
+  /**
+   * @return bool
+   */
   public function getCurrent()
   {
     return $this->current;
@@ -46,10 +59,16 @@ class Residence extends \Google\Model
   {
     return $this->metadata;
   }
+  /**
+   * @param string
+   */
   public function setValue($value)
   {
     $this->value = $value;
   }
+  /**
+   * @return string
+   */
   public function getValue()
   {
     return $this->value;

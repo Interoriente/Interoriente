@@ -21,6 +21,10 @@ class CreateHeaderRequest extends \Google\Model
 {
   protected $sectionBreakLocationType = Location::class;
   protected $sectionBreakLocationDataType = '';
+  public $sectionBreakLocation;
+  /**
+   * @var string
+   */
   public $type;
 
   /**
@@ -37,10 +41,16 @@ class CreateHeaderRequest extends \Google\Model
   {
     return $this->sectionBreakLocation;
   }
+  /**
+   * @param string
+   */
   public function setType($type)
   {
     $this->type = $type;
   }
+  /**
+   * @return string
+   */
   public function getType()
   {
     return $this->type;

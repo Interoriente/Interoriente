@@ -21,6 +21,10 @@ class NodeGroupMaintenanceWindow extends \Google\Model
 {
   protected $maintenanceDurationType = Duration::class;
   protected $maintenanceDurationDataType = '';
+  public $maintenanceDuration;
+  /**
+   * @var string
+   */
   public $startTime;
 
   /**
@@ -37,10 +41,16 @@ class NodeGroupMaintenanceWindow extends \Google\Model
   {
     return $this->maintenanceDuration;
   }
+  /**
+   * @param string
+   */
   public function setStartTime($startTime)
   {
     $this->startTime = $startTime;
   }
+  /**
+   * @return string
+   */
   public function getStartTime()
   {
     return $this->startTime;

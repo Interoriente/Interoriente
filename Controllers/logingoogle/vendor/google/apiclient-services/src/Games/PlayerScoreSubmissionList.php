@@ -20,14 +20,24 @@ namespace Google\Service\Games;
 class PlayerScoreSubmissionList extends \Google\Collection
 {
   protected $collection_key = 'scores';
+  /**
+   * @var string
+   */
   public $kind;
   protected $scoresType = ScoreSubmission::class;
   protected $scoresDataType = 'array';
+  public $scores;
 
+  /**
+   * @param string
+   */
   public function setKind($kind)
   {
     $this->kind = $kind;
   }
+  /**
+   * @return string
+   */
   public function getKind()
   {
     return $this->kind;

@@ -19,25 +19,45 @@ namespace Google\Service\Fcmdata;
 
 class GoogleFirebaseFcmDataV1beta1AndroidDeliveryData extends \Google\Model
 {
+  /**
+   * @var string
+   */
   public $analyticsLabel;
+  /**
+   * @var string
+   */
   public $appId;
   protected $dataType = GoogleFirebaseFcmDataV1beta1Data::class;
   protected $dataDataType = '';
+  public $data;
   protected $dateType = GoogleTypeDate::class;
   protected $dateDataType = '';
+  public $date;
 
+  /**
+   * @param string
+   */
   public function setAnalyticsLabel($analyticsLabel)
   {
     $this->analyticsLabel = $analyticsLabel;
   }
+  /**
+   * @return string
+   */
   public function getAnalyticsLabel()
   {
     return $this->analyticsLabel;
   }
+  /**
+   * @param string
+   */
   public function setAppId($appId)
   {
     $this->appId = $appId;
   }
+  /**
+   * @return string
+   */
   public function getAppId()
   {
     return $this->appId;

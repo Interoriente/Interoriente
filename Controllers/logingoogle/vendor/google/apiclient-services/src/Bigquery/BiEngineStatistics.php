@@ -20,14 +20,24 @@ namespace Google\Service\Bigquery;
 class BiEngineStatistics extends \Google\Collection
 {
   protected $collection_key = 'biEngineReasons';
+  /**
+   * @var string
+   */
   public $biEngineMode;
   protected $biEngineReasonsType = BiEngineReason::class;
   protected $biEngineReasonsDataType = 'array';
+  public $biEngineReasons;
 
+  /**
+   * @param string
+   */
   public function setBiEngineMode($biEngineMode)
   {
     $this->biEngineMode = $biEngineMode;
   }
+  /**
+   * @return string
+   */
   public function getBiEngineMode()
   {
     return $this->biEngineMode;

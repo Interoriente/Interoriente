@@ -19,17 +19,31 @@ namespace Google\Service\YouTube;
 
 class SearchResult extends \Google\Model
 {
+  /**
+   * @var string
+   */
   public $etag;
   protected $idType = ResourceId::class;
   protected $idDataType = '';
+  public $id;
+  /**
+   * @var string
+   */
   public $kind;
   protected $snippetType = SearchResultSnippet::class;
   protected $snippetDataType = '';
+  public $snippet;
 
+  /**
+   * @param string
+   */
   public function setEtag($etag)
   {
     $this->etag = $etag;
   }
+  /**
+   * @return string
+   */
   public function getEtag()
   {
     return $this->etag;
@@ -48,10 +62,16 @@ class SearchResult extends \Google\Model
   {
     return $this->id;
   }
+  /**
+   * @param string
+   */
   public function setKind($kind)
   {
     $this->kind = $kind;
   }
+  /**
+   * @return string
+   */
   public function getKind()
   {
     return $this->kind;

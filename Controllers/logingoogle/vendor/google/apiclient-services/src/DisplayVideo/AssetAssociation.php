@@ -21,6 +21,10 @@ class AssetAssociation extends \Google\Model
 {
   protected $assetType = Asset::class;
   protected $assetDataType = '';
+  public $asset;
+  /**
+   * @var string
+   */
   public $role;
 
   /**
@@ -37,10 +41,16 @@ class AssetAssociation extends \Google\Model
   {
     return $this->asset;
   }
+  /**
+   * @param string
+   */
   public function setRole($role)
   {
     $this->role = $role;
   }
+  /**
+   * @return string
+   */
   public function getRole()
   {
     return $this->role;

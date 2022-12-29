@@ -21,6 +21,10 @@ class SeqMapTaskOutputInfo extends \Google\Model
 {
   protected $sinkType = Sink::class;
   protected $sinkDataType = '';
+  public $sink;
+  /**
+   * @var string
+   */
   public $tag;
 
   /**
@@ -37,10 +41,16 @@ class SeqMapTaskOutputInfo extends \Google\Model
   {
     return $this->sink;
   }
+  /**
+   * @param string
+   */
   public function setTag($tag)
   {
     $this->tag = $tag;
   }
+  /**
+   * @return string
+   */
   public function getTag()
   {
     return $this->tag;

@@ -20,14 +20,24 @@ namespace Google\Service\Dataproc;
 class ListAutoscalingPoliciesResponse extends \Google\Collection
 {
   protected $collection_key = 'policies';
+  /**
+   * @var string
+   */
   public $nextPageToken;
   protected $policiesType = AutoscalingPolicy::class;
   protected $policiesDataType = 'array';
+  public $policies;
 
+  /**
+   * @param string
+   */
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
   }
+  /**
+   * @return string
+   */
   public function getNextPageToken()
   {
     return $this->nextPageToken;

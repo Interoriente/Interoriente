@@ -21,8 +21,13 @@ class Birthday extends \Google\Model
 {
   protected $dateType = Date::class;
   protected $dateDataType = '';
+  public $date;
   protected $metadataType = FieldMetadata::class;
   protected $metadataDataType = '';
+  public $metadata;
+  /**
+   * @var string
+   */
   public $text;
 
   /**
@@ -53,10 +58,16 @@ class Birthday extends \Google\Model
   {
     return $this->metadata;
   }
+  /**
+   * @param string
+   */
   public function setText($text)
   {
     $this->text = $text;
   }
+  /**
+   * @return string
+   */
   public function getText()
   {
     return $this->text;

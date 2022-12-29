@@ -21,9 +21,14 @@ class FieldFilter extends \Google\Model
 {
   protected $fieldType = FieldReference::class;
   protected $fieldDataType = '';
+  public $field;
+  /**
+   * @var string
+   */
   public $op;
   protected $valueType = Value::class;
   protected $valueDataType = '';
+  public $value;
 
   /**
    * @param FieldReference
@@ -39,10 +44,16 @@ class FieldFilter extends \Google\Model
   {
     return $this->field;
   }
+  /**
+   * @param string
+   */
   public function setOp($op)
   {
     $this->op = $op;
   }
+  /**
+   * @return string
+   */
   public function getOp()
   {
     return $this->op;

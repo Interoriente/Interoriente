@@ -22,10 +22,16 @@ class BadWhitelist extends \Google\Collection
   protected $collection_key = 'messages';
   protected $domainIdType = DomainId::class;
   protected $domainIdDataType = '';
+  public $domainId;
   protected $maliciousEntityType = MaliciousEntity::class;
   protected $maliciousEntityDataType = '';
+  public $maliciousEntity;
   protected $messagesType = GmailMessageInfo::class;
   protected $messagesDataType = 'array';
+  public $messages;
+  /**
+   * @var string
+   */
   public $sourceIp;
 
   /**
@@ -70,10 +76,16 @@ class BadWhitelist extends \Google\Collection
   {
     return $this->messages;
   }
+  /**
+   * @param string
+   */
   public function setSourceIp($sourceIp)
   {
     $this->sourceIp = $sourceIp;
   }
+  /**
+   * @return string
+   */
   public function getSourceIp()
   {
     return $this->sourceIp;

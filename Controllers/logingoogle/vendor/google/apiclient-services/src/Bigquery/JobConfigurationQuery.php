@@ -20,45 +20,103 @@ namespace Google\Service\Bigquery;
 class JobConfigurationQuery extends \Google\Collection
 {
   protected $collection_key = 'userDefinedFunctionResources';
+  /**
+   * @var bool
+   */
   public $allowLargeResults;
   protected $clusteringType = Clustering::class;
   protected $clusteringDataType = '';
+  public $clustering;
   protected $connectionPropertiesType = ConnectionProperty::class;
   protected $connectionPropertiesDataType = 'array';
+  public $connectionProperties;
+  /**
+   * @var string
+   */
   public $createDisposition;
+  /**
+   * @var bool
+   */
   public $createSession;
   protected $defaultDatasetType = DatasetReference::class;
   protected $defaultDatasetDataType = '';
+  public $defaultDataset;
   protected $destinationEncryptionConfigurationType = EncryptionConfiguration::class;
   protected $destinationEncryptionConfigurationDataType = '';
+  public $destinationEncryptionConfiguration;
   protected $destinationTableType = TableReference::class;
   protected $destinationTableDataType = '';
+  public $destinationTable;
+  /**
+   * @var bool
+   */
   public $flattenResults;
+  /**
+   * @var int
+   */
   public $maximumBillingTier;
+  /**
+   * @var string
+   */
   public $maximumBytesBilled;
+  /**
+   * @var string
+   */
   public $parameterMode;
+  /**
+   * @var bool
+   */
   public $preserveNulls;
+  /**
+   * @var string
+   */
   public $priority;
+  /**
+   * @var string
+   */
   public $query;
   protected $queryParametersType = QueryParameter::class;
   protected $queryParametersDataType = 'array';
+  public $queryParameters;
   protected $rangePartitioningType = RangePartitioning::class;
   protected $rangePartitioningDataType = '';
+  public $rangePartitioning;
+  /**
+   * @var string[]
+   */
   public $schemaUpdateOptions;
   protected $tableDefinitionsType = ExternalDataConfiguration::class;
   protected $tableDefinitionsDataType = 'map';
+  public $tableDefinitions;
   protected $timePartitioningType = TimePartitioning::class;
   protected $timePartitioningDataType = '';
+  public $timePartitioning;
+  /**
+   * @var bool
+   */
   public $useLegacySql;
+  /**
+   * @var bool
+   */
   public $useQueryCache;
   protected $userDefinedFunctionResourcesType = UserDefinedFunctionResource::class;
   protected $userDefinedFunctionResourcesDataType = 'array';
+  public $userDefinedFunctionResources;
+  /**
+   * @var string
+   */
   public $writeDisposition;
 
+  /**
+   * @param bool
+   */
   public function setAllowLargeResults($allowLargeResults)
   {
     $this->allowLargeResults = $allowLargeResults;
   }
+  /**
+   * @return bool
+   */
   public function getAllowLargeResults()
   {
     return $this->allowLargeResults;
@@ -91,18 +149,30 @@ class JobConfigurationQuery extends \Google\Collection
   {
     return $this->connectionProperties;
   }
+  /**
+   * @param string
+   */
   public function setCreateDisposition($createDisposition)
   {
     $this->createDisposition = $createDisposition;
   }
+  /**
+   * @return string
+   */
   public function getCreateDisposition()
   {
     return $this->createDisposition;
   }
+  /**
+   * @param bool
+   */
   public function setCreateSession($createSession)
   {
     $this->createSession = $createSession;
   }
+  /**
+   * @return bool
+   */
   public function getCreateSession()
   {
     return $this->createSession;
@@ -149,58 +219,100 @@ class JobConfigurationQuery extends \Google\Collection
   {
     return $this->destinationTable;
   }
+  /**
+   * @param bool
+   */
   public function setFlattenResults($flattenResults)
   {
     $this->flattenResults = $flattenResults;
   }
+  /**
+   * @return bool
+   */
   public function getFlattenResults()
   {
     return $this->flattenResults;
   }
+  /**
+   * @param int
+   */
   public function setMaximumBillingTier($maximumBillingTier)
   {
     $this->maximumBillingTier = $maximumBillingTier;
   }
+  /**
+   * @return int
+   */
   public function getMaximumBillingTier()
   {
     return $this->maximumBillingTier;
   }
+  /**
+   * @param string
+   */
   public function setMaximumBytesBilled($maximumBytesBilled)
   {
     $this->maximumBytesBilled = $maximumBytesBilled;
   }
+  /**
+   * @return string
+   */
   public function getMaximumBytesBilled()
   {
     return $this->maximumBytesBilled;
   }
+  /**
+   * @param string
+   */
   public function setParameterMode($parameterMode)
   {
     $this->parameterMode = $parameterMode;
   }
+  /**
+   * @return string
+   */
   public function getParameterMode()
   {
     return $this->parameterMode;
   }
+  /**
+   * @param bool
+   */
   public function setPreserveNulls($preserveNulls)
   {
     $this->preserveNulls = $preserveNulls;
   }
+  /**
+   * @return bool
+   */
   public function getPreserveNulls()
   {
     return $this->preserveNulls;
   }
+  /**
+   * @param string
+   */
   public function setPriority($priority)
   {
     $this->priority = $priority;
   }
+  /**
+   * @return string
+   */
   public function getPriority()
   {
     return $this->priority;
   }
+  /**
+   * @param string
+   */
   public function setQuery($query)
   {
     $this->query = $query;
   }
+  /**
+   * @return string
+   */
   public function getQuery()
   {
     return $this->query;
@@ -233,10 +345,16 @@ class JobConfigurationQuery extends \Google\Collection
   {
     return $this->rangePartitioning;
   }
+  /**
+   * @param string[]
+   */
   public function setSchemaUpdateOptions($schemaUpdateOptions)
   {
     $this->schemaUpdateOptions = $schemaUpdateOptions;
   }
+  /**
+   * @return string[]
+   */
   public function getSchemaUpdateOptions()
   {
     return $this->schemaUpdateOptions;
@@ -269,18 +387,30 @@ class JobConfigurationQuery extends \Google\Collection
   {
     return $this->timePartitioning;
   }
+  /**
+   * @param bool
+   */
   public function setUseLegacySql($useLegacySql)
   {
     $this->useLegacySql = $useLegacySql;
   }
+  /**
+   * @return bool
+   */
   public function getUseLegacySql()
   {
     return $this->useLegacySql;
   }
+  /**
+   * @param bool
+   */
   public function setUseQueryCache($useQueryCache)
   {
     $this->useQueryCache = $useQueryCache;
   }
+  /**
+   * @return bool
+   */
   public function getUseQueryCache()
   {
     return $this->useQueryCache;
@@ -299,10 +429,16 @@ class JobConfigurationQuery extends \Google\Collection
   {
     return $this->userDefinedFunctionResources;
   }
+  /**
+   * @param string
+   */
   public function setWriteDisposition($writeDisposition)
   {
     $this->writeDisposition = $writeDisposition;
   }
+  /**
+   * @return string
+   */
   public function getWriteDisposition()
   {
     return $this->writeDisposition;

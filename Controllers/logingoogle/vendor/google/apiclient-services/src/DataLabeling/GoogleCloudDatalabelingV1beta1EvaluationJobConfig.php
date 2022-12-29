@@ -19,28 +19,47 @@ namespace Google\Service\DataLabeling;
 
 class GoogleCloudDatalabelingV1beta1EvaluationJobConfig extends \Google\Model
 {
+  /**
+   * @var string[]
+   */
   public $bigqueryImportKeys;
   protected $boundingPolyConfigType = GoogleCloudDatalabelingV1beta1BoundingPolyConfig::class;
   protected $boundingPolyConfigDataType = '';
+  public $boundingPolyConfig;
   protected $evaluationConfigType = GoogleCloudDatalabelingV1beta1EvaluationConfig::class;
   protected $evaluationConfigDataType = '';
+  public $evaluationConfig;
   protected $evaluationJobAlertConfigType = GoogleCloudDatalabelingV1beta1EvaluationJobAlertConfig::class;
   protected $evaluationJobAlertConfigDataType = '';
+  public $evaluationJobAlertConfig;
+  /**
+   * @var int
+   */
   public $exampleCount;
   public $exampleSamplePercentage;
   protected $humanAnnotationConfigType = GoogleCloudDatalabelingV1beta1HumanAnnotationConfig::class;
   protected $humanAnnotationConfigDataType = '';
+  public $humanAnnotationConfig;
   protected $imageClassificationConfigType = GoogleCloudDatalabelingV1beta1ImageClassificationConfig::class;
   protected $imageClassificationConfigDataType = '';
+  public $imageClassificationConfig;
   protected $inputConfigType = GoogleCloudDatalabelingV1beta1InputConfig::class;
   protected $inputConfigDataType = '';
+  public $inputConfig;
   protected $textClassificationConfigType = GoogleCloudDatalabelingV1beta1TextClassificationConfig::class;
   protected $textClassificationConfigDataType = '';
+  public $textClassificationConfig;
 
+  /**
+   * @param string[]
+   */
   public function setBigqueryImportKeys($bigqueryImportKeys)
   {
     $this->bigqueryImportKeys = $bigqueryImportKeys;
   }
+  /**
+   * @return string[]
+   */
   public function getBigqueryImportKeys()
   {
     return $this->bigqueryImportKeys;
@@ -87,10 +106,16 @@ class GoogleCloudDatalabelingV1beta1EvaluationJobConfig extends \Google\Model
   {
     return $this->evaluationJobAlertConfig;
   }
+  /**
+   * @param int
+   */
   public function setExampleCount($exampleCount)
   {
     $this->exampleCount = $exampleCount;
   }
+  /**
+   * @return int
+   */
   public function getExampleCount()
   {
     return $this->exampleCount;

@@ -20,14 +20,24 @@ namespace Google\Service\Monitoring;
 class ListMonitoredResourceDescriptorsResponse extends \Google\Collection
 {
   protected $collection_key = 'resourceDescriptors';
+  /**
+   * @var string
+   */
   public $nextPageToken;
   protected $resourceDescriptorsType = MonitoredResourceDescriptor::class;
   protected $resourceDescriptorsDataType = 'array';
+  public $resourceDescriptors;
 
+  /**
+   * @param string
+   */
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
   }
+  /**
+   * @return string
+   */
   public function getNextPageToken()
   {
     return $this->nextPageToken;

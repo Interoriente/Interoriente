@@ -22,8 +22,13 @@ class CreateTableRequest extends \Google\Collection
   protected $collection_key = 'initialSplits';
   protected $initialSplitsType = Split::class;
   protected $initialSplitsDataType = 'array';
+  public $initialSplits;
   protected $tableType = Table::class;
   protected $tableDataType = '';
+  public $table;
+  /**
+   * @var string
+   */
   public $tableId;
 
   /**
@@ -54,10 +59,16 @@ class CreateTableRequest extends \Google\Collection
   {
     return $this->table;
   }
+  /**
+   * @param string
+   */
   public function setTableId($tableId)
   {
     $this->tableId = $tableId;
   }
+  /**
+   * @return string
+   */
   public function getTableId()
   {
     return $this->tableId;

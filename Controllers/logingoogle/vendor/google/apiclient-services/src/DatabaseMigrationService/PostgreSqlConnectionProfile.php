@@ -19,54 +19,141 @@ namespace Google\Service\DatabaseMigrationService;
 
 class PostgreSqlConnectionProfile extends \Google\Model
 {
+  /**
+   * @var string
+   */
   public $cloudSqlId;
+  /**
+   * @var string
+   */
   public $host;
+  /**
+   * @var string
+   */
+  public $networkArchitecture;
+  /**
+   * @var string
+   */
   public $password;
+  /**
+   * @var bool
+   */
   public $passwordSet;
+  /**
+   * @var int
+   */
   public $port;
+  protected $privateServiceConnectConnectivityType = PrivateServiceConnectConnectivity::class;
+  protected $privateServiceConnectConnectivityDataType = '';
+  public $privateServiceConnectConnectivity;
   protected $sslType = SslConfig::class;
   protected $sslDataType = '';
+  public $ssl;
+  protected $staticIpConnectivityType = StaticIpConnectivity::class;
+  protected $staticIpConnectivityDataType = '';
+  public $staticIpConnectivity;
+  /**
+   * @var string
+   */
   public $username;
 
+  /**
+   * @param string
+   */
   public function setCloudSqlId($cloudSqlId)
   {
     $this->cloudSqlId = $cloudSqlId;
   }
+  /**
+   * @return string
+   */
   public function getCloudSqlId()
   {
     return $this->cloudSqlId;
   }
+  /**
+   * @param string
+   */
   public function setHost($host)
   {
     $this->host = $host;
   }
+  /**
+   * @return string
+   */
   public function getHost()
   {
     return $this->host;
   }
+  /**
+   * @param string
+   */
+  public function setNetworkArchitecture($networkArchitecture)
+  {
+    $this->networkArchitecture = $networkArchitecture;
+  }
+  /**
+   * @return string
+   */
+  public function getNetworkArchitecture()
+  {
+    return $this->networkArchitecture;
+  }
+  /**
+   * @param string
+   */
   public function setPassword($password)
   {
     $this->password = $password;
   }
+  /**
+   * @return string
+   */
   public function getPassword()
   {
     return $this->password;
   }
+  /**
+   * @param bool
+   */
   public function setPasswordSet($passwordSet)
   {
     $this->passwordSet = $passwordSet;
   }
+  /**
+   * @return bool
+   */
   public function getPasswordSet()
   {
     return $this->passwordSet;
   }
+  /**
+   * @param int
+   */
   public function setPort($port)
   {
     $this->port = $port;
   }
+  /**
+   * @return int
+   */
   public function getPort()
   {
     return $this->port;
+  }
+  /**
+   * @param PrivateServiceConnectConnectivity
+   */
+  public function setPrivateServiceConnectConnectivity(PrivateServiceConnectConnectivity $privateServiceConnectConnectivity)
+  {
+    $this->privateServiceConnectConnectivity = $privateServiceConnectConnectivity;
+  }
+  /**
+   * @return PrivateServiceConnectConnectivity
+   */
+  public function getPrivateServiceConnectConnectivity()
+  {
+    return $this->privateServiceConnectConnectivity;
   }
   /**
    * @param SslConfig
@@ -82,10 +169,30 @@ class PostgreSqlConnectionProfile extends \Google\Model
   {
     return $this->ssl;
   }
+  /**
+   * @param StaticIpConnectivity
+   */
+  public function setStaticIpConnectivity(StaticIpConnectivity $staticIpConnectivity)
+  {
+    $this->staticIpConnectivity = $staticIpConnectivity;
+  }
+  /**
+   * @return StaticIpConnectivity
+   */
+  public function getStaticIpConnectivity()
+  {
+    return $this->staticIpConnectivity;
+  }
+  /**
+   * @param string
+   */
   public function setUsername($username)
   {
     $this->username = $username;
   }
+  /**
+   * @return string
+   */
   public function getUsername()
   {
     return $this->username;

@@ -20,37 +20,109 @@ namespace Google\Service\Apigee;
 class GoogleCloudApigeeV1EnvironmentConfig extends \Google\Collection
 {
   protected $collection_key = 'targets';
+  /**
+   * @var string
+   */
+  public $arcConfigLocation;
+  /**
+   * @var string
+   */
   public $createTime;
   protected $dataCollectorsType = GoogleCloudApigeeV1DataCollectorConfig::class;
   protected $dataCollectorsDataType = 'array';
+  public $dataCollectors;
   protected $debugMaskType = GoogleCloudApigeeV1DebugMask::class;
   protected $debugMaskDataType = '';
+  public $debugMask;
+  protected $deploymentGroupsType = GoogleCloudApigeeV1DeploymentGroupConfig::class;
+  protected $deploymentGroupsDataType = 'array';
+  public $deploymentGroups;
   protected $deploymentsType = GoogleCloudApigeeV1DeploymentConfig::class;
   protected $deploymentsDataType = 'array';
+  public $deployments;
+  /**
+   * @var string
+   */
+  public $envScopedRevisionId;
+  /**
+   * @var string[]
+   */
   public $featureFlags;
   protected $flowhooksType = GoogleCloudApigeeV1FlowHookConfig::class;
   protected $flowhooksDataType = 'array';
+  public $flowhooks;
+  /**
+   * @var string
+   */
+  public $forwardProxyUri;
+  /**
+   * @var string
+   */
+  public $gatewayConfigLocation;
   protected $keystoresType = GoogleCloudApigeeV1KeystoreConfig::class;
   protected $keystoresDataType = 'array';
+  public $keystores;
+  /**
+   * @var string
+   */
   public $name;
+  /**
+   * @var string
+   */
   public $provider;
+  /**
+   * @var string
+   */
   public $pubsubTopic;
   protected $resourceReferencesType = GoogleCloudApigeeV1ReferenceConfig::class;
   protected $resourceReferencesDataType = 'array';
+  public $resourceReferences;
   protected $resourcesType = GoogleCloudApigeeV1ResourceConfig::class;
   protected $resourcesDataType = 'array';
+  public $resources;
+  /**
+   * @var string
+   */
   public $revisionId;
+  /**
+   * @var string
+   */
   public $sequenceNumber;
   protected $targetsType = GoogleCloudApigeeV1TargetServerConfig::class;
   protected $targetsDataType = 'array';
+  public $targets;
   protected $traceConfigType = GoogleCloudApigeeV1RuntimeTraceConfig::class;
   protected $traceConfigDataType = '';
+  public $traceConfig;
+  /**
+   * @var string
+   */
   public $uid;
 
+  /**
+   * @param string
+   */
+  public function setArcConfigLocation($arcConfigLocation)
+  {
+    $this->arcConfigLocation = $arcConfigLocation;
+  }
+  /**
+   * @return string
+   */
+  public function getArcConfigLocation()
+  {
+    return $this->arcConfigLocation;
+  }
+  /**
+   * @param string
+   */
   public function setCreateTime($createTime)
   {
     $this->createTime = $createTime;
   }
+  /**
+   * @return string
+   */
   public function getCreateTime()
   {
     return $this->createTime;
@@ -84,6 +156,20 @@ class GoogleCloudApigeeV1EnvironmentConfig extends \Google\Collection
     return $this->debugMask;
   }
   /**
+   * @param GoogleCloudApigeeV1DeploymentGroupConfig[]
+   */
+  public function setDeploymentGroups($deploymentGroups)
+  {
+    $this->deploymentGroups = $deploymentGroups;
+  }
+  /**
+   * @return GoogleCloudApigeeV1DeploymentGroupConfig[]
+   */
+  public function getDeploymentGroups()
+  {
+    return $this->deploymentGroups;
+  }
+  /**
    * @param GoogleCloudApigeeV1DeploymentConfig[]
    */
   public function setDeployments($deployments)
@@ -97,10 +183,30 @@ class GoogleCloudApigeeV1EnvironmentConfig extends \Google\Collection
   {
     return $this->deployments;
   }
+  /**
+   * @param string
+   */
+  public function setEnvScopedRevisionId($envScopedRevisionId)
+  {
+    $this->envScopedRevisionId = $envScopedRevisionId;
+  }
+  /**
+   * @return string
+   */
+  public function getEnvScopedRevisionId()
+  {
+    return $this->envScopedRevisionId;
+  }
+  /**
+   * @param string[]
+   */
   public function setFeatureFlags($featureFlags)
   {
     $this->featureFlags = $featureFlags;
   }
+  /**
+   * @return string[]
+   */
   public function getFeatureFlags()
   {
     return $this->featureFlags;
@@ -120,6 +226,34 @@ class GoogleCloudApigeeV1EnvironmentConfig extends \Google\Collection
     return $this->flowhooks;
   }
   /**
+   * @param string
+   */
+  public function setForwardProxyUri($forwardProxyUri)
+  {
+    $this->forwardProxyUri = $forwardProxyUri;
+  }
+  /**
+   * @return string
+   */
+  public function getForwardProxyUri()
+  {
+    return $this->forwardProxyUri;
+  }
+  /**
+   * @param string
+   */
+  public function setGatewayConfigLocation($gatewayConfigLocation)
+  {
+    $this->gatewayConfigLocation = $gatewayConfigLocation;
+  }
+  /**
+   * @return string
+   */
+  public function getGatewayConfigLocation()
+  {
+    return $this->gatewayConfigLocation;
+  }
+  /**
    * @param GoogleCloudApigeeV1KeystoreConfig[]
    */
   public function setKeystores($keystores)
@@ -133,26 +267,44 @@ class GoogleCloudApigeeV1EnvironmentConfig extends \Google\Collection
   {
     return $this->keystores;
   }
+  /**
+   * @param string
+   */
   public function setName($name)
   {
     $this->name = $name;
   }
+  /**
+   * @return string
+   */
   public function getName()
   {
     return $this->name;
   }
+  /**
+   * @param string
+   */
   public function setProvider($provider)
   {
     $this->provider = $provider;
   }
+  /**
+   * @return string
+   */
   public function getProvider()
   {
     return $this->provider;
   }
+  /**
+   * @param string
+   */
   public function setPubsubTopic($pubsubTopic)
   {
     $this->pubsubTopic = $pubsubTopic;
   }
+  /**
+   * @return string
+   */
   public function getPubsubTopic()
   {
     return $this->pubsubTopic;
@@ -185,18 +337,30 @@ class GoogleCloudApigeeV1EnvironmentConfig extends \Google\Collection
   {
     return $this->resources;
   }
+  /**
+   * @param string
+   */
   public function setRevisionId($revisionId)
   {
     $this->revisionId = $revisionId;
   }
+  /**
+   * @return string
+   */
   public function getRevisionId()
   {
     return $this->revisionId;
   }
+  /**
+   * @param string
+   */
   public function setSequenceNumber($sequenceNumber)
   {
     $this->sequenceNumber = $sequenceNumber;
   }
+  /**
+   * @return string
+   */
   public function getSequenceNumber()
   {
     return $this->sequenceNumber;
@@ -229,10 +393,16 @@ class GoogleCloudApigeeV1EnvironmentConfig extends \Google\Collection
   {
     return $this->traceConfig;
   }
+  /**
+   * @param string
+   */
   public function setUid($uid)
   {
     $this->uid = $uid;
   }
+  /**
+   * @return string
+   */
   public function getUid()
   {
     return $this->uid;

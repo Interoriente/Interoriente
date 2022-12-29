@@ -21,10 +21,16 @@ class Volume extends \Google\Model
 {
   protected $existingDiskType = ExistingDisk::class;
   protected $existingDiskDataType = '';
+  public $existingDisk;
   protected $nfsMountType = NFSMount::class;
   protected $nfsMountDataType = '';
+  public $nfsMount;
   protected $persistentDiskType = PersistentDisk::class;
   protected $persistentDiskDataType = '';
+  public $persistentDisk;
+  /**
+   * @var string
+   */
   public $volume;
 
   /**
@@ -69,10 +75,16 @@ class Volume extends \Google\Model
   {
     return $this->persistentDisk;
   }
+  /**
+   * @param string
+   */
   public function setVolume($volume)
   {
     $this->volume = $volume;
   }
+  /**
+   * @return string
+   */
   public function getVolume()
   {
     return $this->volume;

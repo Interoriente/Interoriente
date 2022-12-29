@@ -19,18 +19,30 @@ namespace Google\Service\Docs;
 
 class UpdateTableCellStyleRequest extends \Google\Model
 {
+  /**
+   * @var string
+   */
   public $fields;
   protected $tableCellStyleType = TableCellStyle::class;
   protected $tableCellStyleDataType = '';
+  public $tableCellStyle;
   protected $tableRangeType = TableRange::class;
   protected $tableRangeDataType = '';
+  public $tableRange;
   protected $tableStartLocationType = Location::class;
   protected $tableStartLocationDataType = '';
+  public $tableStartLocation;
 
+  /**
+   * @param string
+   */
   public function setFields($fields)
   {
     $this->fields = $fields;
   }
+  /**
+   * @return string
+   */
   public function getFields()
   {
     return $this->fields;

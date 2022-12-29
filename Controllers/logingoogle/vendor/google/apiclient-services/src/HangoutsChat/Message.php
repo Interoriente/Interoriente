@@ -19,29 +19,69 @@ namespace Google\Service\HangoutsChat;
 
 class Message extends \Google\Collection
 {
-  protected $collection_key = 'cards';
+  protected $collection_key = 'cardsV2';
   protected $actionResponseType = ActionResponse::class;
   protected $actionResponseDataType = '';
+  public $actionResponse;
   protected $annotationsType = Annotation::class;
   protected $annotationsDataType = 'array';
+  public $annotations;
+  /**
+   * @var string
+   */
   public $argumentText;
   protected $attachmentType = Attachment::class;
   protected $attachmentDataType = 'array';
+  public $attachment;
   protected $cardsType = Card::class;
   protected $cardsDataType = 'array';
+  public $cards;
+  protected $cardsV2Type = CardWithId::class;
+  protected $cardsV2DataType = 'array';
+  public $cardsV2;
+  /**
+   * @var string
+   */
+  public $clientAssignedMessageId;
+  /**
+   * @var string
+   */
   public $createTime;
+  /**
+   * @var string
+   */
   public $fallbackText;
+  /**
+   * @var string
+   */
+  public $lastUpdateTime;
+  protected $matchedUrlType = MatchedUrl::class;
+  protected $matchedUrlDataType = '';
+  public $matchedUrl;
+  /**
+   * @var string
+   */
   public $name;
-  public $previewText;
   protected $senderType = User::class;
   protected $senderDataType = '';
+  public $sender;
   protected $slashCommandType = SlashCommand::class;
   protected $slashCommandDataType = '';
+  public $slashCommand;
   protected $spaceType = Space::class;
   protected $spaceDataType = '';
+  public $space;
+  /**
+   * @var string
+   */
   public $text;
   protected $threadType = Thread::class;
   protected $threadDataType = '';
+  public $thread;
+  /**
+   * @var bool
+   */
+  public $threadReply;
 
   /**
    * @param ActionResponse
@@ -71,10 +111,16 @@ class Message extends \Google\Collection
   {
     return $this->annotations;
   }
+  /**
+   * @param string
+   */
   public function setArgumentText($argumentText)
   {
     $this->argumentText = $argumentText;
   }
+  /**
+   * @return string
+   */
   public function getArgumentText()
   {
     return $this->argumentText;
@@ -107,37 +153,103 @@ class Message extends \Google\Collection
   {
     return $this->cards;
   }
+  /**
+   * @param CardWithId[]
+   */
+  public function setCardsV2($cardsV2)
+  {
+    $this->cardsV2 = $cardsV2;
+  }
+  /**
+   * @return CardWithId[]
+   */
+  public function getCardsV2()
+  {
+    return $this->cardsV2;
+  }
+  /**
+   * @param string
+   */
+  public function setClientAssignedMessageId($clientAssignedMessageId)
+  {
+    $this->clientAssignedMessageId = $clientAssignedMessageId;
+  }
+  /**
+   * @return string
+   */
+  public function getClientAssignedMessageId()
+  {
+    return $this->clientAssignedMessageId;
+  }
+  /**
+   * @param string
+   */
   public function setCreateTime($createTime)
   {
     $this->createTime = $createTime;
   }
+  /**
+   * @return string
+   */
   public function getCreateTime()
   {
     return $this->createTime;
   }
+  /**
+   * @param string
+   */
   public function setFallbackText($fallbackText)
   {
     $this->fallbackText = $fallbackText;
   }
+  /**
+   * @return string
+   */
   public function getFallbackText()
   {
     return $this->fallbackText;
   }
+  /**
+   * @param string
+   */
+  public function setLastUpdateTime($lastUpdateTime)
+  {
+    $this->lastUpdateTime = $lastUpdateTime;
+  }
+  /**
+   * @return string
+   */
+  public function getLastUpdateTime()
+  {
+    return $this->lastUpdateTime;
+  }
+  /**
+   * @param MatchedUrl
+   */
+  public function setMatchedUrl(MatchedUrl $matchedUrl)
+  {
+    $this->matchedUrl = $matchedUrl;
+  }
+  /**
+   * @return MatchedUrl
+   */
+  public function getMatchedUrl()
+  {
+    return $this->matchedUrl;
+  }
+  /**
+   * @param string
+   */
   public function setName($name)
   {
     $this->name = $name;
   }
+  /**
+   * @return string
+   */
   public function getName()
   {
     return $this->name;
-  }
-  public function setPreviewText($previewText)
-  {
-    $this->previewText = $previewText;
-  }
-  public function getPreviewText()
-  {
-    return $this->previewText;
   }
   /**
    * @param User
@@ -181,10 +293,16 @@ class Message extends \Google\Collection
   {
     return $this->space;
   }
+  /**
+   * @param string
+   */
   public function setText($text)
   {
     $this->text = $text;
   }
+  /**
+   * @return string
+   */
   public function getText()
   {
     return $this->text;
@@ -202,6 +320,20 @@ class Message extends \Google\Collection
   public function getThread()
   {
     return $this->thread;
+  }
+  /**
+   * @param bool
+   */
+  public function setThreadReply($threadReply)
+  {
+    $this->threadReply = $threadReply;
+  }
+  /**
+   * @return bool
+   */
+  public function getThreadReply()
+  {
+    return $this->threadReply;
   }
 }
 

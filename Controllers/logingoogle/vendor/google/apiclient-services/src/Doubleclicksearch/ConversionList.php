@@ -22,6 +22,10 @@ class ConversionList extends \Google\Collection
   protected $collection_key = 'conversion';
   protected $conversionType = Conversion::class;
   protected $conversionDataType = 'array';
+  public $conversion;
+  /**
+   * @var string
+   */
   public $kind;
 
   /**
@@ -38,10 +42,16 @@ class ConversionList extends \Google\Collection
   {
     return $this->conversion;
   }
+  /**
+   * @param string
+   */
   public function setKind($kind)
   {
     $this->kind = $kind;
   }
+  /**
+   * @return string
+   */
   public function getKind()
   {
     return $this->kind;

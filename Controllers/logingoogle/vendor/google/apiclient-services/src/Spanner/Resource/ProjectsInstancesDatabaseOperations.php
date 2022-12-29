@@ -24,7 +24,7 @@ use Google\Service\Spanner\ListDatabaseOperationsResponse;
  * Typical usage is:
  *  <code>
  *   $spannerService = new Google\Service\Spanner(...);
- *   $databaseOperations = $spannerService->databaseOperations;
+ *   $databaseOperations = $spannerService->projects_instances_databaseOperations;
  *  </code>
  */
 class ProjectsInstancesDatabaseOperations extends \Google\Service\Resource
@@ -51,8 +51,9 @@ class ProjectsInstancesDatabaseOperations extends \Google\Service\Resource
    * if the operation is in progress, else true. * `metadata.@type` - the type of
    * metadata. For example, the type string for RestoreDatabaseMetadata is `type.g
    * oogleapis.com/google.spanner.admin.database.v1.RestoreDatabaseMetadata`. *
-   * `metadata.` - any field in metadata.value. * `error` - Error associated with
-   * the long-running operation. * `response.@type` - the type of response. *
+   * `metadata.` - any field in metadata.value. `metadata.@type` must be specified
+   * first, if filtering on metadata fields. * `error` - Error associated with the
+   * long-running operation. * `response.@type` - the type of response. *
    * `response.` - any field in response.value. You can combine multiple
    * expressions by enclosing each expression in parentheses. By default,
    * expressions are combined with AND logic. However, you can specify AND, OR,

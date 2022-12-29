@@ -20,30 +20,63 @@ namespace Google\Service\Dialogflow;
 class GoogleCloudDialogflowCxV3beta1WebhookRequest extends \Google\Collection
 {
   protected $collection_key = 'messages';
+  /**
+   * @var string
+   */
   public $detectIntentResponseId;
   protected $fulfillmentInfoType = GoogleCloudDialogflowCxV3beta1WebhookRequestFulfillmentInfo::class;
   protected $fulfillmentInfoDataType = '';
+  public $fulfillmentInfo;
   protected $intentInfoType = GoogleCloudDialogflowCxV3beta1WebhookRequestIntentInfo::class;
   protected $intentInfoDataType = '';
+  public $intentInfo;
+  /**
+   * @var string
+   */
   public $languageCode;
   protected $messagesType = GoogleCloudDialogflowCxV3beta1ResponseMessage::class;
   protected $messagesDataType = 'array';
+  public $messages;
   protected $pageInfoType = GoogleCloudDialogflowCxV3beta1PageInfo::class;
   protected $pageInfoDataType = '';
+  public $pageInfo;
+  /**
+   * @var array[]
+   */
   public $payload;
   protected $sentimentAnalysisResultType = GoogleCloudDialogflowCxV3beta1WebhookRequestSentimentAnalysisResult::class;
   protected $sentimentAnalysisResultDataType = '';
+  public $sentimentAnalysisResult;
   protected $sessionInfoType = GoogleCloudDialogflowCxV3beta1SessionInfo::class;
   protected $sessionInfoDataType = '';
+  public $sessionInfo;
+  /**
+   * @var string
+   */
   public $text;
+  /**
+   * @var string
+   */
   public $transcript;
+  /**
+   * @var string
+   */
   public $triggerEvent;
+  /**
+   * @var string
+   */
   public $triggerIntent;
 
+  /**
+   * @param string
+   */
   public function setDetectIntentResponseId($detectIntentResponseId)
   {
     $this->detectIntentResponseId = $detectIntentResponseId;
   }
+  /**
+   * @return string
+   */
   public function getDetectIntentResponseId()
   {
     return $this->detectIntentResponseId;
@@ -76,10 +109,16 @@ class GoogleCloudDialogflowCxV3beta1WebhookRequest extends \Google\Collection
   {
     return $this->intentInfo;
   }
+  /**
+   * @param string
+   */
   public function setLanguageCode($languageCode)
   {
     $this->languageCode = $languageCode;
   }
+  /**
+   * @return string
+   */
   public function getLanguageCode()
   {
     return $this->languageCode;
@@ -112,10 +151,16 @@ class GoogleCloudDialogflowCxV3beta1WebhookRequest extends \Google\Collection
   {
     return $this->pageInfo;
   }
+  /**
+   * @param array[]
+   */
   public function setPayload($payload)
   {
     $this->payload = $payload;
   }
+  /**
+   * @return array[]
+   */
   public function getPayload()
   {
     return $this->payload;
@@ -148,34 +193,58 @@ class GoogleCloudDialogflowCxV3beta1WebhookRequest extends \Google\Collection
   {
     return $this->sessionInfo;
   }
+  /**
+   * @param string
+   */
   public function setText($text)
   {
     $this->text = $text;
   }
+  /**
+   * @return string
+   */
   public function getText()
   {
     return $this->text;
   }
+  /**
+   * @param string
+   */
   public function setTranscript($transcript)
   {
     $this->transcript = $transcript;
   }
+  /**
+   * @return string
+   */
   public function getTranscript()
   {
     return $this->transcript;
   }
+  /**
+   * @param string
+   */
   public function setTriggerEvent($triggerEvent)
   {
     $this->triggerEvent = $triggerEvent;
   }
+  /**
+   * @return string
+   */
   public function getTriggerEvent()
   {
     return $this->triggerEvent;
   }
+  /**
+   * @param string
+   */
   public function setTriggerIntent($triggerIntent)
   {
     $this->triggerIntent = $triggerIntent;
   }
+  /**
+   * @return string
+   */
   public function getTriggerIntent()
   {
     return $this->triggerIntent;

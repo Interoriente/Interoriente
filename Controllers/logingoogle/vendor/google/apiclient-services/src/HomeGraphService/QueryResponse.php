@@ -21,6 +21,10 @@ class QueryResponse extends \Google\Model
 {
   protected $payloadType = QueryResponsePayload::class;
   protected $payloadDataType = '';
+  public $payload;
+  /**
+   * @var string
+   */
   public $requestId;
 
   /**
@@ -37,10 +41,16 @@ class QueryResponse extends \Google\Model
   {
     return $this->payload;
   }
+  /**
+   * @param string
+   */
   public function setRequestId($requestId)
   {
     $this->requestId = $requestId;
   }
+  /**
+   * @return string
+   */
   public function getRequestId()
   {
     return $this->requestId;

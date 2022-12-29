@@ -25,12 +25,26 @@ class DiscoveryclustersClusters extends \Google\Collection
   ];
   protected $bannerWithContentContainerType = DiscoveryclustersClustersBannerWithContentContainer::class;
   protected $bannerWithContentContainerDataType = '';
+  public $bannerWithContentContainer;
+  /**
+   * @var string
+   */
   public $subTitle;
+  /**
+   * @var string
+   */
   public $title;
+  /**
+   * @var int
+   */
   public $totalVolumes;
+  /**
+   * @var string
+   */
   public $uid;
   protected $volumesType = Volume::class;
   protected $volumesDataType = 'array';
+  public $volumes;
 
   /**
    * @param DiscoveryclustersClustersBannerWithContentContainer
@@ -46,34 +60,58 @@ class DiscoveryclustersClusters extends \Google\Collection
   {
     return $this->bannerWithContentContainer;
   }
+  /**
+   * @param string
+   */
   public function setSubTitle($subTitle)
   {
     $this->subTitle = $subTitle;
   }
+  /**
+   * @return string
+   */
   public function getSubTitle()
   {
     return $this->subTitle;
   }
+  /**
+   * @param string
+   */
   public function setTitle($title)
   {
     $this->title = $title;
   }
+  /**
+   * @return string
+   */
   public function getTitle()
   {
     return $this->title;
   }
+  /**
+   * @param int
+   */
   public function setTotalVolumes($totalVolumes)
   {
     $this->totalVolumes = $totalVolumes;
   }
+  /**
+   * @return int
+   */
   public function getTotalVolumes()
   {
     return $this->totalVolumes;
   }
+  /**
+   * @param string
+   */
   public function setUid($uid)
   {
     $this->uid = $uid;
   }
+  /**
+   * @return string
+   */
   public function getUid()
   {
     return $this->uid;

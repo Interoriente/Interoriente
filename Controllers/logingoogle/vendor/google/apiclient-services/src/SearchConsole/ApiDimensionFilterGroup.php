@@ -22,6 +22,10 @@ class ApiDimensionFilterGroup extends \Google\Collection
   protected $collection_key = 'filters';
   protected $filtersType = ApiDimensionFilter::class;
   protected $filtersDataType = 'array';
+  public $filters;
+  /**
+   * @var string
+   */
   public $groupType;
 
   /**
@@ -38,10 +42,16 @@ class ApiDimensionFilterGroup extends \Google\Collection
   {
     return $this->filters;
   }
+  /**
+   * @param string
+   */
   public function setGroupType($groupType)
   {
     $this->groupType = $groupType;
   }
+  /**
+   * @return string
+   */
   public function getGroupType()
   {
     return $this->groupType;

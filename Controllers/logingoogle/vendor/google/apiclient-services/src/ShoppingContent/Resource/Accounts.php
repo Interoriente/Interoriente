@@ -28,6 +28,10 @@ use Google\Service\ShoppingContent\AccountsListLinksResponse;
 use Google\Service\ShoppingContent\AccountsListResponse;
 use Google\Service\ShoppingContent\AccountsUpdateLabelsRequest;
 use Google\Service\ShoppingContent\AccountsUpdateLabelsResponse;
+use Google\Service\ShoppingContent\RequestPhoneVerificationRequest;
+use Google\Service\ShoppingContent\RequestPhoneVerificationResponse;
+use Google\Service\ShoppingContent\VerifyPhoneNumberRequest;
+use Google\Service\ShoppingContent\VerifyPhoneNumberResponse;
 
 /**
  * The "accounts" collection of methods.
@@ -60,9 +64,10 @@ class Accounts extends \Google\Service\Resource
    * @param string $accountId The ID of the account whose website is claimed.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param bool overwrite Only available to selected merchants. When set to
-   * `True`, this flag removes any existing claim on the requested website by
-   * another account and replaces it with a claim from this account.
+   * @opt_param bool overwrite Only available to selected merchants, for example
+   * multi-client accounts (MCAs) and their sub-accounts. When set to `True`, this
+   * option removes any existing claim on the requested website and replaces it
+   * with a claim from the account that makes the request.
    * @return AccountsClaimWebsiteResponse
    */
   public function claimwebsite($merchantId, $accountId, $optParams = [])
@@ -94,8 +99,8 @@ class Accounts extends \Google\Service\Resource
    * @param string $accountId The ID of the account.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param bool force Flag to delete sub-accounts with products. The default
-   * value is false.
+   * @opt_param bool force Option to delete sub-accounts with products. The
+   * default value is false.
    */
   public function delete($merchantId, $accountId, $optParams = [])
   {
@@ -204,6 +209,24 @@ class Accounts extends \Google\Service\Resource
     return $this->call('listlinks', [$params], AccountsListLinksResponse::class);
   }
   /**
+   * Request verification code to start phone verification.
+   * (accounts.requestphoneverification)
+   *
+   * @param string $merchantId Required. The ID of the managing account. If this
+   * parameter is not the same as accountId, then this account must be a multi-
+   * client account and accountId must be the ID of a sub-account of this account.
+   * @param string $accountId Required. The ID of the account.
+   * @param RequestPhoneVerificationRequest $postBody
+   * @param array $optParams Optional parameters.
+   * @return RequestPhoneVerificationResponse
+   */
+  public function requestphoneverification($merchantId, $accountId, RequestPhoneVerificationRequest $postBody, $optParams = [])
+  {
+    $params = ['merchantId' => $merchantId, 'accountId' => $accountId, 'postBody' => $postBody];
+    $params = array_merge($params, $optParams);
+    return $this->call('requestphoneverification', [$params], RequestPhoneVerificationResponse::class);
+  }
+  /**
    * Updates a Merchant Center account. Any fields that are not provided are
    * deleted from the resource. (accounts.update)
    *
@@ -236,6 +259,26 @@ class Accounts extends \Google\Service\Resource
     $params = ['merchantId' => $merchantId, 'accountId' => $accountId, 'postBody' => $postBody];
     $params = array_merge($params, $optParams);
     return $this->call('updatelabels', [$params], AccountsUpdateLabelsResponse::class);
+  }
+  /**
+   * Validates verification code to verify phone number for the account. If
+   * successful this will overwrite the value of
+   * `accounts.businessinformation.phoneNumber`. Only verified phone number will
+   * replace an existing verified phone number. (accounts.verifyphonenumber)
+   *
+   * @param string $merchantId Required. The ID of the managing account. If this
+   * parameter is not the same as accountId, then this account must be a multi-
+   * client account and accountId must be the ID of a sub-account of this account.
+   * @param string $accountId Required. The ID of the account.
+   * @param VerifyPhoneNumberRequest $postBody
+   * @param array $optParams Optional parameters.
+   * @return VerifyPhoneNumberResponse
+   */
+  public function verifyphonenumber($merchantId, $accountId, VerifyPhoneNumberRequest $postBody, $optParams = [])
+  {
+    $params = ['merchantId' => $merchantId, 'accountId' => $accountId, 'postBody' => $postBody];
+    $params = array_merge($params, $optParams);
+    return $this->call('verifyphonenumber', [$params], VerifyPhoneNumberResponse::class);
   }
 }
 

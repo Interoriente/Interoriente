@@ -19,29 +19,56 @@ namespace Google\Service\Keep;
 
 class Permission extends \Google\Model
 {
+  /**
+   * @var bool
+   */
   public $deleted;
+  /**
+   * @var string
+   */
   public $email;
   protected $familyType = Family::class;
   protected $familyDataType = '';
+  public $family;
   protected $groupType = Group::class;
   protected $groupDataType = '';
+  public $group;
+  /**
+   * @var string
+   */
   public $name;
+  /**
+   * @var string
+   */
   public $role;
   protected $userType = User::class;
   protected $userDataType = '';
+  public $user;
 
+  /**
+   * @param bool
+   */
   public function setDeleted($deleted)
   {
     $this->deleted = $deleted;
   }
+  /**
+   * @return bool
+   */
   public function getDeleted()
   {
     return $this->deleted;
   }
+  /**
+   * @param string
+   */
   public function setEmail($email)
   {
     $this->email = $email;
   }
+  /**
+   * @return string
+   */
   public function getEmail()
   {
     return $this->email;
@@ -74,18 +101,30 @@ class Permission extends \Google\Model
   {
     return $this->group;
   }
+  /**
+   * @param string
+   */
   public function setName($name)
   {
     $this->name = $name;
   }
+  /**
+   * @return string
+   */
   public function getName()
   {
     return $this->name;
   }
+  /**
+   * @param string
+   */
   public function setRole($role)
   {
     $this->role = $role;
   }
+  /**
+   * @return string
+   */
   public function getRole()
   {
     return $this->role;

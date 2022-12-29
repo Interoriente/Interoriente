@@ -21,7 +21,14 @@ class SearchItemsByViewUrlRequest extends \Google\Model
 {
   protected $debugOptionsType = DebugOptions::class;
   protected $debugOptionsDataType = '';
+  public $debugOptions;
+  /**
+   * @var string
+   */
   public $pageToken;
+  /**
+   * @var string
+   */
   public $viewUrl;
 
   /**
@@ -38,18 +45,30 @@ class SearchItemsByViewUrlRequest extends \Google\Model
   {
     return $this->debugOptions;
   }
+  /**
+   * @param string
+   */
   public function setPageToken($pageToken)
   {
     $this->pageToken = $pageToken;
   }
+  /**
+   * @return string
+   */
   public function getPageToken()
   {
     return $this->pageToken;
   }
+  /**
+   * @param string
+   */
   public function setViewUrl($viewUrl)
   {
     $this->viewUrl = $viewUrl;
   }
+  /**
+   * @return string
+   */
   public function getViewUrl()
   {
     return $this->viewUrl;

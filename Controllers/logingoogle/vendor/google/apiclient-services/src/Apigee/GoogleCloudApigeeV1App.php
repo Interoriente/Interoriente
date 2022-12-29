@@ -22,19 +22,52 @@ class GoogleCloudApigeeV1App extends \Google\Collection
   protected $collection_key = 'scopes';
   protected $apiProductsType = GoogleCloudApigeeV1ApiProductRef::class;
   protected $apiProductsDataType = 'array';
+  public $apiProducts;
+  /**
+   * @var string
+   */
   public $appId;
   protected $attributesType = GoogleCloudApigeeV1Attribute::class;
   protected $attributesDataType = 'array';
+  public $attributes;
+  /**
+   * @var string
+   */
   public $callbackUrl;
+  /**
+   * @var string
+   */
   public $companyName;
+  /**
+   * @var string
+   */
   public $createdAt;
   protected $credentialsType = GoogleCloudApigeeV1Credential::class;
   protected $credentialsDataType = 'array';
+  public $credentials;
+  /**
+   * @var string
+   */
   public $developerId;
+  /**
+   * @var string
+   */
   public $keyExpiresIn;
+  /**
+   * @var string
+   */
   public $lastModifiedAt;
+  /**
+   * @var string
+   */
   public $name;
+  /**
+   * @var string[]
+   */
   public $scopes;
+  /**
+   * @var string
+   */
   public $status;
 
   /**
@@ -51,10 +84,16 @@ class GoogleCloudApigeeV1App extends \Google\Collection
   {
     return $this->apiProducts;
   }
+  /**
+   * @param string
+   */
   public function setAppId($appId)
   {
     $this->appId = $appId;
   }
+  /**
+   * @return string
+   */
   public function getAppId()
   {
     return $this->appId;
@@ -73,26 +112,44 @@ class GoogleCloudApigeeV1App extends \Google\Collection
   {
     return $this->attributes;
   }
+  /**
+   * @param string
+   */
   public function setCallbackUrl($callbackUrl)
   {
     $this->callbackUrl = $callbackUrl;
   }
+  /**
+   * @return string
+   */
   public function getCallbackUrl()
   {
     return $this->callbackUrl;
   }
+  /**
+   * @param string
+   */
   public function setCompanyName($companyName)
   {
     $this->companyName = $companyName;
   }
+  /**
+   * @return string
+   */
   public function getCompanyName()
   {
     return $this->companyName;
   }
+  /**
+   * @param string
+   */
   public function setCreatedAt($createdAt)
   {
     $this->createdAt = $createdAt;
   }
+  /**
+   * @return string
+   */
   public function getCreatedAt()
   {
     return $this->createdAt;
@@ -111,50 +168,86 @@ class GoogleCloudApigeeV1App extends \Google\Collection
   {
     return $this->credentials;
   }
+  /**
+   * @param string
+   */
   public function setDeveloperId($developerId)
   {
     $this->developerId = $developerId;
   }
+  /**
+   * @return string
+   */
   public function getDeveloperId()
   {
     return $this->developerId;
   }
+  /**
+   * @param string
+   */
   public function setKeyExpiresIn($keyExpiresIn)
   {
     $this->keyExpiresIn = $keyExpiresIn;
   }
+  /**
+   * @return string
+   */
   public function getKeyExpiresIn()
   {
     return $this->keyExpiresIn;
   }
+  /**
+   * @param string
+   */
   public function setLastModifiedAt($lastModifiedAt)
   {
     $this->lastModifiedAt = $lastModifiedAt;
   }
+  /**
+   * @return string
+   */
   public function getLastModifiedAt()
   {
     return $this->lastModifiedAt;
   }
+  /**
+   * @param string
+   */
   public function setName($name)
   {
     $this->name = $name;
   }
+  /**
+   * @return string
+   */
   public function getName()
   {
     return $this->name;
   }
+  /**
+   * @param string[]
+   */
   public function setScopes($scopes)
   {
     $this->scopes = $scopes;
   }
+  /**
+   * @return string[]
+   */
   public function getScopes()
   {
     return $this->scopes;
   }
+  /**
+   * @param string
+   */
   public function setStatus($status)
   {
     $this->status = $status;
   }
+  /**
+   * @return string
+   */
   public function getStatus()
   {
     return $this->status;

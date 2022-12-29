@@ -21,11 +21,25 @@ class GoogleCloudRetailV2ImportProductsRequest extends \Google\Model
 {
   protected $errorsConfigType = GoogleCloudRetailV2ImportErrorsConfig::class;
   protected $errorsConfigDataType = '';
+  public $errorsConfig;
   protected $inputConfigType = GoogleCloudRetailV2ProductInputConfig::class;
   protected $inputConfigDataType = '';
+  public $inputConfig;
+  /**
+   * @var string
+   */
   public $notificationPubsubTopic;
+  /**
+   * @var string
+   */
   public $reconciliationMode;
+  /**
+   * @var string
+   */
   public $requestId;
+  /**
+   * @var string
+   */
   public $updateMask;
 
   /**
@@ -56,34 +70,58 @@ class GoogleCloudRetailV2ImportProductsRequest extends \Google\Model
   {
     return $this->inputConfig;
   }
+  /**
+   * @param string
+   */
   public function setNotificationPubsubTopic($notificationPubsubTopic)
   {
     $this->notificationPubsubTopic = $notificationPubsubTopic;
   }
+  /**
+   * @return string
+   */
   public function getNotificationPubsubTopic()
   {
     return $this->notificationPubsubTopic;
   }
+  /**
+   * @param string
+   */
   public function setReconciliationMode($reconciliationMode)
   {
     $this->reconciliationMode = $reconciliationMode;
   }
+  /**
+   * @return string
+   */
   public function getReconciliationMode()
   {
     return $this->reconciliationMode;
   }
+  /**
+   * @param string
+   */
   public function setRequestId($requestId)
   {
     $this->requestId = $requestId;
   }
+  /**
+   * @return string
+   */
   public function getRequestId()
   {
     return $this->requestId;
   }
+  /**
+   * @param string
+   */
   public function setUpdateMask($updateMask)
   {
     $this->updateMask = $updateMask;
   }
+  /**
+   * @return string
+   */
   public function getUpdateMask()
   {
     return $this->updateMask;

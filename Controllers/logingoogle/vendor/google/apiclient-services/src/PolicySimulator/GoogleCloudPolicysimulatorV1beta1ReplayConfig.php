@@ -19,14 +19,24 @@ namespace Google\Service\PolicySimulator;
 
 class GoogleCloudPolicysimulatorV1beta1ReplayConfig extends \Google\Model
 {
+  /**
+   * @var string
+   */
   public $logSource;
   protected $policyOverlayType = GoogleIamV1Policy::class;
   protected $policyOverlayDataType = 'map';
+  public $policyOverlay;
 
+  /**
+   * @param string
+   */
   public function setLogSource($logSource)
   {
     $this->logSource = $logSource;
   }
+  /**
+   * @return string
+   */
   public function getLogSource()
   {
     return $this->logSource;

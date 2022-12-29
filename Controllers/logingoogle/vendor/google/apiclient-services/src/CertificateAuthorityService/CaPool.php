@@ -21,10 +21,21 @@ class CaPool extends \Google\Model
 {
   protected $issuancePolicyType = IssuancePolicy::class;
   protected $issuancePolicyDataType = '';
+  public $issuancePolicy;
+  /**
+   * @var string[]
+   */
   public $labels;
+  /**
+   * @var string
+   */
   public $name;
   protected $publishingOptionsType = PublishingOptions::class;
   protected $publishingOptionsDataType = '';
+  public $publishingOptions;
+  /**
+   * @var string
+   */
   public $tier;
 
   /**
@@ -41,18 +52,30 @@ class CaPool extends \Google\Model
   {
     return $this->issuancePolicy;
   }
+  /**
+   * @param string[]
+   */
   public function setLabels($labels)
   {
     $this->labels = $labels;
   }
+  /**
+   * @return string[]
+   */
   public function getLabels()
   {
     return $this->labels;
   }
+  /**
+   * @param string
+   */
   public function setName($name)
   {
     $this->name = $name;
   }
+  /**
+   * @return string
+   */
   public function getName()
   {
     return $this->name;
@@ -71,10 +94,16 @@ class CaPool extends \Google\Model
   {
     return $this->publishingOptions;
   }
+  /**
+   * @param string
+   */
   public function setTier($tier)
   {
     $this->tier = $tier;
   }
+  /**
+   * @return string
+   */
   public function getTier()
   {
     return $this->tier;

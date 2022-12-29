@@ -20,17 +20,31 @@ namespace Google\Service\Fitness;
 class ListDataPointChangesResponse extends \Google\Collection
 {
   protected $collection_key = 'insertedDataPoint';
+  /**
+   * @var string
+   */
   public $dataSourceId;
   protected $deletedDataPointType = DataPoint::class;
   protected $deletedDataPointDataType = 'array';
+  public $deletedDataPoint;
   protected $insertedDataPointType = DataPoint::class;
   protected $insertedDataPointDataType = 'array';
+  public $insertedDataPoint;
+  /**
+   * @var string
+   */
   public $nextPageToken;
 
+  /**
+   * @param string
+   */
   public function setDataSourceId($dataSourceId)
   {
     $this->dataSourceId = $dataSourceId;
   }
+  /**
+   * @return string
+   */
   public function getDataSourceId()
   {
     return $this->dataSourceId;
@@ -63,10 +77,16 @@ class ListDataPointChangesResponse extends \Google\Collection
   {
     return $this->insertedDataPoint;
   }
+  /**
+   * @param string
+   */
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
   }
+  /**
+   * @return string
+   */
   public function getNextPageToken()
   {
     return $this->nextPageToken;

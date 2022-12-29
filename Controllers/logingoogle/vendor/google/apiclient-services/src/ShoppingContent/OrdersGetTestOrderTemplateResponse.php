@@ -19,14 +19,24 @@ namespace Google\Service\ShoppingContent;
 
 class OrdersGetTestOrderTemplateResponse extends \Google\Model
 {
+  /**
+   * @var string
+   */
   public $kind;
   protected $templateType = TestOrder::class;
   protected $templateDataType = '';
+  public $template;
 
+  /**
+   * @param string
+   */
   public function setKind($kind)
   {
     $this->kind = $kind;
   }
+  /**
+   * @return string
+   */
   public function getKind()
   {
     return $this->kind;

@@ -19,14 +19,24 @@ namespace Google\Service\TrafficDirectorService;
 
 class BuildVersion extends \Google\Model
 {
+  /**
+   * @var array[]
+   */
   public $metadata;
   protected $versionType = SemanticVersion::class;
   protected $versionDataType = '';
+  public $version;
 
+  /**
+   * @param array[]
+   */
   public function setMetadata($metadata)
   {
     $this->metadata = $metadata;
   }
+  /**
+   * @return array[]
+   */
   public function getMetadata()
   {
     return $this->metadata;

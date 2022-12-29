@@ -22,11 +22,20 @@ class MailPhishing extends \Google\Collection
   protected $collection_key = 'messages';
   protected $domainIdType = DomainId::class;
   protected $domainIdDataType = '';
+  public $domainId;
+  /**
+   * @var bool
+   */
   public $isInternal;
   protected $maliciousEntityType = MaliciousEntity::class;
   protected $maliciousEntityDataType = '';
+  public $maliciousEntity;
   protected $messagesType = GmailMessageInfo::class;
   protected $messagesDataType = 'array';
+  public $messages;
+  /**
+   * @var string
+   */
   public $systemActionType;
 
   /**
@@ -43,10 +52,16 @@ class MailPhishing extends \Google\Collection
   {
     return $this->domainId;
   }
+  /**
+   * @param bool
+   */
   public function setIsInternal($isInternal)
   {
     $this->isInternal = $isInternal;
   }
+  /**
+   * @return bool
+   */
   public function getIsInternal()
   {
     return $this->isInternal;
@@ -79,10 +94,16 @@ class MailPhishing extends \Google\Collection
   {
     return $this->messages;
   }
+  /**
+   * @param string
+   */
   public function setSystemActionType($systemActionType)
   {
     $this->systemActionType = $systemActionType;
   }
+  /**
+   * @return string
+   */
   public function getSystemActionType()
   {
     return $this->systemActionType;

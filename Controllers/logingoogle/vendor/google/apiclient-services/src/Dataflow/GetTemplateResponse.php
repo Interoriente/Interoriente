@@ -21,10 +21,16 @@ class GetTemplateResponse extends \Google\Model
 {
   protected $metadataType = TemplateMetadata::class;
   protected $metadataDataType = '';
+  public $metadata;
   protected $runtimeMetadataType = RuntimeMetadata::class;
   protected $runtimeMetadataDataType = '';
+  public $runtimeMetadata;
   protected $statusType = Status::class;
   protected $statusDataType = '';
+  public $status;
+  /**
+   * @var string
+   */
   public $templateType;
 
   /**
@@ -69,10 +75,16 @@ class GetTemplateResponse extends \Google\Model
   {
     return $this->status;
   }
+  /**
+   * @param string
+   */
   public function setTemplateType($templateType)
   {
     $this->templateType = $templateType;
   }
+  /**
+   * @return string
+   */
   public function getTemplateType()
   {
     return $this->templateType;

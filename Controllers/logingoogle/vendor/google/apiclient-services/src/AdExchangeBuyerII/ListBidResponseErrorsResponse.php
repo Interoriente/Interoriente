@@ -22,6 +22,10 @@ class ListBidResponseErrorsResponse extends \Google\Collection
   protected $collection_key = 'calloutStatusRows';
   protected $calloutStatusRowsType = CalloutStatusRow::class;
   protected $calloutStatusRowsDataType = 'array';
+  public $calloutStatusRows;
+  /**
+   * @var string
+   */
   public $nextPageToken;
 
   /**
@@ -38,10 +42,16 @@ class ListBidResponseErrorsResponse extends \Google\Collection
   {
     return $this->calloutStatusRows;
   }
+  /**
+   * @param string
+   */
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
   }
+  /**
+   * @return string
+   */
   public function getNextPageToken()
   {
     return $this->nextPageToken;

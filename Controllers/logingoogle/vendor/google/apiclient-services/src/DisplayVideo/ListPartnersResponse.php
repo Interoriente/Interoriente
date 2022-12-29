@@ -20,14 +20,24 @@ namespace Google\Service\DisplayVideo;
 class ListPartnersResponse extends \Google\Collection
 {
   protected $collection_key = 'partners';
+  /**
+   * @var string
+   */
   public $nextPageToken;
   protected $partnersType = Partner::class;
   protected $partnersDataType = 'array';
+  public $partners;
 
+  /**
+   * @param string
+   */
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
   }
+  /**
+   * @return string
+   */
   public function getNextPageToken()
   {
     return $this->nextPageToken;

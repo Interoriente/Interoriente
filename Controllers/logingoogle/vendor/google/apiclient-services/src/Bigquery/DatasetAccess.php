@@ -21,16 +21,37 @@ class DatasetAccess extends \Google\Model
 {
   protected $datasetType = DatasetAccessEntry::class;
   protected $datasetDataType = '';
+  public $dataset;
+  /**
+   * @var string
+   */
   public $domain;
+  /**
+   * @var string
+   */
   public $groupByEmail;
+  /**
+   * @var string
+   */
   public $iamMember;
+  /**
+   * @var string
+   */
   public $role;
   protected $routineType = RoutineReference::class;
   protected $routineDataType = '';
+  public $routine;
+  /**
+   * @var string
+   */
   public $specialGroup;
+  /**
+   * @var string
+   */
   public $userByEmail;
   protected $viewType = TableReference::class;
   protected $viewDataType = '';
+  public $view;
 
   /**
    * @param DatasetAccessEntry
@@ -46,34 +67,58 @@ class DatasetAccess extends \Google\Model
   {
     return $this->dataset;
   }
+  /**
+   * @param string
+   */
   public function setDomain($domain)
   {
     $this->domain = $domain;
   }
+  /**
+   * @return string
+   */
   public function getDomain()
   {
     return $this->domain;
   }
+  /**
+   * @param string
+   */
   public function setGroupByEmail($groupByEmail)
   {
     $this->groupByEmail = $groupByEmail;
   }
+  /**
+   * @return string
+   */
   public function getGroupByEmail()
   {
     return $this->groupByEmail;
   }
+  /**
+   * @param string
+   */
   public function setIamMember($iamMember)
   {
     $this->iamMember = $iamMember;
   }
+  /**
+   * @return string
+   */
   public function getIamMember()
   {
     return $this->iamMember;
   }
+  /**
+   * @param string
+   */
   public function setRole($role)
   {
     $this->role = $role;
   }
+  /**
+   * @return string
+   */
   public function getRole()
   {
     return $this->role;
@@ -92,18 +137,30 @@ class DatasetAccess extends \Google\Model
   {
     return $this->routine;
   }
+  /**
+   * @param string
+   */
   public function setSpecialGroup($specialGroup)
   {
     $this->specialGroup = $specialGroup;
   }
+  /**
+   * @return string
+   */
   public function getSpecialGroup()
   {
     return $this->specialGroup;
   }
+  /**
+   * @param string
+   */
   public function setUserByEmail($userByEmail)
   {
     $this->userByEmail = $userByEmail;
   }
+  /**
+   * @return string
+   */
   public function getUserByEmail()
   {
     return $this->userByEmail;

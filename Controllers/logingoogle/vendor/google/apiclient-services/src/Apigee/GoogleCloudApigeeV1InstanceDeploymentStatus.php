@@ -22,8 +22,13 @@ class GoogleCloudApigeeV1InstanceDeploymentStatus extends \Google\Collection
   protected $collection_key = 'deployedRoutes';
   protected $deployedRevisionsType = GoogleCloudApigeeV1InstanceDeploymentStatusDeployedRevision::class;
   protected $deployedRevisionsDataType = 'array';
+  public $deployedRevisions;
   protected $deployedRoutesType = GoogleCloudApigeeV1InstanceDeploymentStatusDeployedRoute::class;
   protected $deployedRoutesDataType = 'array';
+  public $deployedRoutes;
+  /**
+   * @var string
+   */
   public $instance;
 
   /**
@@ -54,10 +59,16 @@ class GoogleCloudApigeeV1InstanceDeploymentStatus extends \Google\Collection
   {
     return $this->deployedRoutes;
   }
+  /**
+   * @param string
+   */
   public function setInstance($instance)
   {
     $this->instance = $instance;
   }
+  /**
+   * @return string
+   */
   public function getInstance()
   {
     return $this->instance;

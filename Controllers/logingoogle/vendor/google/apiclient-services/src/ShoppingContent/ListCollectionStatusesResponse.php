@@ -20,14 +20,24 @@ namespace Google\Service\ShoppingContent;
 class ListCollectionStatusesResponse extends \Google\Collection
 {
   protected $collection_key = 'resources';
+  /**
+   * @var string
+   */
   public $nextPageToken;
   protected $resourcesType = CollectionStatus::class;
   protected $resourcesDataType = 'array';
+  public $resources;
 
+  /**
+   * @param string
+   */
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
   }
+  /**
+   * @return string
+   */
   public function getNextPageToken()
   {
     return $this->nextPageToken;

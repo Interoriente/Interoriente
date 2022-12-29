@@ -19,14 +19,24 @@ namespace Google\Service\SASPortalTesting;
 
 class SasPortalDpaMoveList extends \Google\Model
 {
+  /**
+   * @var string
+   */
   public $dpaId;
   protected $frequencyRangeType = SasPortalFrequencyRange::class;
   protected $frequencyRangeDataType = '';
+  public $frequencyRange;
 
+  /**
+   * @param string
+   */
   public function setDpaId($dpaId)
   {
     $this->dpaId = $dpaId;
   }
+  /**
+   * @return string
+   */
   public function getDpaId()
   {
     return $this->dpaId;

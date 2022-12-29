@@ -22,7 +22,14 @@ class ReferenceImage extends \Google\Collection
   protected $collection_key = 'boundingPolys';
   protected $boundingPolysType = BoundingPoly::class;
   protected $boundingPolysDataType = 'array';
+  public $boundingPolys;
+  /**
+   * @var string
+   */
   public $name;
+  /**
+   * @var string
+   */
   public $uri;
 
   /**
@@ -39,18 +46,30 @@ class ReferenceImage extends \Google\Collection
   {
     return $this->boundingPolys;
   }
+  /**
+   * @param string
+   */
   public function setName($name)
   {
     $this->name = $name;
   }
+  /**
+   * @return string
+   */
   public function getName()
   {
     return $this->name;
   }
+  /**
+   * @param string
+   */
   public function setUri($uri)
   {
     $this->uri = $uri;
   }
+  /**
+   * @return string
+   */
   public function getUri()
   {
     return $this->uri;

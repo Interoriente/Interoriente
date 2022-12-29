@@ -20,14 +20,24 @@ namespace Google\Service\IdentityToolkit;
 class GetAccountInfoResponse extends \Google\Collection
 {
   protected $collection_key = 'users';
+  /**
+   * @var string
+   */
   public $kind;
   protected $usersType = UserInfo::class;
   protected $usersDataType = 'array';
+  public $users;
 
+  /**
+   * @param string
+   */
   public function setKind($kind)
   {
     $this->kind = $kind;
   }
+  /**
+   * @return string
+   */
   public function getKind()
   {
     return $this->kind;

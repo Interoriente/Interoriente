@@ -22,15 +22,23 @@ class Write extends \Google\Collection
   protected $collection_key = 'updateTransforms';
   protected $currentDocumentType = Precondition::class;
   protected $currentDocumentDataType = '';
+  public $currentDocument;
+  /**
+   * @var string
+   */
   public $delete;
   protected $transformType = DocumentTransform::class;
   protected $transformDataType = '';
+  public $transform;
   protected $updateType = Document::class;
   protected $updateDataType = '';
+  public $update;
   protected $updateMaskType = DocumentMask::class;
   protected $updateMaskDataType = '';
+  public $updateMask;
   protected $updateTransformsType = FieldTransform::class;
   protected $updateTransformsDataType = 'array';
+  public $updateTransforms;
 
   /**
    * @param Precondition
@@ -46,10 +54,16 @@ class Write extends \Google\Collection
   {
     return $this->currentDocument;
   }
+  /**
+   * @param string
+   */
   public function setDelete($delete)
   {
     $this->delete = $delete;
   }
+  /**
+   * @return string
+   */
   public function getDelete()
   {
     return $this->delete;

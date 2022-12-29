@@ -20,14 +20,24 @@ namespace Google\Service\Cloudchannel;
 class GoogleCloudChannelV1ListPurchasableSkusResponse extends \Google\Collection
 {
   protected $collection_key = 'purchasableSkus';
+  /**
+   * @var string
+   */
   public $nextPageToken;
   protected $purchasableSkusType = GoogleCloudChannelV1PurchasableSku::class;
   protected $purchasableSkusDataType = 'array';
+  public $purchasableSkus;
 
+  /**
+   * @param string
+   */
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
   }
+  /**
+   * @return string
+   */
   public function getNextPageToken()
   {
     return $this->nextPageToken;

@@ -22,30 +22,71 @@ class Proposal extends \Google\Collection
   protected $collection_key = 'sellerContacts';
   protected $billedBuyerType = Buyer::class;
   protected $billedBuyerDataType = '';
+  public $billedBuyer;
   protected $buyerType = Buyer::class;
   protected $buyerDataType = '';
+  public $buyer;
   protected $buyerContactsType = ContactInformation::class;
   protected $buyerContactsDataType = 'array';
+  public $buyerContacts;
   protected $buyerPrivateDataType = PrivateData::class;
   protected $buyerPrivateDataDataType = '';
+  public $buyerPrivateData;
   protected $dealsType = Deal::class;
   protected $dealsDataType = 'array';
+  public $deals;
+  /**
+   * @var string
+   */
   public $displayName;
+  /**
+   * @var bool
+   */
   public $isRenegotiating;
+  /**
+   * @var bool
+   */
   public $isSetupComplete;
+  /**
+   * @var string
+   */
   public $lastUpdaterOrCommentorRole;
   protected $notesType = Note::class;
   protected $notesDataType = 'array';
+  public $notes;
+  /**
+   * @var string
+   */
   public $originatorRole;
+  /**
+   * @var string
+   */
   public $privateAuctionId;
+  /**
+   * @var string
+   */
   public $proposalId;
+  /**
+   * @var string
+   */
   public $proposalRevision;
+  /**
+   * @var string
+   */
   public $proposalState;
   protected $sellerType = Seller::class;
   protected $sellerDataType = '';
+  public $seller;
   protected $sellerContactsType = ContactInformation::class;
   protected $sellerContactsDataType = 'array';
+  public $sellerContacts;
+  /**
+   * @var string
+   */
   public $termsAndConditions;
+  /**
+   * @var string
+   */
   public $updateTime;
 
   /**
@@ -118,34 +159,58 @@ class Proposal extends \Google\Collection
   {
     return $this->deals;
   }
+  /**
+   * @param string
+   */
   public function setDisplayName($displayName)
   {
     $this->displayName = $displayName;
   }
+  /**
+   * @return string
+   */
   public function getDisplayName()
   {
     return $this->displayName;
   }
+  /**
+   * @param bool
+   */
   public function setIsRenegotiating($isRenegotiating)
   {
     $this->isRenegotiating = $isRenegotiating;
   }
+  /**
+   * @return bool
+   */
   public function getIsRenegotiating()
   {
     return $this->isRenegotiating;
   }
+  /**
+   * @param bool
+   */
   public function setIsSetupComplete($isSetupComplete)
   {
     $this->isSetupComplete = $isSetupComplete;
   }
+  /**
+   * @return bool
+   */
   public function getIsSetupComplete()
   {
     return $this->isSetupComplete;
   }
+  /**
+   * @param string
+   */
   public function setLastUpdaterOrCommentorRole($lastUpdaterOrCommentorRole)
   {
     $this->lastUpdaterOrCommentorRole = $lastUpdaterOrCommentorRole;
   }
+  /**
+   * @return string
+   */
   public function getLastUpdaterOrCommentorRole()
   {
     return $this->lastUpdaterOrCommentorRole;
@@ -164,42 +229,72 @@ class Proposal extends \Google\Collection
   {
     return $this->notes;
   }
+  /**
+   * @param string
+   */
   public function setOriginatorRole($originatorRole)
   {
     $this->originatorRole = $originatorRole;
   }
+  /**
+   * @return string
+   */
   public function getOriginatorRole()
   {
     return $this->originatorRole;
   }
+  /**
+   * @param string
+   */
   public function setPrivateAuctionId($privateAuctionId)
   {
     $this->privateAuctionId = $privateAuctionId;
   }
+  /**
+   * @return string
+   */
   public function getPrivateAuctionId()
   {
     return $this->privateAuctionId;
   }
+  /**
+   * @param string
+   */
   public function setProposalId($proposalId)
   {
     $this->proposalId = $proposalId;
   }
+  /**
+   * @return string
+   */
   public function getProposalId()
   {
     return $this->proposalId;
   }
+  /**
+   * @param string
+   */
   public function setProposalRevision($proposalRevision)
   {
     $this->proposalRevision = $proposalRevision;
   }
+  /**
+   * @return string
+   */
   public function getProposalRevision()
   {
     return $this->proposalRevision;
   }
+  /**
+   * @param string
+   */
   public function setProposalState($proposalState)
   {
     $this->proposalState = $proposalState;
   }
+  /**
+   * @return string
+   */
   public function getProposalState()
   {
     return $this->proposalState;
@@ -232,18 +327,30 @@ class Proposal extends \Google\Collection
   {
     return $this->sellerContacts;
   }
+  /**
+   * @param string
+   */
   public function setTermsAndConditions($termsAndConditions)
   {
     $this->termsAndConditions = $termsAndConditions;
   }
+  /**
+   * @return string
+   */
   public function getTermsAndConditions()
   {
     return $this->termsAndConditions;
   }
+  /**
+   * @param string
+   */
   public function setUpdateTime($updateTime)
   {
     $this->updateTime = $updateTime;
   }
+  /**
+   * @return string
+   */
   public function getUpdateTime()
   {
     return $this->updateTime;

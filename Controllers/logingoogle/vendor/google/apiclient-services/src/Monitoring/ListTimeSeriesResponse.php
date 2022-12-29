@@ -22,9 +22,17 @@ class ListTimeSeriesResponse extends \Google\Collection
   protected $collection_key = 'timeSeries';
   protected $executionErrorsType = Status::class;
   protected $executionErrorsDataType = 'array';
+  public $executionErrors;
+  /**
+   * @var string
+   */
   public $nextPageToken;
   protected $timeSeriesType = TimeSeries::class;
   protected $timeSeriesDataType = 'array';
+  public $timeSeries;
+  /**
+   * @var string
+   */
   public $unit;
 
   /**
@@ -41,10 +49,16 @@ class ListTimeSeriesResponse extends \Google\Collection
   {
     return $this->executionErrors;
   }
+  /**
+   * @param string
+   */
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
   }
+  /**
+   * @return string
+   */
   public function getNextPageToken()
   {
     return $this->nextPageToken;
@@ -63,10 +77,16 @@ class ListTimeSeriesResponse extends \Google\Collection
   {
     return $this->timeSeries;
   }
+  /**
+   * @param string
+   */
   public function setUnit($unit)
   {
     $this->unit = $unit;
   }
+  /**
+   * @return string
+   */
   public function getUnit()
   {
     return $this->unit;

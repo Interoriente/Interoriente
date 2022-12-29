@@ -22,12 +22,24 @@ class ArimaForecastingMetrics extends \Google\Collection
   protected $collection_key = 'timeSeriesId';
   protected $arimaFittingMetricsType = ArimaFittingMetrics::class;
   protected $arimaFittingMetricsDataType = 'array';
+  public $arimaFittingMetrics;
   protected $arimaSingleModelForecastingMetricsType = ArimaSingleModelForecastingMetrics::class;
   protected $arimaSingleModelForecastingMetricsDataType = 'array';
+  public $arimaSingleModelForecastingMetrics;
+  /**
+   * @var bool[]
+   */
   public $hasDrift;
   protected $nonSeasonalOrderType = ArimaOrder::class;
   protected $nonSeasonalOrderDataType = 'array';
+  public $nonSeasonalOrder;
+  /**
+   * @var string[]
+   */
   public $seasonalPeriods;
+  /**
+   * @var string[]
+   */
   public $timeSeriesId;
 
   /**
@@ -58,10 +70,16 @@ class ArimaForecastingMetrics extends \Google\Collection
   {
     return $this->arimaSingleModelForecastingMetrics;
   }
+  /**
+   * @param bool[]
+   */
   public function setHasDrift($hasDrift)
   {
     $this->hasDrift = $hasDrift;
   }
+  /**
+   * @return bool[]
+   */
   public function getHasDrift()
   {
     return $this->hasDrift;
@@ -80,18 +98,30 @@ class ArimaForecastingMetrics extends \Google\Collection
   {
     return $this->nonSeasonalOrder;
   }
+  /**
+   * @param string[]
+   */
   public function setSeasonalPeriods($seasonalPeriods)
   {
     $this->seasonalPeriods = $seasonalPeriods;
   }
+  /**
+   * @return string[]
+   */
   public function getSeasonalPeriods()
   {
     return $this->seasonalPeriods;
   }
+  /**
+   * @param string[]
+   */
   public function setTimeSeriesId($timeSeriesId)
   {
     $this->timeSeriesId = $timeSeriesId;
   }
+  /**
+   * @return string[]
+   */
   public function getTimeSeriesId()
   {
     return $this->timeSeriesId;

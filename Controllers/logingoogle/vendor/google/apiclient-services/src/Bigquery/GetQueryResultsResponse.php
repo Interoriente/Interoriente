@@ -20,27 +20,61 @@ namespace Google\Service\Bigquery;
 class GetQueryResultsResponse extends \Google\Collection
 {
   protected $collection_key = 'rows';
+  /**
+   * @var bool
+   */
   public $cacheHit;
   protected $errorsType = ErrorProto::class;
   protected $errorsDataType = 'array';
+  public $errors;
+  /**
+   * @var string
+   */
   public $etag;
+  /**
+   * @var bool
+   */
   public $jobComplete;
   protected $jobReferenceType = JobReference::class;
   protected $jobReferenceDataType = '';
+  public $jobReference;
+  /**
+   * @var string
+   */
   public $kind;
+  /**
+   * @var string
+   */
   public $numDmlAffectedRows;
+  /**
+   * @var string
+   */
   public $pageToken;
   protected $rowsType = TableRow::class;
   protected $rowsDataType = 'array';
+  public $rows;
   protected $schemaType = TableSchema::class;
   protected $schemaDataType = '';
+  public $schema;
+  /**
+   * @var string
+   */
   public $totalBytesProcessed;
+  /**
+   * @var string
+   */
   public $totalRows;
 
+  /**
+   * @param bool
+   */
   public function setCacheHit($cacheHit)
   {
     $this->cacheHit = $cacheHit;
   }
+  /**
+   * @return bool
+   */
   public function getCacheHit()
   {
     return $this->cacheHit;
@@ -59,18 +93,30 @@ class GetQueryResultsResponse extends \Google\Collection
   {
     return $this->errors;
   }
+  /**
+   * @param string
+   */
   public function setEtag($etag)
   {
     $this->etag = $etag;
   }
+  /**
+   * @return string
+   */
   public function getEtag()
   {
     return $this->etag;
   }
+  /**
+   * @param bool
+   */
   public function setJobComplete($jobComplete)
   {
     $this->jobComplete = $jobComplete;
   }
+  /**
+   * @return bool
+   */
   public function getJobComplete()
   {
     return $this->jobComplete;
@@ -89,26 +135,44 @@ class GetQueryResultsResponse extends \Google\Collection
   {
     return $this->jobReference;
   }
+  /**
+   * @param string
+   */
   public function setKind($kind)
   {
     $this->kind = $kind;
   }
+  /**
+   * @return string
+   */
   public function getKind()
   {
     return $this->kind;
   }
+  /**
+   * @param string
+   */
   public function setNumDmlAffectedRows($numDmlAffectedRows)
   {
     $this->numDmlAffectedRows = $numDmlAffectedRows;
   }
+  /**
+   * @return string
+   */
   public function getNumDmlAffectedRows()
   {
     return $this->numDmlAffectedRows;
   }
+  /**
+   * @param string
+   */
   public function setPageToken($pageToken)
   {
     $this->pageToken = $pageToken;
   }
+  /**
+   * @return string
+   */
   public function getPageToken()
   {
     return $this->pageToken;
@@ -141,18 +205,30 @@ class GetQueryResultsResponse extends \Google\Collection
   {
     return $this->schema;
   }
+  /**
+   * @param string
+   */
   public function setTotalBytesProcessed($totalBytesProcessed)
   {
     $this->totalBytesProcessed = $totalBytesProcessed;
   }
+  /**
+   * @return string
+   */
   public function getTotalBytesProcessed()
   {
     return $this->totalBytesProcessed;
   }
+  /**
+   * @param string
+   */
   public function setTotalRows($totalRows)
   {
     $this->totalRows = $totalRows;
   }
+  /**
+   * @return string
+   */
   public function getTotalRows()
   {
     return $this->totalRows;

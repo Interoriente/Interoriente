@@ -20,52 +20,107 @@ namespace Google\Service\Docs;
 class ParagraphStyle extends \Google\Collection
 {
   protected $collection_key = 'tabStops';
+  /**
+   * @var string
+   */
   public $alignment;
+  /**
+   * @var bool
+   */
   public $avoidWidowAndOrphan;
   protected $borderBetweenType = ParagraphBorder::class;
   protected $borderBetweenDataType = '';
+  public $borderBetween;
   protected $borderBottomType = ParagraphBorder::class;
   protected $borderBottomDataType = '';
+  public $borderBottom;
   protected $borderLeftType = ParagraphBorder::class;
   protected $borderLeftDataType = '';
+  public $borderLeft;
   protected $borderRightType = ParagraphBorder::class;
   protected $borderRightDataType = '';
+  public $borderRight;
   protected $borderTopType = ParagraphBorder::class;
   protected $borderTopDataType = '';
+  public $borderTop;
+  /**
+   * @var string
+   */
   public $direction;
+  /**
+   * @var string
+   */
   public $headingId;
   protected $indentEndType = Dimension::class;
   protected $indentEndDataType = '';
+  public $indentEnd;
   protected $indentFirstLineType = Dimension::class;
   protected $indentFirstLineDataType = '';
+  public $indentFirstLine;
   protected $indentStartType = Dimension::class;
   protected $indentStartDataType = '';
+  public $indentStart;
+  /**
+   * @var bool
+   */
   public $keepLinesTogether;
+  /**
+   * @var bool
+   */
   public $keepWithNext;
+  /**
+   * @var float
+   */
   public $lineSpacing;
+  /**
+   * @var string
+   */
   public $namedStyleType;
+  /**
+   * @var bool
+   */
+  public $pageBreakBefore;
   protected $shadingType = Shading::class;
   protected $shadingDataType = '';
+  public $shading;
   protected $spaceAboveType = Dimension::class;
   protected $spaceAboveDataType = '';
+  public $spaceAbove;
   protected $spaceBelowType = Dimension::class;
   protected $spaceBelowDataType = '';
+  public $spaceBelow;
+  /**
+   * @var string
+   */
   public $spacingMode;
   protected $tabStopsType = TabStop::class;
   protected $tabStopsDataType = 'array';
+  public $tabStops;
 
+  /**
+   * @param string
+   */
   public function setAlignment($alignment)
   {
     $this->alignment = $alignment;
   }
+  /**
+   * @return string
+   */
   public function getAlignment()
   {
     return $this->alignment;
   }
+  /**
+   * @param bool
+   */
   public function setAvoidWidowAndOrphan($avoidWidowAndOrphan)
   {
     $this->avoidWidowAndOrphan = $avoidWidowAndOrphan;
   }
+  /**
+   * @return bool
+   */
   public function getAvoidWidowAndOrphan()
   {
     return $this->avoidWidowAndOrphan;
@@ -140,18 +195,30 @@ class ParagraphStyle extends \Google\Collection
   {
     return $this->borderTop;
   }
+  /**
+   * @param string
+   */
   public function setDirection($direction)
   {
     $this->direction = $direction;
   }
+  /**
+   * @return string
+   */
   public function getDirection()
   {
     return $this->direction;
   }
+  /**
+   * @param string
+   */
   public function setHeadingId($headingId)
   {
     $this->headingId = $headingId;
   }
+  /**
+   * @return string
+   */
   public function getHeadingId()
   {
     return $this->headingId;
@@ -198,37 +265,75 @@ class ParagraphStyle extends \Google\Collection
   {
     return $this->indentStart;
   }
+  /**
+   * @param bool
+   */
   public function setKeepLinesTogether($keepLinesTogether)
   {
     $this->keepLinesTogether = $keepLinesTogether;
   }
+  /**
+   * @return bool
+   */
   public function getKeepLinesTogether()
   {
     return $this->keepLinesTogether;
   }
+  /**
+   * @param bool
+   */
   public function setKeepWithNext($keepWithNext)
   {
     $this->keepWithNext = $keepWithNext;
   }
+  /**
+   * @return bool
+   */
   public function getKeepWithNext()
   {
     return $this->keepWithNext;
   }
+  /**
+   * @param float
+   */
   public function setLineSpacing($lineSpacing)
   {
     $this->lineSpacing = $lineSpacing;
   }
+  /**
+   * @return float
+   */
   public function getLineSpacing()
   {
     return $this->lineSpacing;
   }
+  /**
+   * @param string
+   */
   public function setNamedStyleType($namedStyleType)
   {
     $this->namedStyleType = $namedStyleType;
   }
+  /**
+   * @return string
+   */
   public function getNamedStyleType()
   {
     return $this->namedStyleType;
+  }
+  /**
+   * @param bool
+   */
+  public function setPageBreakBefore($pageBreakBefore)
+  {
+    $this->pageBreakBefore = $pageBreakBefore;
+  }
+  /**
+   * @return bool
+   */
+  public function getPageBreakBefore()
+  {
+    return $this->pageBreakBefore;
   }
   /**
    * @param Shading
@@ -272,10 +377,16 @@ class ParagraphStyle extends \Google\Collection
   {
     return $this->spaceBelow;
   }
+  /**
+   * @param string
+   */
   public function setSpacingMode($spacingMode)
   {
     $this->spacingMode = $spacingMode;
   }
+  /**
+   * @return string
+   */
   public function getSpacingMode()
   {
     return $this->spacingMode;

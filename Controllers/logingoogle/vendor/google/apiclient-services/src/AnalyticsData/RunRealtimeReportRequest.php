@@ -22,18 +22,33 @@ class RunRealtimeReportRequest extends \Google\Collection
   protected $collection_key = 'orderBys';
   protected $dimensionFilterType = FilterExpression::class;
   protected $dimensionFilterDataType = '';
+  public $dimensionFilter;
   protected $dimensionsType = Dimension::class;
   protected $dimensionsDataType = 'array';
+  public $dimensions;
+  /**
+   * @var string
+   */
   public $limit;
+  /**
+   * @var string[]
+   */
   public $metricAggregations;
   protected $metricFilterType = FilterExpression::class;
   protected $metricFilterDataType = '';
+  public $metricFilter;
   protected $metricsType = Metric::class;
   protected $metricsDataType = 'array';
+  public $metrics;
   protected $minuteRangesType = MinuteRange::class;
   protected $minuteRangesDataType = 'array';
+  public $minuteRanges;
   protected $orderBysType = OrderBy::class;
   protected $orderBysDataType = 'array';
+  public $orderBys;
+  /**
+   * @var bool
+   */
   public $returnPropertyQuota;
 
   /**
@@ -64,18 +79,30 @@ class RunRealtimeReportRequest extends \Google\Collection
   {
     return $this->dimensions;
   }
+  /**
+   * @param string
+   */
   public function setLimit($limit)
   {
     $this->limit = $limit;
   }
+  /**
+   * @return string
+   */
   public function getLimit()
   {
     return $this->limit;
   }
+  /**
+   * @param string[]
+   */
   public function setMetricAggregations($metricAggregations)
   {
     $this->metricAggregations = $metricAggregations;
   }
+  /**
+   * @return string[]
+   */
   public function getMetricAggregations()
   {
     return $this->metricAggregations;
@@ -136,10 +163,16 @@ class RunRealtimeReportRequest extends \Google\Collection
   {
     return $this->orderBys;
   }
+  /**
+   * @param bool
+   */
   public function setReturnPropertyQuota($returnPropertyQuota)
   {
     $this->returnPropertyQuota = $returnPropertyQuota;
   }
+  /**
+   * @return bool
+   */
   public function getReturnPropertyQuota()
   {
     return $this->returnPropertyQuota;

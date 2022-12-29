@@ -19,17 +19,31 @@ namespace Google\Service\PeopleService;
 
 class PersonResponse extends \Google\Model
 {
+  /**
+   * @var int
+   */
   public $httpStatusCode;
   protected $personType = Person::class;
   protected $personDataType = '';
+  public $person;
+  /**
+   * @var string
+   */
   public $requestedResourceName;
   protected $statusType = Status::class;
   protected $statusDataType = '';
+  public $status;
 
+  /**
+   * @param int
+   */
   public function setHttpStatusCode($httpStatusCode)
   {
     $this->httpStatusCode = $httpStatusCode;
   }
+  /**
+   * @return int
+   */
   public function getHttpStatusCode()
   {
     return $this->httpStatusCode;
@@ -48,10 +62,16 @@ class PersonResponse extends \Google\Model
   {
     return $this->person;
   }
+  /**
+   * @param string
+   */
   public function setRequestedResourceName($requestedResourceName)
   {
     $this->requestedResourceName = $requestedResourceName;
   }
+  /**
+   * @return string
+   */
   public function getRequestedResourceName()
   {
     return $this->requestedResourceName;

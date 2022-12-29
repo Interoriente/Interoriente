@@ -21,16 +21,30 @@ class DriveItem extends \Google\Model
 {
   protected $driveFileType = DriveFile::class;
   protected $driveFileDataType = '';
+  public $driveFile;
   protected $driveFolderType = DriveFolder::class;
   protected $driveFolderDataType = '';
+  public $driveFolder;
   protected $fileType = DriveactivityFile::class;
   protected $fileDataType = '';
+  public $file;
   protected $folderType = Folder::class;
   protected $folderDataType = '';
+  public $folder;
+  /**
+   * @var string
+   */
   public $mimeType;
+  /**
+   * @var string
+   */
   public $name;
   protected $ownerType = Owner::class;
   protected $ownerDataType = '';
+  public $owner;
+  /**
+   * @var string
+   */
   public $title;
 
   /**
@@ -89,18 +103,30 @@ class DriveItem extends \Google\Model
   {
     return $this->folder;
   }
+  /**
+   * @param string
+   */
   public function setMimeType($mimeType)
   {
     $this->mimeType = $mimeType;
   }
+  /**
+   * @return string
+   */
   public function getMimeType()
   {
     return $this->mimeType;
   }
+  /**
+   * @param string
+   */
   public function setName($name)
   {
     $this->name = $name;
   }
+  /**
+   * @return string
+   */
   public function getName()
   {
     return $this->name;
@@ -119,10 +145,16 @@ class DriveItem extends \Google\Model
   {
     return $this->owner;
   }
+  /**
+   * @param string
+   */
   public function setTitle($title)
   {
     $this->title = $title;
   }
+  /**
+   * @return string
+   */
   public function getTitle()
   {
     return $this->title;

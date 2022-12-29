@@ -22,14 +22,27 @@ class Api extends \Google\Collection
   protected $collection_key = 'options';
   protected $methodsType = Method::class;
   protected $methodsDataType = 'array';
+  public $methods;
   protected $mixinsType = Mixin::class;
   protected $mixinsDataType = 'array';
+  public $mixins;
+  /**
+   * @var string
+   */
   public $name;
   protected $optionsType = Option::class;
   protected $optionsDataType = 'array';
+  public $options;
   protected $sourceContextType = SourceContext::class;
   protected $sourceContextDataType = '';
+  public $sourceContext;
+  /**
+   * @var string
+   */
   public $syntax;
+  /**
+   * @var string
+   */
   public $version;
 
   /**
@@ -60,10 +73,16 @@ class Api extends \Google\Collection
   {
     return $this->mixins;
   }
+  /**
+   * @param string
+   */
   public function setName($name)
   {
     $this->name = $name;
   }
+  /**
+   * @return string
+   */
   public function getName()
   {
     return $this->name;
@@ -96,18 +115,30 @@ class Api extends \Google\Collection
   {
     return $this->sourceContext;
   }
+  /**
+   * @param string
+   */
   public function setSyntax($syntax)
   {
     $this->syntax = $syntax;
   }
+  /**
+   * @return string
+   */
   public function getSyntax()
   {
     return $this->syntax;
   }
+  /**
+   * @param string
+   */
   public function setVersion($version)
   {
     $this->version = $version;
   }
+  /**
+   * @return string
+   */
   public function getVersion()
   {
     return $this->version;

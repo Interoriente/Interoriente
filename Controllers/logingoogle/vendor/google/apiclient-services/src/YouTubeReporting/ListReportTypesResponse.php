@@ -20,14 +20,24 @@ namespace Google\Service\YouTubeReporting;
 class ListReportTypesResponse extends \Google\Collection
 {
   protected $collection_key = 'reportTypes';
+  /**
+   * @var string
+   */
   public $nextPageToken;
   protected $reportTypesType = ReportType::class;
   protected $reportTypesDataType = 'array';
+  public $reportTypes;
 
+  /**
+   * @param string
+   */
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
   }
+  /**
+   * @return string
+   */
   public function getNextPageToken()
   {
     return $this->nextPageToken;

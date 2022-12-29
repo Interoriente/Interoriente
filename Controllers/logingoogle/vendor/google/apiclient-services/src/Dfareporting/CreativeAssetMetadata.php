@@ -22,20 +22,41 @@ class CreativeAssetMetadata extends \Google\Collection
   protected $collection_key = 'warnedValidationRules';
   protected $assetIdentifierType = CreativeAssetId::class;
   protected $assetIdentifierDataType = '';
+  public $assetIdentifier;
   protected $clickTagsType = ClickTag::class;
   protected $clickTagsDataType = 'array';
+  public $clickTags;
   protected $counterCustomEventsType = CreativeCustomEvent::class;
   protected $counterCustomEventsDataType = 'array';
+  public $counterCustomEvents;
+  /**
+   * @var string[]
+   */
   public $detectedFeatures;
   protected $exitCustomEventsType = CreativeCustomEvent::class;
   protected $exitCustomEventsDataType = 'array';
+  public $exitCustomEvents;
+  /**
+   * @var string
+   */
   public $id;
   protected $idDimensionValueType = DimensionValue::class;
   protected $idDimensionValueDataType = '';
+  public $idDimensionValue;
+  /**
+   * @var string
+   */
   public $kind;
+  /**
+   * @var bool
+   */
   public $richMedia;
   protected $timerCustomEventsType = CreativeCustomEvent::class;
   protected $timerCustomEventsDataType = 'array';
+  public $timerCustomEvents;
+  /**
+   * @var string[]
+   */
   public $warnedValidationRules;
 
   /**
@@ -80,10 +101,16 @@ class CreativeAssetMetadata extends \Google\Collection
   {
     return $this->counterCustomEvents;
   }
+  /**
+   * @param string[]
+   */
   public function setDetectedFeatures($detectedFeatures)
   {
     $this->detectedFeatures = $detectedFeatures;
   }
+  /**
+   * @return string[]
+   */
   public function getDetectedFeatures()
   {
     return $this->detectedFeatures;
@@ -102,10 +129,16 @@ class CreativeAssetMetadata extends \Google\Collection
   {
     return $this->exitCustomEvents;
   }
+  /**
+   * @param string
+   */
   public function setId($id)
   {
     $this->id = $id;
   }
+  /**
+   * @return string
+   */
   public function getId()
   {
     return $this->id;
@@ -124,18 +157,30 @@ class CreativeAssetMetadata extends \Google\Collection
   {
     return $this->idDimensionValue;
   }
+  /**
+   * @param string
+   */
   public function setKind($kind)
   {
     $this->kind = $kind;
   }
+  /**
+   * @return string
+   */
   public function getKind()
   {
     return $this->kind;
   }
+  /**
+   * @param bool
+   */
   public function setRichMedia($richMedia)
   {
     $this->richMedia = $richMedia;
   }
+  /**
+   * @return bool
+   */
   public function getRichMedia()
   {
     return $this->richMedia;
@@ -154,10 +199,16 @@ class CreativeAssetMetadata extends \Google\Collection
   {
     return $this->timerCustomEvents;
   }
+  /**
+   * @param string[]
+   */
   public function setWarnedValidationRules($warnedValidationRules)
   {
     $this->warnedValidationRules = $warnedValidationRules;
   }
+  /**
+   * @return string[]
+   */
   public function getWarnedValidationRules()
   {
     return $this->warnedValidationRules;

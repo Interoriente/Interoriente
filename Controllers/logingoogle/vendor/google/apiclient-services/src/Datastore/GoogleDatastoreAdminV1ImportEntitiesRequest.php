@@ -21,7 +21,14 @@ class GoogleDatastoreAdminV1ImportEntitiesRequest extends \Google\Model
 {
   protected $entityFilterType = GoogleDatastoreAdminV1EntityFilter::class;
   protected $entityFilterDataType = '';
+  public $entityFilter;
+  /**
+   * @var string
+   */
   public $inputUrl;
+  /**
+   * @var string[]
+   */
   public $labels;
 
   /**
@@ -38,18 +45,30 @@ class GoogleDatastoreAdminV1ImportEntitiesRequest extends \Google\Model
   {
     return $this->entityFilter;
   }
+  /**
+   * @param string
+   */
   public function setInputUrl($inputUrl)
   {
     $this->inputUrl = $inputUrl;
   }
+  /**
+   * @return string
+   */
   public function getInputUrl()
   {
     return $this->inputUrl;
   }
+  /**
+   * @param string[]
+   */
   public function setLabels($labels)
   {
     $this->labels = $labels;
   }
+  /**
+   * @return string[]
+   */
   public function getLabels()
   {
     return $this->labels;

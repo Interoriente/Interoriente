@@ -22,10 +22,18 @@ class BqmlTrainingRun extends \Google\Collection
   protected $collection_key = 'iterationResults';
   protected $iterationResultsType = BqmlIterationResult::class;
   protected $iterationResultsDataType = 'array';
+  public $iterationResults;
+  /**
+   * @var string
+   */
   public $startTime;
+  /**
+   * @var string
+   */
   public $state;
   protected $trainingOptionsType = BqmlTrainingRunTrainingOptions::class;
   protected $trainingOptionsDataType = '';
+  public $trainingOptions;
 
   /**
    * @param BqmlIterationResult[]
@@ -41,18 +49,30 @@ class BqmlTrainingRun extends \Google\Collection
   {
     return $this->iterationResults;
   }
+  /**
+   * @param string
+   */
   public function setStartTime($startTime)
   {
     $this->startTime = $startTime;
   }
+  /**
+   * @return string
+   */
   public function getStartTime()
   {
     return $this->startTime;
   }
+  /**
+   * @param string
+   */
   public function setState($state)
   {
     $this->state = $state;
   }
+  /**
+   * @return string
+   */
   public function getState()
   {
     return $this->state;

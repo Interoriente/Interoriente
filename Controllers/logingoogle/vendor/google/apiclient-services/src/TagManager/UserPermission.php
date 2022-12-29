@@ -22,10 +22,21 @@ class UserPermission extends \Google\Collection
   protected $collection_key = 'containerAccess';
   protected $accountAccessType = AccountAccess::class;
   protected $accountAccessDataType = '';
+  public $accountAccess;
+  /**
+   * @var string
+   */
   public $accountId;
   protected $containerAccessType = ContainerAccess::class;
   protected $containerAccessDataType = 'array';
+  public $containerAccess;
+  /**
+   * @var string
+   */
   public $emailAddress;
+  /**
+   * @var string
+   */
   public $path;
 
   /**
@@ -42,10 +53,16 @@ class UserPermission extends \Google\Collection
   {
     return $this->accountAccess;
   }
+  /**
+   * @param string
+   */
   public function setAccountId($accountId)
   {
     $this->accountId = $accountId;
   }
+  /**
+   * @return string
+   */
   public function getAccountId()
   {
     return $this->accountId;
@@ -64,18 +81,30 @@ class UserPermission extends \Google\Collection
   {
     return $this->containerAccess;
   }
+  /**
+   * @param string
+   */
   public function setEmailAddress($emailAddress)
   {
     $this->emailAddress = $emailAddress;
   }
+  /**
+   * @return string
+   */
   public function getEmailAddress()
   {
     return $this->emailAddress;
   }
+  /**
+   * @param string
+   */
   public function setPath($path)
   {
     $this->path = $path;
   }
+  /**
+   * @return string
+   */
   public function getPath()
   {
     return $this->path;

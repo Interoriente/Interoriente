@@ -20,41 +20,76 @@ namespace Google\Service\Compute;
 class ManagedInstance extends \Google\Collection
 {
   protected $collection_key = 'instanceHealth';
+  /**
+   * @var string
+   */
   public $currentAction;
+  /**
+   * @var string
+   */
   public $id;
+  /**
+   * @var string
+   */
   public $instance;
   protected $instanceHealthType = ManagedInstanceInstanceHealth::class;
   protected $instanceHealthDataType = 'array';
+  public $instanceHealth;
+  /**
+   * @var string
+   */
   public $instanceStatus;
   protected $lastAttemptType = ManagedInstanceLastAttempt::class;
   protected $lastAttemptDataType = '';
+  public $lastAttempt;
   protected $preservedStateFromConfigType = PreservedState::class;
   protected $preservedStateFromConfigDataType = '';
+  public $preservedStateFromConfig;
   protected $preservedStateFromPolicyType = PreservedState::class;
   protected $preservedStateFromPolicyDataType = '';
+  public $preservedStateFromPolicy;
   protected $versionType = ManagedInstanceVersion::class;
   protected $versionDataType = '';
+  public $version;
 
+  /**
+   * @param string
+   */
   public function setCurrentAction($currentAction)
   {
     $this->currentAction = $currentAction;
   }
+  /**
+   * @return string
+   */
   public function getCurrentAction()
   {
     return $this->currentAction;
   }
+  /**
+   * @param string
+   */
   public function setId($id)
   {
     $this->id = $id;
   }
+  /**
+   * @return string
+   */
   public function getId()
   {
     return $this->id;
   }
+  /**
+   * @param string
+   */
   public function setInstance($instance)
   {
     $this->instance = $instance;
   }
+  /**
+   * @return string
+   */
   public function getInstance()
   {
     return $this->instance;
@@ -73,10 +108,16 @@ class ManagedInstance extends \Google\Collection
   {
     return $this->instanceHealth;
   }
+  /**
+   * @param string
+   */
   public function setInstanceStatus($instanceStatus)
   {
     $this->instanceStatus = $instanceStatus;
   }
+  /**
+   * @return string
+   */
   public function getInstanceStatus()
   {
     return $this->instanceStatus;

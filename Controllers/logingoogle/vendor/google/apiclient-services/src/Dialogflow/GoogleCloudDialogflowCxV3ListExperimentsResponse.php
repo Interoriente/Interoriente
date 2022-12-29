@@ -22,6 +22,10 @@ class GoogleCloudDialogflowCxV3ListExperimentsResponse extends \Google\Collectio
   protected $collection_key = 'experiments';
   protected $experimentsType = GoogleCloudDialogflowCxV3Experiment::class;
   protected $experimentsDataType = 'array';
+  public $experiments;
+  /**
+   * @var string
+   */
   public $nextPageToken;
 
   /**
@@ -38,10 +42,16 @@ class GoogleCloudDialogflowCxV3ListExperimentsResponse extends \Google\Collectio
   {
     return $this->experiments;
   }
+  /**
+   * @param string
+   */
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
   }
+  /**
+   * @return string
+   */
   public function getNextPageToken()
   {
     return $this->nextPageToken;

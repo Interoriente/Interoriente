@@ -22,17 +22,34 @@ class Presentation extends \Google\Collection
   protected $collection_key = 'slides';
   protected $layoutsType = Page::class;
   protected $layoutsDataType = 'array';
+  public $layouts;
+  /**
+   * @var string
+   */
   public $locale;
   protected $mastersType = Page::class;
   protected $mastersDataType = 'array';
+  public $masters;
   protected $notesMasterType = Page::class;
   protected $notesMasterDataType = '';
+  public $notesMaster;
   protected $pageSizeType = Size::class;
   protected $pageSizeDataType = '';
+  public $pageSize;
+  /**
+   * @var string
+   */
   public $presentationId;
+  /**
+   * @var string
+   */
   public $revisionId;
   protected $slidesType = Page::class;
   protected $slidesDataType = 'array';
+  public $slides;
+  /**
+   * @var string
+   */
   public $title;
 
   /**
@@ -49,10 +66,16 @@ class Presentation extends \Google\Collection
   {
     return $this->layouts;
   }
+  /**
+   * @param string
+   */
   public function setLocale($locale)
   {
     $this->locale = $locale;
   }
+  /**
+   * @return string
+   */
   public function getLocale()
   {
     return $this->locale;
@@ -99,18 +122,30 @@ class Presentation extends \Google\Collection
   {
     return $this->pageSize;
   }
+  /**
+   * @param string
+   */
   public function setPresentationId($presentationId)
   {
     $this->presentationId = $presentationId;
   }
+  /**
+   * @return string
+   */
   public function getPresentationId()
   {
     return $this->presentationId;
   }
+  /**
+   * @param string
+   */
   public function setRevisionId($revisionId)
   {
     $this->revisionId = $revisionId;
   }
+  /**
+   * @return string
+   */
   public function getRevisionId()
   {
     return $this->revisionId;
@@ -129,10 +164,16 @@ class Presentation extends \Google\Collection
   {
     return $this->slides;
   }
+  /**
+   * @param string
+   */
   public function setTitle($title)
   {
     $this->title = $title;
   }
+  /**
+   * @return string
+   */
   public function getTitle()
   {
     return $this->title;

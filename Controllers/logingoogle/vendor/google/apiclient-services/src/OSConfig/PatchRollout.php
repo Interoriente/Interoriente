@@ -21,6 +21,10 @@ class PatchRollout extends \Google\Model
 {
   protected $disruptionBudgetType = FixedOrPercent::class;
   protected $disruptionBudgetDataType = '';
+  public $disruptionBudget;
+  /**
+   * @var string
+   */
   public $mode;
 
   /**
@@ -37,10 +41,16 @@ class PatchRollout extends \Google\Model
   {
     return $this->disruptionBudget;
   }
+  /**
+   * @param string
+   */
   public function setMode($mode)
   {
     $this->mode = $mode;
   }
+  /**
+   * @return string
+   */
   public function getMode()
   {
     return $this->mode;

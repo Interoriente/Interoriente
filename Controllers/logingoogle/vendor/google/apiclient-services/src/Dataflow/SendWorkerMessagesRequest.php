@@ -20,14 +20,24 @@ namespace Google\Service\Dataflow;
 class SendWorkerMessagesRequest extends \Google\Collection
 {
   protected $collection_key = 'workerMessages';
+  /**
+   * @var string
+   */
   public $location;
   protected $workerMessagesType = WorkerMessage::class;
   protected $workerMessagesDataType = 'array';
+  public $workerMessages;
 
+  /**
+   * @param string
+   */
   public function setLocation($location)
   {
     $this->location = $location;
   }
+  /**
+   * @return string
+   */
   public function getLocation()
   {
     return $this->location;

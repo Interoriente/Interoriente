@@ -18,6 +18,7 @@
 namespace Google\Service\Spanner\Resource;
 
 use Google\Service\Spanner\Backup;
+use Google\Service\Spanner\CopyBackupRequest;
 use Google\Service\Spanner\GetIamPolicyRequest;
 use Google\Service\Spanner\ListBackupsResponse;
 use Google\Service\Spanner\Operation;
@@ -32,11 +33,33 @@ use Google\Service\Spanner\TestIamPermissionsResponse;
  * Typical usage is:
  *  <code>
  *   $spannerService = new Google\Service\Spanner(...);
- *   $backups = $spannerService->backups;
+ *   $backups = $spannerService->projects_instances_backups;
  *  </code>
  */
 class ProjectsInstancesBackups extends \Google\Service\Resource
 {
+  /**
+   * Starts copying a Cloud Spanner Backup. The returned backup long-running
+   * operation will have a name of the format
+   * `projects//instances//backups//operations/` and can be used to track copying
+   * of the backup. The operation is associated with the destination backup. The
+   * metadata field type is CopyBackupMetadata. The response field type is Backup,
+   * if successful. Cancelling the returned operation will stop the copying and
+   * delete the destination backup. Concurrent CopyBackup requests can run on the
+   * same source backup. (backups.copy)
+   *
+   * @param string $parent Required. The name of the destination instance that
+   * will contain the backup copy. Values are of the form: `projects//instances/`.
+   * @param CopyBackupRequest $postBody
+   * @param array $optParams Optional parameters.
+   * @return Operation
+   */
+  public function copy($parent, CopyBackupRequest $postBody, $optParams = [])
+  {
+    $params = ['parent' => $parent, 'postBody' => $postBody];
+    $params = array_merge($params, $optParams);
+    return $this->call('copy', [$params], Operation::class);
+  }
   /**
    * Starts creating a new Cloud Spanner Backup. The returned backup long-running
    * operation will have a name of the format

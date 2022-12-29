@@ -19,14 +19,24 @@ namespace Google\Service\Firestore;
 
 class Order extends \Google\Model
 {
+  /**
+   * @var string
+   */
   public $direction;
   protected $fieldType = FieldReference::class;
   protected $fieldDataType = '';
+  public $field;
 
+  /**
+   * @param string
+   */
   public function setDirection($direction)
   {
     $this->direction = $direction;
   }
+  /**
+   * @return string
+   */
   public function getDirection()
   {
     return $this->direction;

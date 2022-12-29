@@ -21,6 +21,10 @@ class CheckDataAccessResponse extends \Google\Model
 {
   protected $consentDetailsType = ConsentEvaluation::class;
   protected $consentDetailsDataType = 'map';
+  public $consentDetails;
+  /**
+   * @var bool
+   */
   public $consented;
 
   /**
@@ -37,10 +41,16 @@ class CheckDataAccessResponse extends \Google\Model
   {
     return $this->consentDetails;
   }
+  /**
+   * @param bool
+   */
   public function setConsented($consented)
   {
     $this->consented = $consented;
   }
+  /**
+   * @return bool
+   */
   public function getConsented()
   {
     return $this->consented;

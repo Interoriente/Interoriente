@@ -19,14 +19,24 @@ namespace Google\Service\Drive;
 
 class DriveFileContentHints extends \Google\Model
 {
+  /**
+   * @var string
+   */
   public $indexableText;
   protected $thumbnailType = DriveFileContentHintsThumbnail::class;
   protected $thumbnailDataType = '';
+  public $thumbnail;
 
+  /**
+   * @param string
+   */
   public function setIndexableText($indexableText)
   {
     $this->indexableText = $indexableText;
   }
+  /**
+   * @return string
+   */
   public function getIndexableText()
   {
     return $this->indexableText;

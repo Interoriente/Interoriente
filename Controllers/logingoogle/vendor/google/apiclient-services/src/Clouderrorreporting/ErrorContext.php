@@ -22,10 +22,16 @@ class ErrorContext extends \Google\Collection
   protected $collection_key = 'sourceReferences';
   protected $httpRequestType = HttpRequestContext::class;
   protected $httpRequestDataType = '';
+  public $httpRequest;
   protected $reportLocationType = SourceLocation::class;
   protected $reportLocationDataType = '';
+  public $reportLocation;
   protected $sourceReferencesType = SourceReference::class;
   protected $sourceReferencesDataType = 'array';
+  public $sourceReferences;
+  /**
+   * @var string
+   */
   public $user;
 
   /**
@@ -70,10 +76,16 @@ class ErrorContext extends \Google\Collection
   {
     return $this->sourceReferences;
   }
+  /**
+   * @param string
+   */
   public function setUser($user)
   {
     $this->user = $user;
   }
+  /**
+   * @return string
+   */
   public function getUser()
   {
     return $this->user;

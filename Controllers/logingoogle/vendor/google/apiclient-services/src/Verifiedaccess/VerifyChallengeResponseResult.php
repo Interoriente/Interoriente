@@ -19,42 +19,114 @@ namespace Google\Service\Verifiedaccess;
 
 class VerifyChallengeResponseResult extends \Google\Model
 {
-  public $deviceEnrollmentId;
+  /**
+   * @var string
+   */
+  public $customerId;
+  /**
+   * @var string
+   */
   public $devicePermanentId;
+  /**
+   * @var string
+   */
+  public $deviceSignal;
+  /**
+   * @var string
+   */
+  public $keyTrustLevel;
+  /**
+   * @var string
+   */
   public $signedPublicKeyAndChallenge;
-  public $verificationOutput;
+  /**
+   * @var string
+   */
+  public $virtualDeviceId;
 
-  public function setDeviceEnrollmentId($deviceEnrollmentId)
+  /**
+   * @param string
+   */
+  public function setCustomerId($customerId)
   {
-    $this->deviceEnrollmentId = $deviceEnrollmentId;
+    $this->customerId = $customerId;
   }
-  public function getDeviceEnrollmentId()
+  /**
+   * @return string
+   */
+  public function getCustomerId()
   {
-    return $this->deviceEnrollmentId;
+    return $this->customerId;
   }
+  /**
+   * @param string
+   */
   public function setDevicePermanentId($devicePermanentId)
   {
     $this->devicePermanentId = $devicePermanentId;
   }
+  /**
+   * @return string
+   */
   public function getDevicePermanentId()
   {
     return $this->devicePermanentId;
   }
+  /**
+   * @param string
+   */
+  public function setDeviceSignal($deviceSignal)
+  {
+    $this->deviceSignal = $deviceSignal;
+  }
+  /**
+   * @return string
+   */
+  public function getDeviceSignal()
+  {
+    return $this->deviceSignal;
+  }
+  /**
+   * @param string
+   */
+  public function setKeyTrustLevel($keyTrustLevel)
+  {
+    $this->keyTrustLevel = $keyTrustLevel;
+  }
+  /**
+   * @return string
+   */
+  public function getKeyTrustLevel()
+  {
+    return $this->keyTrustLevel;
+  }
+  /**
+   * @param string
+   */
   public function setSignedPublicKeyAndChallenge($signedPublicKeyAndChallenge)
   {
     $this->signedPublicKeyAndChallenge = $signedPublicKeyAndChallenge;
   }
+  /**
+   * @return string
+   */
   public function getSignedPublicKeyAndChallenge()
   {
     return $this->signedPublicKeyAndChallenge;
   }
-  public function setVerificationOutput($verificationOutput)
+  /**
+   * @param string
+   */
+  public function setVirtualDeviceId($virtualDeviceId)
   {
-    $this->verificationOutput = $verificationOutput;
+    $this->virtualDeviceId = $virtualDeviceId;
   }
-  public function getVerificationOutput()
+  /**
+   * @return string
+   */
+  public function getVirtualDeviceId()
   {
-    return $this->verificationOutput;
+    return $this->virtualDeviceId;
   }
 }
 

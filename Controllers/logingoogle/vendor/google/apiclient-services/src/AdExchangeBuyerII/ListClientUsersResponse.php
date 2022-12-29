@@ -20,14 +20,24 @@ namespace Google\Service\AdExchangeBuyerII;
 class ListClientUsersResponse extends \Google\Collection
 {
   protected $collection_key = 'users';
+  /**
+   * @var string
+   */
   public $nextPageToken;
   protected $usersType = ClientUser::class;
   protected $usersDataType = 'array';
+  public $users;
 
+  /**
+   * @param string
+   */
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
   }
+  /**
+   * @return string
+   */
   public function getNextPageToken()
   {
     return $this->nextPageToken;

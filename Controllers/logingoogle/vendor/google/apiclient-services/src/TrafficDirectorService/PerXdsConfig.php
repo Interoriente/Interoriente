@@ -21,12 +21,19 @@ class PerXdsConfig extends \Google\Model
 {
   protected $clusterConfigType = ClustersConfigDump::class;
   protected $clusterConfigDataType = '';
+  public $clusterConfig;
   protected $listenerConfigType = ListenersConfigDump::class;
   protected $listenerConfigDataType = '';
+  public $listenerConfig;
   protected $routeConfigType = RoutesConfigDump::class;
   protected $routeConfigDataType = '';
+  public $routeConfig;
   protected $scopedRouteConfigType = ScopedRoutesConfigDump::class;
   protected $scopedRouteConfigDataType = '';
+  public $scopedRouteConfig;
+  /**
+   * @var string
+   */
   public $status;
 
   /**
@@ -85,10 +92,16 @@ class PerXdsConfig extends \Google\Model
   {
     return $this->scopedRouteConfig;
   }
+  /**
+   * @param string
+   */
   public function setStatus($status)
   {
     $this->status = $status;
   }
+  /**
+   * @return string
+   */
   public function getStatus()
   {
     return $this->status;

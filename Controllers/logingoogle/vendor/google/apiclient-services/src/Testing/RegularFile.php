@@ -21,6 +21,10 @@ class RegularFile extends \Google\Model
 {
   protected $contentType = FileReference::class;
   protected $contentDataType = '';
+  public $content;
+  /**
+   * @var string
+   */
   public $devicePath;
 
   /**
@@ -37,10 +41,16 @@ class RegularFile extends \Google\Model
   {
     return $this->content;
   }
+  /**
+   * @param string
+   */
   public function setDevicePath($devicePath)
   {
     $this->devicePath = $devicePath;
   }
+  /**
+   * @return string
+   */
   public function getDevicePath()
   {
     return $this->devicePath;

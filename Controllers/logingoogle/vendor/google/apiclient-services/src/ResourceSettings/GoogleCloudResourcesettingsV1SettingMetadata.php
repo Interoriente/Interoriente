@@ -19,17 +19,36 @@ namespace Google\Service\ResourceSettings;
 
 class GoogleCloudResourcesettingsV1SettingMetadata extends \Google\Model
 {
+  /**
+   * @var string
+   */
   public $dataType;
   protected $defaultValueType = GoogleCloudResourcesettingsV1Value::class;
   protected $defaultValueDataType = '';
+  public $defaultValue;
+  /**
+   * @var string
+   */
   public $description;
+  /**
+   * @var string
+   */
   public $displayName;
+  /**
+   * @var bool
+   */
   public $readOnly;
 
+  /**
+   * @param string
+   */
   public function setDataType($dataType)
   {
     $this->dataType = $dataType;
   }
+  /**
+   * @return string
+   */
   public function getDataType()
   {
     return $this->dataType;
@@ -48,26 +67,44 @@ class GoogleCloudResourcesettingsV1SettingMetadata extends \Google\Model
   {
     return $this->defaultValue;
   }
+  /**
+   * @param string
+   */
   public function setDescription($description)
   {
     $this->description = $description;
   }
+  /**
+   * @return string
+   */
   public function getDescription()
   {
     return $this->description;
   }
+  /**
+   * @param string
+   */
   public function setDisplayName($displayName)
   {
     $this->displayName = $displayName;
   }
+  /**
+   * @return string
+   */
   public function getDisplayName()
   {
     return $this->displayName;
   }
+  /**
+   * @param bool
+   */
   public function setReadOnly($readOnly)
   {
     $this->readOnly = $readOnly;
   }
+  /**
+   * @return bool
+   */
   public function getReadOnly()
   {
     return $this->readOnly;

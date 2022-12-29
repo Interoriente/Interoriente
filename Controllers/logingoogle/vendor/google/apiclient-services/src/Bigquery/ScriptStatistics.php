@@ -20,14 +20,24 @@ namespace Google\Service\Bigquery;
 class ScriptStatistics extends \Google\Collection
 {
   protected $collection_key = 'stackFrames';
+  /**
+   * @var string
+   */
   public $evaluationKind;
   protected $stackFramesType = ScriptStackFrame::class;
   protected $stackFramesDataType = 'array';
+  public $stackFrames;
 
+  /**
+   * @param string
+   */
   public function setEvaluationKind($evaluationKind)
   {
     $this->evaluationKind = $evaluationKind;
   }
+  /**
+   * @return string
+   */
   public function getEvaluationKind()
   {
     return $this->evaluationKind;

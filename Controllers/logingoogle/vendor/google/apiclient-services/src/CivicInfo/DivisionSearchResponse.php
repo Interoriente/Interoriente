@@ -20,14 +20,24 @@ namespace Google\Service\CivicInfo;
 class DivisionSearchResponse extends \Google\Collection
 {
   protected $collection_key = 'results';
+  /**
+   * @var string
+   */
   public $kind;
   protected $resultsType = DivisionSearchResult::class;
   protected $resultsDataType = 'array';
+  public $results;
 
+  /**
+   * @param string
+   */
   public function setKind($kind)
   {
     $this->kind = $kind;
   }
+  /**
+   * @return string
+   */
   public function getKind()
   {
     return $this->kind;

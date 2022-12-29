@@ -21,10 +21,21 @@ class GoogleCloudDatalabelingV1beta1Annotation extends \Google\Model
 {
   protected $annotationMetadataType = GoogleCloudDatalabelingV1beta1AnnotationMetadata::class;
   protected $annotationMetadataDataType = '';
+  public $annotationMetadata;
+  /**
+   * @var string
+   */
   public $annotationSentiment;
+  /**
+   * @var string
+   */
   public $annotationSource;
   protected $annotationValueType = GoogleCloudDatalabelingV1beta1AnnotationValue::class;
   protected $annotationValueDataType = '';
+  public $annotationValue;
+  /**
+   * @var string
+   */
   public $name;
 
   /**
@@ -41,18 +52,30 @@ class GoogleCloudDatalabelingV1beta1Annotation extends \Google\Model
   {
     return $this->annotationMetadata;
   }
+  /**
+   * @param string
+   */
   public function setAnnotationSentiment($annotationSentiment)
   {
     $this->annotationSentiment = $annotationSentiment;
   }
+  /**
+   * @return string
+   */
   public function getAnnotationSentiment()
   {
     return $this->annotationSentiment;
   }
+  /**
+   * @param string
+   */
   public function setAnnotationSource($annotationSource)
   {
     $this->annotationSource = $annotationSource;
   }
+  /**
+   * @return string
+   */
   public function getAnnotationSource()
   {
     return $this->annotationSource;
@@ -71,10 +94,16 @@ class GoogleCloudDatalabelingV1beta1Annotation extends \Google\Model
   {
     return $this->annotationValue;
   }
+  /**
+   * @param string
+   */
   public function setName($name)
   {
     $this->name = $name;
   }
+  /**
+   * @return string
+   */
   public function getName()
   {
     return $this->name;

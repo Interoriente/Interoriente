@@ -21,6 +21,10 @@ class ObbFile extends \Google\Model
 {
   protected $obbType = FileReference::class;
   protected $obbDataType = '';
+  public $obb;
+  /**
+   * @var string
+   */
   public $obbFileName;
 
   /**
@@ -37,10 +41,16 @@ class ObbFile extends \Google\Model
   {
     return $this->obb;
   }
+  /**
+   * @param string
+   */
   public function setObbFileName($obbFileName)
   {
     $this->obbFileName = $obbFileName;
   }
+  /**
+   * @return string
+   */
   public function getObbFileName()
   {
     return $this->obbFileName;

@@ -19,43 +19,88 @@ namespace Google\Service\OSConfig;
 
 class PatchDeployment extends \Google\Model
 {
+  /**
+   * @var string
+   */
   public $createTime;
+  /**
+   * @var string
+   */
   public $description;
+  /**
+   * @var string
+   */
   public $duration;
   protected $instanceFilterType = PatchInstanceFilter::class;
   protected $instanceFilterDataType = '';
+  public $instanceFilter;
+  /**
+   * @var string
+   */
   public $lastExecuteTime;
+  /**
+   * @var string
+   */
   public $name;
   protected $oneTimeScheduleType = OneTimeSchedule::class;
   protected $oneTimeScheduleDataType = '';
+  public $oneTimeSchedule;
   protected $patchConfigType = PatchConfig::class;
   protected $patchConfigDataType = '';
+  public $patchConfig;
   protected $recurringScheduleType = RecurringSchedule::class;
   protected $recurringScheduleDataType = '';
+  public $recurringSchedule;
   protected $rolloutType = PatchRollout::class;
   protected $rolloutDataType = '';
+  public $rollout;
+  /**
+   * @var string
+   */
+  public $state;
+  /**
+   * @var string
+   */
   public $updateTime;
 
+  /**
+   * @param string
+   */
   public function setCreateTime($createTime)
   {
     $this->createTime = $createTime;
   }
+  /**
+   * @return string
+   */
   public function getCreateTime()
   {
     return $this->createTime;
   }
+  /**
+   * @param string
+   */
   public function setDescription($description)
   {
     $this->description = $description;
   }
+  /**
+   * @return string
+   */
   public function getDescription()
   {
     return $this->description;
   }
+  /**
+   * @param string
+   */
   public function setDuration($duration)
   {
     $this->duration = $duration;
   }
+  /**
+   * @return string
+   */
   public function getDuration()
   {
     return $this->duration;
@@ -74,18 +119,30 @@ class PatchDeployment extends \Google\Model
   {
     return $this->instanceFilter;
   }
+  /**
+   * @param string
+   */
   public function setLastExecuteTime($lastExecuteTime)
   {
     $this->lastExecuteTime = $lastExecuteTime;
   }
+  /**
+   * @return string
+   */
   public function getLastExecuteTime()
   {
     return $this->lastExecuteTime;
   }
+  /**
+   * @param string
+   */
   public function setName($name)
   {
     $this->name = $name;
   }
+  /**
+   * @return string
+   */
   public function getName()
   {
     return $this->name;
@@ -146,10 +203,30 @@ class PatchDeployment extends \Google\Model
   {
     return $this->rollout;
   }
+  /**
+   * @param string
+   */
+  public function setState($state)
+  {
+    $this->state = $state;
+  }
+  /**
+   * @return string
+   */
+  public function getState()
+  {
+    return $this->state;
+  }
+  /**
+   * @param string
+   */
   public function setUpdateTime($updateTime)
   {
     $this->updateTime = $updateTime;
   }
+  /**
+   * @return string
+   */
   public function getUpdateTime()
   {
     return $this->updateTime;

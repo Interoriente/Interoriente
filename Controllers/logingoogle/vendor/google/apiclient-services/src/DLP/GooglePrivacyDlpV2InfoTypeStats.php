@@ -19,14 +19,24 @@ namespace Google\Service\DLP;
 
 class GooglePrivacyDlpV2InfoTypeStats extends \Google\Model
 {
+  /**
+   * @var string
+   */
   public $count;
   protected $infoTypeType = GooglePrivacyDlpV2InfoType::class;
   protected $infoTypeDataType = '';
+  public $infoType;
 
+  /**
+   * @param string
+   */
   public function setCount($count)
   {
     $this->count = $count;
   }
+  /**
+   * @return string
+   */
   public function getCount()
   {
     return $this->count;

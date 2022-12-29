@@ -22,6 +22,10 @@ class ListGcpUserAccessBindingsResponse extends \Google\Collection
   protected $collection_key = 'gcpUserAccessBindings';
   protected $gcpUserAccessBindingsType = GcpUserAccessBinding::class;
   protected $gcpUserAccessBindingsDataType = 'array';
+  public $gcpUserAccessBindings;
+  /**
+   * @var string
+   */
   public $nextPageToken;
 
   /**
@@ -38,10 +42,16 @@ class ListGcpUserAccessBindingsResponse extends \Google\Collection
   {
     return $this->gcpUserAccessBindings;
   }
+  /**
+   * @param string
+   */
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
   }
+  /**
+   * @return string
+   */
   public function getNextPageToken()
   {
     return $this->nextPageToken;

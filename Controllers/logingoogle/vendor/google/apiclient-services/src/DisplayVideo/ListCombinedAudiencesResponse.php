@@ -22,6 +22,10 @@ class ListCombinedAudiencesResponse extends \Google\Collection
   protected $collection_key = 'combinedAudiences';
   protected $combinedAudiencesType = CombinedAudience::class;
   protected $combinedAudiencesDataType = 'array';
+  public $combinedAudiences;
+  /**
+   * @var string
+   */
   public $nextPageToken;
 
   /**
@@ -38,10 +42,16 @@ class ListCombinedAudiencesResponse extends \Google\Collection
   {
     return $this->combinedAudiences;
   }
+  /**
+   * @param string
+   */
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
   }
+  /**
+   * @return string
+   */
   public function getNextPageToken()
   {
     return $this->nextPageToken;

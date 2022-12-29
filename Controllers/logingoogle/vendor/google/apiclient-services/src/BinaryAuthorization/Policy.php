@@ -22,19 +22,41 @@ class Policy extends \Google\Collection
   protected $collection_key = 'admissionWhitelistPatterns';
   protected $admissionWhitelistPatternsType = AdmissionWhitelistPattern::class;
   protected $admissionWhitelistPatternsDataType = 'array';
+  public $admissionWhitelistPatterns;
   protected $clusterAdmissionRulesType = AdmissionRule::class;
   protected $clusterAdmissionRulesDataType = 'map';
+  public $clusterAdmissionRules;
   protected $defaultAdmissionRuleType = AdmissionRule::class;
   protected $defaultAdmissionRuleDataType = '';
+  public $defaultAdmissionRule;
+  /**
+   * @var string
+   */
   public $description;
+  /**
+   * @var string
+   */
+  public $etag;
+  /**
+   * @var string
+   */
   public $globalPolicyEvaluationMode;
   protected $istioServiceIdentityAdmissionRulesType = AdmissionRule::class;
   protected $istioServiceIdentityAdmissionRulesDataType = 'map';
+  public $istioServiceIdentityAdmissionRules;
   protected $kubernetesNamespaceAdmissionRulesType = AdmissionRule::class;
   protected $kubernetesNamespaceAdmissionRulesDataType = 'map';
+  public $kubernetesNamespaceAdmissionRules;
   protected $kubernetesServiceAccountAdmissionRulesType = AdmissionRule::class;
   protected $kubernetesServiceAccountAdmissionRulesDataType = 'map';
+  public $kubernetesServiceAccountAdmissionRules;
+  /**
+   * @var string
+   */
   public $name;
+  /**
+   * @var string
+   */
   public $updateTime;
 
   /**
@@ -79,18 +101,44 @@ class Policy extends \Google\Collection
   {
     return $this->defaultAdmissionRule;
   }
+  /**
+   * @param string
+   */
   public function setDescription($description)
   {
     $this->description = $description;
   }
+  /**
+   * @return string
+   */
   public function getDescription()
   {
     return $this->description;
   }
+  /**
+   * @param string
+   */
+  public function setEtag($etag)
+  {
+    $this->etag = $etag;
+  }
+  /**
+   * @return string
+   */
+  public function getEtag()
+  {
+    return $this->etag;
+  }
+  /**
+   * @param string
+   */
   public function setGlobalPolicyEvaluationMode($globalPolicyEvaluationMode)
   {
     $this->globalPolicyEvaluationMode = $globalPolicyEvaluationMode;
   }
+  /**
+   * @return string
+   */
   public function getGlobalPolicyEvaluationMode()
   {
     return $this->globalPolicyEvaluationMode;
@@ -137,18 +185,30 @@ class Policy extends \Google\Collection
   {
     return $this->kubernetesServiceAccountAdmissionRules;
   }
+  /**
+   * @param string
+   */
   public function setName($name)
   {
     $this->name = $name;
   }
+  /**
+   * @return string
+   */
   public function getName()
   {
     return $this->name;
   }
+  /**
+   * @param string
+   */
   public function setUpdateTime($updateTime)
   {
     $this->updateTime = $updateTime;
   }
+  /**
+   * @return string
+   */
   public function getUpdateTime()
   {
     return $this->updateTime;

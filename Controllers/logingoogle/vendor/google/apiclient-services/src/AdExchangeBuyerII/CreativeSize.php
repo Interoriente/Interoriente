@@ -20,19 +20,39 @@ namespace Google\Service\AdExchangeBuyerII;
 class CreativeSize extends \Google\Collection
 {
   protected $collection_key = 'companionSizes';
+  /**
+   * @var string[]
+   */
   public $allowedFormats;
   protected $companionSizesType = Size::class;
   protected $companionSizesDataType = 'array';
+  public $companionSizes;
+  /**
+   * @var string
+   */
   public $creativeSizeType;
+  /**
+   * @var string
+   */
   public $nativeTemplate;
   protected $sizeType = Size::class;
   protected $sizeDataType = '';
+  public $size;
+  /**
+   * @var string
+   */
   public $skippableAdType;
 
+  /**
+   * @param string[]
+   */
   public function setAllowedFormats($allowedFormats)
   {
     $this->allowedFormats = $allowedFormats;
   }
+  /**
+   * @return string[]
+   */
   public function getAllowedFormats()
   {
     return $this->allowedFormats;
@@ -51,18 +71,30 @@ class CreativeSize extends \Google\Collection
   {
     return $this->companionSizes;
   }
+  /**
+   * @param string
+   */
   public function setCreativeSizeType($creativeSizeType)
   {
     $this->creativeSizeType = $creativeSizeType;
   }
+  /**
+   * @return string
+   */
   public function getCreativeSizeType()
   {
     return $this->creativeSizeType;
   }
+  /**
+   * @param string
+   */
   public function setNativeTemplate($nativeTemplate)
   {
     $this->nativeTemplate = $nativeTemplate;
   }
+  /**
+   * @return string
+   */
   public function getNativeTemplate()
   {
     return $this->nativeTemplate;
@@ -81,10 +113,16 @@ class CreativeSize extends \Google\Collection
   {
     return $this->size;
   }
+  /**
+   * @param string
+   */
   public function setSkippableAdType($skippableAdType)
   {
     $this->skippableAdType = $skippableAdType;
   }
+  /**
+   * @return string
+   */
   public function getSkippableAdType()
   {
     return $this->skippableAdType;

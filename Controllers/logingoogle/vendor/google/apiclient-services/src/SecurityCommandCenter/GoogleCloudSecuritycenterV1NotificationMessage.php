@@ -21,9 +21,14 @@ class GoogleCloudSecuritycenterV1NotificationMessage extends \Google\Model
 {
   protected $findingType = Finding::class;
   protected $findingDataType = '';
+  public $finding;
+  /**
+   * @var string
+   */
   public $notificationConfigName;
   protected $resourceType = GoogleCloudSecuritycenterV1Resource::class;
   protected $resourceDataType = '';
+  public $resource;
 
   /**
    * @param Finding
@@ -39,10 +44,16 @@ class GoogleCloudSecuritycenterV1NotificationMessage extends \Google\Model
   {
     return $this->finding;
   }
+  /**
+   * @param string
+   */
   public function setNotificationConfigName($notificationConfigName)
   {
     $this->notificationConfigName = $notificationConfigName;
   }
+  /**
+   * @return string
+   */
   public function getNotificationConfigName()
   {
     return $this->notificationConfigName;

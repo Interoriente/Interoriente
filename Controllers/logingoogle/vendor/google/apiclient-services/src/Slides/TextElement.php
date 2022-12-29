@@ -21,12 +21,21 @@ class TextElement extends \Google\Model
 {
   protected $autoTextType = AutoText::class;
   protected $autoTextDataType = '';
+  public $autoText;
+  /**
+   * @var int
+   */
   public $endIndex;
   protected $paragraphMarkerType = ParagraphMarker::class;
   protected $paragraphMarkerDataType = '';
+  public $paragraphMarker;
+  /**
+   * @var int
+   */
   public $startIndex;
   protected $textRunType = TextRun::class;
   protected $textRunDataType = '';
+  public $textRun;
 
   /**
    * @param AutoText
@@ -42,10 +51,16 @@ class TextElement extends \Google\Model
   {
     return $this->autoText;
   }
+  /**
+   * @param int
+   */
   public function setEndIndex($endIndex)
   {
     $this->endIndex = $endIndex;
   }
+  /**
+   * @return int
+   */
   public function getEndIndex()
   {
     return $this->endIndex;
@@ -64,10 +79,16 @@ class TextElement extends \Google\Model
   {
     return $this->paragraphMarker;
   }
+  /**
+   * @param int
+   */
   public function setStartIndex($startIndex)
   {
     $this->startIndex = $startIndex;
   }
+  /**
+   * @return int
+   */
   public function getStartIndex()
   {
     return $this->startIndex;

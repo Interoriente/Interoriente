@@ -21,6 +21,10 @@ class AnalyzeSentimentRequest extends \Google\Model
 {
   protected $documentType = Document::class;
   protected $documentDataType = '';
+  public $document;
+  /**
+   * @var string
+   */
   public $encodingType;
 
   /**
@@ -37,10 +41,16 @@ class AnalyzeSentimentRequest extends \Google\Model
   {
     return $this->document;
   }
+  /**
+   * @param string
+   */
   public function setEncodingType($encodingType)
   {
     $this->encodingType = $encodingType;
   }
+  /**
+   * @return string
+   */
   public function getEncodingType()
   {
     return $this->encodingType;

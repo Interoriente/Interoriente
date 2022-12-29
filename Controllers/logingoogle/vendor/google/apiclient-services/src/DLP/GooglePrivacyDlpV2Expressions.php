@@ -21,6 +21,10 @@ class GooglePrivacyDlpV2Expressions extends \Google\Model
 {
   protected $conditionsType = GooglePrivacyDlpV2Conditions::class;
   protected $conditionsDataType = '';
+  public $conditions;
+  /**
+   * @var string
+   */
   public $logicalOperator;
 
   /**
@@ -37,10 +41,16 @@ class GooglePrivacyDlpV2Expressions extends \Google\Model
   {
     return $this->conditions;
   }
+  /**
+   * @param string
+   */
   public function setLogicalOperator($logicalOperator)
   {
     $this->logicalOperator = $logicalOperator;
   }
+  /**
+   * @return string
+   */
   public function getLogicalOperator()
   {
     return $this->logicalOperator;

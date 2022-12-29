@@ -22,9 +22,17 @@ class ChangesListResponse extends \Google\Collection
   protected $collection_key = 'changes';
   protected $changesType = Change::class;
   protected $changesDataType = 'array';
+  public $changes;
   protected $headerType = ResponseHeader::class;
   protected $headerDataType = '';
+  public $header;
+  /**
+   * @var string
+   */
   public $kind;
+  /**
+   * @var string
+   */
   public $nextPageToken;
 
   /**
@@ -55,18 +63,30 @@ class ChangesListResponse extends \Google\Collection
   {
     return $this->header;
   }
+  /**
+   * @param string
+   */
   public function setKind($kind)
   {
     $this->kind = $kind;
   }
+  /**
+   * @return string
+   */
   public function getKind()
   {
     return $this->kind;
   }
+  /**
+   * @param string
+   */
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
   }
+  /**
+   * @return string
+   */
   public function getNextPageToken()
   {
     return $this->nextPageToken;

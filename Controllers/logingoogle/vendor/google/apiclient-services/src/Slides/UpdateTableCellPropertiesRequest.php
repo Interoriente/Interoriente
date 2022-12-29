@@ -19,25 +19,45 @@ namespace Google\Service\Slides;
 
 class UpdateTableCellPropertiesRequest extends \Google\Model
 {
+  /**
+   * @var string
+   */
   public $fields;
+  /**
+   * @var string
+   */
   public $objectId;
   protected $tableCellPropertiesType = TableCellProperties::class;
   protected $tableCellPropertiesDataType = '';
+  public $tableCellProperties;
   protected $tableRangeType = TableRange::class;
   protected $tableRangeDataType = '';
+  public $tableRange;
 
+  /**
+   * @param string
+   */
   public function setFields($fields)
   {
     $this->fields = $fields;
   }
+  /**
+   * @return string
+   */
   public function getFields()
   {
     return $this->fields;
   }
+  /**
+   * @param string
+   */
   public function setObjectId($objectId)
   {
     $this->objectId = $objectId;
   }
+  /**
+   * @return string
+   */
   public function getObjectId()
   {
     return $this->objectId;

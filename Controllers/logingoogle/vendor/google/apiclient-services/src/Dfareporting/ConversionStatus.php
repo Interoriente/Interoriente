@@ -22,8 +22,13 @@ class ConversionStatus extends \Google\Collection
   protected $collection_key = 'errors';
   protected $conversionType = Conversion::class;
   protected $conversionDataType = '';
+  public $conversion;
   protected $errorsType = ConversionError::class;
   protected $errorsDataType = 'array';
+  public $errors;
+  /**
+   * @var string
+   */
   public $kind;
 
   /**
@@ -54,10 +59,16 @@ class ConversionStatus extends \Google\Collection
   {
     return $this->errors;
   }
+  /**
+   * @param string
+   */
   public function setKind($kind)
   {
     $this->kind = $kind;
   }
+  /**
+   * @return string
+   */
   public function getKind()
   {
     return $this->kind;

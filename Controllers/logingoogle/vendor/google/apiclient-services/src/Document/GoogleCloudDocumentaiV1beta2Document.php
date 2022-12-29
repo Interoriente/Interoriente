@@ -20,33 +20,60 @@ namespace Google\Service\Document;
 class GoogleCloudDocumentaiV1beta2Document extends \Google\Collection
 {
   protected $collection_key = 'textStyles';
+  /**
+   * @var string
+   */
   public $content;
   protected $entitiesType = GoogleCloudDocumentaiV1beta2DocumentEntity::class;
   protected $entitiesDataType = 'array';
+  public $entities;
   protected $entityRelationsType = GoogleCloudDocumentaiV1beta2DocumentEntityRelation::class;
   protected $entityRelationsDataType = 'array';
+  public $entityRelations;
   protected $errorType = GoogleRpcStatus::class;
   protected $errorDataType = '';
+  public $error;
   protected $labelsType = GoogleCloudDocumentaiV1beta2DocumentLabel::class;
   protected $labelsDataType = 'array';
+  public $labels;
+  /**
+   * @var string
+   */
   public $mimeType;
   protected $pagesType = GoogleCloudDocumentaiV1beta2DocumentPage::class;
   protected $pagesDataType = 'array';
+  public $pages;
   protected $revisionsType = GoogleCloudDocumentaiV1beta2DocumentRevision::class;
   protected $revisionsDataType = 'array';
+  public $revisions;
   protected $shardInfoType = GoogleCloudDocumentaiV1beta2DocumentShardInfo::class;
   protected $shardInfoDataType = '';
+  public $shardInfo;
+  /**
+   * @var string
+   */
   public $text;
   protected $textChangesType = GoogleCloudDocumentaiV1beta2DocumentTextChange::class;
   protected $textChangesDataType = 'array';
+  public $textChanges;
   protected $textStylesType = GoogleCloudDocumentaiV1beta2DocumentStyle::class;
   protected $textStylesDataType = 'array';
+  public $textStyles;
+  /**
+   * @var string
+   */
   public $uri;
 
+  /**
+   * @param string
+   */
   public function setContent($content)
   {
     $this->content = $content;
   }
+  /**
+   * @return string
+   */
   public function getContent()
   {
     return $this->content;
@@ -107,10 +134,16 @@ class GoogleCloudDocumentaiV1beta2Document extends \Google\Collection
   {
     return $this->labels;
   }
+  /**
+   * @param string
+   */
   public function setMimeType($mimeType)
   {
     $this->mimeType = $mimeType;
   }
+  /**
+   * @return string
+   */
   public function getMimeType()
   {
     return $this->mimeType;
@@ -157,10 +190,16 @@ class GoogleCloudDocumentaiV1beta2Document extends \Google\Collection
   {
     return $this->shardInfo;
   }
+  /**
+   * @param string
+   */
   public function setText($text)
   {
     $this->text = $text;
   }
+  /**
+   * @return string
+   */
   public function getText()
   {
     return $this->text;
@@ -193,10 +232,16 @@ class GoogleCloudDocumentaiV1beta2Document extends \Google\Collection
   {
     return $this->textStyles;
   }
+  /**
+   * @param string
+   */
   public function setUri($uri)
   {
     $this->uri = $uri;
   }
+  /**
+   * @return string
+   */
   public function getUri()
   {
     return $this->uri;

@@ -20,14 +20,24 @@ namespace Google\Service\Dfareporting;
 class PlacementsGenerateTagsResponse extends \Google\Collection
 {
   protected $collection_key = 'placementTags';
+  /**
+   * @var string
+   */
   public $kind;
   protected $placementTagsType = PlacementTag::class;
   protected $placementTagsDataType = 'array';
+  public $placementTags;
 
+  /**
+   * @param string
+   */
   public function setKind($kind)
   {
     $this->kind = $kind;
   }
+  /**
+   * @return string
+   */
   public function getKind()
   {
     return $this->kind;

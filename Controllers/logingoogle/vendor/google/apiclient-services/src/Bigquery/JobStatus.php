@@ -22,8 +22,13 @@ class JobStatus extends \Google\Collection
   protected $collection_key = 'errors';
   protected $errorResultType = ErrorProto::class;
   protected $errorResultDataType = '';
+  public $errorResult;
   protected $errorsType = ErrorProto::class;
   protected $errorsDataType = 'array';
+  public $errors;
+  /**
+   * @var string
+   */
   public $state;
 
   /**
@@ -54,10 +59,16 @@ class JobStatus extends \Google\Collection
   {
     return $this->errors;
   }
+  /**
+   * @param string
+   */
   public function setState($state)
   {
     $this->state = $state;
   }
+  /**
+   * @return string
+   */
   public function getState()
   {
     return $this->state;

@@ -20,86 +20,181 @@ namespace Google\Service\Dfareporting;
 class Ad extends \Google\Collection
 {
   protected $collection_key = 'placementAssignments';
+  /**
+   * @var string
+   */
   public $accountId;
+  /**
+   * @var bool
+   */
   public $active;
+  /**
+   * @var string
+   */
   public $advertiserId;
   protected $advertiserIdDimensionValueType = DimensionValue::class;
   protected $advertiserIdDimensionValueDataType = '';
+  public $advertiserIdDimensionValue;
+  /**
+   * @var bool
+   */
   public $archived;
+  /**
+   * @var string
+   */
   public $audienceSegmentId;
+  /**
+   * @var string
+   */
   public $campaignId;
   protected $campaignIdDimensionValueType = DimensionValue::class;
   protected $campaignIdDimensionValueDataType = '';
+  public $campaignIdDimensionValue;
   protected $clickThroughUrlType = ClickThroughUrl::class;
   protected $clickThroughUrlDataType = '';
+  public $clickThroughUrl;
   protected $clickThroughUrlSuffixPropertiesType = ClickThroughUrlSuffixProperties::class;
   protected $clickThroughUrlSuffixPropertiesDataType = '';
+  public $clickThroughUrlSuffixProperties;
+  /**
+   * @var string
+   */
   public $comments;
+  /**
+   * @var string
+   */
   public $compatibility;
   protected $createInfoType = LastModifiedInfo::class;
   protected $createInfoDataType = '';
+  public $createInfo;
   protected $creativeGroupAssignmentsType = CreativeGroupAssignment::class;
   protected $creativeGroupAssignmentsDataType = 'array';
+  public $creativeGroupAssignments;
   protected $creativeRotationType = CreativeRotation::class;
   protected $creativeRotationDataType = '';
+  public $creativeRotation;
   protected $dayPartTargetingType = DayPartTargeting::class;
   protected $dayPartTargetingDataType = '';
+  public $dayPartTargeting;
   protected $defaultClickThroughEventTagPropertiesType = DefaultClickThroughEventTagProperties::class;
   protected $defaultClickThroughEventTagPropertiesDataType = '';
+  public $defaultClickThroughEventTagProperties;
   protected $deliveryScheduleType = DeliverySchedule::class;
   protected $deliveryScheduleDataType = '';
+  public $deliverySchedule;
+  /**
+   * @var bool
+   */
   public $dynamicClickTracker;
+  /**
+   * @var string
+   */
   public $endTime;
   protected $eventTagOverridesType = EventTagOverride::class;
   protected $eventTagOverridesDataType = 'array';
+  public $eventTagOverrides;
   protected $geoTargetingType = GeoTargeting::class;
   protected $geoTargetingDataType = '';
+  public $geoTargeting;
+  /**
+   * @var string
+   */
   public $id;
   protected $idDimensionValueType = DimensionValue::class;
   protected $idDimensionValueDataType = '';
+  public $idDimensionValue;
   protected $keyValueTargetingExpressionType = KeyValueTargetingExpression::class;
   protected $keyValueTargetingExpressionDataType = '';
+  public $keyValueTargetingExpression;
+  /**
+   * @var string
+   */
   public $kind;
   protected $languageTargetingType = LanguageTargeting::class;
   protected $languageTargetingDataType = '';
+  public $languageTargeting;
   protected $lastModifiedInfoType = LastModifiedInfo::class;
   protected $lastModifiedInfoDataType = '';
+  public $lastModifiedInfo;
+  /**
+   * @var string
+   */
   public $name;
   protected $placementAssignmentsType = PlacementAssignment::class;
   protected $placementAssignmentsDataType = 'array';
+  public $placementAssignments;
   protected $remarketingListExpressionType = ListTargetingExpression::class;
   protected $remarketingListExpressionDataType = '';
+  public $remarketingListExpression;
   protected $sizeType = Size::class;
   protected $sizeDataType = '';
+  public $size;
+  /**
+   * @var bool
+   */
   public $sslCompliant;
+  /**
+   * @var bool
+   */
   public $sslRequired;
+  /**
+   * @var string
+   */
   public $startTime;
+  /**
+   * @var string
+   */
   public $subaccountId;
+  /**
+   * @var string
+   */
   public $targetingTemplateId;
   protected $technologyTargetingType = TechnologyTargeting::class;
   protected $technologyTargetingDataType = '';
+  public $technologyTargeting;
+  /**
+   * @var string
+   */
   public $type;
 
+  /**
+   * @param string
+   */
   public function setAccountId($accountId)
   {
     $this->accountId = $accountId;
   }
+  /**
+   * @return string
+   */
   public function getAccountId()
   {
     return $this->accountId;
   }
+  /**
+   * @param bool
+   */
   public function setActive($active)
   {
     $this->active = $active;
   }
+  /**
+   * @return bool
+   */
   public function getActive()
   {
     return $this->active;
   }
+  /**
+   * @param string
+   */
   public function setAdvertiserId($advertiserId)
   {
     $this->advertiserId = $advertiserId;
   }
+  /**
+   * @return string
+   */
   public function getAdvertiserId()
   {
     return $this->advertiserId;
@@ -118,26 +213,44 @@ class Ad extends \Google\Collection
   {
     return $this->advertiserIdDimensionValue;
   }
+  /**
+   * @param bool
+   */
   public function setArchived($archived)
   {
     $this->archived = $archived;
   }
+  /**
+   * @return bool
+   */
   public function getArchived()
   {
     return $this->archived;
   }
+  /**
+   * @param string
+   */
   public function setAudienceSegmentId($audienceSegmentId)
   {
     $this->audienceSegmentId = $audienceSegmentId;
   }
+  /**
+   * @return string
+   */
   public function getAudienceSegmentId()
   {
     return $this->audienceSegmentId;
   }
+  /**
+   * @param string
+   */
   public function setCampaignId($campaignId)
   {
     $this->campaignId = $campaignId;
   }
+  /**
+   * @return string
+   */
   public function getCampaignId()
   {
     return $this->campaignId;
@@ -184,18 +297,30 @@ class Ad extends \Google\Collection
   {
     return $this->clickThroughUrlSuffixProperties;
   }
+  /**
+   * @param string
+   */
   public function setComments($comments)
   {
     $this->comments = $comments;
   }
+  /**
+   * @return string
+   */
   public function getComments()
   {
     return $this->comments;
   }
+  /**
+   * @param string
+   */
   public function setCompatibility($compatibility)
   {
     $this->compatibility = $compatibility;
   }
+  /**
+   * @return string
+   */
   public function getCompatibility()
   {
     return $this->compatibility;
@@ -284,18 +409,30 @@ class Ad extends \Google\Collection
   {
     return $this->deliverySchedule;
   }
+  /**
+   * @param bool
+   */
   public function setDynamicClickTracker($dynamicClickTracker)
   {
     $this->dynamicClickTracker = $dynamicClickTracker;
   }
+  /**
+   * @return bool
+   */
   public function getDynamicClickTracker()
   {
     return $this->dynamicClickTracker;
   }
+  /**
+   * @param string
+   */
   public function setEndTime($endTime)
   {
     $this->endTime = $endTime;
   }
+  /**
+   * @return string
+   */
   public function getEndTime()
   {
     return $this->endTime;
@@ -328,10 +465,16 @@ class Ad extends \Google\Collection
   {
     return $this->geoTargeting;
   }
+  /**
+   * @param string
+   */
   public function setId($id)
   {
     $this->id = $id;
   }
+  /**
+   * @return string
+   */
   public function getId()
   {
     return $this->id;
@@ -364,10 +507,16 @@ class Ad extends \Google\Collection
   {
     return $this->keyValueTargetingExpression;
   }
+  /**
+   * @param string
+   */
   public function setKind($kind)
   {
     $this->kind = $kind;
   }
+  /**
+   * @return string
+   */
   public function getKind()
   {
     return $this->kind;
@@ -400,10 +549,16 @@ class Ad extends \Google\Collection
   {
     return $this->lastModifiedInfo;
   }
+  /**
+   * @param string
+   */
   public function setName($name)
   {
     $this->name = $name;
   }
+  /**
+   * @return string
+   */
   public function getName()
   {
     return $this->name;
@@ -450,42 +605,72 @@ class Ad extends \Google\Collection
   {
     return $this->size;
   }
+  /**
+   * @param bool
+   */
   public function setSslCompliant($sslCompliant)
   {
     $this->sslCompliant = $sslCompliant;
   }
+  /**
+   * @return bool
+   */
   public function getSslCompliant()
   {
     return $this->sslCompliant;
   }
+  /**
+   * @param bool
+   */
   public function setSslRequired($sslRequired)
   {
     $this->sslRequired = $sslRequired;
   }
+  /**
+   * @return bool
+   */
   public function getSslRequired()
   {
     return $this->sslRequired;
   }
+  /**
+   * @param string
+   */
   public function setStartTime($startTime)
   {
     $this->startTime = $startTime;
   }
+  /**
+   * @return string
+   */
   public function getStartTime()
   {
     return $this->startTime;
   }
+  /**
+   * @param string
+   */
   public function setSubaccountId($subaccountId)
   {
     $this->subaccountId = $subaccountId;
   }
+  /**
+   * @return string
+   */
   public function getSubaccountId()
   {
     return $this->subaccountId;
   }
+  /**
+   * @param string
+   */
   public function setTargetingTemplateId($targetingTemplateId)
   {
     $this->targetingTemplateId = $targetingTemplateId;
   }
+  /**
+   * @return string
+   */
   public function getTargetingTemplateId()
   {
     return $this->targetingTemplateId;
@@ -504,10 +689,16 @@ class Ad extends \Google\Collection
   {
     return $this->technologyTargeting;
   }
+  /**
+   * @param string
+   */
   public function setType($type)
   {
     $this->type = $type;
   }
+  /**
+   * @return string
+   */
   public function getType()
   {
     return $this->type;

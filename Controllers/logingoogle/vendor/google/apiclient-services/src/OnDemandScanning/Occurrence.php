@@ -21,29 +21,65 @@ class Occurrence extends \Google\Model
 {
   protected $attestationType = AttestationOccurrence::class;
   protected $attestationDataType = '';
+  public $attestation;
   protected $buildType = BuildOccurrence::class;
   protected $buildDataType = '';
+  public $build;
   protected $complianceType = ComplianceOccurrence::class;
   protected $complianceDataType = '';
+  public $compliance;
+  /**
+   * @var string
+   */
   public $createTime;
   protected $deploymentType = DeploymentOccurrence::class;
   protected $deploymentDataType = '';
+  public $deployment;
   protected $discoveryType = DiscoveryOccurrence::class;
   protected $discoveryDataType = '';
+  public $discovery;
+  protected $dsseAttestationType = DSSEAttestationOccurrence::class;
+  protected $dsseAttestationDataType = '';
+  public $dsseAttestation;
+  protected $envelopeType = Envelope::class;
+  protected $envelopeDataType = '';
+  public $envelope;
   protected $imageType = ImageOccurrence::class;
   protected $imageDataType = '';
+  public $image;
+  /**
+   * @var string
+   */
   public $kind;
+  /**
+   * @var string
+   */
   public $name;
+  /**
+   * @var string
+   */
   public $noteName;
   protected $packageType = PackageOccurrence::class;
   protected $packageDataType = '';
+  public $package;
+  /**
+   * @var string
+   */
   public $remediation;
+  /**
+   * @var string
+   */
   public $resourceUri;
+  /**
+   * @var string
+   */
   public $updateTime;
   protected $upgradeType = UpgradeOccurrence::class;
   protected $upgradeDataType = '';
+  public $upgrade;
   protected $vulnerabilityType = VulnerabilityOccurrence::class;
   protected $vulnerabilityDataType = '';
+  public $vulnerability;
 
   /**
    * @param AttestationOccurrence
@@ -87,10 +123,16 @@ class Occurrence extends \Google\Model
   {
     return $this->compliance;
   }
+  /**
+   * @param string
+   */
   public function setCreateTime($createTime)
   {
     $this->createTime = $createTime;
   }
+  /**
+   * @return string
+   */
   public function getCreateTime()
   {
     return $this->createTime;
@@ -124,6 +166,34 @@ class Occurrence extends \Google\Model
     return $this->discovery;
   }
   /**
+   * @param DSSEAttestationOccurrence
+   */
+  public function setDsseAttestation(DSSEAttestationOccurrence $dsseAttestation)
+  {
+    $this->dsseAttestation = $dsseAttestation;
+  }
+  /**
+   * @return DSSEAttestationOccurrence
+   */
+  public function getDsseAttestation()
+  {
+    return $this->dsseAttestation;
+  }
+  /**
+   * @param Envelope
+   */
+  public function setEnvelope(Envelope $envelope)
+  {
+    $this->envelope = $envelope;
+  }
+  /**
+   * @return Envelope
+   */
+  public function getEnvelope()
+  {
+    return $this->envelope;
+  }
+  /**
    * @param ImageOccurrence
    */
   public function setImage(ImageOccurrence $image)
@@ -137,26 +207,44 @@ class Occurrence extends \Google\Model
   {
     return $this->image;
   }
+  /**
+   * @param string
+   */
   public function setKind($kind)
   {
     $this->kind = $kind;
   }
+  /**
+   * @return string
+   */
   public function getKind()
   {
     return $this->kind;
   }
+  /**
+   * @param string
+   */
   public function setName($name)
   {
     $this->name = $name;
   }
+  /**
+   * @return string
+   */
   public function getName()
   {
     return $this->name;
   }
+  /**
+   * @param string
+   */
   public function setNoteName($noteName)
   {
     $this->noteName = $noteName;
   }
+  /**
+   * @return string
+   */
   public function getNoteName()
   {
     return $this->noteName;
@@ -175,26 +263,44 @@ class Occurrence extends \Google\Model
   {
     return $this->package;
   }
+  /**
+   * @param string
+   */
   public function setRemediation($remediation)
   {
     $this->remediation = $remediation;
   }
+  /**
+   * @return string
+   */
   public function getRemediation()
   {
     return $this->remediation;
   }
+  /**
+   * @param string
+   */
   public function setResourceUri($resourceUri)
   {
     $this->resourceUri = $resourceUri;
   }
+  /**
+   * @return string
+   */
   public function getResourceUri()
   {
     return $this->resourceUri;
   }
+  /**
+   * @param string
+   */
   public function setUpdateTime($updateTime)
   {
     $this->updateTime = $updateTime;
   }
+  /**
+   * @return string
+   */
   public function getUpdateTime()
   {
     return $this->updateTime;

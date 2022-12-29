@@ -21,6 +21,10 @@ class ThemeColorPair extends \Google\Model
 {
   protected $colorType = RgbColor::class;
   protected $colorDataType = '';
+  public $color;
+  /**
+   * @var string
+   */
   public $type;
 
   /**
@@ -37,10 +41,16 @@ class ThemeColorPair extends \Google\Model
   {
     return $this->color;
   }
+  /**
+   * @param string
+   */
   public function setType($type)
   {
     $this->type = $type;
   }
+  /**
+   * @return string
+   */
   public function getType()
   {
     return $this->type;

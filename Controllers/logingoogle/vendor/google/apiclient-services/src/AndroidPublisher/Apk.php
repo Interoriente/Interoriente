@@ -21,6 +21,10 @@ class Apk extends \Google\Model
 {
   protected $binaryType = ApkBinary::class;
   protected $binaryDataType = '';
+  public $binary;
+  /**
+   * @var int
+   */
   public $versionCode;
 
   /**
@@ -37,10 +41,16 @@ class Apk extends \Google\Model
   {
     return $this->binary;
   }
+  /**
+   * @param int
+   */
   public function setVersionCode($versionCode)
   {
     $this->versionCode = $versionCode;
   }
+  /**
+   * @return int
+   */
   public function getVersionCode()
   {
     return $this->versionCode;

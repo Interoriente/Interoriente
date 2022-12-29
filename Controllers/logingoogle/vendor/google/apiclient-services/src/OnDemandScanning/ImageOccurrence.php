@@ -20,25 +20,45 @@ namespace Google\Service\OnDemandScanning;
 class ImageOccurrence extends \Google\Collection
 {
   protected $collection_key = 'layerInfo';
+  /**
+   * @var string
+   */
   public $baseResourceUrl;
+  /**
+   * @var int
+   */
   public $distance;
   protected $fingerprintType = Fingerprint::class;
   protected $fingerprintDataType = '';
+  public $fingerprint;
   protected $layerInfoType = Layer::class;
   protected $layerInfoDataType = 'array';
+  public $layerInfo;
 
+  /**
+   * @param string
+   */
   public function setBaseResourceUrl($baseResourceUrl)
   {
     $this->baseResourceUrl = $baseResourceUrl;
   }
+  /**
+   * @return string
+   */
   public function getBaseResourceUrl()
   {
     return $this->baseResourceUrl;
   }
+  /**
+   * @param int
+   */
   public function setDistance($distance)
   {
     $this->distance = $distance;
   }
+  /**
+   * @return int
+   */
   public function getDistance()
   {
     return $this->distance;

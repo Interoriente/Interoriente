@@ -19,14 +19,24 @@ namespace Google\Service\CloudDebugger;
 
 class RegisterDebuggeeResponse extends \Google\Model
 {
+  /**
+   * @var string
+   */
   public $agentId;
   protected $debuggeeType = Debuggee::class;
   protected $debuggeeDataType = '';
+  public $debuggee;
 
+  /**
+   * @param string
+   */
   public function setAgentId($agentId)
   {
     $this->agentId = $agentId;
   }
+  /**
+   * @return string
+   */
   public function getAgentId()
   {
     return $this->agentId;

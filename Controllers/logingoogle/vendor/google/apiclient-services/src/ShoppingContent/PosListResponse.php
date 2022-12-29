@@ -20,14 +20,24 @@ namespace Google\Service\ShoppingContent;
 class PosListResponse extends \Google\Collection
 {
   protected $collection_key = 'resources';
+  /**
+   * @var string
+   */
   public $kind;
   protected $resourcesType = PosStore::class;
   protected $resourcesDataType = 'array';
+  public $resources;
 
+  /**
+   * @param string
+   */
   public function setKind($kind)
   {
     $this->kind = $kind;
   }
+  /**
+   * @return string
+   */
   public function getKind()
   {
     return $this->kind;

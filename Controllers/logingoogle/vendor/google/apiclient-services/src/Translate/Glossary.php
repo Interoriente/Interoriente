@@ -19,29 +19,74 @@ namespace Google\Service\Translate;
 
 class Glossary extends \Google\Model
 {
+  /**
+   * @var string
+   */
+  public $displayName;
+  /**
+   * @var string
+   */
   public $endTime;
+  /**
+   * @var int
+   */
   public $entryCount;
   protected $inputConfigType = GlossaryInputConfig::class;
   protected $inputConfigDataType = '';
+  public $inputConfig;
   protected $languageCodesSetType = LanguageCodesSet::class;
   protected $languageCodesSetDataType = '';
+  public $languageCodesSet;
   protected $languagePairType = LanguageCodePair::class;
   protected $languagePairDataType = '';
+  public $languagePair;
+  /**
+   * @var string
+   */
   public $name;
+  /**
+   * @var string
+   */
   public $submitTime;
 
+  /**
+   * @param string
+   */
+  public function setDisplayName($displayName)
+  {
+    $this->displayName = $displayName;
+  }
+  /**
+   * @return string
+   */
+  public function getDisplayName()
+  {
+    return $this->displayName;
+  }
+  /**
+   * @param string
+   */
   public function setEndTime($endTime)
   {
     $this->endTime = $endTime;
   }
+  /**
+   * @return string
+   */
   public function getEndTime()
   {
     return $this->endTime;
   }
+  /**
+   * @param int
+   */
   public function setEntryCount($entryCount)
   {
     $this->entryCount = $entryCount;
   }
+  /**
+   * @return int
+   */
   public function getEntryCount()
   {
     return $this->entryCount;
@@ -88,18 +133,30 @@ class Glossary extends \Google\Model
   {
     return $this->languagePair;
   }
+  /**
+   * @param string
+   */
   public function setName($name)
   {
     $this->name = $name;
   }
+  /**
+   * @return string
+   */
   public function getName()
   {
     return $this->name;
   }
+  /**
+   * @param string
+   */
   public function setSubmitTime($submitTime)
   {
     $this->submitTime = $submitTime;
   }
+  /**
+   * @return string
+   */
   public function getSubmitTime()
   {
     return $this->submitTime;

@@ -20,14 +20,24 @@ namespace Google\Service\RecommendationsAI;
 class GoogleCloudRecommendationengineV1beta1ListUserEventsResponse extends \Google\Collection
 {
   protected $collection_key = 'userEvents';
+  /**
+   * @var string
+   */
   public $nextPageToken;
   protected $userEventsType = GoogleCloudRecommendationengineV1beta1UserEvent::class;
   protected $userEventsDataType = 'array';
+  public $userEvents;
 
+  /**
+   * @param string
+   */
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
   }
+  /**
+   * @return string
+   */
   public function getNextPageToken()
   {
     return $this->nextPageToken;

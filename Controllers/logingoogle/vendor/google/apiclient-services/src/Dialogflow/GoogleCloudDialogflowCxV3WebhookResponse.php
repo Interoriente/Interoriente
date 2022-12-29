@@ -21,12 +21,24 @@ class GoogleCloudDialogflowCxV3WebhookResponse extends \Google\Model
 {
   protected $fulfillmentResponseType = GoogleCloudDialogflowCxV3WebhookResponseFulfillmentResponse::class;
   protected $fulfillmentResponseDataType = '';
+  public $fulfillmentResponse;
   protected $pageInfoType = GoogleCloudDialogflowCxV3PageInfo::class;
   protected $pageInfoDataType = '';
+  public $pageInfo;
+  /**
+   * @var array[]
+   */
   public $payload;
   protected $sessionInfoType = GoogleCloudDialogflowCxV3SessionInfo::class;
   protected $sessionInfoDataType = '';
+  public $sessionInfo;
+  /**
+   * @var string
+   */
   public $targetFlow;
+  /**
+   * @var string
+   */
   public $targetPage;
 
   /**
@@ -57,10 +69,16 @@ class GoogleCloudDialogflowCxV3WebhookResponse extends \Google\Model
   {
     return $this->pageInfo;
   }
+  /**
+   * @param array[]
+   */
   public function setPayload($payload)
   {
     $this->payload = $payload;
   }
+  /**
+   * @return array[]
+   */
   public function getPayload()
   {
     return $this->payload;
@@ -79,18 +97,30 @@ class GoogleCloudDialogflowCxV3WebhookResponse extends \Google\Model
   {
     return $this->sessionInfo;
   }
+  /**
+   * @param string
+   */
   public function setTargetFlow($targetFlow)
   {
     $this->targetFlow = $targetFlow;
   }
+  /**
+   * @return string
+   */
   public function getTargetFlow()
   {
     return $this->targetFlow;
   }
+  /**
+   * @param string
+   */
   public function setTargetPage($targetPage)
   {
     $this->targetPage = $targetPage;
   }
+  /**
+   * @return string
+   */
   public function getTargetPage()
   {
     return $this->targetPage;

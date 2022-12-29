@@ -19,15 +19,28 @@ namespace Google\Service\ServiceConsumerManagement;
 
 class V1GenerateDefaultIdentityResponse extends \Google\Model
 {
+  /**
+   * @var string
+   */
   public $attachStatus;
   protected $identityType = V1DefaultIdentity::class;
   protected $identityDataType = '';
+  public $identity;
+  /**
+   * @var string
+   */
   public $role;
 
+  /**
+   * @param string
+   */
   public function setAttachStatus($attachStatus)
   {
     $this->attachStatus = $attachStatus;
   }
+  /**
+   * @return string
+   */
   public function getAttachStatus()
   {
     return $this->attachStatus;
@@ -46,10 +59,16 @@ class V1GenerateDefaultIdentityResponse extends \Google\Model
   {
     return $this->identity;
   }
+  /**
+   * @param string
+   */
   public function setRole($role)
   {
     $this->role = $role;
   }
+  /**
+   * @return string
+   */
   public function getRole()
   {
     return $this->role;

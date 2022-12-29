@@ -22,11 +22,20 @@ class CommitRequest extends \Google\Collection
   protected $collection_key = 'mutations';
   protected $mutationsType = Mutation::class;
   protected $mutationsDataType = 'array';
+  public $mutations;
   protected $requestOptionsType = RequestOptions::class;
   protected $requestOptionsDataType = '';
+  public $requestOptions;
+  /**
+   * @var bool
+   */
   public $returnCommitStats;
   protected $singleUseTransactionType = TransactionOptions::class;
   protected $singleUseTransactionDataType = '';
+  public $singleUseTransaction;
+  /**
+   * @var string
+   */
   public $transactionId;
 
   /**
@@ -57,10 +66,16 @@ class CommitRequest extends \Google\Collection
   {
     return $this->requestOptions;
   }
+  /**
+   * @param bool
+   */
   public function setReturnCommitStats($returnCommitStats)
   {
     $this->returnCommitStats = $returnCommitStats;
   }
+  /**
+   * @return bool
+   */
   public function getReturnCommitStats()
   {
     return $this->returnCommitStats;
@@ -79,10 +94,16 @@ class CommitRequest extends \Google\Collection
   {
     return $this->singleUseTransaction;
   }
+  /**
+   * @param string
+   */
   public function setTransactionId($transactionId)
   {
     $this->transactionId = $transactionId;
   }
+  /**
+   * @return string
+   */
   public function getTransactionId()
   {
     return $this->transactionId;

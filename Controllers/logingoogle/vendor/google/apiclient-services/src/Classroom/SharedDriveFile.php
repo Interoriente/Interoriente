@@ -21,6 +21,10 @@ class SharedDriveFile extends \Google\Model
 {
   protected $driveFileType = DriveFile::class;
   protected $driveFileDataType = '';
+  public $driveFile;
+  /**
+   * @var string
+   */
   public $shareMode;
 
   /**
@@ -37,10 +41,16 @@ class SharedDriveFile extends \Google\Model
   {
     return $this->driveFile;
   }
+  /**
+   * @param string
+   */
   public function setShareMode($shareMode)
   {
     $this->shareMode = $shareMode;
   }
+  /**
+   * @return string
+   */
   public function getShareMode()
   {
     return $this->shareMode;

@@ -20,16 +20,27 @@ namespace Google\Service\AdExchangeBuyerII;
 class PricePerBuyer extends \Google\Collection
 {
   protected $collection_key = 'advertiserIds';
+  /**
+   * @var string[]
+   */
   public $advertiserIds;
   protected $buyerType = Buyer::class;
   protected $buyerDataType = '';
+  public $buyer;
   protected $priceType = Price::class;
   protected $priceDataType = '';
+  public $price;
 
+  /**
+   * @param string[]
+   */
   public function setAdvertiserIds($advertiserIds)
   {
     $this->advertiserIds = $advertiserIds;
   }
+  /**
+   * @return string[]
+   */
   public function getAdvertiserIds()
   {
     return $this->advertiserIds;

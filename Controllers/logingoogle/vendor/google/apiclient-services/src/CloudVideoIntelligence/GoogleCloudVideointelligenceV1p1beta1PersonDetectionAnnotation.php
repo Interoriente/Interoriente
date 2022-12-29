@@ -22,6 +22,10 @@ class GoogleCloudVideointelligenceV1p1beta1PersonDetectionAnnotation extends \Go
   protected $collection_key = 'tracks';
   protected $tracksType = GoogleCloudVideointelligenceV1p1beta1Track::class;
   protected $tracksDataType = 'array';
+  public $tracks;
+  /**
+   * @var string
+   */
   public $version;
 
   /**
@@ -38,10 +42,16 @@ class GoogleCloudVideointelligenceV1p1beta1PersonDetectionAnnotation extends \Go
   {
     return $this->tracks;
   }
+  /**
+   * @param string
+   */
   public function setVersion($version)
   {
     $this->version = $version;
   }
+  /**
+   * @return string
+   */
   public function getVersion()
   {
     return $this->version;

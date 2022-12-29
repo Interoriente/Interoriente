@@ -19,15 +19,28 @@ namespace Google\Service\ServiceNetworking;
 
 class RemoveDnsRecordSetRequest extends \Google\Model
 {
+  /**
+   * @var string
+   */
   public $consumerNetwork;
   protected $dnsRecordSetType = DnsRecordSet::class;
   protected $dnsRecordSetDataType = '';
+  public $dnsRecordSet;
+  /**
+   * @var string
+   */
   public $zone;
 
+  /**
+   * @param string
+   */
   public function setConsumerNetwork($consumerNetwork)
   {
     $this->consumerNetwork = $consumerNetwork;
   }
+  /**
+   * @return string
+   */
   public function getConsumerNetwork()
   {
     return $this->consumerNetwork;
@@ -46,10 +59,16 @@ class RemoveDnsRecordSetRequest extends \Google\Model
   {
     return $this->dnsRecordSet;
   }
+  /**
+   * @param string
+   */
   public function setZone($zone)
   {
     $this->zone = $zone;
   }
+  /**
+   * @return string
+   */
   public function getZone()
   {
     return $this->zone;

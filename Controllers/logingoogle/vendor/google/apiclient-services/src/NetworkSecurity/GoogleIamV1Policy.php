@@ -22,9 +22,17 @@ class GoogleIamV1Policy extends \Google\Collection
   protected $collection_key = 'bindings';
   protected $auditConfigsType = GoogleIamV1AuditConfig::class;
   protected $auditConfigsDataType = 'array';
+  public $auditConfigs;
   protected $bindingsType = GoogleIamV1Binding::class;
   protected $bindingsDataType = 'array';
+  public $bindings;
+  /**
+   * @var string
+   */
   public $etag;
+  /**
+   * @var int
+   */
   public $version;
 
   /**
@@ -55,18 +63,30 @@ class GoogleIamV1Policy extends \Google\Collection
   {
     return $this->bindings;
   }
+  /**
+   * @param string
+   */
   public function setEtag($etag)
   {
     $this->etag = $etag;
   }
+  /**
+   * @return string
+   */
   public function getEtag()
   {
     return $this->etag;
   }
+  /**
+   * @param int
+   */
   public function setVersion($version)
   {
     $this->version = $version;
   }
+  /**
+   * @return int
+   */
   public function getVersion()
   {
     return $this->version;

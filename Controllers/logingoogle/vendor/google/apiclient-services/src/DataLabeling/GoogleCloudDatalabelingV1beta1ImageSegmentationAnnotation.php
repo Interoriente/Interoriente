@@ -21,7 +21,14 @@ class GoogleCloudDatalabelingV1beta1ImageSegmentationAnnotation extends \Google\
 {
   protected $annotationColorsType = GoogleCloudDatalabelingV1beta1AnnotationSpec::class;
   protected $annotationColorsDataType = 'map';
+  public $annotationColors;
+  /**
+   * @var string
+   */
   public $imageBytes;
+  /**
+   * @var string
+   */
   public $mimeType;
 
   /**
@@ -38,18 +45,30 @@ class GoogleCloudDatalabelingV1beta1ImageSegmentationAnnotation extends \Google\
   {
     return $this->annotationColors;
   }
+  /**
+   * @param string
+   */
   public function setImageBytes($imageBytes)
   {
     $this->imageBytes = $imageBytes;
   }
+  /**
+   * @return string
+   */
   public function getImageBytes()
   {
     return $this->imageBytes;
   }
+  /**
+   * @param string
+   */
   public function setMimeType($mimeType)
   {
     $this->mimeType = $mimeType;
   }
+  /**
+   * @return string
+   */
   public function getMimeType()
   {
     return $this->mimeType;

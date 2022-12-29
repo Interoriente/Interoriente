@@ -21,8 +21,13 @@ class SiteSummaryResponse extends \Google\Model
 {
   protected $desktopSummaryType = PlatformSummary::class;
   protected $desktopSummaryDataType = '';
+  public $desktopSummary;
   protected $mobileSummaryType = PlatformSummary::class;
   protected $mobileSummaryDataType = '';
+  public $mobileSummary;
+  /**
+   * @var string
+   */
   public $reviewedSite;
 
   /**
@@ -53,10 +58,16 @@ class SiteSummaryResponse extends \Google\Model
   {
     return $this->mobileSummary;
   }
+  /**
+   * @param string
+   */
   public function setReviewedSite($reviewedSite)
   {
     $this->reviewedSite = $reviewedSite;
   }
+  /**
+   * @return string
+   */
   public function getReviewedSite()
   {
     return $this->reviewedSite;

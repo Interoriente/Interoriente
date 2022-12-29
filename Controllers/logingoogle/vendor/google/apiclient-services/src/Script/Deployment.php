@@ -22,9 +22,17 @@ class Deployment extends \Google\Collection
   protected $collection_key = 'entryPoints';
   protected $deploymentConfigType = DeploymentConfig::class;
   protected $deploymentConfigDataType = '';
+  public $deploymentConfig;
+  /**
+   * @var string
+   */
   public $deploymentId;
   protected $entryPointsType = EntryPoint::class;
   protected $entryPointsDataType = 'array';
+  public $entryPoints;
+  /**
+   * @var string
+   */
   public $updateTime;
 
   /**
@@ -41,10 +49,16 @@ class Deployment extends \Google\Collection
   {
     return $this->deploymentConfig;
   }
+  /**
+   * @param string
+   */
   public function setDeploymentId($deploymentId)
   {
     $this->deploymentId = $deploymentId;
   }
+  /**
+   * @return string
+   */
   public function getDeploymentId()
   {
     return $this->deploymentId;
@@ -63,10 +77,16 @@ class Deployment extends \Google\Collection
   {
     return $this->entryPoints;
   }
+  /**
+   * @param string
+   */
   public function setUpdateTime($updateTime)
   {
     $this->updateTime = $updateTime;
   }
+  /**
+   * @return string
+   */
   public function getUpdateTime()
   {
     return $this->updateTime;

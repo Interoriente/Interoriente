@@ -20,33 +20,81 @@ namespace Google\Service\ShoppingContent;
 class AccountsLinkRequest extends \Google\Collection
 {
   protected $collection_key = 'services';
+  /**
+   * @var string
+   */
   public $action;
+  protected $eCommercePlatformLinkInfoType = ECommercePlatformLinkInfo::class;
+  protected $eCommercePlatformLinkInfoDataType = '';
+  public $eCommercePlatformLinkInfo;
+  /**
+   * @var string
+   */
   public $linkType;
+  /**
+   * @var string
+   */
   public $linkedAccountId;
   protected $paymentServiceProviderLinkInfoType = PaymentServiceProviderLinkInfo::class;
   protected $paymentServiceProviderLinkInfoDataType = '';
+  public $paymentServiceProviderLinkInfo;
+  /**
+   * @var string[]
+   */
   public $services;
 
+  /**
+   * @param string
+   */
   public function setAction($action)
   {
     $this->action = $action;
   }
+  /**
+   * @return string
+   */
   public function getAction()
   {
     return $this->action;
   }
+  /**
+   * @param ECommercePlatformLinkInfo
+   */
+  public function setECommercePlatformLinkInfo(ECommercePlatformLinkInfo $eCommercePlatformLinkInfo)
+  {
+    $this->eCommercePlatformLinkInfo = $eCommercePlatformLinkInfo;
+  }
+  /**
+   * @return ECommercePlatformLinkInfo
+   */
+  public function getECommercePlatformLinkInfo()
+  {
+    return $this->eCommercePlatformLinkInfo;
+  }
+  /**
+   * @param string
+   */
   public function setLinkType($linkType)
   {
     $this->linkType = $linkType;
   }
+  /**
+   * @return string
+   */
   public function getLinkType()
   {
     return $this->linkType;
   }
+  /**
+   * @param string
+   */
   public function setLinkedAccountId($linkedAccountId)
   {
     $this->linkedAccountId = $linkedAccountId;
   }
+  /**
+   * @return string
+   */
   public function getLinkedAccountId()
   {
     return $this->linkedAccountId;
@@ -65,10 +113,16 @@ class AccountsLinkRequest extends \Google\Collection
   {
     return $this->paymentServiceProviderLinkInfo;
   }
+  /**
+   * @param string[]
+   */
   public function setServices($services)
   {
     $this->services = $services;
   }
+  /**
+   * @return string[]
+   */
   public function getServices()
   {
     return $this->services;

@@ -19,46 +19,88 @@ namespace Google\Service\Docs;
 
 class NestingLevel extends \Google\Model
 {
+  /**
+   * @var string
+   */
   public $bulletAlignment;
+  /**
+   * @var string
+   */
   public $glyphFormat;
+  /**
+   * @var string
+   */
   public $glyphSymbol;
+  /**
+   * @var string
+   */
   public $glyphType;
   protected $indentFirstLineType = Dimension::class;
   protected $indentFirstLineDataType = '';
+  public $indentFirstLine;
   protected $indentStartType = Dimension::class;
   protected $indentStartDataType = '';
+  public $indentStart;
+  /**
+   * @var int
+   */
   public $startNumber;
   protected $textStyleType = TextStyle::class;
   protected $textStyleDataType = '';
+  public $textStyle;
 
+  /**
+   * @param string
+   */
   public function setBulletAlignment($bulletAlignment)
   {
     $this->bulletAlignment = $bulletAlignment;
   }
+  /**
+   * @return string
+   */
   public function getBulletAlignment()
   {
     return $this->bulletAlignment;
   }
+  /**
+   * @param string
+   */
   public function setGlyphFormat($glyphFormat)
   {
     $this->glyphFormat = $glyphFormat;
   }
+  /**
+   * @return string
+   */
   public function getGlyphFormat()
   {
     return $this->glyphFormat;
   }
+  /**
+   * @param string
+   */
   public function setGlyphSymbol($glyphSymbol)
   {
     $this->glyphSymbol = $glyphSymbol;
   }
+  /**
+   * @return string
+   */
   public function getGlyphSymbol()
   {
     return $this->glyphSymbol;
   }
+  /**
+   * @param string
+   */
   public function setGlyphType($glyphType)
   {
     $this->glyphType = $glyphType;
   }
+  /**
+   * @return string
+   */
   public function getGlyphType()
   {
     return $this->glyphType;
@@ -91,10 +133,16 @@ class NestingLevel extends \Google\Model
   {
     return $this->indentStart;
   }
+  /**
+   * @param int
+   */
   public function setStartNumber($startNumber)
   {
     $this->startNumber = $startNumber;
   }
+  /**
+   * @return int
+   */
   public function getStartNumber()
   {
     return $this->startNumber;

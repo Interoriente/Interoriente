@@ -22,6 +22,10 @@ class GoogleCloudApigeeV1ListEnvironmentGroupAttachmentsResponse extends \Google
   protected $collection_key = 'environmentGroupAttachments';
   protected $environmentGroupAttachmentsType = GoogleCloudApigeeV1EnvironmentGroupAttachment::class;
   protected $environmentGroupAttachmentsDataType = 'array';
+  public $environmentGroupAttachments;
+  /**
+   * @var string
+   */
   public $nextPageToken;
 
   /**
@@ -38,10 +42,16 @@ class GoogleCloudApigeeV1ListEnvironmentGroupAttachmentsResponse extends \Google
   {
     return $this->environmentGroupAttachments;
   }
+  /**
+   * @param string
+   */
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
   }
+  /**
+   * @return string
+   */
   public function getNextPageToken()
   {
     return $this->nextPageToken;

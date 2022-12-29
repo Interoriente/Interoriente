@@ -22,6 +22,10 @@ class GoogleCloudMlV1ListLocationsResponse extends \Google\Collection
   protected $collection_key = 'locations';
   protected $locationsType = GoogleCloudMlV1Location::class;
   protected $locationsDataType = 'array';
+  public $locations;
+  /**
+   * @var string
+   */
   public $nextPageToken;
 
   /**
@@ -38,10 +42,16 @@ class GoogleCloudMlV1ListLocationsResponse extends \Google\Collection
   {
     return $this->locations;
   }
+  /**
+   * @param string
+   */
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
   }
+  /**
+   * @return string
+   */
   public function getNextPageToken()
   {
     return $this->nextPageToken;

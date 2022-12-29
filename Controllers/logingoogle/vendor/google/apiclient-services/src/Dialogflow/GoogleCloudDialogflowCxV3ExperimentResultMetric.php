@@ -21,9 +21,16 @@ class GoogleCloudDialogflowCxV3ExperimentResultMetric extends \Google\Model
 {
   protected $confidenceIntervalType = GoogleCloudDialogflowCxV3ExperimentResultConfidenceInterval::class;
   protected $confidenceIntervalDataType = '';
+  public $confidenceInterval;
   public $count;
+  /**
+   * @var string
+   */
   public $countType;
   public $ratio;
+  /**
+   * @var string
+   */
   public $type;
 
   /**
@@ -48,10 +55,16 @@ class GoogleCloudDialogflowCxV3ExperimentResultMetric extends \Google\Model
   {
     return $this->count;
   }
+  /**
+   * @param string
+   */
   public function setCountType($countType)
   {
     $this->countType = $countType;
   }
+  /**
+   * @return string
+   */
   public function getCountType()
   {
     return $this->countType;
@@ -64,10 +77,16 @@ class GoogleCloudDialogflowCxV3ExperimentResultMetric extends \Google\Model
   {
     return $this->ratio;
   }
+  /**
+   * @param string
+   */
   public function setType($type)
   {
     $this->type = $type;
   }
+  /**
+   * @return string
+   */
   public function getType()
   {
     return $this->type;

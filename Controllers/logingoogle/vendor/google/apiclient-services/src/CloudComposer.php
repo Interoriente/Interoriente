@@ -34,7 +34,7 @@ use Google\Client;
  */
 class CloudComposer extends \Google\Service
 {
-  /** See, edit, configure, and delete your Google Cloud Platform data. */
+  /** See, edit, configure, and delete your Google Cloud data and see the email address for your Google Account.. */
   const CLOUD_PLATFORM =
       "https://www.googleapis.com/auth/cloud-platform";
 
@@ -112,6 +112,16 @@ class CloudComposer extends \Google\Service
                   'type' => 'string',
                 ],
               ],
+            ],'loadSnapshot' => [
+              'path' => 'v1/{+environment}:loadSnapshot',
+              'httpMethod' => 'POST',
+              'parameters' => [
+                'environment' => [
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ],
+              ],
             ],'patch' => [
               'path' => 'v1/{+name}',
               'httpMethod' => 'PATCH',
@@ -124,6 +134,16 @@ class CloudComposer extends \Google\Service
                 'updateMask' => [
                   'location' => 'query',
                   'type' => 'string',
+                ],
+              ],
+            ],'saveSnapshot' => [
+              'path' => 'v1/{+environment}:saveSnapshot',
+              'httpMethod' => 'POST',
+              'parameters' => [
+                'environment' => [
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
                 ],
               ],
             ],

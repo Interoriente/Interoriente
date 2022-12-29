@@ -22,6 +22,10 @@ class KeyRangeInfos extends \Google\Collection
   protected $collection_key = 'infos';
   protected $infosType = KeyRangeInfo::class;
   protected $infosDataType = 'array';
+  public $infos;
+  /**
+   * @var int
+   */
   public $totalSize;
 
   /**
@@ -38,10 +42,16 @@ class KeyRangeInfos extends \Google\Collection
   {
     return $this->infos;
   }
+  /**
+   * @param int
+   */
   public function setTotalSize($totalSize)
   {
     $this->totalSize = $totalSize;
   }
+  /**
+   * @return int
+   */
   public function getTotalSize()
   {
     return $this->totalSize;

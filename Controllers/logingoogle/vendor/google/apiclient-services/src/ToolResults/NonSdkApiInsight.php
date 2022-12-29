@@ -20,25 +20,45 @@ namespace Google\Service\ToolResults;
 class NonSdkApiInsight extends \Google\Collection
 {
   protected $collection_key = 'exampleTraceMessages';
+  /**
+   * @var string[]
+   */
   public $exampleTraceMessages;
+  /**
+   * @var string
+   */
   public $matcherId;
   protected $pendingGoogleUpdateInsightType = PendingGoogleUpdateInsight::class;
   protected $pendingGoogleUpdateInsightDataType = '';
+  public $pendingGoogleUpdateInsight;
   protected $upgradeInsightType = UpgradeInsight::class;
   protected $upgradeInsightDataType = '';
+  public $upgradeInsight;
 
+  /**
+   * @param string[]
+   */
   public function setExampleTraceMessages($exampleTraceMessages)
   {
     $this->exampleTraceMessages = $exampleTraceMessages;
   }
+  /**
+   * @return string[]
+   */
   public function getExampleTraceMessages()
   {
     return $this->exampleTraceMessages;
   }
+  /**
+   * @param string
+   */
   public function setMatcherId($matcherId)
   {
     $this->matcherId = $matcherId;
   }
+  /**
+   * @return string
+   */
   public function getMatcherId()
   {
     return $this->matcherId;

@@ -22,11 +22,17 @@ class Format extends \Google\Collection
   protected $collection_key = 'resources';
   protected $formatComplexityType = FormatComplexity::class;
   protected $formatComplexityDataType = '';
+  public $formatComplexity;
+  /**
+   * @var string
+   */
   public $formatType;
   protected $resourcesType = PolyFile::class;
   protected $resourcesDataType = 'array';
+  public $resources;
   protected $rootType = PolyFile::class;
   protected $rootDataType = '';
+  public $root;
 
   /**
    * @param FormatComplexity
@@ -42,10 +48,16 @@ class Format extends \Google\Collection
   {
     return $this->formatComplexity;
   }
+  /**
+   * @param string
+   */
   public function setFormatType($formatType)
   {
     $this->formatType = $formatType;
   }
+  /**
+   * @return string
+   */
   public function getFormatType()
   {
     return $this->formatType;

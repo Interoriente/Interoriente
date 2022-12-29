@@ -21,12 +21,21 @@ class UpdateTextStyleRequest extends \Google\Model
 {
   protected $cellLocationType = TableCellLocation::class;
   protected $cellLocationDataType = '';
+  public $cellLocation;
+  /**
+   * @var string
+   */
   public $fields;
+  /**
+   * @var string
+   */
   public $objectId;
   protected $styleType = TextStyle::class;
   protected $styleDataType = '';
+  public $style;
   protected $textRangeType = Range::class;
   protected $textRangeDataType = '';
+  public $textRange;
 
   /**
    * @param TableCellLocation
@@ -42,18 +51,30 @@ class UpdateTextStyleRequest extends \Google\Model
   {
     return $this->cellLocation;
   }
+  /**
+   * @param string
+   */
   public function setFields($fields)
   {
     $this->fields = $fields;
   }
+  /**
+   * @return string
+   */
   public function getFields()
   {
     return $this->fields;
   }
+  /**
+   * @param string
+   */
   public function setObjectId($objectId)
   {
     $this->objectId = $objectId;
   }
+  /**
+   * @return string
+   */
   public function getObjectId()
   {
     return $this->objectId;

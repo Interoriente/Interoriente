@@ -20,21 +20,37 @@ namespace Google\Service\Dataflow;
 class ComputationTopology extends \Google\Collection
 {
   protected $collection_key = 'stateFamilies';
+  /**
+   * @var string
+   */
   public $computationId;
   protected $inputsType = StreamLocation::class;
   protected $inputsDataType = 'array';
+  public $inputs;
   protected $keyRangesType = KeyRangeLocation::class;
   protected $keyRangesDataType = 'array';
+  public $keyRanges;
   protected $outputsType = StreamLocation::class;
   protected $outputsDataType = 'array';
+  public $outputs;
   protected $stateFamiliesType = StateFamilyConfig::class;
   protected $stateFamiliesDataType = 'array';
+  public $stateFamilies;
+  /**
+   * @var string
+   */
   public $systemStageName;
 
+  /**
+   * @param string
+   */
   public function setComputationId($computationId)
   {
     $this->computationId = $computationId;
   }
+  /**
+   * @return string
+   */
   public function getComputationId()
   {
     return $this->computationId;
@@ -95,10 +111,16 @@ class ComputationTopology extends \Google\Collection
   {
     return $this->stateFamilies;
   }
+  /**
+   * @param string
+   */
   public function setSystemStageName($systemStageName)
   {
     $this->systemStageName = $systemStageName;
   }
+  /**
+   * @return string
+   */
   public function getSystemStageName()
   {
     return $this->systemStageName;

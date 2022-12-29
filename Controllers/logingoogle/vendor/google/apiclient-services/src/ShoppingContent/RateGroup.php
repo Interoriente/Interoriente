@@ -20,21 +20,37 @@ namespace Google\Service\ShoppingContent;
 class RateGroup extends \Google\Collection
 {
   protected $collection_key = 'subtables';
+  /**
+   * @var string[]
+   */
   public $applicableShippingLabels;
   protected $carrierRatesType = CarrierRate::class;
   protected $carrierRatesDataType = 'array';
+  public $carrierRates;
   protected $mainTableType = Table::class;
   protected $mainTableDataType = '';
+  public $mainTable;
+  /**
+   * @var string
+   */
   public $name;
   protected $singleValueType = Value::class;
   protected $singleValueDataType = '';
+  public $singleValue;
   protected $subtablesType = Table::class;
   protected $subtablesDataType = 'array';
+  public $subtables;
 
+  /**
+   * @param string[]
+   */
   public function setApplicableShippingLabels($applicableShippingLabels)
   {
     $this->applicableShippingLabels = $applicableShippingLabels;
   }
+  /**
+   * @return string[]
+   */
   public function getApplicableShippingLabels()
   {
     return $this->applicableShippingLabels;
@@ -67,10 +83,16 @@ class RateGroup extends \Google\Collection
   {
     return $this->mainTable;
   }
+  /**
+   * @param string
+   */
   public function setName($name)
   {
     $this->name = $name;
   }
+  /**
+   * @return string
+   */
   public function getName()
   {
     return $this->name;

@@ -19,47 +19,87 @@ namespace Google\Service\PagespeedInsights;
 
 class PagespeedApiPagespeedResponseV5 extends \Google\Model
 {
+  /**
+   * @var string
+   */
   public $analysisUTCTimestamp;
+  /**
+   * @var string
+   */
   public $captchaResult;
+  /**
+   * @var string
+   */
   public $id;
+  /**
+   * @var string
+   */
   public $kind;
   protected $lighthouseResultType = LighthouseResultV5::class;
   protected $lighthouseResultDataType = '';
+  public $lighthouseResult;
   protected $loadingExperienceType = PagespeedApiLoadingExperienceV5::class;
   protected $loadingExperienceDataType = '';
+  public $loadingExperience;
   protected $originLoadingExperienceType = PagespeedApiLoadingExperienceV5::class;
   protected $originLoadingExperienceDataType = '';
+  public $originLoadingExperience;
   protected $versionType = PagespeedVersion::class;
   protected $versionDataType = '';
+  public $version;
 
+  /**
+   * @param string
+   */
   public function setAnalysisUTCTimestamp($analysisUTCTimestamp)
   {
     $this->analysisUTCTimestamp = $analysisUTCTimestamp;
   }
+  /**
+   * @return string
+   */
   public function getAnalysisUTCTimestamp()
   {
     return $this->analysisUTCTimestamp;
   }
+  /**
+   * @param string
+   */
   public function setCaptchaResult($captchaResult)
   {
     $this->captchaResult = $captchaResult;
   }
+  /**
+   * @return string
+   */
   public function getCaptchaResult()
   {
     return $this->captchaResult;
   }
+  /**
+   * @param string
+   */
   public function setId($id)
   {
     $this->id = $id;
   }
+  /**
+   * @return string
+   */
   public function getId()
   {
     return $this->id;
   }
+  /**
+   * @param string
+   */
   public function setKind($kind)
   {
     $this->kind = $kind;
   }
+  /**
+   * @return string
+   */
   public function getKind()
   {
     return $this->kind;

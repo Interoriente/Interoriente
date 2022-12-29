@@ -20,17 +20,27 @@ namespace Google\Service\Dialogflow;
 class GoogleCloudDialogflowCxV3SynthesizeSpeechConfig extends \Google\Collection
 {
   protected $collection_key = 'effectsProfileId';
+  /**
+   * @var string[]
+   */
   public $effectsProfileId;
   public $pitch;
   public $speakingRate;
   protected $voiceType = GoogleCloudDialogflowCxV3VoiceSelectionParams::class;
   protected $voiceDataType = '';
+  public $voice;
   public $volumeGainDb;
 
+  /**
+   * @param string[]
+   */
   public function setEffectsProfileId($effectsProfileId)
   {
     $this->effectsProfileId = $effectsProfileId;
   }
+  /**
+   * @return string[]
+   */
   public function getEffectsProfileId()
   {
     return $this->effectsProfileId;

@@ -20,14 +20,24 @@ namespace Google\Service\Dataflow;
 class ReportWorkItemStatusResponse extends \Google\Collection
 {
   protected $collection_key = 'workItemServiceStates';
+  /**
+   * @var array[]
+   */
   public $unifiedWorkerResponse;
   protected $workItemServiceStatesType = WorkItemServiceState::class;
   protected $workItemServiceStatesDataType = 'array';
+  public $workItemServiceStates;
 
+  /**
+   * @param array[]
+   */
   public function setUnifiedWorkerResponse($unifiedWorkerResponse)
   {
     $this->unifiedWorkerResponse = $unifiedWorkerResponse;
   }
+  /**
+   * @return array[]
+   */
   public function getUnifiedWorkerResponse()
   {
     return $this->unifiedWorkerResponse;

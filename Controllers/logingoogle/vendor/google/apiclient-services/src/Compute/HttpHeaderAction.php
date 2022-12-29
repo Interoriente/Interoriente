@@ -22,9 +22,17 @@ class HttpHeaderAction extends \Google\Collection
   protected $collection_key = 'responseHeadersToRemove';
   protected $requestHeadersToAddType = HttpHeaderOption::class;
   protected $requestHeadersToAddDataType = 'array';
+  public $requestHeadersToAdd;
+  /**
+   * @var string[]
+   */
   public $requestHeadersToRemove;
   protected $responseHeadersToAddType = HttpHeaderOption::class;
   protected $responseHeadersToAddDataType = 'array';
+  public $responseHeadersToAdd;
+  /**
+   * @var string[]
+   */
   public $responseHeadersToRemove;
 
   /**
@@ -41,10 +49,16 @@ class HttpHeaderAction extends \Google\Collection
   {
     return $this->requestHeadersToAdd;
   }
+  /**
+   * @param string[]
+   */
   public function setRequestHeadersToRemove($requestHeadersToRemove)
   {
     $this->requestHeadersToRemove = $requestHeadersToRemove;
   }
+  /**
+   * @return string[]
+   */
   public function getRequestHeadersToRemove()
   {
     return $this->requestHeadersToRemove;
@@ -63,10 +77,16 @@ class HttpHeaderAction extends \Google\Collection
   {
     return $this->responseHeadersToAdd;
   }
+  /**
+   * @param string[]
+   */
   public function setResponseHeadersToRemove($responseHeadersToRemove)
   {
     $this->responseHeadersToRemove = $responseHeadersToRemove;
   }
+  /**
+   * @return string[]
+   */
   public function getResponseHeadersToRemove()
   {
     return $this->responseHeadersToRemove;

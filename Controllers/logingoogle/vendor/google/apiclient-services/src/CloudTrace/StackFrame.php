@@ -19,23 +19,40 @@ namespace Google\Service\CloudTrace;
 
 class StackFrame extends \Google\Model
 {
+  /**
+   * @var string
+   */
   public $columnNumber;
   protected $fileNameType = TruncatableString::class;
   protected $fileNameDataType = '';
+  public $fileName;
   protected $functionNameType = TruncatableString::class;
   protected $functionNameDataType = '';
+  public $functionName;
+  /**
+   * @var string
+   */
   public $lineNumber;
   protected $loadModuleType = Module::class;
   protected $loadModuleDataType = '';
+  public $loadModule;
   protected $originalFunctionNameType = TruncatableString::class;
   protected $originalFunctionNameDataType = '';
+  public $originalFunctionName;
   protected $sourceVersionType = TruncatableString::class;
   protected $sourceVersionDataType = '';
+  public $sourceVersion;
 
+  /**
+   * @param string
+   */
   public function setColumnNumber($columnNumber)
   {
     $this->columnNumber = $columnNumber;
   }
+  /**
+   * @return string
+   */
   public function getColumnNumber()
   {
     return $this->columnNumber;
@@ -68,10 +85,16 @@ class StackFrame extends \Google\Model
   {
     return $this->functionName;
   }
+  /**
+   * @param string
+   */
   public function setLineNumber($lineNumber)
   {
     $this->lineNumber = $lineNumber;
   }
+  /**
+   * @return string
+   */
   public function getLineNumber()
   {
     return $this->lineNumber;

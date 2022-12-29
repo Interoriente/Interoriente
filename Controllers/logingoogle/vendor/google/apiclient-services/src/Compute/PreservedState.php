@@ -21,6 +21,10 @@ class PreservedState extends \Google\Model
 {
   protected $disksType = PreservedStatePreservedDisk::class;
   protected $disksDataType = 'map';
+  public $disks;
+  /**
+   * @var string[]
+   */
   public $metadata;
 
   /**
@@ -37,10 +41,16 @@ class PreservedState extends \Google\Model
   {
     return $this->disks;
   }
+  /**
+   * @param string[]
+   */
   public function setMetadata($metadata)
   {
     $this->metadata = $metadata;
   }
+  /**
+   * @return string[]
+   */
   public function getMetadata()
   {
     return $this->metadata;

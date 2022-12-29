@@ -22,12 +22,24 @@ class GoogleCloudDialogflowCxV3beta1Fulfillment extends \Google\Collection
   protected $collection_key = 'setParameterActions';
   protected $conditionalCasesType = GoogleCloudDialogflowCxV3beta1FulfillmentConditionalCases::class;
   protected $conditionalCasesDataType = 'array';
+  public $conditionalCases;
   protected $messagesType = GoogleCloudDialogflowCxV3beta1ResponseMessage::class;
   protected $messagesDataType = 'array';
+  public $messages;
+  /**
+   * @var bool
+   */
   public $returnPartialResponses;
   protected $setParameterActionsType = GoogleCloudDialogflowCxV3beta1FulfillmentSetParameterAction::class;
   protected $setParameterActionsDataType = 'array';
+  public $setParameterActions;
+  /**
+   * @var string
+   */
   public $tag;
+  /**
+   * @var string
+   */
   public $webhook;
 
   /**
@@ -58,10 +70,16 @@ class GoogleCloudDialogflowCxV3beta1Fulfillment extends \Google\Collection
   {
     return $this->messages;
   }
+  /**
+   * @param bool
+   */
   public function setReturnPartialResponses($returnPartialResponses)
   {
     $this->returnPartialResponses = $returnPartialResponses;
   }
+  /**
+   * @return bool
+   */
   public function getReturnPartialResponses()
   {
     return $this->returnPartialResponses;
@@ -80,18 +98,30 @@ class GoogleCloudDialogflowCxV3beta1Fulfillment extends \Google\Collection
   {
     return $this->setParameterActions;
   }
+  /**
+   * @param string
+   */
   public function setTag($tag)
   {
     $this->tag = $tag;
   }
+  /**
+   * @return string
+   */
   public function getTag()
   {
     return $this->tag;
   }
+  /**
+   * @param string
+   */
   public function setWebhook($webhook)
   {
     $this->webhook = $webhook;
   }
+  /**
+   * @return string
+   */
   public function getWebhook()
   {
     return $this->webhook;

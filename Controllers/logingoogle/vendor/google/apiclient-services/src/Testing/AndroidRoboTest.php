@@ -22,19 +22,39 @@ class AndroidRoboTest extends \Google\Collection
   protected $collection_key = 'startingIntents';
   protected $appApkType = FileReference::class;
   protected $appApkDataType = '';
+  public $appApk;
   protected $appBundleType = AppBundle::class;
   protected $appBundleDataType = '';
+  public $appBundle;
+  /**
+   * @var string
+   */
   public $appInitialActivity;
+  /**
+   * @var string
+   */
   public $appPackageId;
+  /**
+   * @var int
+   */
   public $maxDepth;
+  /**
+   * @var int
+   */
   public $maxSteps;
   protected $roboDirectivesType = RoboDirective::class;
   protected $roboDirectivesDataType = 'array';
+  public $roboDirectives;
+  /**
+   * @var string
+   */
   public $roboMode;
   protected $roboScriptType = FileReference::class;
   protected $roboScriptDataType = '';
+  public $roboScript;
   protected $startingIntentsType = RoboStartingIntent::class;
   protected $startingIntentsDataType = 'array';
+  public $startingIntents;
 
   /**
    * @param FileReference
@@ -64,34 +84,58 @@ class AndroidRoboTest extends \Google\Collection
   {
     return $this->appBundle;
   }
+  /**
+   * @param string
+   */
   public function setAppInitialActivity($appInitialActivity)
   {
     $this->appInitialActivity = $appInitialActivity;
   }
+  /**
+   * @return string
+   */
   public function getAppInitialActivity()
   {
     return $this->appInitialActivity;
   }
+  /**
+   * @param string
+   */
   public function setAppPackageId($appPackageId)
   {
     $this->appPackageId = $appPackageId;
   }
+  /**
+   * @return string
+   */
   public function getAppPackageId()
   {
     return $this->appPackageId;
   }
+  /**
+   * @param int
+   */
   public function setMaxDepth($maxDepth)
   {
     $this->maxDepth = $maxDepth;
   }
+  /**
+   * @return int
+   */
   public function getMaxDepth()
   {
     return $this->maxDepth;
   }
+  /**
+   * @param int
+   */
   public function setMaxSteps($maxSteps)
   {
     $this->maxSteps = $maxSteps;
   }
+  /**
+   * @return int
+   */
   public function getMaxSteps()
   {
     return $this->maxSteps;
@@ -110,10 +154,16 @@ class AndroidRoboTest extends \Google\Collection
   {
     return $this->roboDirectives;
   }
+  /**
+   * @param string
+   */
   public function setRoboMode($roboMode)
   {
     $this->roboMode = $roboMode;
   }
+  /**
+   * @return string
+   */
   public function getRoboMode()
   {
     return $this->roboMode;

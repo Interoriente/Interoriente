@@ -20,18 +20,35 @@ namespace Google\Service\Docs;
 class PositionedObject extends \Google\Collection
 {
   protected $collection_key = 'suggestedDeletionIds';
+  /**
+   * @var string
+   */
   public $objectId;
   protected $positionedObjectPropertiesType = PositionedObjectProperties::class;
   protected $positionedObjectPropertiesDataType = '';
+  public $positionedObjectProperties;
+  /**
+   * @var string[]
+   */
   public $suggestedDeletionIds;
+  /**
+   * @var string
+   */
   public $suggestedInsertionId;
   protected $suggestedPositionedObjectPropertiesChangesType = SuggestedPositionedObjectProperties::class;
   protected $suggestedPositionedObjectPropertiesChangesDataType = 'map';
+  public $suggestedPositionedObjectPropertiesChanges;
 
+  /**
+   * @param string
+   */
   public function setObjectId($objectId)
   {
     $this->objectId = $objectId;
   }
+  /**
+   * @return string
+   */
   public function getObjectId()
   {
     return $this->objectId;
@@ -50,18 +67,30 @@ class PositionedObject extends \Google\Collection
   {
     return $this->positionedObjectProperties;
   }
+  /**
+   * @param string[]
+   */
   public function setSuggestedDeletionIds($suggestedDeletionIds)
   {
     $this->suggestedDeletionIds = $suggestedDeletionIds;
   }
+  /**
+   * @return string[]
+   */
   public function getSuggestedDeletionIds()
   {
     return $this->suggestedDeletionIds;
   }
+  /**
+   * @param string
+   */
   public function setSuggestedInsertionId($suggestedInsertionId)
   {
     $this->suggestedInsertionId = $suggestedInsertionId;
   }
+  /**
+   * @return string
+   */
   public function getSuggestedInsertionId()
   {
     return $this->suggestedInsertionId;

@@ -21,6 +21,10 @@ class ReplicaStatus extends \Google\Model
 {
   protected $customerManagedEncryptionType = CustomerManagedEncryptionStatus::class;
   protected $customerManagedEncryptionDataType = '';
+  public $customerManagedEncryption;
+  /**
+   * @var string
+   */
   public $location;
 
   /**
@@ -37,10 +41,16 @@ class ReplicaStatus extends \Google\Model
   {
     return $this->customerManagedEncryption;
   }
+  /**
+   * @param string
+   */
   public function setLocation($location)
   {
     $this->location = $location;
   }
+  /**
+   * @return string
+   */
   public function getLocation()
   {
     return $this->location;

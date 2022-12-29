@@ -21,6 +21,10 @@ class GoogleCloudDatacatalogV1FieldType extends \Google\Model
 {
   protected $enumTypeType = GoogleCloudDatacatalogV1FieldTypeEnumType::class;
   protected $enumTypeDataType = '';
+  public $enumType;
+  /**
+   * @var string
+   */
   public $primitiveType;
 
   /**
@@ -37,10 +41,16 @@ class GoogleCloudDatacatalogV1FieldType extends \Google\Model
   {
     return $this->enumType;
   }
+  /**
+   * @param string
+   */
   public function setPrimitiveType($primitiveType)
   {
     $this->primitiveType = $primitiveType;
   }
+  /**
+   * @return string
+   */
   public function getPrimitiveType()
   {
     return $this->primitiveType;

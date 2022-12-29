@@ -19,17 +19,43 @@ namespace Google\Service\AndroidProvisioningPartner;
 
 class ClaimDeviceRequest extends \Google\Model
 {
+  /**
+   * @var string
+   */
   public $customerId;
   protected $deviceIdentifierType = DeviceIdentifier::class;
   protected $deviceIdentifierDataType = '';
+  public $deviceIdentifier;
   protected $deviceMetadataType = DeviceMetadata::class;
   protected $deviceMetadataDataType = '';
+  public $deviceMetadata;
+  /**
+   * @var string
+   */
+  public $googleWorkspaceCustomerId;
+  /**
+   * @var string
+   */
+  public $preProvisioningToken;
+  /**
+   * @var string
+   */
   public $sectionType;
+  /**
+   * @var string
+   */
+  public $simlockProfileId;
 
+  /**
+   * @param string
+   */
   public function setCustomerId($customerId)
   {
     $this->customerId = $customerId;
   }
+  /**
+   * @return string
+   */
   public function getCustomerId()
   {
     return $this->customerId;
@@ -62,13 +88,61 @@ class ClaimDeviceRequest extends \Google\Model
   {
     return $this->deviceMetadata;
   }
+  /**
+   * @param string
+   */
+  public function setGoogleWorkspaceCustomerId($googleWorkspaceCustomerId)
+  {
+    $this->googleWorkspaceCustomerId = $googleWorkspaceCustomerId;
+  }
+  /**
+   * @return string
+   */
+  public function getGoogleWorkspaceCustomerId()
+  {
+    return $this->googleWorkspaceCustomerId;
+  }
+  /**
+   * @param string
+   */
+  public function setPreProvisioningToken($preProvisioningToken)
+  {
+    $this->preProvisioningToken = $preProvisioningToken;
+  }
+  /**
+   * @return string
+   */
+  public function getPreProvisioningToken()
+  {
+    return $this->preProvisioningToken;
+  }
+  /**
+   * @param string
+   */
   public function setSectionType($sectionType)
   {
     $this->sectionType = $sectionType;
   }
+  /**
+   * @return string
+   */
   public function getSectionType()
   {
     return $this->sectionType;
+  }
+  /**
+   * @param string
+   */
+  public function setSimlockProfileId($simlockProfileId)
+  {
+    $this->simlockProfileId = $simlockProfileId;
+  }
+  /**
+   * @return string
+   */
+  public function getSimlockProfileId()
+  {
+    return $this->simlockProfileId;
   }
 }
 

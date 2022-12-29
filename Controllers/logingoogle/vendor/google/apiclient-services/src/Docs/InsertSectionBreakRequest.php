@@ -21,8 +21,13 @@ class InsertSectionBreakRequest extends \Google\Model
 {
   protected $endOfSegmentLocationType = EndOfSegmentLocation::class;
   protected $endOfSegmentLocationDataType = '';
+  public $endOfSegmentLocation;
   protected $locationType = Location::class;
   protected $locationDataType = '';
+  public $location;
+  /**
+   * @var string
+   */
   public $sectionType;
 
   /**
@@ -53,10 +58,16 @@ class InsertSectionBreakRequest extends \Google\Model
   {
     return $this->location;
   }
+  /**
+   * @param string
+   */
   public function setSectionType($sectionType)
   {
     $this->sectionType = $sectionType;
   }
+  /**
+   * @return string
+   */
   public function getSectionType()
   {
     return $this->sectionType;

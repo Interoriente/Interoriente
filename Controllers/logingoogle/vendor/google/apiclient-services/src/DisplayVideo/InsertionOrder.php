@@ -20,33 +20,78 @@ namespace Google\Service\DisplayVideo;
 class InsertionOrder extends \Google\Collection
 {
   protected $collection_key = 'partnerCosts';
+  /**
+   * @var string
+   */
   public $advertiserId;
   protected $bidStrategyType = BiddingStrategy::class;
   protected $bidStrategyDataType = '';
+  public $bidStrategy;
+  /**
+   * @var string
+   */
+  public $billableOutcome;
   protected $budgetType = InsertionOrderBudget::class;
   protected $budgetDataType = '';
+  public $budget;
+  /**
+   * @var string
+   */
   public $campaignId;
+  /**
+   * @var string
+   */
   public $displayName;
+  /**
+   * @var string
+   */
   public $entityStatus;
   protected $frequencyCapType = FrequencyCap::class;
   protected $frequencyCapDataType = '';
+  public $frequencyCap;
+  /**
+   * @var string
+   */
   public $insertionOrderId;
+  /**
+   * @var string
+   */
   public $insertionOrderType;
   protected $integrationDetailsType = IntegrationDetails::class;
   protected $integrationDetailsDataType = '';
+  public $integrationDetails;
+  /**
+   * @var string
+   */
   public $name;
   protected $pacingType = Pacing::class;
   protected $pacingDataType = '';
+  public $pacing;
   protected $partnerCostsType = PartnerCost::class;
   protected $partnerCostsDataType = 'array';
+  public $partnerCosts;
   protected $performanceGoalType = PerformanceGoal::class;
   protected $performanceGoalDataType = '';
+  public $performanceGoal;
+  /**
+   * @var string
+   */
+  public $reservationType;
+  /**
+   * @var string
+   */
   public $updateTime;
 
+  /**
+   * @param string
+   */
   public function setAdvertiserId($advertiserId)
   {
     $this->advertiserId = $advertiserId;
   }
+  /**
+   * @return string
+   */
   public function getAdvertiserId()
   {
     return $this->advertiserId;
@@ -66,6 +111,20 @@ class InsertionOrder extends \Google\Collection
     return $this->bidStrategy;
   }
   /**
+   * @param string
+   */
+  public function setBillableOutcome($billableOutcome)
+  {
+    $this->billableOutcome = $billableOutcome;
+  }
+  /**
+   * @return string
+   */
+  public function getBillableOutcome()
+  {
+    return $this->billableOutcome;
+  }
+  /**
    * @param InsertionOrderBudget
    */
   public function setBudget(InsertionOrderBudget $budget)
@@ -79,26 +138,44 @@ class InsertionOrder extends \Google\Collection
   {
     return $this->budget;
   }
+  /**
+   * @param string
+   */
   public function setCampaignId($campaignId)
   {
     $this->campaignId = $campaignId;
   }
+  /**
+   * @return string
+   */
   public function getCampaignId()
   {
     return $this->campaignId;
   }
+  /**
+   * @param string
+   */
   public function setDisplayName($displayName)
   {
     $this->displayName = $displayName;
   }
+  /**
+   * @return string
+   */
   public function getDisplayName()
   {
     return $this->displayName;
   }
+  /**
+   * @param string
+   */
   public function setEntityStatus($entityStatus)
   {
     $this->entityStatus = $entityStatus;
   }
+  /**
+   * @return string
+   */
   public function getEntityStatus()
   {
     return $this->entityStatus;
@@ -117,18 +194,30 @@ class InsertionOrder extends \Google\Collection
   {
     return $this->frequencyCap;
   }
+  /**
+   * @param string
+   */
   public function setInsertionOrderId($insertionOrderId)
   {
     $this->insertionOrderId = $insertionOrderId;
   }
+  /**
+   * @return string
+   */
   public function getInsertionOrderId()
   {
     return $this->insertionOrderId;
   }
+  /**
+   * @param string
+   */
   public function setInsertionOrderType($insertionOrderType)
   {
     $this->insertionOrderType = $insertionOrderType;
   }
+  /**
+   * @return string
+   */
   public function getInsertionOrderType()
   {
     return $this->insertionOrderType;
@@ -147,10 +236,16 @@ class InsertionOrder extends \Google\Collection
   {
     return $this->integrationDetails;
   }
+  /**
+   * @param string
+   */
   public function setName($name)
   {
     $this->name = $name;
   }
+  /**
+   * @return string
+   */
   public function getName()
   {
     return $this->name;
@@ -197,10 +292,30 @@ class InsertionOrder extends \Google\Collection
   {
     return $this->performanceGoal;
   }
+  /**
+   * @param string
+   */
+  public function setReservationType($reservationType)
+  {
+    $this->reservationType = $reservationType;
+  }
+  /**
+   * @return string
+   */
+  public function getReservationType()
+  {
+    return $this->reservationType;
+  }
+  /**
+   * @param string
+   */
   public function setUpdateTime($updateTime)
   {
     $this->updateTime = $updateTime;
   }
+  /**
+   * @return string
+   */
   public function getUpdateTime()
   {
     return $this->updateTime;

@@ -21,26 +21,42 @@ class Event extends \Google\Model
 {
   protected $containerKilledType = ContainerKilledEvent::class;
   protected $containerKilledDataType = '';
+  public $containerKilled;
   protected $containerStartedType = ContainerStartedEvent::class;
   protected $containerStartedDataType = '';
+  public $containerStarted;
   protected $containerStoppedType = ContainerStoppedEvent::class;
   protected $containerStoppedDataType = '';
+  public $containerStopped;
   protected $delayedType = DelayedEvent::class;
   protected $delayedDataType = '';
+  public $delayed;
+  /**
+   * @var string
+   */
   public $description;
   protected $failedType = FailedEvent::class;
   protected $failedDataType = '';
+  public $failed;
   protected $pullStartedType = PullStartedEvent::class;
   protected $pullStartedDataType = '';
+  public $pullStarted;
   protected $pullStoppedType = PullStoppedEvent::class;
   protected $pullStoppedDataType = '';
+  public $pullStopped;
+  /**
+   * @var string
+   */
   public $timestamp;
   protected $unexpectedExitStatusType = UnexpectedExitStatusEvent::class;
   protected $unexpectedExitStatusDataType = '';
+  public $unexpectedExitStatus;
   protected $workerAssignedType = WorkerAssignedEvent::class;
   protected $workerAssignedDataType = '';
+  public $workerAssigned;
   protected $workerReleasedType = WorkerReleasedEvent::class;
   protected $workerReleasedDataType = '';
+  public $workerReleased;
 
   /**
    * @param ContainerKilledEvent
@@ -98,10 +114,16 @@ class Event extends \Google\Model
   {
     return $this->delayed;
   }
+  /**
+   * @param string
+   */
   public function setDescription($description)
   {
     $this->description = $description;
   }
+  /**
+   * @return string
+   */
   public function getDescription()
   {
     return $this->description;
@@ -148,10 +170,16 @@ class Event extends \Google\Model
   {
     return $this->pullStopped;
   }
+  /**
+   * @param string
+   */
   public function setTimestamp($timestamp)
   {
     $this->timestamp = $timestamp;
   }
+  /**
+   * @return string
+   */
   public function getTimestamp()
   {
     return $this->timestamp;

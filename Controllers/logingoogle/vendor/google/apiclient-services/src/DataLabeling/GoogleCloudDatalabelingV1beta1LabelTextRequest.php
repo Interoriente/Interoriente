@@ -21,11 +21,17 @@ class GoogleCloudDatalabelingV1beta1LabelTextRequest extends \Google\Model
 {
   protected $basicConfigType = GoogleCloudDatalabelingV1beta1HumanAnnotationConfig::class;
   protected $basicConfigDataType = '';
+  public $basicConfig;
+  /**
+   * @var string
+   */
   public $feature;
   protected $textClassificationConfigType = GoogleCloudDatalabelingV1beta1TextClassificationConfig::class;
   protected $textClassificationConfigDataType = '';
+  public $textClassificationConfig;
   protected $textEntityExtractionConfigType = GoogleCloudDatalabelingV1beta1TextEntityExtractionConfig::class;
   protected $textEntityExtractionConfigDataType = '';
+  public $textEntityExtractionConfig;
 
   /**
    * @param GoogleCloudDatalabelingV1beta1HumanAnnotationConfig
@@ -41,10 +47,16 @@ class GoogleCloudDatalabelingV1beta1LabelTextRequest extends \Google\Model
   {
     return $this->basicConfig;
   }
+  /**
+   * @param string
+   */
   public function setFeature($feature)
   {
     $this->feature = $feature;
   }
+  /**
+   * @return string
+   */
   public function getFeature()
   {
     return $this->feature;

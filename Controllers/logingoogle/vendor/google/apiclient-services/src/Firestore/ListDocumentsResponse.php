@@ -22,6 +22,10 @@ class ListDocumentsResponse extends \Google\Collection
   protected $collection_key = 'documents';
   protected $documentsType = Document::class;
   protected $documentsDataType = 'array';
+  public $documents;
+  /**
+   * @var string
+   */
   public $nextPageToken;
 
   /**
@@ -38,10 +42,16 @@ class ListDocumentsResponse extends \Google\Collection
   {
     return $this->documents;
   }
+  /**
+   * @param string
+   */
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
   }
+  /**
+   * @return string
+   */
   public function getNextPageToken()
   {
     return $this->nextPageToken;

@@ -20,17 +20,31 @@ namespace Google\Service\CloudIdentity;
 class MemberRelation extends \Google\Collection
 {
   protected $collection_key = 'roles';
+  /**
+   * @var string
+   */
   public $member;
   protected $preferredMemberKeyType = EntityKey::class;
   protected $preferredMemberKeyDataType = 'array';
+  public $preferredMemberKey;
+  /**
+   * @var string
+   */
   public $relationType;
   protected $rolesType = TransitiveMembershipRole::class;
   protected $rolesDataType = 'array';
+  public $roles;
 
+  /**
+   * @param string
+   */
   public function setMember($member)
   {
     $this->member = $member;
   }
+  /**
+   * @return string
+   */
   public function getMember()
   {
     return $this->member;
@@ -49,10 +63,16 @@ class MemberRelation extends \Google\Collection
   {
     return $this->preferredMemberKey;
   }
+  /**
+   * @param string
+   */
   public function setRelationType($relationType)
   {
     $this->relationType = $relationType;
   }
+  /**
+   * @return string
+   */
   public function getRelationType()
   {
     return $this->relationType;

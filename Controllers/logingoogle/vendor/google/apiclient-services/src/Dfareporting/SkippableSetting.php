@@ -19,17 +19,31 @@ namespace Google\Service\Dfareporting;
 
 class SkippableSetting extends \Google\Model
 {
+  /**
+   * @var string
+   */
   public $kind;
   protected $progressOffsetType = VideoOffset::class;
   protected $progressOffsetDataType = '';
+  public $progressOffset;
   protected $skipOffsetType = VideoOffset::class;
   protected $skipOffsetDataType = '';
+  public $skipOffset;
+  /**
+   * @var bool
+   */
   public $skippable;
 
+  /**
+   * @param string
+   */
   public function setKind($kind)
   {
     $this->kind = $kind;
   }
+  /**
+   * @return string
+   */
   public function getKind()
   {
     return $this->kind;
@@ -62,10 +76,16 @@ class SkippableSetting extends \Google\Model
   {
     return $this->skipOffset;
   }
+  /**
+   * @param bool
+   */
   public function setSkippable($skippable)
   {
     $this->skippable = $skippable;
   }
+  /**
+   * @return bool
+   */
   public function getSkippable()
   {
     return $this->skippable;

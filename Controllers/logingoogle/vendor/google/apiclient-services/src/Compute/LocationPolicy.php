@@ -21,6 +21,11 @@ class LocationPolicy extends \Google\Model
 {
   protected $locationsType = LocationPolicyLocation::class;
   protected $locationsDataType = 'map';
+  public $locations;
+  /**
+   * @var string
+   */
+  public $targetShape;
 
   /**
    * @param LocationPolicyLocation[]
@@ -35,6 +40,20 @@ class LocationPolicy extends \Google\Model
   public function getLocations()
   {
     return $this->locations;
+  }
+  /**
+   * @param string
+   */
+  public function setTargetShape($targetShape)
+  {
+    $this->targetShape = $targetShape;
+  }
+  /**
+   * @return string
+   */
+  public function getTargetShape()
+  {
+    return $this->targetShape;
   }
 }
 

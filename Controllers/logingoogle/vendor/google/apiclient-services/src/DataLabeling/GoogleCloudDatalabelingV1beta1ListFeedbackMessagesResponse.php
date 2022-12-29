@@ -22,6 +22,10 @@ class GoogleCloudDatalabelingV1beta1ListFeedbackMessagesResponse extends \Google
   protected $collection_key = 'feedbackMessages';
   protected $feedbackMessagesType = GoogleCloudDatalabelingV1beta1FeedbackMessage::class;
   protected $feedbackMessagesDataType = 'array';
+  public $feedbackMessages;
+  /**
+   * @var string
+   */
   public $nextPageToken;
 
   /**
@@ -38,10 +42,16 @@ class GoogleCloudDatalabelingV1beta1ListFeedbackMessagesResponse extends \Google
   {
     return $this->feedbackMessages;
   }
+  /**
+   * @param string
+   */
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
   }
+  /**
+   * @return string
+   */
   public function getNextPageToken()
   {
     return $this->nextPageToken;

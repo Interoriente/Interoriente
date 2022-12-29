@@ -20,34 +20,63 @@ namespace Google\Service\Reports;
 class UsageReports extends \Google\Collection
 {
   protected $collection_key = 'warnings';
+  /**
+   * @var string
+   */
   public $etag;
+  /**
+   * @var string
+   */
   public $kind;
+  /**
+   * @var string
+   */
   public $nextPageToken;
   protected $usageReportsType = UsageReport::class;
   protected $usageReportsDataType = 'array';
+  public $usageReports;
   protected $warningsType = UsageReportsWarnings::class;
   protected $warningsDataType = 'array';
+  public $warnings;
 
+  /**
+   * @param string
+   */
   public function setEtag($etag)
   {
     $this->etag = $etag;
   }
+  /**
+   * @return string
+   */
   public function getEtag()
   {
     return $this->etag;
   }
+  /**
+   * @param string
+   */
   public function setKind($kind)
   {
     $this->kind = $kind;
   }
+  /**
+   * @return string
+   */
   public function getKind()
   {
     return $this->kind;
   }
+  /**
+   * @param string
+   */
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
   }
+  /**
+   * @return string
+   */
   public function getNextPageToken()
   {
     return $this->nextPageToken;

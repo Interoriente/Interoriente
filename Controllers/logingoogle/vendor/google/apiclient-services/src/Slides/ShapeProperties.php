@@ -21,15 +21,23 @@ class ShapeProperties extends \Google\Model
 {
   protected $autofitType = Autofit::class;
   protected $autofitDataType = '';
+  public $autofit;
+  /**
+   * @var string
+   */
   public $contentAlignment;
   protected $linkType = Link::class;
   protected $linkDataType = '';
+  public $link;
   protected $outlineType = Outline::class;
   protected $outlineDataType = '';
+  public $outline;
   protected $shadowType = Shadow::class;
   protected $shadowDataType = '';
+  public $shadow;
   protected $shapeBackgroundFillType = ShapeBackgroundFill::class;
   protected $shapeBackgroundFillDataType = '';
+  public $shapeBackgroundFill;
 
   /**
    * @param Autofit
@@ -45,10 +53,16 @@ class ShapeProperties extends \Google\Model
   {
     return $this->autofit;
   }
+  /**
+   * @param string
+   */
   public function setContentAlignment($contentAlignment)
   {
     $this->contentAlignment = $contentAlignment;
   }
+  /**
+   * @return string
+   */
   public function getContentAlignment()
   {
     return $this->contentAlignment;

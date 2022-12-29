@@ -20,14 +20,24 @@ namespace Google\Service\Dialogflow;
 class GoogleCloudDialogflowCxV3ListTestCaseResultsResponse extends \Google\Collection
 {
   protected $collection_key = 'testCaseResults';
+  /**
+   * @var string
+   */
   public $nextPageToken;
   protected $testCaseResultsType = GoogleCloudDialogflowCxV3TestCaseResult::class;
   protected $testCaseResultsDataType = 'array';
+  public $testCaseResults;
 
+  /**
+   * @param string
+   */
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
   }
+  /**
+   * @return string
+   */
   public function getNextPageToken()
   {
     return $this->nextPageToken;

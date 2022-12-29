@@ -35,7 +35,7 @@ use Google\Client;
  */
 class Datastore extends \Google\Service
 {
-  /** See, edit, configure, and delete your Google Cloud Platform data. */
+  /** See, edit, configure, and delete your Google Cloud data and see the email address for your Google Account.. */
   const CLOUD_PLATFORM =
       "https://www.googleapis.com/auth/cloud-platform";
   /** View and manage your Google Cloud Datastore data. */
@@ -140,6 +140,16 @@ class Datastore extends \Google\Service
               ],
             ],'rollback' => [
               'path' => 'v1/projects/{projectId}:rollback',
+              'httpMethod' => 'POST',
+              'parameters' => [
+                'projectId' => [
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ],
+              ],
+            ],'runAggregationQuery' => [
+              'path' => 'v1/projects/{projectId}:runAggregationQuery',
               'httpMethod' => 'POST',
               'parameters' => [
                 'projectId' => [

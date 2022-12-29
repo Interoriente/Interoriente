@@ -22,6 +22,10 @@ class ListManualTriggersResponse extends \Google\Collection
   protected $collection_key = 'manualTriggers';
   protected $manualTriggersType = ManualTrigger::class;
   protected $manualTriggersDataType = 'array';
+  public $manualTriggers;
+  /**
+   * @var string
+   */
   public $nextPageToken;
 
   /**
@@ -38,10 +42,16 @@ class ListManualTriggersResponse extends \Google\Collection
   {
     return $this->manualTriggers;
   }
+  /**
+   * @param string
+   */
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
   }
+  /**
+   * @return string
+   */
   public function getNextPageToken()
   {
     return $this->nextPageToken;

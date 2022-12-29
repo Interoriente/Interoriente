@@ -19,16 +19,27 @@ namespace Google\Service\Slides;
 
 class PageBackgroundFill extends \Google\Model
 {
+  /**
+   * @var string
+   */
   public $propertyState;
   protected $solidFillType = SolidFill::class;
   protected $solidFillDataType = '';
+  public $solidFill;
   protected $stretchedPictureFillType = StretchedPictureFill::class;
   protected $stretchedPictureFillDataType = '';
+  public $stretchedPictureFill;
 
+  /**
+   * @param string
+   */
   public function setPropertyState($propertyState)
   {
     $this->propertyState = $propertyState;
   }
+  /**
+   * @return string
+   */
   public function getPropertyState()
   {
     return $this->propertyState;

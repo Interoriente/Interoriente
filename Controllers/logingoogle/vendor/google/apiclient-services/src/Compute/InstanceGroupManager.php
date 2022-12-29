@@ -22,33 +22,87 @@ class InstanceGroupManager extends \Google\Collection
   protected $collection_key = 'versions';
   protected $autoHealingPoliciesType = InstanceGroupManagerAutoHealingPolicy::class;
   protected $autoHealingPoliciesDataType = 'array';
+  public $autoHealingPolicies;
+  /**
+   * @var string
+   */
   public $baseInstanceName;
+  /**
+   * @var string
+   */
   public $creationTimestamp;
   protected $currentActionsType = InstanceGroupManagerActionsSummary::class;
   protected $currentActionsDataType = '';
+  public $currentActions;
+  /**
+   * @var string
+   */
   public $description;
   protected $distributionPolicyType = DistributionPolicy::class;
   protected $distributionPolicyDataType = '';
+  public $distributionPolicy;
+  /**
+   * @var string
+   */
   public $fingerprint;
+  /**
+   * @var string
+   */
   public $id;
+  /**
+   * @var string
+   */
   public $instanceGroup;
+  /**
+   * @var string
+   */
   public $instanceTemplate;
+  /**
+   * @var string
+   */
   public $kind;
+  /**
+   * @var string
+   */
+  public $listManagedInstancesResults;
+  /**
+   * @var string
+   */
   public $name;
   protected $namedPortsType = NamedPort::class;
   protected $namedPortsDataType = 'array';
+  public $namedPorts;
+  /**
+   * @var string
+   */
   public $region;
+  /**
+   * @var string
+   */
   public $selfLink;
   protected $statefulPolicyType = StatefulPolicy::class;
   protected $statefulPolicyDataType = '';
+  public $statefulPolicy;
   protected $statusType = InstanceGroupManagerStatus::class;
   protected $statusDataType = '';
+  public $status;
+  /**
+   * @var string[]
+   */
   public $targetPools;
+  /**
+   * @var int
+   */
   public $targetSize;
   protected $updatePolicyType = InstanceGroupManagerUpdatePolicy::class;
   protected $updatePolicyDataType = '';
+  public $updatePolicy;
   protected $versionsType = InstanceGroupManagerVersion::class;
   protected $versionsDataType = 'array';
+  public $versions;
+  /**
+   * @var string
+   */
   public $zone;
 
   /**
@@ -65,18 +119,30 @@ class InstanceGroupManager extends \Google\Collection
   {
     return $this->autoHealingPolicies;
   }
+  /**
+   * @param string
+   */
   public function setBaseInstanceName($baseInstanceName)
   {
     $this->baseInstanceName = $baseInstanceName;
   }
+  /**
+   * @return string
+   */
   public function getBaseInstanceName()
   {
     return $this->baseInstanceName;
   }
+  /**
+   * @param string
+   */
   public function setCreationTimestamp($creationTimestamp)
   {
     $this->creationTimestamp = $creationTimestamp;
   }
+  /**
+   * @return string
+   */
   public function getCreationTimestamp()
   {
     return $this->creationTimestamp;
@@ -95,10 +161,16 @@ class InstanceGroupManager extends \Google\Collection
   {
     return $this->currentActions;
   }
+  /**
+   * @param string
+   */
   public function setDescription($description)
   {
     $this->description = $description;
   }
+  /**
+   * @return string
+   */
   public function getDescription()
   {
     return $this->description;
@@ -117,50 +189,100 @@ class InstanceGroupManager extends \Google\Collection
   {
     return $this->distributionPolicy;
   }
+  /**
+   * @param string
+   */
   public function setFingerprint($fingerprint)
   {
     $this->fingerprint = $fingerprint;
   }
+  /**
+   * @return string
+   */
   public function getFingerprint()
   {
     return $this->fingerprint;
   }
+  /**
+   * @param string
+   */
   public function setId($id)
   {
     $this->id = $id;
   }
+  /**
+   * @return string
+   */
   public function getId()
   {
     return $this->id;
   }
+  /**
+   * @param string
+   */
   public function setInstanceGroup($instanceGroup)
   {
     $this->instanceGroup = $instanceGroup;
   }
+  /**
+   * @return string
+   */
   public function getInstanceGroup()
   {
     return $this->instanceGroup;
   }
+  /**
+   * @param string
+   */
   public function setInstanceTemplate($instanceTemplate)
   {
     $this->instanceTemplate = $instanceTemplate;
   }
+  /**
+   * @return string
+   */
   public function getInstanceTemplate()
   {
     return $this->instanceTemplate;
   }
+  /**
+   * @param string
+   */
   public function setKind($kind)
   {
     $this->kind = $kind;
   }
+  /**
+   * @return string
+   */
   public function getKind()
   {
     return $this->kind;
   }
+  /**
+   * @param string
+   */
+  public function setListManagedInstancesResults($listManagedInstancesResults)
+  {
+    $this->listManagedInstancesResults = $listManagedInstancesResults;
+  }
+  /**
+   * @return string
+   */
+  public function getListManagedInstancesResults()
+  {
+    return $this->listManagedInstancesResults;
+  }
+  /**
+   * @param string
+   */
   public function setName($name)
   {
     $this->name = $name;
   }
+  /**
+   * @return string
+   */
   public function getName()
   {
     return $this->name;
@@ -179,18 +301,30 @@ class InstanceGroupManager extends \Google\Collection
   {
     return $this->namedPorts;
   }
+  /**
+   * @param string
+   */
   public function setRegion($region)
   {
     $this->region = $region;
   }
+  /**
+   * @return string
+   */
   public function getRegion()
   {
     return $this->region;
   }
+  /**
+   * @param string
+   */
   public function setSelfLink($selfLink)
   {
     $this->selfLink = $selfLink;
   }
+  /**
+   * @return string
+   */
   public function getSelfLink()
   {
     return $this->selfLink;
@@ -223,18 +357,30 @@ class InstanceGroupManager extends \Google\Collection
   {
     return $this->status;
   }
+  /**
+   * @param string[]
+   */
   public function setTargetPools($targetPools)
   {
     $this->targetPools = $targetPools;
   }
+  /**
+   * @return string[]
+   */
   public function getTargetPools()
   {
     return $this->targetPools;
   }
+  /**
+   * @param int
+   */
   public function setTargetSize($targetSize)
   {
     $this->targetSize = $targetSize;
   }
+  /**
+   * @return int
+   */
   public function getTargetSize()
   {
     return $this->targetSize;
@@ -267,10 +413,16 @@ class InstanceGroupManager extends \Google\Collection
   {
     return $this->versions;
   }
+  /**
+   * @param string
+   */
   public function setZone($zone)
   {
     $this->zone = $zone;
   }
+  /**
+   * @return string
+   */
   public function getZone()
   {
     return $this->zone;

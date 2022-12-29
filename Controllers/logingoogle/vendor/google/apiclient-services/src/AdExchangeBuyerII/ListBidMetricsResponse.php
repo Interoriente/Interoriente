@@ -22,6 +22,10 @@ class ListBidMetricsResponse extends \Google\Collection
   protected $collection_key = 'bidMetricsRows';
   protected $bidMetricsRowsType = BidMetricsRow::class;
   protected $bidMetricsRowsDataType = 'array';
+  public $bidMetricsRows;
+  /**
+   * @var string
+   */
   public $nextPageToken;
 
   /**
@@ -38,10 +42,16 @@ class ListBidMetricsResponse extends \Google\Collection
   {
     return $this->bidMetricsRows;
   }
+  /**
+   * @param string
+   */
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
   }
+  /**
+   * @return string
+   */
   public function getNextPageToken()
   {
     return $this->nextPageToken;

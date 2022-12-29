@@ -19,15 +19,28 @@ namespace Google\Service\PeopleService;
 
 class Photo extends \Google\Model
 {
+  /**
+   * @var bool
+   */
   public $default;
   protected $metadataType = FieldMetadata::class;
   protected $metadataDataType = '';
+  public $metadata;
+  /**
+   * @var string
+   */
   public $url;
 
+  /**
+   * @param bool
+   */
   public function setDefault($default)
   {
     $this->default = $default;
   }
+  /**
+   * @return bool
+   */
   public function getDefault()
   {
     return $this->default;
@@ -46,10 +59,16 @@ class Photo extends \Google\Model
   {
     return $this->metadata;
   }
+  /**
+   * @param string
+   */
   public function setUrl($url)
   {
     $this->url = $url;
   }
+  /**
+   * @return string
+   */
   public function getUrl()
   {
     return $this->url;

@@ -20,14 +20,24 @@ namespace Google\Service\AccessContextManager;
 class BasicLevel extends \Google\Collection
 {
   protected $collection_key = 'conditions';
+  /**
+   * @var string
+   */
   public $combiningFunction;
   protected $conditionsType = Condition::class;
   protected $conditionsDataType = 'array';
+  public $conditions;
 
+  /**
+   * @param string
+   */
   public function setCombiningFunction($combiningFunction)
   {
     $this->combiningFunction = $combiningFunction;
   }
+  /**
+   * @return string
+   */
   public function getCombiningFunction()
   {
     return $this->combiningFunction;

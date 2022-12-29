@@ -19,14 +19,24 @@ namespace Google\Service\Docs;
 
 class InsertTableColumnRequest extends \Google\Model
 {
+  /**
+   * @var bool
+   */
   public $insertRight;
   protected $tableCellLocationType = TableCellLocation::class;
   protected $tableCellLocationDataType = '';
+  public $tableCellLocation;
 
+  /**
+   * @param bool
+   */
   public function setInsertRight($insertRight)
   {
     $this->insertRight = $insertRight;
   }
+  /**
+   * @return bool
+   */
   public function getInsertRight()
   {
     return $this->insertRight;

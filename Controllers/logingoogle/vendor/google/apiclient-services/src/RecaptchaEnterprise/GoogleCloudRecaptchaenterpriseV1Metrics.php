@@ -22,8 +22,17 @@ class GoogleCloudRecaptchaenterpriseV1Metrics extends \Google\Collection
   protected $collection_key = 'scoreMetrics';
   protected $challengeMetricsType = GoogleCloudRecaptchaenterpriseV1ChallengeMetrics::class;
   protected $challengeMetricsDataType = 'array';
+  public $challengeMetrics;
+  /**
+   * @var string
+   */
+  public $name;
   protected $scoreMetricsType = GoogleCloudRecaptchaenterpriseV1ScoreMetrics::class;
   protected $scoreMetricsDataType = 'array';
+  public $scoreMetrics;
+  /**
+   * @var string
+   */
   public $startTime;
 
   /**
@@ -41,6 +50,20 @@ class GoogleCloudRecaptchaenterpriseV1Metrics extends \Google\Collection
     return $this->challengeMetrics;
   }
   /**
+   * @param string
+   */
+  public function setName($name)
+  {
+    $this->name = $name;
+  }
+  /**
+   * @return string
+   */
+  public function getName()
+  {
+    return $this->name;
+  }
+  /**
    * @param GoogleCloudRecaptchaenterpriseV1ScoreMetrics[]
    */
   public function setScoreMetrics($scoreMetrics)
@@ -54,10 +77,16 @@ class GoogleCloudRecaptchaenterpriseV1Metrics extends \Google\Collection
   {
     return $this->scoreMetrics;
   }
+  /**
+   * @param string
+   */
   public function setStartTime($startTime)
   {
     $this->startTime = $startTime;
   }
+  /**
+   * @return string
+   */
   public function getStartTime()
   {
     return $this->startTime;

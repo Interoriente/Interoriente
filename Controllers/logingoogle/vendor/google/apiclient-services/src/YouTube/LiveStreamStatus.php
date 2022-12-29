@@ -21,6 +21,10 @@ class LiveStreamStatus extends \Google\Model
 {
   protected $healthStatusType = LiveStreamHealthStatus::class;
   protected $healthStatusDataType = '';
+  public $healthStatus;
+  /**
+   * @var string
+   */
   public $streamStatus;
 
   /**
@@ -37,10 +41,16 @@ class LiveStreamStatus extends \Google\Model
   {
     return $this->healthStatus;
   }
+  /**
+   * @param string
+   */
   public function setStreamStatus($streamStatus)
   {
     $this->streamStatus = $streamStatus;
   }
+  /**
+   * @return string
+   */
   public function getStreamStatus()
   {
     return $this->streamStatus;

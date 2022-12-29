@@ -22,6 +22,10 @@ class ListStepAccessibilityClustersResponse extends \Google\Collection
   protected $collection_key = 'clusters';
   protected $clustersType = SuggestionClusterProto::class;
   protected $clustersDataType = 'array';
+  public $clusters;
+  /**
+   * @var string
+   */
   public $name;
 
   /**
@@ -38,10 +42,16 @@ class ListStepAccessibilityClustersResponse extends \Google\Collection
   {
     return $this->clusters;
   }
+  /**
+   * @param string
+   */
   public function setName($name)
   {
     $this->name = $name;
   }
+  /**
+   * @return string
+   */
   public function getName()
   {
     return $this->name;

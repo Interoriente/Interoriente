@@ -19,22 +19,36 @@ namespace Google\Service\AdExchangeBuyerII;
 
 class ServingContext extends \Google\Model
 {
+  /**
+   * @var string
+   */
   public $all;
   protected $appTypeType = AppContext::class;
   protected $appTypeDataType = '';
+  public $appType;
   protected $auctionTypeType = AuctionContext::class;
   protected $auctionTypeDataType = '';
+  public $auctionType;
   protected $locationType = LocationContext::class;
   protected $locationDataType = '';
+  public $location;
   protected $platformType = PlatformContext::class;
   protected $platformDataType = '';
+  public $platform;
   protected $securityTypeType = SecurityContext::class;
   protected $securityTypeDataType = '';
+  public $securityType;
 
+  /**
+   * @param string
+   */
   public function setAll($all)
   {
     $this->all = $all;
   }
+  /**
+   * @return string
+   */
   public function getAll()
   {
     return $this->all;

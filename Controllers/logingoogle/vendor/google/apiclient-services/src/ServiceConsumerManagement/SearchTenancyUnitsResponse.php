@@ -20,14 +20,24 @@ namespace Google\Service\ServiceConsumerManagement;
 class SearchTenancyUnitsResponse extends \Google\Collection
 {
   protected $collection_key = 'tenancyUnits';
+  /**
+   * @var string
+   */
   public $nextPageToken;
   protected $tenancyUnitsType = TenancyUnit::class;
   protected $tenancyUnitsDataType = 'array';
+  public $tenancyUnits;
 
+  /**
+   * @param string
+   */
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
   }
+  /**
+   * @return string
+   */
   public function getNextPageToken()
   {
     return $this->nextPageToken;

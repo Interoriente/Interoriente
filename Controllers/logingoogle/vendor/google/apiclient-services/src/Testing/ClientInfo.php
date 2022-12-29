@@ -22,6 +22,10 @@ class ClientInfo extends \Google\Collection
   protected $collection_key = 'clientInfoDetails';
   protected $clientInfoDetailsType = ClientInfoDetail::class;
   protected $clientInfoDetailsDataType = 'array';
+  public $clientInfoDetails;
+  /**
+   * @var string
+   */
   public $name;
 
   /**
@@ -38,10 +42,16 @@ class ClientInfo extends \Google\Collection
   {
     return $this->clientInfoDetails;
   }
+  /**
+   * @param string
+   */
   public function setName($name)
   {
     $this->name = $name;
   }
+  /**
+   * @return string
+   */
   public function getName()
   {
     return $this->name;

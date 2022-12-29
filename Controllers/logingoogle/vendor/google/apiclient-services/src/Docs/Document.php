@@ -21,31 +21,55 @@ class Document extends \Google\Model
 {
   protected $bodyType = Body::class;
   protected $bodyDataType = '';
+  public $body;
+  /**
+   * @var string
+   */
   public $documentId;
   protected $documentStyleType = DocumentStyle::class;
   protected $documentStyleDataType = '';
+  public $documentStyle;
   protected $footersType = Footer::class;
   protected $footersDataType = 'map';
+  public $footers;
   protected $footnotesType = Footnote::class;
   protected $footnotesDataType = 'map';
+  public $footnotes;
   protected $headersType = Header::class;
   protected $headersDataType = 'map';
+  public $headers;
   protected $inlineObjectsType = InlineObject::class;
   protected $inlineObjectsDataType = 'map';
+  public $inlineObjects;
   protected $listsType = DocsList::class;
   protected $listsDataType = 'map';
+  public $lists;
   protected $namedRangesType = NamedRanges::class;
   protected $namedRangesDataType = 'map';
+  public $namedRanges;
   protected $namedStylesType = NamedStyles::class;
   protected $namedStylesDataType = '';
+  public $namedStyles;
   protected $positionedObjectsType = PositionedObject::class;
   protected $positionedObjectsDataType = 'map';
+  public $positionedObjects;
+  /**
+   * @var string
+   */
   public $revisionId;
   protected $suggestedDocumentStyleChangesType = SuggestedDocumentStyle::class;
   protected $suggestedDocumentStyleChangesDataType = 'map';
+  public $suggestedDocumentStyleChanges;
   protected $suggestedNamedStylesChangesType = SuggestedNamedStyles::class;
   protected $suggestedNamedStylesChangesDataType = 'map';
+  public $suggestedNamedStylesChanges;
+  /**
+   * @var string
+   */
   public $suggestionsViewMode;
+  /**
+   * @var string
+   */
   public $title;
 
   /**
@@ -62,10 +86,16 @@ class Document extends \Google\Model
   {
     return $this->body;
   }
+  /**
+   * @param string
+   */
   public function setDocumentId($documentId)
   {
     $this->documentId = $documentId;
   }
+  /**
+   * @return string
+   */
   public function getDocumentId()
   {
     return $this->documentId;
@@ -196,10 +226,16 @@ class Document extends \Google\Model
   {
     return $this->positionedObjects;
   }
+  /**
+   * @param string
+   */
   public function setRevisionId($revisionId)
   {
     $this->revisionId = $revisionId;
   }
+  /**
+   * @return string
+   */
   public function getRevisionId()
   {
     return $this->revisionId;
@@ -232,18 +268,30 @@ class Document extends \Google\Model
   {
     return $this->suggestedNamedStylesChanges;
   }
+  /**
+   * @param string
+   */
   public function setSuggestionsViewMode($suggestionsViewMode)
   {
     $this->suggestionsViewMode = $suggestionsViewMode;
   }
+  /**
+   * @return string
+   */
   public function getSuggestionsViewMode()
   {
     return $this->suggestionsViewMode;
   }
+  /**
+   * @param string
+   */
   public function setTitle($title)
   {
     $this->title = $title;
   }
+  /**
+   * @return string
+   */
   public function getTitle()
   {
     return $this->title;

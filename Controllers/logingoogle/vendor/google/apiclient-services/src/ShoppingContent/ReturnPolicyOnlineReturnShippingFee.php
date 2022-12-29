@@ -21,6 +21,10 @@ class ReturnPolicyOnlineReturnShippingFee extends \Google\Model
 {
   protected $fixedFeeType = PriceAmount::class;
   protected $fixedFeeDataType = '';
+  public $fixedFee;
+  /**
+   * @var string
+   */
   public $type;
 
   /**
@@ -37,10 +41,16 @@ class ReturnPolicyOnlineReturnShippingFee extends \Google\Model
   {
     return $this->fixedFee;
   }
+  /**
+   * @param string
+   */
   public function setType($type)
   {
     $this->type = $type;
   }
+  /**
+   * @return string
+   */
   public function getType()
   {
     return $this->type;

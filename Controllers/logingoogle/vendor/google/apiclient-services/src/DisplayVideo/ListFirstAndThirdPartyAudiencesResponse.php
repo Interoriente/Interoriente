@@ -22,6 +22,10 @@ class ListFirstAndThirdPartyAudiencesResponse extends \Google\Collection
   protected $collection_key = 'firstAndThirdPartyAudiences';
   protected $firstAndThirdPartyAudiencesType = FirstAndThirdPartyAudience::class;
   protected $firstAndThirdPartyAudiencesDataType = 'array';
+  public $firstAndThirdPartyAudiences;
+  /**
+   * @var string
+   */
   public $nextPageToken;
 
   /**
@@ -38,10 +42,16 @@ class ListFirstAndThirdPartyAudiencesResponse extends \Google\Collection
   {
     return $this->firstAndThirdPartyAudiences;
   }
+  /**
+   * @param string
+   */
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
   }
+  /**
+   * @return string
+   */
   public function getNextPageToken()
   {
     return $this->nextPageToken;

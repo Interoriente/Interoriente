@@ -22,6 +22,10 @@ class ListDomainMappingsResponse extends \Google\Collection
   protected $collection_key = 'domainMappings';
   protected $domainMappingsType = DomainMapping::class;
   protected $domainMappingsDataType = 'array';
+  public $domainMappings;
+  /**
+   * @var string
+   */
   public $nextPageToken;
 
   /**
@@ -38,10 +42,16 @@ class ListDomainMappingsResponse extends \Google\Collection
   {
     return $this->domainMappings;
   }
+  /**
+   * @param string
+   */
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
   }
+  /**
+   * @return string
+   */
   public function getNextPageToken()
   {
     return $this->nextPageToken;

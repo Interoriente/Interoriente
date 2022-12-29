@@ -21,9 +21,14 @@ class GoogleCloudChannelV1Price extends \Google\Model
 {
   protected $basePriceType = GoogleTypeMoney::class;
   protected $basePriceDataType = '';
+  public $basePrice;
   public $discount;
   protected $effectivePriceType = GoogleTypeMoney::class;
   protected $effectivePriceDataType = '';
+  public $effectivePrice;
+  /**
+   * @var string
+   */
   public $externalPriceUri;
 
   /**
@@ -62,10 +67,16 @@ class GoogleCloudChannelV1Price extends \Google\Model
   {
     return $this->effectivePrice;
   }
+  /**
+   * @param string
+   */
   public function setExternalPriceUri($externalPriceUri)
   {
     $this->externalPriceUri = $externalPriceUri;
   }
+  /**
+   * @return string
+   */
   public function getExternalPriceUri()
   {
     return $this->externalPriceUri;

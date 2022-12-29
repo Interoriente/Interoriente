@@ -19,14 +19,24 @@ namespace Google\Service\Datastore;
 
 class PropertyOrder extends \Google\Model
 {
+  /**
+   * @var string
+   */
   public $direction;
   protected $propertyType = PropertyReference::class;
   protected $propertyDataType = '';
+  public $property;
 
+  /**
+   * @param string
+   */
   public function setDirection($direction)
   {
     $this->direction = $direction;
   }
+  /**
+   * @return string
+   */
   public function getDirection()
   {
     return $this->direction;

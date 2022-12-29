@@ -21,12 +21,19 @@ class RestrictItem extends \Google\Model
 {
   protected $driveFollowUpRestrictType = DriveFollowUpRestrict::class;
   protected $driveFollowUpRestrictDataType = '';
+  public $driveFollowUpRestrict;
   protected $driveLocationRestrictType = DriveLocationRestrict::class;
   protected $driveLocationRestrictDataType = '';
+  public $driveLocationRestrict;
   protected $driveMimeTypeRestrictType = DriveMimeTypeRestrict::class;
   protected $driveMimeTypeRestrictDataType = '';
+  public $driveMimeTypeRestrict;
   protected $driveTimeSpanRestrictType = DriveTimeSpanRestrict::class;
   protected $driveTimeSpanRestrictDataType = '';
+  public $driveTimeSpanRestrict;
+  /**
+   * @var string
+   */
   public $searchOperator;
 
   /**
@@ -85,10 +92,16 @@ class RestrictItem extends \Google\Model
   {
     return $this->driveTimeSpanRestrict;
   }
+  /**
+   * @param string
+   */
   public function setSearchOperator($searchOperator)
   {
     $this->searchOperator = $searchOperator;
   }
+  /**
+   * @return string
+   */
   public function getSearchOperator()
   {
     return $this->searchOperator;

@@ -22,15 +22,23 @@ class GeoTargeting extends \Google\Collection
   protected $collection_key = 'regions';
   protected $citiesType = City::class;
   protected $citiesDataType = 'array';
+  public $cities;
   protected $countriesType = Country::class;
   protected $countriesDataType = 'array';
+  public $countries;
+  /**
+   * @var bool
+   */
   public $excludeCountries;
   protected $metrosType = Metro::class;
   protected $metrosDataType = 'array';
+  public $metros;
   protected $postalCodesType = PostalCode::class;
   protected $postalCodesDataType = 'array';
+  public $postalCodes;
   protected $regionsType = Region::class;
   protected $regionsDataType = 'array';
+  public $regions;
 
   /**
    * @param City[]
@@ -60,10 +68,16 @@ class GeoTargeting extends \Google\Collection
   {
     return $this->countries;
   }
+  /**
+   * @param bool
+   */
   public function setExcludeCountries($excludeCountries)
   {
     $this->excludeCountries = $excludeCountries;
   }
+  /**
+   * @return bool
+   */
   public function getExcludeCountries()
   {
     return $this->excludeCountries;

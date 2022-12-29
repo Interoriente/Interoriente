@@ -22,6 +22,10 @@ class ListMembershipsResponse extends \Google\Collection
   protected $collection_key = 'memberships';
   protected $membershipsType = Membership::class;
   protected $membershipsDataType = 'array';
+  public $memberships;
+  /**
+   * @var string
+   */
   public $nextPageToken;
 
   /**
@@ -38,10 +42,16 @@ class ListMembershipsResponse extends \Google\Collection
   {
     return $this->memberships;
   }
+  /**
+   * @param string
+   */
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
   }
+  /**
+   * @return string
+   */
   public function getNextPageToken()
   {
     return $this->nextPageToken;

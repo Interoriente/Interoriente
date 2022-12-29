@@ -22,14 +22,32 @@ class PerfMetricsSummary extends \Google\Collection
   protected $collection_key = 'perfMetrics';
   protected $appStartTimeType = AppStartTime::class;
   protected $appStartTimeDataType = '';
+  public $appStartTime;
+  /**
+   * @var string
+   */
   public $executionId;
   protected $graphicsStatsType = GraphicsStats::class;
   protected $graphicsStatsDataType = '';
+  public $graphicsStats;
+  /**
+   * @var string
+   */
   public $historyId;
   protected $perfEnvironmentType = PerfEnvironment::class;
   protected $perfEnvironmentDataType = '';
+  public $perfEnvironment;
+  /**
+   * @var string[]
+   */
   public $perfMetrics;
+  /**
+   * @var string
+   */
   public $projectId;
+  /**
+   * @var string
+   */
   public $stepId;
 
   /**
@@ -46,10 +64,16 @@ class PerfMetricsSummary extends \Google\Collection
   {
     return $this->appStartTime;
   }
+  /**
+   * @param string
+   */
   public function setExecutionId($executionId)
   {
     $this->executionId = $executionId;
   }
+  /**
+   * @return string
+   */
   public function getExecutionId()
   {
     return $this->executionId;
@@ -68,10 +92,16 @@ class PerfMetricsSummary extends \Google\Collection
   {
     return $this->graphicsStats;
   }
+  /**
+   * @param string
+   */
   public function setHistoryId($historyId)
   {
     $this->historyId = $historyId;
   }
+  /**
+   * @return string
+   */
   public function getHistoryId()
   {
     return $this->historyId;
@@ -90,26 +120,44 @@ class PerfMetricsSummary extends \Google\Collection
   {
     return $this->perfEnvironment;
   }
+  /**
+   * @param string[]
+   */
   public function setPerfMetrics($perfMetrics)
   {
     $this->perfMetrics = $perfMetrics;
   }
+  /**
+   * @return string[]
+   */
   public function getPerfMetrics()
   {
     return $this->perfMetrics;
   }
+  /**
+   * @param string
+   */
   public function setProjectId($projectId)
   {
     $this->projectId = $projectId;
   }
+  /**
+   * @return string
+   */
   public function getProjectId()
   {
     return $this->projectId;
   }
+  /**
+   * @param string
+   */
   public function setStepId($stepId)
   {
     $this->stepId = $stepId;
   }
+  /**
+   * @return string
+   */
   public function getStepId()
   {
     return $this->stepId;

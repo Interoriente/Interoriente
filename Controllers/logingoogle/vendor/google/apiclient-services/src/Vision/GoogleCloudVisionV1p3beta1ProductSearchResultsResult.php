@@ -19,15 +19,28 @@ namespace Google\Service\Vision;
 
 class GoogleCloudVisionV1p3beta1ProductSearchResultsResult extends \Google\Model
 {
+  /**
+   * @var string
+   */
   public $image;
   protected $productType = GoogleCloudVisionV1p3beta1Product::class;
   protected $productDataType = '';
+  public $product;
+  /**
+   * @var float
+   */
   public $score;
 
+  /**
+   * @param string
+   */
   public function setImage($image)
   {
     $this->image = $image;
   }
+  /**
+   * @return string
+   */
   public function getImage()
   {
     return $this->image;
@@ -46,10 +59,16 @@ class GoogleCloudVisionV1p3beta1ProductSearchResultsResult extends \Google\Model
   {
     return $this->product;
   }
+  /**
+   * @param float
+   */
   public function setScore($score)
   {
     $this->score = $score;
   }
+  /**
+   * @return float
+   */
   public function getScore()
   {
     return $this->score;

@@ -22,20 +22,38 @@ class DeliveryTime extends \Google\Collection
   protected $collection_key = 'warehouseBasedDeliveryTimes';
   protected $cutoffTimeType = CutoffTime::class;
   protected $cutoffTimeDataType = '';
+  public $cutoffTime;
   protected $handlingBusinessDayConfigType = BusinessDayConfig::class;
   protected $handlingBusinessDayConfigDataType = '';
+  public $handlingBusinessDayConfig;
   protected $holidayCutoffsType = HolidayCutoff::class;
   protected $holidayCutoffsDataType = 'array';
+  public $holidayCutoffs;
+  /**
+   * @var string
+   */
   public $maxHandlingTimeInDays;
+  /**
+   * @var string
+   */
   public $maxTransitTimeInDays;
+  /**
+   * @var string
+   */
   public $minHandlingTimeInDays;
+  /**
+   * @var string
+   */
   public $minTransitTimeInDays;
   protected $transitBusinessDayConfigType = BusinessDayConfig::class;
   protected $transitBusinessDayConfigDataType = '';
+  public $transitBusinessDayConfig;
   protected $transitTimeTableType = TransitTable::class;
   protected $transitTimeTableDataType = '';
+  public $transitTimeTable;
   protected $warehouseBasedDeliveryTimesType = WarehouseBasedDeliveryTime::class;
   protected $warehouseBasedDeliveryTimesDataType = 'array';
+  public $warehouseBasedDeliveryTimes;
 
   /**
    * @param CutoffTime
@@ -79,34 +97,58 @@ class DeliveryTime extends \Google\Collection
   {
     return $this->holidayCutoffs;
   }
+  /**
+   * @param string
+   */
   public function setMaxHandlingTimeInDays($maxHandlingTimeInDays)
   {
     $this->maxHandlingTimeInDays = $maxHandlingTimeInDays;
   }
+  /**
+   * @return string
+   */
   public function getMaxHandlingTimeInDays()
   {
     return $this->maxHandlingTimeInDays;
   }
+  /**
+   * @param string
+   */
   public function setMaxTransitTimeInDays($maxTransitTimeInDays)
   {
     $this->maxTransitTimeInDays = $maxTransitTimeInDays;
   }
+  /**
+   * @return string
+   */
   public function getMaxTransitTimeInDays()
   {
     return $this->maxTransitTimeInDays;
   }
+  /**
+   * @param string
+   */
   public function setMinHandlingTimeInDays($minHandlingTimeInDays)
   {
     $this->minHandlingTimeInDays = $minHandlingTimeInDays;
   }
+  /**
+   * @return string
+   */
   public function getMinHandlingTimeInDays()
   {
     return $this->minHandlingTimeInDays;
   }
+  /**
+   * @param string
+   */
   public function setMinTransitTimeInDays($minTransitTimeInDays)
   {
     $this->minTransitTimeInDays = $minTransitTimeInDays;
   }
+  /**
+   * @return string
+   */
   public function getMinTransitTimeInDays()
   {
     return $this->minTransitTimeInDays;

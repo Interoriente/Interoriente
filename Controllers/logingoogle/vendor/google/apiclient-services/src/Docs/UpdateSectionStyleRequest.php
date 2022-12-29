@@ -19,16 +19,27 @@ namespace Google\Service\Docs;
 
 class UpdateSectionStyleRequest extends \Google\Model
 {
+  /**
+   * @var string
+   */
   public $fields;
   protected $rangeType = Range::class;
   protected $rangeDataType = '';
+  public $range;
   protected $sectionStyleType = SectionStyle::class;
   protected $sectionStyleDataType = '';
+  public $sectionStyle;
 
+  /**
+   * @param string
+   */
   public function setFields($fields)
   {
     $this->fields = $fields;
   }
+  /**
+   * @return string
+   */
   public function getFields()
   {
     return $this->fields;

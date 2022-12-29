@@ -22,6 +22,10 @@ class ListAvailableVersionsResponse extends \Google\Collection
   protected $collection_key = 'availableVersions';
   protected $availableVersionsType = Version::class;
   protected $availableVersionsDataType = 'array';
+  public $availableVersions;
+  /**
+   * @var string
+   */
   public $nextPageToken;
 
   /**
@@ -38,10 +42,16 @@ class ListAvailableVersionsResponse extends \Google\Collection
   {
     return $this->availableVersions;
   }
+  /**
+   * @param string
+   */
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
   }
+  /**
+   * @return string
+   */
   public function getNextPageToken()
   {
     return $this->nextPageToken;

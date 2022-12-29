@@ -19,42 +19,86 @@ namespace Google\Service\GKEHub;
 
 class Feature extends \Google\Model
 {
+  /**
+   * @var string
+   */
   public $createTime;
+  /**
+   * @var string
+   */
   public $deleteTime;
+  /**
+   * @var string[]
+   */
   public $labels;
   protected $membershipSpecsType = MembershipFeatureSpec::class;
   protected $membershipSpecsDataType = 'map';
+  public $membershipSpecs;
   protected $membershipStatesType = MembershipFeatureState::class;
   protected $membershipStatesDataType = 'map';
+  public $membershipStates;
+  /**
+   * @var string
+   */
   public $name;
   protected $resourceStateType = FeatureResourceState::class;
   protected $resourceStateDataType = '';
+  public $resourceState;
+  protected $scopeSpecsType = ScopeFeatureSpec::class;
+  protected $scopeSpecsDataType = 'map';
+  public $scopeSpecs;
+  protected $scopeStatesType = ScopeFeatureState::class;
+  protected $scopeStatesDataType = 'map';
+  public $scopeStates;
   protected $specType = CommonFeatureSpec::class;
   protected $specDataType = '';
+  public $spec;
   protected $stateType = CommonFeatureState::class;
   protected $stateDataType = '';
+  public $state;
+  /**
+   * @var string
+   */
   public $updateTime;
 
+  /**
+   * @param string
+   */
   public function setCreateTime($createTime)
   {
     $this->createTime = $createTime;
   }
+  /**
+   * @return string
+   */
   public function getCreateTime()
   {
     return $this->createTime;
   }
+  /**
+   * @param string
+   */
   public function setDeleteTime($deleteTime)
   {
     $this->deleteTime = $deleteTime;
   }
+  /**
+   * @return string
+   */
   public function getDeleteTime()
   {
     return $this->deleteTime;
   }
+  /**
+   * @param string[]
+   */
   public function setLabels($labels)
   {
     $this->labels = $labels;
   }
+  /**
+   * @return string[]
+   */
   public function getLabels()
   {
     return $this->labels;
@@ -87,10 +131,16 @@ class Feature extends \Google\Model
   {
     return $this->membershipStates;
   }
+  /**
+   * @param string
+   */
   public function setName($name)
   {
     $this->name = $name;
   }
+  /**
+   * @return string
+   */
   public function getName()
   {
     return $this->name;
@@ -108,6 +158,34 @@ class Feature extends \Google\Model
   public function getResourceState()
   {
     return $this->resourceState;
+  }
+  /**
+   * @param ScopeFeatureSpec[]
+   */
+  public function setScopeSpecs($scopeSpecs)
+  {
+    $this->scopeSpecs = $scopeSpecs;
+  }
+  /**
+   * @return ScopeFeatureSpec[]
+   */
+  public function getScopeSpecs()
+  {
+    return $this->scopeSpecs;
+  }
+  /**
+   * @param ScopeFeatureState[]
+   */
+  public function setScopeStates($scopeStates)
+  {
+    $this->scopeStates = $scopeStates;
+  }
+  /**
+   * @return ScopeFeatureState[]
+   */
+  public function getScopeStates()
+  {
+    return $this->scopeStates;
   }
   /**
    * @param CommonFeatureSpec
@@ -137,10 +215,16 @@ class Feature extends \Google\Model
   {
     return $this->state;
   }
+  /**
+   * @param string
+   */
   public function setUpdateTime($updateTime)
   {
     $this->updateTime = $updateTime;
   }
+  /**
+   * @return string
+   */
   public function getUpdateTime()
   {
     return $this->updateTime;

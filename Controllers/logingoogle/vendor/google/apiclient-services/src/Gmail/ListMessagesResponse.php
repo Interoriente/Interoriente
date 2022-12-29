@@ -22,7 +22,14 @@ class ListMessagesResponse extends \Google\Collection
   protected $collection_key = 'messages';
   protected $messagesType = Message::class;
   protected $messagesDataType = 'array';
+  public $messages;
+  /**
+   * @var string
+   */
   public $nextPageToken;
+  /**
+   * @var string
+   */
   public $resultSizeEstimate;
 
   /**
@@ -39,18 +46,30 @@ class ListMessagesResponse extends \Google\Collection
   {
     return $this->messages;
   }
+  /**
+   * @param string
+   */
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
   }
+  /**
+   * @return string
+   */
   public function getNextPageToken()
   {
     return $this->nextPageToken;
   }
+  /**
+   * @param string
+   */
   public function setResultSizeEstimate($resultSizeEstimate)
   {
     $this->resultSizeEstimate = $resultSizeEstimate;
   }
+  /**
+   * @return string
+   */
   public function getResultSizeEstimate()
   {
     return $this->resultSizeEstimate;

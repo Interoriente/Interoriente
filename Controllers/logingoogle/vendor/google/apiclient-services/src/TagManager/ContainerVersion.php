@@ -20,38 +20,83 @@ namespace Google\Service\TagManager;
 class ContainerVersion extends \Google\Collection
 {
   protected $collection_key = 'zone';
+  /**
+   * @var string
+   */
   public $accountId;
   protected $builtInVariableType = BuiltInVariable::class;
   protected $builtInVariableDataType = 'array';
+  public $builtInVariable;
   protected $clientType = Client::class;
   protected $clientDataType = 'array';
+  public $client;
   protected $containerType = Container::class;
   protected $containerDataType = '';
+  public $container;
+  /**
+   * @var string
+   */
   public $containerId;
+  /**
+   * @var string
+   */
   public $containerVersionId;
   protected $customTemplateType = CustomTemplate::class;
   protected $customTemplateDataType = 'array';
+  public $customTemplate;
+  /**
+   * @var bool
+   */
   public $deleted;
+  /**
+   * @var string
+   */
   public $description;
+  /**
+   * @var string
+   */
   public $fingerprint;
   protected $folderType = Folder::class;
   protected $folderDataType = 'array';
+  public $folder;
+  protected $gtagConfigType = GtagConfig::class;
+  protected $gtagConfigDataType = 'array';
+  public $gtagConfig;
+  /**
+   * @var string
+   */
   public $name;
+  /**
+   * @var string
+   */
   public $path;
   protected $tagType = Tag::class;
   protected $tagDataType = 'array';
+  public $tag;
+  /**
+   * @var string
+   */
   public $tagManagerUrl;
   protected $triggerType = Trigger::class;
   protected $triggerDataType = 'array';
+  public $trigger;
   protected $variableType = Variable::class;
   protected $variableDataType = 'array';
+  public $variable;
   protected $zoneType = Zone::class;
   protected $zoneDataType = 'array';
+  public $zone;
 
+  /**
+   * @param string
+   */
   public function setAccountId($accountId)
   {
     $this->accountId = $accountId;
   }
+  /**
+   * @return string
+   */
   public function getAccountId()
   {
     return $this->accountId;
@@ -98,18 +143,30 @@ class ContainerVersion extends \Google\Collection
   {
     return $this->container;
   }
+  /**
+   * @param string
+   */
   public function setContainerId($containerId)
   {
     $this->containerId = $containerId;
   }
+  /**
+   * @return string
+   */
   public function getContainerId()
   {
     return $this->containerId;
   }
+  /**
+   * @param string
+   */
   public function setContainerVersionId($containerVersionId)
   {
     $this->containerVersionId = $containerVersionId;
   }
+  /**
+   * @return string
+   */
   public function getContainerVersionId()
   {
     return $this->containerVersionId;
@@ -128,26 +185,44 @@ class ContainerVersion extends \Google\Collection
   {
     return $this->customTemplate;
   }
+  /**
+   * @param bool
+   */
   public function setDeleted($deleted)
   {
     $this->deleted = $deleted;
   }
+  /**
+   * @return bool
+   */
   public function getDeleted()
   {
     return $this->deleted;
   }
+  /**
+   * @param string
+   */
   public function setDescription($description)
   {
     $this->description = $description;
   }
+  /**
+   * @return string
+   */
   public function getDescription()
   {
     return $this->description;
   }
+  /**
+   * @param string
+   */
   public function setFingerprint($fingerprint)
   {
     $this->fingerprint = $fingerprint;
   }
+  /**
+   * @return string
+   */
   public function getFingerprint()
   {
     return $this->fingerprint;
@@ -166,18 +241,44 @@ class ContainerVersion extends \Google\Collection
   {
     return $this->folder;
   }
+  /**
+   * @param GtagConfig[]
+   */
+  public function setGtagConfig($gtagConfig)
+  {
+    $this->gtagConfig = $gtagConfig;
+  }
+  /**
+   * @return GtagConfig[]
+   */
+  public function getGtagConfig()
+  {
+    return $this->gtagConfig;
+  }
+  /**
+   * @param string
+   */
   public function setName($name)
   {
     $this->name = $name;
   }
+  /**
+   * @return string
+   */
   public function getName()
   {
     return $this->name;
   }
+  /**
+   * @param string
+   */
   public function setPath($path)
   {
     $this->path = $path;
   }
+  /**
+   * @return string
+   */
   public function getPath()
   {
     return $this->path;
@@ -196,10 +297,16 @@ class ContainerVersion extends \Google\Collection
   {
     return $this->tag;
   }
+  /**
+   * @param string
+   */
   public function setTagManagerUrl($tagManagerUrl)
   {
     $this->tagManagerUrl = $tagManagerUrl;
   }
+  /**
+   * @return string
+   */
   public function getTagManagerUrl()
   {
     return $this->tagManagerUrl;

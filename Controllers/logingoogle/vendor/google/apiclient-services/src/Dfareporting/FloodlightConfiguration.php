@@ -20,45 +20,95 @@ namespace Google\Service\Dfareporting;
 class FloodlightConfiguration extends \Google\Collection
 {
   protected $collection_key = 'userDefinedVariableConfigurations';
+  /**
+   * @var string
+   */
   public $accountId;
+  /**
+   * @var string
+   */
   public $advertiserId;
   protected $advertiserIdDimensionValueType = DimensionValue::class;
   protected $advertiserIdDimensionValueDataType = '';
+  public $advertiserIdDimensionValue;
+  /**
+   * @var bool
+   */
   public $analyticsDataSharingEnabled;
   protected $customViewabilityMetricType = CustomViewabilityMetric::class;
   protected $customViewabilityMetricDataType = '';
+  public $customViewabilityMetric;
+  /**
+   * @var bool
+   */
   public $exposureToConversionEnabled;
+  /**
+   * @var string
+   */
   public $firstDayOfWeek;
+  /**
+   * @var string
+   */
   public $id;
   protected $idDimensionValueType = DimensionValue::class;
   protected $idDimensionValueDataType = '';
+  public $idDimensionValue;
+  /**
+   * @var bool
+   */
   public $inAppAttributionTrackingEnabled;
+  /**
+   * @var string
+   */
   public $kind;
   protected $lookbackConfigurationType = LookbackConfiguration::class;
   protected $lookbackConfigurationDataType = '';
+  public $lookbackConfiguration;
+  /**
+   * @var string
+   */
   public $naturalSearchConversionAttributionOption;
   protected $omnitureSettingsType = OmnitureSettings::class;
   protected $omnitureSettingsDataType = '';
+  public $omnitureSettings;
+  /**
+   * @var string
+   */
   public $subaccountId;
   protected $tagSettingsType = TagSettings::class;
   protected $tagSettingsDataType = '';
+  public $tagSettings;
   protected $thirdPartyAuthenticationTokensType = ThirdPartyAuthenticationToken::class;
   protected $thirdPartyAuthenticationTokensDataType = 'array';
+  public $thirdPartyAuthenticationTokens;
   protected $userDefinedVariableConfigurationsType = UserDefinedVariableConfiguration::class;
   protected $userDefinedVariableConfigurationsDataType = 'array';
+  public $userDefinedVariableConfigurations;
 
+  /**
+   * @param string
+   */
   public function setAccountId($accountId)
   {
     $this->accountId = $accountId;
   }
+  /**
+   * @return string
+   */
   public function getAccountId()
   {
     return $this->accountId;
   }
+  /**
+   * @param string
+   */
   public function setAdvertiserId($advertiserId)
   {
     $this->advertiserId = $advertiserId;
   }
+  /**
+   * @return string
+   */
   public function getAdvertiserId()
   {
     return $this->advertiserId;
@@ -77,10 +127,16 @@ class FloodlightConfiguration extends \Google\Collection
   {
     return $this->advertiserIdDimensionValue;
   }
+  /**
+   * @param bool
+   */
   public function setAnalyticsDataSharingEnabled($analyticsDataSharingEnabled)
   {
     $this->analyticsDataSharingEnabled = $analyticsDataSharingEnabled;
   }
+  /**
+   * @return bool
+   */
   public function getAnalyticsDataSharingEnabled()
   {
     return $this->analyticsDataSharingEnabled;
@@ -99,26 +155,44 @@ class FloodlightConfiguration extends \Google\Collection
   {
     return $this->customViewabilityMetric;
   }
+  /**
+   * @param bool
+   */
   public function setExposureToConversionEnabled($exposureToConversionEnabled)
   {
     $this->exposureToConversionEnabled = $exposureToConversionEnabled;
   }
+  /**
+   * @return bool
+   */
   public function getExposureToConversionEnabled()
   {
     return $this->exposureToConversionEnabled;
   }
+  /**
+   * @param string
+   */
   public function setFirstDayOfWeek($firstDayOfWeek)
   {
     $this->firstDayOfWeek = $firstDayOfWeek;
   }
+  /**
+   * @return string
+   */
   public function getFirstDayOfWeek()
   {
     return $this->firstDayOfWeek;
   }
+  /**
+   * @param string
+   */
   public function setId($id)
   {
     $this->id = $id;
   }
+  /**
+   * @return string
+   */
   public function getId()
   {
     return $this->id;
@@ -137,18 +211,30 @@ class FloodlightConfiguration extends \Google\Collection
   {
     return $this->idDimensionValue;
   }
+  /**
+   * @param bool
+   */
   public function setInAppAttributionTrackingEnabled($inAppAttributionTrackingEnabled)
   {
     $this->inAppAttributionTrackingEnabled = $inAppAttributionTrackingEnabled;
   }
+  /**
+   * @return bool
+   */
   public function getInAppAttributionTrackingEnabled()
   {
     return $this->inAppAttributionTrackingEnabled;
   }
+  /**
+   * @param string
+   */
   public function setKind($kind)
   {
     $this->kind = $kind;
   }
+  /**
+   * @return string
+   */
   public function getKind()
   {
     return $this->kind;
@@ -167,10 +253,16 @@ class FloodlightConfiguration extends \Google\Collection
   {
     return $this->lookbackConfiguration;
   }
+  /**
+   * @param string
+   */
   public function setNaturalSearchConversionAttributionOption($naturalSearchConversionAttributionOption)
   {
     $this->naturalSearchConversionAttributionOption = $naturalSearchConversionAttributionOption;
   }
+  /**
+   * @return string
+   */
   public function getNaturalSearchConversionAttributionOption()
   {
     return $this->naturalSearchConversionAttributionOption;
@@ -189,10 +281,16 @@ class FloodlightConfiguration extends \Google\Collection
   {
     return $this->omnitureSettings;
   }
+  /**
+   * @param string
+   */
   public function setSubaccountId($subaccountId)
   {
     $this->subaccountId = $subaccountId;
   }
+  /**
+   * @return string
+   */
   public function getSubaccountId()
   {
     return $this->subaccountId;

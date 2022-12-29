@@ -22,15 +22,31 @@ class MediationReportSpec extends \Google\Collection
   protected $collection_key = 'sortConditions';
   protected $dateRangeType = DateRange::class;
   protected $dateRangeDataType = '';
+  public $dateRange;
   protected $dimensionFiltersType = MediationReportSpecDimensionFilter::class;
   protected $dimensionFiltersDataType = 'array';
+  public $dimensionFilters;
+  /**
+   * @var string[]
+   */
   public $dimensions;
   protected $localizationSettingsType = LocalizationSettings::class;
   protected $localizationSettingsDataType = '';
+  public $localizationSettings;
+  /**
+   * @var int
+   */
   public $maxReportRows;
+  /**
+   * @var string[]
+   */
   public $metrics;
   protected $sortConditionsType = MediationReportSpecSortCondition::class;
   protected $sortConditionsDataType = 'array';
+  public $sortConditions;
+  /**
+   * @var string
+   */
   public $timeZone;
 
   /**
@@ -61,10 +77,16 @@ class MediationReportSpec extends \Google\Collection
   {
     return $this->dimensionFilters;
   }
+  /**
+   * @param string[]
+   */
   public function setDimensions($dimensions)
   {
     $this->dimensions = $dimensions;
   }
+  /**
+   * @return string[]
+   */
   public function getDimensions()
   {
     return $this->dimensions;
@@ -83,18 +105,30 @@ class MediationReportSpec extends \Google\Collection
   {
     return $this->localizationSettings;
   }
+  /**
+   * @param int
+   */
   public function setMaxReportRows($maxReportRows)
   {
     $this->maxReportRows = $maxReportRows;
   }
+  /**
+   * @return int
+   */
   public function getMaxReportRows()
   {
     return $this->maxReportRows;
   }
+  /**
+   * @param string[]
+   */
   public function setMetrics($metrics)
   {
     $this->metrics = $metrics;
   }
+  /**
+   * @return string[]
+   */
   public function getMetrics()
   {
     return $this->metrics;
@@ -113,10 +147,16 @@ class MediationReportSpec extends \Google\Collection
   {
     return $this->sortConditions;
   }
+  /**
+   * @param string
+   */
   public function setTimeZone($timeZone)
   {
     $this->timeZone = $timeZone;
   }
+  /**
+   * @return string
+   */
   public function getTimeZone()
   {
     return $this->timeZone;

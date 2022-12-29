@@ -20,15 +20,46 @@ namespace Google\Service\Datastore;
 class CommitRequest extends \Google\Collection
 {
   protected $collection_key = 'mutations';
+  /**
+   * @var string
+   */
+  public $databaseId;
+  /**
+   * @var string
+   */
   public $mode;
   protected $mutationsType = Mutation::class;
   protected $mutationsDataType = 'array';
+  public $mutations;
+  /**
+   * @var string
+   */
   public $transaction;
 
+  /**
+   * @param string
+   */
+  public function setDatabaseId($databaseId)
+  {
+    $this->databaseId = $databaseId;
+  }
+  /**
+   * @return string
+   */
+  public function getDatabaseId()
+  {
+    return $this->databaseId;
+  }
+  /**
+   * @param string
+   */
   public function setMode($mode)
   {
     $this->mode = $mode;
   }
+  /**
+   * @return string
+   */
   public function getMode()
   {
     return $this->mode;
@@ -47,10 +78,16 @@ class CommitRequest extends \Google\Collection
   {
     return $this->mutations;
   }
+  /**
+   * @param string
+   */
   public function setTransaction($transaction)
   {
     $this->transaction = $transaction;
   }
+  /**
+   * @return string
+   */
   public function getTransaction()
   {
     return $this->transaction;

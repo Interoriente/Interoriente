@@ -22,22 +22,36 @@ class RunReportResponse extends \Google\Collection
   protected $collection_key = 'totals';
   protected $dimensionHeadersType = DimensionHeader::class;
   protected $dimensionHeadersDataType = 'array';
+  public $dimensionHeaders;
+  /**
+   * @var string
+   */
   public $kind;
   protected $maximumsType = Row::class;
   protected $maximumsDataType = 'array';
+  public $maximums;
   protected $metadataType = ResponseMetaData::class;
   protected $metadataDataType = '';
+  public $metadata;
   protected $metricHeadersType = MetricHeader::class;
   protected $metricHeadersDataType = 'array';
+  public $metricHeaders;
   protected $minimumsType = Row::class;
   protected $minimumsDataType = 'array';
+  public $minimums;
   protected $propertyQuotaType = PropertyQuota::class;
   protected $propertyQuotaDataType = '';
+  public $propertyQuota;
+  /**
+   * @var int
+   */
   public $rowCount;
   protected $rowsType = Row::class;
   protected $rowsDataType = 'array';
+  public $rows;
   protected $totalsType = Row::class;
   protected $totalsDataType = 'array';
+  public $totals;
 
   /**
    * @param DimensionHeader[]
@@ -53,10 +67,16 @@ class RunReportResponse extends \Google\Collection
   {
     return $this->dimensionHeaders;
   }
+  /**
+   * @param string
+   */
   public function setKind($kind)
   {
     $this->kind = $kind;
   }
+  /**
+   * @return string
+   */
   public function getKind()
   {
     return $this->kind;
@@ -131,10 +151,16 @@ class RunReportResponse extends \Google\Collection
   {
     return $this->propertyQuota;
   }
+  /**
+   * @param int
+   */
   public function setRowCount($rowCount)
   {
     $this->rowCount = $rowCount;
   }
+  /**
+   * @return int
+   */
   public function getRowCount()
   {
     return $this->rowCount;

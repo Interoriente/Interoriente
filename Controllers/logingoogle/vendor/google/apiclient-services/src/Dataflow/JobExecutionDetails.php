@@ -20,14 +20,24 @@ namespace Google\Service\Dataflow;
 class JobExecutionDetails extends \Google\Collection
 {
   protected $collection_key = 'stages';
+  /**
+   * @var string
+   */
   public $nextPageToken;
   protected $stagesType = StageSummary::class;
   protected $stagesDataType = 'array';
+  public $stages;
 
+  /**
+   * @param string
+   */
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
   }
+  /**
+   * @return string
+   */
   public function getNextPageToken()
   {
     return $this->nextPageToken;

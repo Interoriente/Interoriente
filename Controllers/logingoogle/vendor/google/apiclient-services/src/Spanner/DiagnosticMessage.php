@@ -21,12 +21,21 @@ class DiagnosticMessage extends \Google\Model
 {
   protected $infoType = LocalizedString::class;
   protected $infoDataType = '';
+  public $info;
   protected $metricType = LocalizedString::class;
   protected $metricDataType = '';
+  public $metric;
+  /**
+   * @var bool
+   */
   public $metricSpecific;
+  /**
+   * @var string
+   */
   public $severity;
   protected $shortMessageType = LocalizedString::class;
   protected $shortMessageDataType = '';
+  public $shortMessage;
 
   /**
    * @param LocalizedString
@@ -56,18 +65,30 @@ class DiagnosticMessage extends \Google\Model
   {
     return $this->metric;
   }
+  /**
+   * @param bool
+   */
   public function setMetricSpecific($metricSpecific)
   {
     $this->metricSpecific = $metricSpecific;
   }
+  /**
+   * @return bool
+   */
   public function getMetricSpecific()
   {
     return $this->metricSpecific;
   }
+  /**
+   * @param string
+   */
   public function setSeverity($severity)
   {
     $this->severity = $severity;
   }
+  /**
+   * @return string
+   */
   public function getSeverity()
   {
     return $this->severity;

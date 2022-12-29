@@ -22,6 +22,10 @@ class ListHoldsResponse extends \Google\Collection
   protected $collection_key = 'holds';
   protected $holdsType = Hold::class;
   protected $holdsDataType = 'array';
+  public $holds;
+  /**
+   * @var string
+   */
   public $nextPageToken;
 
   /**
@@ -38,10 +42,16 @@ class ListHoldsResponse extends \Google\Collection
   {
     return $this->holds;
   }
+  /**
+   * @param string
+   */
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
   }
+  /**
+   * @return string
+   */
   public function getNextPageToken()
   {
     return $this->nextPageToken;

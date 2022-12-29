@@ -22,19 +22,34 @@ class ParallelInstruction extends \Google\Collection
   protected $collection_key = 'outputs';
   protected $flattenType = FlattenInstruction::class;
   protected $flattenDataType = '';
+  public $flatten;
+  /**
+   * @var string
+   */
   public $name;
+  /**
+   * @var string
+   */
   public $originalName;
   protected $outputsType = InstructionOutput::class;
   protected $outputsDataType = 'array';
+  public $outputs;
   protected $parDoType = ParDoInstruction::class;
   protected $parDoDataType = '';
+  public $parDo;
   protected $partialGroupByKeyType = PartialGroupByKeyInstruction::class;
   protected $partialGroupByKeyDataType = '';
+  public $partialGroupByKey;
   protected $readType = ReadInstruction::class;
   protected $readDataType = '';
+  public $read;
+  /**
+   * @var string
+   */
   public $systemName;
   protected $writeType = WriteInstruction::class;
   protected $writeDataType = '';
+  public $write;
 
   /**
    * @param FlattenInstruction
@@ -50,18 +65,30 @@ class ParallelInstruction extends \Google\Collection
   {
     return $this->flatten;
   }
+  /**
+   * @param string
+   */
   public function setName($name)
   {
     $this->name = $name;
   }
+  /**
+   * @return string
+   */
   public function getName()
   {
     return $this->name;
   }
+  /**
+   * @param string
+   */
   public function setOriginalName($originalName)
   {
     $this->originalName = $originalName;
   }
+  /**
+   * @return string
+   */
   public function getOriginalName()
   {
     return $this->originalName;
@@ -122,10 +149,16 @@ class ParallelInstruction extends \Google\Collection
   {
     return $this->read;
   }
+  /**
+   * @param string
+   */
   public function setSystemName($systemName)
   {
     $this->systemName = $systemName;
   }
+  /**
+   * @return string
+   */
   public function getSystemName()
   {
     return $this->systemName;

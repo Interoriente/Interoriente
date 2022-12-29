@@ -21,7 +21,14 @@ class UnitInvoiceTaxLine extends \Google\Model
 {
   protected $taxAmountType = Price::class;
   protected $taxAmountDataType = '';
+  public $taxAmount;
+  /**
+   * @var string
+   */
   public $taxName;
+  /**
+   * @var string
+   */
   public $taxType;
 
   /**
@@ -38,18 +45,30 @@ class UnitInvoiceTaxLine extends \Google\Model
   {
     return $this->taxAmount;
   }
+  /**
+   * @param string
+   */
   public function setTaxName($taxName)
   {
     $this->taxName = $taxName;
   }
+  /**
+   * @return string
+   */
   public function getTaxName()
   {
     return $this->taxName;
   }
+  /**
+   * @param string
+   */
   public function setTaxType($taxType)
   {
     $this->taxType = $taxType;
   }
+  /**
+   * @return string
+   */
   public function getTaxType()
   {
     return $this->taxType;

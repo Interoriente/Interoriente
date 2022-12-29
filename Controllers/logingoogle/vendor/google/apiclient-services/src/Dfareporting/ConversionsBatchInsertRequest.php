@@ -22,8 +22,13 @@ class ConversionsBatchInsertRequest extends \Google\Collection
   protected $collection_key = 'conversions';
   protected $conversionsType = Conversion::class;
   protected $conversionsDataType = 'array';
+  public $conversions;
   protected $encryptionInfoType = EncryptionInfo::class;
   protected $encryptionInfoDataType = '';
+  public $encryptionInfo;
+  /**
+   * @var string
+   */
   public $kind;
 
   /**
@@ -54,10 +59,16 @@ class ConversionsBatchInsertRequest extends \Google\Collection
   {
     return $this->encryptionInfo;
   }
+  /**
+   * @param string
+   */
   public function setKind($kind)
   {
     $this->kind = $kind;
   }
+  /**
+   * @return string
+   */
   public function getKind()
   {
     return $this->kind;

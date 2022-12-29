@@ -22,7 +22,14 @@ class InventoryItemsListResponse extends \Google\Collection
   protected $collection_key = 'inventoryItems';
   protected $inventoryItemsType = InventoryItem::class;
   protected $inventoryItemsDataType = 'array';
+  public $inventoryItems;
+  /**
+   * @var string
+   */
   public $kind;
+  /**
+   * @var string
+   */
   public $nextPageToken;
 
   /**
@@ -39,18 +46,30 @@ class InventoryItemsListResponse extends \Google\Collection
   {
     return $this->inventoryItems;
   }
+  /**
+   * @param string
+   */
   public function setKind($kind)
   {
     $this->kind = $kind;
   }
+  /**
+   * @return string
+   */
   public function getKind()
   {
     return $this->kind;
   }
+  /**
+   * @param string
+   */
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
   }
+  /**
+   * @return string
+   */
   public function getNextPageToken()
   {
     return $this->nextPageToken;

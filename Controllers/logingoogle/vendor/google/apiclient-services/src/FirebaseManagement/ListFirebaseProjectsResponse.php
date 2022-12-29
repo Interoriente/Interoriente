@@ -20,14 +20,24 @@ namespace Google\Service\FirebaseManagement;
 class ListFirebaseProjectsResponse extends \Google\Collection
 {
   protected $collection_key = 'results';
+  /**
+   * @var string
+   */
   public $nextPageToken;
   protected $resultsType = FirebaseProject::class;
   protected $resultsDataType = 'array';
+  public $results;
 
+  /**
+   * @param string
+   */
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
   }
+  /**
+   * @return string
+   */
   public function getNextPageToken()
   {
     return $this->nextPageToken;

@@ -21,10 +21,18 @@ class PricingInfo extends \Google\Model
 {
   protected $aggregationInfoType = AggregationInfo::class;
   protected $aggregationInfoDataType = '';
+  public $aggregationInfo;
   public $currencyConversionRate;
+  /**
+   * @var string
+   */
   public $effectiveTime;
   protected $pricingExpressionType = PricingExpression::class;
   protected $pricingExpressionDataType = '';
+  public $pricingExpression;
+  /**
+   * @var string
+   */
   public $summary;
 
   /**
@@ -49,10 +57,16 @@ class PricingInfo extends \Google\Model
   {
     return $this->currencyConversionRate;
   }
+  /**
+   * @param string
+   */
   public function setEffectiveTime($effectiveTime)
   {
     $this->effectiveTime = $effectiveTime;
   }
+  /**
+   * @return string
+   */
   public function getEffectiveTime()
   {
     return $this->effectiveTime;
@@ -71,10 +85,16 @@ class PricingInfo extends \Google\Model
   {
     return $this->pricingExpression;
   }
+  /**
+   * @param string
+   */
   public function setSummary($summary)
   {
     $this->summary = $summary;
   }
+  /**
+   * @return string
+   */
   public function getSummary()
   {
     return $this->summary;

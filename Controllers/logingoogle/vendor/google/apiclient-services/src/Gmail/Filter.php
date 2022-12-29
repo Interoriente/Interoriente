@@ -21,8 +21,13 @@ class Filter extends \Google\Model
 {
   protected $actionType = FilterAction::class;
   protected $actionDataType = '';
+  public $action;
   protected $criteriaType = FilterCriteria::class;
   protected $criteriaDataType = '';
+  public $criteria;
+  /**
+   * @var string
+   */
   public $id;
 
   /**
@@ -53,10 +58,16 @@ class Filter extends \Google\Model
   {
     return $this->criteria;
   }
+  /**
+   * @param string
+   */
   public function setId($id)
   {
     $this->id = $id;
   }
+  /**
+   * @return string
+   */
   public function getId()
   {
     return $this->id;

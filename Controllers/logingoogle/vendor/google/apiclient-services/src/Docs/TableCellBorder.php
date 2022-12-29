@@ -21,9 +21,14 @@ class TableCellBorder extends \Google\Model
 {
   protected $colorType = OptionalColor::class;
   protected $colorDataType = '';
+  public $color;
+  /**
+   * @var string
+   */
   public $dashStyle;
   protected $widthType = Dimension::class;
   protected $widthDataType = '';
+  public $width;
 
   /**
    * @param OptionalColor
@@ -39,10 +44,16 @@ class TableCellBorder extends \Google\Model
   {
     return $this->color;
   }
+  /**
+   * @param string
+   */
   public function setDashStyle($dashStyle)
   {
     $this->dashStyle = $dashStyle;
   }
+  /**
+   * @return string
+   */
   public function getDashStyle()
   {
     return $this->dashStyle;

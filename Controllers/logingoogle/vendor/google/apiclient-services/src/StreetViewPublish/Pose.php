@@ -19,20 +19,35 @@ namespace Google\Service\StreetViewPublish;
 
 class Pose extends \Google\Model
 {
+  /**
+   * @var float
+   */
   public $accuracyMeters;
   public $altitude;
+  /**
+   * @var string
+   */
+  public $gpsRecordTimestampUnixEpoch;
   public $heading;
   protected $latLngPairType = LatLng::class;
   protected $latLngPairDataType = '';
+  public $latLngPair;
   protected $levelType = Level::class;
   protected $levelDataType = '';
+  public $level;
   public $pitch;
   public $roll;
 
+  /**
+   * @param float
+   */
   public function setAccuracyMeters($accuracyMeters)
   {
     $this->accuracyMeters = $accuracyMeters;
   }
+  /**
+   * @return float
+   */
   public function getAccuracyMeters()
   {
     return $this->accuracyMeters;
@@ -44,6 +59,20 @@ class Pose extends \Google\Model
   public function getAltitude()
   {
     return $this->altitude;
+  }
+  /**
+   * @param string
+   */
+  public function setGpsRecordTimestampUnixEpoch($gpsRecordTimestampUnixEpoch)
+  {
+    $this->gpsRecordTimestampUnixEpoch = $gpsRecordTimestampUnixEpoch;
+  }
+  /**
+   * @return string
+   */
+  public function getGpsRecordTimestampUnixEpoch()
+  {
+    return $this->gpsRecordTimestampUnixEpoch;
   }
   public function setHeading($heading)
   {

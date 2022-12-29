@@ -22,6 +22,10 @@ class UploadAccountResponse extends \Google\Collection
   protected $collection_key = 'error';
   protected $errorType = UploadAccountResponseError::class;
   protected $errorDataType = 'array';
+  public $error;
+  /**
+   * @var string
+   */
   public $kind;
 
   /**
@@ -38,10 +42,16 @@ class UploadAccountResponse extends \Google\Collection
   {
     return $this->error;
   }
+  /**
+   * @param string
+   */
   public function setKind($kind)
   {
     $this->kind = $kind;
   }
+  /**
+   * @return string
+   */
   public function getKind()
   {
     return $this->kind;

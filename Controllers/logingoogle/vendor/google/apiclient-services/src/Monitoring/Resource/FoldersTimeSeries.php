@@ -24,14 +24,13 @@ use Google\Service\Monitoring\ListTimeSeriesResponse;
  * Typical usage is:
  *  <code>
  *   $monitoringService = new Google\Service\Monitoring(...);
- *   $timeSeries = $monitoringService->timeSeries;
+ *   $timeSeries = $monitoringService->folders_timeSeries;
  *  </code>
  */
 class FoldersTimeSeries extends \Google\Service\Resource
 {
   /**
-   * Lists time series that match a filter. This method does not require a
-   * Workspace. (timeSeries.listFoldersTimeSeries)
+   * Lists time series that match a filter. (timeSeries.listFoldersTimeSeries)
    *
    * @param string $name Required. The project
    * (https://cloud.google.com/monitoring/api/v3#project_name), organization or

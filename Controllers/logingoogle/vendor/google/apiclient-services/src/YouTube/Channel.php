@@ -21,27 +21,46 @@ class Channel extends \Google\Model
 {
   protected $auditDetailsType = ChannelAuditDetails::class;
   protected $auditDetailsDataType = '';
+  public $auditDetails;
   protected $brandingSettingsType = ChannelBrandingSettings::class;
   protected $brandingSettingsDataType = '';
+  public $brandingSettings;
   protected $contentDetailsType = ChannelContentDetails::class;
   protected $contentDetailsDataType = '';
+  public $contentDetails;
   protected $contentOwnerDetailsType = ChannelContentOwnerDetails::class;
   protected $contentOwnerDetailsDataType = '';
+  public $contentOwnerDetails;
   protected $conversionPingsType = ChannelConversionPings::class;
   protected $conversionPingsDataType = '';
+  public $conversionPings;
+  /**
+   * @var string
+   */
   public $etag;
+  /**
+   * @var string
+   */
   public $id;
+  /**
+   * @var string
+   */
   public $kind;
   protected $localizationsType = ChannelLocalization::class;
   protected $localizationsDataType = 'map';
+  public $localizations;
   protected $snippetType = ChannelSnippet::class;
   protected $snippetDataType = '';
+  public $snippet;
   protected $statisticsType = ChannelStatistics::class;
   protected $statisticsDataType = '';
+  public $statistics;
   protected $statusType = ChannelStatus::class;
   protected $statusDataType = '';
+  public $status;
   protected $topicDetailsType = ChannelTopicDetails::class;
   protected $topicDetailsDataType = '';
+  public $topicDetails;
 
   /**
    * @param ChannelAuditDetails
@@ -113,26 +132,44 @@ class Channel extends \Google\Model
   {
     return $this->conversionPings;
   }
+  /**
+   * @param string
+   */
   public function setEtag($etag)
   {
     $this->etag = $etag;
   }
+  /**
+   * @return string
+   */
   public function getEtag()
   {
     return $this->etag;
   }
+  /**
+   * @param string
+   */
   public function setId($id)
   {
     $this->id = $id;
   }
+  /**
+   * @return string
+   */
   public function getId()
   {
     return $this->id;
   }
+  /**
+   * @param string
+   */
   public function setKind($kind)
   {
     $this->kind = $kind;
   }
+  /**
+   * @return string
+   */
   public function getKind()
   {
     return $this->kind;

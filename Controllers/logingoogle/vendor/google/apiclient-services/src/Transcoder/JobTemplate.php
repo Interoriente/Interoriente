@@ -21,6 +21,14 @@ class JobTemplate extends \Google\Model
 {
   protected $configType = JobConfig::class;
   protected $configDataType = '';
+  public $config;
+  /**
+   * @var string[]
+   */
+  public $labels;
+  /**
+   * @var string
+   */
   public $name;
 
   /**
@@ -37,10 +45,30 @@ class JobTemplate extends \Google\Model
   {
     return $this->config;
   }
+  /**
+   * @param string[]
+   */
+  public function setLabels($labels)
+  {
+    $this->labels = $labels;
+  }
+  /**
+   * @return string[]
+   */
+  public function getLabels()
+  {
+    return $this->labels;
+  }
+  /**
+   * @param string
+   */
   public function setName($name)
   {
     $this->name = $name;
   }
+  /**
+   * @return string
+   */
   public function getName()
   {
     return $this->name;

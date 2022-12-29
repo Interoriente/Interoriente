@@ -19,34 +19,63 @@ namespace Google\Service\ServiceControl;
 
 class RequestMetadata extends \Google\Model
 {
+  /**
+   * @var string
+   */
   public $callerIp;
+  /**
+   * @var string
+   */
   public $callerNetwork;
+  /**
+   * @var string
+   */
   public $callerSuppliedUserAgent;
   protected $destinationAttributesType = Peer::class;
   protected $destinationAttributesDataType = '';
+  public $destinationAttributes;
   protected $requestAttributesType = Request::class;
   protected $requestAttributesDataType = '';
+  public $requestAttributes;
 
+  /**
+   * @param string
+   */
   public function setCallerIp($callerIp)
   {
     $this->callerIp = $callerIp;
   }
+  /**
+   * @return string
+   */
   public function getCallerIp()
   {
     return $this->callerIp;
   }
+  /**
+   * @param string
+   */
   public function setCallerNetwork($callerNetwork)
   {
     $this->callerNetwork = $callerNetwork;
   }
+  /**
+   * @return string
+   */
   public function getCallerNetwork()
   {
     return $this->callerNetwork;
   }
+  /**
+   * @param string
+   */
   public function setCallerSuppliedUserAgent($callerSuppliedUserAgent)
   {
     $this->callerSuppliedUserAgent = $callerSuppliedUserAgent;
   }
+  /**
+   * @return string
+   */
   public function getCallerSuppliedUserAgent()
   {
     return $this->callerSuppliedUserAgent;

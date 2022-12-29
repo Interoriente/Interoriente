@@ -26,14 +26,15 @@ use Google\Service\Gmail\Thread;
  * Typical usage is:
  *  <code>
  *   $gmailService = new Google\Service\Gmail(...);
- *   $threads = $gmailService->threads;
+ *   $threads = $gmailService->users_threads;
  *  </code>
  */
 class UsersThreads extends \Google\Service\Resource
 {
   /**
-   * Immediately and permanently deletes the specified thread. This operation
-   * cannot be undone. Prefer `threads.trash` instead. (threads.delete)
+   * Immediately and permanently deletes the specified thread. Any messages that
+   * belong to the thread are also deleted. This operation cannot be undone.
+   * Prefer `threads.trash` instead. (threads.delete)
    *
    * @param string $userId The user's email address. The special value `me` can be
    * used to indicate the authenticated user.
@@ -110,7 +111,8 @@ class UsersThreads extends \Google\Service\Resource
     return $this->call('modify', [$params], Thread::class);
   }
   /**
-   * Moves the specified thread to the trash. (threads.trash)
+   * Moves the specified thread to the trash. Any messages that belong to the
+   * thread are also moved to the trash. (threads.trash)
    *
    * @param string $userId The user's email address. The special value `me` can be
    * used to indicate the authenticated user.
@@ -125,7 +127,8 @@ class UsersThreads extends \Google\Service\Resource
     return $this->call('trash', [$params], Thread::class);
   }
   /**
-   * Removes the specified thread from the trash. (threads.untrash)
+   * Removes the specified thread from the trash. Any messages that belong to the
+   * thread are also removed from the trash. (threads.untrash)
    *
    * @param string $userId The user's email address. The special value `me` can be
    * used to indicate the authenticated user.

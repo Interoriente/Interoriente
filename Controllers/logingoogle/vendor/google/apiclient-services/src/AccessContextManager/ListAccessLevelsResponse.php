@@ -22,6 +22,10 @@ class ListAccessLevelsResponse extends \Google\Collection
   protected $collection_key = 'accessLevels';
   protected $accessLevelsType = AccessLevel::class;
   protected $accessLevelsDataType = 'array';
+  public $accessLevels;
+  /**
+   * @var string
+   */
   public $nextPageToken;
 
   /**
@@ -38,10 +42,16 @@ class ListAccessLevelsResponse extends \Google\Collection
   {
     return $this->accessLevels;
   }
+  /**
+   * @param string
+   */
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
   }
+  /**
+   * @return string
+   */
   public function getNextPageToken()
   {
     return $this->nextPageToken;

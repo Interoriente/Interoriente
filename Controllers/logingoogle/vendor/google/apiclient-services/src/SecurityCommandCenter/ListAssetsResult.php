@@ -21,6 +21,10 @@ class ListAssetsResult extends \Google\Model
 {
   protected $assetType = Asset::class;
   protected $assetDataType = '';
+  public $asset;
+  /**
+   * @var string
+   */
   public $stateChange;
 
   /**
@@ -37,10 +41,16 @@ class ListAssetsResult extends \Google\Model
   {
     return $this->asset;
   }
+  /**
+   * @param string
+   */
   public function setStateChange($stateChange)
   {
     $this->stateChange = $stateChange;
   }
+  /**
+   * @return string
+   */
   public function getStateChange()
   {
     return $this->stateChange;

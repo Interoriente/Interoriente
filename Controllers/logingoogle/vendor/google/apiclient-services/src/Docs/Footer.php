@@ -22,6 +22,10 @@ class Footer extends \Google\Collection
   protected $collection_key = 'content';
   protected $contentType = StructuralElement::class;
   protected $contentDataType = 'array';
+  public $content;
+  /**
+   * @var string
+   */
   public $footerId;
 
   /**
@@ -38,10 +42,16 @@ class Footer extends \Google\Collection
   {
     return $this->content;
   }
+  /**
+   * @param string
+   */
   public function setFooterId($footerId)
   {
     $this->footerId = $footerId;
   }
+  /**
+   * @return string
+   */
   public function getFooterId()
   {
     return $this->footerId;

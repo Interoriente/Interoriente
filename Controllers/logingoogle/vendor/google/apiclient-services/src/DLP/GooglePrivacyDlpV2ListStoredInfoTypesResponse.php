@@ -20,14 +20,24 @@ namespace Google\Service\DLP;
 class GooglePrivacyDlpV2ListStoredInfoTypesResponse extends \Google\Collection
 {
   protected $collection_key = 'storedInfoTypes';
+  /**
+   * @var string
+   */
   public $nextPageToken;
   protected $storedInfoTypesType = GooglePrivacyDlpV2StoredInfoType::class;
   protected $storedInfoTypesDataType = 'array';
+  public $storedInfoTypes;
 
+  /**
+   * @param string
+   */
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
   }
+  /**
+   * @return string
+   */
   public function getNextPageToken()
   {
     return $this->nextPageToken;

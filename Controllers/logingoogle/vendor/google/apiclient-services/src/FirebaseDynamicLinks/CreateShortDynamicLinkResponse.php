@@ -20,23 +20,42 @@ namespace Google\Service\FirebaseDynamicLinks;
 class CreateShortDynamicLinkResponse extends \Google\Collection
 {
   protected $collection_key = 'warning';
+  /**
+   * @var string
+   */
   public $previewLink;
+  /**
+   * @var string
+   */
   public $shortLink;
   protected $warningType = DynamicLinkWarning::class;
   protected $warningDataType = 'array';
+  public $warning;
 
+  /**
+   * @param string
+   */
   public function setPreviewLink($previewLink)
   {
     $this->previewLink = $previewLink;
   }
+  /**
+   * @return string
+   */
   public function getPreviewLink()
   {
     return $this->previewLink;
   }
+  /**
+   * @param string
+   */
   public function setShortLink($shortLink)
   {
     $this->shortLink = $shortLink;
   }
+  /**
+   * @return string
+   */
   public function getShortLink()
   {
     return $this->shortLink;

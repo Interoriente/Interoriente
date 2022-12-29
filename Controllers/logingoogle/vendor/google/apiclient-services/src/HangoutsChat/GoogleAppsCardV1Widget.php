@@ -21,23 +21,31 @@ class GoogleAppsCardV1Widget extends \Google\Model
 {
   protected $buttonListType = GoogleAppsCardV1ButtonList::class;
   protected $buttonListDataType = '';
+  public $buttonList;
   protected $dateTimePickerType = GoogleAppsCardV1DateTimePicker::class;
   protected $dateTimePickerDataType = '';
+  public $dateTimePicker;
   protected $decoratedTextType = GoogleAppsCardV1DecoratedText::class;
   protected $decoratedTextDataType = '';
+  public $decoratedText;
   protected $dividerType = GoogleAppsCardV1Divider::class;
   protected $dividerDataType = '';
+  public $divider;
   protected $gridType = GoogleAppsCardV1Grid::class;
   protected $gridDataType = '';
-  public $horizontalAlignment;
+  public $grid;
   protected $imageType = GoogleAppsCardV1Image::class;
   protected $imageDataType = '';
+  public $image;
   protected $selectionInputType = GoogleAppsCardV1SelectionInput::class;
   protected $selectionInputDataType = '';
+  public $selectionInput;
   protected $textInputType = GoogleAppsCardV1TextInput::class;
   protected $textInputDataType = '';
+  public $textInput;
   protected $textParagraphType = GoogleAppsCardV1TextParagraph::class;
   protected $textParagraphDataType = '';
+  public $textParagraph;
 
   /**
    * @param GoogleAppsCardV1ButtonList
@@ -108,14 +116,6 @@ class GoogleAppsCardV1Widget extends \Google\Model
   public function getGrid()
   {
     return $this->grid;
-  }
-  public function setHorizontalAlignment($horizontalAlignment)
-  {
-    $this->horizontalAlignment = $horizontalAlignment;
-  }
-  public function getHorizontalAlignment()
-  {
-    return $this->horizontalAlignment;
   }
   /**
    * @param GoogleAppsCardV1Image

@@ -21,9 +21,14 @@ class GooglePrivacyDlpV2Condition extends \Google\Model
 {
   protected $fieldType = GooglePrivacyDlpV2FieldId::class;
   protected $fieldDataType = '';
+  public $field;
+  /**
+   * @var string
+   */
   public $operator;
   protected $valueType = GooglePrivacyDlpV2Value::class;
   protected $valueDataType = '';
+  public $value;
 
   /**
    * @param GooglePrivacyDlpV2FieldId
@@ -39,10 +44,16 @@ class GooglePrivacyDlpV2Condition extends \Google\Model
   {
     return $this->field;
   }
+  /**
+   * @param string
+   */
   public function setOperator($operator)
   {
     $this->operator = $operator;
   }
+  /**
+   * @return string
+   */
   public function getOperator()
   {
     return $this->operator;

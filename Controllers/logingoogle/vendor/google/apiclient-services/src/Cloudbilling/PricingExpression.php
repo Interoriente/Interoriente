@@ -20,19 +20,38 @@ namespace Google\Service\Cloudbilling;
 class PricingExpression extends \Google\Collection
 {
   protected $collection_key = 'tieredRates';
+  /**
+   * @var string
+   */
   public $baseUnit;
   public $baseUnitConversionFactor;
+  /**
+   * @var string
+   */
   public $baseUnitDescription;
   public $displayQuantity;
   protected $tieredRatesType = TierRate::class;
   protected $tieredRatesDataType = 'array';
+  public $tieredRates;
+  /**
+   * @var string
+   */
   public $usageUnit;
+  /**
+   * @var string
+   */
   public $usageUnitDescription;
 
+  /**
+   * @param string
+   */
   public function setBaseUnit($baseUnit)
   {
     $this->baseUnit = $baseUnit;
   }
+  /**
+   * @return string
+   */
   public function getBaseUnit()
   {
     return $this->baseUnit;
@@ -45,10 +64,16 @@ class PricingExpression extends \Google\Collection
   {
     return $this->baseUnitConversionFactor;
   }
+  /**
+   * @param string
+   */
   public function setBaseUnitDescription($baseUnitDescription)
   {
     $this->baseUnitDescription = $baseUnitDescription;
   }
+  /**
+   * @return string
+   */
   public function getBaseUnitDescription()
   {
     return $this->baseUnitDescription;
@@ -75,18 +100,30 @@ class PricingExpression extends \Google\Collection
   {
     return $this->tieredRates;
   }
+  /**
+   * @param string
+   */
   public function setUsageUnit($usageUnit)
   {
     $this->usageUnit = $usageUnit;
   }
+  /**
+   * @return string
+   */
   public function getUsageUnit()
   {
     return $this->usageUnit;
   }
+  /**
+   * @param string
+   */
   public function setUsageUnitDescription($usageUnitDescription)
   {
     $this->usageUnitDescription = $usageUnitDescription;
   }
+  /**
+   * @return string
+   */
   public function getUsageUnitDescription()
   {
     return $this->usageUnitDescription;

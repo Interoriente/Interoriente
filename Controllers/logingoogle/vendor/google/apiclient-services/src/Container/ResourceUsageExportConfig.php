@@ -21,8 +21,13 @@ class ResourceUsageExportConfig extends \Google\Model
 {
   protected $bigqueryDestinationType = BigQueryDestination::class;
   protected $bigqueryDestinationDataType = '';
+  public $bigqueryDestination;
   protected $consumptionMeteringConfigType = ConsumptionMeteringConfig::class;
   protected $consumptionMeteringConfigDataType = '';
+  public $consumptionMeteringConfig;
+  /**
+   * @var bool
+   */
   public $enableNetworkEgressMetering;
 
   /**
@@ -53,10 +58,16 @@ class ResourceUsageExportConfig extends \Google\Model
   {
     return $this->consumptionMeteringConfig;
   }
+  /**
+   * @param bool
+   */
   public function setEnableNetworkEgressMetering($enableNetworkEgressMetering)
   {
     $this->enableNetworkEgressMetering = $enableNetworkEgressMetering;
   }
+  /**
+   * @return bool
+   */
   public function getEnableNetworkEgressMetering()
   {
     return $this->enableNetworkEgressMetering;

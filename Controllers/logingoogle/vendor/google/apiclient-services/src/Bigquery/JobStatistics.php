@@ -24,31 +24,72 @@ class JobStatistics extends \Google\Collection
         "reservationId" => "reservation_id",
   ];
   public $completionRatio;
+  protected $copyType = JobStatistics5::class;
+  protected $copyDataType = '';
+  public $copy;
+  /**
+   * @var string
+   */
   public $creationTime;
+  protected $dataMaskingStatisticsType = DataMaskingStatistics::class;
+  protected $dataMaskingStatisticsDataType = '';
+  public $dataMaskingStatistics;
+  /**
+   * @var string
+   */
   public $endTime;
   protected $extractType = JobStatistics4::class;
   protected $extractDataType = '';
+  public $extract;
   protected $loadType = JobStatistics3::class;
   protected $loadDataType = '';
+  public $load;
+  /**
+   * @var string
+   */
   public $numChildJobs;
+  /**
+   * @var string
+   */
   public $parentJobId;
   protected $queryType = JobStatistics2::class;
   protected $queryDataType = '';
+  public $query;
+  /**
+   * @var string[]
+   */
   public $quotaDeferments;
   protected $reservationUsageType = JobStatisticsReservationUsage::class;
   protected $reservationUsageDataType = 'array';
+  public $reservationUsage;
+  /**
+   * @var string
+   */
   public $reservationId;
   protected $rowLevelSecurityStatisticsType = RowLevelSecurityStatistics::class;
   protected $rowLevelSecurityStatisticsDataType = '';
+  public $rowLevelSecurityStatistics;
   protected $scriptStatisticsType = ScriptStatistics::class;
   protected $scriptStatisticsDataType = '';
+  public $scriptStatistics;
   protected $sessionInfoType = SessionInfo::class;
   protected $sessionInfoDataType = '';
+  public $sessionInfo;
+  /**
+   * @var string
+   */
   public $startTime;
+  /**
+   * @var string
+   */
   public $totalBytesProcessed;
+  /**
+   * @var string
+   */
   public $totalSlotMs;
   protected $transactionInfoType = TransactionInfo::class;
   protected $transactionInfoDataType = '';
+  public $transactionInfo;
 
   public function setCompletionRatio($completionRatio)
   {
@@ -58,18 +99,58 @@ class JobStatistics extends \Google\Collection
   {
     return $this->completionRatio;
   }
+  /**
+   * @param JobStatistics5
+   */
+  public function setCopy(JobStatistics5 $copy)
+  {
+    $this->copy = $copy;
+  }
+  /**
+   * @return JobStatistics5
+   */
+  public function getCopy()
+  {
+    return $this->copy;
+  }
+  /**
+   * @param string
+   */
   public function setCreationTime($creationTime)
   {
     $this->creationTime = $creationTime;
   }
+  /**
+   * @return string
+   */
   public function getCreationTime()
   {
     return $this->creationTime;
   }
+  /**
+   * @param DataMaskingStatistics
+   */
+  public function setDataMaskingStatistics(DataMaskingStatistics $dataMaskingStatistics)
+  {
+    $this->dataMaskingStatistics = $dataMaskingStatistics;
+  }
+  /**
+   * @return DataMaskingStatistics
+   */
+  public function getDataMaskingStatistics()
+  {
+    return $this->dataMaskingStatistics;
+  }
+  /**
+   * @param string
+   */
   public function setEndTime($endTime)
   {
     $this->endTime = $endTime;
   }
+  /**
+   * @return string
+   */
   public function getEndTime()
   {
     return $this->endTime;
@@ -102,18 +183,30 @@ class JobStatistics extends \Google\Collection
   {
     return $this->load;
   }
+  /**
+   * @param string
+   */
   public function setNumChildJobs($numChildJobs)
   {
     $this->numChildJobs = $numChildJobs;
   }
+  /**
+   * @return string
+   */
   public function getNumChildJobs()
   {
     return $this->numChildJobs;
   }
+  /**
+   * @param string
+   */
   public function setParentJobId($parentJobId)
   {
     $this->parentJobId = $parentJobId;
   }
+  /**
+   * @return string
+   */
   public function getParentJobId()
   {
     return $this->parentJobId;
@@ -132,10 +225,16 @@ class JobStatistics extends \Google\Collection
   {
     return $this->query;
   }
+  /**
+   * @param string[]
+   */
   public function setQuotaDeferments($quotaDeferments)
   {
     $this->quotaDeferments = $quotaDeferments;
   }
+  /**
+   * @return string[]
+   */
   public function getQuotaDeferments()
   {
     return $this->quotaDeferments;
@@ -154,10 +253,16 @@ class JobStatistics extends \Google\Collection
   {
     return $this->reservationUsage;
   }
+  /**
+   * @param string
+   */
   public function setReservationId($reservationId)
   {
     $this->reservationId = $reservationId;
   }
+  /**
+   * @return string
+   */
   public function getReservationId()
   {
     return $this->reservationId;
@@ -204,26 +309,44 @@ class JobStatistics extends \Google\Collection
   {
     return $this->sessionInfo;
   }
+  /**
+   * @param string
+   */
   public function setStartTime($startTime)
   {
     $this->startTime = $startTime;
   }
+  /**
+   * @return string
+   */
   public function getStartTime()
   {
     return $this->startTime;
   }
+  /**
+   * @param string
+   */
   public function setTotalBytesProcessed($totalBytesProcessed)
   {
     $this->totalBytesProcessed = $totalBytesProcessed;
   }
+  /**
+   * @return string
+   */
   public function getTotalBytesProcessed()
   {
     return $this->totalBytesProcessed;
   }
+  /**
+   * @param string
+   */
   public function setTotalSlotMs($totalSlotMs)
   {
     $this->totalSlotMs = $totalSlotMs;
   }
+  /**
+   * @return string
+   */
   public function getTotalSlotMs()
   {
     return $this->totalSlotMs;

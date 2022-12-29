@@ -22,13 +22,20 @@ class GoogleCloudDatalabelingV1beta1Example extends \Google\Collection
   protected $collection_key = 'annotations';
   protected $annotationsType = GoogleCloudDatalabelingV1beta1Annotation::class;
   protected $annotationsDataType = 'array';
+  public $annotations;
   protected $imagePayloadType = GoogleCloudDatalabelingV1beta1ImagePayload::class;
   protected $imagePayloadDataType = '';
+  public $imagePayload;
+  /**
+   * @var string
+   */
   public $name;
   protected $textPayloadType = GoogleCloudDatalabelingV1beta1TextPayload::class;
   protected $textPayloadDataType = '';
+  public $textPayload;
   protected $videoPayloadType = GoogleCloudDatalabelingV1beta1VideoPayload::class;
   protected $videoPayloadDataType = '';
+  public $videoPayload;
 
   /**
    * @param GoogleCloudDatalabelingV1beta1Annotation[]
@@ -58,10 +65,16 @@ class GoogleCloudDatalabelingV1beta1Example extends \Google\Collection
   {
     return $this->imagePayload;
   }
+  /**
+   * @param string
+   */
   public function setName($name)
   {
     $this->name = $name;
   }
+  /**
+   * @return string
+   */
   public function getName()
   {
     return $this->name;

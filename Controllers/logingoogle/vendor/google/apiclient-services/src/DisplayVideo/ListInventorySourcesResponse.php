@@ -22,6 +22,10 @@ class ListInventorySourcesResponse extends \Google\Collection
   protected $collection_key = 'inventorySources';
   protected $inventorySourcesType = InventorySource::class;
   protected $inventorySourcesDataType = 'array';
+  public $inventorySources;
+  /**
+   * @var string
+   */
   public $nextPageToken;
 
   /**
@@ -38,10 +42,16 @@ class ListInventorySourcesResponse extends \Google\Collection
   {
     return $this->inventorySources;
   }
+  /**
+   * @param string
+   */
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
   }
+  /**
+   * @return string
+   */
   public function getNextPageToken()
   {
     return $this->nextPageToken;

@@ -22,6 +22,10 @@ class ListClientsResponse extends \Google\Collection
   protected $collection_key = 'clients';
   protected $clientsType = Client::class;
   protected $clientsDataType = 'array';
+  public $clients;
+  /**
+   * @var string
+   */
   public $nextPageToken;
 
   /**
@@ -38,10 +42,16 @@ class ListClientsResponse extends \Google\Collection
   {
     return $this->clients;
   }
+  /**
+   * @param string
+   */
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
   }
+  /**
+   * @return string
+   */
   public function getNextPageToken()
   {
     return $this->nextPageToken;

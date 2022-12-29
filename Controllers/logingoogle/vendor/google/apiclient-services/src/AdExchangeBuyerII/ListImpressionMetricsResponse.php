@@ -22,6 +22,10 @@ class ListImpressionMetricsResponse extends \Google\Collection
   protected $collection_key = 'impressionMetricsRows';
   protected $impressionMetricsRowsType = ImpressionMetricsRow::class;
   protected $impressionMetricsRowsDataType = 'array';
+  public $impressionMetricsRows;
+  /**
+   * @var string
+   */
   public $nextPageToken;
 
   /**
@@ -38,10 +42,16 @@ class ListImpressionMetricsResponse extends \Google\Collection
   {
     return $this->impressionMetricsRows;
   }
+  /**
+   * @param string
+   */
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
   }
+  /**
+   * @return string
+   */
   public function getNextPageToken()
   {
     return $this->nextPageToken;

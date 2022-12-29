@@ -18,11 +18,11 @@
 namespace Google\Service\CloudDebugger\Resource;
 
 /**
- * The "Controller" collection of methods.
+ * The "controller" collection of methods.
  * Typical usage is:
  *  <code>
  *   $clouddebuggerService = new Google\Service\CloudDebugger(...);
- *   $Controller = $clouddebuggerService->Controller;
+ *   $controller = $clouddebuggerService->controller;
  *  </code>
  */
 class Controller extends \Google\Service\Resource

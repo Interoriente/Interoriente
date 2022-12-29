@@ -22,19 +22,34 @@ class Page extends \Google\Collection
   protected $collection_key = 'pageElements';
   protected $layoutPropertiesType = LayoutProperties::class;
   protected $layoutPropertiesDataType = '';
+  public $layoutProperties;
   protected $masterPropertiesType = MasterProperties::class;
   protected $masterPropertiesDataType = '';
+  public $masterProperties;
   protected $notesPropertiesType = NotesProperties::class;
   protected $notesPropertiesDataType = '';
+  public $notesProperties;
+  /**
+   * @var string
+   */
   public $objectId;
   protected $pageElementsType = PageElement::class;
   protected $pageElementsDataType = 'array';
+  public $pageElements;
   protected $pagePropertiesType = PageProperties::class;
   protected $pagePropertiesDataType = '';
+  public $pageProperties;
+  /**
+   * @var string
+   */
   public $pageType;
+  /**
+   * @var string
+   */
   public $revisionId;
   protected $slidePropertiesType = SlideProperties::class;
   protected $slidePropertiesDataType = '';
+  public $slideProperties;
 
   /**
    * @param LayoutProperties
@@ -78,10 +93,16 @@ class Page extends \Google\Collection
   {
     return $this->notesProperties;
   }
+  /**
+   * @param string
+   */
   public function setObjectId($objectId)
   {
     $this->objectId = $objectId;
   }
+  /**
+   * @return string
+   */
   public function getObjectId()
   {
     return $this->objectId;
@@ -114,18 +135,30 @@ class Page extends \Google\Collection
   {
     return $this->pageProperties;
   }
+  /**
+   * @param string
+   */
   public function setPageType($pageType)
   {
     $this->pageType = $pageType;
   }
+  /**
+   * @return string
+   */
   public function getPageType()
   {
     return $this->pageType;
   }
+  /**
+   * @param string
+   */
   public function setRevisionId($revisionId)
   {
     $this->revisionId = $revisionId;
   }
+  /**
+   * @return string
+   */
   public function getRevisionId()
   {
     return $this->revisionId;

@@ -21,6 +21,10 @@ class UnitInvoiceAdditionalCharge extends \Google\Model
 {
   protected $additionalChargeAmountType = Amount::class;
   protected $additionalChargeAmountDataType = '';
+  public $additionalChargeAmount;
+  /**
+   * @var string
+   */
   public $type;
 
   /**
@@ -37,10 +41,16 @@ class UnitInvoiceAdditionalCharge extends \Google\Model
   {
     return $this->additionalChargeAmount;
   }
+  /**
+   * @param string
+   */
   public function setType($type)
   {
     $this->type = $type;
   }
+  /**
+   * @return string
+   */
   public function getType()
   {
     return $this->type;

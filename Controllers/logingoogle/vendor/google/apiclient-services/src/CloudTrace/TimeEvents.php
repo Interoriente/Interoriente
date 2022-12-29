@@ -20,23 +20,42 @@ namespace Google\Service\CloudTrace;
 class TimeEvents extends \Google\Collection
 {
   protected $collection_key = 'timeEvent';
+  /**
+   * @var int
+   */
   public $droppedAnnotationsCount;
+  /**
+   * @var int
+   */
   public $droppedMessageEventsCount;
   protected $timeEventType = TimeEvent::class;
   protected $timeEventDataType = 'array';
+  public $timeEvent;
 
+  /**
+   * @param int
+   */
   public function setDroppedAnnotationsCount($droppedAnnotationsCount)
   {
     $this->droppedAnnotationsCount = $droppedAnnotationsCount;
   }
+  /**
+   * @return int
+   */
   public function getDroppedAnnotationsCount()
   {
     return $this->droppedAnnotationsCount;
   }
+  /**
+   * @param int
+   */
   public function setDroppedMessageEventsCount($droppedMessageEventsCount)
   {
     $this->droppedMessageEventsCount = $droppedMessageEventsCount;
   }
+  /**
+   * @return int
+   */
   public function getDroppedMessageEventsCount()
   {
     return $this->droppedMessageEventsCount;

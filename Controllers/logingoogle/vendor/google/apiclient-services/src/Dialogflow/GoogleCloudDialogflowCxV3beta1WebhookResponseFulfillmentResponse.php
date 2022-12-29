@@ -20,14 +20,24 @@ namespace Google\Service\Dialogflow;
 class GoogleCloudDialogflowCxV3beta1WebhookResponseFulfillmentResponse extends \Google\Collection
 {
   protected $collection_key = 'messages';
+  /**
+   * @var string
+   */
   public $mergeBehavior;
   protected $messagesType = GoogleCloudDialogflowCxV3beta1ResponseMessage::class;
   protected $messagesDataType = 'array';
+  public $messages;
 
+  /**
+   * @param string
+   */
   public function setMergeBehavior($mergeBehavior)
   {
     $this->mergeBehavior = $mergeBehavior;
   }
+  /**
+   * @return string
+   */
   public function getMergeBehavior()
   {
     return $this->mergeBehavior;

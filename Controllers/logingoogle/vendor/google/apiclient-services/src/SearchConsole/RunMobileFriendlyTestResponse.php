@@ -20,20 +20,33 @@ namespace Google\Service\SearchConsole;
 class RunMobileFriendlyTestResponse extends \Google\Collection
 {
   protected $collection_key = 'resourceIssues';
+  /**
+   * @var string
+   */
   public $mobileFriendliness;
   protected $mobileFriendlyIssuesType = MobileFriendlyIssue::class;
   protected $mobileFriendlyIssuesDataType = 'array';
+  public $mobileFriendlyIssues;
   protected $resourceIssuesType = ResourceIssue::class;
   protected $resourceIssuesDataType = 'array';
+  public $resourceIssues;
   protected $screenshotType = Image::class;
   protected $screenshotDataType = '';
+  public $screenshot;
   protected $testStatusType = TestStatus::class;
   protected $testStatusDataType = '';
+  public $testStatus;
 
+  /**
+   * @param string
+   */
   public function setMobileFriendliness($mobileFriendliness)
   {
     $this->mobileFriendliness = $mobileFriendliness;
   }
+  /**
+   * @return string
+   */
   public function getMobileFriendliness()
   {
     return $this->mobileFriendliness;

@@ -22,10 +22,16 @@ class AnnotateFileRequest extends \Google\Collection
   protected $collection_key = 'pages';
   protected $featuresType = Feature::class;
   protected $featuresDataType = 'array';
+  public $features;
   protected $imageContextType = ImageContext::class;
   protected $imageContextDataType = '';
+  public $imageContext;
   protected $inputConfigType = InputConfig::class;
   protected $inputConfigDataType = '';
+  public $inputConfig;
+  /**
+   * @var int[]
+   */
   public $pages;
 
   /**
@@ -70,10 +76,16 @@ class AnnotateFileRequest extends \Google\Collection
   {
     return $this->inputConfig;
   }
+  /**
+   * @param int[]
+   */
   public function setPages($pages)
   {
     $this->pages = $pages;
   }
+  /**
+   * @return int[]
+   */
   public function getPages()
   {
     return $this->pages;

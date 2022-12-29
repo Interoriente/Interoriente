@@ -19,15 +19,28 @@ namespace Google\Service\Vision;
 
 class InputConfig extends \Google\Model
 {
+  /**
+   * @var string
+   */
   public $content;
   protected $gcsSourceType = GcsSource::class;
   protected $gcsSourceDataType = '';
+  public $gcsSource;
+  /**
+   * @var string
+   */
   public $mimeType;
 
+  /**
+   * @param string
+   */
   public function setContent($content)
   {
     $this->content = $content;
   }
+  /**
+   * @return string
+   */
   public function getContent()
   {
     return $this->content;
@@ -46,10 +59,16 @@ class InputConfig extends \Google\Model
   {
     return $this->gcsSource;
   }
+  /**
+   * @param string
+   */
   public function setMimeType($mimeType)
   {
     $this->mimeType = $mimeType;
   }
+  /**
+   * @return string
+   */
   public function getMimeType()
   {
     return $this->mimeType;

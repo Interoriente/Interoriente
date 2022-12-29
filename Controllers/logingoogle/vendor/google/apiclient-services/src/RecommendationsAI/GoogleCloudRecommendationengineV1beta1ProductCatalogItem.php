@@ -20,46 +20,88 @@ namespace Google\Service\RecommendationsAI;
 class GoogleCloudRecommendationengineV1beta1ProductCatalogItem extends \Google\Collection
 {
   protected $collection_key = 'images';
+  /**
+   * @var string
+   */
   public $availableQuantity;
+  /**
+   * @var string
+   */
   public $canonicalProductUri;
+  /**
+   * @var float[]
+   */
   public $costs;
+  /**
+   * @var string
+   */
   public $currencyCode;
   protected $exactPriceType = GoogleCloudRecommendationengineV1beta1ProductCatalogItemExactPrice::class;
   protected $exactPriceDataType = '';
+  public $exactPrice;
   protected $imagesType = GoogleCloudRecommendationengineV1beta1Image::class;
   protected $imagesDataType = 'array';
+  public $images;
   protected $priceRangeType = GoogleCloudRecommendationengineV1beta1ProductCatalogItemPriceRange::class;
   protected $priceRangeDataType = '';
+  public $priceRange;
+  /**
+   * @var string
+   */
   public $stockState;
 
+  /**
+   * @param string
+   */
   public function setAvailableQuantity($availableQuantity)
   {
     $this->availableQuantity = $availableQuantity;
   }
+  /**
+   * @return string
+   */
   public function getAvailableQuantity()
   {
     return $this->availableQuantity;
   }
+  /**
+   * @param string
+   */
   public function setCanonicalProductUri($canonicalProductUri)
   {
     $this->canonicalProductUri = $canonicalProductUri;
   }
+  /**
+   * @return string
+   */
   public function getCanonicalProductUri()
   {
     return $this->canonicalProductUri;
   }
+  /**
+   * @param float[]
+   */
   public function setCosts($costs)
   {
     $this->costs = $costs;
   }
+  /**
+   * @return float[]
+   */
   public function getCosts()
   {
     return $this->costs;
   }
+  /**
+   * @param string
+   */
   public function setCurrencyCode($currencyCode)
   {
     $this->currencyCode = $currencyCode;
   }
+  /**
+   * @return string
+   */
   public function getCurrencyCode()
   {
     return $this->currencyCode;
@@ -106,10 +148,16 @@ class GoogleCloudRecommendationengineV1beta1ProductCatalogItem extends \Google\C
   {
     return $this->priceRange;
   }
+  /**
+   * @param string
+   */
   public function setStockState($stockState)
   {
     $this->stockState = $stockState;
   }
+  /**
+   * @return string
+   */
   public function getStockState()
   {
     return $this->stockState;

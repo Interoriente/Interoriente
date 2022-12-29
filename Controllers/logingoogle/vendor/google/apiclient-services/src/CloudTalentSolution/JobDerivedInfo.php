@@ -20,14 +20,24 @@ namespace Google\Service\CloudTalentSolution;
 class JobDerivedInfo extends \Google\Collection
 {
   protected $collection_key = 'locations';
+  /**
+   * @var string[]
+   */
   public $jobCategories;
   protected $locationsType = Location::class;
   protected $locationsDataType = 'array';
+  public $locations;
 
+  /**
+   * @param string[]
+   */
   public function setJobCategories($jobCategories)
   {
     $this->jobCategories = $jobCategories;
   }
+  /**
+   * @return string[]
+   */
   public function getJobCategories()
   {
     return $this->jobCategories;

@@ -20,27 +20,48 @@ namespace Google\Service\ShoppingContent;
 class OrderinvoicesCreateRefundInvoiceRequest extends \Google\Collection
 {
   protected $collection_key = 'shipmentInvoices';
+  /**
+   * @var string
+   */
   public $invoiceId;
+  /**
+   * @var string
+   */
   public $operationId;
   protected $refundOnlyOptionType = OrderinvoicesCustomBatchRequestEntryCreateRefundInvoiceRefundOption::class;
   protected $refundOnlyOptionDataType = '';
+  public $refundOnlyOption;
   protected $returnOptionType = OrderinvoicesCustomBatchRequestEntryCreateRefundInvoiceReturnOption::class;
   protected $returnOptionDataType = '';
+  public $returnOption;
   protected $shipmentInvoicesType = ShipmentInvoice::class;
   protected $shipmentInvoicesDataType = 'array';
+  public $shipmentInvoices;
 
+  /**
+   * @param string
+   */
   public function setInvoiceId($invoiceId)
   {
     $this->invoiceId = $invoiceId;
   }
+  /**
+   * @return string
+   */
   public function getInvoiceId()
   {
     return $this->invoiceId;
   }
+  /**
+   * @param string
+   */
   public function setOperationId($operationId)
   {
     $this->operationId = $operationId;
   }
+  /**
+   * @return string
+   */
   public function getOperationId()
   {
     return $this->operationId;

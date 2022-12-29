@@ -22,6 +22,10 @@ class ListBillingAccountsResponse extends \Google\Collection
   protected $collection_key = 'billingAccounts';
   protected $billingAccountsType = BillingAccount::class;
   protected $billingAccountsDataType = 'array';
+  public $billingAccounts;
+  /**
+   * @var string
+   */
   public $nextPageToken;
 
   /**
@@ -38,10 +42,16 @@ class ListBillingAccountsResponse extends \Google\Collection
   {
     return $this->billingAccounts;
   }
+  /**
+   * @param string
+   */
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
   }
+  /**
+   * @return string
+   */
   public function getNextPageToken()
   {
     return $this->nextPageToken;

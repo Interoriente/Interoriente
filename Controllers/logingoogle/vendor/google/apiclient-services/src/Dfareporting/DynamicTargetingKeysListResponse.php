@@ -22,6 +22,10 @@ class DynamicTargetingKeysListResponse extends \Google\Collection
   protected $collection_key = 'dynamicTargetingKeys';
   protected $dynamicTargetingKeysType = DynamicTargetingKey::class;
   protected $dynamicTargetingKeysDataType = 'array';
+  public $dynamicTargetingKeys;
+  /**
+   * @var string
+   */
   public $kind;
 
   /**
@@ -38,10 +42,16 @@ class DynamicTargetingKeysListResponse extends \Google\Collection
   {
     return $this->dynamicTargetingKeys;
   }
+  /**
+   * @param string
+   */
   public function setKind($kind)
   {
     $this->kind = $kind;
   }
+  /**
+   * @return string
+   */
   public function getKind()
   {
     return $this->kind;

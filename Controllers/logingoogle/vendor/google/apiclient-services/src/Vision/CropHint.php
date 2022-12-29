@@ -21,7 +21,14 @@ class CropHint extends \Google\Model
 {
   protected $boundingPolyType = BoundingPoly::class;
   protected $boundingPolyDataType = '';
+  public $boundingPoly;
+  /**
+   * @var float
+   */
   public $confidence;
+  /**
+   * @var float
+   */
   public $importanceFraction;
 
   /**
@@ -38,18 +45,30 @@ class CropHint extends \Google\Model
   {
     return $this->boundingPoly;
   }
+  /**
+   * @param float
+   */
   public function setConfidence($confidence)
   {
     $this->confidence = $confidence;
   }
+  /**
+   * @return float
+   */
   public function getConfidence()
   {
     return $this->confidence;
   }
+  /**
+   * @param float
+   */
   public function setImportanceFraction($importanceFraction)
   {
     $this->importanceFraction = $importanceFraction;
   }
+  /**
+   * @return float
+   */
   public function getImportanceFraction()
   {
     return $this->importanceFraction;

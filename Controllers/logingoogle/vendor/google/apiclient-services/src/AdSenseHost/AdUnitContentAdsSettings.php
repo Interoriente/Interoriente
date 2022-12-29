@@ -21,7 +21,14 @@ class AdUnitContentAdsSettings extends \Google\Model
 {
   protected $backupOptionType = AdUnitContentAdsSettingsBackupOption::class;
   protected $backupOptionDataType = '';
+  public $backupOption;
+  /**
+   * @var string
+   */
   public $size;
+  /**
+   * @var string
+   */
   public $type;
 
   /**
@@ -38,18 +45,30 @@ class AdUnitContentAdsSettings extends \Google\Model
   {
     return $this->backupOption;
   }
+  /**
+   * @param string
+   */
   public function setSize($size)
   {
     $this->size = $size;
   }
+  /**
+   * @return string
+   */
   public function getSize()
   {
     return $this->size;
   }
+  /**
+   * @param string
+   */
   public function setType($type)
   {
     $this->type = $type;
   }
+  /**
+   * @return string
+   */
   public function getType()
   {
     return $this->type;

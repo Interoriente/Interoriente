@@ -22,7 +22,14 @@ class ListAcceleratorTypesResponse extends \Google\Collection
   protected $collection_key = 'unreachable';
   protected $acceleratorTypesType = AcceleratorType::class;
   protected $acceleratorTypesDataType = 'array';
+  public $acceleratorTypes;
+  /**
+   * @var string
+   */
   public $nextPageToken;
+  /**
+   * @var string[]
+   */
   public $unreachable;
 
   /**
@@ -39,18 +46,30 @@ class ListAcceleratorTypesResponse extends \Google\Collection
   {
     return $this->acceleratorTypes;
   }
+  /**
+   * @param string
+   */
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
   }
+  /**
+   * @return string
+   */
   public function getNextPageToken()
   {
     return $this->nextPageToken;
   }
+  /**
+   * @param string[]
+   */
   public function setUnreachable($unreachable)
   {
     $this->unreachable = $unreachable;
   }
+  /**
+   * @return string[]
+   */
   public function getUnreachable()
   {
     return $this->unreachable;

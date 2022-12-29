@@ -22,12 +22,21 @@ class GooglePrivacyDlpV2StoredInfoTypeVersion extends \Google\Collection
   protected $collection_key = 'errors';
   protected $configType = GooglePrivacyDlpV2StoredInfoTypeConfig::class;
   protected $configDataType = '';
+  public $config;
+  /**
+   * @var string
+   */
   public $createTime;
   protected $errorsType = GooglePrivacyDlpV2Error::class;
   protected $errorsDataType = 'array';
+  public $errors;
+  /**
+   * @var string
+   */
   public $state;
   protected $statsType = GooglePrivacyDlpV2StoredInfoTypeStats::class;
   protected $statsDataType = '';
+  public $stats;
 
   /**
    * @param GooglePrivacyDlpV2StoredInfoTypeConfig
@@ -43,10 +52,16 @@ class GooglePrivacyDlpV2StoredInfoTypeVersion extends \Google\Collection
   {
     return $this->config;
   }
+  /**
+   * @param string
+   */
   public function setCreateTime($createTime)
   {
     $this->createTime = $createTime;
   }
+  /**
+   * @return string
+   */
   public function getCreateTime()
   {
     return $this->createTime;
@@ -65,10 +80,16 @@ class GooglePrivacyDlpV2StoredInfoTypeVersion extends \Google\Collection
   {
     return $this->errors;
   }
+  /**
+   * @param string
+   */
   public function setState($state)
   {
     $this->state = $state;
   }
+  /**
+   * @return string
+   */
   public function getState()
   {
     return $this->state;

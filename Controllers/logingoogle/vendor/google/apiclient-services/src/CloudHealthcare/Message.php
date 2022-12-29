@@ -20,56 +20,110 @@ namespace Google\Service\CloudHealthcare;
 class Message extends \Google\Collection
 {
   protected $collection_key = 'patientIds';
+  /**
+   * @var string
+   */
   public $createTime;
+  /**
+   * @var string
+   */
   public $data;
+  /**
+   * @var string[]
+   */
   public $labels;
+  /**
+   * @var string
+   */
   public $messageType;
+  /**
+   * @var string
+   */
   public $name;
   protected $parsedDataType = ParsedData::class;
   protected $parsedDataDataType = '';
+  public $parsedData;
   protected $patientIdsType = PatientId::class;
   protected $patientIdsDataType = 'array';
+  public $patientIds;
   protected $schematizedDataType = SchematizedData::class;
   protected $schematizedDataDataType = '';
+  public $schematizedData;
+  /**
+   * @var string
+   */
   public $sendFacility;
+  /**
+   * @var string
+   */
   public $sendTime;
 
+  /**
+   * @param string
+   */
   public function setCreateTime($createTime)
   {
     $this->createTime = $createTime;
   }
+  /**
+   * @return string
+   */
   public function getCreateTime()
   {
     return $this->createTime;
   }
+  /**
+   * @param string
+   */
   public function setData($data)
   {
     $this->data = $data;
   }
+  /**
+   * @return string
+   */
   public function getData()
   {
     return $this->data;
   }
+  /**
+   * @param string[]
+   */
   public function setLabels($labels)
   {
     $this->labels = $labels;
   }
+  /**
+   * @return string[]
+   */
   public function getLabels()
   {
     return $this->labels;
   }
+  /**
+   * @param string
+   */
   public function setMessageType($messageType)
   {
     $this->messageType = $messageType;
   }
+  /**
+   * @return string
+   */
   public function getMessageType()
   {
     return $this->messageType;
   }
+  /**
+   * @param string
+   */
   public function setName($name)
   {
     $this->name = $name;
   }
+  /**
+   * @return string
+   */
   public function getName()
   {
     return $this->name;
@@ -116,18 +170,30 @@ class Message extends \Google\Collection
   {
     return $this->schematizedData;
   }
+  /**
+   * @param string
+   */
   public function setSendFacility($sendFacility)
   {
     $this->sendFacility = $sendFacility;
   }
+  /**
+   * @return string
+   */
   public function getSendFacility()
   {
     return $this->sendFacility;
   }
+  /**
+   * @param string
+   */
   public function setSendTime($sendTime)
   {
     $this->sendTime = $sendTime;
   }
+  /**
+   * @return string
+   */
   public function getSendTime()
   {
     return $this->sendTime;

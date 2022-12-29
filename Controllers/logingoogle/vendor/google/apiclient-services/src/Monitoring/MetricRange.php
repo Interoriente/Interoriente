@@ -21,6 +21,10 @@ class MetricRange extends \Google\Model
 {
   protected $rangeType = GoogleMonitoringV3Range::class;
   protected $rangeDataType = '';
+  public $range;
+  /**
+   * @var string
+   */
   public $timeSeries;
 
   /**
@@ -37,10 +41,16 @@ class MetricRange extends \Google\Model
   {
     return $this->range;
   }
+  /**
+   * @param string
+   */
   public function setTimeSeries($timeSeries)
   {
     $this->timeSeries = $timeSeries;
   }
+  /**
+   * @return string
+   */
   public function getTimeSeries()
   {
     return $this->timeSeries;

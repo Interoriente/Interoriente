@@ -20,16 +20,27 @@ namespace Google\Service\CloudOSLogin;
 class LoginProfile extends \Google\Collection
 {
   protected $collection_key = 'posixAccounts';
+  /**
+   * @var string
+   */
   public $name;
   protected $posixAccountsType = PosixAccount::class;
   protected $posixAccountsDataType = 'array';
+  public $posixAccounts;
   protected $sshPublicKeysType = SshPublicKey::class;
   protected $sshPublicKeysDataType = 'map';
+  public $sshPublicKeys;
 
+  /**
+   * @param string
+   */
   public function setName($name)
   {
     $this->name = $name;
   }
+  /**
+   * @return string
+   */
   public function getName()
   {
     return $this->name;

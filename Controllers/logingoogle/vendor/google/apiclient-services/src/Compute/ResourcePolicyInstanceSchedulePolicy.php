@@ -19,34 +19,63 @@ namespace Google\Service\Compute;
 
 class ResourcePolicyInstanceSchedulePolicy extends \Google\Model
 {
+  /**
+   * @var string
+   */
   public $expirationTime;
+  /**
+   * @var string
+   */
   public $startTime;
+  /**
+   * @var string
+   */
   public $timeZone;
   protected $vmStartScheduleType = ResourcePolicyInstanceSchedulePolicySchedule::class;
   protected $vmStartScheduleDataType = '';
+  public $vmStartSchedule;
   protected $vmStopScheduleType = ResourcePolicyInstanceSchedulePolicySchedule::class;
   protected $vmStopScheduleDataType = '';
+  public $vmStopSchedule;
 
+  /**
+   * @param string
+   */
   public function setExpirationTime($expirationTime)
   {
     $this->expirationTime = $expirationTime;
   }
+  /**
+   * @return string
+   */
   public function getExpirationTime()
   {
     return $this->expirationTime;
   }
+  /**
+   * @param string
+   */
   public function setStartTime($startTime)
   {
     $this->startTime = $startTime;
   }
+  /**
+   * @return string
+   */
   public function getStartTime()
   {
     return $this->startTime;
   }
+  /**
+   * @param string
+   */
   public function setTimeZone($timeZone)
   {
     $this->timeZone = $timeZone;
   }
+  /**
+   * @return string
+   */
   public function getTimeZone()
   {
     return $this->timeZone;

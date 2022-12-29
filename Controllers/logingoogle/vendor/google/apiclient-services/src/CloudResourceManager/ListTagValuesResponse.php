@@ -20,14 +20,24 @@ namespace Google\Service\CloudResourceManager;
 class ListTagValuesResponse extends \Google\Collection
 {
   protected $collection_key = 'tagValues';
+  /**
+   * @var string
+   */
   public $nextPageToken;
   protected $tagValuesType = TagValue::class;
   protected $tagValuesDataType = 'array';
+  public $tagValues;
 
+  /**
+   * @param string
+   */
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
   }
+  /**
+   * @return string
+   */
   public function getNextPageToken()
   {
     return $this->nextPageToken;

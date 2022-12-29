@@ -22,6 +22,10 @@ class DataType extends \Google\Collection
   protected $collection_key = 'field';
   protected $fieldType = DataTypeField::class;
   protected $fieldDataType = 'array';
+  public $field;
+  /**
+   * @var string
+   */
   public $name;
 
   /**
@@ -38,10 +42,16 @@ class DataType extends \Google\Collection
   {
     return $this->field;
   }
+  /**
+   * @param string
+   */
   public function setName($name)
   {
     $this->name = $name;
   }
+  /**
+   * @return string
+   */
   public function getName()
   {
     return $this->name;

@@ -20,26 +20,53 @@ namespace Google\Service\SQLAdmin;
 class ConnectSettings extends \Google\Collection
 {
   protected $collection_key = 'ipAddresses';
+  /**
+   * @var string
+   */
   public $backendType;
+  /**
+   * @var string
+   */
   public $databaseVersion;
   protected $ipAddressesType = IpMapping::class;
   protected $ipAddressesDataType = 'array';
+  public $ipAddresses;
+  /**
+   * @var string
+   */
   public $kind;
+  /**
+   * @var string
+   */
+  public $region;
   protected $serverCaCertType = SslCert::class;
   protected $serverCaCertDataType = '';
+  public $serverCaCert;
 
+  /**
+   * @param string
+   */
   public function setBackendType($backendType)
   {
     $this->backendType = $backendType;
   }
+  /**
+   * @return string
+   */
   public function getBackendType()
   {
     return $this->backendType;
   }
+  /**
+   * @param string
+   */
   public function setDatabaseVersion($databaseVersion)
   {
     $this->databaseVersion = $databaseVersion;
   }
+  /**
+   * @return string
+   */
   public function getDatabaseVersion()
   {
     return $this->databaseVersion;
@@ -58,13 +85,33 @@ class ConnectSettings extends \Google\Collection
   {
     return $this->ipAddresses;
   }
+  /**
+   * @param string
+   */
   public function setKind($kind)
   {
     $this->kind = $kind;
   }
+  /**
+   * @return string
+   */
   public function getKind()
   {
     return $this->kind;
+  }
+  /**
+   * @param string
+   */
+  public function setRegion($region)
+  {
+    $this->region = $region;
+  }
+  /**
+   * @return string
+   */
+  public function getRegion()
+  {
+    return $this->region;
   }
   /**
    * @param SslCert

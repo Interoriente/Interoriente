@@ -21,22 +21,39 @@ class Notification extends \Google\Model
 {
   protected $appRestrictionsSchemaChangeEventType = AppRestrictionsSchemaChangeEvent::class;
   protected $appRestrictionsSchemaChangeEventDataType = '';
+  public $appRestrictionsSchemaChangeEvent;
   protected $appUpdateEventType = AppUpdateEvent::class;
   protected $appUpdateEventDataType = '';
+  public $appUpdateEvent;
   protected $deviceReportUpdateEventType = DeviceReportUpdateEvent::class;
   protected $deviceReportUpdateEventDataType = '';
+  public $deviceReportUpdateEvent;
+  /**
+   * @var string
+   */
   public $enterpriseId;
   protected $installFailureEventType = InstallFailureEvent::class;
   protected $installFailureEventDataType = '';
+  public $installFailureEvent;
   protected $newDeviceEventType = NewDeviceEvent::class;
   protected $newDeviceEventDataType = '';
+  public $newDeviceEvent;
   protected $newPermissionsEventType = NewPermissionsEvent::class;
   protected $newPermissionsEventDataType = '';
+  public $newPermissionsEvent;
+  /**
+   * @var string
+   */
   public $notificationType;
   protected $productApprovalEventType = ProductApprovalEvent::class;
   protected $productApprovalEventDataType = '';
+  public $productApprovalEvent;
   protected $productAvailabilityChangeEventType = ProductAvailabilityChangeEvent::class;
   protected $productAvailabilityChangeEventDataType = '';
+  public $productAvailabilityChangeEvent;
+  /**
+   * @var string
+   */
   public $timestampMillis;
 
   /**
@@ -81,10 +98,16 @@ class Notification extends \Google\Model
   {
     return $this->deviceReportUpdateEvent;
   }
+  /**
+   * @param string
+   */
   public function setEnterpriseId($enterpriseId)
   {
     $this->enterpriseId = $enterpriseId;
   }
+  /**
+   * @return string
+   */
   public function getEnterpriseId()
   {
     return $this->enterpriseId;
@@ -131,10 +154,16 @@ class Notification extends \Google\Model
   {
     return $this->newPermissionsEvent;
   }
+  /**
+   * @param string
+   */
   public function setNotificationType($notificationType)
   {
     $this->notificationType = $notificationType;
   }
+  /**
+   * @return string
+   */
   public function getNotificationType()
   {
     return $this->notificationType;
@@ -167,10 +196,16 @@ class Notification extends \Google\Model
   {
     return $this->productAvailabilityChangeEvent;
   }
+  /**
+   * @param string
+   */
   public function setTimestampMillis($timestampMillis)
   {
     $this->timestampMillis = $timestampMillis;
   }
+  /**
+   * @return string
+   */
   public function getTimestampMillis()
   {
     return $this->timestampMillis;

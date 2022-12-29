@@ -21,15 +21,23 @@ class ExportOptions extends \Google\Model
 {
   protected $driveOptionsType = DriveExportOptions::class;
   protected $driveOptionsDataType = '';
+  public $driveOptions;
   protected $groupsOptionsType = GroupsExportOptions::class;
   protected $groupsOptionsDataType = '';
+  public $groupsOptions;
   protected $hangoutsChatOptionsType = HangoutsChatExportOptions::class;
   protected $hangoutsChatOptionsDataType = '';
+  public $hangoutsChatOptions;
   protected $mailOptionsType = MailExportOptions::class;
   protected $mailOptionsDataType = '';
+  public $mailOptions;
+  /**
+   * @var string
+   */
   public $region;
   protected $voiceOptionsType = VoiceExportOptions::class;
   protected $voiceOptionsDataType = '';
+  public $voiceOptions;
 
   /**
    * @param DriveExportOptions
@@ -87,10 +95,16 @@ class ExportOptions extends \Google\Model
   {
     return $this->mailOptions;
   }
+  /**
+   * @param string
+   */
   public function setRegion($region)
   {
     $this->region = $region;
   }
+  /**
+   * @return string
+   */
   public function getRegion()
   {
     return $this->region;

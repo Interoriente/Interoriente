@@ -22,14 +22,32 @@ class Sku extends \Google\Collection
   protected $collection_key = 'serviceRegions';
   protected $categoryType = Category::class;
   protected $categoryDataType = '';
+  public $category;
+  /**
+   * @var string
+   */
   public $description;
   protected $geoTaxonomyType = GeoTaxonomy::class;
   protected $geoTaxonomyDataType = '';
+  public $geoTaxonomy;
+  /**
+   * @var string
+   */
   public $name;
   protected $pricingInfoType = PricingInfo::class;
   protected $pricingInfoDataType = 'array';
+  public $pricingInfo;
+  /**
+   * @var string
+   */
   public $serviceProviderName;
+  /**
+   * @var string[]
+   */
   public $serviceRegions;
+  /**
+   * @var string
+   */
   public $skuId;
 
   /**
@@ -46,10 +64,16 @@ class Sku extends \Google\Collection
   {
     return $this->category;
   }
+  /**
+   * @param string
+   */
   public function setDescription($description)
   {
     $this->description = $description;
   }
+  /**
+   * @return string
+   */
   public function getDescription()
   {
     return $this->description;
@@ -68,10 +92,16 @@ class Sku extends \Google\Collection
   {
     return $this->geoTaxonomy;
   }
+  /**
+   * @param string
+   */
   public function setName($name)
   {
     $this->name = $name;
   }
+  /**
+   * @return string
+   */
   public function getName()
   {
     return $this->name;
@@ -90,26 +120,44 @@ class Sku extends \Google\Collection
   {
     return $this->pricingInfo;
   }
+  /**
+   * @param string
+   */
   public function setServiceProviderName($serviceProviderName)
   {
     $this->serviceProviderName = $serviceProviderName;
   }
+  /**
+   * @return string
+   */
   public function getServiceProviderName()
   {
     return $this->serviceProviderName;
   }
+  /**
+   * @param string[]
+   */
   public function setServiceRegions($serviceRegions)
   {
     $this->serviceRegions = $serviceRegions;
   }
+  /**
+   * @return string[]
+   */
   public function getServiceRegions()
   {
     return $this->serviceRegions;
   }
+  /**
+   * @param string
+   */
   public function setSkuId($skuId)
   {
     $this->skuId = $skuId;
   }
+  /**
+   * @return string
+   */
   public function getSkuId()
   {
     return $this->skuId;

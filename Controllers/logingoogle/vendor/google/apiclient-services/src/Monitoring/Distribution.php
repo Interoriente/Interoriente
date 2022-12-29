@@ -20,21 +20,36 @@ namespace Google\Service\Monitoring;
 class Distribution extends \Google\Collection
 {
   protected $collection_key = 'exemplars';
+  /**
+   * @var string[]
+   */
   public $bucketCounts;
   protected $bucketOptionsType = BucketOptions::class;
   protected $bucketOptionsDataType = '';
+  public $bucketOptions;
+  /**
+   * @var string
+   */
   public $count;
   protected $exemplarsType = Exemplar::class;
   protected $exemplarsDataType = 'array';
+  public $exemplars;
   public $mean;
   protected $rangeType = Range::class;
   protected $rangeDataType = '';
+  public $range;
   public $sumOfSquaredDeviation;
 
+  /**
+   * @param string[]
+   */
   public function setBucketCounts($bucketCounts)
   {
     $this->bucketCounts = $bucketCounts;
   }
+  /**
+   * @return string[]
+   */
   public function getBucketCounts()
   {
     return $this->bucketCounts;
@@ -53,10 +68,16 @@ class Distribution extends \Google\Collection
   {
     return $this->bucketOptions;
   }
+  /**
+   * @param string
+   */
   public function setCount($count)
   {
     $this->count = $count;
   }
+  /**
+   * @return string
+   */
   public function getCount()
   {
     return $this->count;

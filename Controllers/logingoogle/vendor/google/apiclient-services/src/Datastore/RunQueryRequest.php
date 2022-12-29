@@ -19,15 +19,37 @@ namespace Google\Service\Datastore;
 
 class RunQueryRequest extends \Google\Model
 {
+  /**
+   * @var string
+   */
+  public $databaseId;
   protected $gqlQueryType = GqlQuery::class;
   protected $gqlQueryDataType = '';
+  public $gqlQuery;
   protected $partitionIdType = PartitionId::class;
   protected $partitionIdDataType = '';
+  public $partitionId;
   protected $queryType = Query::class;
   protected $queryDataType = '';
+  public $query;
   protected $readOptionsType = ReadOptions::class;
   protected $readOptionsDataType = '';
+  public $readOptions;
 
+  /**
+   * @param string
+   */
+  public function setDatabaseId($databaseId)
+  {
+    $this->databaseId = $databaseId;
+  }
+  /**
+   * @return string
+   */
+  public function getDatabaseId()
+  {
+    return $this->databaseId;
+  }
   /**
    * @param GqlQuery
    */

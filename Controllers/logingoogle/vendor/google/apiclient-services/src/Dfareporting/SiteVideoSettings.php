@@ -21,15 +21,32 @@ class SiteVideoSettings extends \Google\Model
 {
   protected $companionSettingsType = SiteCompanionSetting::class;
   protected $companionSettingsDataType = '';
+  public $companionSettings;
+  /**
+   * @var string
+   */
   public $kind;
+  /**
+   * @var bool
+   */
   public $obaEnabled;
   protected $obaSettingsType = ObaIcon::class;
   protected $obaSettingsDataType = '';
+  public $obaSettings;
+  /**
+   * @var string
+   */
   public $orientation;
+  /**
+   * @var string
+   */
+  public $publisherSpecificationId;
   protected $skippableSettingsType = SiteSkippableSetting::class;
   protected $skippableSettingsDataType = '';
+  public $skippableSettings;
   protected $transcodeSettingsType = SiteTranscodeSetting::class;
   protected $transcodeSettingsDataType = '';
+  public $transcodeSettings;
 
   /**
    * @param SiteCompanionSetting
@@ -45,18 +62,30 @@ class SiteVideoSettings extends \Google\Model
   {
     return $this->companionSettings;
   }
+  /**
+   * @param string
+   */
   public function setKind($kind)
   {
     $this->kind = $kind;
   }
+  /**
+   * @return string
+   */
   public function getKind()
   {
     return $this->kind;
   }
+  /**
+   * @param bool
+   */
   public function setObaEnabled($obaEnabled)
   {
     $this->obaEnabled = $obaEnabled;
   }
+  /**
+   * @return bool
+   */
   public function getObaEnabled()
   {
     return $this->obaEnabled;
@@ -75,13 +104,33 @@ class SiteVideoSettings extends \Google\Model
   {
     return $this->obaSettings;
   }
+  /**
+   * @param string
+   */
   public function setOrientation($orientation)
   {
     $this->orientation = $orientation;
   }
+  /**
+   * @return string
+   */
   public function getOrientation()
   {
     return $this->orientation;
+  }
+  /**
+   * @param string
+   */
+  public function setPublisherSpecificationId($publisherSpecificationId)
+  {
+    $this->publisherSpecificationId = $publisherSpecificationId;
+  }
+  /**
+   * @return string
+   */
+  public function getPublisherSpecificationId()
+  {
+    return $this->publisherSpecificationId;
   }
   /**
    * @param SiteSkippableSetting

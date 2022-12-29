@@ -20,25 +20,48 @@ namespace Google\Service\Compute;
 class AutoscalingPolicy extends \Google\Collection
 {
   protected $collection_key = 'customMetricUtilizations';
+  /**
+   * @var int
+   */
   public $coolDownPeriodSec;
   protected $cpuUtilizationType = AutoscalingPolicyCpuUtilization::class;
   protected $cpuUtilizationDataType = '';
+  public $cpuUtilization;
   protected $customMetricUtilizationsType = AutoscalingPolicyCustomMetricUtilization::class;
   protected $customMetricUtilizationsDataType = 'array';
+  public $customMetricUtilizations;
   protected $loadBalancingUtilizationType = AutoscalingPolicyLoadBalancingUtilization::class;
   protected $loadBalancingUtilizationDataType = '';
+  public $loadBalancingUtilization;
+  /**
+   * @var int
+   */
   public $maxNumReplicas;
+  /**
+   * @var int
+   */
   public $minNumReplicas;
+  /**
+   * @var string
+   */
   public $mode;
   protected $scaleInControlType = AutoscalingPolicyScaleInControl::class;
   protected $scaleInControlDataType = '';
+  public $scaleInControl;
   protected $scalingSchedulesType = AutoscalingPolicyScalingSchedule::class;
   protected $scalingSchedulesDataType = 'map';
+  public $scalingSchedules;
 
+  /**
+   * @param int
+   */
   public function setCoolDownPeriodSec($coolDownPeriodSec)
   {
     $this->coolDownPeriodSec = $coolDownPeriodSec;
   }
+  /**
+   * @return int
+   */
   public function getCoolDownPeriodSec()
   {
     return $this->coolDownPeriodSec;
@@ -85,26 +108,44 @@ class AutoscalingPolicy extends \Google\Collection
   {
     return $this->loadBalancingUtilization;
   }
+  /**
+   * @param int
+   */
   public function setMaxNumReplicas($maxNumReplicas)
   {
     $this->maxNumReplicas = $maxNumReplicas;
   }
+  /**
+   * @return int
+   */
   public function getMaxNumReplicas()
   {
     return $this->maxNumReplicas;
   }
+  /**
+   * @param int
+   */
   public function setMinNumReplicas($minNumReplicas)
   {
     $this->minNumReplicas = $minNumReplicas;
   }
+  /**
+   * @return int
+   */
   public function getMinNumReplicas()
   {
     return $this->minNumReplicas;
   }
+  /**
+   * @param string
+   */
   public function setMode($mode)
   {
     $this->mode = $mode;
   }
+  /**
+   * @return string
+   */
   public function getMode()
   {
     return $this->mode;

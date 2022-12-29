@@ -21,8 +21,18 @@ class CreateClusterRequest extends \Google\Model
 {
   protected $clusterType = Cluster::class;
   protected $clusterDataType = '';
+  public $cluster;
+  /**
+   * @var string
+   */
   public $parent;
+  /**
+   * @var string
+   */
   public $projectId;
+  /**
+   * @var string
+   */
   public $zone;
 
   /**
@@ -39,26 +49,44 @@ class CreateClusterRequest extends \Google\Model
   {
     return $this->cluster;
   }
+  /**
+   * @param string
+   */
   public function setParent($parent)
   {
     $this->parent = $parent;
   }
+  /**
+   * @return string
+   */
   public function getParent()
   {
     return $this->parent;
   }
+  /**
+   * @param string
+   */
   public function setProjectId($projectId)
   {
     $this->projectId = $projectId;
   }
+  /**
+   * @return string
+   */
   public function getProjectId()
   {
     return $this->projectId;
   }
+  /**
+   * @param string
+   */
   public function setZone($zone)
   {
     $this->zone = $zone;
   }
+  /**
+   * @return string
+   */
   public function getZone()
   {
     return $this->zone;

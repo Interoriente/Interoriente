@@ -21,14 +21,22 @@ class PropertyQuota extends \Google\Model
 {
   protected $concurrentRequestsType = QuotaStatus::class;
   protected $concurrentRequestsDataType = '';
+  public $concurrentRequests;
   protected $potentiallyThresholdedRequestsPerHourType = QuotaStatus::class;
   protected $potentiallyThresholdedRequestsPerHourDataType = '';
+  public $potentiallyThresholdedRequestsPerHour;
   protected $serverErrorsPerProjectPerHourType = QuotaStatus::class;
   protected $serverErrorsPerProjectPerHourDataType = '';
+  public $serverErrorsPerProjectPerHour;
   protected $tokensPerDayType = QuotaStatus::class;
   protected $tokensPerDayDataType = '';
+  public $tokensPerDay;
   protected $tokensPerHourType = QuotaStatus::class;
   protected $tokensPerHourDataType = '';
+  public $tokensPerHour;
+  protected $tokensPerProjectPerHourType = QuotaStatus::class;
+  protected $tokensPerProjectPerHourDataType = '';
+  public $tokensPerProjectPerHour;
 
   /**
    * @param QuotaStatus
@@ -99,6 +107,20 @@ class PropertyQuota extends \Google\Model
   public function getTokensPerHour()
   {
     return $this->tokensPerHour;
+  }
+  /**
+   * @param QuotaStatus
+   */
+  public function setTokensPerProjectPerHour(QuotaStatus $tokensPerProjectPerHour)
+  {
+    $this->tokensPerProjectPerHour = $tokensPerProjectPerHour;
+  }
+  /**
+   * @return QuotaStatus
+   */
+  public function getTokensPerProjectPerHour()
+  {
+    return $this->tokensPerProjectPerHour;
   }
 }
 

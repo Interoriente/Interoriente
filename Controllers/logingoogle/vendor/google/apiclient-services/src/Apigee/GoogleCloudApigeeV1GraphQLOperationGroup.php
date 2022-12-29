@@ -20,14 +20,24 @@ namespace Google\Service\Apigee;
 class GoogleCloudApigeeV1GraphQLOperationGroup extends \Google\Collection
 {
   protected $collection_key = 'operationConfigs';
+  /**
+   * @var string
+   */
   public $operationConfigType;
   protected $operationConfigsType = GoogleCloudApigeeV1GraphQLOperationConfig::class;
   protected $operationConfigsDataType = 'array';
+  public $operationConfigs;
 
+  /**
+   * @param string
+   */
   public function setOperationConfigType($operationConfigType)
   {
     $this->operationConfigType = $operationConfigType;
   }
+  /**
+   * @return string
+   */
   public function getOperationConfigType()
   {
     return $this->operationConfigType;

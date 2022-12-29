@@ -21,37 +21,61 @@ class Video extends \Google\Model
 {
   protected $ageGatingType = VideoAgeGating::class;
   protected $ageGatingDataType = '';
+  public $ageGating;
   protected $contentDetailsType = VideoContentDetails::class;
   protected $contentDetailsDataType = '';
+  public $contentDetails;
+  /**
+   * @var string
+   */
   public $etag;
   protected $fileDetailsType = VideoFileDetails::class;
   protected $fileDetailsDataType = '';
+  public $fileDetails;
+  /**
+   * @var string
+   */
   public $id;
+  /**
+   * @var string
+   */
   public $kind;
   protected $liveStreamingDetailsType = VideoLiveStreamingDetails::class;
   protected $liveStreamingDetailsDataType = '';
+  public $liveStreamingDetails;
   protected $localizationsType = VideoLocalization::class;
   protected $localizationsDataType = 'map';
+  public $localizations;
   protected $monetizationDetailsType = VideoMonetizationDetails::class;
   protected $monetizationDetailsDataType = '';
+  public $monetizationDetails;
   protected $playerType = VideoPlayer::class;
   protected $playerDataType = '';
+  public $player;
   protected $processingDetailsType = VideoProcessingDetails::class;
   protected $processingDetailsDataType = '';
+  public $processingDetails;
   protected $projectDetailsType = VideoProjectDetails::class;
   protected $projectDetailsDataType = '';
+  public $projectDetails;
   protected $recordingDetailsType = VideoRecordingDetails::class;
   protected $recordingDetailsDataType = '';
+  public $recordingDetails;
   protected $snippetType = VideoSnippet::class;
   protected $snippetDataType = '';
+  public $snippet;
   protected $statisticsType = VideoStatistics::class;
   protected $statisticsDataType = '';
+  public $statistics;
   protected $statusType = VideoStatus::class;
   protected $statusDataType = '';
+  public $status;
   protected $suggestionsType = VideoSuggestions::class;
   protected $suggestionsDataType = '';
+  public $suggestions;
   protected $topicDetailsType = VideoTopicDetails::class;
   protected $topicDetailsDataType = '';
+  public $topicDetails;
 
   /**
    * @param VideoAgeGating
@@ -81,10 +105,16 @@ class Video extends \Google\Model
   {
     return $this->contentDetails;
   }
+  /**
+   * @param string
+   */
   public function setEtag($etag)
   {
     $this->etag = $etag;
   }
+  /**
+   * @return string
+   */
   public function getEtag()
   {
     return $this->etag;
@@ -103,18 +133,30 @@ class Video extends \Google\Model
   {
     return $this->fileDetails;
   }
+  /**
+   * @param string
+   */
   public function setId($id)
   {
     $this->id = $id;
   }
+  /**
+   * @return string
+   */
   public function getId()
   {
     return $this->id;
   }
+  /**
+   * @param string
+   */
   public function setKind($kind)
   {
     $this->kind = $kind;
   }
+  /**
+   * @return string
+   */
   public function getKind()
   {
     return $this->kind;

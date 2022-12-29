@@ -22,10 +22,21 @@ class WebPage extends \Google\Collection
   protected $collection_key = 'partialMatchingImages';
   protected $fullMatchingImagesType = WebImage::class;
   protected $fullMatchingImagesDataType = 'array';
+  public $fullMatchingImages;
+  /**
+   * @var string
+   */
   public $pageTitle;
   protected $partialMatchingImagesType = WebImage::class;
   protected $partialMatchingImagesDataType = 'array';
+  public $partialMatchingImages;
+  /**
+   * @var float
+   */
   public $score;
+  /**
+   * @var string
+   */
   public $url;
 
   /**
@@ -42,10 +53,16 @@ class WebPage extends \Google\Collection
   {
     return $this->fullMatchingImages;
   }
+  /**
+   * @param string
+   */
   public function setPageTitle($pageTitle)
   {
     $this->pageTitle = $pageTitle;
   }
+  /**
+   * @return string
+   */
   public function getPageTitle()
   {
     return $this->pageTitle;
@@ -64,18 +81,30 @@ class WebPage extends \Google\Collection
   {
     return $this->partialMatchingImages;
   }
+  /**
+   * @param float
+   */
   public function setScore($score)
   {
     $this->score = $score;
   }
+  /**
+   * @return float
+   */
   public function getScore()
   {
     return $this->score;
   }
+  /**
+   * @param string
+   */
   public function setUrl($url)
   {
     $this->url = $url;
   }
+  /**
+   * @return string
+   */
   public function getUrl()
   {
     return $this->url;

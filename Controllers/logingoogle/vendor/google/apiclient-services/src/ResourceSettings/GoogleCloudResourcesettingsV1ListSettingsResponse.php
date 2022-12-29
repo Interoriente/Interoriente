@@ -20,14 +20,24 @@ namespace Google\Service\ResourceSettings;
 class GoogleCloudResourcesettingsV1ListSettingsResponse extends \Google\Collection
 {
   protected $collection_key = 'settings';
+  /**
+   * @var string
+   */
   public $nextPageToken;
   protected $settingsType = GoogleCloudResourcesettingsV1Setting::class;
   protected $settingsDataType = 'array';
+  public $settings;
 
+  /**
+   * @param string
+   */
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
   }
+  /**
+   * @return string
+   */
   public function getNextPageToken()
   {
     return $this->nextPageToken;

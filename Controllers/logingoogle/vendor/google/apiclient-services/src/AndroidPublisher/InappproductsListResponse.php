@@ -22,11 +22,17 @@ class InappproductsListResponse extends \Google\Collection
   protected $collection_key = 'inappproduct';
   protected $inappproductType = InAppProduct::class;
   protected $inappproductDataType = 'array';
+  public $inappproduct;
+  /**
+   * @var string
+   */
   public $kind;
   protected $pageInfoType = PageInfo::class;
   protected $pageInfoDataType = '';
+  public $pageInfo;
   protected $tokenPaginationType = TokenPagination::class;
   protected $tokenPaginationDataType = '';
+  public $tokenPagination;
 
   /**
    * @param InAppProduct[]
@@ -42,10 +48,16 @@ class InappproductsListResponse extends \Google\Collection
   {
     return $this->inappproduct;
   }
+  /**
+   * @param string
+   */
   public function setKind($kind)
   {
     $this->kind = $kind;
   }
+  /**
+   * @return string
+   */
   public function getKind()
   {
     return $this->kind;

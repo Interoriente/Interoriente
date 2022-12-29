@@ -20,22 +20,41 @@ namespace Google\Service\Compute;
 class HttpRouteRule extends \Google\Collection
 {
   protected $collection_key = 'matchRules';
+  /**
+   * @var string
+   */
   public $description;
   protected $headerActionType = HttpHeaderAction::class;
   protected $headerActionDataType = '';
+  public $headerAction;
   protected $matchRulesType = HttpRouteRuleMatch::class;
   protected $matchRulesDataType = 'array';
+  public $matchRules;
+  /**
+   * @var int
+   */
   public $priority;
   protected $routeActionType = HttpRouteAction::class;
   protected $routeActionDataType = '';
+  public $routeAction;
+  /**
+   * @var string
+   */
   public $service;
   protected $urlRedirectType = HttpRedirectAction::class;
   protected $urlRedirectDataType = '';
+  public $urlRedirect;
 
+  /**
+   * @param string
+   */
   public function setDescription($description)
   {
     $this->description = $description;
   }
+  /**
+   * @return string
+   */
   public function getDescription()
   {
     return $this->description;
@@ -68,10 +87,16 @@ class HttpRouteRule extends \Google\Collection
   {
     return $this->matchRules;
   }
+  /**
+   * @param int
+   */
   public function setPriority($priority)
   {
     $this->priority = $priority;
   }
+  /**
+   * @return int
+   */
   public function getPriority()
   {
     return $this->priority;
@@ -90,10 +115,16 @@ class HttpRouteRule extends \Google\Collection
   {
     return $this->routeAction;
   }
+  /**
+   * @param string
+   */
   public function setService($service)
   {
     $this->service = $service;
   }
+  /**
+   * @return string
+   */
   public function getService()
   {
     return $this->service;

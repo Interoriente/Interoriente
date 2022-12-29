@@ -26,7 +26,7 @@ use Google\Service\CloudDebugger\UpdateActiveBreakpointResponse;
  * Typical usage is:
  *  <code>
  *   $clouddebuggerService = new Google\Service\CloudDebugger(...);
- *   $breakpoints = $clouddebuggerService->breakpoints;
+ *   $breakpoints = $clouddebuggerService->controller_debuggees_breakpoints;
  *  </code>
  */
 class ControllerDebuggeesBreakpoints extends \Google\Service\Resource
@@ -39,7 +39,7 @@ class ControllerDebuggeesBreakpoints extends \Google\Service\Resource
    * the breakpoint was set, but this doesn't change the breakpoint semantics.
    * This means that an agent does not need to check if a breakpoint has changed
    * when it encounters the same breakpoint on a successive call. Moreover, an
-   * agent should remember the breakpoints that are completed until the Controller
+   * agent should remember the breakpoints that are completed until the controller
    * removes them from the active list to avoid setting those breakpoints again.
    * (breakpoints.listControllerDebuggeesBreakpoints)
    *
@@ -67,7 +67,7 @@ class ControllerDebuggeesBreakpoints extends \Google\Service\Resource
   }
   /**
    * Updates the breakpoint state or mutable fields. The entire Breakpoint message
-   * must be sent back to the Controller service. Updates to active breakpoint
+   * must be sent back to the controller service. Updates to active breakpoint
    * fields are only allowed if the new value does not change the breakpoint
    * specification. Updates to the `location`, `condition` and `expressions`
    * fields should not alter the breakpoint semantics. These may only make changes

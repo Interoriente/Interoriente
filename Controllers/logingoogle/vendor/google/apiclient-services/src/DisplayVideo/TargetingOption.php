@@ -21,65 +21,115 @@ class TargetingOption extends \Google\Model
 {
   protected $ageRangeDetailsType = AgeRangeTargetingOptionDetails::class;
   protected $ageRangeDetailsDataType = '';
+  public $ageRangeDetails;
   protected $appCategoryDetailsType = AppCategoryTargetingOptionDetails::class;
   protected $appCategoryDetailsDataType = '';
+  public $appCategoryDetails;
+  protected $audioContentTypeDetailsType = AudioContentTypeTargetingOptionDetails::class;
+  protected $audioContentTypeDetailsDataType = '';
+  public $audioContentTypeDetails;
   protected $authorizedSellerStatusDetailsType = AuthorizedSellerStatusTargetingOptionDetails::class;
   protected $authorizedSellerStatusDetailsDataType = '';
+  public $authorizedSellerStatusDetails;
   protected $browserDetailsType = BrowserTargetingOptionDetails::class;
   protected $browserDetailsDataType = '';
+  public $browserDetails;
   protected $businessChainDetailsType = BusinessChainTargetingOptionDetails::class;
   protected $businessChainDetailsDataType = '';
+  public $businessChainDetails;
   protected $carrierAndIspDetailsType = CarrierAndIspTargetingOptionDetails::class;
   protected $carrierAndIspDetailsDataType = '';
+  public $carrierAndIspDetails;
   protected $categoryDetailsType = CategoryTargetingOptionDetails::class;
   protected $categoryDetailsDataType = '';
+  public $categoryDetails;
+  protected $contentDurationDetailsType = ContentDurationTargetingOptionDetails::class;
+  protected $contentDurationDetailsDataType = '';
+  public $contentDurationDetails;
+  protected $contentGenreDetailsType = ContentGenreTargetingOptionDetails::class;
+  protected $contentGenreDetailsDataType = '';
+  public $contentGenreDetails;
   protected $contentInstreamPositionDetailsType = ContentInstreamPositionTargetingOptionDetails::class;
   protected $contentInstreamPositionDetailsDataType = '';
+  public $contentInstreamPositionDetails;
   protected $contentOutstreamPositionDetailsType = ContentOutstreamPositionTargetingOptionDetails::class;
   protected $contentOutstreamPositionDetailsDataType = '';
+  public $contentOutstreamPositionDetails;
+  protected $contentStreamTypeDetailsType = ContentStreamTypeTargetingOptionDetails::class;
+  protected $contentStreamTypeDetailsDataType = '';
+  public $contentStreamTypeDetails;
   protected $deviceMakeModelDetailsType = DeviceMakeModelTargetingOptionDetails::class;
   protected $deviceMakeModelDetailsDataType = '';
+  public $deviceMakeModelDetails;
   protected $deviceTypeDetailsType = DeviceTypeTargetingOptionDetails::class;
   protected $deviceTypeDetailsDataType = '';
+  public $deviceTypeDetails;
   protected $digitalContentLabelDetailsType = DigitalContentLabelTargetingOptionDetails::class;
   protected $digitalContentLabelDetailsDataType = '';
+  public $digitalContentLabelDetails;
   protected $environmentDetailsType = EnvironmentTargetingOptionDetails::class;
   protected $environmentDetailsDataType = '';
+  public $environmentDetails;
   protected $exchangeDetailsType = ExchangeTargetingOptionDetails::class;
   protected $exchangeDetailsDataType = '';
+  public $exchangeDetails;
   protected $genderDetailsType = GenderTargetingOptionDetails::class;
   protected $genderDetailsDataType = '';
+  public $genderDetails;
   protected $geoRegionDetailsType = GeoRegionTargetingOptionDetails::class;
   protected $geoRegionDetailsDataType = '';
+  public $geoRegionDetails;
   protected $householdIncomeDetailsType = HouseholdIncomeTargetingOptionDetails::class;
   protected $householdIncomeDetailsDataType = '';
+  public $householdIncomeDetails;
   protected $languageDetailsType = LanguageTargetingOptionDetails::class;
   protected $languageDetailsDataType = '';
+  public $languageDetails;
+  /**
+   * @var string
+   */
   public $name;
   protected $nativeContentPositionDetailsType = NativeContentPositionTargetingOptionDetails::class;
   protected $nativeContentPositionDetailsDataType = '';
+  public $nativeContentPositionDetails;
   protected $omidDetailsType = OmidTargetingOptionDetails::class;
   protected $omidDetailsDataType = '';
+  public $omidDetails;
   protected $onScreenPositionDetailsType = OnScreenPositionTargetingOptionDetails::class;
   protected $onScreenPositionDetailsDataType = '';
+  public $onScreenPositionDetails;
   protected $operatingSystemDetailsType = OperatingSystemTargetingOptionDetails::class;
   protected $operatingSystemDetailsDataType = '';
+  public $operatingSystemDetails;
   protected $parentalStatusDetailsType = ParentalStatusTargetingOptionDetails::class;
   protected $parentalStatusDetailsDataType = '';
+  public $parentalStatusDetails;
   protected $poiDetailsType = PoiTargetingOptionDetails::class;
   protected $poiDetailsDataType = '';
+  public $poiDetails;
   protected $sensitiveCategoryDetailsType = SensitiveCategoryTargetingOptionDetails::class;
   protected $sensitiveCategoryDetailsDataType = '';
+  public $sensitiveCategoryDetails;
   protected $subExchangeDetailsType = SubExchangeTargetingOptionDetails::class;
   protected $subExchangeDetailsDataType = '';
+  public $subExchangeDetails;
+  /**
+   * @var string
+   */
   public $targetingOptionId;
+  /**
+   * @var string
+   */
   public $targetingType;
   protected $userRewardedContentDetailsType = UserRewardedContentTargetingOptionDetails::class;
   protected $userRewardedContentDetailsDataType = '';
+  public $userRewardedContentDetails;
   protected $videoPlayerSizeDetailsType = VideoPlayerSizeTargetingOptionDetails::class;
   protected $videoPlayerSizeDetailsDataType = '';
+  public $videoPlayerSizeDetails;
   protected $viewabilityDetailsType = ViewabilityTargetingOptionDetails::class;
   protected $viewabilityDetailsDataType = '';
+  public $viewabilityDetails;
 
   /**
    * @param AgeRangeTargetingOptionDetails
@@ -108,6 +158,20 @@ class TargetingOption extends \Google\Model
   public function getAppCategoryDetails()
   {
     return $this->appCategoryDetails;
+  }
+  /**
+   * @param AudioContentTypeTargetingOptionDetails
+   */
+  public function setAudioContentTypeDetails(AudioContentTypeTargetingOptionDetails $audioContentTypeDetails)
+  {
+    $this->audioContentTypeDetails = $audioContentTypeDetails;
+  }
+  /**
+   * @return AudioContentTypeTargetingOptionDetails
+   */
+  public function getAudioContentTypeDetails()
+  {
+    return $this->audioContentTypeDetails;
   }
   /**
    * @param AuthorizedSellerStatusTargetingOptionDetails
@@ -180,6 +244,34 @@ class TargetingOption extends \Google\Model
     return $this->categoryDetails;
   }
   /**
+   * @param ContentDurationTargetingOptionDetails
+   */
+  public function setContentDurationDetails(ContentDurationTargetingOptionDetails $contentDurationDetails)
+  {
+    $this->contentDurationDetails = $contentDurationDetails;
+  }
+  /**
+   * @return ContentDurationTargetingOptionDetails
+   */
+  public function getContentDurationDetails()
+  {
+    return $this->contentDurationDetails;
+  }
+  /**
+   * @param ContentGenreTargetingOptionDetails
+   */
+  public function setContentGenreDetails(ContentGenreTargetingOptionDetails $contentGenreDetails)
+  {
+    $this->contentGenreDetails = $contentGenreDetails;
+  }
+  /**
+   * @return ContentGenreTargetingOptionDetails
+   */
+  public function getContentGenreDetails()
+  {
+    return $this->contentGenreDetails;
+  }
+  /**
    * @param ContentInstreamPositionTargetingOptionDetails
    */
   public function setContentInstreamPositionDetails(ContentInstreamPositionTargetingOptionDetails $contentInstreamPositionDetails)
@@ -206,6 +298,20 @@ class TargetingOption extends \Google\Model
   public function getContentOutstreamPositionDetails()
   {
     return $this->contentOutstreamPositionDetails;
+  }
+  /**
+   * @param ContentStreamTypeTargetingOptionDetails
+   */
+  public function setContentStreamTypeDetails(ContentStreamTypeTargetingOptionDetails $contentStreamTypeDetails)
+  {
+    $this->contentStreamTypeDetails = $contentStreamTypeDetails;
+  }
+  /**
+   * @return ContentStreamTypeTargetingOptionDetails
+   */
+  public function getContentStreamTypeDetails()
+  {
+    return $this->contentStreamTypeDetails;
   }
   /**
    * @param DeviceMakeModelTargetingOptionDetails
@@ -333,10 +439,16 @@ class TargetingOption extends \Google\Model
   {
     return $this->languageDetails;
   }
+  /**
+   * @param string
+   */
   public function setName($name)
   {
     $this->name = $name;
   }
+  /**
+   * @return string
+   */
   public function getName()
   {
     return $this->name;
@@ -453,18 +565,30 @@ class TargetingOption extends \Google\Model
   {
     return $this->subExchangeDetails;
   }
+  /**
+   * @param string
+   */
   public function setTargetingOptionId($targetingOptionId)
   {
     $this->targetingOptionId = $targetingOptionId;
   }
+  /**
+   * @return string
+   */
   public function getTargetingOptionId()
   {
     return $this->targetingOptionId;
   }
+  /**
+   * @param string
+   */
   public function setTargetingType($targetingType)
   {
     $this->targetingType = $targetingType;
   }
+  /**
+   * @return string
+   */
   public function getTargetingType()
   {
     return $this->targetingType;

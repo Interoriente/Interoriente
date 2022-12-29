@@ -22,11 +22,17 @@ class FloodlightReportCompatibleFields extends \Google\Collection
   protected $collection_key = 'metrics';
   protected $dimensionFiltersType = Dimension::class;
   protected $dimensionFiltersDataType = 'array';
+  public $dimensionFilters;
   protected $dimensionsType = Dimension::class;
   protected $dimensionsDataType = 'array';
+  public $dimensions;
+  /**
+   * @var string
+   */
   public $kind;
   protected $metricsType = Metric::class;
   protected $metricsDataType = 'array';
+  public $metrics;
 
   /**
    * @param Dimension[]
@@ -56,10 +62,16 @@ class FloodlightReportCompatibleFields extends \Google\Collection
   {
     return $this->dimensions;
   }
+  /**
+   * @param string
+   */
   public function setKind($kind)
   {
     $this->kind = $kind;
   }
+  /**
+   * @return string
+   */
   public function getKind()
   {
     return $this->kind;

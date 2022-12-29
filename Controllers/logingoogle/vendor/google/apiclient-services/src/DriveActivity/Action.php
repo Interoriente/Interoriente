@@ -21,12 +21,19 @@ class Action extends \Google\Model
 {
   protected $actorType = Actor::class;
   protected $actorDataType = '';
+  public $actor;
   protected $detailType = ActionDetail::class;
   protected $detailDataType = '';
+  public $detail;
   protected $targetType = Target::class;
   protected $targetDataType = '';
+  public $target;
   protected $timeRangeType = TimeRange::class;
   protected $timeRangeDataType = '';
+  public $timeRange;
+  /**
+   * @var string
+   */
   public $timestamp;
 
   /**
@@ -85,10 +92,16 @@ class Action extends \Google\Model
   {
     return $this->timeRange;
   }
+  /**
+   * @param string
+   */
   public function setTimestamp($timestamp)
   {
     $this->timestamp = $timestamp;
   }
+  /**
+   * @return string
+   */
   public function getTimestamp()
   {
     return $this->timestamp;

@@ -22,9 +22,17 @@ class QueryResponse extends \Google\Collection
   protected $collection_key = 'rows';
   protected $columnHeadersType = ResultTableColumnHeader::class;
   protected $columnHeadersDataType = 'array';
+  public $columnHeaders;
   protected $errorsType = Errors::class;
   protected $errorsDataType = '';
+  public $errors;
+  /**
+   * @var string
+   */
   public $kind;
+  /**
+   * @var array[]
+   */
   public $rows;
 
   /**
@@ -55,18 +63,30 @@ class QueryResponse extends \Google\Collection
   {
     return $this->errors;
   }
+  /**
+   * @param string
+   */
   public function setKind($kind)
   {
     $this->kind = $kind;
   }
+  /**
+   * @return string
+   */
   public function getKind()
   {
     return $this->kind;
   }
+  /**
+   * @param array[]
+   */
   public function setRows($rows)
   {
     $this->rows = $rows;
   }
+  /**
+   * @return array[]
+   */
   public function getRows()
   {
     return $this->rows;

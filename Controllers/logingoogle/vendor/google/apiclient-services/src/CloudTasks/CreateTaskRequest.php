@@ -19,14 +19,24 @@ namespace Google\Service\CloudTasks;
 
 class CreateTaskRequest extends \Google\Model
 {
+  /**
+   * @var string
+   */
   public $responseView;
   protected $taskType = Task::class;
   protected $taskDataType = '';
+  public $task;
 
+  /**
+   * @param string
+   */
   public function setResponseView($responseView)
   {
     $this->responseView = $responseView;
   }
+  /**
+   * @return string
+   */
   public function getResponseView()
   {
     return $this->responseView;

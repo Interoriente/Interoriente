@@ -21,10 +21,13 @@ class TransactionOptions extends \Google\Model
 {
   protected $partitionedDmlType = PartitionedDml::class;
   protected $partitionedDmlDataType = '';
-  protected $readOnlyType = ReadOnly::class;
+  public $partitionedDml;
+  protected $readOnlyType = SpannerReadOnly::class;
   protected $readOnlyDataType = '';
+  public $readOnly;
   protected $readWriteType = ReadWrite::class;
   protected $readWriteDataType = '';
+  public $readWrite;
 
   /**
    * @param PartitionedDml
@@ -41,14 +44,14 @@ class TransactionOptions extends \Google\Model
     return $this->partitionedDml;
   }
   /**
-   * @param ReadOnly
+   * @param SpannerReadOnly
    */
-  public function setReadOnly(ReadOnly $readOnly)
+  public function setReadOnly(SpannerReadOnly $readOnly)
   {
     $this->readOnly = $readOnly;
   }
   /**
-   * @return ReadOnly
+   * @return SpannerReadOnly
    */
   public function getReadOnly()
   {

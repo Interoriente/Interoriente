@@ -20,14 +20,24 @@ namespace Google\Service\SecurityCommandCenter;
 class ListSourcesResponse extends \Google\Collection
 {
   protected $collection_key = 'sources';
+  /**
+   * @var string
+   */
   public $nextPageToken;
   protected $sourcesType = Source::class;
   protected $sourcesDataType = 'array';
+  public $sources;
 
+  /**
+   * @param string
+   */
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
   }
+  /**
+   * @return string
+   */
   public function getNextPageToken()
   {
     return $this->nextPageToken;

@@ -21,15 +21,28 @@ class GoogleCloudRetailLoggingErrorLog extends \Google\Model
 {
   protected $contextType = GoogleCloudRetailLoggingErrorContext::class;
   protected $contextDataType = '';
+  public $context;
   protected $importPayloadType = GoogleCloudRetailLoggingImportErrorContext::class;
   protected $importPayloadDataType = '';
+  public $importPayload;
+  /**
+   * @var string
+   */
   public $message;
+  /**
+   * @var array[]
+   */
   public $requestPayload;
+  /**
+   * @var array[]
+   */
   public $responsePayload;
   protected $serviceContextType = GoogleCloudRetailLoggingServiceContext::class;
   protected $serviceContextDataType = '';
+  public $serviceContext;
   protected $statusType = GoogleRpcStatus::class;
   protected $statusDataType = '';
+  public $status;
 
   /**
    * @param GoogleCloudRetailLoggingErrorContext
@@ -59,26 +72,44 @@ class GoogleCloudRetailLoggingErrorLog extends \Google\Model
   {
     return $this->importPayload;
   }
+  /**
+   * @param string
+   */
   public function setMessage($message)
   {
     $this->message = $message;
   }
+  /**
+   * @return string
+   */
   public function getMessage()
   {
     return $this->message;
   }
+  /**
+   * @param array[]
+   */
   public function setRequestPayload($requestPayload)
   {
     $this->requestPayload = $requestPayload;
   }
+  /**
+   * @return array[]
+   */
   public function getRequestPayload()
   {
     return $this->requestPayload;
   }
+  /**
+   * @param array[]
+   */
   public function setResponsePayload($responsePayload)
   {
     $this->responsePayload = $responsePayload;
   }
+  /**
+   * @return array[]
+   */
   public function getResponsePayload()
   {
     return $this->responsePayload;

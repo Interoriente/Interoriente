@@ -20,22 +20,41 @@ namespace Google\Service\Calendar;
 class ConferenceData extends \Google\Collection
 {
   protected $collection_key = 'entryPoints';
+  /**
+   * @var string
+   */
   public $conferenceId;
   protected $conferenceSolutionType = ConferenceSolution::class;
   protected $conferenceSolutionDataType = '';
+  public $conferenceSolution;
   protected $createRequestType = CreateConferenceRequest::class;
   protected $createRequestDataType = '';
+  public $createRequest;
   protected $entryPointsType = EntryPoint::class;
   protected $entryPointsDataType = 'array';
+  public $entryPoints;
+  /**
+   * @var string
+   */
   public $notes;
   protected $parametersType = ConferenceParameters::class;
   protected $parametersDataType = '';
+  public $parameters;
+  /**
+   * @var string
+   */
   public $signature;
 
+  /**
+   * @param string
+   */
   public function setConferenceId($conferenceId)
   {
     $this->conferenceId = $conferenceId;
   }
+  /**
+   * @return string
+   */
   public function getConferenceId()
   {
     return $this->conferenceId;
@@ -82,10 +101,16 @@ class ConferenceData extends \Google\Collection
   {
     return $this->entryPoints;
   }
+  /**
+   * @param string
+   */
   public function setNotes($notes)
   {
     $this->notes = $notes;
   }
+  /**
+   * @return string
+   */
   public function getNotes()
   {
     return $this->notes;
@@ -104,10 +129,16 @@ class ConferenceData extends \Google\Collection
   {
     return $this->parameters;
   }
+  /**
+   * @param string
+   */
   public function setSignature($signature)
   {
     $this->signature = $signature;
   }
+  /**
+   * @return string
+   */
   public function getSignature()
   {
     return $this->signature;

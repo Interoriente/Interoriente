@@ -22,8 +22,13 @@ class GoogleCloudChannelV1PriceByResource extends \Google\Collection
   protected $collection_key = 'pricePhases';
   protected $priceType = GoogleCloudChannelV1Price::class;
   protected $priceDataType = '';
+  public $price;
   protected $pricePhasesType = GoogleCloudChannelV1PricePhase::class;
   protected $pricePhasesDataType = 'array';
+  public $pricePhases;
+  /**
+   * @var string
+   */
   public $resourceType;
 
   /**
@@ -54,10 +59,16 @@ class GoogleCloudChannelV1PriceByResource extends \Google\Collection
   {
     return $this->pricePhases;
   }
+  /**
+   * @param string
+   */
   public function setResourceType($resourceType)
   {
     $this->resourceType = $resourceType;
   }
+  /**
+   * @return string
+   */
   public function getResourceType()
   {
     return $this->resourceType;

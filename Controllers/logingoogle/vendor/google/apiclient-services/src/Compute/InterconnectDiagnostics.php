@@ -22,8 +22,21 @@ class InterconnectDiagnostics extends \Google\Collection
   protected $collection_key = 'links';
   protected $arpCachesType = InterconnectDiagnosticsARPEntry::class;
   protected $arpCachesDataType = 'array';
+  public $arpCaches;
+  /**
+   * @var string
+   */
+  public $bundleAggregationType;
+  /**
+   * @var string
+   */
+  public $bundleOperationalStatus;
   protected $linksType = InterconnectDiagnosticsLinkStatus::class;
   protected $linksDataType = 'array';
+  public $links;
+  /**
+   * @var string
+   */
   public $macAddress;
 
   /**
@@ -41,6 +54,34 @@ class InterconnectDiagnostics extends \Google\Collection
     return $this->arpCaches;
   }
   /**
+   * @param string
+   */
+  public function setBundleAggregationType($bundleAggregationType)
+  {
+    $this->bundleAggregationType = $bundleAggregationType;
+  }
+  /**
+   * @return string
+   */
+  public function getBundleAggregationType()
+  {
+    return $this->bundleAggregationType;
+  }
+  /**
+   * @param string
+   */
+  public function setBundleOperationalStatus($bundleOperationalStatus)
+  {
+    $this->bundleOperationalStatus = $bundleOperationalStatus;
+  }
+  /**
+   * @return string
+   */
+  public function getBundleOperationalStatus()
+  {
+    return $this->bundleOperationalStatus;
+  }
+  /**
    * @param InterconnectDiagnosticsLinkStatus[]
    */
   public function setLinks($links)
@@ -54,10 +95,16 @@ class InterconnectDiagnostics extends \Google\Collection
   {
     return $this->links;
   }
+  /**
+   * @param string
+   */
   public function setMacAddress($macAddress)
   {
     $this->macAddress = $macAddress;
   }
+  /**
+   * @return string
+   */
   public function getMacAddress()
   {
     return $this->macAddress;

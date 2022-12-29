@@ -19,14 +19,24 @@ namespace Google\Service\OSConfig;
 
 class MonthlySchedule extends \Google\Model
 {
+  /**
+   * @var int
+   */
   public $monthDay;
   protected $weekDayOfMonthType = WeekDayOfMonth::class;
   protected $weekDayOfMonthDataType = '';
+  public $weekDayOfMonth;
 
+  /**
+   * @param int
+   */
   public function setMonthDay($monthDay)
   {
     $this->monthDay = $monthDay;
   }
+  /**
+   * @return int
+   */
   public function getMonthDay()
   {
     return $this->monthDay;

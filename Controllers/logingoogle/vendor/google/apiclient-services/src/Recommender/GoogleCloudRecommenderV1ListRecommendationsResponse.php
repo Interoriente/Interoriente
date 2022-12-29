@@ -20,14 +20,24 @@ namespace Google\Service\Recommender;
 class GoogleCloudRecommenderV1ListRecommendationsResponse extends \Google\Collection
 {
   protected $collection_key = 'recommendations';
+  /**
+   * @var string
+   */
   public $nextPageToken;
   protected $recommendationsType = GoogleCloudRecommenderV1Recommendation::class;
   protected $recommendationsDataType = 'array';
+  public $recommendations;
 
+  /**
+   * @param string
+   */
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
   }
+  /**
+   * @return string
+   */
   public function getNextPageToken()
   {
     return $this->nextPageToken;

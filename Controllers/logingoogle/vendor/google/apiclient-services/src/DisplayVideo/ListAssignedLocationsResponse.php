@@ -22,6 +22,10 @@ class ListAssignedLocationsResponse extends \Google\Collection
   protected $collection_key = 'assignedLocations';
   protected $assignedLocationsType = AssignedLocation::class;
   protected $assignedLocationsDataType = 'array';
+  public $assignedLocations;
+  /**
+   * @var string
+   */
   public $nextPageToken;
 
   /**
@@ -38,10 +42,16 @@ class ListAssignedLocationsResponse extends \Google\Collection
   {
     return $this->assignedLocations;
   }
+  /**
+   * @param string
+   */
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
   }
+  /**
+   * @return string
+   */
   public function getNextPageToken()
   {
     return $this->nextPageToken;

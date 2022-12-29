@@ -21,10 +21,18 @@ class GoogleCloudDocumentaiV1BatchProcessMetadataIndividualProcessStatus extends
 {
   protected $humanReviewStatusType = GoogleCloudDocumentaiV1HumanReviewStatus::class;
   protected $humanReviewStatusDataType = '';
+  public $humanReviewStatus;
+  /**
+   * @var string
+   */
   public $inputGcsSource;
+  /**
+   * @var string
+   */
   public $outputGcsDestination;
   protected $statusType = GoogleRpcStatus::class;
   protected $statusDataType = '';
+  public $status;
 
   /**
    * @param GoogleCloudDocumentaiV1HumanReviewStatus
@@ -40,18 +48,30 @@ class GoogleCloudDocumentaiV1BatchProcessMetadataIndividualProcessStatus extends
   {
     return $this->humanReviewStatus;
   }
+  /**
+   * @param string
+   */
   public function setInputGcsSource($inputGcsSource)
   {
     $this->inputGcsSource = $inputGcsSource;
   }
+  /**
+   * @return string
+   */
   public function getInputGcsSource()
   {
     return $this->inputGcsSource;
   }
+  /**
+   * @param string
+   */
   public function setOutputGcsDestination($outputGcsDestination)
   {
     $this->outputGcsDestination = $outputGcsDestination;
   }
+  /**
+   * @return string
+   */
   public function getOutputGcsDestination()
   {
     return $this->outputGcsDestination;

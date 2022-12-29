@@ -20,14 +20,24 @@ namespace Google\Service\CloudBuild;
 class ListBuildTriggersResponse extends \Google\Collection
 {
   protected $collection_key = 'triggers';
+  /**
+   * @var string
+   */
   public $nextPageToken;
   protected $triggersType = BuildTrigger::class;
   protected $triggersDataType = 'array';
+  public $triggers;
 
+  /**
+   * @param string
+   */
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
   }
+  /**
+   * @return string
+   */
   public function getNextPageToken()
   {
     return $this->nextPageToken;

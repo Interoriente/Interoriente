@@ -22,6 +22,10 @@ class GoogleCloudEssentialcontactsV1ListContactsResponse extends \Google\Collect
   protected $collection_key = 'contacts';
   protected $contactsType = GoogleCloudEssentialcontactsV1Contact::class;
   protected $contactsDataType = 'array';
+  public $contacts;
+  /**
+   * @var string
+   */
   public $nextPageToken;
 
   /**
@@ -38,10 +42,16 @@ class GoogleCloudEssentialcontactsV1ListContactsResponse extends \Google\Collect
   {
     return $this->contacts;
   }
+  /**
+   * @param string
+   */
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
   }
+  /**
+   * @return string
+   */
   public function getNextPageToken()
   {
     return $this->nextPageToken;

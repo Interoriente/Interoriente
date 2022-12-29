@@ -22,6 +22,10 @@ class DateRangeValues extends \Google\Collection
   protected $collection_key = 'values';
   protected $pivotValueRegionsType = PivotValueRegion::class;
   protected $pivotValueRegionsDataType = 'array';
+  public $pivotValueRegions;
+  /**
+   * @var string[]
+   */
   public $values;
 
   /**
@@ -38,10 +42,16 @@ class DateRangeValues extends \Google\Collection
   {
     return $this->pivotValueRegions;
   }
+  /**
+   * @param string[]
+   */
   public function setValues($values)
   {
     $this->values = $values;
   }
+  /**
+   * @return string[]
+   */
   public function getValues()
   {
     return $this->values;

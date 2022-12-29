@@ -19,20 +19,38 @@ namespace Google\Service\DisplayVideo;
 
 class SearchTargetingOptionsRequest extends \Google\Model
 {
+  /**
+   * @var string
+   */
   public $advertiserId;
   protected $businessChainSearchTermsType = BusinessChainSearchTerms::class;
   protected $businessChainSearchTermsDataType = '';
+  public $businessChainSearchTerms;
   protected $geoRegionSearchTermsType = GeoRegionSearchTerms::class;
   protected $geoRegionSearchTermsDataType = '';
+  public $geoRegionSearchTerms;
+  /**
+   * @var int
+   */
   public $pageSize;
+  /**
+   * @var string
+   */
   public $pageToken;
   protected $poiSearchTermsType = PoiSearchTerms::class;
   protected $poiSearchTermsDataType = '';
+  public $poiSearchTerms;
 
+  /**
+   * @param string
+   */
   public function setAdvertiserId($advertiserId)
   {
     $this->advertiserId = $advertiserId;
   }
+  /**
+   * @return string
+   */
   public function getAdvertiserId()
   {
     return $this->advertiserId;
@@ -65,18 +83,30 @@ class SearchTargetingOptionsRequest extends \Google\Model
   {
     return $this->geoRegionSearchTerms;
   }
+  /**
+   * @param int
+   */
   public function setPageSize($pageSize)
   {
     $this->pageSize = $pageSize;
   }
+  /**
+   * @return int
+   */
   public function getPageSize()
   {
     return $this->pageSize;
   }
+  /**
+   * @param string
+   */
   public function setPageToken($pageToken)
   {
     $this->pageToken = $pageToken;
   }
+  /**
+   * @return string
+   */
   public function getPageToken()
   {
     return $this->pageToken;

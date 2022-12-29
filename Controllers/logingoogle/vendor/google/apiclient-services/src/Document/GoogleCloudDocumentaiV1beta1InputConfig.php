@@ -21,6 +21,10 @@ class GoogleCloudDocumentaiV1beta1InputConfig extends \Google\Model
 {
   protected $gcsSourceType = GoogleCloudDocumentaiV1beta1GcsSource::class;
   protected $gcsSourceDataType = '';
+  public $gcsSource;
+  /**
+   * @var string
+   */
   public $mimeType;
 
   /**
@@ -37,10 +41,16 @@ class GoogleCloudDocumentaiV1beta1InputConfig extends \Google\Model
   {
     return $this->gcsSource;
   }
+  /**
+   * @param string
+   */
   public function setMimeType($mimeType)
   {
     $this->mimeType = $mimeType;
   }
+  /**
+   * @return string
+   */
   public function getMimeType()
   {
     return $this->mimeType;

@@ -20,14 +20,24 @@ namespace Google\Service\Dataflow;
 class StreamingComputationRanges extends \Google\Collection
 {
   protected $collection_key = 'rangeAssignments';
+  /**
+   * @var string
+   */
   public $computationId;
   protected $rangeAssignmentsType = KeyRangeDataDiskAssignment::class;
   protected $rangeAssignmentsDataType = 'array';
+  public $rangeAssignments;
 
+  /**
+   * @param string
+   */
   public function setComputationId($computationId)
   {
     $this->computationId = $computationId;
   }
+  /**
+   * @return string
+   */
   public function getComputationId()
   {
     return $this->computationId;

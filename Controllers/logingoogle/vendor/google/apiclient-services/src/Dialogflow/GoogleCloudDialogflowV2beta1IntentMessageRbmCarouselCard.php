@@ -22,6 +22,10 @@ class GoogleCloudDialogflowV2beta1IntentMessageRbmCarouselCard extends \Google\C
   protected $collection_key = 'cardContents';
   protected $cardContentsType = GoogleCloudDialogflowV2beta1IntentMessageRbmCardContent::class;
   protected $cardContentsDataType = 'array';
+  public $cardContents;
+  /**
+   * @var string
+   */
   public $cardWidth;
 
   /**
@@ -38,10 +42,16 @@ class GoogleCloudDialogflowV2beta1IntentMessageRbmCarouselCard extends \Google\C
   {
     return $this->cardContents;
   }
+  /**
+   * @param string
+   */
   public function setCardWidth($cardWidth)
   {
     $this->cardWidth = $cardWidth;
   }
+  /**
+   * @return string
+   */
   public function getCardWidth()
   {
     return $this->cardWidth;

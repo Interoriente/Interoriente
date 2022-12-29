@@ -20,17 +20,35 @@ namespace Google\Service\Container;
 class ClusterAutoscaling extends \Google\Collection
 {
   protected $collection_key = 'resourceLimits';
+  /**
+   * @var string[]
+   */
   public $autoprovisioningLocations;
   protected $autoprovisioningNodePoolDefaultsType = AutoprovisioningNodePoolDefaults::class;
   protected $autoprovisioningNodePoolDefaultsDataType = '';
+  public $autoprovisioningNodePoolDefaults;
+  /**
+   * @var string
+   */
+  public $autoscalingProfile;
+  /**
+   * @var bool
+   */
   public $enableNodeAutoprovisioning;
   protected $resourceLimitsType = ResourceLimit::class;
   protected $resourceLimitsDataType = 'array';
+  public $resourceLimits;
 
+  /**
+   * @param string[]
+   */
   public function setAutoprovisioningLocations($autoprovisioningLocations)
   {
     $this->autoprovisioningLocations = $autoprovisioningLocations;
   }
+  /**
+   * @return string[]
+   */
   public function getAutoprovisioningLocations()
   {
     return $this->autoprovisioningLocations;
@@ -49,10 +67,30 @@ class ClusterAutoscaling extends \Google\Collection
   {
     return $this->autoprovisioningNodePoolDefaults;
   }
+  /**
+   * @param string
+   */
+  public function setAutoscalingProfile($autoscalingProfile)
+  {
+    $this->autoscalingProfile = $autoscalingProfile;
+  }
+  /**
+   * @return string
+   */
+  public function getAutoscalingProfile()
+  {
+    return $this->autoscalingProfile;
+  }
+  /**
+   * @param bool
+   */
   public function setEnableNodeAutoprovisioning($enableNodeAutoprovisioning)
   {
     $this->enableNodeAutoprovisioning = $enableNodeAutoprovisioning;
   }
+  /**
+   * @return bool
+   */
   public function getEnableNodeAutoprovisioning()
   {
     return $this->enableNodeAutoprovisioning;

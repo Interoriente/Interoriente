@@ -21,33 +21,88 @@ class GoogleCloudDatacatalogV1Entry extends \Google\Model
 {
   protected $bigqueryDateShardedSpecType = GoogleCloudDatacatalogV1BigQueryDateShardedSpec::class;
   protected $bigqueryDateShardedSpecDataType = '';
+  public $bigqueryDateShardedSpec;
   protected $bigqueryTableSpecType = GoogleCloudDatacatalogV1BigQueryTableSpec::class;
   protected $bigqueryTableSpecDataType = '';
+  public $bigqueryTableSpec;
+  protected $businessContextType = GoogleCloudDatacatalogV1BusinessContext::class;
+  protected $businessContextDataType = '';
+  public $businessContext;
   protected $dataSourceType = GoogleCloudDatacatalogV1DataSource::class;
   protected $dataSourceDataType = '';
+  public $dataSource;
   protected $dataSourceConnectionSpecType = GoogleCloudDatacatalogV1DataSourceConnectionSpec::class;
   protected $dataSourceConnectionSpecDataType = '';
+  public $dataSourceConnectionSpec;
   protected $databaseTableSpecType = GoogleCloudDatacatalogV1DatabaseTableSpec::class;
   protected $databaseTableSpecDataType = '';
+  public $databaseTableSpec;
+  /**
+   * @var string
+   */
   public $description;
+  /**
+   * @var string
+   */
   public $displayName;
+  protected $filesetSpecType = GoogleCloudDatacatalogV1FilesetSpec::class;
+  protected $filesetSpecDataType = '';
+  public $filesetSpec;
+  /**
+   * @var string
+   */
   public $fullyQualifiedName;
   protected $gcsFilesetSpecType = GoogleCloudDatacatalogV1GcsFilesetSpec::class;
   protected $gcsFilesetSpecDataType = '';
+  public $gcsFilesetSpec;
+  /**
+   * @var string
+   */
   public $integratedSystem;
+  /**
+   * @var string[]
+   */
   public $labels;
+  /**
+   * @var string
+   */
   public $linkedResource;
+  protected $lookerSystemSpecType = GoogleCloudDatacatalogV1LookerSystemSpec::class;
+  protected $lookerSystemSpecDataType = '';
+  public $lookerSystemSpec;
+  /**
+   * @var string
+   */
   public $name;
+  protected $personalDetailsType = GoogleCloudDatacatalogV1PersonalDetails::class;
+  protected $personalDetailsDataType = '';
+  public $personalDetails;
   protected $routineSpecType = GoogleCloudDatacatalogV1RoutineSpec::class;
   protected $routineSpecDataType = '';
+  public $routineSpec;
   protected $schemaType = GoogleCloudDatacatalogV1Schema::class;
   protected $schemaDataType = '';
+  public $schema;
   protected $sourceSystemTimestampsType = GoogleCloudDatacatalogV1SystemTimestamps::class;
   protected $sourceSystemTimestampsDataType = '';
+  public $sourceSystemTimestamps;
+  protected $sqlDatabaseSystemSpecType = GoogleCloudDatacatalogV1SqlDatabaseSystemSpec::class;
+  protected $sqlDatabaseSystemSpecDataType = '';
+  public $sqlDatabaseSystemSpec;
+  /**
+   * @var string
+   */
   public $type;
   protected $usageSignalType = GoogleCloudDatacatalogV1UsageSignal::class;
   protected $usageSignalDataType = '';
+  public $usageSignal;
+  /**
+   * @var string
+   */
   public $userSpecifiedSystem;
+  /**
+   * @var string
+   */
   public $userSpecifiedType;
 
   /**
@@ -77,6 +132,20 @@ class GoogleCloudDatacatalogV1Entry extends \Google\Model
   public function getBigqueryTableSpec()
   {
     return $this->bigqueryTableSpec;
+  }
+  /**
+   * @param GoogleCloudDatacatalogV1BusinessContext
+   */
+  public function setBusinessContext(GoogleCloudDatacatalogV1BusinessContext $businessContext)
+  {
+    $this->businessContext = $businessContext;
+  }
+  /**
+   * @return GoogleCloudDatacatalogV1BusinessContext
+   */
+  public function getBusinessContext()
+  {
+    return $this->businessContext;
   }
   /**
    * @param GoogleCloudDatacatalogV1DataSource
@@ -120,26 +189,58 @@ class GoogleCloudDatacatalogV1Entry extends \Google\Model
   {
     return $this->databaseTableSpec;
   }
+  /**
+   * @param string
+   */
   public function setDescription($description)
   {
     $this->description = $description;
   }
+  /**
+   * @return string
+   */
   public function getDescription()
   {
     return $this->description;
   }
+  /**
+   * @param string
+   */
   public function setDisplayName($displayName)
   {
     $this->displayName = $displayName;
   }
+  /**
+   * @return string
+   */
   public function getDisplayName()
   {
     return $this->displayName;
   }
+  /**
+   * @param GoogleCloudDatacatalogV1FilesetSpec
+   */
+  public function setFilesetSpec(GoogleCloudDatacatalogV1FilesetSpec $filesetSpec)
+  {
+    $this->filesetSpec = $filesetSpec;
+  }
+  /**
+   * @return GoogleCloudDatacatalogV1FilesetSpec
+   */
+  public function getFilesetSpec()
+  {
+    return $this->filesetSpec;
+  }
+  /**
+   * @param string
+   */
   public function setFullyQualifiedName($fullyQualifiedName)
   {
     $this->fullyQualifiedName = $fullyQualifiedName;
   }
+  /**
+   * @return string
+   */
   public function getFullyQualifiedName()
   {
     return $this->fullyQualifiedName;
@@ -158,37 +259,89 @@ class GoogleCloudDatacatalogV1Entry extends \Google\Model
   {
     return $this->gcsFilesetSpec;
   }
+  /**
+   * @param string
+   */
   public function setIntegratedSystem($integratedSystem)
   {
     $this->integratedSystem = $integratedSystem;
   }
+  /**
+   * @return string
+   */
   public function getIntegratedSystem()
   {
     return $this->integratedSystem;
   }
+  /**
+   * @param string[]
+   */
   public function setLabels($labels)
   {
     $this->labels = $labels;
   }
+  /**
+   * @return string[]
+   */
   public function getLabels()
   {
     return $this->labels;
   }
+  /**
+   * @param string
+   */
   public function setLinkedResource($linkedResource)
   {
     $this->linkedResource = $linkedResource;
   }
+  /**
+   * @return string
+   */
   public function getLinkedResource()
   {
     return $this->linkedResource;
   }
+  /**
+   * @param GoogleCloudDatacatalogV1LookerSystemSpec
+   */
+  public function setLookerSystemSpec(GoogleCloudDatacatalogV1LookerSystemSpec $lookerSystemSpec)
+  {
+    $this->lookerSystemSpec = $lookerSystemSpec;
+  }
+  /**
+   * @return GoogleCloudDatacatalogV1LookerSystemSpec
+   */
+  public function getLookerSystemSpec()
+  {
+    return $this->lookerSystemSpec;
+  }
+  /**
+   * @param string
+   */
   public function setName($name)
   {
     $this->name = $name;
   }
+  /**
+   * @return string
+   */
   public function getName()
   {
     return $this->name;
+  }
+  /**
+   * @param GoogleCloudDatacatalogV1PersonalDetails
+   */
+  public function setPersonalDetails(GoogleCloudDatacatalogV1PersonalDetails $personalDetails)
+  {
+    $this->personalDetails = $personalDetails;
+  }
+  /**
+   * @return GoogleCloudDatacatalogV1PersonalDetails
+   */
+  public function getPersonalDetails()
+  {
+    return $this->personalDetails;
   }
   /**
    * @param GoogleCloudDatacatalogV1RoutineSpec
@@ -232,10 +385,30 @@ class GoogleCloudDatacatalogV1Entry extends \Google\Model
   {
     return $this->sourceSystemTimestamps;
   }
+  /**
+   * @param GoogleCloudDatacatalogV1SqlDatabaseSystemSpec
+   */
+  public function setSqlDatabaseSystemSpec(GoogleCloudDatacatalogV1SqlDatabaseSystemSpec $sqlDatabaseSystemSpec)
+  {
+    $this->sqlDatabaseSystemSpec = $sqlDatabaseSystemSpec;
+  }
+  /**
+   * @return GoogleCloudDatacatalogV1SqlDatabaseSystemSpec
+   */
+  public function getSqlDatabaseSystemSpec()
+  {
+    return $this->sqlDatabaseSystemSpec;
+  }
+  /**
+   * @param string
+   */
   public function setType($type)
   {
     $this->type = $type;
   }
+  /**
+   * @return string
+   */
   public function getType()
   {
     return $this->type;
@@ -254,18 +427,30 @@ class GoogleCloudDatacatalogV1Entry extends \Google\Model
   {
     return $this->usageSignal;
   }
+  /**
+   * @param string
+   */
   public function setUserSpecifiedSystem($userSpecifiedSystem)
   {
     $this->userSpecifiedSystem = $userSpecifiedSystem;
   }
+  /**
+   * @return string
+   */
   public function getUserSpecifiedSystem()
   {
     return $this->userSpecifiedSystem;
   }
+  /**
+   * @param string
+   */
   public function setUserSpecifiedType($userSpecifiedType)
   {
     $this->userSpecifiedType = $userSpecifiedType;
   }
+  /**
+   * @return string
+   */
   public function getUserSpecifiedType()
   {
     return $this->userSpecifiedType;

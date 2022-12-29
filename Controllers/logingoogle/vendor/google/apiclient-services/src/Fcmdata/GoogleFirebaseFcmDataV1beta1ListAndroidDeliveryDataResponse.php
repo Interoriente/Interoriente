@@ -22,6 +22,10 @@ class GoogleFirebaseFcmDataV1beta1ListAndroidDeliveryDataResponse extends \Googl
   protected $collection_key = 'androidDeliveryData';
   protected $androidDeliveryDataType = GoogleFirebaseFcmDataV1beta1AndroidDeliveryData::class;
   protected $androidDeliveryDataDataType = 'array';
+  public $androidDeliveryData;
+  /**
+   * @var string
+   */
   public $nextPageToken;
 
   /**
@@ -38,10 +42,16 @@ class GoogleFirebaseFcmDataV1beta1ListAndroidDeliveryDataResponse extends \Googl
   {
     return $this->androidDeliveryData;
   }
+  /**
+   * @param string
+   */
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
   }
+  /**
+   * @return string
+   */
   public function getNextPageToken()
   {
     return $this->nextPageToken;

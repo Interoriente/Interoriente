@@ -19,16 +19,27 @@ namespace Google\Service\CloudSearch;
 
 class PushItemRequest extends \Google\Model
 {
+  /**
+   * @var string
+   */
   public $connectorName;
   protected $debugOptionsType = DebugOptions::class;
   protected $debugOptionsDataType = '';
+  public $debugOptions;
   protected $itemType = PushItem::class;
   protected $itemDataType = '';
+  public $item;
 
+  /**
+   * @param string
+   */
   public function setConnectorName($connectorName)
   {
     $this->connectorName = $connectorName;
   }
+  /**
+   * @return string
+   */
   public function getConnectorName()
   {
     return $this->connectorName;

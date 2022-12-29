@@ -22,6 +22,10 @@ class GoogleCloudVideointelligenceV1beta2FaceFrame extends \Google\Collection
   protected $collection_key = 'normalizedBoundingBoxes';
   protected $normalizedBoundingBoxesType = GoogleCloudVideointelligenceV1beta2NormalizedBoundingBox::class;
   protected $normalizedBoundingBoxesDataType = 'array';
+  public $normalizedBoundingBoxes;
+  /**
+   * @var string
+   */
   public $timeOffset;
 
   /**
@@ -38,10 +42,16 @@ class GoogleCloudVideointelligenceV1beta2FaceFrame extends \Google\Collection
   {
     return $this->normalizedBoundingBoxes;
   }
+  /**
+   * @param string
+   */
   public function setTimeOffset($timeOffset)
   {
     $this->timeOffset = $timeOffset;
   }
+  /**
+   * @return string
+   */
   public function getTimeOffset()
   {
     return $this->timeOffset;

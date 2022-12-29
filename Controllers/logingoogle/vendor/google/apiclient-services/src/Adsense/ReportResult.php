@@ -22,17 +22,29 @@ class ReportResult extends \Google\Collection
   protected $collection_key = 'warnings';
   protected $averagesType = Row::class;
   protected $averagesDataType = '';
+  public $averages;
   protected $endDateType = Date::class;
   protected $endDateDataType = '';
+  public $endDate;
   protected $headersType = Header::class;
   protected $headersDataType = 'array';
+  public $headers;
   protected $rowsType = Row::class;
   protected $rowsDataType = 'array';
+  public $rows;
   protected $startDateType = Date::class;
   protected $startDateDataType = '';
+  public $startDate;
+  /**
+   * @var string
+   */
   public $totalMatchedRows;
   protected $totalsType = Row::class;
   protected $totalsDataType = '';
+  public $totals;
+  /**
+   * @var string[]
+   */
   public $warnings;
 
   /**
@@ -105,10 +117,16 @@ class ReportResult extends \Google\Collection
   {
     return $this->startDate;
   }
+  /**
+   * @param string
+   */
   public function setTotalMatchedRows($totalMatchedRows)
   {
     $this->totalMatchedRows = $totalMatchedRows;
   }
+  /**
+   * @return string
+   */
   public function getTotalMatchedRows()
   {
     return $this->totalMatchedRows;
@@ -127,10 +145,16 @@ class ReportResult extends \Google\Collection
   {
     return $this->totals;
   }
+  /**
+   * @param string[]
+   */
   public function setWarnings($warnings)
   {
     $this->warnings = $warnings;
   }
+  /**
+   * @return string[]
+   */
   public function getWarnings()
   {
     return $this->warnings;

@@ -21,8 +21,13 @@ class Feed extends \Google\Model
 {
   protected $courseRosterChangesInfoType = CourseRosterChangesInfo::class;
   protected $courseRosterChangesInfoDataType = '';
+  public $courseRosterChangesInfo;
   protected $courseWorkChangesInfoType = CourseWorkChangesInfo::class;
   protected $courseWorkChangesInfoDataType = '';
+  public $courseWorkChangesInfo;
+  /**
+   * @var string
+   */
   public $feedType;
 
   /**
@@ -53,10 +58,16 @@ class Feed extends \Google\Model
   {
     return $this->courseWorkChangesInfo;
   }
+  /**
+   * @param string
+   */
   public function setFeedType($feedType)
   {
     $this->feedType = $feedType;
   }
+  /**
+   * @return string
+   */
   public function getFeedType()
   {
     return $this->feedType;

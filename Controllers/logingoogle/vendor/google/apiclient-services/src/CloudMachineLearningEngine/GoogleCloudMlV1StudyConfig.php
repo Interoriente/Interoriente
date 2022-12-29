@@ -20,18 +20,30 @@ namespace Google\Service\CloudMachineLearningEngine;
 class GoogleCloudMlV1StudyConfig extends \Google\Collection
 {
   protected $collection_key = 'parameters';
+  /**
+   * @var string
+   */
   public $algorithm;
   protected $automatedStoppingConfigType = GoogleCloudMlV1AutomatedStoppingConfig::class;
   protected $automatedStoppingConfigDataType = '';
+  public $automatedStoppingConfig;
   protected $metricsType = GoogleCloudMlV1StudyConfigMetricSpec::class;
   protected $metricsDataType = 'array';
+  public $metrics;
   protected $parametersType = GoogleCloudMlV1StudyConfigParameterSpec::class;
   protected $parametersDataType = 'array';
+  public $parameters;
 
+  /**
+   * @param string
+   */
   public function setAlgorithm($algorithm)
   {
     $this->algorithm = $algorithm;
   }
+  /**
+   * @return string
+   */
   public function getAlgorithm()
   {
     return $this->algorithm;

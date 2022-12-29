@@ -19,26 +19,49 @@ namespace Google\Service\Dataflow;
 
 class StreamingSetupTask extends \Google\Model
 {
+  /**
+   * @var bool
+   */
   public $drain;
+  /**
+   * @var int
+   */
   public $receiveWorkPort;
   protected $snapshotConfigType = StreamingApplianceSnapshotConfig::class;
   protected $snapshotConfigDataType = '';
+  public $snapshotConfig;
   protected $streamingComputationTopologyType = TopologyConfig::class;
   protected $streamingComputationTopologyDataType = '';
+  public $streamingComputationTopology;
+  /**
+   * @var int
+   */
   public $workerHarnessPort;
 
+  /**
+   * @param bool
+   */
   public function setDrain($drain)
   {
     $this->drain = $drain;
   }
+  /**
+   * @return bool
+   */
   public function getDrain()
   {
     return $this->drain;
   }
+  /**
+   * @param int
+   */
   public function setReceiveWorkPort($receiveWorkPort)
   {
     $this->receiveWorkPort = $receiveWorkPort;
   }
+  /**
+   * @return int
+   */
   public function getReceiveWorkPort()
   {
     return $this->receiveWorkPort;
@@ -71,10 +94,16 @@ class StreamingSetupTask extends \Google\Model
   {
     return $this->streamingComputationTopology;
   }
+  /**
+   * @param int
+   */
   public function setWorkerHarnessPort($workerHarnessPort)
   {
     $this->workerHarnessPort = $workerHarnessPort;
   }
+  /**
+   * @return int
+   */
   public function getWorkerHarnessPort()
   {
     return $this->workerHarnessPort;
