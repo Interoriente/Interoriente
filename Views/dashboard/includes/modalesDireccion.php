@@ -1,6 +1,6 @@
 <div class="modal fade" id="eliminarDirModal<?= $direccion['idDireccion'] ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
-    <form action="../../../Controllers/php/users/usuarios.php" method="post">
+    <form action="../../../Controllers/php/users/usuarios" method="post">
       <input type="hidden" name="eliminarDireccion">
       <input type="hidden" name="idDireccion" value="<?= $direccion['idDireccion'] ?>">
       <div class="modal-content">
@@ -36,7 +36,7 @@
       <!-- Modal Body -->
       <div class="modal-body">
         <p class="statusMsg"></p>
-        <form method="POST" action="../../../Controllers/php/users/usuarios.php">
+        <form method="POST" action="../../../Controllers/php/users/usuarios">
           <!-- Actualiar dirección -->
           <input type="hidden" name="actualizarDireccion">
 

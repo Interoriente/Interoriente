@@ -30,7 +30,7 @@ function CerrarSesion()
 {
     session_start(); //Se necesita para que el session_destroy funciona, de lo contrario no se destrirá la sesión.
     session_destroy();
-    echo "<script> document.location.href='../../../Views/navegacion/index.php';</script>";
+    echo "<script> document.location.href='../../../Views/navegacion/index';</script>";
 }
 class Usuario
 {
@@ -58,7 +58,7 @@ class Usuario
         } catch (\Throwable $th) {
             //throw $th;
             /* echo "<script>alert('Ocurrió un error');</script>"; */
-            echo "<script>document.location.href='../../../Views/dashboard/principal/dashboard.php';</script>";
+            echo "<script>document.location.href='../../../Views/dashboard/principal/dashboard';</script>";
         }
     }
     public function getDirecciones($docId)
@@ -74,7 +74,7 @@ class Usuario
             return $consultarDireccion->fetchAll();
         } catch (\Throwable $th) {
             echo "<script>alert('Ocurrió un error');</script>";
-            echo "<script>document.location.href='../../../Views/dashboard/principal/perfil.php';</script>";
+            echo "<script>document.location.href='../../../Views/dashboard/principal/perfil';</script>";
         }
     }
     public function getCiudades()
@@ -88,7 +88,7 @@ class Usuario
             return $resultado;
         } catch (\Throwable $th) {
             echo "<script>alert('Ocurrió un error');</script>";
-            echo "<script>document.location.href='../../../Views/dashboard/principal/dashboard.php';</script>";
+            echo "<script>document.location.href='../../../Views/dashboard/principal/dashboard';</script>";
         }
     }
 
@@ -103,7 +103,7 @@ class Usuario
             return $stmt->fetchAll();
         } catch (\Throwable $th) {
             echo "<script>alert('Ocurrió un error');</script>";
-            echo "<script>document.location.href='../../../Views/dashboard/principal/dashboard.php';</script>";
+            echo "<script>document.location.href='../../../Views/dashboard/principal/dashboard';</script>";
         }
     }
     public function getUsuarios($docId)
@@ -122,7 +122,7 @@ class Usuario
             return $stmt->fetchAll();
         } catch (\Throwable $th) {
             echo "<script>alert('Ocurrió un error');</script>";
-            echo "<script>document.location.href='../../../Views/dashboard/principal/perfil.php';</script>";
+            echo "<script>document.location.href='../../../Views/dashboard/principal/perfil';</script>";
         }
     }
 }
@@ -152,7 +152,7 @@ class Administrador
         //alert
         echo "<script>alert('Estado actualizado correctamente');</script>";
         //redireccionar
-        echo "<script> document.location.href='../../../Views/dashboard/principal/listaAdmin.php';</script>";
+        echo "<script> document.location.href='../../../Views/dashboard/principal/listaAdmin';</script>";
     }
 
     public function DesactivarUsuario($id)
@@ -169,7 +169,7 @@ class Administrador
         //alert
         echo "<script>alert('Estado actualizado correctamente');</script>";
         //redireccionar
-        echo "<script> document.location.href='../../../Views/dashboard/principal/listaAdmin.php';</script>";
+        echo "<script> document.location.href='../../../Views/dashboard/principal/listaAdmin';</script>";
     }
 
     public function ActualizarCuenta($id)
@@ -198,9 +198,9 @@ class Administrador
                 echo "<script>alert('Error: solo se admiten archivos jpg, png y jpeg');</script>";
                 /* Redirigir a un archivo diferente basado en la condición */
                 if ($_SESSION['roles'] == 1) {
-                    echo "<script> document.location.href='../../../Views/dashboard/principal/perfil.php';</script>";
+                    echo "<script> document.location.href='../../../Views/dashboard/principal/perfil';</script>";
                 } else {
-                    echo "<script> document.location.href='../../../Views/dashboard/principal/perfilAdmin.php';</script>";
+                    echo "<script> document.location.href='../../../Views/dashboard/principal/perfilAdmin';</script>";
                 }
                 /* Devuélvame cuando el tipo de archivo sea inválido */
                 return false;
@@ -220,7 +220,7 @@ class Administrador
         if ($_SESSION['roles'] == 1) {
             echo "<script> document.location.href='../../../Views/dashboard/principal/perfil.php';</script>";
         } else {
-            echo "<script> document.location.href='../../../Views/dashboard/principal/perfilAdmin.php';</script>";
+            echo "<script> document.location.href='../../../Views/dashboard/principal/perfilAdmin';</script>";
         }
     }
     public function AgregarDireccion($id)
@@ -237,7 +237,7 @@ class Administrador
         $stmt->bindValue(":ciudad", $ciudad);
         $stmt->execute();
         echo "<script>alert('Dirección almacenada con éxito!');</script>";
-        echo "<script>document.location.href='../../../Views/dashboard/principal/perfil.php';</script>";
+        echo "<script>document.location.href='../../../Views/dashboard/principal/perfil';</script>";
     }
     public function EliminarDireccion($id)
     {
@@ -247,7 +247,7 @@ class Administrador
         $stmt->bindValue(":id", $id);
         $stmt->execute();
         echo "<script>alert('Dirección eliminada correctamente');</script>";
-        echo "<script>document.location.href='../../../Views/dashboard/principal/perfil.php';</script>";
+        echo "<script>document.location.href='../../../Views/dashboard/principal/perfil';</script>";
     }
     public function ActualizarDireccion($id)
     {
@@ -263,7 +263,7 @@ class Administrador
         $stmt->bindValue(":id", $id);
         $stmt->execute();
         echo "<script>alert('Dirección actualizada correctamente');</script>";
-        echo "<script>document.location.href='../../../Views/dashboard/principal/perfil.php';</script>";
+        echo "<script>document.location.href='../../../Views/dashboard/principal/perfil';</script>";
     }
     public function getAdministradores()
     {

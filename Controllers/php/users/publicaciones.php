@@ -187,7 +187,7 @@ class Publicaciones
         $activar->execute();
 
         echo "<script>alert('Estado actualizado correctamente');</script>";
-        echo "<script> document.location.href='../../../Views/dashboard/principal/publicaciones.php';</script>";
+        echo "<script> document.location.href='../../../Views/dashboard/principal/publicaciones';</script>";
     }
 
     public function DesactivarPublicacion($id)
@@ -205,7 +205,7 @@ class Publicaciones
         //alert
         echo "<script>alert('Estado actualizado correctamente');</script>";
         //redireccionar
-        echo "<script> document.location.href='../../../Views/dashboard/principal/publicaciones.php';</script>";
+        echo "<script> document.location.href='../../../Views/dashboard/principal/publicaciones';</script>";
     }
     public function ActualizarPublicacion($id)
     {
@@ -229,7 +229,7 @@ class Publicaciones
         $stmt->execute();
         //Redireccionar
         echo "<script>alert('Publicación actualizada correctamente');</script>";
-        echo "<script> document.location.href='../../../Views/dashboard/principal/misPublicaciones.php';</script>";
+        echo "<script> document.location.href='../../../Views/dashboard/principal/misPublicaciones';</script>";
     }
     public function EliminarPublicacion($id)
     {
@@ -248,7 +248,7 @@ class Publicaciones
         $consultaEliminar->execute();
         //Redireccionar
         echo "<script>alert('Publicación eliminada correctamente');</script>";
-        echo "<script> document.location.href='../../../Views/dashboard/principal/misPublicaciones.php';</script>";
+        echo "<script> document.location.href='../../../Views/dashboard/principal/misPublicaciones';</script>";
     }
     public function MostrarPublicacion($id)
     {

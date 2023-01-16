@@ -3,7 +3,7 @@
   <div class="scrollbar-inner">
     <!-- Brand -->
     <div class="sidenav-header ">
-      <a class="logoHome" href="../../navegacion/index.php">
+      <a class="logoHome" href="../../navegacion/index">
         <img id="homeLogo" src="../../assets/img/logoDashboard.svg" class="navbar-brand-img" alt="home logo Interoriente">
       </a>
     </div>
@@ -15,31 +15,31 @@
           if ($_SESSION['roles'] == "1") { ?>
             <ul class="navbar-nav">
               <li class="nav-item" id="item">
-                <a class="nav-link" href="dashboard.php">
+                <a class="nav-link" href="dashboard">
                   <i class="ni ni-tv-2 text-primary"></i>
                   <span class="nav-link-text">Dashboard</span>
                 </a>
               </li>
               <li class="nav-item" id="item">
-                <a class="nav-link" href="perfil.php">
+                <a class="nav-link" href="perfil">
                   <i class="ni ni-single-02" style="color: #5D9BAC"></i>
                   <span class="nav-link-text">Mi perfil</span>
                 </a>
               </li>
               <li class="nav-item" id="item">
-                <a class="nav-link" href="crearPublicacion.php">
+                <a class="nav-link" href="crearPublicacion">
                   <i class="ni ni-album-2" style="color: #FFB720"></i>
                   <span class="nav-link-text">Crear publicación</span>
                 </a>
               </li>
               <li class="nav-item" id="item">
-                <a class="nav-link" href="misPublicaciones.php">
+                <a class="nav-link" href="misPublicaciones">
                   <i class="ni ni-book-bookmark" style="color: #FFB930"></i>
                   <span class="nav-link-text">Mis publicaciones</span>
                 </a>
               </li>
               <li class="nav-item" id="item">
-                <a class="nav-link" href="misCompras.php">
+                <a class="nav-link" href="misCompras">
                   <i class="ni ni-briefcase-24"></i>
                   <span class="nav-link-text">Mis compras</span>
                 </a>
@@ -49,19 +49,19 @@
           if ($_SESSION['roles'] == "3") { ?>
             <ul class="navbar-nav">
               <li class="nav-item" id="item">
-                <a class="nav-link" href="dashboardAdmin.php">
+                <a class="nav-link" href="dashboardAdmin">
                   <i class="ni ni-tv-2 text-primary"></i>
                   <span class="nav-link-text">Dashboard</span>
                 </a>
               </li>
               <li class="nav-item" id="item">
-                <a class="nav-link" href="perfilAdmin.php">
+                <a class="nav-link" href="perfilAdmin">
                   <i class="ni ni-single-02" style="color: #5D9BAC"></i>
                   <span class="nav-link-text">Mi perfil</span>
                 </a>
               </li>
               <li class="nav-item" id="item">
-                <a class="nav-link" href="publicaciones.php">
+                <a class="nav-link" href="publicaciones">
                   <i class="ni ni-single-copy-04 text-purple"></i>
                   <span class="nav-link-text">Validar publicaciones</span>
                 </a>
@@ -69,14 +69,14 @@
               <?php if ($_SESSION['documentoIdentidad'] == '123456789') {
               ?>
                 <li class="nav-item" id="item">
-                  <a class="nav-link" href="registrarAdmin.php">
+                  <a class="nav-link" href="registrarAdmin">
                     <i class="ni ni-building text-orange"></i>
                     <span class="nav-link-text">Registrar Admin</span>
                   </a>
                 </li>
                 <?php } ?>
                 <li class="nav-item" id="item">
-                  <a class="nav-link" href="listaAdmin.php">
+                  <a class="nav-link" href="listaAdmin">
                     <i class="ni ni-atom text-blue"></i>
                     <span class="nav-link-text">Administradores</span>
                   </a>

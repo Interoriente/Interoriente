@@ -25,7 +25,7 @@
 			<h1>403</h1>
 			<h2>Oops! No has iniciado sesión o ha finalizado</h2>
 			<p>Perdón, la sesión no está activa debes iniciar sesión</p>
-			<a href="../../navegacion/iniciarsesion.php">Iniciar sesión</a>
+			<a href="../../navegacion/iniciarsesion">Iniciar sesión</a>
 		</div>
 	</div>
 

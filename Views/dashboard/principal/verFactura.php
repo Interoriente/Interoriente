@@ -140,9 +140,9 @@ if (isset($_SESSION['documentoIdentidad'])) {
 <?php
     } else {
         echo "<script>alert('¡Error! No se ha seleccionado una factura.');</script>";
-        echo "<script> document.location.href='dashboard.php';</script>";
+        echo "<script> document.location.href='dashboard';</script>";
     }
 } else {
     echo "<script>alert('No has iniciado sesión');</script>";
-    echo "<script> document.location.href='403.php';</script>";
+    echo "<script> document.location.href='403';</script>";
 }

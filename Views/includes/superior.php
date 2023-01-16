@@ -10,7 +10,7 @@
   <header>
     <div class="contenedor-navegacion">
       <div class="logo">
-        <a href="./index.php">
+        <a href="./index">
           <img src="../assets/img/LogoTerciario.svg" alt="Logo Interoriente">
         </a>
       </div>
@@ -41,27 +41,27 @@
     <a href="javascript:void(0)" id="btn-close" class="closebtn" onclick="closeNav()">&times;</a>
     <div class="navegacion-a" id="item">
       <img src="../assets/img/iconos/Tienda_Icon.svg" alt="">
-      <a href="index.php">Inicio</a>
+      <a href="index">Inicio</a>
     </div>
     <div class="navegacion-a" id="item">
       <img src="../assets/img/iconos/catalogo.svg" alt="">
-      <a href="catalogos.php">Categorías</a>
+      <a href="catalogos">Categorías</a>
     </div>
     <?php if (isset($_SESSION['roles']) == '1') : ?>
       <div class="navegacion-a" id="item">
         <img src="../assets/img/iconos/money-bill-wave.svg" alt="">
-        <a href="../dashboard/principal/crearPublicacion.php">Vender</a>
+        <a href="../dashboard/principal/crearPublicacion">Vender</a>
       </div>
       <div class="navegacion-a" id="item">
         <img src="../assets/img/iconos/compras.svg" alt="">
-        <a href="../dashboard/principal/misCompras.php">Mis compras</a>
+        <a href="../dashboard/principal/misCompras">Mis compras</a>
       </div>
       <div class="navegacion-a" id="item">
         <img src="../assets/img/iconos/Estadisticas_Icon.svg" alt="">
         <?php if ($_SESSION['roles'] == '1') { ?>
-          <a href="../dashboard/principal/dashboard.php">Volver al panel</a>
+          <a href="../dashboard/principal/dashboard">Volver al panel</a>
         <?php  } else { ?>
-          <a href="../dashboard/principal/dashboardAdmin.php">Volver al panel</a>
+          <a href="../dashboard/principal/dashboardAdmin">Volver al panel</a>
         <?php } ?>
       </div>
     <?php endif;
@@ -69,12 +69,12 @@
     ?>
       <div class="navegacion-a" id="item">
         <img src="../assets/img/iconos/User_Icon.svg" alt="">
-        <a href="iniciarsesion.php">Iniciar sesión</a>
+        <a href="iniciarsesion">Iniciar sesión</a>
       </div>
     <?php } else { ?>
       <div class="navegacion-a" id="item">
         <img src="../assets/img/iconos/sign-out.svg" alt="">
-        <form class="cerrar-sesion" action="../../Controllers/php/users/usuarios.php" method="POST">
+        <form class="cerrar-sesion" action="../../Controllers/php/users/usuarios" method="POST">
           <input type="hidden" name="cerrarSesion">
           <input class="btnCerrar" type="submit" value="Cerrar Sesión">
         </form>

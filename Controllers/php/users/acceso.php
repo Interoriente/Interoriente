@@ -1,18 +1,18 @@
 <?php
 //Se comprueba que exista el envío desde un información
-if (isset($_POST['iniciarSesion']) || isset($_POST['registrarse']) || isset($_GET['comprobandoAcceso']) || isset($_POST['registrarAdmin'])) {
+if (isset($_POST['iniciarSesion']) || isset($_POST['registro']) || isset($_GET['comprobandoAcceso']) || isset($_POST['registrarAdmin'])) {
     /* Se captura el id, en caso de que exista */
     @$logiGoogle = $_GET['comprobandoAcceso'];
     /* Se valida que se mande información para iniciar sesión */
     if (isset($_POST['iniciarSesion'])) {
+        $datos = json_decode($_POST['iniciarSesion']);
         //Captura de información
-        $idUsuario = $_POST['id'];
-        $contrasena = $_POST['contrasena'];
+        $idUsuario = htmlentities($datos->id);
+        $contrasena = htmlentities($datos->contrasena);
         /* Instanciar la clase */
         $iniciar = new InicioSesion();
         /* Asignación de los parametros a la función */
         $iniciar->iniciarSesion($idUsuario, $contrasena);
-        /* Se valida que se mande información para iniciar sesión con google */
     } else if ($logiGoogle) {
         $loginGoogle = new InicioSesion();
         $loginGoogle->LoginGoogle();
@@ -30,24 +30,23 @@ if (isset($_POST['iniciarSesion']) || isset($_POST['registrarse']) || isset($_GE
         //Asignación de parametros a la función
         $registro->RegistrarAdmin($docIdentidad, $nombre, $apellido, $email, $contrasena, $perfil);
     } else {
-        /* Se valida que se mande información para registrar a usuario */
+        $datos = json_decode($_POST['registro']);
         //Capturo información para registro usuario
-        $nombre = strip_tags($_POST['nombres']);
-        $apellido = strip_tags($_POST['apellidos']);
-        $docIdentidad = strip_tags($_POST['documento']);
-        $email = strip_tags($_POST['correo']);
-        $contrasena = strip_tags($_POST['contrasena']);
-        $perfil = strip_tags($_POST['imagen']);
+        $docIdentidad = htmlentities($datos->documento);
+        $nombre = htmlentities($datos->nombre);
+        $apellido = htmlentities($datos->apellido);
+        $email = htmlentities($datos->correo);
+        $contrasena = htmlentities($datos->contrasena);
         //Se instancia la clase
         $registro = new Registro();
-        //Asignación de parametros a la función
-        $registro->registrarUsuario($docIdentidad, $nombre, $apellido, $email, $contrasena, $perfil);
+        //Asignación de argumentos a la función
+        $registro->registrarUsuario($docIdentidad, $nombre, $apellido, $email, $contrasena);
     }
 }
 //Nombre de la clase
 class Registro
 {
-    public function registrarUsuario($docId, $nombres, $apellidos,  $correo, $pass, $imagen)
+    public function registrarUsuario($docId, $nombres, $apellidos,  $correo, $pass)
     {
         //Llamar a la conexion base de datos
         require '../../../Models/dao/conexion.php';
@@ -62,7 +61,7 @@ class Registro
             //Sha1 -> Método de encriptación
             $contrasena = sha1($pass);
             $estado = '1';
-            $perfil = $imagen;
+            $perfil = "imagenes/NO_borrar.png";
             $rol = '1';
             //Consulta correo ingresado no existe en BD
             //sentencia Sql
@@ -97,11 +96,10 @@ class Registro
             $_SESSION['roles'] = '1';
             $_SESSION["documentoIdentidad"] = $docId;
             //Comprador/Proveedor
-            echo "<script> document.location.href='../../../Views/dashboard/principal/dashboard.php';</script>";
+            echo 1;
         } else {
             //Impresión correo ingresado, ya existe en BD
-            echo "<script>alert('¡El correo y/o número de documento ingresado ya existen! Por favor verifícalos e intenta nuevamente.');</script>";
-            echo "<script> document.location.href='../../../Views/navegacion/registro.php';</script>";
+            echo 2;
         }
     }
     public function RegistrarAdmin($docId, $nombres, $apellidos,  $correo, $pass, $imagen)
@@ -152,11 +150,11 @@ class Registro
             $consultaRegistroUR->execute();
             //Impresión cuenta creada correctamente
             echo "<script>alert('¡El nuevo administrador se ha registrado con éxito!');</script>";
-            echo "<script> document.location.href='../../../Views/dashboard/principal/registrarAdmin.php';</script>";
+            echo "<script> document.location.href='../../../Views/dashboard/principal/registrarAdmin';</script>";
         } else {
             //Impresión correo ingresado, ya existe en BD
             echo "<script>alert('¡El correo y/o número de documento ingresado ya existen! Por favor verifícalos e intenta nuevamente.');</script>";
-            echo "<script> document.location.href='../../../Views/dashboard/principal/registrarAdmin.php';</script>";
+            echo "<script> document.location.href='../../../Views/dashboard/principal/registrarAdmin';</script>";
         }
     }
 }
@@ -168,8 +166,8 @@ class InicioSesion
         require "../../../Models/dao/conexion.php";
         //Capturo información
         //strip_tags->Función que ayuda a evitar la inyección sql
-        $id = strip_tags($idUsuario);
-        $contrasena = sha1(strip_tags($clave));
+        $id = htmlentities($idUsuario);
+        $contrasena = sha1(htmlentities($clave));
         $estado = '1';
         $sql = "CALL sp_iniciarSesion(:id,:contrasena,:estado)";
         $stmt = $pdo->prepare($sql);
@@ -205,14 +203,13 @@ class InicioSesion
                 $_SESSION['roles'] = $rol;
                 //Comprador/Proveedor
                 if ($_SESSION['roles'] == 1) {
-                    echo "<script> document.location.href='../../../Views/dashboard/principal/dashboard.php';</script>";
+                    echo 1;
                 } else {
-                    echo "<script> document.location.href='../../../Views/dashboard/principal/dashboardAdmin.php';</script>";
+                    echo 2;
                 }
             }
         } else {
-            echo "<script>alert('Correo o documento y/o contraseña incorrecto, o validación denegada');</script>";
-            echo "<script> document.location.href='../../../Views/navegacion/iniciarsesion.php';</script>";
+            echo 0;
         }
     }
     public function LoginGoogle()
@@ -221,7 +218,7 @@ class InicioSesion
         require_once '../../logingoogle/vendor/autoload.php';
 
         require_once '../../logingoogle/config.php';
-        
+
         //Funciones definidas por google para el iniciar sesión
         $client = new Google_Client();
 
@@ -265,7 +262,7 @@ class InicioSesion
             $_SESSION['familyName'] = $familyName;
             $_SESSION['picture'] = $picture;
             if ($resultadoInicio == 0) {
-                echo "<script> document.location.href='../../../Views/navegacion/registroGoogle.php';</script>";
+                echo "<script> document.location.href='../../../Views/navegacion/registroGoogle';</script>";
             } else {
 
                 // Fetch para OBTENER todos los datos en una variable php
@@ -279,7 +276,7 @@ class InicioSesion
                 //Siempre para iniciar se inicia como Comprador/Proveedor -> O por lo menos con el primer rol que se tenga
                 $_SESSION['roles'] = $rol;
                 //Comprador/Proveedor
-                header("Location: ../../../Views/dashboard/principal/dashboard.php");
+                header("Location: ../../../Views/dashboard/principal/dashboard");
             }
         }
     }

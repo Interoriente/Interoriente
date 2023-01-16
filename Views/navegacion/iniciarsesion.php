@@ -31,6 +31,8 @@
     <link rel="stylesheet" href="../dashboard/assets/css/all.min.css" type="text/css">
     <link rel="stylesheet" href="../assets/css/general.css">
     <link rel="stylesheet" href="../assets/css/checkout.css" />
+    <!-- Sweetalert 2 -->
+    <link rel="stylesheet" href="../assets/css/sweetalert2.min.css">
     <!-- No eliminar este script -->
     <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
 
@@ -77,7 +79,7 @@
                             <div class="text-center text-muted mb-4">
                                 <small>O con tus credenciales de acceso:</small>
                             </div>
-                            <form action="../../Controllers/php/users/acceso.php" method="POST">
+                            <form id="form-login" method="POST">
                                 <input type="hidden" name="iniciarSesion">
                                 <div class="form-group">
                                     <label for="id">Email o documento de identidad:</label>
@@ -85,7 +87,7 @@
                                         <div class="input-group-prepend">
                                             <span class="input-group-text"><i class="ni ni-email-83"></i></span>
                                         </div>
-                                        <input class="form-control" id="id" placeholder="tucorreo@gmail.com" type="text" name="id" require>
+                                        <input class="form-control" id="id" placeholder="tucorreo@gmail.com" type="text" name="id" required>
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -108,7 +110,7 @@
                         <div class="col-6 text-left">
                         </div>
                         <div class="col-6 text-right">
-                            <a href="registro.php" class="text-light"><small>¿No tienes una cuenta?</small></a>
+                            <a href="registro" class="text-light"><small>¿No tienes una cuenta?</small></a>
                         </div>
                         <br>
                         <br>
@@ -118,6 +120,7 @@
         </div>
     </div>
     <script src="../js/iniciarSesion.js"></script>
+    <script src="../js/sweetalert2.min.js"></script>
 </body>
 
 </html>

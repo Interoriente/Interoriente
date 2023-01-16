@@ -38,9 +38,9 @@
                 <h6 class="text-overflow m-0">!Bienvenid@!</h6>
               </div>
               <?php if ($_SESSION['roles'] == 1) { ?>
-                <a href="../principal/perfil.php" class="dropdown-item">
+                <a href="../principal/perfil" class="dropdown-item">
                 <?php  } else { ?>
-                  <a href="../principal/perfilAdmin.php" class="dropdown-item">
+                  <a href="../principal/perfilAdmin" class="dropdown-item">
                   <?php } ?>
                   <i class="ni ni-single-02"></i>
                   <span>Mi perfil</span>
@@ -79,7 +79,7 @@
         <div class="modal-body">
           Seleccione "Cerrar sesión" a continuación si estas listo para finalizar la sesión actual.
         </div>
-        <form class="cerrar-sesion" action="../../../Controllers/php/users/usuarios.php" method="POST">
+        <form class="cerrar-sesion" action="../../../Controllers/php/users/usuarios" method="POST">
           <div class="modal-footer">
             <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
 

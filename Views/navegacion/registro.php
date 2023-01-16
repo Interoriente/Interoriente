@@ -24,6 +24,7 @@ require "../includes/linksGoogle.php";
     <script src="//ajax.aspnetcdn.com/ajax/jquery/jquery-1.9.0.js"></script>
     <!-- Argon CSS -->
     <link rel="stylesheet" href="../dashboard/assets/css/argon.min.css?v=1.2.0" type="text/css">
+    <link rel="stylesheet" href="../assets/css/sweetalert2.min.css">
 </head>
 
 <body class="bg-default">
@@ -61,16 +62,15 @@ require "../includes/linksGoogle.php";
                             <div class="text-center text-muted mb-4">
                                 <small>O con tus datos personales:</small>
                             </div>
-                            <form action="../../Controllers/php/users/acceso.php" method="POST">
+                            <form id="form-registro" method="POST">
                                 <input type="hidden" name="registrarse">
-                                <input type="hidden" name="imagen" value="imagenes/NO_borrar.png">
                                 <div class="form-group">
                                     <label for="">Nombres:</label>
                                     <div class="input-group input-group-merge input-group-alternative mb-3">
                                         <div class="input-group-prepend">
                                             <span class="input-group-text"><i class="ni ni-single-02"></i></span>
                                         </div>
-                                        <input class="form-control" placeholder="Nombres" type="text" name="nombres" required>
+                                        <input class="form-control" placeholder="Nombres" type="text" id="nombres" required>
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -79,7 +79,7 @@ require "../includes/linksGoogle.php";
                                         <div class="input-group-prepend">
                                             <span class="input-group-text"><i class="ni ni-single-02"></i></span>
                                         </div>
-                                        <input class="form-control" placeholder="Apellidos" type="text" name="apellidos" required>
+                                        <input class="form-control" placeholder="Apellidos" type="text" id="apellidos" required>
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -88,7 +88,7 @@ require "../includes/linksGoogle.php";
                                         <div class="input-group-prepend">
                                             <span class="input-group-text"><i class="ni ni-badge"></i></span>
                                         </div>
-                                        <input class="form-control" placeholder="Documento" type="number" max="9999999999" name="documento" required>
+                                        <input class="form-control" placeholder="Documento" type="number" max="9999999999" id="documento" required>
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -97,7 +97,7 @@ require "../includes/linksGoogle.php";
                                         <div class="input-group-prepend">
                                             <span class="input-group-text"><i class="ni ni-email-83"></i></span>
                                         </div>
-                                        <input class="form-control" placeholder="tuemail@email.com" type="email" name="correo" required>
+                                        <input class="form-control" placeholder="tuemail@email.com" type="email" id="correo" required>
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -106,7 +106,16 @@ require "../includes/linksGoogle.php";
                                         <div class="input-group-prepend">
                                             <span class="input-group-text"><i class="ni ni-key-25"></i></span>
                                         </div>
-                                        <input class="form-control" placeholder="*********" type="password" name="contrasena" minlength="5" maxlength="20" required>
+                                        <input class="form-control" placeholder="*********" type="password" id="contrasena" minlength="5" maxlength="20" required>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="">Repita contraseña:</label>
+                                    <div class="input-group input-group-merge input-group-alternative mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"><i class="ni ni-key-25"></i></span>
+                                        </div>
+                                        <input class="form-control" placeholder="*********" type="password" id="repcontrasena" minlength="5" maxlength="20" required>
                                     </div>
                                 </div>
                                 <div class="text-center">
@@ -117,16 +126,18 @@ require "../includes/linksGoogle.php";
                     </div>
                     <div class="row mt-3">
                         <div class="col-6">
-                            <a href="index.php" class="text-light"><small>Regresar al inicio</small></a>
+                            <a href="index" class="text-light"><small>Regresar al inicio</small></a>
                         </div>
                         <div class="col-6 text-right">
-                            <a href="iniciarsesion.php" class="text-light"><small>¿Tienes cuenta?</small></a>
+                            <a href="iniciarsesion" class="text-light"><small>¿Tienes cuenta?</small></a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    <script src="../js/registro.js"></script>
+    <script src="../js/sweetalert2.min.js"></script>
 </body>
 
 </html>

@@ -79,7 +79,7 @@ session_start();
                             <a href="index.php" class="text-light"><small>Regresar a inicio</small></a>
                         </div>
                         <div class="col-6 text-right">
-                            <a href="iniciarsesion.php" class="text-light"><small>Tienes cuenta?</small></a>
+                            <a href="iniciarsesion" class="text-light"><small>Tienes cuenta?</small></a>
                         </div>
                     </div>
                 </div>

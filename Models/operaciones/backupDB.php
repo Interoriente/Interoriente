@@ -73,5 +73,5 @@ if ($_SESSION['roles'] == '3') {
     echo $output;
 } else {
     echo "<script>alert('No puedes acceder a esta página con el rol que tienes');</script>";
-    echo "<script> document.location.href='dashboard.php';</script>";
+    echo "<script> document.location.href='dashboard';</script>";
 }
