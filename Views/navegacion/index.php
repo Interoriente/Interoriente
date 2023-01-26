@@ -21,6 +21,8 @@ if ($catalogo) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../assets/css/general.css">
     <link rel="stylesheet" href="../assets/css/index.css">
+    <!-- Sweetalert 2 -->
+    <link rel="stylesheet" href="../assets/css/sweetalert2.min.css">
     <!-- No eliminar este script -->
     <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
     <title> Inicio | Interoriente</title>
@@ -74,5 +76,6 @@ if ($catalogo) {
     <!-- Importante: No hay etiquetas de cierrie porque ya se encuentran incluidas en NavInferior -->
 
     <!-- navegación -->
+    <script src="../js/sweetalert2.min.js"></script>
     <?php include '../includes/navInferior.php'; ?>
     <!-- ------- -->
