@@ -19,6 +19,8 @@ $validarImagen = substr($respPublicacion[0]['imagenUsuario'], 0, 5);
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="../assets/css/general.css">
   <link rel="stylesheet" href="../assets/css/publicacion.css">
+  <!-- Sweetalert 2 -->
+  <link rel="stylesheet" href="../assets/css/sweetalert2.min.css">
   <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
   <title><?= $respPublicacion[0]['nombrePublicacion']; ?></title>
 </head>
@@ -64,7 +66,7 @@ $validarImagen = substr($respPublicacion[0]['imagenUsuario'], 0, 5);
           <h4><?= $respPublicacion[0]['cantidadPublicacion'] ?></h4>
         </div>
         <div class="cta">
-          <a class="btn btn-accion" href="checkout.php">Comprar Ahora</a>
+          <a class="btn btn-accion" onclick="comprarAhora(this.id)" id="<?= $respPublicacion[0]['idPublicacion'] ?>">Comprar Ahora</a>
           <a class="btn btn-accion" onclick="addCarrito(this.id)" id="<?= $respPublicacion[0]['idPublicacion'] ?>">Agregar al carrito</a>
         </div>
 
@@ -115,7 +117,7 @@ $validarImagen = substr($respPublicacion[0]['imagenUsuario'], 0, 5);
   </section>
 
   <!-- Comentarios Publicación -->
-
+  <script src="../js/sweetalert2.min.js"></script>
   <!-- js -->
   <script src="../../Views/js/publicacion.js"></script>
   <!-- Footer -->

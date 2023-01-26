@@ -7,7 +7,8 @@ if (
   isset($_POST['ciudades']) ||
   isset($_POST['checkout']) ||
   isset($_GET['tblCarrito']) ||
-  isset($_POST['finalizar-compra'])
+  isset($_POST['finalizar-compra']) ||
+  isset($_POST['comprar'])
 ) {
   /* Verificando de dónde proviene y llamando respectiva función */
   if (isset($_POST['id'])) {
@@ -28,12 +29,15 @@ if (
   } else if (isset($_GET['tblCarrito'])) {
     session_start();
     echo verificarCarrito($_SESSION['documentoIdentidad']);
-  } else if ($_POST['finalizar-compra']) {
+  } else if (isset($_POST['finalizar-compra'])) {
     $direccion = "calle 34";
     $email = "rubenduque21";
     $compra = new Checkout();
     echo "<script>'Llegué hasta aquí'</script>;";
     $respuesta = $compra->finalizarCompra($direccion, $email);
+  } else if (isset($_POST['comprar'])) {
+    $comprar = $_POST['comprar'];
+    echo almacenarCarritoCompra($comprar);
   } else {
     /* $userData = $_POST['checkout'];
     $direccion = $userData[0];
@@ -174,6 +178,46 @@ function almacenarCarrito($carrito)
     return 1;
   } else {
     echo "<script>alert('No existe la sesión!');</script>";
+  }
+}
+
+function almacenarCarritoCompra($id)
+{
+  session_start(); // Se debe usar antes de tratar de acceder a una variable de sessión
+  $idUsuario = $_SESSION['documentoIdentidad'];
+  if (!isset($idUsuario)) {
+    return 0;
+  }
+  if ($idUsuario) {
+    require('../../../Models/dao/conexion.php');
+    // Selecciona los datos que coincidan con el id
+    $sql = "CALL sp_getCarritoId(:id)";
+    $consulta = $pdo->prepare($sql);
+    $consulta->bindValue(":id", $id);
+    $consulta->execute();
+    $resultado = $consulta->fetchAll();
+    $consulta->closeCursor();
+    if (@$resultado[0]['id'] == $id) {
+      $idPubli = $id;
+      $cantidad = 1 + $resultado[0]['cantidad'];
+      $sql = "CALL sp_actualizarCarrito(:cantidad, :idPubli,:idUser)";
+      $stmt = $pdo->prepare($sql);
+      $stmt->bindValue(':cantidad', $cantidad);
+      $stmt->bindValue(':idPubli', $idPubli);
+      $stmt->bindValue(':idUser', $idUsuario);
+      $stmt->execute();
+      return 1;
+    } else {
+      $idPubli = $id;
+      $cantidad = 1;
+      $sql = "CALL sp_almacenarCarrito(:idPubli,:idUser,:cantidad)";
+      $stmt = $pdo->prepare($sql);
+      $stmt->bindValue(':idPubli', $idPubli);
+      $stmt->bindValue(':idUser', $idUsuario);
+      $stmt->bindValue(':cantidad', $cantidad);
+      $stmt->execute();
+      return 2;
+    }
   }
 }
 

@@ -15,7 +15,7 @@ $respCategorias = MostrarCategorias();
     <link rel="icon" href="../assets/img/favicon.png" type="image/png" />
     <!-- Es necesario para que abra el carrito y trabaje el buscar -->
     <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
-    <title>Catalógo Producto | Interoriente</title>
+    <title>Catálogos Producto | Interoriente</title>
 </head>
 
 <body>

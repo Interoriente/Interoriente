@@ -12,6 +12,7 @@ const carritoBtn = document.getElementById("carrito-btn");
 const cantidadCarrito = document.getElementById("cantidad-carrito");
 const overlay = document.getElementById("overlay");
 const finCompra = document.getElementById("finalizar-compra");
+
 /* Declaración de variables */
 let inputCantidad,
   publicacionExiste = false,
@@ -150,7 +151,7 @@ function getPublicacionDb(id) {
 function renderPubli(item) {
   itemCarrito = ``;
   if (existeCompra) {
-    itemCarrito += existeCompra; 
+    itemCarrito += existeCompra;
   }
   item.map((item) => {
     itemCarrito += `
@@ -185,7 +186,6 @@ function abrirCarrito() {
   inputCantidad = document.querySelectorAll(".cantidad-items"); //Seleccionando todos los elementos con esa clase
 }
 
-
 /* Cambiar Cantidad */
 function cambiarCantidad(idItem) {
   let id = idItem,
@@ -200,15 +200,20 @@ function cambiarCantidad(idItem) {
 
   cantidadPublicacion = inputId.value;
   console.log(cantidadPublicacion);
-  if (cantidadPublicacion === "" || /^0+$/.test(cantidadPublicacion) || /^-+$/.test(cantidadPublicacion)  || Number(cantidadPublicacion) <= 0) {
+  if (
+    cantidadPublicacion === "" ||
+    /^0+$/.test(cantidadPublicacion) ||
+    /^-+$/.test(cantidadPublicacion) ||
+    Number(cantidadPublicacion) <= 0
+  ) {
     if (cantidadPublicacion === "") {
       cantidadPublicacion = "1";
     } else if (cantidadPublicacion === "0") {
       cantidadPublicacion = "1";
       inputId.value = "1";
-    }else{
-      cantidadPublicacion = cantidadPublicacion.replace('-', '');
-      inputId.value = cantidadPublicacion.replace('-', '');
+    } else {
+      cantidadPublicacion = cantidadPublicacion.replace("-", "");
+      inputId.value = cantidadPublicacion.replace("-", "");
     }
   }
   carrito = Storage.getPublicacion();
@@ -222,14 +227,13 @@ function cambiarCantidad(idItem) {
   Storage.setPublicacion(carrito);
   mathCarrito(carrito);
 
-  //Controlar input cuando esté vacíos 
-  
-  inputId.onblur = function() {
-    if (inputId.value === "" ) {
+  //Controlar input cuando esté vacíos
+
+  inputId.onblur = function () {
+    if (inputId.value === "") {
       inputId.value = "1";
     }
-  }
-
+  };
 }
 
 /* Función para eliminar items */
@@ -307,3 +311,36 @@ finCompra.addEventListener("click", function () {
     },
   });
 });
+
+/* Comprar ahora */
+function comprarAhora(id) {
+  comprar(id);
+}
+
+function comprar(id) {
+  $.ajax({
+    /* LLamando clase PHP */
+    url: "../../Controllers/php/users/compras.php", //Ruta de la clase
+    type: "POST", //Tipo de request,
+    dataType: "JSON", //Tipo de dato a retornar
+    data: { comprar: id }, //Datos a recibir en el script .php a traves de $_POST
+    success: function (resp) {
+      /* En caso de una respuesta exitosa */
+      console.log(resp);
+      $("#respuesta").html(resp);
+      if (resp == 1) {
+        Swal.fire({
+          type: "success",
+          html: "<strong>Ya tenías un producto igual agregado, se ha actualizado la cantidad. Vamos para terminar la compra</strong>",
+        });
+        document.location.href = "checkout.php";
+      } else if (resp == 2) {
+        Swal.fire({
+          type: "success",
+          html: "<strong>Vamos para terminar la compra</strong>",
+        });
+        document.location.href = "checkout.php";
+      }
+    },
+  });
+}
