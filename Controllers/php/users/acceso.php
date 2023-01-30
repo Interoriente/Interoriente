@@ -37,16 +37,17 @@ if (isset($_POST['iniciarSesion']) || isset($_POST['registro']) || isset($_GET['
         $apellido = htmlentities($datos->apellido);
         $email = htmlentities($datos->correo);
         $contrasena = htmlentities($datos->contrasena);
+        $imagen = htmlentities($datos->imagen);
         //Se instancia la clase
         $registro = new Registro();
         //Asignación de argumentos a la función
-        $registro->registrarUsuario($docIdentidad, $nombre, $apellido, $email, $contrasena);
+        $registro->registrarUsuario($docIdentidad, $nombre, $apellido, $email, $contrasena, $imagen);
     }
 }
 //Nombre de la clase
 class Registro
 {
-    public function registrarUsuario($docId, $nombres, $apellidos,  $correo, $pass)
+    public function registrarUsuario($docId, $nombres, $apellidos,  $correo, $pass, $perfil)
     {
         //Llamar a la conexion base de datos
         require '../../../Models/dao/conexion.php';
@@ -61,7 +62,6 @@ class Registro
             //Sha1 -> Método de encriptación
             $contrasena = sha1($pass);
             $estado = '1';
-            $perfil = "imagenes/NO_borrar.png";
             $rol = '1';
             //Consulta correo ingresado no existe en BD
             //sentencia Sql

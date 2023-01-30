@@ -63,7 +63,7 @@ require "../includes/linksGoogle.php";
                                 <small>O con tus datos personales:</small>
                             </div>
                             <form id="form-registro" method="POST">
-                                <input type="hidden" name="registrarse">
+                            <input type="hidden" id="imagen" value="imagenes/NO_borrar.png">
                                 <div class="form-group">
                                     <label for="">Nombres:</label>
                                     <div class="input-group input-group-merge input-group-alternative mb-3">

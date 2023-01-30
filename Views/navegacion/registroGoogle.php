@@ -18,6 +18,7 @@ session_start();
     <link rel="stylesheet" href="../dashboard/assets/css/all.min.css" type="text/css">
     <!-- Argon CSS -->
     <link rel="stylesheet" href="../dashboard/assets/css/argon.min.css?v=1.2.0" type="text/css">
+    <link rel="stylesheet" href="../assets/css/sweetalert2.min.css">
     <title>Registrarse | Interoriente</title>
 </head>
 
@@ -44,19 +45,18 @@ session_start();
                 <div class="col-lg-6 col-md-8">
                     <div class="card bg-secondary border-0">
                         <div class="card-body px-lg-5 py-lg-5">
-                            <form action="../../Controllers/php/users/acceso.php" method="POST">
-                                <input type="hidden" name="registrarse">
-                                <input type="hidden" name="imagen" value="<?= $_SESSION['picture']; ?>">
-                                <input type="hidden" name="correo" required value="<?= $_SESSION['email']; ?>">
-                                <input class="form-control" placeholder="Nombres" type="hidden" name="nombres" value="<?= $_SESSION['name']; ?>">
-                                <input class="form-control" placeholder="Apellidos" type="hidden" name="apellidos" required value="<?= $_SESSION['familyName']; ?>">
+                            <form id="form-registro" method="POST">
+                                <input type="hidden" id="imagen" value="<?= $_SESSION['picture']; ?>">
+                                <input type="hidden" id="correo" value="<?= $_SESSION['email']; ?>" required>
+                                <input type="hidden" id="nombres" value="<?= $_SESSION['name']; ?>">
+                                <input type="hidden" id="apellidos" value="<?= $_SESSION['familyName']; ?>" required>
                                 <div class="form-group">
                                     <label for="">Documento:</label>
                                     <div class="input-group input-group-merge input-group-alternative mb-3">
                                         <div class="input-group-prepend">
                                             <span class="input-group-text"><i class="ni ni-badge"></i></span>
                                         </div>
-                                        <input class="form-control" placeholder="Documento" type="number" max="9999999999" name="documento" required>
+                                        <input class="form-control" placeholder="Documento" type="number" max="9999999999" id="documento" required>
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -65,7 +65,16 @@ session_start();
                                         <div class="input-group-prepend">
                                             <span class="input-group-text"><i class="ni ni-key-25"></i></span>
                                         </div>
-                                        <input class="form-control" placeholder="*********" type="password" name="contrasena" minlength="5" maxlength="20" required>
+                                        <input class="form-control" placeholder="*********" type="password" id="contrasena" minlength="5" maxlength="20" required>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="">Repita contraseña:</label>
+                                    <div class="input-group input-group-merge input-group-alternative mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"><i class="ni ni-key-25"></i></span>
+                                        </div>
+                                        <input class="form-control" placeholder="*********" type="password" id="repcontrasena" minlength="5" maxlength="20" required>
                                     </div>
                                 </div>
                                 <div class="text-center">
@@ -88,6 +97,8 @@ session_start();
     </div>
     <!-- Core -->
     <script src="../dashboard/assets/js/argon.min.js?v=1.2.0"></script>
+    <script src="../js/registro.js"></script>
+    <script src="../js/sweetalert2.min.js"></script>
 </body>
 
 </html>

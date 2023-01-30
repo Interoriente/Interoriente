@@ -7,6 +7,7 @@ let datos = {
   apellido: null,
   correo: null,
   contrasena: null,
+  imagen: null,
 };
 
 // Evento de submit
@@ -27,12 +28,14 @@ formregistro.addEventListener("submit", (e) => {
     let nombres = document.getElementById("nombres").value;
     let apellidos = document.getElementById("apellidos").value;
     let correo = document.getElementById("correo").value;
+    let imagen = document.getElementById("imagen").value;
 
     datos.documento = documento;
     datos.nombre = nombres;
     datos.apellido = apellidos;
     datos.correo = correo;
     datos.contrasena = contrasena;
+    datos.imagen = imagen;
     $.ajax({
       url: "../../Controllers/php/users/acceso.php",
       type: "post",
