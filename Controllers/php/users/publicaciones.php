@@ -1,13 +1,13 @@
 <?php
 if (isset($_POST['crearPublicacion'])) {
     /* Capturar datos */
-    $nombre = $_POST['nombre'];
-    $descripcion = $_POST['descripcion'];
-    $costo = $_POST['costo'];
-    $cantidad = $_POST['cantidad'];
-    $stockMin = $_POST['stockMin'];
-    $categoria = $_POST['categoria'];
-    $documentoIdentidad = $_POST['usuario'];
+    $nombre = htmlentities($_POST['nombre']);
+    $descripcion = htmlentities($_POST['descripcion']);
+    $costo = htmlentities($_POST['costo']);
+    $cantidad = htmlentities($_POST['cantidad']);
+    $stockMin = htmlentities($_POST['stockMin']);
+    $categoria = htmlentities($_POST['categoria']);
+    $documentoIdentidad = htmlentities($_POST['usuario']);
     /* Instanciar clase */
     $publicaciones = new Publicaciones($documentoIdentidad);
     /* Llamar función */
@@ -21,19 +21,19 @@ if (isset($_POST['crearPublicacion'])) {
         $documentoIdentidad
     );
 } else if (isset($_POST['activarPublicacion'])) {
-    $id = $_POST['id'];
+    $id = htmlentities($_POST['id']);
     $publicacion = new Publicaciones($id);
     $publicacion->ActivarPublicacion($publicacion->id);
 } else if (isset($_POST['desactivarPublicacion'])) {
-    $id = $_POST['id'];
+    $id = htmlentities($_POST['id']);
     $publicacion = new Publicaciones($id);
     $publicacion->DesactivarPublicacion($publicacion->id);
 } else if (isset($_POST['actualizarPublicacion'])) {
-    $id = $_POST['idPublicacion'];
+    $id = htmlentities($_POST['idPublicacion']);
     $publicacion = new Publicaciones($id);
     $publicacion->ActualizarPublicacion($publicacion->id);
 } else if (isset($_POST['eliminarPublicacion'])) {
-    $id = $_POST['idPublicacion'];
+    $id = htmlentities($_POST['idPublicacion']);
     $publicacion = new Publicaciones($id);
     $publicacion->EliminarPublicacion($publicacion->id);
 }
@@ -41,20 +41,20 @@ if (isset($_POST['crearPublicacion'])) {
 class Publicaciones
 {
     //Atributos
-    public int $docId;
+    public int $id;
     //Metodo constructor
-    public function __construct($docId)
+    public function __construct($id)
     {
-        $this->id = $docId;
+        $this->id = $id;
     }
 
-    public function MostrarPublicaciones($docId)
+    public function MostrarPublicaciones($id)
     {
         require '../../../Models/dao/conexion.php';
         $sqlPubli = "CALL sp_mostrarPublicacionesDashboard(:id)";
         //Prepara sentencia
         $consultarPubli = $pdo->prepare($sqlPubli);
-        $consultarPubli->bindValue(":id", $docId);
+        $consultarPubli->bindValue(":id", $id);
         //Ejecutar consulta
         $consultarPubli->execute();
         return $consultarPubli->fetchAll();
@@ -147,7 +147,7 @@ class Publicaciones
                     $insertarImagen = $pdo->prepare($sqlInsertarImagen);
                     $insertarImagen->bindValue(":url", $archivo);
                     $insertarImagen->bindValue(":publicacion", $idPublicacion);
-                    $resultado = $insertarImagen->execute();
+                    $insertarImagen->execute();
 
                     /* Validar ejecución exitosa de la sentencia */
                     echo "<script>alert('El registro se subió correctamente: Ten en cuenta que debes esperar que se valide esta publicación');</script>";

@@ -19,12 +19,12 @@ if (isset($_POST['iniciarSesion']) || isset($_POST['registro']) || isset($_GET['
         /* Se valida que se mande información para registrar a Admin */
     } elseif (isset($_POST['registrarAdmin'])) {
         //Capturo información para registro admin
-        $nombre = strip_tags($_POST['nombres']);
-        $apellido = strip_tags($_POST['apellidos']);
-        $docIdentidad = strip_tags($_POST['documento']);
-        $email = strip_tags($_POST['correo']);
-        $contrasena = strip_tags($_POST['contrasena']);
-        $perfil = strip_tags($_POST['imagen']);
+        $nombre = htmlentities($_POST['nombres']);
+        $apellido = htmlentities($_POST['apellidos']);
+        $docIdentidad = htmlentities($_POST['documento']);
+        $email = htmlentities($_POST['correo']);
+        $contrasena = htmlentities($_POST['contrasena']);
+        $perfil = htmlentities($_POST['imagen']);
         //Se instancia la clase
         $registro = new Registro();
         //Asignación de parametros a la función
@@ -165,7 +165,7 @@ class InicioSesion
     {
         require "../../../Models/dao/conexion.php";
         //Capturo información
-        //strip_tags->Función que ayuda a evitar la inyección sql
+        //htmlentities->Función que ayuda a evitar la inyección sql
         $id = htmlentities($idUsuario);
         $contrasena = sha1(htmlentities($clave));
         $estado = '1';
@@ -240,7 +240,7 @@ class InicioSesion
 
             // get profile info
 
-            $google_oauth = new Google_Service_Oauth2($client);
+            $google_oauth = new Google\Service\Oauth2($client);
 
             $google_account_info = $google_oauth->userinfo->get();
             // INFORMACION CAPTURADA EN VARIABLES PHP

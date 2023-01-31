@@ -35,21 +35,21 @@ function CerrarSesion()
 class Usuario
 {
     /* Atributos */
-    public int $docId;
+    public int $id;
 
     /* Constructor */
-    public function __construct(int $docId)
+    public function __construct(int $id)
     {
-        $this->id = $docId;
+        $this->id = $id;
     }
     /* Funciones */
-    public function getUserData($docId)
+    public function getUserData($id)
     {
         try {
             require '../../../Models/dao/conexion.php';
             $sqlValidacion = "CALL sp_getUserData(:id)";
             $stmt = $pdo->prepare($sqlValidacion);
-            $stmt->bindParam(':id', $docId);
+            $stmt->bindParam(':id', $id);
             $stmt->execute();
             $contadorValidacion = $stmt->rowCount();
             if ($contadorValidacion) {
@@ -61,14 +61,14 @@ class Usuario
             echo "<script>document.location.href='../../../Views/dashboard/principal/dashboard';</script>";
         }
     }
-    public function getDirecciones($docId)
+    public function getDirecciones($id)
     {
         try {
             require '../../../Models/dao/conexion.php';
             $sqlDireccion = "CALL sp_getDirecciones(:id)";
             //Prepara sentencia
             $consultarDireccion = $pdo->prepare($sqlDireccion);
-            $consultarDireccion->bindValue(":id", $docId);
+            $consultarDireccion->bindValue(":id", $id);
             //Ejecutar consulta
             $consultarDireccion->execute();
             return $consultarDireccion->fetchAll();
@@ -92,13 +92,13 @@ class Usuario
         }
     }
 
-    public function getRoles($docId)
+    public function getRoles($id)
     {
         try {
             require "../../../Models/dao/conexion.php";
             $sql = "CALL sp_getRoles(:id)";
             $stmt = $pdo->prepare($sql);
-            $stmt->bindParam(':id', $docId);
+            $stmt->bindParam(':id', $id);
             $stmt->execute();
             return $stmt->fetchAll();
         } catch (\Throwable $th) {
@@ -106,7 +106,7 @@ class Usuario
             echo "<script>document.location.href='../../../Views/dashboard/principal/dashboard';</script>";
         }
     }
-    public function getUsuarios($docId)
+    public function getUsuarios($id)
     {
         try {
 
@@ -116,7 +116,7 @@ class Usuario
             $sql = "CALL sp_getUsuarios(:id)";
             //Prepara sentencia
             $stmt = $pdo->prepare($sql);
-            $stmt->bindValue(":id", $docId);
+            $stmt->bindValue(":id", $id);
             //Ejecutar consulta
             $stmt->execute();
             return $stmt->fetchAll();
