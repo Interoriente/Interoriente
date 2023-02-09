@@ -7,6 +7,7 @@ if (
   isset($_POST['ciudades']) ||
   isset($_POST['checkout']) ||
   isset($_GET['tblCarrito']) ||
+  // isset($_POST['finalizar-compra']) ||
   isset($_POST['comprar'])
 ) {
   /* Verificando de dónde proviene y llamando respectiva función */
@@ -28,7 +29,13 @@ if (
   } else if (isset($_GET['tblCarrito'])) {
     session_start();
     echo verificarCarrito($_SESSION['documentoIdentidad']);
-  } else if (isset($_POST['comprar'])) {
+  }/*  else if (isset($_POST['finalizar-compra'])) {
+    $direccion = $userData[0];
+    $email = $userData[1];
+    $compra = new Checkout();
+    echo "<script>'Llegué hasta aquí'</script>;";
+    $respuesta = $compra->finalizarCompra($direccion, $email);
+  } */ else if (isset($_POST['comprar'])) {
     $comprar = $_POST['comprar'];
     echo almacenarCarritoCompra($comprar);
   } else {
@@ -147,7 +154,7 @@ function almacenarCarrito($carrito)
       }
     }
     foreach ($carrito as $item) {
-      if (@$item->id != $idsRepetidos[$contador]) {
+      if ($item->id == $idsRepetidos[$contador]) {
         $idPubli = $item->id;
         $cantidad = $item->cantidad + $cantidadesRepetidos[$contador];
         $sql = "CALL sp_actualizarCarrito(:cantidad, :idPubli,:idUser)";

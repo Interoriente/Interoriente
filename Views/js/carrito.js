@@ -326,7 +326,6 @@ function comprar(id) {
     data: { comprar: id }, //Datos a recibir en el script .php a traves de $_POST
     success: function (resp) {
       /* En caso de una respuesta exitosa */
-      console.log(resp);
       $("#respuesta").html(resp);
       if (resp == 1) {
         Swal.fire({
