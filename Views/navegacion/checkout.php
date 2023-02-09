@@ -317,34 +317,31 @@ foreach ($checkoutData as $i) {
       <!-- Resumen de compra -->
       <h1 id="titulo-resumen">Resumen de compra</h1>
       <hr>
-      <form action="../../Controllers/php/users/compras.php" method="post">
 
-        <div class="main-container resumen-desktop">
-          <div class="contenedor-datos g">
-            <div class="titulo">
-              <p>Subtotal</p>
-              <!-- <p>Descuentos</p> -->
-              <p>+ 19% IVA</p>
-            </div>
-            <div class="valor">
-              <p>$<?= number_format($subtotal, 0, '', '.'); ?></p>
-              <!-- <p>$23.000</p> -->
-              <p>$<?= number_format($iva, 0, '', '.'); ?></p>
-            </div>
+      <div class="main-container resumen-desktop">
+        <div class="contenedor-datos g">
+          <div class="titulo">
+            <p>Subtotal</p>
+            <!-- <p>Descuentos</p> -->
+            <p>+ 19% IVA</p>
           </div>
-          <hr>
-          <div class="total g">
-            <p>total</p>
-
-            <p>$<?= number_format($total, 0, '', '.'); ?></p>
+          <div class="valor">
+            <p>$<?= number_format($subtotal, 0, '', '.'); ?></p>
+            <!-- <p>$23.000</p> -->
+            <p>$<?= number_format($iva, 0, '', '.'); ?></p>
           </div>
         </div>
-        <!-- Botón "Finalizar compra" -->
-        <div class="btn-fin-compra ">
-          <input type="hidden" name="finalizar-compra" value="23">
-          <button type="submit" id="btn-fin-compra-d">Finalizar Compra</button>
+        <hr>
+        <div class="total g">
+          <p>total</p>
+
+          <p>$<?= number_format($total, 0, '', '.'); ?></p>
         </div>
-      </form>
+      </div>
+      <!-- Botón "Finalizar compra" -->
+      <div class="btn-fin-compra ">
+        <button id="btn-fin-compra-d">Finalizar Compra</button>
+      </div>
 
 
       <!--FIN botón de compra -->
@@ -355,7 +352,7 @@ foreach ($checkoutData as $i) {
 
   <!-- JavaScript  -->
   <script src="../js/tarjeta.js"></script>
-  <!-- <script src="../js/checkout.js"></script> -->
+  <script src="../js/checkout.js"></script>
   <script src='https://cdnjs.cloudflare.com/ajax/libs/imask/3.4.0/imask.min.js'></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
 

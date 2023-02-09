@@ -7,7 +7,6 @@ if (
   isset($_POST['ciudades']) ||
   isset($_POST['checkout']) ||
   isset($_GET['tblCarrito']) ||
-  isset($_POST['finalizar-compra']) ||
   isset($_POST['comprar'])
 ) {
   /* Verificando de dónde proviene y llamando respectiva función */
@@ -29,22 +28,16 @@ if (
   } else if (isset($_GET['tblCarrito'])) {
     session_start();
     echo verificarCarrito($_SESSION['documentoIdentidad']);
-  } else if (isset($_POST['finalizar-compra'])) {
-    $direccion = "calle 34";
-    $email = "rubenduque21";
-    $compra = new Checkout();
-    echo "<script>'Llegué hasta aquí'</script>;";
-    $respuesta = $compra->finalizarCompra($direccion, $email);
   } else if (isset($_POST['comprar'])) {
     $comprar = $_POST['comprar'];
     echo almacenarCarritoCompra($comprar);
   } else {
-    /* $userData = $_POST['checkout'];
+    $userData = $_POST['checkout'];
     $direccion = $userData[0];
     $email = $userData[1];
     $checkout = new Checkout();
     $respuesta = $checkout->finalizarCompra($direccion, $email);
-    echo json_encode($respuesta); */
+    echo json_encode($respuesta);
   }
 }
 /* Función para reducir el arreglo a una sola dimensión */
@@ -133,7 +126,7 @@ function almacenarCarrito($carrito)
 
   /* $carrito = $carrito; */
   session_start(); // Se debe usar antes de tratar de acceder a una variable de sessión
-  $idUsuario = $_SESSION['documentoIdentidad'];
+  @$idUsuario = $_SESSION['documentoIdentidad'];
   if (!isset($idUsuario)) {
     return 0;
   }
@@ -154,7 +147,7 @@ function almacenarCarrito($carrito)
       }
     }
     foreach ($carrito as $item) {
-      if ($item->id == $idsRepetidos[$contador]) {
+      if (@$item->id != $idsRepetidos[$contador]) {
         $idPubli = $item->id;
         $cantidad = $item->cantidad + $cantidadesRepetidos[$contador];
         $sql = "CALL sp_actualizarCarrito(:cantidad, :idPubli,:idUser)";
@@ -184,7 +177,7 @@ function almacenarCarrito($carrito)
 function almacenarCarritoCompra($id)
 {
   session_start(); // Se debe usar antes de tratar de acceder a una variable de sessión
-  $idUsuario = $_SESSION['documentoIdentidad'];
+  @$idUsuario = $_SESSION['documentoIdentidad'];
   if (!isset($idUsuario)) {
     return 0;
   }
@@ -351,8 +344,6 @@ class Checkout
       $stmtDeleteCart->bindValue(':idUsuario', $idUsuario);
       $stmtDeleteCart->execute();
     }
-    echo "<script>alert('¡Se procesó la compra con éxito :)!');</script>";
-    echo "<script> document.location.href='../../../Views/navegacion/index.php';</script>";
   }
 }
 

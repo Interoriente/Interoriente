@@ -40,7 +40,7 @@ $.ajax({
      <div class="tarjeta-contenedor">
        <div class="contenedor-tarjeta">
            <p>!Tienes una compra pendiente!</p>
-           <a href="./checkout.php" id="continuar-compra" class="continuar-compra">Ir al checkout</a>
+           <a href="./checkout" id="continuar-compra" class="continuar-compra">Ir al checkout</a>
        </div>
       </div>
      `;
@@ -303,10 +303,10 @@ finCompra.addEventListener("click", function () {
     success: function (respuesta) {
       if (respuesta === 1) {
         localStorage.removeItem("carrito");
-        window.location = "checkout.php";
+        window.location = "checkout";
       } else {
         localStorage.setItem("ss", "true");
-        window.location = "./iniciarsesion.php";
+        window.location = "./iniciarsesion";
       }
     },
   });
@@ -333,13 +333,18 @@ function comprar(id) {
           type: "success",
           html: "<strong>Ya tenías un producto igual agregado, se ha actualizado la cantidad. Vamos para terminar la compra</strong>",
         });
-        document.location.href = "checkout.php";
+        document.location.href = "checkout";
       } else if (resp == 2) {
         Swal.fire({
           type: "success",
           html: "<strong>Vamos para terminar la compra</strong>",
         });
-        document.location.href = "checkout.php";
+        document.location.href = "checkout";
+      } else {
+        Swal.fire({
+          type: "warning",
+          html: "<strong>Debes iniciar sesión <a href='iniciarsesion'>aquí</a> para comprar ahora!</strong>",
+        });
       }
     },
   });

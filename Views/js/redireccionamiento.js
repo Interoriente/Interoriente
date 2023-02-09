@@ -15,7 +15,7 @@ if (sesionExiste && carrito.length > 0) {
     success: function (respuesta) {
       if (respuesta === 1) {
         localStorage.removeItem("carrito");
-        window.location = "../../navegacion/checkout.php";
+        window.location = "../../navegacion/checkout";
       }
     },
   });
